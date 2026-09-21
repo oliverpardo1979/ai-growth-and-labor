@@ -77,14 +77,23 @@ Competitive firms produce the final good from physical capital $K$, effective la
 %At the continuous unit-elasticity limit,
 %$Z=(AL)^{\omega_L}X^{\omega_X}$.
 
+To illustrate this production technology, consider a researcher writing an
+academic paper. The researcher contributes time and expertise to formulate
+questions, evaluate arguments, and interpret results. AI assists with
+derivations, programming, and drafting, while physical capital, such as a
+computer, runs numerical calculations and produces figures. AI can replace
+some of the work the researcher would otherwise do, but it can also make the
+researcher's expertise more productive by helping test conjectures or communicate
+arguments more clearly. The researcher may revise an argument drafted by AI or ask AI to
+check an argument written by the researcher. A numerical result may similarly
+combine a question formulated by the researcher, code developed with AI
+assistance, and calculations executed on the computer.
+
 Jobs comprise multiple tasks, and AI may substitute for human input in some
 tasks while complementing it in others \citep{autor2013,acemoglurestrepo2019}.
-I abstract from differences across workers, occupations, and tasks by modeling
-homogeneous labor and aggregate effective AI production services. The elasticity of
-substitution governs the relationship between these aggregate inputs, rather
-than the allocation of individual tasks to humans or AI. This simplification
-focuses the analysis on aggregate wages and labor's income share, leaving
-differences in exposure and earnings across workers outside the model.
+I model labor and AI services as aggregate inputs, not as alternative ways of
+performing a single task. \citet{jonestonetti2026} show how a production process
+with many tasks can admit a CES-like aggregate representation.
 
 The complementarity case connects to the ``weak links'' mechanism in
 \citet[Section~9.2.2]{aghionjonesjones2019}. In their task model,
@@ -151,6 +160,8 @@ I use \emph{compute} to denote the computational resources used to execute the n
 I assume that one unit of compute requires one unit of the final good, which could otherwise be consumed or invested in physical capital. Compute is therefore a rival, costly input, not a measure of AI performance.
 
 I distinguish compute used to deploy AI from compute used to improve it. Inference compute $U$ runs existing AI systems and produces outputs used in current final-good production. Research compute $M$ is allocated to the development of better AI. It includes training and fine-tuning, but also computational experimentation, model evaluation, and other compute-intensive components of AI research. I therefore use the term \emph{research compute} rather than the narrower term \emph{training compute}. \citet{korinekmckelvey2026} make a related distinction between compute used for inference and compute used for R\&D and training.
+Compute can be measured in floating-point operations; because $U$ and $M$ are
+flows, their physical counterparts are operations per unit of time.
 
 The distinction between $U$ and $M$ concerns the economic use of compute,
 rather than a strict separation between inference and training: running AI
