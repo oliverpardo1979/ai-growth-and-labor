@@ -1,0 +1,45 @@
+name: Build and publish the paper
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Compile the current manuscript
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main_rewrite.tex
+      - name: Prepare stable PDF path
+        run: |
+          mkdir -p docs/paper
+          cp main_rewrite.pdf docs/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy PDF
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,567 @@
+\section{Model}
+\label{sec:rewrite-model}
+
+Time is continuous.  The economy contains a representative household, competitive final-good firms, and an integrated AI developer. Labor-augmenting technology $A$ grows exogenously. AI efficiency $B$ improves through autonomous AI research: the only current input used to raise $B$ is research compute. The model therefore describes an economy in which there are no longer human researchers developing AI and AI has achieved recursive self-improvement (RSI). As in \citet{trammellkorinek2023}, I distinguish automation of research from automation of production: human labor remains an input in final-good production.
+
+%I derive the model in the order in which its agents solve their problems. I first present the household and final-good firms. I then state the developer's intertemporal problem before deriving its within-date service choice and its dynamic research conditions. Only after every agent has been characterized do I combine their conditions in the definition of equilibrium.
+
+\tikzset{
+ rewrite-input/.style={draw, rounded corners=2pt, minimum width=2.7cm,
+  minimum height=1.0cm, align=center, fill=gray!8},
+ rewrite-state/.style={draw, rounded corners=2pt, minimum width=2.7cm,
+  minimum height=1.0cm, align=center, fill=blue!8},
+ rewrite-technology/.style={draw, rounded corners=2pt, minimum width=3.5cm,
+  minimum height=1.0cm, align=center, fill=orange!9},
+ rewrite-flow/.style={->, semithick},
+ rewrite-dynamics/.style={->, semithick, dashed}
+}
+
+\subsection{Population and labor-augmenting technology}
+\label{subsec:rewrite-population}
+
+Population grows at the exogenous rate $n\geq0$:
+\begin{equation}
+ \dot N=nN,
+ \qquad n\geq0.
+ \label{eq:rewrite-population}
+\end{equation}
+Each person supplies one unit of homogeneous labor inelastically. The aggregate labor endowment is therefore $N$. Because autonomous research uses no human labor, all labor is employed in final production and equilibrium will impose $L=N$.
+
+The variable $A$ measures the level of labor-augmenting technology. One unit of labor supplies $A$ efficiency units, so effective labor is $AL$. Labor-augmenting technology evolves according to
+\begin{equation}
+ \dot A=\gamma A,
+ \qquad \gamma>0.
+ \label{eq:rewrite-labor-productivity}
+\end{equation}
+%For any positive variable $V$, I write $g_V\equiv\dot V/V$. Thus $g_A=\gamma$.
+
+\subsection{Household}
+\label{subsec:rewrite-household}
+
+The representative household owns physical capital and the AI developer. Let \(\Pi\) denote the AI developer's net profit, which accrues to the household. The household takes the paths of the net interest rate \(r\), the wage \(w\) in final-good units and \(\Pi\) as given. For a predetermined capital stock $K_0>0$, it chooses aggregate consumption $C$ to solve
+\begin{equation}
+ \max_{\{C_t\}_{t\geq0}}
+ \int_0^\infty e^{-\rho t}N_t\log(C_t/N_t)\dd t,
+ \qquad \rho>n,
+ \label{eq:rewrite-household-problem}
+\end{equation}
+subject to
+\begin{equation}
+ \dot K=rK+wN+\Pi-C.
+ \label{eq:rewrite-household-budget}
+\end{equation}
+The variable $r$ is the net real interest rate: depreciation has already been deducted from the rental return to capital. The household's Euler condition is
+\begin{equation}
+ \frac{\dot C}{C}=n+r-\rho.
+ \label{eq:rewrite-euler}
+\end{equation}
+Its transversality condition is
+\begin{equation}
+ \lim_{t\to\infty}e^{-\rho t}\frac{N_tK_t}{C_t}=0.
+ \label{eq:rewrite-household-tvc}
+\end{equation}
+%These conditions use only objects in the household's problem. Production-side conditions determining $r,w,$ and \(\Pi\) are introduced below.
+
+\subsection{Final-good production}
+\label{subsec:rewrite-final-production}
+
+Competitive firms produce the final good from physical capital $K$, effective labor $AL$, and effective AI production services $X$. Let $0<\alpha<1$ denote the output elasticity with respect to capital, $\delta\geq0$ the depreciation rate, and $\sigma>0$ the elasticity of substitution between effective labor and effective AI production services. The parameters $\omega_L$ and $\omega_X$ denote the CES weights on effective labor and effective AI production services, respectively. Production is
+\begin{align}
+ Y&=K^\alpha Z^{1-\alpha},
+ \label{eq:rewrite-output}\\
+ Z&=\left[\omega_L(AL)^{(\sigma-1)/\sigma}
+ +\omega_XX^{(\sigma-1)/\sigma}\right]^{
+ \sigma/(\sigma-1)}.
+ \label{eq:rewrite-ces}
+\end{align}
+%At the continuous unit-elasticity limit,
+%$Z=(AL)^{\omega_L}X^{\omega_X}$.
+
+Jobs comprise multiple tasks, and AI may substitute for human input in some
+tasks while complementing it in others \citep{autor2013,acemoglurestrepo2019}.
+I abstract from differences across workers, occupations, and tasks by modeling
+homogeneous labor and aggregate effective AI production services. The elasticity of
+substitution governs the relationship between these aggregate inputs, rather
+than the allocation of individual tasks to humans or AI. This simplification
+focuses the analysis on aggregate wages and labor's income share, leaving
+differences in exposure and earnings across workers outside the model.
+
+The complementarity case connects to the ``weak links'' mechanism in
+\citet[Section~9.2.2]{aghionjonesjones2019}. In their task model,
+automation allows capital to replace labor within individual tasks, while
+different tasks remain complements. Tasks still performed by humans can
+therefore constrain production as automated tasks expand. With $\sigma<1$,
+Equation~\eqref{eq:rewrite-ces} captures a related constraint: more AI
+services cannot eliminate the need for effective labor. I apply this logic
+to aggregate inputs with fixed weights, rather than modeling an expanding
+set of automated tasks; the two substitution elasticities are not interchangeable.
+
+Let \(p_X\) denote the price of one unit of effective AI production services. Taking the input prices \(r+\delta,w,\) and \(p_X\) as given, a final-good firm solves
+\begin{equation}
+ \max_{K,L,X\geq0}
+ \left\{K^\alpha Z(AL,X)^{1-\alpha}-(r+\delta)K-wL-p_XX\right\}.
+ \label{eq:rewrite-final-firm-problem}
+\end{equation}
+Define $s_X$ as the elasticity of $Z$ with respect to $X$:
+\begin{equation}
+ s_X=\frac{\omega_XX^{(\sigma-1)/\sigma}}
+ {\omega_L(AL)^{(\sigma-1)/\sigma}
+ +\omega_XX^{(\sigma-1)/\sigma}}.
+ \label{eq:rewrite-sx}
+\end{equation}
+The first-order conditions are
+\begin{align}
+ r&=\alpha\frac{Y}{K}-\delta,
+ \label{eq:rewrite-capital-return}\\
+ w&=(1-\alpha)(1-s_X)\frac{Y}{L},
+ \label{eq:rewrite-wage}\\
+ p_X&=(1-\alpha)s_X\frac{Y}{X}.
+ \label{eq:rewrite-ai-price}
+\end{align}
+
+Constant returns and these conditions imply
+\begin{equation}
+ Y=(r+\delta)K+wL+p_XX.
+ \label{eq:rewrite-final-zero-profit}
+\end{equation}
+
+\citet{zeira1998} distinguishes the availability of a labor-saving
+technology from its profitable adoption: saving labor may require more
+capital. Here, firms choose how much AI to use at given input prices,
+rather than whether to adopt a discrete production technique.
+
+Solving the final-good firm's AI condition for its price yields the inverse
+demand schedule $p_X(X)$. %This notation conditions on the current values of $K,A,$ and $L$; I display those arguments only when the time dependence matters.
+The inverse absolute elasticity is
+\begin{equation}
+ e_X\equiv-
+ \frac{\partial\ln p_X(X)}{\partial\ln X}
+ =\frac{1-s_X}{\sigma}+\alpha s_X.
+ \label{eq:rewrite-inverse-demand-elasticity}
+\end{equation}
+This demand schedule is an input to the developer's problem.
+
+\subsection{The AI developer}
+\label{subsec:rewrite-developer}
+
+\subsubsection{Effective AI production and research services}
+\label{subsubsec:rewrite-ai-services}
+
+I use \emph{compute} to denote the computational resources used to execute the numerical operations required by AI systems \citep{sastryetal2024}. %The variables $U$ and $M$ are rates of compute use rather than stocks of processors or data centers. 
+I assume that one unit of compute requires one unit of the final good, which could otherwise be consumed or invested in physical capital. Compute is therefore a rival, costly input, not a measure of AI performance.
+
+I distinguish compute used to deploy AI from compute used to improve it. Inference compute $U$ runs existing AI systems and produces outputs used in current final-good production. Research compute $M$ is allocated to the development of better AI. It includes training and fine-tuning, but also computational experimentation, model evaluation, and other compute-intensive components of AI research. I therefore use the term \emph{research compute} rather than the narrower term \emph{training compute}. \citet{korinekmckelvey2026} make a related distinction between compute used for inference and compute used for R\&D and training.
+
+The distinction between $U$ and $M$ concerns the economic use of compute,
+rather than a strict separation between inference and training: running AI
+systems that conduct research also requires inference compute
+\citep{davidsonetal2026}.
+
+%In practice, AI research also uses human researchers, data, and complementary infrastructure. The benchmark does not treat $M$ as a complete measure of R\&D. It isolates its computational component and assumes that human research is no longer the binding input.
+
+Raw compute does not by itself determine the quantity of AI services produced. The variable $B$ measures AI efficiency: AI services obtained per unit of compute. Thus $U$ and $M$ are raw computational inputs, while $BU$ and $BM$ are the corresponding flows of AI production and AI research services. This interpretation parallels measures of algorithmic efficiency based on the decline in compute required to achieve a given level of performance \citep{hernandezbrown2020,erdilbesiroglu2022}. A rise in $B$ therefore represents an improvement in the algorithms that use compute, rather than an expansion of physical computing capacity. I assume that the same $B$ augments compute in both activities.
+
+This distinction also underlies \emph{effective compute}, which adjusts
+physical compute for algorithmic improvements
+\citep{hoetal2024algorithms,jones2026future}. In $BM$, $M$ is rival,
+whereas the algorithmic knowledge represented by $B$ is nonrival: using it
+in one computation does not diminish its usefulness in another. I apply
+this distinction to AI research more broadly than the model-training
+activities measured in those sources.
+
+Inference compute produces AI production services according to
+\begin{equation}
+ X=BU.
+ \label{eq:rewrite-ai-service}
+\end{equation}
+Equation~\eqref{eq:rewrite-ai-service} maps inference compute into the flow $X=BU$ of AI production services. Research compute analogously produces $BM$, the flow of AI research services.
+
+Figure~\ref{fig:rewrite-model-flow} summarizes the production block.
+
+\begin{figure}[H]
+ \centering
+ \resizebox{0.84\textwidth}{!}{%
+ \begin{tikzpicture}[>=Latex,font=\small]
+  \node[rewrite-state] (A) at (-7.5,2.0) {\(A\)\\labor-augmenting\\technology};
+  \node[rewrite-input] (L) at (-7.5,0.7) {\(L\)\\production labor};
+  \node[rewrite-technology] (AL) at (-4.0,1.35) {\(AL\)\\effective labor};
+  \node[rewrite-state] (B) at (-7.5,-0.8) {\(B\)\\AI efficiency};
+  \node[rewrite-input] (U) at (-7.5,-2.1) {\(U\)\\inference compute};
+  \node[rewrite-technology] (X) at (-4.0,-1.45) {\(X=BU\)\\AI production services};
+  \node[rewrite-technology] (Z) at (-0.2,0.0)
+   {\(Z=\operatorname{CES}(AL,X)\)\\elasticity \(\sigma\)};
+  \node[rewrite-state] (K) at (-0.2,2.2) {\(K\)\\physical capital};
+  \node[rewrite-technology] (Y) at (3.5,1.2)
+   {\(Y=K^\alpha Z^{1-\alpha}\)\\final output};
+
+  \draw[rewrite-flow] (A) -- (AL);
+  \draw[rewrite-flow] (L) -- (AL);
+  \draw[rewrite-flow] (B) -- (X);
+  \draw[rewrite-flow] (U) -- (X);
+  \draw[rewrite-flow] (AL) -- (Z);
+  \draw[rewrite-flow] (X) -- (Z);
+  \draw[rewrite-flow] (Z) -- (Y);
+  \draw[rewrite-flow] (K) -- (Y);
+ \end{tikzpicture}%
+ }
+ \caption{Production of final output and AI production services. AI efficiency $B$ augments inference compute $U$ to produce $X=BU$, the flow of AI production services. These services combine with effective labor $AL$ to produce $Z$, which combines with capital $K$ to produce $Y$.}
+ \label{fig:rewrite-model-flow}
+\end{figure}
+
+\subsubsection{RSI technology}
+\label{subsubsec:rewrite-capability}
+
+Given initial AI efficiency \(B_0>0\) and an upper bound
+\(\overline B\in(B_0,\infty]\), AI efficiency evolves according to the RSI technology
+\begin{equation}
+ \dot B=\chi(BM)^\eta\psi(B),
+ \qquad
+ \psi(B)=
+  1-\frac{B}{\overline B},
+ \qquad \chi>0,\quad0<\eta<1.
+ \label{eq:rewrite-capability-law}
+\end{equation}
+Figure~\ref{fig:rewrite-capability-flow} summarizes the RSI mechanism.
+\begin{figure}[H]
+ \centering
+ \resizebox{0.72\textwidth}{!}{%
+ \begin{tikzpicture}[>=Latex,font=\small]
+  \node[rewrite-input] (M) at (-5.9,0.9) {\(M\)\\research compute};
+  \node[rewrite-state] (B) at (-5.9,-0.9) {\(B\)\\AI efficiency};
+  \node[rewrite-technology] (BM) at (-1.9,0.9)
+   {\(BM\)\\AI research services};
+  \node[rewrite-technology] (psi) at (-1.9,-0.9)
+   {\(\psi(B)\)\\remaining room};
+  \node[rewrite-technology] (Bd) at (2.2,0.0)
+   {\(\dot B=\chi(BM)^\eta\psi(B)\)\\efficiency improvement};
+
+  \draw[rewrite-flow] (B) -- (BM);
+  \draw[rewrite-flow] (M) -- (BM);
+  \draw[rewrite-flow] (B) -- (psi);
+  \draw[rewrite-flow] (BM) -- (Bd);
+  \draw[rewrite-flow] (psi) -- (Bd);
+  \draw[rewrite-dynamics] (Bd.east) -- (4.4,0.0) -- (4.4,-2.0) --
+    (-5.9,-2.0) -- (B.south);
+ \end{tikzpicture}%
+ }
+ \caption{Recursive self-improvement in AI efficiency. AI efficiency $B$ augments
+ research compute $M$ to produce $BM$, the flow of AI research services. These services and the remaining
+ room for improvement $\psi(B)$ determine \(\dot B\), which increases $B$.}
+ \label{fig:rewrite-capability-flow}
+\end{figure}
+The parameter \(\chi\) shifts research productivity. The parameter \(\eta\) governs returns to current research scale. The same AI-efficiency index $B$ augments both inference and research compute. This common-productivity assumption is parsimonious but substantive. Equation~\eqref{eq:rewrite-capability-law} captures RSI: a higher $B$ produces more AI research services $BM$ from a given amount of research compute $M$, and these services help improve $B$ further. This is the AI-research feedback studied by \citet{davidsonetal2026}. The term \(\psi(B)\) reduces the remaining room for improvement as AI efficiency approaches \(\overline B\). A related approach appears in \citet{erdiletal2025gate}, who also reduce research productivity as hardware and software efficiency approach their respective upper bounds. The uncapped specification is recovered at \(\overline B=\infty\).
+
+Evidence that ideas become harder to find motivates allowing research
+productivity to decline as technology advances. \citet{bloometal2020} document that research effort has risen substantially while research productivity has fallen across several industries, products, and firms. %Following thisinterpretation, \citet{davidsonetal2026} use their estimates to discipline diminishing returns in idea production. 
+This evidence motivates diminishing returns, but it does not establish a literal finite technological ceiling. The term $1-B/\overline B$ is a deliberately stronger reduced-form specification. With this upper bound, I establish sufficient conditions for equilibrium existence and compute equilibrium trajectories. I then examine how these equilibria change as the bound rises and whether they have a meaningful limit as \(\overline B\to\infty\). Without the upper bound, recursive improvement may lead to the absence of an equilibrium, as shown further below. %instead produce a finite-time singularity: one or more endogenous quantities---such as AI efficiency, output, capital, or research compute---become unbounded at a finite date, so the trajectory cannot be continued as a path of finite allocations. %Section~\ref{subsec:rewrite-uncapped} explains why the uncapped economy requires a separate equilibrium analysis. %AI efficiency may approach the upper bound asymptotically but cannot cross it in finite time. %Appendix~\ref{app:rewrite-cap-invariance} gives the derivation.
+
+\subsubsection{Supply of effective AI production services}
+\label{subsubsec:rewrite-market-structure}
+
+An integrated AI developer has exclusive ownership of $B$. It conducts research
+and sells effective AI production services. The developer sells $X$ and purchases the $U=X/B$ units of inference compute needed to supply those services. Because $X$ does not enter the RSI technology in equation~\eqref{eq:rewrite-capability-law}
+directly, its within-date choice can be solved conditional on $B$.
+Define optimized operating profit before research expenditure as
+\begin{equation}
+ \pi(B)=\max_{X\geq0}
+ \left\{p_X(X)X-\frac{X}{B}\right\}.
+ \label{eq:rewrite-service-choice}
+\end{equation}
+The notation \(\pi(B)\) leaves its dependence on current \(K,A,\) and \(L\) implicit.
+The first-order condition equates marginal revenue to the compute cost of one additional service unit:
+\begin{equation}
+ p_X(1-e_X)=\frac{1}{B}.
+ \label{eq:rewrite-monopoly-foc}
+\end{equation}
+
+Lemma~\ref{lem:rewrite-monopoly-choice} in
+Appendix~\ref{app:rewrite-proofs} shows that
+problem~\eqref{eq:rewrite-service-choice} has a unique, strictly positive
+global maximizer characterized by condition~\eqref{eq:rewrite-monopoly-foc}.
+Thus, the developer charges the unit cost $1/B$ multiplied by the monopoly
+markup $1/(1-e_X)$.
+%At \(\sigma=1\), define
+%\(\beta=(1-\alpha)\omega_X\). The solution is explicit:
+%\begin{equation}
+% X^*=\left[\beta^2BK^\alpha
+% (AL)^{(1-\alpha)\omega_L}\right]^{1/(1-\beta)}.
+% \label{eq:rewrite-monopoly-cd-solution}
+%\end{equation}
+The envelope theorem gives
+\begin{equation}
+ \pi_B=\frac{X}{B^2}=\frac{U}{B}.
+ \label{eq:rewrite-profit-envelope}
+\end{equation}
+%The $B^2$ term does not represent quadratic returns to AI efficiency. It results from differentiating the inference cost $X/B$:
+At a fixed $X$, a marginal increase in AI efficiency saves $U/B$ units of the consumption good.
+
+AI efficiency is nonrival in use. Once $B$ has been developed, using it to
+augment one unit of inference or research compute does not reduce its ability to augment other units. This does not make effective AI services costless: $BU$ and $BM$ require the rival and costly compute inputs $U$ and $M$. Nonrivalry also does not rule out excludability. An owner can restrict access to model weights, software, or AI services.
+
+To see the resulting appropriability problem, suppose that competitive
+service providers had free access to $B$. Free entry would imply no operating rent. A developer that paid for $M$ would improve a common AI-efficiency index $B$ that competing providers could use without compensating it. The developer would bear the research cost but could not appropriate the resulting benefits. %The problem is therefor one of research incentives, not the physical availability of compute.
+%I therefore assign exclusive ownership of $B$ to an integrated developer that conducts research and sells effective AI production services.
+Exclusive ownership allows the developer to capture part of the value created by a higher $B$ and makes the return to research appropriable, as in the standard endogenous-growth treatment of nonrival ideas \citep{romer1990}.
+
+That being said, monopoly is an institutional assumption, not a technological implication of nonrivalry. Licensing, oligopoly, public funding, or open-source provision with research subsidies could also support investment in $B$. Each alternative would require an additional institution and would change prices, profits, and the distribution of rents. Recent work studies these alternatives in more detail \citep{korinekvipra2025,gans2024,demireretal2025}.
+\citet{liuwan2026} show that a higher markup on general-purpose AI
+services can strengthen the supplier's research incentive while raising
+research costs for developers of specialized applications. I abstract
+from this conflict between AI firms by assuming a single integrated
+developer.
+
+\subsubsection{The dynamic problem}
+\label{subsubsec:rewrite-dynamic-developer}
+
+The AI developer uses $M$ for research and owns $B$ and any resulting improvements in AI efficiency. %Taking the paths of $r,K,A,$ and $L$ as given, it solves
+%\begin{equation}
+% \max_{\{X_t,M_t\}_{t\geq0}}
+% \int_0^\infty
+% \exp\left\{-\int_0^t r_s\dd s\right\}
+% \left[p_X(X_t;K_t,A_t,L_t)X_t-\frac{X_t}{B_t}-M_t\right]\dd t,
+% \label{eq:rewrite-developer-problem}
+%\end{equation}
+%subject to \eqref{eq:rewrite-capability-law} and $B(0)=B_0$. Its distributed
+%profit is
+%\begin{equation}
+% \Pi=p_XX-\frac{X}{B}-M=p_XX-U-M.
+% \label{eq:rewrite-developer-profit}
+%\end{equation}
+%Profit can be negative at a date because the model imposes no separatecash-flow constraint. A negative \(\Pi\) represents an equity injection from the household that owns the developer.
+%\subsubsection{Pointwise service choice}
+%\label{subsubsec:rewrite-static-monopoly}
+%Sales $X$ do not enter the capability law or any other intertemporal
+%constraint. Conditional on $B,K,A,$ and $L$, the developer can therefore
+%choose $X$ within each date. Define optimized operating profit before
+%research expenditure as
+%\begin{equation}
+% \pi(B;K,A,L)=\max_{X\geq0}
+% \left\{p_X(X)X-\frac{X}{B}\right\}.
+% \label{eq:rewrite-service-choice}
+%\end{equation}
+%The first-order condition equates marginal revenue to the compute cost of one additional service unit:
+%\begin{equation}
+% p_X(1-e_X)=\frac{1}{B}.
+% \label{eq:rewrite-monopoly-foc}
+%\end{equation}
+%\begin{proposition}[Pointwise monopoly choice]
+%\label{prop:rewrite-monopoly-choice}
+%Suppose $K,A,L,B>0$, $0<\alpha<1$, $\sigma>0$, and
+%\(\omega_L,\omega_X\in(0,1)\). Problem \eqref{eq:rewrite-service-choice} has a
+%unique global maximizer $X^*>0$. It is the unique solution to
+%\eqref{eq:rewrite-monopoly-foc} and satisfies
+%\begin{equation}
+% e_X(1-e_X)
+% +(\alpha-\sigma^{-1})(1-\sigma^{-1})s_X(1-s_X)>0.
+% \label{eq:rewrite-monopoly-soc}
+%\end{equation}
+%\end{proposition}
+%The monopoly price is therefore
+%\begin{equation}
+% p_X=\frac{1/B}{1-e_X}.
+% \label{eq:rewrite-markup}
+%\end{equation}
+%At \(\sigma=1\), define
+%\(\beta=(1-\alpha)\omega_X\). The solution is explicit:
+%\begin{equation}
+% X^*=\left[\beta^2BK^\alpha
+% (AL)^{(1-\alpha)\omega_L}\right]^{1/(1-\beta)}.
+% \label{eq:rewrite-monopoly-cd-solution}
+%\end{equation}
+%The envelope theorem gives
+%\begin{equation}
+% \pi_B=\frac{X}{B^2}=\frac{U}{B}.
+% \label{eq:rewrite-profit-envelope}
+%\end{equation}
+%The $B^2$ term does not represent quadratic returns to AI efficiency. It results from differentiating the inference cost $X/B$: at a fixed $X$, a marginal increase in AI efficiency saves $X/B^2$ units of compute.
+After the within-date service choice, the developer's net profit is
+$\Pi_t=\pi(B_t)-M_t$: operating profit less research expenditure.
+Taking the paths of $r,K,A,$ and $L$ as given and substituting the static
+solution to problem~\eqref{eq:rewrite-service-choice}, the developer chooses
+the path of research compute $M$ to increase AI efficiency $B$:
+\begin{equation}
+\max_{\{M_t\}_{t\geq0}}
+ \int_0^\infty
+ \exp\left\{-\int_0^t r_s\dd s\right\}
+ [\pi(B_t)-M_t]\dd t,
+ \label{eq:rewrite-developer-reduced}
+\end{equation}
+subject to the RSI technology given by \eqref{eq:rewrite-capability-law} and taking $B_0$ as given. %This reduction does not replace the dynamic problem with a static problem. It solves the within-date choice $X$ inside the original intertemporal problem and leaves $M$ as the dynamic control.
+%Admissible research paths have $M_t\geq0$ and finite total expenditure on every finite interval. The objective is the present value of net profit, not profit at a single date.
+
+%Profit can be negative at a date because the model imposes no separate cash-flow constraint. A negative \(\Pi\) represents an equity injection from the household that owns the developer.
+
+Let $q$ be the current-value shadow price of AI efficiency, measured in units of
+the current final good per unit of $B$. An interior choice of research compute $M$ satisfies
+\begin{equation}
+ q\chi\eta B(BM)^{\eta-1}\psi(B)=1,
+ \label{eq:rewrite-research-foc}
+\end{equation}
+%or, equivalently,
+%\begin{equation}
+% M=\left[q\chi\eta B^\eta\psi(B)
+% \right]^{1/(1-\eta)}.
+% \label{eq:rewrite-research-demand}
+%\end{equation}
+Equation~\eqref{eq:rewrite-research-foc} equates the marginal benefit of research compute to its unit cost. Holding current $B$ fixed, an additional unit of $M$ raises the rate of improvement in AI efficiency by \(\chi\eta B(BM)^{\eta-1}\psi(B)\).
+%The factor $B$ appears because raw compute $M$ produces $BM$ effective AI research services.
+Multiplication by $q$ values the resulting efficiency gain, accounting for future profit gains and further improvements in AI efficiency. %The right-hand side is one because one unit of compute costs one unit of the final good. At an interior optimum, an additional unit of research therefore creates exactly enough value to cover its cost.
+
+The current-value costate equation is
+\begin{equation}
+ \frac{\dot q}{q}=r-\frac{X}{qB^2}-\eta\frac{\dot B}{B}
+ -\dot B\frac{\psi'(B)}{\psi(B)}.
+ \label{eq:rewrite-costate}
+\end{equation}
+%For a finite upper bound,\(\psi'/\psi=-1/(\overline B-B)\); for the uncapped economy, the derivative is zero.
+Rearranging gives the return equation
+\begin{equation}
+ rq=\frac{U}{B}+q\eta\frac{\dot B}{B}
+ +q\dot B\frac{\psi'(B)}{\psi(B)}+\dot q.
+ \label{eq:rewrite-capability-return}
+\end{equation}
+The first term on the right-hand side of Equation~\eqref{eq:rewrite-capability-return} is the inference-compute saving from greater AI efficiency. The
+second is the research-productivity gain from RSI. With a finite upper bound, the third
+term is negative because a higher $B$ leaves less room for further improvement. The final term is the capital gain on AI efficiency. Together these
+returns must equal the market return $rq$.
+
+The developer's transversality condition is
+\begin{equation}
+ \lim_{t\to\infty}
+ \exp\left\{-\int_0^t r_s\dd s\right\}q_tB_t=0.
+ \label{eq:rewrite-developer-tvc}
+\end{equation}
+It rules out a path that leaves positive discounted value in the AI-efficiency state.%It does not require $q$, $B$, or their undiscounted product to converge to zero.
+
+The preceding conditions are necessary for an interior optimum but do not
+establish global optimality.
+Lemma~\ref{lem:rewrite-developer-verification} in
+Appendix~\ref{app:rewrite-proofs} gives sufficient conditions for a research
+path to maximize the present value of the developer's net profit in
+problem~\eqref{eq:rewrite-developer-reduced}.
+
+%\begin{proposition}[Research is interior]
+%\label{prop:rewrite-research-interior}
+%Suppose $0<\eta<1$ and the developer has a differentiable, finite-valued optimum with $B>0$ and positive demand for effective AI production services. Then $q>0$ and $M>0$ at every finite date. Research may converge to zero asymptotically, but the developer cannot stop improvements in AI efficiency by choosing $M=0$ at a finite date.
+%\end{proposition}
+
+\subsection{Equilibrium}
+\label{subsec:rewrite-equilibrium}
+
+I can now combine the decisions of the three agents and the market clearing conditions to define an equilibrium. Capital-market clearing
+identifies household capital with the capital rented by final-good firms.
+Labor-market clearing gives $L=N$. AI-service market clearing identifies the
+developer's sales with the final sector's purchases. Combining the household
+budget, final-good zero profit, developer profit, and market clearing yields
+the aggregate resource constraint
+\begin{equation}
+ C+\dot K+\delta K+U+M=Y.
+ \label{eq:rewrite-resource}
+\end{equation}
+
+\begin{definition}[Equilibrium]
+\label{def:rewrite-equilibrium}
+For exogenous initial values $A_0,N_0,K_0,B_0>0$, an equilibrium is an
+infinite-horizon trajectory
+\begin{equation}
+ \left\{K_t,B_t,C_t,q_t,L_t,U_t,M_t,X_t,Z_t,Y_t,r_t,w_t,p_{X,t},
+ s_{X,t},e_{X,t},\Pi_t\right\}_{t\geq0}
+ \label{eq:rewrite-equilibrium-trajectory}
+\end{equation}
+such that the developer solves problem~\eqref{eq:rewrite-developer-reduced}
+and the following conditions hold:
+
+%The exogenous paths and predetermined initial conditions are
+%\begin{subequations}
+%\label{eq:rewrite-equilibrium-exogenous}
+%\begin{align}
+% A_t&=A_0e^{\gamma t},\\
+% N_t&=N_0e^{nt},%\\
+% %K(0)&=K_0, & B(0)&=B_0.
+%\end{align}
+%\end{subequations}
+\begin{enumerate}
+\item The intratemporal allocation and prices satisfy
+\begin{subequations}
+\label{eq:rewrite-equilibrium-static}
+\begin{align}
+ L&=N,
+ \label{eq:rewrite-eq-labor}\\
+ Z&=\left[\omega_L(AL)^{(\sigma-1)/\sigma}
+ +\omega_XX^{(\sigma-1)/\sigma}\right]^{
+ \sigma/(\sigma-1)},
+ \label{eq:rewrite-eq-z}\\
+ Y&=K^\alpha Z^{1-\alpha},
+ \label{eq:rewrite-eq-y}\\
+ s_X&=\frac{\omega_XX^{(\sigma-1)/\sigma}}
+ {\omega_L(AL)^{(\sigma-1)/\sigma}
+ +\omega_XX^{(\sigma-1)/\sigma}},
+ \label{eq:rewrite-eq-sx}\\
+ e_X&=\frac{1-s_X}{\sigma}+\alpha s_X,
+ \label{eq:rewrite-eq-ex}\\
+ r&=\alpha\frac{Y}{K}-\delta,
+ \label{eq:rewrite-eq-r}\\
+ w&=(1-\alpha)(1-s_X)\frac{Y}{L},
+ \label{eq:rewrite-eq-w}\\
+ p_X&=(1-\alpha)s_X\frac{Y}{X},
+ \label{eq:rewrite-eq-px}\\
+ \frac{1}{B}&=p_X(1-e_X),
+ \label{eq:rewrite-eq-monopoly}\\
+ X&=BU,
+ \label{eq:rewrite-eq-service}\\
+ 1&=q\chi\eta B(BM)^{\eta-1}\psi(B),
+ \label{eq:rewrite-eq-research}\\
+ \Pi&=p_XX-U-M.
+ \label{eq:rewrite-eq-profit}
+\end{align}
+\end{subequations}
+\item The four dynamic equations are
+\begin{subequations}
+\label{eq:rewrite-equilibrium-dynamics}
+\begin{align}
+ \dot K&=Y-C-U-M-\delta K,
+ \label{eq:rewrite-eq-kdot}\\
+ \dot B&=\chi(BM)^\eta\psi(B),
+ \label{eq:rewrite-eq-bdot}\\
+ \frac{\dot C}{C}&=n+r-\rho,
+ \label{eq:rewrite-eq-cdot}\\
+ \frac{\dot q}{q}&=r-\frac{X}{qB^2}-\eta\frac{\dot B}{B}
+ -\dot B\frac{\psi'(B)}{\psi(B)}.
+ \label{eq:rewrite-eq-qdot}
+\end{align}
+\end{subequations}
+\item The two transversality conditions are
+\begin{subequations}
+\label{eq:rewrite-equilibrium-tvcs}
+\begin{align}
+ \lim_{t\to\infty}e^{-\rho t}\frac{N_tK_t}{C_t}&=0,
+ \label{eq:rewrite-eq-household-tvc}\\
+ \lim_{t\to\infty}
+ \exp\left\{-\int_0^t r_s\dd s\right\}q_tB_t&=0.
+ \label{eq:rewrite-eq-developer-tvc}
+\end{align}
+\end{subequations}
+\end{enumerate}
+%At \(\sigma=1\), equations \eqref{eq:rewrite-eq-z} and \eqref{eq:rewrite-eq-sx} are understood at their continuous limits:
+%$Z=(AL)^{\omega_L}X^{\omega_X}$ and $s_X=\omega_X$. If \(\overline B<\infty\), the path satisfies $B_t<\overline B$ at every finite date. Finally, t
+%The household and developer solve their stated optimization problems, final-good firms maximize profit, and all markets clear. The initial values \(C_t\) and \(q_t\) are endogenous jump variables selected to satisfy the two transversality conditions.
+\end{definition}
+
+%The definition does not impose balanced growth. A balanced-growth path is one possible equilibrium trajectory, not the meaning of equilibrium. Nor are the dated equations alone enough: a numerical path is admitted as an equilibrium only if it also satisfies both transversality conditions and the global optimality requirements in Definition \ref{def:rewrite-equilibrium}. 
+\begin{remark}[The economy without AI]
+\label{rem:rewrite-no-ai}
+With $\omega_X=0$ and $\omega_L=1$, the model reduces to the
+Ramsey--Cass--Koopmans economy with logarithmic utility and exogenous
+labor-augmenting technological progress.
+\end{remark}
+
+The system contains no separate household budget or final-good zero-profit
+equation because these are redundant after market clearing. The consolidated
+income decomposition follows from the equations in the definition:
+\begin{equation}
+ 1=\frac{(r+\delta)K}{Y}+\frac{wL}{Y}
+ +\frac{\Pi}{Y}+\frac{U}{Y}+\frac{M}{Y}.
+ \label{eq:rewrite-income-decomposition}
+\end{equation}
+It records how final output is divided among gross capital income, labor income,
+developer profit, inference compute, and research compute. %It is an accounting consequence of equilibrium, not an additional equilibrium condition.

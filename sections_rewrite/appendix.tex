@@ -1,0 +1,631 @@
+\Needspace{12\baselineskip}
+\section{Proofs}
+\label{app:rewrite-proofs}
+
+\Needspace{7\baselineskip}
+\begin{lemma}[Static AI-service choice]
+\label{lem:rewrite-monopoly-choice}
+For $K,A,L,B>0$, $0<\alpha<1$, $\sigma>0$, and strictly positive CES weights
+that sum to one, problem~\eqref{eq:rewrite-service-choice} has a unique,
+strictly positive global maximizer. It is characterized by
+condition~\eqref{eq:rewrite-monopoly-foc} and depends smoothly on the positive
+variables $K,A,L,B$, for each fixed $\sigma$.
+\end{lemma}
+
+\begin{proof}[Proof of Lemma~\ref{lem:rewrite-monopoly-choice}]
+Fix \(K,A,L,B>0\) and let \(R(X)=p_X(X)X\).
+The demand elasticity in \eqref{eq:rewrite-inverse-demand-elasticity} and the
+CES-share derivative imply
+\[
+ R'(X)=p_X(X)(1-e_X),\qquad
+ \frac{\dd s_X}{\dd\ln X}=\left(1-\frac1\sigma\right)s_X(1-s_X).
+\]
+Wherever marginal revenue is positive, direct differentiation gives
+\begin{equation}
+ -\frac{XR''(X)}{p_X(X)}
+ =e_X(1-e_X)+\left(\alpha-\frac1\sigma\right)
+ \left(1-\frac1\sigma\right)s_X(1-s_X).
+ \label{eq:rewrite-monopoly-proof-curvature}
+\end{equation}
+If \((\alpha-1/\sigma)(1-1/\sigma)\geq0\), the right-hand side is positive.
+If this product is negative, the parameter restrictions imply
+\(0<\alpha<1/\sigma<1\), and
+\[
+ \begin{aligned}
+ -\frac{XR''(X)}{p_X(X)}
+ ={}&\frac1\sigma\left(1-\frac1\sigma\right)(1-s_X)^2\\
+ &+\left[\frac1{\sigma^2}+2\alpha-\frac{3\alpha}{\sigma}\right]s_X(1-s_X)
+ +\alpha(1-\alpha)s_X^2.
+ \end{aligned}
+\]
+The middle coefficient is positive because
+\[
+ \frac1{\sigma^2}+2\alpha-\frac{3\alpha}{\sigma}
+ =\left(\frac1\sigma-\alpha\right)^2
+ +\alpha\left(2-\frac1\sigma-\alpha\right)>0.
+\]
+Thus marginal revenue decreases strictly whenever it is positive.
+
+As \(X\downarrow0\), revenue is proportional to \(X^{1-1/\sigma}\) when
+\(\sigma>1\), to \(X^{(1-\alpha)\omega_X}\) when \(\sigma=1\), and to
+\(X^{1-\alpha}\) when \(\sigma<1\). Every exponent lies between zero and
+one, so \(R'(X)\to\infty\). As \(X\to\infty\), marginal revenue converges to
+zero from above if \(\sigma\geq1\); if \(\sigma<1\), it eventually
+becomes negative. Hence \(R'(X)=1/B\) has exactly one solution. Operating profit
+increases before this solution and decreases after it. The linear cost \(X/B\)
+dominates revenue as \(X\to\infty\), so this solution is the unique global
+maximum. Equation \eqref{eq:rewrite-monopoly-proof-curvature} also proves the
+strict second-order condition:
+\begin{equation}
+ e_X(1-e_X)
+ +\left(\alpha-\frac1\sigma\right)\left(1-\frac1\sigma\right)s_X(1-s_X)>0.
+ \label{eq:rewrite-monopoly-soc}
+\end{equation}
+At the unique solution of $R'(X)=1/B$, $R''(X)<0$.
+The implicit-function theorem therefore makes the maximizing service choice
+smooth in $K,A,L,B$.
+\end{proof}
+
+\paragraph{Interior research.}
+
+Lemma~\ref{lem:rewrite-monopoly-choice} establishes \(X^*>0\), and the
+envelope condition \eqref{eq:rewrite-profit-envelope} gives
+\(\pi_B=X^*/B^2>0\). A marginal increase in AI efficiency therefore raises
+current optimized profit and weakly raises future AI efficiency under a fixed
+research policy. At a differentiable optimum its current-value shadow price is
+strictly positive: \(q>0\). The part of the Hamiltonian that depends on \(M\)
+is
+\[
+ -M+q\chi B^\eta M^\eta\psi(B).
+\]
+Its right derivative diverges as \(M\downarrow0\) because
+\(q,B,\psi(B)>0\) and \(0<\eta<1\). Therefore \(M=0\) cannot
+maximize the Hamiltonian at a finite date.
+
+\paragraph{Global developer verification.}
+For a finite upper bound, define research depth as the monotone transformation
+\begin{equation}
+ R_B(B)=-\overline B\log\left(1-\frac{B}{\overline B}\right),
+ \qquad
+ B(R_B)=\overline B\left(1-e^{-R_B/\overline B}\right).
+ \label{eq:rewrite-research-depth}
+\end{equation}
+It maps $B\in[B_0,\overline B)$ into
+$R_B\in[R_{B,0},\infty)$, where $R_{B,t}=R_B(B_t)$ and
+$R_{B,0}=R_B(B_0)$, and rewrites the RSI technology as
+\begin{equation}
+ \dot R_B=\chi[B(R_B)M]^\eta.
+ \label{eq:rewrite-research-depth-law}
+\end{equation}
+Write $\pi_t(B)$ for optimized operating profit evaluated at the date-$t$
+values of $K,A,$ and $L$, and define the shadow value of research depth as
+$q_{R,t}=q_t\psi(B_t)$. Holding this shadow value fixed, let
+\[
+ \widehat{\mathcal H}_t(\widetilde R_B)
+ \equiv\max_{\widetilde M\geq0}
+ \left\{\pi_t(B(\widetilde R_B))-\widetilde M
+ +q_{R,t}\chi[B(\widetilde R_B)\widetilde M]^\eta\right\}.
+\]
+
+\begin{lemma}[Global verification of the developer's research path]
+\label{lem:rewrite-developer-verification}
+Let $0<\eta<1$ and $\chi>0$. Fix $0<B_0<\overline B<\infty$
+and positive continuous paths for $K,A,$ and $L$,
+and take the locally integrable interest-rate path $r$ as given. Consider a
+feasible candidate $\{B_t,M_t\}_{t\geq0}$ for
+problem~\eqref{eq:rewrite-developer-reduced}, with continuously differentiable
+$B_t$, interior research $M_t>0$, and a finite objective. Suppose there is a
+continuously differentiable costate $q_t$ satisfying the research
+condition~\eqref{eq:rewrite-research-foc}, the costate
+equation~\eqref{eq:rewrite-costate}, and the transversality
+condition~\eqref{eq:rewrite-developer-tvc}. If, for every $t\geq0$ and every
+$\widetilde R_B\geq R_{B,0}$,
+\begin{equation}
+ \widehat{\mathcal H}_t(\widetilde R_B)
+ \leq\widehat{\mathcal H}_t(R_{B,t})
+ +\widehat{\mathcal H}'_t(R_{B,t})
+ (\widetilde R_B-R_{B,t}),
+ \label{eq:rewrite-hamiltonian-support}
+\end{equation}
+then the candidate is a global maximizer of the reduced developer problem.
+Admissible alternatives have $M_t\geq0$, locally finite research expenditure,
+and the same initial state; the comparison also bounds the upper limit of
+their truncated discounted payoffs.
+Together with the unique static service choice characterized in
+Lemma~\ref{lem:rewrite-monopoly-choice}, it is globally optimal for the
+developer.
+\end{lemma}
+
+\begin{proof}[Proof of Lemma~\ref{lem:rewrite-developer-verification}]
+Fix a date and the candidate shadow price
+$q_{R,t}=q_t\psi(B_t)>0$. Maximizing the research-depth Hamiltonian over
+research expenditure gives
+\begin{equation}
+ \widehat{\mathcal H}_t(\widetilde R_B)
+ =\pi_t(B(\widetilde R_B))+
+ \frac{1-\eta}{\eta}M_t
+ \left[\frac{B(\widetilde R_B)}{B_t}\right]^{\eta/(1-\eta)}.
+ \label{eq:rewrite-maximized-depth-hamiltonian}
+\end{equation}
+Here $M_t$ is the candidate's research expenditure. The formula follows by
+maximizing $-M+q_{R,t}\chi[B(\widetilde R_B)M]^\eta$ over $M\geq0$ and
+using the candidate's research first-order condition. Its derivative at the
+candidate state is
+\begin{equation}
+ \widehat{\mathcal H}'_t(R_{B,t})
+ =\frac{\psi(B_t)}{B_t}(U_t+M_t).
+ \label{eq:rewrite-depth-hamiltonian-slope}
+\end{equation}
+
+Write $D_t=\exp(-\int_0^t r_s\dd s)$ and $\mu_t=D_tq_{R,t}$.
+Let
+\[
+ J_T=\int_0^T D_t[\pi_t(B_t)-M_t]\dd t
+\]
+denote discounted net profit under the candidate, and define
+$\widetilde J_T$ analogously for the alternative.
+The transformed costate equation is
+$\dot\mu_t=-D_t\widehat{\mathcal H}'_t(R_{B,t})$.
+For any admissible alternative research policy and its state
+$\widetilde R_{B,t}$, maximizing over its control first bounds its Hamiltonian
+by \eqref{eq:rewrite-maximized-depth-hamiltonian}. Apply
+\eqref{eq:rewrite-hamiltonian-support}, subtract the candidate payoff, and
+integrate by parts. Equal initial states imply
+\[
+ \widetilde J_T-J_T
+ \leq-\mu_T(\widetilde R_{B,T}-R_{B,T})
+ \leq\mu_TR_{B,T}.
+\]
+Because
+\[
+ \psi(B_t)R_{B,t}
+ =-(\overline B-B_t)\log\left(1-\frac{B_t}{\overline B}\right)
+ \leq B_t,
+\]
+the last expression converges to zero by
+the developer's transversality condition. Taking the upper limit establishes
+global optimality. The argument requires a global upper tangent at the
+candidate state, not concavity at every counterfactual state.
+\end{proof}
+
+\paragraph{A concavity test for
+Lemma~\ref{lem:rewrite-developer-verification}.}
+Fix a date $t$ and an alternative AI-efficiency level
+$b\in[B_0,\overline B)$. Let $X_t^*(b)$ be the unique maximizer of
+problem~\eqref{eq:rewrite-service-choice}, evaluated at $K_t,A_t,$ and $L_t$,
+and let $s_{X,t}(b)$ and $e_{X,t}(b)$ be the corresponding values. Implicitly
+differentiating the monopoly condition~\eqref{eq:rewrite-monopoly-foc}, using
+Equations~\eqref{eq:rewrite-sx} and
+\eqref{eq:rewrite-inverse-demand-elasticity}, gives
+\begin{equation}
+ \varepsilon_{B,t}(b)\equiv
+ \frac{\partial\ln X_t^*(b)}{\partial\ln b}
+ =\frac{1-e_{X,t}(b)}{e_{X,t}(b)[1-e_{X,t}(b)]
+ +(\alpha-\sigma^{-1})(1-\sigma^{-1})
+ s_{X,t}(b)[1-s_{X,t}(b)]}.
+ \label{eq:rewrite-service-capability-elasticity}
+\end{equation}
+This endogenous elasticity is not an additional model parameter. In what
+follows, suppress the date and counterfactual-state arguments and write
+\[
+ X^*(B)\equiv X_t^*(b),
+ \qquad
+ \varepsilon_B\equiv\varepsilon_{B,t}(b).
+\]
+Because \(\pi_B=X^*(B)/B^2\),
+\begin{equation}
+ \pi_{BB}=\frac{X^*}{B^3}(\varepsilon_B-2).
+ \label{eq:rewrite-profit-curvature}
+\end{equation}
+A direct differentiation gives
+\begin{equation}
+ \frac{\partial^2\pi(B(R_B))}{\partial R_B^2}
+ =\frac{X^*(B)\psi(B)}{B^3}
+ \left[\psi(B)(\varepsilon_B-2)
+ -\frac{B}{\overline B}\right].
+ \label{eq:rewrite-capped-profit-curvature}
+\end{equation}
+
+The transformation \eqref{eq:rewrite-research-depth} satisfies
+\[
+ B'(R_B)=\psi(B)>0,
+ \qquad
+ B''(R_B)=-\frac{\psi(B)}{\overline B}<0.
+\]
+Using \(\pi_B=X^*(B)/B^2\) and \eqref{eq:rewrite-profit-curvature} gives
+\eqref{eq:rewrite-capped-profit-curvature}. Hence the algebraic condition
+\begin{equation}
+ \psi(b)[\varepsilon_{B,t}(b)-2]
+ \leq\frac{b}{\overline B}
+ \label{eq:rewrite-capped-concavity-gate}
+\end{equation}
+for every $t\geq0$ and $b\in[B_0,\overline B)$ makes optimized operating
+profit concave in research depth throughout the reachable state domain.
+
+The research term in \eqref{eq:rewrite-maximized-depth-hamiltonian} is a
+positive multiple of $B(R_B)^\mu$, where $\mu=\eta/(1-\eta)>0$. Its curvature is
+\begin{equation}
+ \frac{\mathrm d^2 B(R_B)^\mu}{\mathrm dR_B^2}
+ =\mu B^{\mu-2}\psi(B)
+ \left[(\mu-1)\psi(B)-\frac B{\overline B}\right].
+ \label{eq:rewrite-depth-research-curvature}
+\end{equation}
+Thus \eqref{eq:rewrite-capped-concavity-gate}, together with
+\begin{equation}
+ \frac{B_0}{\overline B}\geq
+ \max\left\{0,\frac{2\eta-1}{\eta}\right\},
+ \label{eq:rewrite-depth-research-concavity}
+\end{equation}
+makes the maximized Hamiltonian concave throughout the reachable state
+domain and proves \eqref{eq:rewrite-hamiltonian-support}.
+If $\eta\leq1/2$, condition~\eqref{eq:rewrite-depth-research-concavity}
+holds automatically. But for every fixed
+$0<\eta<1$ its right-hand side is strictly below one, so it also holds
+without this restriction when initial efficiency is sufficiently close to
+the upper bound. These curvature tests are sufficient, not necessary: they
+can fail even when the Hamiltonian has the required supporting tangent at
+the candidate state.
+
+At unit elasticity, the concavity test has a simple primitive form. Define
+$\beta=(1-\alpha)\omega_X$. The static monopoly solution implies
+$\pi_t(B)=a_tB^{\beta/(1-\beta)}$ for some $a_t>0$. Because $B(R_B)$ is
+increasing and concave, $R_B\mapsto\pi_t(B(R_B))$ is globally concave whenever
+$\beta\leq1/2$. In the benchmark calibration in
+Table~\ref{tab:rewrite-rsi-parameters}, $\beta=0.067$,
+so this sufficient condition
+holds with substantial slack. It is not imposed as an additional maintained
+assumption; outside this range, the support condition can instead be checked
+directly.
+
+The AI-dominated continuation supplies an analytical long-run check on the
+support inequality. For $1<\sigma\leq1/\alpha$, the service elasticity defined
+in Equation~\eqref{eq:rewrite-service-capability-elasticity} satisfies
+$\varepsilon_{B,t}(b)\leq1/\alpha$ for every $t$ and $b$. Suppressing these
+arguments, subtracting $\alpha(1-e_X)$ from the denominator in that equation
+gives
+\[
+ (\sigma^{-1}-\alpha)(1-s_X)
+ \left[(1-\sigma^{-1})(1-s_X)+(\sigma^{-1}-\alpha)s_X\right]\geq0.
+\]
+Choose $B_*\in(B_0,\overline B)$ with
+$B_*/\overline B>\max\{0,(1-2\alpha)/(1-\alpha)\}$.
+Operating profit is then concave in research depth for $B\geq B_*$.
+If $\eta\leq1/2$, the research term in
+\eqref{eq:rewrite-maximized-depth-hamiltonian} is concave there as well.
+For a candidate with $B_t\geq B_*$, it consequently suffices to check
+\begin{equation}
+ \widehat{\mathcal H}_t(R_{B,t})
+ -\widehat{\mathcal H}'_t(R_{B,t})(R_{B,t}-R_{B,0})
+ \geq\widehat{\mathcal H}_t(R_B(B_*)).
+ \label{eq:rewrite-support-terminal-bound}
+\end{equation}
+Above $B_*$ the tangent bound follows from concavity. Below $B_*$ the
+Hamiltonian is increasing in $B$, so its value is at most the right-hand
+side, whereas the tangent is minimized at $R_{B,0}$.
+
+Along an AI-dominated continuation, the difference between the two sides of
+\eqref{eq:rewrite-support-terminal-bound}, divided by $Y_t$, converges to
+\[
+ \alpha(1-\alpha)
+ \left[1-\left(\frac{B_*}{\overline B}\right)^{(1-\alpha)/\alpha}\right]>0.
+\]
+To obtain this limit, use $M/Y\to0$, $\psi(B)R_B\to0$, and
+$\pi(B_*)/Y\to\alpha(1-\alpha)(B_*/\overline B)^{(1-\alpha)/\alpha}$.
+Thus the global support condition holds sufficiently late on this
+continuation even when the stronger curvature condition fails at low
+counterfactual AI-efficiency levels. The finite transition still requires its own
+support check.
+
+\input{sections_rewrite/appendix_finite_frontier}
+\input{sections_rewrite/appendix_uncapped_complements_proofs}
+\input{sections_rewrite/appendix_uncapped_unit_proofs}
+
+\Needspace{6\baselineskip}
+\begin{proof}[Proof of Proposition~\ref{prop:rewrite-research-scale}]
+\label{proof:rewrite-research-scale}
+Write $\theta=(1-\alpha)/\alpha$. For a research policy $M$, discounted
+net profit on the fixed horizon is
+\[
+ J_T(M)=\int_0^T
+ \exp\left\{-\int_0^t r_s\dd s\right\}
+ [\pi(B_t)-M_t]\dd t.
+\]
+Integrability of $r$ bounds the discount factor above and away from zero.
+Since $\sigma>1$, optimized operating profit satisfies
+\[
+ \pi(B)\sim\kappa_XKB^\theta
+ \qquad\text{as }B\to\infty,
+\]
+for a constant $\kappa_X>0$, uniformly along the given positive continuous
+paths of $K,A,$ and $L$ on $[0,T]$.
+
+Fix $\Delta\in(0,T)$, choose $M=\mathcal M$ on $[0,\Delta]$, and choose
+$M=0$ afterward. The uncapped RSI technology gives
+\[
+ B_{\mathcal M}(t)^{1-\eta}=B_0^{1-\eta}
+ +(1-\eta)\chi\mathcal M^\eta\min\{t,\Delta\}.
+\]
+Since optimized operating profit is nonnegative, a lower bound on discounted
+net profit counts only operating profits earned after research stops, while
+subtracting all research expenditure. For all sufficiently large $\mathcal M$,
+\begin{equation}
+ J_T(\mathcal M)\geq c_\pi\mathcal M^{
+ \eta(1-\alpha)/[\alpha(1-\eta)]}
+ -c_M\mathcal M,
+ \label{eq:rewrite-research-burst-payoff}
+\end{equation}
+where $c_\pi,c_M>0$ are independent of $\mathcal M$.
+The exponent exceeds one because $\eta>\alpha$,
+so $J_T(\mathcal M)\to+\infty$ as $\mathcal M\to\infty$.
+Each finite $\mathcal M$ keeps AI efficiency and discounted net profit
+finite on $[0,T]$; it is the sequence of payoffs that is unbounded.
+Continuing with a candidate equilibrium's research expenditure after $T$
+cannot reduce subsequent profits once the burst leaves AI efficiency above
+the candidate's level.
+\end{proof}
+
+% BEGIN PRESERVED BROADER RESEARCH-SCALE PROOF (2026-09-15)
+% The active proposition now states only the eta > alpha finite-horizon result.
+% Keep the earlier eta < alpha bound, boundary case, finite-bound existence,
+% and infinite-horizon deviation argument available without compiling them.
+% \paragraph{Research expenditure and finite-horizon value.}
+%
+% Besides the two cases in Proposition~\ref{prop:rewrite-research-scale},
+% the proof gives auxiliary finite-horizon bounds for the same given paths.
+% At $\eta=\alpha$, the leading benefit and cost terms of the research-burst
+% construction below have the same order, so comparing exponents alone does
+% not settle the result. With a fixed finite upper bound, the truncated problem
+% has a finite value and attains its maximum for every $0<\eta<1$.
+% Global verification of a candidate research policy is addressed separately
+% in Lemma~\ref{lem:rewrite-developer-verification}.
+%
+% \Needspace{6\baselineskip}
+% \begin{proof}[Proof of Proposition~\ref{prop:rewrite-research-scale}]
+% \label{proof:rewrite-research-scale}
+% \emph{Part (i).} I first consider the uncapped economy. Define
+% \[
+%  \theta=\frac{1-\alpha}{\alpha},\qquad
+%  S=\int_0^T M_t\dd t.
+% \]
+% Here $S$ is total research expenditure over the fixed horizon $[0,T]$.
+% For an admissible research policy, let its discounted net payoff be
+% \[
+%  J_T(M)=\int_0^T
+%  \exp\left\{-\int_0^t r_s\dd s\right\}
+%  [\pi(B_t)-M_t]\dd t.
+% \]
+% For every admissible policy, \(B\) is nondecreasing. The RSI technology implies
+% \[
+%  \frac{\dd}{\dd t}B_t^{1-\eta}
+%  =(1-\eta)\chi M_t^\eta.
+% \]
+% Integration and H\"older's inequality give
+% \begin{align*}
+%  B_t^{1-\eta}
+%  &=B_0^{1-\eta}+(1-\eta)\chi\int_0^t M_s^\eta\dd s,\\
+%  \int_0^T M_t^\eta\dd t
+%  &\leq T^{1-\eta}S^\eta.
+% \end{align*}
+% Because $0<\eta<1$, spreading a given expenditure evenly over $[0,T]$
+% maximizes the integral of $M^\eta$. Hence there is a constant $C_B>0$,
+% independent of the research policy,
+% such that
+% \begin{equation}
+%  \max_{0\leq t\leq T}B_t
+%  \leq C_B\left(1+S^{\eta/(1-\eta)}\right),
+%  \label{eq:rewrite-capability-expenditure-bound}
+% \end{equation}
+% The same bound covers
+% arbitrarily concentrated controls because, on a support of length \(d\leq T\),
+% \(\int M_t^\eta\dd t\leq d^{1-\eta}S^\eta\).
+%
+% Let \(\overline K=\max_{t\leq T}K_t\) and
+% \(\overline{\mathcal L}=\max_{t\leq T}A_tL_t\). The weighted power-mean
+% inequality gives \(Z\leq AL+X\). The final-good firm's demand condition therefore
+% implies
+% \[
+%  p_XX\leq(1-\alpha)\overline K^\alpha
+%  \left(\overline{\mathcal L}^{1-\alpha}+X^{1-\alpha}\right).
+% \]
+% \Needspace{6\baselineskip}
+% Write the right-hand side as $a+bX^{1-\alpha}$, with $a,b>0$ determined by
+% the given paths and production parameters. The first-order condition for
+% maximizing this revenue bound net of $X/B$ is
+% $b(1-\alpha)X^{-\alpha}=1/B$, and its maximized value is
+% \[
+%  \max_{X\geq0}\left\{a+bX^{1-\alpha}-\frac{X}{B}\right\}
+%  =a+\alpha b[b(1-\alpha)B]^\theta.
+% \]
+% There is therefore a constant $C_\pi>0$, independent of the research policy,
+% such that
+% \begin{equation}
+%  \pi(B)\leq C_\pi(1+B^\theta).
+%  \label{eq:rewrite-profit-upper-bound}
+% \end{equation}
+% Combining the AI-efficiency and profit bounds shows that operating profit grows
+% no faster than a constant plus a term proportional to
+% \begin{equation}
+%  S^{\eta(1-\alpha)/[\alpha(1-\eta)]},
+%  \label{eq:rewrite-research-benefit-order}
+% \end{equation}
+% where the exponent is the product of $\eta/(1-\eta)$, from expenditure to
+% AI efficiency, and $(1-\alpha)/\alpha$, from AI efficiency to profit. This is an
+% upper bound on the order of growth, not an exact profit function.
+%
+% On a finite horizon, integrability of $r$ bounds the discount factor above
+% and away from zero. Let $\underline D>0$ be its minimum on $[0,T]$.
+% Combining
+% \eqref{eq:rewrite-capability-expenditure-bound} and
+% \eqref{eq:rewrite-profit-upper-bound} yields, for constants $C_0,C_1>0$
+% independent of the research policy,
+% \begin{equation}
+%  J_T(M)\leq C_0+C_1S^p-\underline D S,
+%  \qquad
+%  p=\frac{\eta(1-\alpha)}{\alpha(1-\eta)}.
+%  \label{eq:rewrite-truncated-value-bound}
+% \end{equation}
+% The exponent satisfies $p<1$ exactly when $\eta<\alpha$. In this case, the
+% benefit grows at most sublinearly in expenditure while its cost grows linearly.
+% The bound tends to minus infinity as $S\to\infty$, so the value is finite and
+% the objective is coercive.
+%
+% \emph{Part (ii).} An upper bound with $p>1$ does not by itself prove unboundedness. For the
+% converse, I construct research policies with unbounded payoffs. Suppose
+% \(\sigma>1\). As \(B\to\infty\), optimized
+% operating profit satisfies
+% \[
+%  \pi(B)\sim\kappa_XKB^\theta
+% \]
+% for a constant \(\kappa_X>0\), uniformly when \(K,A,\) and \(L\) remain in
+% compact subsets of the positive orthant. Fix \(\Delta\in(0,T)\), choose
+% \(M=\mathcal M\) on \([0,\Delta]\), and choose \(M=0\) afterward. Then
+% \[
+%  B_{\mathcal M}(t)^{1-\eta}=B_0^{1-\eta}
+%  +(1-\eta)\chi\mathcal M^\eta\min\{t,\Delta\}.
+% \]
+% Choosing \(X\) optimally at every date gives
+% \begin{equation}
+%  J_T(\mathcal M)=c_\pi\mathcal M^{
+%  \eta(1-\alpha)/[\alpha(1-\eta)]}
+%  -c_M\mathcal M
+%  +o\!\left(\mathcal M^{
+%  \eta(1-\alpha)/[\alpha(1-\eta)]}\right),
+%  \label{eq:rewrite-research-burst-payoff}
+% \end{equation}
+% with \(c_\pi,c_M>0\). The exponent exceeds one when \(\eta>\alpha\), so this
+% family makes the truncated value unbounded above. At equality, the exponent is
+% one and the sign of the leading coefficient determines this family's result.
+%
+% To obtain the infinite-horizon nonexistence conclusion, suppose instead that
+% an uncapped equilibrium has a developer policy $\widehat M$, an associated
+% efficiency path $\widehat B$, and a finite discounted value $\widehat V_0$.
+% On every finite interval of this candidate equilibrium, $K,A,L$ are positive
+% and continuous, and $r=\alpha Y/K-\delta$ is continuous by the static
+% production and monopoly solution. The finite-horizon argument therefore
+% applies to these paths, without requiring a BGP or a bounded interest rate
+% as $t\to\infty$.
+% Hold its paths of $K,A,L,$ and $r$ fixed, as required by the developer's
+% problem~\eqref{eq:rewrite-developer-reduced}. On $[0,T]$, use the burst policy
+% above; after $T$, resume $\widehat M$. For a sufficiently large burst,
+% $B_{\mathcal M}(T)>\widehat B(T)$. Under the uncapped law, the difference
+% $B_{\mathcal M}(t)^{1-\eta}-\widehat B(t)^{1-\eta}$ is then constant and
+% positive for $t\geq T$, since the two policies use the same research spending.
+% Operating profit is increasing in $B$ by
+% equation~\eqref{eq:rewrite-profit-envelope}, so subsequent net profit is no
+% lower than under the candidate policy. Let $\widehat J_T$ be the candidate's
+% discounted net profit on $[0,T]$ and let $J_\infty(\mathcal M)$ denote the
+% payoff from the deviating policy, including its continuation. Then
+% \[
+%  J_\infty(\mathcal M)
+%  \geq J_T(\mathcal M)+\widehat V_0-\widehat J_T
+%  \longrightarrow+\infty.
+% \]
+% The continuation payoff is well defined as a finite value or $+\infty$:
+% its difference from the candidate's continuation payoff is the integral of
+% a nonnegative operating-profit gain. Each deviation has finite research
+% expenditure on every finite interval and hence finite $B$ there by
+% \eqref{eq:rewrite-capability-expenditure-bound}. Every finite-valued candidate
+% can therefore be improved, contradicting developer optimality. The argument
+% excludes a finite-valued optimum; it does not treat an infinite payoff as an
+% attained firm value or assume that a trajectory reaches a singularity.
+%
+% For a finite upper bound, the invariance result above confines \(B\) to the compact
+% interval \([B_0,\overline B]\). Optimized operating profit
+% is continuous in \(B\) and uniformly bounded on the fixed horizon. Hence
+% \(J_T(M)\leq C_0-\underline D S\), so every maximizing sequence has bounded
+% total expenditure. Set \(v=M^\eta\) and \(p=1/\eta>1\). The control cost is
+% \(v^p\), while the state equation is affine in \(v\):
+% \[
+%  \dot B=\chi B^\eta\left(1-\frac{B}{\overline B}\right)v.
+% \]
+% A maximizing sequence is bounded in the reflexive space \(L^p[0,T]\). A weakly
+% convergent subsequence and the associated uniformly convergent state paths
+% preserve feasibility. The operating-profit integral is continuous under
+% uniform state convergence, while \(\int v^p\) is weakly lower semicontinuous.
+% The objective is therefore weakly upper semicontinuous and attains its maximum.
+% \end{proof}
+%
+% \Needspace{4\baselineskip}
+% The condition $\eta<\alpha$ prevents arbitrarily large
+% research expenditure from being optimal on a fixed horizon in the uncapped
+% economy. It is a sufficient restriction, not a necessary one for every value
+% of $\sigma$, and finite-horizon existence with a finite upper bound does not
+% require $\eta<\alpha$. Neither the bound for $\eta<\alpha$ nor
+% finite-horizon developer existence with a finite upper bound establishes an
+% equilibrium: the paths of $K,A,L,$ and $r$ were taken as given. In contrast,
+% for $\sigma>1$ and $\eta>\alpha$, the profitable-deviation argument rules out
+% an uncapped equilibrium with a finite-valued developer optimum at any such
+% candidate paths.
+% The quantitative analysis uses $\eta=0.20<\alpha=0.33$, for which the
+% expenditure exponent is approximately $0.508$; the value of $\eta$ is
+% illustrative rather than estimated.
+% END PRESERVED BROADER RESEARCH-SCALE PROOF
+
+\Needspace{9\baselineskip}
+\begin{proposition}[An AI bottleneck under complementarity]
+\label{prop:rewrite-low-cap-complements}
+Suppose $0<\sigma<1$ and $0<B_0<\overline B<\mathcal B(\sigma)$.
+Any equilibrium satisfies
+\begin{gather*}
+ \limsup_{t\to\infty}\frac1t
+ \log\left(\frac{Y_t/N_t}{Y_0/N_0}\right)
+ \leq\mathcal R(\overline B)-\rho<\gamma,\\
+ \frac{X}{AL}\to0,\qquad s_X\to1,\qquad \frac{wL}{Y}\to0.
+\end{gather*}
+\end{proposition}
+
+\Needspace{4\baselineskip}
+\begin{proof}[Proof of Proposition~\ref{prop:rewrite-low-cap-complements}]
+\phantomsection
+\label{proof:rewrite-low-cap-complements}
+Consider any equilibrium with $0<\sigma<1$ and
+$0<B_0<\overline B<\mathcal B(\sigma)$. The increasing share map in
+equation~\eqref{eq:rewrite-frontier-share-map}, established in Step 1 of the
+proof of Proposition~\ref{prop:rewrite-equilibrium-regimes},
+and $B_t\leq\overline B$ imply
+\begin{equation}
+ r_t\leq\mathcal R(B_t)\leq\mathcal R(\overline B)<\rho+\gamma,
+ \qquad
+ \frac{Y_t}{K_t}\leq\frac{\mathcal R(\overline B)+\delta}{\alpha}.
+ \label{eq:rewrite-low-cap-return-bound}
+\end{equation}
+The developer's discounted continuation net profit is nonnegative: it can
+stop research and earn nonnegative operating profit. Wage income is also
+nonnegative. Integrating the household budget
+\eqref{eq:rewrite-household-budget}, using its transversality condition
+\eqref{eq:rewrite-household-tvc} and the Euler equation
+\eqref{eq:rewrite-euler}, therefore gives the first inequality below;
+integrating the Euler equation with the return bound gives the second:
+\begin{equation}
+ C_t\geq(\rho-n)K_t,
+ \qquad
+ \frac{C_t}{N_t}\leq\frac{C_0}{N_0}
+ e^{[\mathcal R(\overline B)-\rho]t}.
+ \label{eq:rewrite-low-cap-consumption-bound}
+\end{equation}
+Combining these inequalities yields
+\begin{equation}
+ \frac{Y_t}{N_t}\leq
+ \frac{\mathcal R(\overline B)+\delta}{\alpha(\rho-n)}
+ \frac{C_0}{N_0}e^{[\mathcal R(\overline B)-\rho]t},
+ \qquad
+ \limsup_{t\to\infty}\frac1t
+ \log\left(\frac{Y_t/N_t}{Y_0/N_0}\right)
+ \leq\mathcal R(\overline B)-\rho<\gamma.
+ \label{eq:rewrite-low-cap-growth-bound}
+\end{equation}
+Consequently $Y/(AL)\to0$. Since equation~\eqref{eq:rewrite-ai-output-limit}
+gives $X/Y\leq\overline B(1-\alpha)^2$ under complementarity,
+$X/(AL)\to0$: AI production services become scarce relative to effective
+labor. Equation~\eqref{eq:rewrite-sx} then implies $s_X\to1$ and hence
+$wL/Y\to0$.
+The growth bound concerns the long-run average, not convergence of the
+instantaneous growth rate. Neither convergence of $C/Y$ nor
+$B_t\to\overline B$ is assumed. These are necessary properties of any
+equilibrium in this region, not a proof of equilibrium existence.
+\end{proof}
+% The previous Section 5.3 and its proposition are commented in the source.
+% Keep the complete proof file available without compiling an orphan proof.
+% \input{sections_rewrite/appendix_uncapped_substitutes_proof}
+
+\input{sections_rewrite/appendix_rsi_illustrative}

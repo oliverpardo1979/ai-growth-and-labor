@@ -1,0 +1,185 @@
+{
+  "outcomes_not_targets": true,
+  "scenarios": {
+    "sigma_0_90": {
+      "first_year": {
+        "share": 0.00015427677263414783,
+        "quadrature_log_gap": 5.440092820663282e-15,
+        "orders": [
+          64,
+          128
+        ]
+      },
+      "second_year": {
+        "share": 0.00013253516089362373,
+        "quadrature_log_gap": 3.5527136788004946e-15,
+        "orders": [
+          64,
+          128
+        ]
+      },
+      "horizon_stages": {
+        "base": {
+          "share": 0.00015427675162257138,
+          "quadrature_log_gap": 3.3206770666543945e-13,
+          "orders": [
+            64,
+            128
+          ]
+        },
+        "refined": {
+          "share": 0.0001542767726070478,
+          "quadrature_log_gap": 3.9079850466804747e-14,
+          "orders": [
+            64,
+            128
+          ]
+        },
+        "long": {
+          "share": 0.00015427677263414783,
+          "quadrature_log_gap": 5.440092820663282e-15,
+          "orders": [
+            64,
+            128
+          ]
+        }
+      },
+      "maximum_horizon_log_change": 1.3619404610048478e-07
+    },
+    "sigma_1_00": {
+      "first_year": {
+        "share": 0.001815978362507511,
+        "quadrature_log_gap": 6.483702463810703e-14,
+        "orders": [
+          64,
+          128
+        ]
+      },
+      "second_year": {
+        "share": 0.0016256001017600102,
+        "quadrature_log_gap": 7.993605777300808e-14,
+        "orders": [
+          64,
+          128
+        ]
+      },
+      "horizon_stages": {
+        "base": {
+          "share": 0.0018159782523918724,
+          "quadrature_log_gap": 1.4566126083080994e-13,
+          "orders": [
+            64,
+            128
+          ]
+        },
+        "refined": {
+          "share": 0.0018159783624153345,
+          "quadrature_log_gap": 1.521005543736476e-14,
+          "orders": [
+            64,
+            128
+          ]
+        },
+        "long": {
+          "share": 0.001815978362507511,
+          "quadrature_log_gap": 6.483702463810703e-14,
+          "orders": [
+            64,
+            128
+          ]
+        }
+      },
+      "maximum_horizon_log_change": 6.063708918969564e-08
+    },
+    "sigma_1_10": {
+      "first_year": {
+        "share": 0.004331306642755219,
+        "quadrature_log_gap": 3.375077994860419e-14,
+        "orders": [
+          64,
+          128
+        ]
+      },
+      "second_year": {
+        "share": 0.003915593852310298,
+        "quadrature_log_gap": 1.7141843500213886e-13,
+        "orders": [
+          64,
+          128
+        ]
+      },
+      "horizon_stages": {
+        "base": {
+          "share": 0.004331306452011403,
+          "quadrature_log_gap": 5.008216064085335e-13,
+          "orders": [
+            64,
+            128
+          ]
+        },
+        "refined": {
+          "share": 0.004331306642574757,
+          "quadrature_log_gap": 3.7303493627404566e-14,
+          "orders": [
+            64,
+            128
+          ]
+        },
+        "long": {
+          "share": 0.004331306642755219,
+          "quadrature_log_gap": 3.375077994860419e-14,
+          "orders": [
+            64,
+            128
+          ]
+        }
+      },
+      "maximum_horizon_log_change": 4.4038401229484154e-08
+    },
+    "sigma_1_50": {
+      "first_year": {
+        "share": 0.029687914743651837,
+        "quadrature_log_gap": 1.5987211554602128e-14,
+        "orders": [
+          64,
+          128
+        ]
+      },
+      "second_year": {
+        "share": 0.02826291124851763,
+        "quadrature_log_gap": 9.76996261670133e-15,
+        "orders": [
+          64,
+          128
+        ]
+      },
+      "horizon_stages": {
+        "base": {
+          "share": 0.029687916222433518,
+          "quadrature_log_gap": 3.4505731605409396e-12,
+          "orders": [
+            64,
+            128
+          ]
+        },
+        "refined": {
+          "share": 0.02968791474640966,
+          "quadrature_log_gap": 7.904787935331428e-14,
+          "orders": [
+            64,
+            128
+          ]
+        },
+        "long": {
+          "share": 0.029687914743651837,
+          "quadrature_log_gap": 1.5987211554602128e-14,
+          "orders": [
+            64,
+            128
+          ]
+        }
+      },
+      "maximum_horizon_log_change": 4.981089638822538e-08
+    }
+  }
+}

@@ -1,0 +1,37 @@
+\section{Numerical simulations}
+\label{sec:rewrite-quantitative}
+
+\subsection{Parameters and initial conditions}
+\label{subsec:rewrite-rsi-activation}
+
+In this section, I compare the transitional dynamics across four parameter configurations corresponding to the cases in Proposition~\ref{prop:rewrite-equilibrium-regimes}. I study an unanticipated activation of RSI at date zero. Before date zero, the economy already uses AI production services, but AI efficiency is fixed at $B_0$. For the chosen value of $B_0$, each economy starts on a labor-bottleneck balanced growth path. I compute this path with the research productivity parameter $\chi$ equal to zero to obtain the corresponding initial capital stock $K_0$ for each parameter configuration. Setting $\chi=0$ rules out improvements in AI efficiency, not the expansion of AI services through inference compute $U$. By treating activation as unanticipated, I exclude the advance adjustment of consumption and saving emphasized in the technology-news literature reviewed by \citet{beaudryportier2014}.
+
+I compare four economies with $\sigma=0.9,1.0,1.1,1.5$, holding all other parameters and the initial values $A_0$, $N_0$, and $B_0$ fixed. For each economy, I choose $K_0$ to place it on its pre-RSI balanced growth path. In particular, for each elasticity, I choose the pre-event capital stock to satisfy
+\begin{equation}
+ r_0=\rho+\gamma,\qquad
+ \frac{K_0}{Y_0}=\frac{\alpha}{\rho+\gamma+\delta}=3.30.
+ \label{eq:rewrite-rsi-initial-ratio}
+\end{equation}
+This setup guarantees that $Y$, $X$, $U$, $w$, $r$, and $p_X$ behave continuously rather than jumping at date zero.
+
+Table~\ref{tab:rewrite-rsi-parameters} reports the parameter values and initial stocks used for the simulations. I use standard values for $\alpha$, $\delta$, and $\rho$, while $n$ and $\gamma$ are guided by long-run population and productivity projections. The AI production weight $\omega_X=0.10$  is an illustrative choices, not an empirical estimate. The research exponent $\eta=0.20$ is also illustrative but motivated by the inequality $\eta<\alpha$, which rules out the case studied in Proposition~\ref{prop:rewrite-research-scale}. The common upper bound on AI efficiency satisfies $\mathcal B(1.5)<\overline B<\mathcal B(1.1)$. Thus, AI and labor are substitutes in both the $\sigma=1.1$ and $\sigma=1.5$ cases, but only the latter converges to the AI-dominated regime.
+
+I study two levels of research productivity for each of the four elasticities of substitution. They both led to the same long-run growth rates in all variables, but differ in the speed at which growth accelerates once RSI becomes available. In the first one, higher-productivity scenario, $\chi$ is equal to 7.5. In the second one,  the lower-productivity scenario, $\chi$ is equal to 1.5. These are also illustrative choices, but their contrast show how different parameter values can lead to significant differences in the short-run impact of AI.
+
+%In Equation~\eqref{eq:rewrite-rsi-initial-ratio}, $Y_0$ is obtained from the production and monopoly conditions with AI already present. Thus $K_0$ differs across elasticities, while the initial capital--output ratio and interest rate are common. With $A_0=N_0=1$ and the common $B_0$, the four capital stocks are approximately $3.434$, $4.649$, $5.037$, and $5.505$. These are calibrated alternative economies, not different outcomes of introducing AI into one economy with the same capital stock. The ratio is a theoretical BGP reference, not an exact empirical fit: the PWT 11.0 comparison yields a 2023 current-price capital--output ratio of about $3.61$ for the covered world sample and $3.42$ for the United States, with capital definitions that differ from the one-good model \citep{pwt110}.
+
+\input{sections_rewrite/rsi_parameters}
+
+
+%Before activation, consumption satisfies
+%\begin{equation}
+% C(0^-)=Y_0-U_0-(\delta+n+\gamma)K_0>0.
+% \label{eq:rewrite-rsi-pre-consumption}
+%\end{equation}
+%Only $K_0$ and $B_0$, together with the exogenous $A_0,N_0$, are inherited by the post-event equilibrium. The BVP selects $C(0^+)$ and $q(0^+)$ anew. 
+%The pre-event BGP requires an unanticipated activation: announcing RSI earlier would generally change saving and consumption before date zero, as in the technology-news mechanisms reviewed by \citet{beaudryportier2014}.
+
+%Unlike the scenario in \citet{jonestonetti2026}, where endogenous automation is already underway, this exercise studies an unanticipated activation of RSI and so subsequent AI-efficiency improvements are endogenous. However, the exercise omits the costs of expanding compute capacity as in \citep{erdiletal2025gate} and the complementary intangible investment studied by \citet{brynjolfssonrocksyverson2021}. Those mechanisms can delay adjustment or measured productivity gains. 
+
+Appendix~\ref{app:rewrite-algorithm}
+describes the algorithm used to find the equilibrium and presents the links to replication files.

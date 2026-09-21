@@ -1,0 +1,330 @@
+\Needspace{7\baselineskip}
+\begin{proof}[Proof of Proposition~\ref{prop:rewrite-uncapped-complements-bounds}]
+\phantomsection
+\label{proof:rewrite-uncapped-complements-bounds}
+Equations~\eqref{eq:rewrite-uncapped-complements-z-bound}
+and~\eqref{eq:rewrite-uncapped-complements-y-bound} follow because
+$\sigma/(\sigma-1)<0$. Define $k=K/(AL)$. The resource constraint
+\eqref{eq:rewrite-eq-kdot}, nonnegative consumption and compute expenditure,
+and $L=N$ imply
+\begin{equation}
+ \dot k\leq
+ \omega_L^{\sigma(1-\alpha)/(\sigma-1)}k^\alpha
+ -(\delta+n+\gamma)k.
+ \label{eq:rewrite-uncapped-complements-k-bound}
+\end{equation}
+Since $\delta+n+\gamma>0$ and $0<\alpha<1$, the right-hand side is
+negative above a finite positive level. In particular,
+\[
+ k_t\leq
+ \max\left\{k_0,
+ \left[\frac{\omega_L^{\sigma(1-\alpha)/(\sigma-1)}}
+ {\delta+n+\gamma}\right]^{1/(1-\alpha)}\right\}.
+\]
+Equation~\eqref{eq:rewrite-uncapped-complements-y-bound} then bounds
+$Y/(AL)$ uniformly. Since $A_t=A_0e^{\gamma t}$ and $L=N$,
+$Y/N$ is bounded above by a constant times $e^{\gamma t}$.
+Taking logarithms, dividing by $t$, and taking the upper limit gives
+\eqref{eq:rewrite-uncapped-complements-growth-bound}.
+\end{proof}
+
+% Additional results retained for possible later use; not part of the proposition.
+% The same bounds keep $K$ and $Y$ finite on every bounded time interval.
+% For any such horizon $T$, integrating the resource constraint gives
+% \[
+%  \int_0^T M_t\dd t\leq K_0+\int_0^T Y_t\dd t<\infty.
+% \]
+% The uncapped RSI technology and H\"older's inequality imply
+% \begin{align}
+%  B_T^{1-\eta}
+%  &=B_0^{1-\eta}+(1-\eta)\chi\int_0^T M_t^\eta\dd t
+%  \nonumber\\
+%  &\leq B_0^{1-\eta}
+%  +(1-\eta)\chi T^{1-\eta}
+%  \left(\int_0^T M_t\dd t\right)^\eta<\infty.
+%  \label{eq:rewrite-uncapped-complements-b-bound}
+% \end{align}
+% Thus $B$ cannot diverge at a finite date either. This argument bounds
+% stocks and output; it is not a regularity theorem for all instantaneous
+% control choices or an equilibrium-existence proof.
+%
+% There is also no finite-horizon unbounded-payoff argument of the kind used
+% for substitution in Proposition~\ref{prop:rewrite-research-scale}.
+% At given positive continuous paths of $K,A,L$ on $[0,T]$, optimized operating
+% profit satisfies
+% \[
+%  0\leq\pi_t(B)\leq p_XX\leq(1-\alpha)Y
+%  \leq(1-\alpha)\omega_L^{\sigma(1-\alpha)/(\sigma-1)}
+%  K_t^\alpha(A_tL_t)^{1-\alpha}.
+% \]
+% This upper bound is independent of the developer's choice of $B$.
+% For a given locally integrable $r$, the discount factor
+% $D_t=\exp(-\int_0^t r_s\dd s)$ has a positive minimum on $[0,T]$.
+% Discounted operating revenue is bounded, whereas the cost of research
+% tends to infinity with $\int_0^T M_t\dd t$. The developer's truncated
+% supremum is therefore finite, and net payoff tends to minus infinity as
+% total research expenditure diverges. This conclusion holds for every
+% $0<\eta<1$, but does not prove that an infinite-horizon optimum exists.
+
+\Needspace{7\baselineskip}
+\begin{proof}[Proof of Proposition~\ref{cond:rewrite-uncapped-complements-limits}]
+\phantomsection
+\label{proof:rewrite-uncapped-complements-limits}
+All auxiliary variables below are confined to this proof. Write
+$x=X/(AL)$, $k=K/(AL)$, $c=C/(AL)$, $y=Y/(AL)$, $u=U/(AL)$,
+$m=M/(AL)$, $d=\rho-n>0$, and $\nu=\delta+n+\gamma$.
+No convergence of a growth rate or allocation ratio is assumed.
+
+\textit{Step 1. Static optimality gives a limiting production function.}
+Put $\varphi=(\sigma-1)/\sigma<0$ and
+$f(x)=[\omega_L+\omega_Xx^\varphi]^{(1-\alpha)/\varphi}$, so $y=k^\alpha f(x)$.
+The monopoly condition~\eqref{eq:rewrite-monopoly-foc} requires
+$e_X=(1-s_X)/\sigma+\alpha s_X<1$. Thus
+\begin{align}
+ s_X>s_\infty&:=\frac{1-\sigma}{1-\alpha\sigma},&
+ 0<x<x_\infty&:=
+ \left[\frac{\omega_Ls_\infty}{\omega_X(1-s_\infty)}\right]^{1/\varphi}.
+ \label{eq:rewrite-uncapped-complements-x-limit}
+\end{align}
+Define $f_\infty=f(x_\infty)>0$.
+In particular, $y\leq f_\infty k^\alpha$ and $0<u\leq x_\infty/B$.
+
+The static condition can be written
+\[
+ k^\alpha v(x)=1/B,\qquad
+ v(x)=\frac{(1-\alpha)s_Xf(x)(1-e_X)}x.
+\]
+On $(0,x_\infty)$, $v$ is strictly decreasing, from infinity to zero.
+Indeed, with a prime here denoting differentiation with respect to $\log x$,
+$e_X'=(\alpha-\sigma^{-1})\varphi s_X(1-s_X)>0$ and
+$-\mathrm d\log v/\mathrm d\log x=e_X+e_X'/(1-e_X)>\alpha s_X$.
+Consequently $x$ increases with $B$ and $k$, while
+\[
+ \frac{\partial\log y}{\partial\log k}
+ =\alpha+\frac{\alpha(1-\alpha)s_X}{e_X+e_X'/(1-e_X)}<1.
+\]
+Thus $y/k$ decreases with $k$ and increases with $B$.
+For $k$ in any compact interval bounded away from zero, as $B\to\infty$,
+\[
+ x\to x_\infty,\qquad y\to f_\infty k^\alpha,\qquad u\to0
+\]
+uniformly. These are properties of the static map, not assumptions about
+the equilibrium path. They also imply that, for any prescribed finite
+return, sufficiently small $k$ and sufficiently large $B$ make $r$ exceed
+that return, uniformly over those small values of $k$.
+
+\textit{Step 2. Household and developer optimality bound consumption.}
+Proposition~\ref{prop:rewrite-uncapped-complements-bounds} bounds $k$ and
+$y$ above by finite constants $k_{\max},y_{\max}$.
+Euler and $r\geq-\delta$ give $\dot c/c\geq-(\delta+\rho+\gamma)$.
+Integrating the resource constraint over $[t,t+1]$ therefore gives
+\[
+ c_t\int_0^1 e^{-(\delta+\rho+\gamma)v}\dd v
+ \leq\int_t^{t+1}c_s\dd s\leq k_{\max}+y_{\max}.
+\]
+Hence $c$ has a finite uniform upper bound $c_{\max}$.
+
+Write $D_{t,s}=\exp(-\int_t^s r_v\dd v)$.
+Euler implies $\int_t^\infty D_{t,s}C_s\dd s=C_t/d$.
+Integrating the household budget~\eqref{eq:rewrite-household-budget}
+and using its TVC~\eqref{eq:rewrite-household-tvc} shows that
+the discounted sum of wages and distributions has a finite limit.
+Since wages are nonnegative, the discounted distributions alone have
+a limit that is either finite or minus infinity. The latter is impossible:
+the developer can stop research and obtain nonnegative operating profits.
+By continuation optimality, its remaining value
+$V_t=\int_t^\infty D_{t,s}\Pi_s\dd s$ is therefore finite and nonnegative.
+It follows that
+\begin{equation}
+ \frac{C_t}{d}
+ =K_t+V_t+\int_t^\infty D_{t,s}w_sL_s\dd s,\qquad
+ c_t\geq dk_t,\qquad
+ \int_t^\infty D_{t,s}w_sL_s\dd s\leq\frac{C_t}{d}.
+ \label{eq:rewrite-complements-household-wealth-bound}
+\end{equation}
+Here $V_t$ is an auxiliary continuation value, not an additional traded
+asset or a change to the household budget.
+
+\textit{Step 3. Future research spending is small before taking growth limits.}
+Fix a positive rate $a$. Step 1 permits a small $k_a>0$ and a sufficiently
+late date such that $r-(n+\gamma)\geq a$ whenever $k\leq k_a$.
+On $[k_a,k_{\max}]$, the wage equation~\eqref{eq:rewrite-wage} and the
+static map give a uniform positive lower bound $\ell_a$ on $w/A$.
+Since $r\geq-\delta$, there is a finite constant $H_a>0$ such that
+\[
+ a\leq r-(n+\gamma)+H_a w/A
+\]
+at every sufficiently late date. Multiplication by $D_{t,s}A_sL_s$,
+integration, and~\eqref{eq:rewrite-complements-household-wealth-bound} give
+\begin{equation}
+ \int_t^\infty D_{t,s}A_sL_s\dd s
+ \leq\frac{A_tL_t+H_aC_t/d}{a}
+ \leq J A_tL_t
+ \label{eq:rewrite-complements-effective-labor-pv-bound}
+\end{equation}
+for a fixed finite $J$. The omitted terminal term is nonpositive;
+no discount-rate limit is used.
+
+The research condition~\eqref{eq:rewrite-research-foc} and costate
+equation~\eqref{eq:rewrite-costate} imply
+\begin{equation}
+ \frac{\mathrm d(qB)}{\mathrm dt}
+ =rqB-U+\frac{1-\eta}{\eta}M.
+ \label{eq:rewrite-complements-shadow-stock}
+\end{equation}
+Since $B$ is nondecreasing, $U_s\leq x_\infty A_sL_s/B_t$ for $s\geq t$.
+Integrating~\eqref{eq:rewrite-complements-shadow-stock} first over finite
+intervals and then using the developer TVC~\eqref{eq:rewrite-developer-tvc} gives
+\begin{equation}
+ q_tB_t+\frac{1-\eta}{\eta}
+       \int_t^\infty D_{t,s}M_s\dd s
+ =\int_t^\infty D_{t,s}U_s\dd s
+ \leq\frac{x_\infty J}{B_t}A_tL_t.
+ \label{eq:rewrite-complements-research-pv-bound}
+\end{equation}
+The right side is finite by~\eqref{eq:rewrite-complements-effective-labor-pv-bound};
+nonnegativity then ensures that the research integral is finite as well.
+Its value divided by $A_tL_t$ tends to zero. This argument requires
+$0<\eta<1$, but neither $\eta\leq1/2$ nor $\eta<\alpha$.
+
+\textit{Step 4. Capital cannot repeatedly approach zero.}
+Let $F(k)=f_\infty k^\alpha-\nu k$.
+Choose $\varepsilon>0$ small enough that $F$ is positive and increasing on
+$(0,\varepsilon]$. Step 1 also permits a sufficiently late date and
+$a>0$ such that $\dot c/c=r-\rho-\gamma\geq a$ whenever $k\leq\varepsilon$.
+For any $j\leq\varepsilon$, a feasible path cannot enter
+$\{k\leq j,\ c\geq F(j)\}$: there $\dot k\leq F(k)-c\leq0$,
+whereas $c$ continues to grow at least at rate $a$, contradicting its upper bound.
+
+If $k$ stayed below $\varepsilon$ forever, consumption would likewise
+exceed its upper bound. Hence the path eventually reaches $\varepsilon$.
+Suppose arbitrarily late crossings from $\varepsilon$ to $\varepsilon/2$
+were possible. Let $t_0$ be the last crossing of $\varepsilon$ before the
+first subsequent crossing $t_1$ of $\varepsilon/2$.
+Throughout this interval $k\in[\varepsilon/2,\varepsilon]$ and $c$ increases.
+Equation~\eqref{eq:rewrite-complements-household-wealth-bound} gives
+$c_{t_0}\geq d\varepsilon$, so
+\[
+ t_1-t_0\leq T_\varepsilon
+ :=a^{-1}\log\!\left(\frac{c_{\max}}{d\varepsilon}\right)<\infty.
+\]
+At $t_1$, feasibility requires $c_{t_1}<F(\varepsilon/2)$ by the preceding
+invariant-region argument. Thus $c_s<F(\varepsilon/2)$ throughout the crossing.
+Uniform static convergence on the crossing interval yields numbers
+$\epsilon_{t_0}\to0$ such that
+\[
+ \dot k_s
+ =y_s-u_s-\nu k_s-c_s-m_s
+ \geq-\epsilon_{t_0}-m_s.
+\]
+On this interval $r$ is bounded above by a fixed positive $R_\varepsilon$.
+Since $n+\gamma>0$, equation~\eqref{eq:rewrite-complements-research-pv-bound}
+then implies
+\[
+ \frac{\varepsilon}{2}
+ \leq T_\varepsilon\epsilon_{t_0}+\int_{t_0}^{t_1}m_s\dd s
+ \leq T_\varepsilon\epsilon_{t_0}
+ +e^{R_\varepsilon T_\varepsilon}
+   \frac{\eta x_\infty J}{(1-\eta)B_{t_0}}
+ \longrightarrow0,
+\]
+a contradiction. Therefore $k$ is eventually bounded away from zero,
+and so is $c\geq dk$. In particular, $r$ is now bounded above.
+
+\textit{Step 5. Research vanishes pointwise and Ramsey dynamics determine the limit.}
+Differentiating the research condition and using the costate equation gives
+\begin{equation}
+ (1-\eta)g_M
+ =r-\frac{\eta\chi UB^{\eta-1}}{M^{1-\eta}}\leq r.
+ \label{eq:rewrite-complements-research-growth-bound}
+\end{equation}
+Choose a positive $R$ above all eventual values of $r$ and put $H=R/(1-\eta)$.
+Then $M_s\geq M_t e^{-H(t-s)}$ on $[t-1,t]$ at sufficiently late dates.
+Consequently
+\[
+ \frac1{A_{t-1}L_{t-1}}
+ \int_{t-1}^t D_{t-1,s}M_s\dd s
+ \geq e^{n+\gamma-R-H}m_t.
+\]
+The left side tends to zero by~\eqref{eq:rewrite-complements-research-pv-bound}.
+Hence $m\to0$, and Step 1 already gives $u\to0$.
+
+The normalized equilibrium equations therefore approach, uniformly on
+the compact positive region containing the path, the Ramsey system
+\begin{equation}
+ \dot k=F(k)-c,\qquad
+ \dot c=c\,[\alpha f_\infty k^{\alpha-1}-\delta-\rho-\gamma].
+ \label{eq:rewrite-complements-limiting-ramsey}
+\end{equation}
+For clarity, the following argument verifies convergence rather than
+inferring it solely from convergence of the equations.
+This limiting system has one positive stationary point,
+\[
+ k_\infty=
+ \left[\frac{\alpha f_\infty}{\rho+\gamma+\delta}\right]^{1/(1-\alpha)},
+ \qquad c_\infty=F(k_\infty)>0.
+\]
+Its Jacobian has negative determinant, so it is a saddle.
+The standard Ramsey phase portrait is discussed by \citet{groth2013ramsey}.
+There is no nonconstant complete orbit confined to a compact subset of
+the positive quadrant. To see this, the multiplier $1/c^2$ gives
+\[
+ \frac{\partial}{\partial k}\frac{F(k)-c}{c^2}
+ +\frac{\partial}{\partial c}
+   \frac{\alpha f_\infty k^{\alpha-1}-\delta-\rho-\gamma}{c}
+ =\frac{\rho-n}{c^2}>0.
+\]
+The Bendixson--Dulac argument excludes both periodic orbits and homoclinic
+loops. The planar limit-set theorem, the unique stationary point, and its
+saddle character then exclude a nonconstant complete orbit confined to
+such a compact set: its forward and backward limits would otherwise
+require a periodic orbit or a connection back to that same saddle.
+
+For any sequence of dates tending to infinity, time translations of our
+bounded positive path have a subsequence converging on every bounded
+time interval to a complete orbit of
+\eqref{eq:rewrite-complements-limiting-ramsey}. This follows from bounded
+derivatives, uniform convergence of the vector fields, and the integral
+form of the differential equations. The preceding paragraph forces that
+orbit to be the stationary point. Thus every accumulation point is
+$(k_\infty,c_\infty)$, proving convergence of the original path.
+
+It follows that $y\to y_\infty=f_\infty k_\infty^\alpha>0$ and
+\begin{equation}
+ r\to\rho+\gamma,\qquad
+ \frac KY\to\frac{\alpha}{\rho+\gamma+\delta},\qquad
+ \frac CY\to1-\frac{\alpha(\delta+n+\gamma)}{\rho+\gamma+\delta}>0.
+ \label{eq:rewrite-complements-euler-limit}
+\end{equation}
+Positivity follows because the numerator of the final expression is
+$\rho-n+(1-\alpha)(\delta+n+\gamma)>0$.
+This proves~\eqref{eq:rewrite-uncapped-complements-allocation-ratios}.
+Since $u,m\to0$ and $y\to y_\infty>0$, it follows that
+$U/Y=u/y\to0$ and $M/Y=m/y\to0$, proving
+\eqref{eq:rewrite-uncapped-complements-compute-shares}.
+It also gives $\dot k\to0$ and $g_C\to n+\gamma$.
+
+\textit{Step 6. Output and wage growth converge as well.}
+A convergent level need not have a convergent derivative.
+The bound on $g_M$ from Step 5 and the RSI technology give
+\[
+ B_t^{1-\eta}
+ \geq(1-\eta)\chi M_t^\eta\int_0^1e^{-\eta H v}\dd v.
+\]
+Thus $g_B=\chi M^\eta/B^{1-\eta}$ is bounded above.
+At $x_\infty$, the marginal-revenue function $v$ defined in Step 1 has
+a simple zero: $v(x_\infty)=0$ and $v'(x_\infty)<0$, where the prime
+now denotes differentiation with respect to $x$.
+Differentiating $k^\alpha v(x)=1/B$ yields
+\[
+ \dot x=-\frac{v(x)}{v'(x)}
+ \left(g_B+\alpha\frac{\dot k}{k}\right)\longrightarrow0.
+\]
+Hence $\dot y\to0$ and $\dot s_X\to0$.
+Since $y_\infty>0$ and $1-s_\infty>0$, $g_{Y/N}\to\gamma$ and,
+by~\eqref{eq:rewrite-wage}, $g_w\to\gamma$.
+The limiting income shares follow by substituting $s_\infty$ into
+\eqref{eq:rewrite-wage} and~\eqref{eq:rewrite-ai-price}.
+The result is conditional on equilibrium existence and $B\to\infty$,
+not an equilibrium-existence theorem or an assumption of balanced growth.
+\end{proof}

@@ -1,0 +1,54 @@
+\section{Introduction}
+\label{sec:rewrite-introduction}
+
+Advances in artificial intelligence raise both hopes and fears. One hope is that increasingly capable AI could generate unprecedented economic prosperity, with workers benefiting from higher wages. One fear is that the AI industry could capture a growing share of that prosperity while workers who depend on labor income receive a declining share. In this paper, I show how both outcomes can coexist: when AI and labor are substitutes, AI can permanently raise wage growth. Yet in the long run, output per worker grows even faster than wages, while AI-industry profits grow faster than total labor income. Labor’s income share therefore converges to zero.
+
+To show this, I extend the Ramsey--Cass--Koopmans model to include AI as an additional input in the production function. Competitive firms produce the final good with capital, effective labor, and AI production services. A monopolistic AI developer supplies these services and invests in recursive AI self-improvement (RSI) to improve AI efficiency. As in \citet{romer1990}, expected monopoly profits provide incentives for research investment. %Together, the elasticity of substitution between AI production services and labor and the maximum attainable level of AI efficiency determine whether human labor remains a long-run production bottleneck or whether AI accelerates economic growth.
+By introducing a monopolistic AI developer, I can distinguish how the gains from AI are distributed through wages, returns to physical capital, and AI-industry profits. 
+
+%This fear, however, does not require real wages to decline: workers may receive a smaller share of a much larger economy even as their wages rise. Can unprecedented prosperity coexist with a vanishing labor income share? Under what conditions could the world economy follow such a path? How long could it take before the transition became visible, and what economic signals would reveal it? What would happen to wages and labor's income share along the way?
+
+%This question is becoming more pressing as AI increasingly contributes to its own development. Recursive self-improvement (RSI) is a feedback process in which better AI helps develop still better AI. OpenAI \citep{openairesearchacceleration2026} and Anthropic \citep{favaroclark2026} report that AI systems already accelerate parts of their research. OpenAI's chief scientist already stated that the pace of progress ``could be sustained into recursive self-improvement'' \citep{pachocki2026}. Anthropic nevertheless cautions that, regarding AI systems that autonomously design and develop their successors, ``We are not there yet'' \citep{favaroclark2026}. These reports motivate studying the economic consequences of autonomous AI research without assuming when it will become possible.
+
+
+The model combines two feedback loops related to those in \citet{davidsonetal2026} and \citet{jonestonetti2026}. A technological loop operates through RSI: greater AI efficiency produces more AI research services from a given amount of research compute and thereby helps create still better AI. An economic loop runs from AI efficiency to output and back to research: greater AI efficiency raises production and expands the resources available to fund research compute. With substitution and sufficiently strong research returns, the developer's discounted net profit can become unbounded if AI efficiency is unrestricted. To rule this out, I first study an economy with a finite upper bound on AI efficiency and examine how equilibria change as the bound rises.
+
+The feedback mechanisms in \citet{davidsonetal2026} and
+\citet{jonestonetti2026} generate endogenous technological progress,
+but their analyses of aggregate growth take saving rates and research
+allocation shares as given. \citet{erdiletal2025gate} instead let a
+social planner choose investment and compute allocation.
+\citet{restrepo2025agi} studies competitive production and, in an extension,
+lets a planner allocate compute between production and research, taking
+the growth of total compute as given. I study a
+decentralized economy in which the household chooses saving to maximize
+utility, competitive final-good firms choose their inputs to maximize
+profit, and the AI developer chooses research spending to maximize
+discounted net profit. These decisions are coordinated through market
+prices.
+
+%A related feedback appears in \citet{jonestonetti2026}: automation expands the resources available for research, and new ideas enable further automation. Innovation is endogenous in their model, but research and capital investment absorb fixed shares of output. Here, the developer chooses research spending to maximize discounted net profit, determining the pace of AI improvement jointly with household saving and capital accumulation. Research compute, however, competes with the inference compute used in final-good production. %Household saving, capital accumulation, the allocation of compute between inference and research, and the developer's investment on AI efficiency improvement are determined jointly by the agent's decisions and the market clearing conditions.
+
+Together, the elasticity of substitution between AI production services and labor and the maximum attainable level of AI efficiency determine whether human labor remains a long-run production bottleneck or whether AI accelerates economic growth. I focus on two long-run equilibrium regimes, distinguished by whether AI produces a temporary or permanent increase in growth. In the labor-bottleneck regime, AI improvements can raise growth temporarily, but human labor ultimately constrains production. In the AI-dominated regime, capital and AI services sustain permanently faster growth.
+
+I first characterize equilibria in which labor remains a long-run production bottleneck. Under complementarity, I establish their existence when the upper bound on AI efficiency exceeds an elasticity-dependent threshold. At unit elasticity, any finite upper bound suffices. With substitution, such equilibria exist when the upper bound lies below the corresponding threshold. Along these equilibria, output per worker and wages eventually grow at the exogenous rate of labor-augmenting technological progress, and labor's income share converges to a positive value. A related mechanism appears in \citet{aghionjonesjones2019} and \citet{jonestonetti2026}, where tasks that remain dependent on human labor can constrain growth despite automation elsewhere.
+
+The outcome changes when the elasticity of substitution between AI production services and labor exceeds one and the maximum attainable level of AI efficiency lies above the threshold. An AI-dominated long-run regime then becomes possible. As in \citet{jonesmanuelli1990}, capital accumulation can sustain growth when its limiting return remains sufficiently high. In this regime, capital and effective AI production services eventually grow faster than effective labor. The long-run growth rates of output per worker and the wage, as well as the interest rate, exceed their labor-bottleneck values. Because output per person grows faster than wages, labor's income share converges to zero. %Within the AI-dominated regime, long-run growth and the interest rate increase with the maximum attainable level of AI efficiency.
+In other words, workers therefore receive higher wages, but these wages do not keep pace with the economy as a whole, including the monopolist's profits.
+Rising wages alongside a declining labor share also appear in
+\citet{acemoglurestrepo2018}; \citet{raymookherjee2022} show that
+labor's share can vanish while wages continue to rise. I characterize
+these outcomes under private investment in RSI.
+
+%\Needspace{3\baselineskip}
+%The distinction between regimes concerns the persistence of growth, not whether AI produces economic gains. An economy can benefit from more efficient AI and sustain a profitable AI industry without permanently increasing output-per-worker growth. In the AI-dominated regime, a permanent increase in output growth translates into wage growth: the wage-growth premium above the exogenous rate of labour-augmenting technological progress equals the output-per-worker growth premium divided by the elasticity of substitution. Workers therefore receive higher real wages, but these wages do not keep pace with the economy as a whole.
+
+I also examine the effect of removing the upper bound on AI efficiency. With complementarity, long-run output-per-worker growth cannot exceed the exogenous rate of labor-augmenting technological progress. At unit elasticity, I derive conditions for a balanced-growth equilibrium in which output per worker grows faster than this exogenous rate. Wages grow at the same rate as output per worker, preserving a constant labor income share. With substitution and sufficiently strong research returns, the developer can make discounted net profit arbitrarily large even over a fixed finite horizon. This rules out an equilibrium with a finite-valued developer optimum.
+
+I simulate an unanticipated activation of RSI in economies that already use AI services. The numerical simulations show that research productivity affects both the speed of the transition and the allocation of resources along the transition. Higher research productivity induces greater initial research expenditure and a larger reduction in capital accumulation, even as consumption rises. Current developer profits fall more sharply because more revenue is devoted to research. Lower research productivity produces a milder initial adjustment, and economies approaching different long-run regimes can initially display similar growth. %Early aggregate growth therefore provide incomplete information about the economy's eventual trajectory.
+Similar early growth despite sharply different long-run outcomes also
+appears in \citet{jonestonetti2026}. Here, the transition reflects
+private RSI investment and capital accumulation rather than the
+progressive automation of additional tasks.
+
+This paper has six sections, including the present introduction. Section~\ref{sec:rewrite-model} presents the model and defines equilibrium. Section~\ref{sec:rewrite-regimes} establishes sufficient conditions for equilibrium with a finite upper bound on AI efficiency and characterizes the associated long-run growth and distributional outcomes. Section~\ref{sec:rewrite-uncapped} examines the three substitution regimes without an upper bound on AI efficiency. Section~\ref{sec:rewrite-quantitative} presents numerical simulations. Section~\ref{sec:rewrite-conclusion} concludes. The appendix contains the proofs and describes the algorithm used for the simulations.

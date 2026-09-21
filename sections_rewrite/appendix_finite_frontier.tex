@@ -1,0 +1,606 @@
+\Needspace{4\baselineskip}
+\phantomsection
+\label{app:rewrite-finite-existence}
+\label{proof:rewrite-equilibrium-regimes}
+\begin{proof}[Proof of Proposition~\ref{prop:rewrite-equilibrium-regimes}]
+
+The proof has three tasks. First, Lemma~\ref{lem:rewrite-monopoly-choice}
+gives a unique, smooth, globally optimal within-date service choice at given
+states. I combine this choice with the other equilibrium equations to
+identify candidate long-run values and verify their admissibility, including
+positive consumption. Finding these values does not yet establish the
+existence of a trajectory approaching them.
+
+Second, I write the exact dynamic equations in coordinates with finite
+candidate limits. The linearization identifies the stable directions; I
+also check that they can accommodate every sufficiently nearby initial
+state. Counting stable directions alone would not establish this property.
+The stable-manifold and inverse-function theorems then select the initial
+consumption and shadow price for those states. They establish convergent
+solutions of the nonlinear equations for all future time, not merely
+solutions of their linear approximation.
+
+Third, I reconstruct the original variables and verify feasibility,
+market clearing, and both transversality conditions. Household concavity
+and Lemma~\ref{lem:rewrite-developer-verification} establish optimality.
+For the developer, I verify the required curvature throughout the domain
+of alternative research policies reachable from the initial efficiency.
+The upper bound makes this possible for initial efficiency sufficiently
+close to it. These final checks turn the constructed solutions of the
+first-order conditions into equilibria. The result is local in initial
+states, not in the time horizon.
+
+\par\medskip\noindent\textit{Step 1. Feasible efficiency and candidate long-run values.}
+
+Let \(D=\overline B-B\). The state equation with a finite upper bound gives
+\[
+ \frac{\dot D}{D}=-\frac{\chi}{\overline B}(BM)^\eta.
+\]
+Integration gives
+\begin{equation}
+ \overline B-B_t=(\overline B-B_0)
+ \exp\left\{-\frac{\chi}{\overline B}
+ \int_0^t(B_sM_s)^\eta\dd s\right\}>0.
+ \label{eq:rewrite-cap-gap}
+\end{equation}
+Local integrability makes the exponent finite at every finite date, so
+\(D_t>0\).
+
+For the candidate limits, impose $B=\overline B$ only in the normalized
+boundary equations. Actual trajectories will satisfy $B<\overline B$
+at every finite date.
+
+
+Write $\theta=(1-\alpha)/\alpha$. For $\sigma\ne1$, let
+$\varphi=(\sigma-1)/\sigma$ and define
+\[
+ m(s)=1-\frac{1-s}{\sigma}-\alpha s,\qquad
+ \mathcal H_\sigma(s)=
+ \left[(1-\alpha)s\,m(s)
+       \left(\frac{\omega_X}{s}\right)^{1/\varphi}\right]^\theta.
+\]
+Here $m(s)=1-e_X$ is the marginal-revenue factor, not research compute.
+The static monopoly optimum has $m(s_X)>0$ by
+Lemma~\ref{lem:rewrite-monopoly-choice}. The CES share, monopoly condition,
+and production function, equations~\eqref{eq:rewrite-eq-sx},
+\eqref{eq:rewrite-eq-monopoly}, and \eqref{eq:rewrite-eq-y}, imply
+\begin{align}
+ \frac{X}{AN}
+ &=\left[\frac{\omega_Ls_X}{\omega_X(1-s_X)}\right]^{1/\varphi},
+ &
+ \frac{U}{Y}&=(1-\alpha)s_Xm(s_X), \label{eq:rewrite-frontier-static-shares}\\
+ \frac{Y}{K}&=B^\theta\mathcal H_\sigma(s_X).
+ \label{eq:rewrite-frontier-share-map}
+\end{align}
+For example, $Z=X(\omega_X/s_X)^{1/\varphi}$ and
+$X=B(1-\alpha)s_Xm(s_X)Y$ give the last identity directly.
+
+If $0<\sigma<1$, positive marginal revenue requires
+\[
+ s>s_{\min}\equiv\frac{1-\sigma}{1-\alpha\sigma}.
+\]
+On $(s_{\min},1)$, both $m(s)$ and $s^{-1/(\sigma-1)}$ increase strictly.
+Since
+\[
+ \mathcal H_\sigma(s)^{1/\theta}
+ =(1-\alpha)\omega_X^{1/\varphi}
+ m(s)s^{-1/(\sigma-1)},
+\]
+the share map increases from zero to
+$\mathcal H_\sigma(1)=[(1-\alpha)^2\omega_X^{1/\varphi}]^\theta$.
+Thus the equation
+\begin{equation}
+ \frac{\rho+\gamma+\delta}{\alpha}
+ =\overline B^\theta\mathcal H_\sigma(\overline s_X)
+ \label{eq:rewrite-terminal-share-root}
+\end{equation}
+has exactly one interior solution if and only if
+$\overline B>\mathcal B(\sigma)$.
+
+If $\sigma>1$, the share map decreases strictly on $(0,1)$.
+To verify the sign, put $a=\sigma^{-1}-\alpha$, so $m(s)=\varphi+as$.
+Its logarithmic derivative has the sign of $a(\sigma-2)s-\varphi$.
+If $a(\sigma-2)\leq0$ this is negative. If $\sigma>2$ and $a>0$,
+$a(\sigma-2)<(\sigma-2)/\sigma<\varphi$; if $1<\sigma<2$ and $a<0$,
+$a(\sigma-2)<(1-\sigma^{-1})(2-\sigma)<\varphi$.
+The map therefore decreases from infinity to $\mathcal H_\sigma(1)$.
+Equation~\eqref{eq:rewrite-terminal-share-root} has exactly one interior
+solution if and only if $\overline B<\mathcal B(\sigma)$.
+Since $\mathcal R(B)=\alpha B^\theta\mathcal H_\sigma(1)-\delta$,
+these calculations also derive
+\eqref{eq:rewrite-ai-terminal-ratio}--\eqref{eq:rewrite-critical-frontier}.
+The interior-share condition is therefore
+$\mathcal R(\overline B)>\rho+\gamma$ for $\sigma<1$, but
+$\mathcal R(\overline B)<\rho+\gamma$ for $\sigma>1$.
+
+\Needspace{4\baselineskip}
+For either interior-share case, let $x,y,u,k,c$ denote $X,Y,U,K,C$ divided
+by $AN$, respectively. Construct the normalized terminal values sequentially:
+\begin{align}
+ \overline x&=
+ \left[\frac{\omega_L\overline s_X}
+ {\omega_X(1-\overline s_X)}\right]^{1/\varphi},
+ &\overline u&=\frac{\overline x}{\overline B},\nonumber\\
+ \overline y&=
+ \frac{\overline u}{(1-\alpha)\overline s_Xm(\overline s_X)},
+ &\overline k&=\frac{\alpha\overline y}{\rho+\gamma+\delta},\nonumber\\
+ \overline c&=\overline y-\overline u
+       -(\delta+n+\gamma)\overline k,
+ &\overline r&=\rho+\gamma.
+ \label{eq:rewrite-labor-terminal-values}
+\end{align}
+At $\sigma=1$, define $\beta=(1-\alpha)\omega_X$.
+The exact static solution is
+\[
+ y=\left[(\beta^2B)^\beta k^\alpha\right]^{1/(1-\beta)},
+ \qquad u=\beta^2y,\qquad x=Bu.
+\]
+The equation $y/k=(\rho+\gamma+\delta)/\alpha$ has exactly one positive
+solution for every finite $\overline B>0$:
+\begin{equation}
+ \overline k=
+ \left[(\beta^2\overline B)^\beta
+ \left(\frac{\rho+\gamma+\delta}{\alpha}\right)^{\beta-1}
+ \right]^{1/(1-\alpha-\beta)}.
+ \label{eq:rewrite-unit-terminal-capital}
+\end{equation}
+Set
+$\overline y=[(\rho+\gamma+\delta)/\alpha]\overline k$,
+$\overline u=\beta^2\overline y$,
+and $\overline x=\overline B\,\overline u$, with $\overline c,\overline r$
+as in \eqref{eq:rewrite-labor-terminal-values}.
+
+Consumption positivity does not require an additional restriction.
+Positive marginal revenue implies $0<m(\overline s_X)<1$.
+Since $0<\overline s_X<1$, in all three cases
+\[
+ \frac{\overline u}{\overline y}
+ =(1-\alpha)\overline s_Xm(\overline s_X)<1-\alpha,\qquad
+ \frac{(\delta+n+\gamma)\overline k}{\overline y}
+ =\frac{\alpha(\delta+n+\gamma)}{\rho+\gamma+\delta}<\alpha.
+\]
+It follows that $\overline c/\overline y>0$.
+
+\par\medskip\noindent\textit{Step 2. The three positive-labor-share cases.}
+
+The cases in Proposition~\ref{prop:rewrite-capped-complements-existence},
+\ref{prop:rewrite-capped-unit-existence}, and
+\ref{prop:rewrite-capped-substitutes-labor-existence} share one
+normalization. Divide capital, consumption, and the AI-efficiency shadow
+price by effective labor, and multiply the remaining efficiency gap by
+effective labor:
+\begin{equation}
+ k=\frac K{AN},\quad c=\frac C{AN},\quad
+ d=(\overline B-B)AN,\quad \widetilde q=\frac q{AN},
+ \quad \tau=(AN)^{-1}.
+ \label{eq:rewrite-labor-proof-coordinates}
+\end{equation}
+Dividing by $AN$ removes effective-labor growth. Multiplying the shrinking
+gap by $AN$ allows it to converge to a positive value:
+$\dot d/d=n+\gamma-\dot B/(\overline B-B)$.
+The variable $d$ measures the scaled gap, not its rate of closure.
+The constants $\overline k,\overline d$ are the limiting values of $k,d$;
+they are determined by the model, not additional parameters.
+Also $\dot\tau=-(n+\gamma)\tau$, so $\tau\to0$.
+These coordinates leave the model unchanged: $K=k/\tau$ and
+$B=\overline B-d\tau$ at every finite date.
+
+Given $k,B$, solve the unique static monopoly
+problem for $y,x,u$, and set $r=\alpha y/k-\delta$.
+Define $a=\dot B/(\overline B-B)$, the proportional rate of closure of the
+AI-efficiency gap. The research condition gives
+\[
+ B=\overline B-d\tau,\qquad
+ M=\left[\widetilde qd\,\chi\eta\frac{B^\eta}{\overline B}
+       \right]^{1/(1-\eta)},\qquad
+ a=\chi\frac{B^\eta M^\eta}{\overline B}.
+\]
+Substituting \eqref{eq:rewrite-eq-research} and
+\eqref{eq:rewrite-equilibrium-dynamics} gives the exact dynamic equations
+\begin{subequations}
+\label{eq:rewrite-labor-proof-dynamics}
+\begin{align}
+ \frac{\dot k}{k}&=\frac{y-c-u-M\tau}{k}-\delta-n-\gamma,\\
+ \frac{\dot c}{c}&=r-\rho-\gamma,\\
+ \frac{\dot d}{d}&=n+\gamma-a,\\
+ \frac{\dot{\widetilde q}}{\widetilde q}
+ &=r-\frac{x}{\widetilde qB^2}
+   -\eta\frac{ad\tau}{B}+a-n-\gamma,\\
+ \dot\tau&=-(n+\gamma)\tau.
+\end{align}
+\end{subequations}
+In particular, population growth cancels from the normalized consumption
+equation; it is not subtracted a second time.
+
+Complete the terminal construction by setting
+\begin{equation}
+ \overline M=
+ \left[\frac{(n+\gamma)\overline B^{1-\eta}}{\chi}\right]^{1/\eta},
+ \qquad
+ \overline{\widetilde q}=\frac{\overline x}{\overline r\,\overline B^2},
+ \qquad
+ \overline d=\frac{\overline M}{\eta(n+\gamma)\overline{\widetilde q}}.
+ \label{eq:rewrite-labor-terminal-research}
+\end{equation}
+All are positive. Direct substitution shows that
+$(\overline k,\overline c,\overline d,\overline{\widetilde q},0)$
+is a fixed point of \eqref{eq:rewrite-labor-proof-dynamics}.
+This boundary point is a device for constructing paths with $\tau>0$ and
+$B<\overline B$, not an admissible date-zero state itself.
+
+I next verify saddle-path stability. Write $\mu=\eta/(1-\eta)$,
+$r_k=\partial r/\partial\log k$, and
+$a_k=\partial[(y-u)/k]/\partial\log k+\overline c/\overline k$,
+evaluated at the fixed point. In
+$(\log k,\log c,\log d,\log\widetilde q,\tau)$ coordinates the Jacobian has
+the two diagonal blocks
+\begin{equation}
+ J_R=\begin{pmatrix}
+ a_k&-\overline c/\overline k\\ r_k&0
+ \end{pmatrix},
+ \qquad
+ J_B=\begin{pmatrix}
+ -(n+\gamma)\mu&-(n+\gamma)\mu\\
+ (n+\gamma)\mu&\overline r+(n+\gamma)\mu
+ \end{pmatrix},
+ \label{eq:rewrite-labor-proof-blocks}
+\end{equation}
+and the additional eigenvalue $-(n+\gamma)$. There can be forcing from
+$\tau$ to both blocks and from $(k,c)$ to $(d,\widetilde q)$, but not in the
+reverse directions at the fixed point.
+
+To check $r_k<0$, let $s=s_X$, $u_\sigma=1/\sigma$, $e=e_X$, and let $D(s)$
+be the positive curvature expression in
+\eqref{eq:rewrite-monopoly-proof-curvature}. Implicit differentiation of the
+monopoly condition gives
+\[
+ \frac{\partial\log X}{\partial\log K}
+ =\frac{\alpha(1-e)}{D(s)},\qquad
+ r_k=(r+\delta)(1-\alpha)
+ \left[\frac{\alpha s(1-e)}{D(s)}-1\right].
+\]
+Moreover,
+\[
+ D(s)-\alpha s(1-e)
+ =(1-s)\{u_\sigma(1-e)+
+       (\alpha-u_\sigma)(1-u_\sigma)s\}>0.
+\]
+The sign is immediate when $u_\sigma\geq1$ or $u_\sigma\leq\alpha$.
+For $\alpha<u_\sigma<1$, the braces are linear in $s$, with positive
+endpoint values $u_\sigma(1-u_\sigma)$ and
+$u_\sigma^2+\alpha(1-2u_\sigma)$.
+The latter is positive if $u_\sigma\leq1/2$; otherwise $\alpha<u_\sigma$
+implies it exceeds $u_\sigma(1-u_\sigma)>0$.
+Thus $r_k<0$ in every interior-share case.
+
+Both blocks have negative determinants:
+\[
+ \det J_R=(\overline c/\overline k)r_k<0,\qquad
+ \det J_B=-(n+\gamma)\mu\overline r<0.
+\]
+There are therefore three stable and two unstable eigenvalues. The stable
+direction in $J_R$ has a nonzero $k$ component, and the stable direction in
+$J_B$ has a nonzero $d$ component. To verify that their number suffices to
+select the jump variables, consider a vector in the stable subspace whose
+state components $(k,d,\tau)$ are all zero. Its linearized $\tau$ path is
+zero. The homogeneous Ramsey block must then follow its stable direction;
+its zero initial $k$ component forces its $c$ component to be zero as well.
+With that forcing absent, the same argument in the research block forces
+$\widetilde q=0$. The projection of the three-dimensional stable subspace
+onto the three predetermined coordinates is therefore injective and hence
+invertible. This argument also covers repeated stable eigenvalues.
+
+Lemma~\ref{lem:rewrite-monopoly-choice} makes the static solution smooth.
+The normalized vector field extends smoothly through $\tau=0$, since
+$B=\overline B-d\tau$ remains positive nearby. The stable-manifold theorem
+and the inverse-function theorem therefore give a local graph
+$(c,\widetilde q)$ over $(k,d,\tau)$; see \citet{dyatlov2018}.
+Choose a small neighborhood of the full fixed point and then a smaller
+initial-state neighborhood $\mathcal U_L$ of
+$(\overline k,\overline d,0)$. Its constants depend on the parameters
+and the case under consideration. In original initial stocks the restriction is
+\begin{equation}
+ (k_0,d_0,\tau_0)=
+ \left(\frac{K_0}{A_0N_0},\,
+       (\overline B-B_0)A_0N_0,\,
+       \frac{1}{A_0N_0}\right)\in\mathcal U_L.
+ \label{eq:rewrite-labor-local-initial}
+\end{equation}
+Closeness is required in all three coordinates; $B_0$ close to
+$\overline B$ alone is not sufficient. The point with $\tau=0$
+is a long-run limit, not a finite-date initial state.
+Every physical initial state satisfying
+\eqref{eq:rewrite-labor-local-initial} has a solution on this
+graph that stays in the full neighborhood for all future time and converges
+to the fixed point. It is unique among solutions with those properties.
+Positivity of $\tau,d,c,\widetilde q,k$ and the original RSI technology
+ensure $0<B_t<\overline B$ and $M_t>0$ at every finite date.
+Reconstruction gives the original initial stocks, the equilibrium equations,
+and the limiting rates in
+\eqref{eq:rewrite-complements-terminal}--\eqref{eq:rewrite-substitutes-labor-terminal}.
+Indeed, the normalized vector field tends to zero at its fixed point, so
+the time derivatives of its smooth static ratios tend to zero as well.
+This step, not convergence of ratios alone, establishes convergence of
+the growth rates.
+Optimality and transversality are verified below.
+
+\par\medskip\noindent\textit{Step 3. The AI-dominated case.}
+
+Let $\sigma>1$ and $\overline B>\mathcal B(\sigma)$.
+Here $\varphi=(\sigma-1)/\sigma\in(0,1)$. Since capital outgrows effective
+labor, $K/(AN)$ has no finite limit. Instead normalize consumption and the
+shadow value by capital and scale the efficiency gap by capital:
+\[
+ h=(AN/K)^\varphi,\quad d=(\overline B-B)K,\quad
+ c=C/K,\quad v=q/K,\quad \tau=(AN)^{-1}.
+\]
+Within this construction, $y,x,u$ denote $Y/K,X/K,U/K$, respectively.
+The constant $\overline d$ now denotes the limit of $(\overline B-B)K$,
+not of $(\overline B-B)AN$; no original state or control is redefined.
+Then
+\[
+ B=\overline B-d\tau h^{1/\varphi},\quad
+ M=\left[vd\,\chi\eta B^\eta/\overline B\right]^{1/(1-\eta)},\quad
+ a=\chi B^\eta M^\eta/\overline B,\quad r=\alpha y-\delta.
+\]
+Define $g_K=y-c-u-M\tau h^{1/\varphi}-\delta$.
+The exact equations are
+\begin{subequations}
+\label{eq:rewrite-ai-proof-dynamics}
+\begin{align}
+ \dot h&=\varphi h(n+\gamma-g_K),\\
+ \dot d/d&=g_K-a,\\
+ \dot c/c&=n+r-\rho-g_K,\\
+ \dot v/v&=r-x/(vB^2)-\eta ad\tau h^{1/\varphi}/B+a-g_K,\\
+ \dot\tau&=-(n+\gamma)\tau.
+\end{align}
+\end{subequations}
+The CES term divided by capital is
+$[\omega_Lh+\omega_Xx^\varphi]^{1/\varphi}$.
+At $h=0$ the monopoly equation has the strictly positive curvature
+$D(1)=\alpha(1-\alpha)$. Its implicit static solution is therefore smooth
+in $(h,B)$ near $(0,\overline B)$. For the remaining terms, replacing
+$h^{1/\varphi}$ by $\max\{h,0\}^{1/\varphi}$ outside the physical domain
+gives a $C^1$ extension because $1/\varphi>1$. The $C^1$ stable-manifold
+theorem applies; see \citet[p.~7]{feldman2021stable}. The extension is only a
+mathematical device and does not change any equation on $h\geq0$.
+
+The limiting interest and aggregate growth rates are
+\begin{equation}
+ \overline r=\mathcal R(\overline B),\qquad
+ \overline g=n+\overline r-\rho>n+\gamma.
+ \label{eq:rewrite-substitutes-terminal-growth}
+\end{equation}
+At $h=\tau=0$, the terminal constants are
+\begin{align}
+ \overline y&=\frac{\mathcal R(\overline B)+\delta}{\alpha},&
+ \overline u&=(1-\alpha)^2\overline y,&
+ \overline x&=\overline B\,\overline u,\nonumber\\
+ \overline r&=\mathcal R(\overline B),&
+ \overline g&=n+\overline r-\rho,&
+ \overline c&=\alpha(1-\alpha)\overline y+\rho-n>0,\nonumber\\
+ \overline v&=\overline x/(\overline r\,\overline B^2),&
+ \overline M&=
+ \left[\overline g\,\overline B^{1-\eta}/\chi\right]^{1/\eta},&
+ \overline d&=\overline M/(\eta\overline g\,\overline v).
+ \label{eq:rewrite-ai-terminal-values}
+\end{align}
+The threshold implies $\overline g>n+\gamma>0$ and
+$\overline r>\rho+\gamma>0$, so all constants are positive.
+Substitution verifies the fixed point
+$(0,\overline d,\overline c,\overline v,0)$.
+
+The $h$ and $\tau$ eigenvalues are
+$\varphi(n+\gamma-\overline g)<0$ and $-(n+\gamma)<0$.
+The first equals $\varphi[\rho+\gamma-\mathcal R(\overline B)]$.
+It becomes zero at $\mathcal R(\overline B)=\rho+\gamma$, which is why
+this stable-manifold argument does not cover the threshold.
+The consumption-ratio eigenvalue is $\overline c>0$.
+The remaining block in $(\log d,\log v)$ is
+\[
+ \begin{pmatrix}
+ -\overline g\mu&-\overline g\mu\\
+ \overline g\mu&\overline r+\overline g\mu
+ \end{pmatrix},
+ \qquad \det=-\overline g\mu\overline r<0.
+\]
+The linearized system is triangular in the order
+$(h,\tau),c,(d,v)$. A stable vector with zero state components $(h,d,\tau)$
+has zero $h,\tau$ paths; its consumption component must be zero because the
+unforced consumption equation is unstable. The research block then has zero
+$d$ component and hence zero $v$ component, as in the previous construction.
+Thus the three-dimensional stable subspace projects invertibly onto
+$(h,d,\tau)$. The same graph argument gives a neighborhood
+$\mathcal U_A$ of $(0,\overline d,0)$ such that the initial-state condition is
+\begin{equation}
+ \left[\left(\frac{A_0N_0}{K_0}\right)^\varphi,\;
+       (\overline B-B_0)K_0,\; \frac{1}{A_0N_0}\right]\in\mathcal U_A.
+ \label{eq:rewrite-ai-local-initial}
+\end{equation}
+It constructs a convergent trajectory for every admissible initial state
+in this neighborhood, with a unique nearby convergent choice
+of $C_0,q_0$ and positive quantities at every finite date.
+
+The normalized vector field tends to zero, so the time derivatives of the
+smooth positive ratios $Y/K$, $X/K$, and $C/K$ tend to zero.
+Consequently $g_Y,g_X,g_C,g_K\to\overline g$ and $s_X\to1$.
+Log differentiation of the CES share in
+equation~\eqref{eq:rewrite-eq-sx} and the wage equation
+\eqref{eq:rewrite-eq-w} gives the exact identity
+\[
+ g_w=g_Y-n+\frac{\sigma-1}{\sigma}s_X(n+\gamma-g_X).
+\]
+Taking limits yields
+\[
+ g_w\to\overline g-n+\frac{\sigma-1}{\sigma}(n+\gamma-\overline g)
+ =\gamma+\frac{\overline r-\rho-\gamma}{\sigma}.
+\]
+This proves the growth and distribution limits in
+Proposition~\ref{prop:rewrite-capped-substitutes-existence}.
+
+\par\medskip\noindent\textit{Step 4. Optimality and transversality.}
+
+In either construction let $\overline g$ denote the terminal aggregate
+growth rate: $n+\gamma$ in the positive labor-share case and
+$n+\overline r-\rho$ in the AI-dominated case. The constructions imply
+\[
+ a\to\overline g,\qquad
+ M\to\left[\frac{\overline g\,\overline B^{1-\eta}}{\chi}\right]^{1/\eta}>0,
+ \qquad g_q\to\overline g,\qquad g_B\to0,\qquad M/Y\to0.
+\]
+Both transversality expressions in Definition~\ref{def:rewrite-equilibrium}
+have limiting logarithmic growth
+\begin{equation}
+ -\rho+n+g_K-g_C\to n-\rho<0,\qquad
+ -r+g_q+g_B\to\overline g-\overline r=n-\rho<0.
+ \label{eq:rewrite-finite-existence-tvcs}
+\end{equation}
+They therefore converge to zero, rather than merely remaining bounded.
+
+Household utility is finite because $\log(C/N)$ grows at most linearly and
+$\rho>n$, as imposed in the household problem. Log utility is concave, the
+household budget is linear at given prices and distributions. More explicitly,
+let $\lambda_t=e^{-\rho t}N_t/C_t$, so $\dot\lambda_t=-r_t\lambda_t$ by
+\eqref{eq:rewrite-euler}. Concavity of log utility and equal initial capital
+give, for any admissible alternative $(\widetilde C,\widetilde K)$,
+\[
+ \int_0^T e^{-\rho t}N_t
+ \log\frac{\widetilde C_t}{C_t}\,\dd t
+ \leq\int_0^T\lambda_t(\widetilde C_t-C_t)\,\dd t
+ =-\lambda_T(\widetilde K_T-K_T)\leq\lambda_TK_T\to0.
+\]
+Here $\widetilde K_T\geq0$ and the last limit is the household TVC.
+Final-good optimality follows from concavity and constant returns.
+The pointwise monopoly optimum is global by
+Lemma~\ref{lem:rewrite-monopoly-choice}.
+
+For the dynamic developer, feasibility and first-order conditions still
+require a sufficiency argument. Let $S_t= A_tN_t$ in the positive-share
+construction and $S_t=K_t$ in the AI-dominated construction, and let
+$D_t=\exp(-\int_0^t r_s\,\dd s)$. Homogeneity of the static problem and
+compactness of the normalized state neighborhood give a constant $C_\pi$
+such that $0\leq\pi_t(b)\leq C_\pi S_t$ for every date and every
+$b\in[B_0,\overline B]$. Since
+$\mathrm d\log(D_tS_t)/\mathrm dt\to\overline g-\overline r=n-\rho<0$,
+$\int_0^\infty D_tS_t\,\dd t<\infty$. Thus discounted operating profit
+is uniformly bounded above across all alternative research policies.
+The candidate's objective is finite, because its research compute is
+bounded and $r_t\to\overline r>0$. An alternative with infinite discounted
+research expenditure has payoff $-\infty$ and cannot improve on it.
+
+It remains to verify the curvature conditions
+\eqref{eq:rewrite-capped-concavity-gate} and
+\eqref{eq:rewrite-depth-research-concavity} for every date and every alternative
+AI-efficiency level in $[B_0,\overline B)$, not just on the selected path.
+First fix a compact normalized-state neighborhood and an interval of
+counterfactual efficiencies $[b_*,\overline B]$, with $0<b_*<\overline B$.
+In the positive labor-share construction, $K/(AN)$ stays in a compact
+neighborhood of $\overline k>0$. Smoothness of the static monopoly solution
+bounds $\varepsilon_{B,t}(b)$ uniformly for these states and for AI-efficiency levels near
+$\overline B$. In the AI-dominated construction, $h$ stays near zero, and
+the same uniform bound follows from the smooth static limit
+$\varepsilon_{B,t}(b)\to1/\alpha$. Thus in either case there is a finite constant
+$E$ with $\varepsilon_{B,t}(b)-2\leq E$ throughout that state domain.
+This bound is chosen before shrinking the initial-state neighborhood.
+Because $\mu=\eta/(1-\eta)$ is finite for each $0<\eta<1$, choose
+$b_{**}\in[b_*,\overline B)$ sufficiently close to $\overline B$ that
+\[
+ (1-b_{**}/\overline B)\max\{E,\mu-1,0\}<b_{**}/\overline B.
+\]
+Shrink the open neighborhood $\mathcal U_L$ or $\mathcal U_A$ so that
+$B_0>b_{**}$.
+This is possible because $B_0=\overline B-d_0\tau_0$ in the first
+construction and $B_0=\overline B-d_0\tau_0h_0^{1/\varphi}$ in the second.
+Every feasible research policy has $b\geq B_0$, so the two curvature
+conditions hold throughout the entire alternative-state domain at every
+date. Lemma~\ref{lem:rewrite-developer-verification} and the verified TVC
+therefore establish global developer optimality without imposing
+$\eta\leq1/2$. No curvature property of
+the candidate is being assumed: it follows from the primitives and the
+chosen initial-state neighborhood.
+
+All quantities remain finite at every finite date, and market clearing and
+the original initial conditions hold by reconstruction. The paths are
+therefore equilibria, not merely solutions of the
+canonical equations. The result is local only in its set of initial
+stocks. For $\sigma>1$, at $\overline B=\mathcal B(\sigma)$ the interior-share terminal
+point reaches the boundary and a stable eigenvalue in the boundary
+normalization becomes zero; this proof does not apply. For
+$\sigma<1$ and $\overline B\leq\mathcal B(\sigma)$, it does not rule out
+equilibria with different long-run ratios. Nor does it imply existence at
+arbitrary initial stocks or in the uncapped limit.
+
+\par\medskip\noindent\textit{Step 5. Initial-state sets and the four conclusions.}
+
+The preimage of each open neighborhood under its continuous
+initial-state map, restricted to $A_0,N_0,K_0>0$ and
+$0<B_0<\overline B$, is open in the original initial stocks.
+It is nonempty. In the positive-labor-share cases, choose
+$k_0,d_0$ close to $\overline k,\overline d$ and $\tau_0>0$
+sufficiently small. Then $A_0N_0=1/\tau_0$,
+$K_0=k_0/\tau_0$, and $B_0=\overline B-d_0\tau_0$ are admissible.
+In the AI-dominated case, choose $d_0$ near $\overline d$ and
+$h_0,\tau_0>0$ sufficiently small. The inverse relations are
+$A_0N_0=1/\tau_0$, $K_0=1/(\tau_0h_0^{1/\varphi})$, and
+$B_0=\overline B-d_0\tau_0h_0^{1/\varphi}$.
+Any positive factorization of $A_0N_0$ supplies $A_0,N_0$.
+These choices also satisfy the strict efficiency restriction in Step 4.
+
+For each initial state in the resulting set, the local graph selects
+$C_0,q_0>0$. These jump values are unique among the trajectories
+that remain near the indicated normalized limit and converge to it.
+The argument does not assert global uniqueness.
+
+For $\sigma<1$ with $\overline B>\mathcal B(\sigma)$, and for
+$\sigma>1$ with $\overline B<\mathcal B(\sigma)$, Step 1 gives a unique
+interior $\overline s_X$. Step 2 then yields
+$g_Y-n\to\gamma$, $g_w\to\gamma$, and $r\to\rho+\gamma$.
+At $\sigma=1$, the exact CES limit gives $s_X=\omega_X$ at every date,
+and the same construction works for every finite positive upper bound.
+These establish the first three cases of the proposition.
+Step 3 gives $s_X\to1$, $r\to\mathcal R(\overline B)$,
+$g_Y-n\to\mathcal R(\overline B)-\rho$, and the wage-growth limit in
+\eqref{eq:rewrite-substitutes-wage-growth}, establishing the fourth case.
+Step 4 verifies the agent-optimality and transversality requirements of
+Definition~\ref{def:rewrite-equilibrium} for all these trajectories.
+\end{proof}
+
+%\Needspace{20\baselineskip}
+%\begin{proposition}[Wage growth and labor's income share]
+%\label{prop:rewrite-output-wage-wedge}
+%Consider the long-run equilibria constructed in Proposition~\ref{prop:rewrite-equilibrium-regimes}. Then
+%\[
+% \lim_{t\to\infty}g_w>\gamma
+% \quad\Longleftrightarrow\quad
+% \lim_{t\to\infty}\frac{wL}{Y}=0,
+%\]
+%and either condition holds precisely when the equilibrium is AI-dominated. Along such an equilibrium, output per person grows asymptotically faster than the real wage:
+%\begin{equation}
+% \lim_{t\to\infty}\bigl[(g_Y-n)-g_w\bigr]
+% =\left(1-\frac{1}{\sigma}\right)
+%  (\overline r-\rho-\gamma)>0.
+% \label{eq:rewrite-output-wage-wedge}
+%\end{equation}
+%Because $L=N$, the same wedge is the asymptotic rate at which labor's income share falls:
+%\begin{equation}
+% \lim_{t\to\infty}\frac{\mathrm d}{\mathrm dt}
+% \log\left(\frac{wL}{Y}\right)
+% =-\left(1-\frac{1}{\sigma}\right)
+%  (\overline r-\rho-\gamma)<0.
+% \label{eq:rewrite-labor-share-decline-rate}
+%\end{equation}
+%Equivalently,
+%\begin{equation}
+% -\lim_{t\to\infty}\frac{\mathrm d}{\mathrm dt}
+%  \log\left(\frac{wL}{Y}\right)
+% =(\sigma-1)\lim_{t\to\infty}(g_w-\gamma)>0.
+% \label{eq:rewrite-wage-premium-share-decline}
+%\end{equation}
+%\end{proposition}
+
+%\Needspace{4\baselineskip}
+%\phantomsection
+%\label{proof:rewrite-output-wage-wedge}
+%\begin{proof}[Proof of Proposition~\ref{prop:rewrite-output-wage-wedge}]
+%The first three cases of Proposition~\ref{prop:rewrite-equilibrium-regimes} give $g_w\to\gamma$ and a positive limiting labor share, using $wL/Y=(1-\alpha)(1-s_X)$. Proposition~\ref{prop:rewrite-capped-substitutes-existence} implies both $g_w\to\gamma+(\overline r-\rho-\gamma)/\sigma>\gamma$ and $wL/Y\to0$. This proves the equivalence. Subtract the wage-growth limit in \eqref{eq:rewrite-substitutes-wage-growth} from the per-person output-growth limit in \eqref{eq:rewrite-substitutes-ai-limits}. Moreover, $\mathrm d\log(wL/Y)/\mathrm dt=g_w+n-g_Y$ because $L=N$. Finally, combine \eqref{eq:rewrite-labor-share-decline-rate} with \eqref{eq:rewrite-substitutes-wage-growth}.
+%\end{proof}

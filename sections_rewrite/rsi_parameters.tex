@@ -1,0 +1,37 @@
+% Edit Table 2 here: formatting, all rows, and notes are in this file.
+% Display values only; this file does not set simulation inputs.
+\begin{table}[H]
+\centering
+\caption{Simulation parameters and initial stocks}
+\label{tab:rewrite-rsi-parameters}
+\small\setstretch{1.0}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.14}
+\begin{tabular}{P{0.08\textwidth}P{0.12\textwidth}P{0.30\textwidth}P{0.36\textwidth}}
+\toprule
+Symbol & Value & Interpretation & Source\\
+\midrule
+$\alpha$ & 0.33 & Capital share & Standard calibration value.\\
+$\delta$ & 0.05 & Depreciation rate & Standard calibration value.\\
+$\rho$ & 0.04 & Discount rate & Standard calibration value.\\
+$n$ & 0.003 & Population growth rate & Rounded constant-rate approximation to the UN 2024--2100 world projection \citep{unwpp2024}.\\
+$\gamma$ & 0.01 & Growth of labor-augmenting technology & OECD labor-productivity projections \citep{oecdlongrun2025}.\\
+$\eta$ & 0.20 & Research exponent & Illustrative.\\
+%$(\omega_X,\omega_L)$ & (0.10, 0.90) & AI production and effective-labor weights & Illustrative.\\
+$\omega_X$ & 0.10 & AI production weight & Illustrative.\\
+$\omega_L$ & 0.90 & Effective-labor weight & $1-\omega_X$.\\
+$\chi$ & 7.5 (higher);\newline 1.5 (lower) & Research productivity after activation & Illustrative.\\
+$\sigma$ & 0.90;\newline 1.00;\newline 1.10;\newline 1.50. & Elasticity of substitution & Illustrative.\\
+$\overline B$ & 1,361 & AI-efficiency upper bound & $1.10 \times \mathcal B(1.50)$.\\
+\midrule
+%$A_0,N_0$ & 1; 1 & Initial technology and population & Normalizations.\\
+$A_0$ & 1 & Initial labor-efficiency units & Normalization.\\
+$N_0$ & 1 & Initial population & Normalization.\\
+$B_0$ & 13.6 & Initial AI efficiency & $0.01 \times \overline B$.\\
+$K_0$ & 3.43;\newline 4.65;\newline  5.04;\newline 5.50. & Initial capital & Adjusted to match $K_0/Y_0 =3.30$, the pre-RSI balanced growth path ratio.\\
+%$K_0/Y_0$ & 3.30 & Initial capital--output ratio & Derived from the pre-RSI balanced growth path.\\
+\bottomrule
+\end{tabular}
+\par\vspace{4pt}
+%\parbox{0.98\textwidth}{\footnotesize\emph{Notes:} %Rates are annual. Values are rounded for display; the simulations retain their original precision. $L_0=N_0$. %Initial consumption $C_0$ and the developer's shadow value $q_0$ are selected endogenously by the BVP for each path, not supplied as inputs. $K_0/Y_0$ is a derived ratio, measured in years of date-zero output, not an additional parameter. Lists of four ratios follow the displayed order of $\sigma$.}
+\end{table}

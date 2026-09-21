@@ -1,0 +1,43 @@
+{
+  "status": "numerically_admitted",
+  "parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 1.5,
+    "initial_labor_productivity": 1.0,
+    "initial_population": 1.0
+  },
+  "frontier": 1360.9921392415592,
+  "initial_capability": 13.609921392415593,
+  "initial_stocks_by_sigma": {
+    "sigma_0_90": [
+      3.433644797858547,
+      13.609921392415593
+    ],
+    "sigma_1_00": [
+      4.649320432676148,
+      13.609921392415593
+    ],
+    "sigma_1_10": [
+      5.036956080779938,
+      13.609921392415593
+    ],
+    "sigma_1_50": [
+      5.504666888770258,
+      13.609921392415593
+    ]
+  },
+  "choice": "Author-selected illustrative productivities 7.5 and 1.5; no moment is targeted.",
+  "empirical_target": null,
+  "source_code_base_commit": "02c0233",
+  "same_chi_across_elasticities": true,
+  "numerical_tolerances_unchanged": true,
+  "outcomes_not_targets": true,
+  "unit_first_year_research_share": 0.0006593060444810058,
+  "final_checkpoint_sha256": "440a9dcb98de3a3fcbca6489df12e6d2516bc10dc9bea11d3d3176fdb68d3e90"
+}

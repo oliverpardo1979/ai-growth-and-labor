@@ -1,0 +1,121 @@
+% CENTRAL QUESTION:
+% How does the elasticity of substitution between effective AI production services and human labor
+% shape economic growth, wages, interest rates, and the functional distribution
+% of income when frontier AI research is autonomous?
+%
+% BENCHMARK SCOPE:
+% Autonomous AI research. The benchmark contains no H, omega_H, or sigma_HM.
+% See REWRITE_AXM_PLAN.md before adding any result, equation, table, or figure.
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{needspace}
+\usepackage{enumitem}
+\usepackage[round,authoryear]{natbib}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\gA}{g_A}
+\newcommand{\gY}{g_Y}
+\newcommand{\gw}{g_w}
+\newcommand{\sX}{s_X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% Reversible editorial switch: retain every earlier simulation and audit.
+% Change false to true to restore the earlier quantitative section and its
+% numerical appendix in place of the RSI-activation presentation.
+% Optional full observed-price-decline benchmark: its text, figures, and
+% numerical files remain intact, but the main comparison uses illustrative chi values.
+% Restore the earlier price/research-target comparisons with true.
+% Their source, data and figures are preserved unchanged.
+
+\title{The Future of Growth and Human Labor\\
+Under Recursive AI Self-Improvement}
+\author{Oliver Pardo\\[0.5em]
+\small Departamento de Administraci\'on\\
+\small Pontificia Universidad Javeriana\\
+\small \href{mailto:pardoo@javeriana.edu.co}{\texttt{pardoo@javeriana.edu.co}}}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+% Previous abstract, preserved at the author's request (2026-09-16).
+% \begin{abstract}
+% I develop an endogenous-growth model in which a monopolistic AI developer
+% supplies AI production services using recursive AI self-improvement.
+% I characterize the model's
+% long-run equilibria under a finite upper bound on AI efficiency. The equilibrium
+% regime depends jointly on the elasticity of substitution between labor and AI
+% and on the level of this upper bound. When labor remains a production
+% bottleneck, output per worker and wages grow at an exogenously given rate
+% of labor-augmenting technological progress, and labor retains a positive income
+% share. If the elasticity of substitution exceeds one and the upper bound is
+% sufficiently high, the economy instead becomes AI-dominated. In this regime,
+% wage growth exceeds the rate of labor-augmenting technological progress,
+% but output per worker grows even faster. Labor's income share therefore
+% converges to zero. Numerical simulations show that early growth may remain moderate and similar between the two regimes, while takeoff in the AI-dominated economy is delayed. %Numerical simulations show that RSI may trigger a jump in economic growth in both regimes, although the increase in growth eventually vanishes in the labor-bottleneck regime. With lower research productivity, early growth remains moderate and similar between the two regimes, while takeoff in the AI-dominated economy is delayed.
+%Without an upper bound on AI efficiency, complementarity still prevents long-run output-per-person growth from exceeding the exogenous labor-augmenting technological rate.
+% Author-requested provisional wording: the research-return restriction and  the asserted implication of a singularity remain pending review.
+%With substitution and no upper bound on AI efficiency, the AI developer's profits become unbounded, leading to a singularity.
+% \end{abstract}
+
+\begin{abstract}
+I develop an endogenous-growth model in which a monopolistic AI developer supplies AI services and invests in recursive AI self-improvement. I characterize two long-run equilibrium regimes under an upper bound on AI efficiency. Complementarity between AI and labor or a sufficiently low upper bound can leave labor as a production bottleneck. In this regime, improvements in AI efficiency can temporarily raise growth, but the growth rates of output per worker and wages eventually return to the exogenously given rate of labor-augmenting technological progress. When AI and labor are substitutes and the upper bound is sufficiently high, wages grow permanently faster than this exogenous rate. However, output per worker grows even faster, so labor’s income share converges to zero while AI-industry revenue rises as a share of output. Numerical simulations show that output-per-worker growth may remain moderate for a long time before accelerating in the AI-dominated regime or returning to the rate of labor-augmenting technological progress
+in the labor-bottleneck regime.
+\end{abstract}
+
+\clearpage
+\begingroup
+\singlespacing
+\small
+\setcounter{tocdepth}{2}
+\tableofcontents
+\endgroup
+\clearpage
+
+\onehalfspacing
+
+\input{sections_rewrite/01_introduction}
+% Related Literature is preserved but silenced; its core comparison is now in the introduction.
+%\input{sections_rewrite/02_literature}
+\input{sections_rewrite/03_model}
+\input{sections_rewrite/04_equilibrium_regimes}
+\input{sections_rewrite/05_uncapped_equilibria}
+\input{sections_rewrite/08_rsi_design}
+\input{sections_rewrite/12_rsi_high_productivity}
+\input{sections_rewrite/13_rsi_low_productivity}
+% Section 6.4 is silenced at the author's request; its source remains intact.
+% Uncomment the following input to restore it.
+%\input{sections_rewrite/11_rsi_limitations}
+\input{sections_rewrite/06_conclusion}
+
+\appendix
+\input{sections_rewrite/appendix}
+\input{sections_rewrite/appendix_uncapped_unit}
+
+\section*{Declaration of AI use}
+During the preparation of this work, I used OpenAI Codex to assist with mathematical derivations, consistency checks, manuscript editing, and the preparation and testing of computational code. I take full responsibility for the content of the paper.
+
+\bibliographystyle{apalike}
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\bibliography{references}
+
+\end{document}

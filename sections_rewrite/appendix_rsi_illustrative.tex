@@ -1,0 +1,121 @@
+\section{Numerical algorithm and equilibrium audit}
+\label{app:rewrite-algorithm}
+
+\subsection{Economic intuition and initial conditions}
+
+The BVP selects an equilibrium trajectory, not an initial-value solution
+from arbitrary consumption and shadow prices. Capital and AI efficiency
+are predetermined; consumption and the developer's shadow value adjust
+to put the economy on the stable continuation of its long-run regime.
+Satisfying the static conditions alone does not select that continuation.
+
+For each $\sigma$, I first solve the existing-AI economy with efficiency
+fixed at $B_0$ and research unavailable. A scalar root search in $\log K_0$
+solves Equation~\eqref{eq:rewrite-rsi-initial-ratio} using the production
+and monopoly equations. The resource constraint~\eqref{eq:rewrite-resource},
+with $M=0$ and $\dot K=(n+\gamma)K$, gives pre-event consumption.
+Homogeneity extends these values to a BGP:
+$K,Y,C,U,X$ grow at $n+\gamma$, wages grow at $\gamma$, and
+$B,p_X,r$ and income shares are constant. Since
+$r-(n+\gamma)=\rho-n>0$, pre-event developer profit has finite present
+value and the household's transversality expression decays.
+
+At unexpected RSI activation, only the states are inherited. The
+positive-$\chi$ problem selects consumption, research and the shadow
+value anew. A separate audit checks continuity of production quantities
+and prices, verifies the pre-event Euler, resource and monopoly conditions,
+and records the endogenous jumps in consumption and research.
+
+\subsection{Boundary-value solution and reported outcomes}
+
+I use the collocation solver \texttt{scipy.integrate.solve\_bvp} with
+computational coordinates
+\[
+ \left(\log K,\ \log\frac{B}{\overline B-B},\ \log C,\ \log q\right).
+\]
+Subtracting the analytical terminal aggregate growth rate times $t$
+removes their linear trends without changing model variables or timing.
+At each trial state the code solves the static monopoly problem and
+recovers research from its first-order condition. The left boundary fixes
+$K_0,B_0$; two right-boundary projections remove unstable components of
+the normalized equilibrium dynamics near the long-run limit, using
+Appendix~\ref{app:rewrite-finite-existence}.
+
+For each of the eight parameter configurations, I start near its
+analytical limiting point and move the initial stocks to their prescribed
+values in 32 continuation stages. Neither $\omega_X=0$ nor $\chi=0$
+is used as a degenerate BVP seed. At unit elasticity the static block
+uses its exact Cobb--Douglas limit; near one, \texttt{log1p} and
+\texttt{expm1} avoid cancellation. Under complementarity, marginal
+revenue is evaluated directly and the static root is polished when
+needed near zero marginal revenue; the first-order condition is unchanged.
+
+The values $\chi=7.5$ and $\chi=1.5$ are supplied directly: there is no
+outer calibration search. Research shares and price declines are outputs.
+Annual research expenditure relative to output is measured as
+$\int_0^1 M_t\,\dd t/\int_0^1Y_t\,\dd t$, not $M_0/Y_0$.
+Gauss--Legendre quadrature with 64 and 128 nodes must agree within
+$10^{-8}$ in logs. The annual ratio must also change by less than
+$2\times10^{-5}$ in logs across the horizon extensions.
+
+\subsection{Equilibrium checks}
+
+I extend each computational horizon twice by 500 years and tighten the
+collocation tolerance from $2\times10^{-6}$ to $10^{-8}$ and $10^{-9}$.
+The final boundary tolerance is $10^{-11}$. Initial meshes contain
+221, 401 and 601 points and adapt as needed. The displayed window lies
+inside each solved horizon; no spline is extrapolated.
+
+The original equations are reconstructed independently with five-point
+differences at 1,001 dates and steps of 0.003 and 0.001 years. An additional
+801-date check over the first ten years uses steps of 0.0003 and 0.0001.
+Admission requires dynamic residuals below $10^{-6}$, first-order
+residuals below $10^{-9}$, final-horizon changes below $2\times10^{-5}$
+in detrended logs, and terminal-coordinate gaps below $10^{-4}$.
+These are the existing numerical tolerances, not relaxed economic conditions.
+
+The audit checks feasibility and developer global optimality. When
+global profit concavity in research depth fails, it checks the Hamiltonian
+support condition in Lemma~\ref{lem:rewrite-developer-verification},
+using counterfactual-state minimization and an analytical bound beyond
+the grid. The two grids contain 81/101 and 321/241 date/state points,
+supplemented by dense first-decade checks when needed. The analytical
+support bound and the asymptotic rate $n-\rho<0$ of both transversality
+expressions support the infinite-horizon continuation. These are
+numerically verified equilibrium approximations, not interval-arithmetic
+existence certificates for arbitrary initial stocks.
+
+\input{sections_rewrite/rsi_illustrative_accuracy}
+
+\subsection{Replication files}
+
+The code, simulation data, and replication instructions are available at
+\url{https://github.com/oliverpardo1979/ai-growth-and-labor}.
+The \href{https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/REPLICATION.md}
+{replication guide} explains how to install the dependencies, check the
+published results, and recompute the eight trajectories. From the repository
+root, run:
+\begin{quote}
+\small
+\begin{verbatim}
+python scripts/simulate_rewrite_illustrative_rsi.py
+\end{verbatim}
+\end{quote}
+This command solves and audits all four elasticities in both scenarios.
+Use \texttt{--chi 7.5} or \texttt{--chi 1.5} for one scenario;
+\texttt{--sigma 1.5}, for example, solves one elasticity. With all four
+checkpoints available, \texttt{--finish} repeats the admission checks
+and exports the figures. The full replication entry point is
+\texttt{scripts/reproduce\_rewrite\_results.py}.
+
+The \href{https://github.com/oliverpardo1979/ai-growth-and-labor/tree/main/numerical_rewrite/rsi_chi_7_5}
+{higher-productivity results folder} and
+\href{https://github.com/oliverpardo1979/ai-growth-and-labor/tree/main/numerical_rewrite/rsi_chi_1_5}
+{lower-productivity results folder} contain the scenario inputs, admitted
+CSV, outcome summaries, equilibrium checks and figure metadata.
+Checkpoint and CSV hashes bind the audits to the plotted data.
+No comparison is exported unless all four scenarios and the activation
+continuity checks pass.
+
+The repository includes the two comparisons reported here. Earlier
+experiments are preserved separately and are not needed for replication.

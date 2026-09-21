@@ -1,0 +1,366 @@
+\Needspace{7\baselineskip}
+\begin{proof}[Proof of Proposition~\ref{prop:rewrite-uncapped-unit-bgp}]
+\phantomsection
+\label{proof:rewrite-uncapped-unit-bgp}
+Use the definitions in Appendix~\ref{app:rewrite-uncapped-unit}.
+\textit{The reference BGP.}
+First, all candidate ratios are positive. The research denominator
+$\rho-n+\eta g_Y^*$ is positive. Moreover,
+\[
+ i^*=\frac{\alpha(g_Y^*+\delta)}{\rho-n+g_Y^*+\delta}<\alpha,
+ \qquad
+ m^*<\frac{u^*\eta}{1-\eta}.
+\]
+Since $\Delta=(1-\alpha)(1-\eta-\omega_X)>0$,
+$\omega_X<1-\eta$ and $\omega_X<1$. Consequently,
+\[
+ u^*+m^*<\frac{u^*}{1-\eta}<(1-\alpha)\omega_X<1-\alpha,
+ \qquad c^*=1-u^*-i^*-m^*>0.
+\]
+Thus positive consumption follows from the stated conditions; it is not
+an additional assumption.
+
+For given $A_0,N_0>0$, choose the reference initial stocks as
+\begin{align}
+ B_0^*&=\left[
+ A_0N_0(k^*)^{\alpha/[(1-\alpha)\omega_L]}(u^*)^{\omega_X/\omega_L}
+ m^*\left(\frac{\chi}{g_B^*}\right)^{1/\eta}
+ \right]^{\eta\omega_L/(1-\eta-\omega_X)},
+ \label{eq:rewrite-uncapped-unit-initial-b}\\
+ Y_0^*&=A_0N_0(k^*)^{\alpha/[(1-\alpha)\omega_L]}
+ (u^*B_0^*)^{\omega_X/\omega_L},
+ \qquad K_0^*=k^*Y_0^*.
+ \label{eq:rewrite-uncapped-unit-initial-y-k}
+\end{align}
+The exponent is positive. These choices solve simultaneously the initial
+production equation and
+$g_B^*B_0^*=\chi(B_0^*m^*Y_0^*)^\eta$.
+Set $U_0^*=u^*Y_0^*$, $M_0^*=m^*Y_0^*$, $C_0^*=c^*Y_0^*$,
+$X_0^*=B_0^*U_0^*$, and
+\begin{equation}
+ q_0^*=\frac{M_0^*}{\eta g_B^*B_0^*}.
+ \label{eq:rewrite-uncapped-unit-initial-q}
+\end{equation}
+Let $Y_t^*=Y_0^*e^{g_Y^*t}$, $B_t^*=B_0^*e^{g_B^*t}$,
+$K_t^*=k^*Y_t^*$, $C_t^*=c^*Y_t^*$, $U_t^*=u^*Y_t^*$,
+$M_t^*=m^*Y_t^*$, and $q_t^*=q_0^*e^{(g_Y^*-g_B^*)t}$.
+Use the exogenous $A_t,N_t$ and set $L_t=N_t$ and $X_t^*=B_t^*U_t^*$.
+The static equilibrium equations determine all remaining quantities and prices.
+
+The two growth identities
+\eqref{eq:rewrite-uncapped-unit-production-growth}
+and~\eqref{eq:rewrite-uncapped-unit-research-growth} ensure that the production
+equation and the RSI technology hold at every date once they hold initially.
+The static monopoly condition gives $p_XX=(1-\alpha)\omega_XY$ and $U=u^*Y$.
+Equation~\eqref{eq:rewrite-uncapped-unit-initial-q} gives
+$M=\eta q\dot B$, which is the research first-order condition
+\eqref{eq:rewrite-eq-research} with $\psi=1$.
+The definitions of $k^*$, $r^*$, and $c^*$ verify the capital-return,
+Euler, and resource equations. The costate equation reduces to
+\[
+ g_Y^*-g_B^*
+ =r^*-\frac{u^*\eta g_B^*}{m^*}-\eta g_B^*.
+\]
+This holds by equation~\eqref{eq:rewrite-uncapped-unit-research-share}
+and $(1-\eta)g_B^*=\eta g_Y^*$.
+All allocations are positive and finite at every finite date.
+
+Both transversality conditions are explicit:
+\begin{align}
+ e^{-\rho t}\frac{N_tK_t^*}{C_t^*}
+ &=\frac{N_0k^*}{c^*}e^{-(\rho-n)t}\longrightarrow0,
+ \label{eq:rewrite-uncapped-unit-household-tvc}\\
+ e^{-r^*t}q_t^*B_t^*
+ &=q_0^*B_0^*e^{-(\rho-n)t}\longrightarrow0.
+ \label{eq:rewrite-uncapped-unit-developer-tvc}
+\end{align}
+Discounted developer profit is a constant multiple of
+$e^{-(\rho-n)t}$. Discounted household utility is
+$N_0e^{-(\rho-n)t}[\log(C_0^*/N_0)+(g_Y^*-n)t]$.
+Both improper objective integrals are finite.
+
+It remains to establish global optimality, rather than only the dated
+necessary conditions. At given paths of $K,A,L$, static optimization gives
+\begin{equation}
+ \begin{split}
+ \pi_t(B)={}&(1-\alpha)\omega_X[1-(1-\alpha)\omega_X]
+ \bigl[K_t^\alpha(A_tL_t)^{(1-\alpha)\omega_L}\bigr]^{1/[1-(1-\alpha)\omega_X]}\\
+ &\times\bigl[(1-\alpha)^2\omega_X^2B\bigr]^{(1-\alpha)\omega_X/[1-(1-\alpha)\omega_X]}.
+ \end{split}
+ \label{eq:rewrite-uncapped-unit-profit}
+\end{equation}
+First suppose $\eta\leq1/2$.
+This function is concave in $B$ when $(1-\alpha)\omega_X\leq1/2$.
+The RSI technology $F(B,M)=\chi B^\eta M^\eta$ is jointly concave
+when $\eta\leq1/2$. Since $q>0$, the developer's current-value Hamiltonian
+$\pi_t(B)-M+q_tF(B,M)$ is jointly concave, and its first-order conditions
+maximize it globally. Write $D_t=\exp(-\int_0^t r_s\dd s)$ and
+$J_T=\int_0^T D_t[\pi_t(B_t)-M_t]\dd t$.
+For any admissible alternative with the same initial $B$, the supporting
+hyperplane inequality and the costate equation imply
+\begin{equation}
+ \widetilde J_T-J_T
+ \leq-D_Tq_T(\widetilde B_T-B_T)
+ \leq D_Tq_TB_T\longrightarrow0.
+ \label{eq:rewrite-uncapped-unit-developer-verification}
+\end{equation}
+Hence no admissible alternative has a greater limiting payoff, or a
+greater upper limit of truncated payoff, than this finite-valued candidate.
+For $\eta>1/2$, use only within this proof the invertible state transformation
+and its current-value costate
+\begin{equation}
+ S=B^{1-\eta},\qquad
+ \dot S=(1-\eta)\chi M^\eta,\qquad
+ p=\frac{qB^\eta}{1-\eta}.
+ \label{eq:rewrite-uncapped-unit-transformed-state}
+\end{equation}
+This is the same feasible research problem, not a different technology.
+At given $K,A,L$, equation~\eqref{eq:rewrite-uncapped-unit-profit} becomes
+a positive time-dependent coefficient times
+\[
+ S^{\frac{(1-\alpha)\omega_X}
+ {[1-(1-\alpha)\omega_X](1-\eta)}}.
+\]
+It is concave in $S$ if
+$(1-\alpha)\omega_X\leq(1-\eta)/(2-\eta)$. The maintained restrictions imply
+\[
+ (1-\alpha)\omega_X<(1-\eta)^2
+ <\frac{1-\eta}{2-\eta}\qquad(\eta>1/2).
+\]
+Consequently $\pi_t(S^{1/(1-\eta)})-M+p_t(1-\eta)\chi M^\eta$
+is jointly concave in $S,M$. The transformed first-order and costate
+conditions follow by the chain rule from the original equations.
+Moreover, $pS=qB/(1-\eta)$, so the original developer TVC implies
+$D_Tp_TS_T\to0$. Applying the supporting-hyperplane argument in these
+coordinates yields
+\[
+ \widetilde J_T-J_T
+ \leq-D_Tp_T(\widetilde S_T-S_T)
+ \leq\frac{D_Tq_TB_T}{1-\eta}\longrightarrow0.
+\]
+Thus both ranges of $\eta$ give global developer optimality against all
+admissible research paths. The argument applies to any candidate satisfying
+the uncapped equations and developer TVC under the proposition's
+restrictions, not just the BGP.
+
+For the household, set $\Lambda_t=e^{-\rho t}N_t/C_t$.
+Euler implies $\dot\Lambda=-r\Lambda$.
+Concavity of log utility and the linear budget give, for any feasible
+alternative with the same $K_0$ and the same given prices and distributions,
+\[
+ \int_0^T e^{-\rho t}N_t
+ \left[\log(\widetilde C_t/N_t)-\log(C_t/N_t)\right]\dd t
+ \leq-\Lambda_T(\widetilde K_T-K_T)
+ \leq\Lambda_TK_T\longrightarrow0.
+\]
+This establishes global household optimality. Competitive final-good firms
+face a concave constant-returns technology, and
+Lemma~\ref{lem:rewrite-monopoly-choice} establishes global static monopoly
+optimality. The constructed path satisfies Definition~\ref{def:rewrite-equilibrium}
+with the uncapped RSI technology~\eqref{eq:rewrite-uncapped-unit-law}.
+
+\medskip
+\textit{Local convergence from nearby initial stocks.}
+\phantomsection
+\label{proof:rewrite-uncapped-unit-local}
+Use the ordering $\xi=(\xi_K,\xi_B,\xi_C,\xi_q)'$ in
+\eqref{eq:rewrite-uncapped-unit-deviations}, and let $e_K,e_B,e_C,e_q$
+be the corresponding unit row vectors. Define the row vectors
+\begin{align}
+ y_\xi&=\left(\frac{\alpha}{1-(1-\alpha)\omega_X},
+ \frac{(1-\alpha)\omega_X}{1-(1-\alpha)\omega_X},0,0\right),
+ \label{eq:rewrite-uncapped-unit-output-row}\\
+ m_\xi&=\frac{\eta e_B+e_q}{1-\eta},
+ \label{eq:rewrite-uncapped-unit-research-row}\\
+ b_\xi&=g_B^*[(\eta-1)e_B+\eta m_\xi].
+ \label{eq:rewrite-uncapped-unit-efficiency-row}
+\end{align}
+The reduced production equation gives the log deviation of output as
+$y_\xi\xi$. The research FOC implies
+$M=(q\chi\eta B^\eta)^{1/(1-\eta)}$, so the log deviation of $M$ is
+$m_\xi\xi$. Differentiating $g_B=\chi B^{\eta-1}M^\eta$ at the BGP
+gives the level deviation $b_\xi\xi$.
+
+The four rows of $J^*$, derived from capital accumulation, AI research,
+the household Euler equation, and the developer costate equation, are
+\begin{align}
+ J_K^*&=\frac{1-u^*}{k^*}y_\xi-(g_Y^*+\delta)e_K
+ -\frac{c^*}{k^*}e_C-\frac{m^*}{k^*}m_\xi,
+ \label{eq:rewrite-uncapped-unit-jacobian-k}\\
+ J_B^*&=b_\xi,
+ \label{eq:rewrite-uncapped-unit-jacobian-b}\\
+ J_C^*&=(r^*+\delta)(y_\xi-e_K),
+ \label{eq:rewrite-uncapped-unit-jacobian-c}\\
+ J_q^*&=(r^*+\delta)(y_\xi-e_K)
+ -(\rho-n+\eta g_Y^*)(y_\xi-e_q-e_B)-\eta b_\xi.
+ \label{eq:rewrite-uncapped-unit-jacobian-q}
+\end{align}
+The last row uses $U/(qB)=\rho-n+\eta g_Y^*$ at the BGP.
+All entries depend on growth rates and ratios, which are independent of
+$\chi$. No terminal restrictions were used to derive this Jacobian.
+
+I next establish the two local properties
+\eqref{eq:rewrite-uncapped-unit-local-spectrum}
+and~\eqref{eq:rewrite-uncapped-unit-local-projection} from the parameter
+restrictions, rather than impose them. For this linearization only, define
+\begin{align*}
+ \nu&=\frac{1-\eta}{\eta},&
+ a_K&=\frac{\alpha}{1-(1-\alpha)\omega_X},&
+ a_T&=\frac{(1-\alpha)\omega_X\eta}
+ {[1-(1-\alpha)\omega_X](1-\eta)},\\
+ d&=\rho-n,&P&=r^*+\delta,&h&=\rho-n+\eta g_Y^*.
+\end{align*}
+All six quantities are positive, and the restriction $\eta+\omega_X<1$ gives
+\begin{equation}
+ 1-a_K-a_T
+ =\frac{(1-\alpha)(1-\eta-\omega_X)}
+ {[1-(1-\alpha)\omega_X](1-\eta)}>0.
+ \label{eq:rewrite-uncapped-unit-local-gap}
+\end{equation}
+Make the invertible linear change of deviations
+\[
+ \widehat\xi=(\xi_K,\nu\xi_B,\xi_C,\xi_q+(1-\nu)\xi_B)'.
+\]
+This changes neither the model nor the eigenvalues. Applying it to
+\eqref{eq:rewrite-uncapped-unit-jacobian-k}--\eqref{eq:rewrite-uncapped-unit-jacobian-q}
+gives a similar matrix
+\begin{equation}
+ \widehat J=
+ \begin{pmatrix}
+  \mathsf A&\mathsf B&-\mathsf C&-\mathsf V\\
+  0&0&0&\mathsf D\\
+  -\mathsf G&\mathsf H&0&0\\
+  -\mathsf E&\mathsf F&0&d
+ \end{pmatrix},
+ \label{eq:rewrite-uncapped-unit-local-similarity}
+\end{equation}
+where the following letters abbreviate matrix coefficients only:
+\begin{align*}
+ \mathsf A&=d+(1-\alpha)\omega_X P,&
+ \mathsf B&=\frac{(1-u^*)a_T-m^*}{k^*},&
+ \mathsf C&=\frac{c^*}{k^*},\\
+ \mathsf V&=\frac{m^*}{k^*(1-\eta)},&
+ \mathsf D&=\frac{\eta g_Y^*}{1-\eta},&
+ \mathsf G&=P(1-a_K),\\
+ \mathsf H&=Pa_T,&
+ \mathsf E&=\mathsf G+ha_K,&
+ \mathsf F&=\mathsf H+h(1-a_T).
+\end{align*}
+All coefficients other than $\mathsf B$ are positive by their definitions.
+The BGP allocation
+ratios imply the identities
+\begin{align}
+ \mathsf L&\equiv\mathsf B-\frac{\mathsf Vd}{\mathsf D}
+ =\frac{(1-\alpha)\omega_X\eta}{(1-\eta)k^*}>0,
+ \label{eq:rewrite-uncapped-unit-local-l}\\
+ \mathsf G\mathsf F-\mathsf H\mathsf E
+ &=hP(1-a_K-a_T)>0.
+ \label{eq:rewrite-uncapped-unit-local-minor}
+\end{align}
+Set $\mathsf N=\mathsf C\mathsf G+\mathsf V\mathsf E>0$ and
+$\mathsf Q=\mathsf C\mathsf H+\mathsf V\mathsf F>0$.
+Expanding the determinant gives the characteristic polynomial
+\begin{equation}
+ \begin{split}
+ p(\ell)&=\det(\ell I-\widehat J)\\
+ &=(\ell^2-\mathsf A\ell-\mathsf N)
+ (\ell^2-d\ell-\mathsf D\mathsf F)
+ -\mathsf D\mathsf E(\mathsf Q-\mathsf L\ell).
+ \end{split}
+ \label{eq:rewrite-uncapped-unit-local-polynomial}
+\end{equation}
+In particular,
+\[
+ p(0)=\mathsf D\mathsf C hP(1-a_K-a_T)>0.
+\]
+Let $\mu=(d-\sqrt{d^2+4\mathsf D\mathsf F})/2<0$, the negative
+root of the second quadratic factor. Then
+$p(\mu)=-\mathsf D\mathsf E(\mathsf Q-\mathsf L\mu)<0$.
+Since $p(\ell)\to+\infty$ as $\ell\to-\infty$, there is one
+negative root below $\mu$ and another between $\mu$ and zero.
+These are the only negative roots: the cubic coefficient of $p$ is
+$-(\mathsf A+d)<0$, its linear coefficient is
+$\mathsf A\mathsf D\mathsf F+d\mathsf N+\mathsf L\mathsf D\mathsf E>0$,
+and its constant coefficient is positive. Thus the coefficient signs of
+$p(-x)$, in descending powers, are $(+,+,\text{arbitrary},-,+)$.
+Descartes' rule of signs gives exactly two sign changes, regardless of
+the quadratic coefficient. The two negative roots are therefore real,
+distinct, and simple. Write them as $\ell_1<\mu<\ell_2<0$.
+The remaining two roots have positive product and positive sum, because
+$p(0)>0$ and the sum of all four roots is $\mathsf A+d>0$.
+If real, both are positive; if complex, their real parts are positive.
+This proves \eqref{eq:rewrite-uncapped-unit-local-spectrum}.
+
+To establish the state projection, write a stable eigenvector in transformed
+coordinates as $(x,y,z,u)'$. Its second component cannot be zero:
+the second, fourth, and first rows would successively imply $u=x=z=0$.
+Normalize $y=1$. The second and fourth rows then give
+\[
+ x(\ell)=\frac{\mathsf D\mathsf F+d\ell-\ell^2}{\mathsf D\mathsf E}.
+\]
+The ordering of the roots implies $x(\ell_1)<0<x(\ell_2)$.
+Hence the two projected stable eigenvectors $(x(\ell_1),1)'$ and
+$(x(\ell_2),1)'$ are linearly independent. Returning to $(\xi_K,\xi_B)$
+only rescales their second component by $1/\nu>0$, so
+\eqref{eq:rewrite-uncapped-unit-local-projection} follows as well.
+
+The exact normalized vector field is continuously differentiable near
+$\xi=0$. The spectral property just proved and the stable-manifold
+theorem supply a two-dimensional local manifold
+whose trajectories remain near zero and converge exponentially.
+The derivative of its projection onto $(\xi_K,\xi_B)$ is $V_{KB}$.
+The nonsingularity just proved and the
+inverse-function theorem therefore make this manifold locally the
+graph of a continuously differentiable function selecting $(\xi_C,\xi_q)$
+from the two initial stock deviations. Since exponentiation is a local
+diffeomorphism, the same holds for $(C_0,q_0)$ as functions of $(K_0,B_0)$.
+More explicitly, for some constants $a,H>0$, trajectories on a sufficiently
+small stable manifold satisfy
+\[
+ \|\xi(t)\|\leq H e^{-at}\|\xi(0)\|,\qquad t\geq0.
+\]
+For any sufficiently small open neighborhood $\mathcal V$ of zero,
+choose a ball contained in $\mathcal V$. Continuity of the graph selecting
+the two jump variables permits an open neighborhood $\mathcal U$ of the
+initial stock deviations for which $H\|\xi(0)\|$ is smaller than that
+ball's radius. Every initial stock pair in $\mathcal U$ therefore has a
+trajectory staying in $\mathcal V$ for all $t\geq0$ and converging to zero.
+Exponentiation maps $\mathcal U$ to an open neighborhood of
+$(K_0^*,B_0^*)$. Shrinking these neighborhoods preserves positivity,
+feasibility, and existence for every $t\geq0$. Local uniqueness follows
+because every trajectory remaining in this local region and converging
+to zero belongs to the same stable manifold, which is a graph over stocks.
+This does not assert convergence from arbitrary initial $C_0,q_0$ or
+exclude equilibrium trajectories that leave the region.
+
+The statement also permits nearby $A_0,N_0$. Equations
+\eqref{eq:rewrite-uncapped-unit-initial-b}
+and~\eqref{eq:rewrite-uncapped-unit-initial-y-k} make the reference
+$B_0^*,K_0^*$ smooth functions of these two positive initial values.
+After normalization by the corresponding BGP, the exact vector field
+depends only on the parameters and BGP ratios, not on $A_0,N_0$.
+The set of $(A_0,N_0,K_0,B_0)$ whose stock deviations belong to
+$\mathcal U$ is therefore open and contains the reference initial condition.
+From each such initial condition, the construction converges to the BGP
+associated with its own $A_0,N_0$, not necessarily to the same levels as
+the original reference path.
+
+Since $f(\xi(t))\to0$, growth rates converge to their BGP values, not only
+normalized levels. The static equations give the same convergence for
+the interest rate, wage growth, and allocation ratios. The unit-elastic
+labor income share remains $(1-\alpha)\omega_L$ at every date.
+
+Exponential convergence implies that $r_t-r^*$ is integrable. Thus
+$D_t/e^{-r^*t}$ tends to a finite positive constant, and both TVC expressions
+equal their BGP counterparts in
+\eqref{eq:rewrite-uncapped-unit-household-tvc}
+and~\eqref{eq:rewrite-uncapped-unit-developer-tvc} times factors tending
+to finite positive limits. Both TVCs hold. Output and all expenditure
+flows are bounded multiples of $e^{g_Y^*t}$, while log consumption per
+person is a linear function of time plus a bounded deviation. Both
+objective integrals therefore remain finite. The global concavity
+verification established above
+applies at these new price and allocation paths, proving agent optimality.
+Static optimality and market clearing then establish equilibrium, not
+merely a solution of the necessary conditions.
+\end{proof}

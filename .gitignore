@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+.python-packages/
+tmp/
+output/
+*.aux
+*.log
+*.blg
+*.bbl
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+/main_rewrite.pdf
