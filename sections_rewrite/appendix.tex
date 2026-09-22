@@ -79,13 +79,6 @@ $\{q_t\}_{t\geq0}$ satisfying the research condition
 \eqref{eq:rewrite-costate}, and the transversality condition
 \eqref{eq:rewrite-developer-tvc}.
 
-Let $\pi_t(b)$ denote operating profit before research
-expenditure, after choosing AI production services optimally
-at efficiency $b$, as defined in
-equation~\eqref{eq:rewrite-service-choice}.
-Let $U_t$ denote the corresponding inference compute
-at the candidate efficiency $B_t$.
-
 Suppose $0<B_0<\overline B<\infty$ and, for every $t\geq0$
 and every $b\in[B_0,\overline B)$,
 \begin{equation}
@@ -99,10 +92,12 @@ and every $b\in[B_0,\overline B)$,
  \frac{\overline B-B_t}{B_t}(U_t+M_t)
  \log\!\left(
  \frac{\overline B-B_t}{\overline B-b}
- \right).
+ \right),
  \end{aligned}
  \label{eq:rewrite-hamiltonian-support}
 \end{equation}
+where $\pi_t(b)$ is operating profit as defined in
+equation~\eqref{eq:rewrite-service-choice}.
 Then $\{M_t\}_{t\geq0}$ solves the developer's
 problem~\eqref{eq:rewrite-developer-reduced}:
 no other feasible research trajectory starting from
