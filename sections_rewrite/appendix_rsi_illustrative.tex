@@ -75,7 +75,8 @@ in detrended logs, and terminal-coordinate gaps below $10^{-4}$.
 These are the existing numerical tolerances, not relaxed economic conditions.
 
 The audit checks feasibility and developer global optimality. When
-global profit concavity in research depth fails, it checks the Hamiltonian
+the concavity conditions of Lemma~\ref{lem:rewrite-hamiltonian-concavity}
+fail, it checks the Hamiltonian
 support condition in Lemma~\ref{lem:rewrite-developer-verification},
 using counterfactual-state minimization and an analytical bound beyond
 the grid. The two grids contain 81/101 and 321/241 date/state points,
@@ -86,6 +87,62 @@ numerically verified equilibrium approximations, not interval-arithmetic
 existence certificates for arbitrary initial stocks.
 
 \input{sections_rewrite/rsi_illustrative_accuracy}
+
+\subsection{Analytical checks on developer optimality}
+\label{app:rewrite-numerical-support-checks}
+
+At unit elasticity, the operating-profit concavity condition in
+Lemma~\ref{lem:rewrite-hamiltonian-concavity} has a simple primitive form.
+Define $\beta=(1-\alpha)\omega_X$. The static monopoly solution implies
+$\pi_t(B)=a_tB^{\beta/(1-\beta)}$ for some $a_t>0$. Because $B(R_B)$ is
+increasing and concave, $R_B\mapsto\pi_t(B(R_B))$ is globally concave whenever
+$\beta\leq1/2$. In the benchmark calibration in
+Table~\ref{tab:rewrite-rsi-parameters}, $\beta=0.067$,
+so this sufficient condition holds with substantial slack.
+The research-term condition~\eqref{eq:rewrite-depth-research-concavity}
+also holds because $\eta=0.20<1/2$. These are sufficient conditions,
+not additional maintained assumptions; when they fail, the support
+condition can instead be checked directly.
+
+The AI-dominated continuation supplies an analytical long-run check on the
+support inequality. For $1<\sigma\leq1/\alpha$, the service elasticity defined
+in equation~\eqref{eq:rewrite-service-capability-elasticity} satisfies
+$\varepsilon_{B,t}(b)\leq1/\alpha$ for every $t$ and $b$. Suppressing these
+arguments, subtracting $\alpha(1-e_X)$ from the denominator in that equation
+gives
+\[
+ (\sigma^{-1}-\alpha)(1-s_X)
+ \left[(1-\sigma^{-1})(1-s_X)+(\sigma^{-1}-\alpha)s_X\right]\geq0.
+\]
+Choose $B_*\in(B_0,\overline B)$ with
+$B_*/\overline B>\max\{0,(1-2\alpha)/(1-\alpha)\}$.
+Operating profit is then concave in research depth for $B\geq B_*$ by
+equation~\eqref{eq:rewrite-capped-profit-curvature}.
+If $\eta\leq1/2$, the research term in
+\eqref{eq:rewrite-maximized-depth-hamiltonian} is concave there as well.
+For a candidate with $B_t\geq B_*$, it consequently suffices to check
+\begin{equation}
+ \widehat{\mathcal H}_t(R_{B,t})
+ -\widehat{\mathcal H}'_t(R_{B,t})(R_{B,t}-R_{B,0})
+ \geq\widehat{\mathcal H}_t(R_B(B_*)).
+ \label{eq:rewrite-support-terminal-bound}
+\end{equation}
+Above $B_*$ the tangent bound follows from concavity. Below $B_*$ the
+Hamiltonian is increasing in $B$, so its value is at most the right-hand
+side, whereas the tangent is minimized at $R_{B,0}$.
+
+Along an AI-dominated continuation, the difference between the two sides of
+\eqref{eq:rewrite-support-terminal-bound}, divided by $Y_t$, converges to
+\[
+ \alpha(1-\alpha)
+ \left[1-\left(\frac{B_*}{\overline B}\right)^{(1-\alpha)/\alpha}\right]>0.
+\]
+To obtain this limit, use $M/Y\to0$, $\psi(B)R_B\to0$, and
+$\pi(B_*)/Y\to\alpha(1-\alpha)(B_*/\overline B)^{(1-\alpha)/\alpha}$.
+Thus the global support condition holds sufficiently late on this
+continuation even when the stronger curvature condition fails at low
+counterfactual AI-efficiency levels. The finite transition still requires its own
+support check.
 
 \subsection{Replication files}
 

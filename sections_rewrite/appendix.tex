@@ -237,15 +237,40 @@ The argument requires a global upper tangent at the candidate state at each
 date, not concavity at every counterfactual state.
 \end{proof}
 
-\paragraph{A concavity test for
-Lemma~\ref{lem:rewrite-developer-verification}.}
-Fix a date $t$ and an alternative AI-efficiency level
-$b\in[B_0,\overline B)$. Let $X_t^*(b)$ be the unique maximizer of
-problem~\eqref{eq:rewrite-service-choice}, evaluated at $K_t,A_t,$ and $L_t$,
-and let $s_{X,t}(b)$ and $e_{X,t}(b)$ be the corresponding values. Implicitly
-differentiating the monopoly condition~\eqref{eq:rewrite-monopoly-foc}, using
-Equations~\eqref{eq:rewrite-sx} and
-\eqref{eq:rewrite-inverse-demand-elasticity}, gives
+\Needspace{8\baselineskip}
+\begin{lemma}[Sufficient conditions for Hamiltonian concavity]
+\label{lem:rewrite-hamiltonian-concavity}
+Consider the maximized Hamiltonian in
+equation~\eqref{eq:rewrite-maximized-depth-hamiltonian} for a feasible
+trajectory satisfying the research condition~\eqref{eq:rewrite-research-foc},
+with $M_t>0$ and $0<B_0<\overline B<\infty$.
+Let $X_t^*(b)$ denote the optimal AI-service choice in
+problem~\eqref{eq:rewrite-service-choice} at efficiency $b$, and let
+$\varepsilon_{B,t}(b)=\partial\ln X_t^*(b)/\partial\ln b$
+denote its elasticity with respect to AI efficiency.
+Suppose that, for every $t\geq0$ and $b\in[B_0,\overline B)$,
+\begin{equation}
+ \psi(b)[\varepsilon_{B,t}(b)-2]\leq\frac{b}{\overline B},
+ \label{eq:rewrite-capped-concavity-gate}
+\end{equation}
+and
+\begin{equation}
+ \frac{B_0}{\overline B}\geq
+ \max\left\{0,\frac{2\eta-1}{\eta}\right\}.
+ \label{eq:rewrite-depth-research-concavity}
+\end{equation}
+Then the maximized Hamiltonian is concave in the transformed state
+$R_B\in[R_B(B_0),\infty)$ at every date. Consequently, the support
+condition~\eqref{eq:rewrite-hamiltonian-support} in
+Lemma~\ref{lem:rewrite-developer-verification} holds.
+\end{lemma}
+
+\begin{proof}[Proof of Lemma~\ref{lem:rewrite-hamiltonian-concavity}]
+Fix a date $t$. Lemma~\ref{lem:rewrite-monopoly-choice} ensures that
+$X_t^*(b)$ is unique and smooth. Let $s_{X,t}(b)$ and $e_{X,t}(b)$ be the
+corresponding elasticities defined in equations~\eqref{eq:rewrite-sx}
+and~\eqref{eq:rewrite-inverse-demand-elasticity}. Implicit differentiation
+of the monopoly condition~\eqref{eq:rewrite-monopoly-foc} gives
 \begin{equation}
  \varepsilon_{B,t}(b)\equiv
  \frac{\partial\ln X_t^*(b)}{\partial\ln b}
@@ -254,59 +279,44 @@ Equations~\eqref{eq:rewrite-sx} and
  s_{X,t}(b)[1-s_{X,t}(b)]}.
  \label{eq:rewrite-service-capability-elasticity}
 \end{equation}
-This endogenous elasticity is not an additional model parameter. In what
-follows, suppress the date and counterfactual-state arguments and write
-\[
- X^*(B)\equiv X_t^*(b),
- \qquad
- \varepsilon_B\equiv\varepsilon_{B,t}(b).
-\]
-Because \(\pi_B=X^*(B)/B^2\),
+The denominator is strictly positive by
+equation~\eqref{eq:rewrite-monopoly-soc}. The envelope
+condition~\eqref{eq:rewrite-profit-envelope} gives
+$\pi_t'(b)=X_t^*(b)/b^2$, so
 \begin{equation}
- \pi_{BB}=\frac{X^*}{B^3}(\varepsilon_B-2).
+ \pi_t''(b)=\frac{X_t^*(b)}{b^3}[\varepsilon_{B,t}(b)-2].
  \label{eq:rewrite-profit-curvature}
 \end{equation}
-A direct differentiation gives
+
+The transformation~\eqref{eq:rewrite-research-depth} satisfies
+$B'(R_B)=\psi(b)$ and $B''(R_B)=-\psi(b)/\overline B$, where $b=B(R_B)$.
+The chain rule therefore gives
 \begin{equation}
- \frac{\partial^2\pi(B(R_B))}{\partial R_B^2}
- =\frac{X^*(B)\psi(B)}{B^3}
- \left[\psi(B)(\varepsilon_B-2)
- -\frac{B}{\overline B}\right].
+ \frac{\mathrm d^2\pi_t(B(R_B))}{\mathrm dR_B^2}
+ =\frac{X_t^*(b)\psi(b)}{b^3}
+ \left[\psi(b)(\varepsilon_{B,t}(b)-2)
+ -\frac{b}{\overline B}\right].
  \label{eq:rewrite-capped-profit-curvature}
 \end{equation}
-
-The transformation \eqref{eq:rewrite-research-depth} satisfies
-\[
- B'(R_B)=\psi(B)>0,
- \qquad
- B''(R_B)=-\frac{\psi(B)}{\overline B}<0.
-\]
-Using \(\pi_B=X^*(B)/B^2\) and \eqref{eq:rewrite-profit-curvature} gives
-\eqref{eq:rewrite-capped-profit-curvature}. Hence the algebraic condition
-\begin{equation}
- \psi(b)[\varepsilon_{B,t}(b)-2]
- \leq\frac{b}{\overline B}
- \label{eq:rewrite-capped-concavity-gate}
-\end{equation}
-for every $t\geq0$ and $b\in[B_0,\overline B)$ makes optimized operating
-profit concave in research depth throughout the reachable state domain.
+Condition~\eqref{eq:rewrite-capped-concavity-gate} makes this derivative
+nonpositive throughout the reachable state domain.
 
 The research term in \eqref{eq:rewrite-maximized-depth-hamiltonian} is a
-positive multiple of $B(R_B)^\mu$, where $\mu=\eta/(1-\eta)>0$. Its curvature is
+positive multiple of $B(R_B)^{\eta/(1-\eta)}$. Its curvature is
 \begin{equation}
- \frac{\mathrm d^2 B(R_B)^\mu}{\mathrm dR_B^2}
- =\mu B^{\mu-2}\psi(B)
- \left[(\mu-1)\psi(B)-\frac B{\overline B}\right].
+ \frac{\mathrm d^2 B(R_B)^{\eta/(1-\eta)}}{\mathrm dR_B^2}
+ =\frac{\eta}{1-\eta}b^{\eta/(1-\eta)-2}\psi(b)
+ \left[\frac{2\eta-1}{1-\eta}\psi(b)-\frac b{\overline B}\right].
  \label{eq:rewrite-depth-research-curvature}
 \end{equation}
-Thus \eqref{eq:rewrite-capped-concavity-gate}, together with
-\begin{equation}
- \frac{B_0}{\overline B}\geq
- \max\left\{0,\frac{2\eta-1}{\eta}\right\},
- \label{eq:rewrite-depth-research-concavity}
-\end{equation}
-makes the maximized Hamiltonian concave throughout the reachable state
-domain and proves \eqref{eq:rewrite-hamiltonian-support}.
+The bracket is nonpositive exactly when $b/\overline B\geq(2\eta-1)/\eta$.
+Since $b\geq B_0$, condition~\eqref{eq:rewrite-depth-research-concavity}
+makes the research term concave as well. The maximized Hamiltonian is
+therefore concave, so its tangent at the candidate state is a global upper
+bound. As shown in the proof of
+Lemma~\ref{lem:rewrite-developer-verification}, this is
+condition~\eqref{eq:rewrite-hamiltonian-support}.
+
 If $\eta\leq1/2$, condition~\eqref{eq:rewrite-depth-research-concavity}
 holds automatically. But for every fixed
 $0<\eta<1$ its right-hand side is strictly below one, so it also holds
@@ -314,56 +324,7 @@ without this restriction when initial efficiency is sufficiently close to
 the upper bound. These curvature tests are sufficient, not necessary: they
 can fail even when the Hamiltonian has the required supporting tangent at
 the candidate state.
-
-At unit elasticity, the concavity test has a simple primitive form. Define
-$\beta=(1-\alpha)\omega_X$. The static monopoly solution implies
-$\pi_t(B)=a_tB^{\beta/(1-\beta)}$ for some $a_t>0$. Because $B(R_B)$ is
-increasing and concave, $R_B\mapsto\pi_t(B(R_B))$ is globally concave whenever
-$\beta\leq1/2$. In the benchmark calibration in
-Table~\ref{tab:rewrite-rsi-parameters}, $\beta=0.067$,
-so this sufficient condition
-holds with substantial slack. It is not imposed as an additional maintained
-assumption; outside this range, the support condition can instead be checked
-directly.
-
-The AI-dominated continuation supplies an analytical long-run check on the
-support inequality. For $1<\sigma\leq1/\alpha$, the service elasticity defined
-in Equation~\eqref{eq:rewrite-service-capability-elasticity} satisfies
-$\varepsilon_{B,t}(b)\leq1/\alpha$ for every $t$ and $b$. Suppressing these
-arguments, subtracting $\alpha(1-e_X)$ from the denominator in that equation
-gives
-\[
- (\sigma^{-1}-\alpha)(1-s_X)
- \left[(1-\sigma^{-1})(1-s_X)+(\sigma^{-1}-\alpha)s_X\right]\geq0.
-\]
-Choose $B_*\in(B_0,\overline B)$ with
-$B_*/\overline B>\max\{0,(1-2\alpha)/(1-\alpha)\}$.
-Operating profit is then concave in research depth for $B\geq B_*$.
-If $\eta\leq1/2$, the research term in
-\eqref{eq:rewrite-maximized-depth-hamiltonian} is concave there as well.
-For a candidate with $B_t\geq B_*$, it consequently suffices to check
-\begin{equation}
- \widehat{\mathcal H}_t(R_{B,t})
- -\widehat{\mathcal H}'_t(R_{B,t})(R_{B,t}-R_{B,0})
- \geq\widehat{\mathcal H}_t(R_B(B_*)).
- \label{eq:rewrite-support-terminal-bound}
-\end{equation}
-Above $B_*$ the tangent bound follows from concavity. Below $B_*$ the
-Hamiltonian is increasing in $B$, so its value is at most the right-hand
-side, whereas the tangent is minimized at $R_{B,0}$.
-
-Along an AI-dominated continuation, the difference between the two sides of
-\eqref{eq:rewrite-support-terminal-bound}, divided by $Y_t$, converges to
-\[
- \alpha(1-\alpha)
- \left[1-\left(\frac{B_*}{\overline B}\right)^{(1-\alpha)/\alpha}\right]>0.
-\]
-To obtain this limit, use $M/Y\to0$, $\psi(B)R_B\to0$, and
-$\pi(B_*)/Y\to\alpha(1-\alpha)(B_*/\overline B)^{(1-\alpha)/\alpha}$.
-Thus the global support condition holds sufficiently late on this
-continuation even when the stronger curvature condition fails at low
-counterfactual AI-efficiency levels. The finite transition still requires its own
-support check.
+\end{proof}
 
 \input{sections_rewrite/appendix_finite_frontier}
 \input{sections_rewrite/appendix_uncapped_complements_proofs}

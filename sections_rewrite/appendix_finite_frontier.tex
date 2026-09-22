@@ -23,7 +23,8 @@ solutions of their linear approximation.
 Third, I reconstruct the original variables and verify feasibility,
 market clearing, and both transversality conditions. Household concavity
 and Lemma~\ref{lem:rewrite-developer-verification} establish optimality.
-For the developer, I verify the required curvature throughout the domain
+For the developer, I verify the curvature conditions of
+Lemma~\ref{lem:rewrite-hamiltonian-concavity} throughout the domain
 of alternative research policies reachable from the initial efficiency.
 The upper bound makes this possible for initial efficiency sufficiently
 close to it. These final checks turn the constructed solutions of the
@@ -488,7 +489,8 @@ The candidate's objective is finite, because its research compute is
 bounded and $r_t\to\overline r>0$. An alternative with infinite discounted
 research expenditure has payoff $-\infty$ and cannot improve on it.
 
-It remains to verify the curvature conditions
+It remains to verify the curvature conditions of
+Lemma~\ref{lem:rewrite-hamiltonian-concavity},
 \eqref{eq:rewrite-capped-concavity-gate} and
 \eqref{eq:rewrite-depth-research-concavity} for every date and every alternative
 AI-efficiency level in $[B_0,\overline B)$, not just on the selected path.
@@ -513,8 +515,10 @@ This is possible because $B_0=\overline B-d_0\tau_0$ in the first
 construction and $B_0=\overline B-d_0\tau_0h_0^{1/\varphi}$ in the second.
 Every feasible research policy has $b\geq B_0$, so the two curvature
 conditions hold throughout the entire alternative-state domain at every
-date. Lemma~\ref{lem:rewrite-developer-verification} and the verified TVC
-therefore establish global developer optimality without imposing
+date. Lemma~\ref{lem:rewrite-hamiltonian-concavity} therefore gives the
+support inequality~\eqref{eq:rewrite-hamiltonian-support}.
+Lemma~\ref{lem:rewrite-developer-verification} and the verified TVC
+then establish global developer optimality without imposing
 $\eta\leq1/2$. No curvature property of
 the candidate is being assumed: it follows from the primitives and the
 chosen initial-state neighborhood.
