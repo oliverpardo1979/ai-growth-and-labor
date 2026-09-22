@@ -105,7 +105,7 @@ the same $B_0$ yields a higher present value of net profit.
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-developer-verification}]
-Define research depth as the monotone transformation
+For the proof, define the transformed AI-efficiency state, or research depth, by
 \begin{equation}
  R_B(B)=-\overline B\log\left(1-\frac{B}{\overline B}\right),
  \qquad
@@ -114,21 +114,30 @@ Define research depth as the monotone transformation
 \end{equation}
 It maps $B\in[B_0,\overline B)$ into
 $R_B\in[R_{B,0},\infty)$, where $R_{B,t}=R_B(B_t)$ and
-$R_{B,0}=R_B(B_0)$. This transformation removes the factor $\psi(B)$ from
-the RSI technology:
+$R_{B,0}=R_B(B_0)$. Since $R_B'(B)=1/\psi(B)$, this transformation removes
+the factor $\psi(B)$ from the RSI technology~\eqref{eq:rewrite-capability-law}:
 \begin{equation}
  \dot R_B=\chi[B(R_B)M]^\eta.
  \label{eq:rewrite-research-depth-law}
 \end{equation}
-Define the shadow value of research depth as
-$q_{R,t}=q_t\psi(B_t)>0$. Holding this shadow value fixed, let
+The corresponding current-value shadow price is $q_{R,t}=q_t\psi(B_t)$,
+which is positive by the research condition~\eqref{eq:rewrite-research-foc}.
+At each date $t$, hold $q_{R,t}$ at its value along the candidate trajectory
+and define the maximized Hamiltonian for an alternative state $\widetilde R_B$:
 \[
  \widehat{\mathcal H}_t(\widetilde R_B)
  \equiv\max_{\widetilde M\geq0}
  \left\{\pi_t(B(\widetilde R_B))-\widetilde M
  +q_{R,t}\chi[B(\widetilde R_B)\widetilde M]^\eta\right\}.
 \]
-Maximizing over research expenditure gives
+Because $0<\eta<1$, the expression being maximized is strictly concave in
+research expenditure. Using the candidate's research
+condition~\eqref{eq:rewrite-research-foc}, the maximizing expenditure at
+$\widetilde R_B$ is
+\[
+ M_t\left[\frac{B(\widetilde R_B)}{B_t}\right]^{\eta/(1-\eta)},
+\]
+where $M_t$ is the candidate's research expenditure. Substitution gives
 \begin{equation}
  \widehat{\mathcal H}_t(\widetilde R_B)
  =\pi_t(B(\widetilde R_B))+
@@ -136,10 +145,8 @@ Maximizing over research expenditure gives
  \left[\frac{B(\widetilde R_B)}{B_t}\right]^{\eta/(1-\eta)}.
  \label{eq:rewrite-maximized-depth-hamiltonian}
 \end{equation}
-Here $M_t$ is the candidate's research expenditure. The formula follows by
-maximizing $-M+q_{R,t}\chi[B(\widetilde R_B)M]^\eta$ over $M\geq0$ and
-using the candidate's research first-order condition. Its derivative at the
-candidate state, using the envelope condition~\eqref{eq:rewrite-profit-envelope}, is
+Differentiating the maximized Hamiltonian with respect to its state argument
+and using the envelope condition~\eqref{eq:rewrite-profit-envelope} gives
 \begin{equation}
  \widehat{\mathcal H}'_t(R_{B,t})
  =\frac{\psi(B_t)}{B_t}(U_t+M_t).
@@ -159,45 +166,75 @@ following inequality for every $\widetilde R_B\geq R_{B,0}$:
  (\widetilde R_B-R_{B,t}).
 \]
 
-Write $D_t=\exp(-\int_0^t r_s\dd s)$ and $\mu_t=D_tq_{R,t}$.
+Let $D_t=\exp(-\int_0^t r_s\dd s)$ be the discount factor and
+$\mu_t=D_tq_{R,t}$ the present-value shadow price of research depth.
+The research condition~\eqref{eq:rewrite-research-foc} and the RSI
+technology~\eqref{eq:rewrite-capability-law} imply $q_t\eta\dot B_t=M_t$.
+Differentiating $q_{R,t}=q_t\psi(B_t)$ and using the costate
+equation~\eqref{eq:rewrite-costate} therefore gives
+\[
+ \dot q_{R,t}=r_tq_{R,t}-\frac{\psi(B_t)}{B_t}(U_t+M_t),
+ \qquad
+ \dot\mu_t=-D_t\widehat{\mathcal H}'_t(R_{B,t}).
+\]
+
+Consider any feasible alternative $\{\widetilde B_t,\widetilde M_t\}_{t\geq0}$
+starting from the same $B_0$, and write $\widetilde R_{B,t}=R_B(\widetilde B_t)$.
+Here feasible expenditure is nonnegative and integrable on every finite
+interval, with a locally absolutely continuous state satisfying the RSI
+technology almost everywhere.
 Let
 \[
  J_T=\int_0^T D_t[\pi_t(B_t)-M_t]\dd t
 \]
-denote discounted net profit under the candidate, and define
+denote discounted net profit through date $T$ under the candidate, and define
 $\widetilde J_T$ analogously for the alternative.
-The transformed costate equation is
-$\dot\mu_t=-D_t\widehat{\mathcal H}'_t(R_{B,t})$.
-For any feasible alternative
-$\{\widetilde B_t,\widetilde M_t\}_{t\geq0}$,
-condition~\eqref{eq:rewrite-hamiltonian-support}
-and the transformed costate equation imply
+At each date, the alternative's Hamiltonian cannot exceed
+$\widehat{\mathcal H}_t(\widetilde R_{B,t})$, whereas the candidate attains
+$\widehat{\mathcal H}_t(R_{B,t})$. Applying
+condition~\eqref{eq:rewrite-hamiltonian-support} and the transformed costate
+equation yields, for almost every $t$,
 \[
- D_t\left[
+ \begin{aligned}
+ &D_t\left[
  \pi_t(\widetilde B_t)-\widetilde M_t
  -\pi_t(B_t)+M_t
- \right]
- \leq
- -\frac{\mathrm d}{\mathrm dt}
+ \right]\\
+ &\quad\leq D_t\widehat{\mathcal H}'_t(R_{B,t})
+ (\widetilde R_{B,t}-R_{B,t})
+ -\mu_t(\dot{\widetilde R}_{B,t}-\dot R_{B,t})\\
+ &\quad=-\frac{\mathrm d}{\mathrm dt}
  \left[\mu_t(\widetilde R_{B,t}-R_{B,t})\right].
+ \end{aligned}
 \]
 Integrating from zero to $T$ and using the common initial
 state gives
 \[
  \widetilde J_T-J_T
  \leq-\mu_T(\widetilde R_{B,T}-R_{B,T})
- \leq\mu_TR_{B,T}.
+ \leq\mu_TR_{B,T},
 \]
-Because
+where the second inequality uses $\mu_T>0$ and $\widetilde R_{B,T}\geq0$.
+Since
 \[
  \psi(B_t)R_{B,t}
  =-(\overline B-B_t)\log\left(1-\frac{B_t}{\overline B}\right)
  \leq B_t,
 \]
-the last expression converges to zero by
-the developer's transversality condition. Taking the upper limit establishes
-global optimality. The argument requires a global upper tangent at the
-candidate state, not concavity at every counterfactual state.
+the developer's transversality condition~\eqref{eq:rewrite-developer-tvc} gives
+\[
+ 0\leq\mu_TR_{B,T}
+ =D_Tq_T\psi(B_T)R_{B,T}
+ \leq D_Tq_TB_T\longrightarrow0.
+\]
+The candidate's present value is finite by assumption. Hence
+\[
+ \limsup_{T\to\infty}\widetilde J_T
+ \leq\lim_{T\to\infty}J_T<\infty,
+\]
+so no feasible alternative yields a higher present value of net profit.
+The argument requires a global upper tangent at the candidate state at each
+date, not concavity at every counterfactual state.
 \end{proof}
 
 \paragraph{A concavity test for
