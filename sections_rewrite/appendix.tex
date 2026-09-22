@@ -66,31 +66,6 @@ The implicit-function theorem therefore makes the maximizing service choice
 smooth in $K,A,L,B$.
 \end{proof}
 
-\paragraph{Global developer verification.}
-For an upper bound, define research depth as the monotone transformation
-\begin{equation}
- R_B(B)=-\overline B\log\left(1-\frac{B}{\overline B}\right),
- \qquad
- B(R_B)=\overline B\left(1-e^{-R_B/\overline B}\right).
- \label{eq:rewrite-research-depth}
-\end{equation}
-It maps $B\in[B_0,\overline B)$ into
-$R_B\in[R_{B,0},\infty)$, where $R_{B,t}=R_B(B_t)$ and
-$R_{B,0}=R_B(B_0)$, and rewrites the RSI technology as
-\begin{equation}
- \dot R_B=\chi[B(R_B)M]^\eta.
- \label{eq:rewrite-research-depth-law}
-\end{equation}
-Write $\pi_t(B)$ for optimized operating profit evaluated at the date-$t$
-values of $K,A,$ and $L$, and define the shadow value of research depth as
-$q_{R,t}=q_t\psi(B_t)$. Holding this shadow value fixed, let
-\[
- \widehat{\mathcal H}_t(\widetilde R_B)
- \equiv\max_{\widetilde M\geq0}
- \left\{\pi_t(B(\widetilde R_B))-\widetilde M
- +q_{R,t}\chi[B(\widetilde R_B)\widetilde M]^\eta\right\}.
-\]
-
 \begin{lemma}[Global verification of the developer's research path]
 \label{lem:rewrite-developer-verification}
 Let $0<\eta<1$ and $\chi>0$. Fix $0<B_0<\overline B<\infty$
@@ -102,13 +77,19 @@ $B_t$, interior research $M_t>0$, and a finite objective. Suppose there is a
 continuously differentiable costate $q_t$ satisfying the research
 condition~\eqref{eq:rewrite-research-foc}, the costate
 equation~\eqref{eq:rewrite-costate}, and the transversality
-condition~\eqref{eq:rewrite-developer-tvc}. If, for every $t\geq0$ and every
-$\widetilde R_B\geq R_{B,0}$,
+condition~\eqref{eq:rewrite-developer-tvc}.
+Write $\pi_t(b)$ for optimized operating profit at AI efficiency $b$ and the
+given date-$t$ values of $K,A,$ and $L$, and let $U_t$ be inference compute
+under the static optimum at $B_t$. If, for every $t\geq0$ and every
+$b\in[B_0,\overline B)$,
 \begin{equation}
- \widehat{\mathcal H}_t(\widetilde R_B)
- \leq\widehat{\mathcal H}_t(R_{B,t})
- +\widehat{\mathcal H}'_t(R_{B,t})
- (\widetilde R_B-R_{B,t}),
+ \begin{aligned}
+ \pi_t(b)-\pi_t(B_t)
+ &+\frac{1-\eta}{\eta}M_t
+ \left[\left(\frac{b}{B_t}\right)^{\eta/(1-\eta)}-1\right]\\
+ &\leq\frac{\overline B-B_t}{B_t}(U_t+M_t)
+ \log\!\left(\frac{\overline B-B_t}{\overline B-b}\right),
+ \end{aligned}
  \label{eq:rewrite-hamiltonian-support}
 \end{equation}
 then the candidate is a global maximizer of the reduced developer problem.
@@ -121,9 +102,30 @@ developer.
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-developer-verification}]
-Fix a date and the candidate shadow price
-$q_{R,t}=q_t\psi(B_t)>0$. Maximizing the research-depth Hamiltonian over
-research expenditure gives
+Define research depth as the monotone transformation
+\begin{equation}
+ R_B(B)=-\overline B\log\left(1-\frac{B}{\overline B}\right),
+ \qquad
+ B(R_B)=\overline B\left(1-e^{-R_B/\overline B}\right).
+ \label{eq:rewrite-research-depth}
+\end{equation}
+It maps $B\in[B_0,\overline B)$ into
+$R_B\in[R_{B,0},\infty)$, where $R_{B,t}=R_B(B_t)$ and
+$R_{B,0}=R_B(B_0)$. This transformation removes the factor $\psi(B)$ from
+the RSI technology:
+\begin{equation}
+ \dot R_B=\chi[B(R_B)M]^\eta.
+ \label{eq:rewrite-research-depth-law}
+\end{equation}
+Define the shadow value of research depth as
+$q_{R,t}=q_t\psi(B_t)>0$. Holding this shadow value fixed, let
+\[
+ \widehat{\mathcal H}_t(\widetilde R_B)
+ \equiv\max_{\widetilde M\geq0}
+ \left\{\pi_t(B(\widetilde R_B))-\widetilde M
+ +q_{R,t}\chi[B(\widetilde R_B)\widetilde M]^\eta\right\}.
+\]
+Maximizing over research expenditure gives
 \begin{equation}
  \widehat{\mathcal H}_t(\widetilde R_B)
  =\pi_t(B(\widetilde R_B))+
@@ -134,12 +136,25 @@ research expenditure gives
 Here $M_t$ is the candidate's research expenditure. The formula follows by
 maximizing $-M+q_{R,t}\chi[B(\widetilde R_B)M]^\eta$ over $M\geq0$ and
 using the candidate's research first-order condition. Its derivative at the
-candidate state is
+candidate state, using the envelope condition~\eqref{eq:rewrite-profit-envelope}, is
 \begin{equation}
  \widehat{\mathcal H}'_t(R_{B,t})
  =\frac{\psi(B_t)}{B_t}(U_t+M_t).
  \label{eq:rewrite-depth-hamiltonian-slope}
 \end{equation}
+Because
+\[
+ R_B(b)-R_{B,t}
+ =\overline B\log\!\left(\frac{\overline B-B_t}{\overline B-b}\right),
+\]
+condition~\eqref{eq:rewrite-hamiltonian-support} is equivalent to the
+following inequality for every $\widetilde R_B\geq R_{B,0}$:
+\[
+ \widehat{\mathcal H}_t(\widetilde R_B)
+ \leq\widehat{\mathcal H}_t(R_{B,t})
+ +\widehat{\mathcal H}'_t(R_{B,t})
+ (\widetilde R_B-R_{B,t}).
+\]
 
 Write $D_t=\exp(-\int_0^t r_s\dd s)$ and $\mu_t=D_tq_{R,t}$.
 Let
