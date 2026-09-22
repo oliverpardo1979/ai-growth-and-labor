@@ -66,50 +66,47 @@ The implicit-function theorem therefore makes the maximizing service choice
 smooth in $K,A,L,B$.
 \end{proof}
 
-\begin{lemma}[Sufficient conditions for optimal research investment]
+\begin{lemma}[Optimal research expenditure]
 \label{lem:rewrite-developer-verification}
-Consider the AI developer's choice of research expenditure over time,
-taking the paths of $K,A,L,$ and $r$ as given. The following conditions
-are sufficient for a feasible research plan to maximize the present value
-of net profit among all feasible research plans starting from the same
-initial AI efficiency.
-\begin{enumerate}[label=(\roman*),leftmargin=*]
-\item \emph{Environment and candidate.}
-Let $0<\eta<1$ and $\chi>0$. Fix $0<B_0<\overline B<\infty$
-and positive continuous paths for $K,A,$ and $L$, and let the
-interest-rate path $r$ be locally integrable. Consider a feasible
-candidate $\{B_t,M_t\}_{t\geq0}$ for
-problem~\eqref{eq:rewrite-developer-reduced}, with continuously differentiable
-$B_t$, interior research $M_t>0$, and a finite objective.
-\item \emph{Intertemporal conditions.}
-There is a continuously differentiable costate $q_t$ satisfying the research
-condition~\eqref{eq:rewrite-research-foc}, the costate
-equation~\eqref{eq:rewrite-costate}, and the transversality
-condition~\eqref{eq:rewrite-developer-tvc}.
-\item \emph{Global bound.}
-Write $\pi_t(b)$ for optimized operating profit at AI efficiency $b$ and the
-given date-$t$ values of $K,A,$ and $L$, and let $U_t$ be inference compute
-under the static optimum at $B_t$. For every $t\geq0$ and every
-$b\in[B_0,\overline B)$,
+Consider a feasible research trajectory $\{B_t,M_t\}_{t\geq0}$
+for problem~\eqref{eq:rewrite-developer-reduced}, starting from
+$B_0$ and satisfying the RSI technology
+\eqref{eq:rewrite-capability-law}. Suppose $M_t>0$ and the
+present value of net profit is finite. Suppose there exists
+a continuously differentiable shadow-price trajectory
+$\{q_t\}_{t\geq0}$ satisfying the research condition
+\eqref{eq:rewrite-research-foc}, the costate equation
+\eqref{eq:rewrite-costate}, and the transversality condition
+\eqref{eq:rewrite-developer-tvc}.
+
+Let $\pi_t(b)$ denote operating profit before research
+expenditure, after choosing AI production services optimally
+at efficiency $b$, as defined in
+equation~\eqref{eq:rewrite-service-choice}.
+Let $U_t$ denote the corresponding inference compute
+at the candidate efficiency $B_t$.
+
+Suppose $0<B_0<\overline B<\infty$ and, for every $t\geq0$
+and every $b\in[B_0,\overline B)$,
 \begin{equation}
  \begin{aligned}
  \pi_t(b)-\pi_t(B_t)
  &+\frac{1-\eta}{\eta}M_t
- \left[\left(\frac{b}{B_t}\right)^{\eta/(1-\eta)}-1\right]\\
- &\leq\frac{\overline B-B_t}{B_t}(U_t+M_t)
- \log\!\left(\frac{\overline B-B_t}{\overline B-b}\right).
+ \left[
+ \left(\frac{b}{B_t}\right)^{\eta/(1-\eta)}-1
+ \right]\\
+ &\leq
+ \frac{\overline B-B_t}{B_t}(U_t+M_t)
+ \log\!\left(
+ \frac{\overline B-B_t}{\overline B-b}
+ \right).
  \end{aligned}
  \label{eq:rewrite-hamiltonian-support}
 \end{equation}
-\end{enumerate}
-Under these conditions, the candidate is a global maximizer of the reduced
-developer problem.
-Admissible alternatives have $M_t\geq0$, locally finite research expenditure,
-and the same initial state; the comparison also bounds the upper limit of
-their truncated discounted payoffs.
-Together with the unique static service choice characterized in
-Lemma~\ref{lem:rewrite-monopoly-choice}, it is globally optimal for the
-developer.
+Then $\{M_t\}_{t\geq0}$ solves the developer's
+problem~\eqref{eq:rewrite-developer-reduced}:
+no other feasible research trajectory starting from
+the same $B_0$ yields a higher present value of net profit.
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-developer-verification}]
