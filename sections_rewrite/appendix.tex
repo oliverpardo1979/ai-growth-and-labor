@@ -173,11 +173,21 @@ denote discounted net profit under the candidate, and define
 $\widetilde J_T$ analogously for the alternative.
 The transformed costate equation is
 $\dot\mu_t=-D_t\widehat{\mathcal H}'_t(R_{B,t})$.
-For any admissible alternative research policy and its state
-$\widetilde R_{B,t}$, maximizing over its control first bounds its Hamiltonian
-by \eqref{eq:rewrite-maximized-depth-hamiltonian}. Apply
-\eqref{eq:rewrite-hamiltonian-support}, subtract the candidate payoff, and
-integrate by parts. Equal initial states imply
+For any feasible alternative
+$\{\widetilde B_t,\widetilde M_t\}_{t\geq0}$,
+condition~\eqref{eq:rewrite-hamiltonian-support}
+and the transformed costate equation imply
+\[
+ D_t\left[
+ \pi_t(\widetilde B_t)-\widetilde M_t
+ -\pi_t(B_t)+M_t
+ \right]
+ \leq
+ -\frac{\mathrm d}{\mathrm dt}
+ \left[\mu_t(\widetilde R_{B,t}-R_{B,t})\right].
+\]
+Integrating from zero to $T$ and using the common initial
+state gives
 \[
  \widetilde J_T-J_T
  \leq-\mu_T(\widetilde R_{B,T}-R_{B,T})
