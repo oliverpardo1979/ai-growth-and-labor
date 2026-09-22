@@ -66,21 +66,30 @@ The implicit-function theorem therefore makes the maximizing service choice
 smooth in $K,A,L,B$.
 \end{proof}
 
-\begin{lemma}[Global verification of the developer's research path]
+\begin{lemma}[Sufficient conditions for optimal research investment]
 \label{lem:rewrite-developer-verification}
+Consider the AI developer's choice of research expenditure over time,
+taking the paths of $K,A,L,$ and $r$ as given. The following conditions
+are sufficient for a feasible research plan to maximize the present value
+of net profit among all feasible research plans starting from the same
+initial AI efficiency.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item \emph{Environment and candidate.}
 Let $0<\eta<1$ and $\chi>0$. Fix $0<B_0<\overline B<\infty$
-and positive continuous paths for $K,A,$ and $L$,
-and take the locally integrable interest-rate path $r$ as given. Consider a
-feasible candidate $\{B_t,M_t\}_{t\geq0}$ for
+and positive continuous paths for $K,A,$ and $L$, and let the
+interest-rate path $r$ be locally integrable. Consider a feasible
+candidate $\{B_t,M_t\}_{t\geq0}$ for
 problem~\eqref{eq:rewrite-developer-reduced}, with continuously differentiable
-$B_t$, interior research $M_t>0$, and a finite objective. Suppose there is a
-continuously differentiable costate $q_t$ satisfying the research
+$B_t$, interior research $M_t>0$, and a finite objective.
+\item \emph{Intertemporal conditions.}
+There is a continuously differentiable costate $q_t$ satisfying the research
 condition~\eqref{eq:rewrite-research-foc}, the costate
 equation~\eqref{eq:rewrite-costate}, and the transversality
 condition~\eqref{eq:rewrite-developer-tvc}.
+\item \emph{Global bound.}
 Write $\pi_t(b)$ for optimized operating profit at AI efficiency $b$ and the
 given date-$t$ values of $K,A,$ and $L$, and let $U_t$ be inference compute
-under the static optimum at $B_t$. If, for every $t\geq0$ and every
+under the static optimum at $B_t$. For every $t\geq0$ and every
 $b\in[B_0,\overline B)$,
 \begin{equation}
  \begin{aligned}
@@ -88,11 +97,13 @@ $b\in[B_0,\overline B)$,
  &+\frac{1-\eta}{\eta}M_t
  \left[\left(\frac{b}{B_t}\right)^{\eta/(1-\eta)}-1\right]\\
  &\leq\frac{\overline B-B_t}{B_t}(U_t+M_t)
- \log\!\left(\frac{\overline B-B_t}{\overline B-b}\right),
+ \log\!\left(\frac{\overline B-B_t}{\overline B-b}\right).
  \end{aligned}
  \label{eq:rewrite-hamiltonian-support}
 \end{equation}
-then the candidate is a global maximizer of the reduced developer problem.
+\end{enumerate}
+Under these conditions, the candidate is a global maximizer of the reduced
+developer problem.
 Admissible alternatives have $M_t\geq0$, locally finite research expenditure,
 and the same initial state; the comparison also bounds the upper limit of
 their truncated discounted payoffs.
