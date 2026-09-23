@@ -34,9 +34,10 @@ and records the endogenous jumps in consumption and research.
 
 \subsection{Boundary-value solution and reported outcomes}
 
-I use the collocation solver \texttt{scipy.integrate.solve\_bvp}, provided
-by the open-source Python library SciPy \citep{virtanenetal2020}, with
-computational coordinates
+I use \texttt{scipy.integrate.solve\_bvp} from the open-source Python
+library SciPy \citep{virtanenetal2020}. The solver implements fourth-order
+collocation with residual control similar to that of
+\citet{kierzenkashampine2001}. I use the computational coordinates
 \[
  \left(\log K,\ \log\frac{B}{\overline B-B},\ \log C,\ \log q\right).
 \]
@@ -169,6 +170,10 @@ counterfactual AI-efficiency levels. The finite transition still requires its ow
 support check.
 
 \subsection{Replication files}
+
+I use NumPy for array operations and linear algebra \citep{harrisetal2020}
+and Matplotlib to generate the figures \citep{hunter2007}.
+The package versions are recorded in \texttt{requirements-rewrite.txt}.
 
 The code, simulation data, and replication instructions are available at
 \url{https://github.com/oliverpardo1979/ai-growth-and-labor}.
