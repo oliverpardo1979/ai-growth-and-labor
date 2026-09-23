@@ -24,8 +24,8 @@ Third, I reconstruct the original variables and verify feasibility,
 market clearing, and both transversality conditions. Household concavity
 and Lemma~\ref{lem:rewrite-developer-verification} establish optimality.
 For the developer, I verify the curvature conditions of
-Lemma~\ref{lem:rewrite-hamiltonian-concavity} throughout the domain
-of alternative research policies reachable from the initial efficiency.
+Lemma~\ref{lem:rewrite-hamiltonian-concavity} at every AI-efficiency level
+reachable under alternative research policies from the initial efficiency.
 The upper bound makes this possible for initial efficiency sufficiently
 close to it. These final checks turn the constructed solutions of the
 first-order conditions into equilibria. The result is local in initial
@@ -73,8 +73,9 @@ and production function, equations~\eqref{eq:rewrite-eq-sx},
  \frac{Y}{K}&=B^\theta\mathcal H_\sigma(s_X).
  \label{eq:rewrite-frontier-share-map}
 \end{align}
-For example, $Z=X(\omega_X/s_X)^{1/\varphi}$ and
-$X=B(1-\alpha)s_Xm(s_X)Y$ give the last identity directly.
+The identities $Z=X(\omega_X/s_X)^{1/\varphi}$ and
+$X=B(1-\alpha)s_Xm(s_X)Y$ give the output--capital ratio in
+\eqref{eq:rewrite-frontier-share-map}.
 
 If $0<\sigma<1$, positive marginal revenue requires
 \[
@@ -234,7 +235,8 @@ $r_k=\partial r/\partial\log k$, and
 $a_k=\partial[(y-u)/k]/\partial\log k+\overline c/\overline k$,
 evaluated at the fixed point. In
 $(\log k,\log c,\log d,\log\widetilde q,\tau)$ coordinates the Jacobian has
-the two diagonal blocks
+two diagonal blocks: one for capital and consumption, and one for the scaled
+efficiency gap and normalized shadow price,
 \begin{equation}
  J_R=\begin{pmatrix}
  a_k&-\overline c/\overline k\\ r_k&0
@@ -284,7 +286,7 @@ direction in $J_R$ has a nonzero $k$ component, and the stable direction in
 $J_B$ has a nonzero $d$ component. To verify that their number suffices to
 select the jump variables, consider a vector in the stable subspace whose
 state components $(k,d,\tau)$ are all zero. Its linearized $\tau$ path is
-zero. The homogeneous Ramsey block must then follow its stable direction;
+zero. The unforced capital--consumption block must then follow its stable direction;
 its zero initial $k$ component forces its $c$ component to be zero as well.
 With that forcing absent, the same argument in the research block forces
 $\widetilde q=0$. The projection of the three-dimensional stable subspace
@@ -298,7 +300,7 @@ and the inverse-function theorem therefore give a local graph
 $(c,\widetilde q)$ over $(k,d,\tau)$; see \citet{dyatlov2018}.
 Choose a small neighborhood of the full fixed point and then a smaller
 initial-state neighborhood $\mathcal U_L$ of
-$(\overline k,\overline d,0)$. Its constants depend on the parameters
+$(\overline k,\overline d,0)$. The size of this neighborhood depends on the parameters
 and the case under consideration. In original initial stocks the restriction is
 \begin{equation}
  (k_0,d_0,\tau_0)=
@@ -346,7 +348,7 @@ Then
  M=\left[vd\,\chi\eta B^\eta/\overline B\right]^{1/(1-\eta)},\quad
  a=\chi B^\eta M^\eta/\overline B,\quad r=\alpha y-\delta.
 \]
-Define $g_K=y-c-u-M\tau h^{1/\varphi}-\delta$.
+Capital's growth rate is $g_K=y-c-u-M\tau h^{1/\varphi}-\delta$.
 The exact equations are
 \begin{subequations}
 \label{eq:rewrite-ai-proof-dynamics}
@@ -461,8 +463,8 @@ have limiting logarithmic growth
 They therefore converge to zero, rather than merely remaining bounded.
 
 Household utility is finite because $\log(C/N)$ grows at most linearly and
-$\rho>n$, as imposed in the household problem. Log utility is concave, the
-household budget is linear at given prices and distributions. More explicitly,
+$\rho>n$, as imposed in the household problem. Log utility is concave, and the
+household budget is linear at given prices and distributed profits. More explicitly,
 let $\lambda_t=e^{-\rho t}N_t/C_t$, so $\dot\lambda_t=-r_t\lambda_t$ by
 \eqref{eq:rewrite-euler}. Concavity of log utility and equal initial capital
 give, for any admissible alternative $(\widetilde C,\widetilde K)$,
@@ -487,7 +489,7 @@ $b\in[B_0,\overline B]$. Since
 $\mathrm d\log(D_tS_t)/\mathrm dt\to\overline g-\overline r=n-\rho<0$,
 $\int_0^\infty D_tS_t\,\dd t<\infty$. Thus discounted operating profit
 is uniformly bounded above across all alternative research policies.
-The candidate's objective is finite, because its research compute is
+The candidate's present value of net profit is finite, because its research compute is
 bounded and $r_t\to\overline r>0$. An alternative with infinite discounted
 research expenditure has payoff $-\infty$ and cannot improve on it.
 
@@ -497,7 +499,7 @@ Lemma~\ref{lem:rewrite-hamiltonian-concavity},
 \eqref{eq:rewrite-depth-research-concavity} for every date and every alternative
 AI-efficiency level in $[B_0,\overline B)$, not just on the selected path.
 First fix a compact normalized-state neighborhood and an interval of
-counterfactual efficiencies $[b_*,\overline B]$, with $0<b_*<\overline B$.
+alternative AI-efficiency levels $[b_*,\overline B]$, with $0<b_*<\overline B$.
 In the positive labor-share construction, $K/(AN)$ stays in a compact
 neighborhood of $\overline k>0$. Smoothness of the static monopoly solution
 bounds $\varepsilon_{B,t}(b)$ uniformly for these states and for AI-efficiency levels near
@@ -521,8 +523,7 @@ date. Lemma~\ref{lem:rewrite-hamiltonian-concavity} therefore gives the
 support inequality~\eqref{eq:rewrite-hamiltonian-support}.
 Lemma~\ref{lem:rewrite-developer-verification} and the verified TVC
 then establish global developer optimality without imposing
-$\eta\leq1/2$. No curvature property of
-the candidate is being assumed: it follows from the primitives and the
+$\eta\leq1/2$. The curvature conditions follow from the primitives and the
 chosen initial-state neighborhood.
 
 All quantities remain finite at every finite date, and market clearing and

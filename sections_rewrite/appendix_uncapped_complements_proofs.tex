@@ -89,7 +89,7 @@ $e_X=(1-s_X)/\sigma+\alpha s_X<1$. Thus
 Define $f_\infty=f(x_\infty)>0$.
 In particular, $y\leq f_\infty k^\alpha$ and $0<u\leq x_\infty/B$.
 
-The static condition can be written
+The monopoly condition can be written
 \[
  k^\alpha v(x)=1/B,\qquad
  v(x)=\frac{(1-\alpha)s_Xf(x)(1-e_X)}x.
@@ -108,15 +108,16 @@ For $k$ in any compact interval bounded away from zero, as $B\to\infty$,
 \[
  x\to x_\infty,\qquad y\to f_\infty k^\alpha,\qquad u\to0
 \]
-uniformly. These are properties of the static map, not assumptions about
-the equilibrium path. They also imply that, for any prescribed finite
-return, sufficiently small $k$ and sufficiently large $B$ make $r$ exceed
-that return, uniformly over those small values of $k$.
+uniformly. These are properties of the monopoly allocation at given $k,B$,
+not assumptions about the equilibrium path. They also imply that, for any
+prescribed finite return, sufficiently small $k$ and sufficiently large $B$
+make $r$ exceed that return, uniformly over those small values of $k$.
 
 \textit{Step 2. Household and developer optimality bound consumption.}
 Proposition~\ref{prop:rewrite-uncapped-complements-bounds} bounds $k$ and
 $y$ above by finite constants $k_{\max},y_{\max}$.
-Euler and $r\geq-\delta$ give $\dot c/c\geq-(\delta+\rho+\gamma)$.
+The household Euler equation and $r\geq-\delta$ give
+$\dot c/c\geq-(\delta+\rho+\gamma)$.
 Integrating the resource constraint over $[t,t+1]$ therefore gives
 \[
  c_t\int_0^1 e^{-(\delta+\rho+\gamma)v}\dd v
@@ -128,11 +129,11 @@ Write $D_{t,s}=\exp(-\int_t^s r_v\dd v)$.
 Euler implies $\int_t^\infty D_{t,s}C_s\dd s=C_t/d$.
 Integrating the household budget~\eqref{eq:rewrite-household-budget}
 and using its TVC~\eqref{eq:rewrite-household-tvc} shows that
-the discounted sum of wages and distributions has a finite limit.
-Since wages are nonnegative, the discounted distributions alone have
-a limit that is either finite or minus infinity. The latter is impossible:
+the discounted integral of labor income plus developer net profit converges.
+Since labor income is nonnegative, the discounted integral of developer net
+profit has a limit that is either finite or minus infinity. The latter is impossible:
 the developer can stop research and obtain nonnegative operating profits.
-By continuation optimality, its remaining value
+By continuation optimality, the developer's continuation value
 $V_t=\int_t^\infty D_{t,s}\Pi_s\dd s$ is therefore finite and nonnegative.
 It follows that
 \begin{equation}
@@ -145,11 +146,11 @@ It follows that
 Here $V_t$ is an auxiliary continuation value, not an additional traded
 asset or a change to the household budget.
 
-\textit{Step 3. Future research spending is small before taking growth limits.}
+\textit{Step 3. Discounted research spending vanishes relative to effective labor.}
 Fix a positive rate $a$. Step 1 permits a small $k_a>0$ and a sufficiently
 late date such that $r-(n+\gamma)\geq a$ whenever $k\leq k_a$.
 On $[k_a,k_{\max}]$, the wage equation~\eqref{eq:rewrite-wage} and the
-static map give a uniform positive lower bound $\ell_a$ on $w/A$.
+static monopoly allocation give a uniform positive lower bound $\ell_a$ on $w/A$.
 Since $r\geq-\delta$, there is a finite constant $H_a>0$ such that
 \[
  a\leq r-(n+\gamma)+H_a w/A
@@ -162,8 +163,8 @@ integration, and~\eqref{eq:rewrite-complements-household-wealth-bound} give
  \leq J A_tL_t
  \label{eq:rewrite-complements-effective-labor-pv-bound}
 \end{equation}
-for a fixed finite $J$. The omitted terminal term is nonpositive;
-no discount-rate limit is used.
+for a fixed finite $J$. The omitted terminal contribution from discounted
+effective labor is nonpositive; no discount-rate limit is used.
 
 The research condition~\eqref{eq:rewrite-research-foc} and costate
 equation~\eqref{eq:rewrite-costate} imply
@@ -192,7 +193,7 @@ Let $F(k)=f_\infty k^\alpha-\nu k$.
 Choose $\varepsilon>0$ small enough that $F$ is positive and increasing on
 $(0,\varepsilon]$. Step 1 also permits a sufficiently late date and
 $a>0$ such that $\dot c/c=r-\rho-\gamma\geq a$ whenever $k\leq\varepsilon$.
-For any $j\leq\varepsilon$, a feasible path cannot enter
+For any $j\leq\varepsilon$, the equilibrium path cannot enter
 $\{k\leq j,\ c\geq F(j)\}$: there $\dot k\leq F(k)-c\leq0$,
 whereas $c$ continues to grow at least at rate $a$, contradicting its upper bound.
 
@@ -208,10 +209,10 @@ $c_{t_0}\geq d\varepsilon$, so
  t_1-t_0\leq T_\varepsilon
  :=a^{-1}\log\!\left(\frac{c_{\max}}{d\varepsilon}\right)<\infty.
 \]
-At $t_1$, feasibility requires $c_{t_1}<F(\varepsilon/2)$ by the preceding
-invariant-region argument. Thus $c_s<F(\varepsilon/2)$ throughout the crossing.
-Uniform static convergence on the crossing interval yields numbers
-$\epsilon_{t_0}\to0$ such that
+At $t_1$, the preceding invariant-region argument requires
+$c_{t_1}<F(\varepsilon/2)$. Thus $c_s<F(\varepsilon/2)$ throughout the crossing.
+The uniform convergence in Step 1, applied on the crossing interval, yields
+numbers $\epsilon_{t_0}\to0$ such that
 \[
  \dot k_s
  =y_s-u_s-\nu k_s-c_s-m_s
@@ -231,7 +232,7 @@ then implies
 a contradiction. Therefore $k$ is eventually bounded away from zero,
 and so is $c\geq dk$. In particular, $r$ is now bounded above.
 
-\textit{Step 5. Research vanishes pointwise and Ramsey dynamics determine the limit.}
+\textit{Step 5. Research per unit of effective labor vanishes and Ramsey dynamics determine the limit.}
 Differentiating the research condition and using the costate equation gives
 \begin{equation}
  (1-\eta)g_M

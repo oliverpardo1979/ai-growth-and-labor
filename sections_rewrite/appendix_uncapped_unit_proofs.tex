@@ -4,8 +4,8 @@
 \label{proof:rewrite-uncapped-unit-bgp}
 Use the definitions in Appendix~\ref{app:rewrite-uncapped-unit}.
 \textit{The reference BGP.}
-First, all candidate ratios are positive. The research denominator
-$\rho-n+\eta g_Y^*$ is positive. Moreover,
+First, all candidate ratios are positive. The denominator of the research share $m^*$,
+$\rho-n+\eta g_Y^*$, is positive. Moreover,
 \[
  i^*=\frac{\alpha(g_Y^*+\delta)}{\rho-n+g_Y^*+\delta}<\alpha,
  \qquad
@@ -79,8 +79,8 @@ $e^{-(\rho-n)t}$. Discounted household utility is
 $N_0e^{-(\rho-n)t}[\log(C_0^*/N_0)+(g_Y^*-n)t]$.
 Both improper objective integrals are finite.
 
-It remains to establish global optimality, rather than only the dated
-necessary conditions. At given paths of $K,A,L$, static optimization gives
+It remains to establish global optimality, rather than only satisfaction of
+the necessary conditions. At given paths of $K,A,L$, static optimization gives
 \begin{equation}
  \begin{split}
  \pi_t(B)={}&(1-\alpha)\omega_X[1-(1-\alpha)\omega_X]
@@ -89,8 +89,8 @@ necessary conditions. At given paths of $K,A,L$, static optimization gives
  \end{split}
  \label{eq:rewrite-uncapped-unit-profit}
 \end{equation}
-For this verification, define the invertible state transformation and its
-current-value costate by
+To verify developer optimality by concavity, define the invertible state
+transformation and its current-value costate by
 \begin{equation}
  \nu=\frac{1-\eta}{\eta},\qquad
  S=B^\nu,\qquad p=\frac{q}{\nu B^{\nu-1}}.
@@ -137,7 +137,7 @@ developer TVC; it does not require exact balanced growth.
 For the household, set $\Lambda_t=e^{-\rho t}N_t/C_t$.
 Euler implies $\dot\Lambda=-r\Lambda$.
 Concavity of log utility and the linear budget give, for any feasible
-alternative with the same $K_0$ and the same given prices and distributions,
+alternative with the same $K_0$ and the same given prices and developer net profit,
 \[
  \int_0^T e^{-\rho t}N_t
  \left[\log(\widetilde C_t/N_t)-\log(C_t/N_t)\right]\dd t
@@ -213,7 +213,9 @@ Make the invertible linear change of deviations
 \[
  \widehat\xi=(\xi_K,\nu\xi_B,\xi_C,\xi_q+(1-\nu)\xi_B)'.
 \]
-This changes neither the model nor the eigenvalues. Applying it to
+The second and fourth coordinates are the log deviations of the transformed
+state $S$ and its shadow price $p$. This changes neither the model nor the
+eigenvalues. Applying it to
 \eqref{eq:rewrite-uncapped-unit-jacobian-k}--\eqref{eq:rewrite-uncapped-unit-jacobian-q}
 gives a similar matrix
 \begin{equation}
@@ -283,8 +285,9 @@ $p(0)>0$ and the sum of all four roots is $\mathsf A+d>0$.
 If real, both are positive; if complex, their real parts are positive.
 This proves \eqref{eq:rewrite-uncapped-unit-local-spectrum}.
 
-To establish the state projection, write a stable eigenvector in transformed
-coordinates as $(x,y,z,u)'$. Its second component cannot be zero:
+To establish nonsingularity of the projection onto the two stocks, write a
+stable eigenvector in transformed coordinates as $(x,y,z,u)'$.
+Its second component cannot be zero:
 the second, fourth, and first rows would successively imply $u=x=z=0$.
 Normalize $y=1$. The second and fourth rows then give
 \[

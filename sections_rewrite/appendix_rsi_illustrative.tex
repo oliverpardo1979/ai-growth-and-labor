@@ -3,6 +3,7 @@
 
 \subsection{Economic intuition and initial conditions}
 
+For the comparisons in Section~\ref{sec:rewrite-quantitative},
 I compute numerical approximations to equilibrium trajectories by solving
 a boundary-value problem (BVP). Initial capital $K_0$ and AI efficiency
 $B_0$ are given, whereas initial consumption $C_0$ and the developer's
@@ -24,7 +25,8 @@ $B,p_X,r$ and income shares are constant. Since
 $r-(n+\gamma)=\rho-n>0$, pre-event developer profit has finite present
 value and the household's transversality expression decays.
 
-At unexpected RSI activation, only the states are inherited. The
+At unexpected RSI activation, capital and AI efficiency are inherited,
+as are the exogenous levels of population and labor-augmenting technology. The
 positive-$\chi$ problem selects consumption, research and the shadow
 value anew. A separate audit checks continuity of production quantities
 and prices, verifies the pre-event Euler, resource and monopoly conditions,
@@ -38,8 +40,12 @@ computational coordinates
 \[
  \left(\log K,\ \log\frac{B}{\overline B-B},\ \log C,\ \log q\right).
 \]
-Subtracting the analytical terminal aggregate growth rate times $t$
-removes their linear trends without changing model variables or timing.
+The second coordinate expresses AI efficiency relative to the remaining
+gap below its upper bound; it can grow without bound while AI efficiency
+remains bounded. Subtracting the analytical terminal aggregate growth rate
+times $t$ from each coordinate removes its asymptotic linear trend.
+These transformations change the numerical representation, not the
+economic variables or calendar time.
 At each trial state the code solves the static monopoly problem and
 recovers research from its first-order condition. The left boundary fixes
 $K_0,B_0$; two right-boundary projections remove unstable components of
@@ -49,7 +55,9 @@ Appendix~\ref{app:rewrite-finite-existence}.
 For each of the eight parameter configurations, I start near its
 analytical limiting point and move the initial stocks to their prescribed
 values in 32 continuation stages. Neither $\omega_X=0$ nor $\chi=0$
-is used as a degenerate BVP seed. At unit elasticity the static block
+is used as the starting point for continuation. These stages change the initial conditions
+of the numerical problem; they are not dates on the economic trajectory.
+At unit elasticity the static block
 uses its exact Cobb--Douglas limit; near one, \texttt{log1p} and
 \texttt{expm1} avoid cancellation. Under complementarity, marginal
 revenue is evaluated directly and the static root is polished when
@@ -74,9 +82,12 @@ inside each solved horizon; no spline is extrapolated.
 The original equations are reconstructed independently with five-point
 differences at 1,001 dates and steps of 0.003 and 0.001 years. An additional
 801-date check over the first ten years uses steps of 0.0003 and 0.0001.
-Admission requires dynamic residuals below $10^{-6}$, first-order
+Acceptance of a computed trajectory requires dynamic residuals below $10^{-6}$, first-order
 residuals below $10^{-9}$, final-horizon changes below $2\times10^{-5}$
 in detrended logs, and terminal-coordinate gaps below $10^{-4}$.
+The horizon comparison measures changes in the computed trajectory when
+the terminal date is extended; the terminal-coordinate check measures its
+distance from the analytical limiting point at that date.
 These are the existing numerical tolerances, not relaxed economic conditions.
 
 The audit checks feasibility and developer global optimality. When
@@ -84,7 +95,12 @@ the concavity conditions of Lemma~\ref{lem:rewrite-hamiltonian-concavity}
 fail, it checks the Hamiltonian
 support condition in Lemma~\ref{lem:rewrite-developer-verification},
 using counterfactual-state minimization and an analytical bound beyond
-the grid. The two grids contain 81/101 and 321/241 date/state points,
+the grid. At each checked date, the support test compares the maximized
+Hamiltonian at alternative AI-efficiency levels with its tangent at the
+candidate state, holding the transformed shadow price and the dated
+values of capital and effective labor fixed.
+The two grids contain 81 dates and 101 alternative states, and 321 dates
+and 241 alternative states, respectively,
 supplemented by dense first-decade checks when needed. The analytical
 support bound and the asymptotic rate $n-\rho<0$ of both transversality
 expressions support the infinite-horizon continuation. These are
@@ -99,7 +115,10 @@ existence certificates for arbitrary initial stocks.
 At unit elasticity, the operating-profit concavity condition in
 Lemma~\ref{lem:rewrite-hamiltonian-concavity} has a simple primitive form.
 Define $\beta=(1-\alpha)\omega_X$. The static monopoly solution implies
-$\pi_t(B)=a_tB^{\beta/(1-\beta)}$ for some $a_t>0$. Because $B(R_B)$ is
+$\pi_t(B)=a_tB^{\beta/(1-\beta)}$ for some $a_t>0$, conditional on the
+dated values of capital and effective labor. Here $R_B$ is the transformed
+AI-efficiency state in equation~\eqref{eq:rewrite-research-depth}.
+Because $B(R_B)$ is
 increasing and concave, $R_B\mapsto\pi_t(B(R_B))$ is globally concave whenever
 $\beta\leq1/2$. In the benchmark calibration in
 Table~\ref{tab:rewrite-rsi-parameters}, $\beta=0.067$,
@@ -121,7 +140,7 @@ gives
 \]
 Choose $B_*\in(B_0,\overline B)$ with
 $B_*/\overline B>\max\{0,(1-2\alpha)/(1-\alpha)\}$.
-Operating profit is then concave in research depth for $B\geq B_*$ by
+Operating profit is then concave in the transformed state $R_B$ for $B\geq B_*$ by
 equation~\eqref{eq:rewrite-capped-profit-curvature}.
 If $\eta\leq1/2$, the research term in
 \eqref{eq:rewrite-maximized-depth-hamiltonian} is concave there as well.
@@ -166,18 +185,18 @@ python scripts/simulate_rewrite_illustrative_rsi.py
 This command solves and audits all four elasticities in both scenarios.
 Use \texttt{--chi 7.5} or \texttt{--chi 1.5} for one scenario;
 \texttt{--sigma 1.5}, for example, solves one elasticity. With all four
-checkpoints available, \texttt{--finish} repeats the admission checks
+checkpoints available, \texttt{--finish} repeats the equilibrium checks
 and exports the figures. The full replication entry point is
 \texttt{scripts/reproduce\_rewrite\_results.py}.
 
 The \href{https://github.com/oliverpardo1979/ai-growth-and-labor/tree/main/numerical_rewrite/rsi_chi_7_5}
 {higher-productivity results folder} and
 \href{https://github.com/oliverpardo1979/ai-growth-and-labor/tree/main/numerical_rewrite/rsi_chi_1_5}
-{lower-productivity results folder} contain the scenario inputs, admitted
-CSV, outcome summaries, equilibrium checks and figure metadata.
+{lower-productivity results folder} contain the scenario inputs, validated
+CSV files, outcome summaries, equilibrium checks and figure metadata.
 Checkpoint and CSV hashes bind the audits to the plotted data.
-No comparison is exported unless all four scenarios and the activation
-continuity checks pass.
+No comparison is exported unless the equilibrium and activation-continuity
+checks pass for all four elasticities in that comparison.
 
 The repository includes the two comparisons reported here. Earlier
 experiments are preserved separately and are not needed for replication.

@@ -61,9 +61,13 @@ $i^*=(\dot K+\delta K)/Y$, $m^*=M/Y$, and $c^*=C/Y$ by
  \label{eq:rewrite-uncapped-unit-consumption}
 \end{align}
 In this appendix, $k^*$ is a capital--output ratio, not capital per unit of
-effective labor. The research share comes from the developer's first-order
+effective labor, and $i^*$ is gross physical investment as a share of output.
+The research share comes from the developer's first-order
 and costate conditions; the consumption share comes from market clearing.
 These ratios are endogenous, not fixed saving or research rules.
+The proof in Appendix~\ref{app:rewrite-proofs} verifies their positivity
+and constructs the reference initial levels from the production and
+research equations, for given initial population and labor-augmenting technology.
 Along the BGP, $B_t=B_0^*e^{g_B^*t}\to\infty$,
 $g_K=g_C=g_U=g_M=g_Y^*$, $g_X=g_Y^*+g_B^*$, and $g_q=g_Y^*-g_B^*$.
 
@@ -74,7 +78,7 @@ this positive finite-rate BGP. If $\Delta=0$, they are inconsistent; if
 $\Delta<0$, they imply $g_B<0$, contrary to the RSI technology. Thus
 $\eta+\omega_X\geq1$ excludes this BGP, not every possible equilibrium
 trajectory. The same restriction $\eta+\omega_X<1$ also suffices for
-global developer optimality: the proof uses the state
+global developer optimality: the proof uses the invertible state transformation
 $S=B^{(1-\eta)/\eta}$, in which the RSI technology is jointly concave in
 $S,M$ and operating profit is concave in $S$. Finally, $\rho>n$ makes
 both transversality expressions decline and the objective integrals converge.
@@ -82,7 +86,9 @@ both transversality expressions decline and the objective integrals converge.
 \subsection{Equilibrium trajectories near the balanced-growth path}
 
 The BGP supplies a reference for proving existence from nearby initial
-stocks that need not be on that path. Define stationary log deviations
+stocks that need not be on that path. For the given exogenous paths of
+population and labor-augmenting technology, compare each variable with its
+value on the corresponding reference BGP at the same date. Define log deviations
 \begin{equation}
  \xi_K=\log\frac K{K^*},\quad
  \xi_B=\log\frac B{B^*},\quad
@@ -90,6 +96,8 @@ stocks that need not be on that path. Define stationary log deviations
  \xi_q=\log\frac q{q^*}.
  \label{eq:rewrite-uncapped-unit-deviations}
 \end{equation}
+Time subscripts are suppressed: the reference quantities in the denominators
+follow the BGP rather than remain fixed at their initial values.
 Substitution into the four equilibrium dynamics gives a smooth autonomous
 system $\dot\xi=f(\xi)$ with $f(0)=0$, where
 $\xi=(\xi_K,\xi_B,\xi_C,\xi_q)'$. Let $J^*=Df(0)$ denote its Jacobian.
@@ -130,7 +138,8 @@ from arbitrary nearby values of all four variables: there are also two
 unstable directions. It does not rule out equilibria that leave the local
 neighborhood.
 The normalized Jacobian is independent of $\chi$, $A_0$, and $N_0$;
-changing research productivity changes the reference levels, not these roots.
+changing research productivity changes the reference levels, not the
+eigenvalues governing local convergence.
 
 \subsection{Growth and distribution without an upper bound}
 

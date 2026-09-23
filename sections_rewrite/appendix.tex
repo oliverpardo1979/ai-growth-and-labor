@@ -13,9 +13,9 @@ variables $K,A,L,B$, for each fixed $\sigma$.
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-monopoly-choice}]
-Fix \(K,A,L,B>0\) and let \(R(X)=p_X(X)X\).
-The demand elasticity in \eqref{eq:rewrite-inverse-demand-elasticity} and the
-CES-share derivative imply
+Fix \(K,A,L,B>0\) and let \(R(X)=p_X(X)X\) denote AI-service revenue.
+The inverse-demand elasticity in \eqref{eq:rewrite-inverse-demand-elasticity}
+and differentiation of \eqref{eq:rewrite-sx} give
 \[
  R'(X)=p_X(X)(1-e_X),\qquad
  \frac{\dd s_X}{\dd\ln X}=\left(1-\frac1\sigma\right)s_X(1-s_X).
@@ -46,7 +46,7 @@ The middle coefficient is positive because
 \]
 Thus marginal revenue decreases strictly whenever it is positive.
 
-As \(X\downarrow0\), revenue is proportional to \(X^{1-1/\sigma}\) when
+As \(X\downarrow0\), revenue is asymptotically proportional to \(X^{1-1/\sigma}\) when
 \(\sigma>1\), to \(X^{(1-\alpha)\omega_X}\) when \(\sigma=1\), and to
 \(X^{1-\alpha}\) when \(\sigma<1\). Every exponent lies between zero and
 one, so \(R'(X)\to\infty\). As \(X\to\infty\), marginal revenue converges to
@@ -105,7 +105,8 @@ the same $B_0$ yields a higher present value of net profit.
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-developer-verification}]
-For the proof, define the transformed AI-efficiency state, or research depth, by
+I first transform AI efficiency to compare the candidate with alternative
+research trajectories. Define
 \begin{equation}
  R_B(B)=-\overline B\log\left(1-\frac{B}{\overline B}\right),
  \qquad
@@ -167,7 +168,7 @@ following inequality for every $\widetilde R_B\geq R_{B,0}$:
 \]
 
 Let $D_t=\exp(-\int_0^t r_s\dd s)$ be the discount factor and
-$\mu_t=D_tq_{R,t}$ the present-value shadow price of research depth.
+$\mu_t=D_tq_{R,t}$ the present-value shadow price of the transformed state $R_B$.
 The research condition~\eqref{eq:rewrite-research-foc} and the RSI
 technology~\eqref{eq:rewrite-capability-law} imply $q_t\eta\dot B_t=M_t$.
 Differentiating $q_{R,t}=q_t\psi(B_t)$ and using the costate
@@ -233,8 +234,9 @@ The candidate's present value is finite by assumption. Hence
  \leq\lim_{T\to\infty}J_T<\infty,
 \]
 so no feasible alternative yields a higher present value of net profit.
-The argument requires a global upper tangent at the candidate state at each
-date, not concavity at every counterfactual state.
+The argument requires the tangent to the maximized Hamiltonian at the
+candidate state to lie above its value at every alternative state. Global
+concavity is sufficient for this inequality, but is not required.
 \end{proof}
 
 \Needspace{8\baselineskip}
@@ -299,7 +301,7 @@ The chain rule therefore gives
  \label{eq:rewrite-capped-profit-curvature}
 \end{equation}
 Condition~\eqref{eq:rewrite-capped-concavity-gate} makes this derivative
-nonpositive throughout the reachable state domain.
+nonpositive for every $b\in[B_0,\overline B)$.
 
 The research term in \eqref{eq:rewrite-maximized-depth-hamiltonian} is a
 positive multiple of $B(R_B)^{\eta/(1-\eta)}$. Its curvature is
@@ -333,14 +335,17 @@ the candidate state.
 \Needspace{6\baselineskip}
 \begin{proof}[Proof of Proposition~\ref{prop:rewrite-research-scale}]
 \label{proof:rewrite-research-scale}
-Write $\theta=(1-\alpha)/\alpha$. For a research policy $M$, discounted
-net profit on the fixed horizon is
+I construct a sequence of research trajectories whose discounted net profit
+grows without bound, although each trajectory has finite expenditure and
+AI efficiency. Write $\theta=(1-\alpha)/\alpha$. For a research trajectory
+$\{M_t\}_{t\in[0,T]}$, discounted net profit on the fixed horizon is
 \[
  J_T(M)=\int_0^T
  \exp\left\{-\int_0^t r_s\dd s\right\}
  [\pi(B_t)-M_t]\dd t.
 \]
-Integrability of $r$ bounds the discount factor above and away from zero.
+Integrability of $r$ bounds the discount factor above and away from zero
+on $[0,T]$.
 At the optimal service choice, equations~\eqref{eq:rewrite-ai-price}
 and~\eqref{eq:rewrite-monopoly-foc} imply
 \[
@@ -359,7 +364,7 @@ equation~\eqref{eq:rewrite-substitutes-dated-output-capital} gives
  \kappa_X=\alpha(1-\alpha)
  \left[(1-\alpha)^2\omega_X^{\sigma/(\sigma-1)}\right]^\theta>0.
 \]
-The convergence is uniform along the given paths because
+The operating-profit asymptotic is uniform over dates in $[0,T]$ because
 $K,A,L$ are continuous, bounded, and bounded away from zero
 on $[0,T]$.
 
@@ -383,9 +388,9 @@ The exponent exceeds one because $\eta>\alpha$,
 so $J_T(\mathcal M)\to+\infty$ as $\mathcal M\to\infty$.
 Each finite $\mathcal M$ keeps AI efficiency and discounted net profit
 finite on $[0,T]$; it is the sequence of payoffs that is unbounded.
-Continuing with a candidate equilibrium's research expenditure after $T$
-cannot reduce subsequent profits once the burst leaves AI efficiency above
-the candidate's level.
+If research expenditure follows a candidate equilibrium's trajectory after
+$T$, subsequent operating profits cannot be lower once the initial research
+phase leaves AI efficiency above the candidate's level at $T$.
 \end{proof}
 
 % BEGIN PRESERVED BROADER RESEARCH-SCALE PROOF (2026-09-15)
@@ -613,7 +618,8 @@ and $B_t\leq\overline B$ imply
  \frac{Y_t}{K_t}\leq\frac{\mathcal R(\overline B)+\delta}{\alpha}.
  \label{eq:rewrite-low-cap-return-bound}
 \end{equation}
-The developer's discounted continuation net profit is nonnegative: it can
+The present value of the developer's net profit from any date onward is
+nonnegative: it can
 stop research and earn nonnegative operating profit. Wage income is also
 nonnegative. Integrating the household budget
 \eqref{eq:rewrite-household-budget}, using its transversality condition
