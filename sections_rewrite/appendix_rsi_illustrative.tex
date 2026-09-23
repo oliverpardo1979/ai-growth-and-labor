@@ -3,11 +3,15 @@
 
 \subsection{Economic intuition and initial conditions}
 
-The BVP selects an equilibrium trajectory, not an initial-value solution
-from arbitrary consumption and shadow prices. Capital and AI efficiency
-are predetermined; consumption and the developer's shadow value adjust
-to put the economy on the stable continuation of its long-run regime.
-Satisfying the static conditions alone does not select that continuation.
+I compute numerical approximations to equilibrium trajectories by solving
+a boundary-value problem (BVP). Initial capital $K_0$ and AI efficiency
+$B_0$ are given, whereas initial consumption $C_0$ and the developer's
+shadow price $q_0$ are determined jointly with the transition.
+I solve the equilibrium differential equations over a finite horizon,
+using the given stocks as initial conditions and the long-run
+characterization in Proposition~\ref{prop:rewrite-equilibrium-regimes}
+to construct terminal conditions. The checks described below assess
+feasibility, optimality, and sensitivity to the computational horizon.
 
 For each $\sigma$, I first solve the existing-AI economy with efficiency
 fixed at $B_0$ and research unavailable. A scalar root search in $\log K_0$
