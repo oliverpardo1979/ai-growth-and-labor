@@ -89,59 +89,50 @@ necessary conditions. At given paths of $K,A,L$, static optimization gives
  \end{split}
  \label{eq:rewrite-uncapped-unit-profit}
 \end{equation}
-First suppose $\eta\leq1/2$.
-This function is concave in $B$ when $(1-\alpha)\omega_X\leq1/2$.
-The RSI technology $F(B,M)=\chi B^\eta M^\eta$ is jointly concave
-when $\eta\leq1/2$. Since $q>0$, the developer's current-value Hamiltonian
-$\pi_t(B)-M+q_tF(B,M)$ is jointly concave, and its first-order conditions
-maximize it globally. Write $D_t=\exp(-\int_0^t r_s\dd s)$ and
-$J_T=\int_0^T D_t[\pi_t(B_t)-M_t]\dd t$.
-For any admissible alternative with the same initial $B$, the supporting
-hyperplane inequality and the costate equation imply
+For this verification, define the invertible state transformation and its
+current-value costate by
 \begin{equation}
- \widetilde J_T-J_T
- \leq-D_Tq_T(\widetilde B_T-B_T)
- \leq D_Tq_TB_T\longrightarrow0.
- \label{eq:rewrite-uncapped-unit-developer-verification}
-\end{equation}
-Hence no admissible alternative has a greater limiting payoff, or a
-greater upper limit of truncated payoff, than this finite-valued candidate.
-For $\eta>1/2$, use only within this proof the invertible state transformation
-and its current-value costate
-\begin{equation}
- S=B^{1-\eta},\qquad
- \dot S=(1-\eta)\chi M^\eta,\qquad
- p=\frac{qB^\eta}{1-\eta}.
+ \nu=\frac{1-\eta}{\eta},\qquad
+ S=B^\nu,\qquad p=\frac{q}{\nu B^{\nu-1}}.
  \label{eq:rewrite-uncapped-unit-transformed-state}
 \end{equation}
-This is the same feasible research problem, not a different technology.
-At given $K,A,L$, equation~\eqref{eq:rewrite-uncapped-unit-profit} becomes
-a positive time-dependent coefficient times
+The RSI technology becomes
+\[
+ \dot S=\nu\chi S^{1-\eta}M^\eta,
+\]
+which is jointly concave in $S,M$ for every $0<\eta<1$.
+At given $K,A,L$, equation~\eqref{eq:rewrite-uncapped-unit-profit} is a
+positive time-dependent coefficient times
 \[
  S^{\frac{(1-\alpha)\omega_X}
- {[1-(1-\alpha)\omega_X](1-\eta)}}.
+ {\nu[1-(1-\alpha)\omega_X]}}.
 \]
-It is concave in $S$ if
-$(1-\alpha)\omega_X\leq(1-\eta)/(2-\eta)$. The maintained restrictions imply
-\[
- (1-\alpha)\omega_X<(1-\eta)^2
- <\frac{1-\eta}{2-\eta}\qquad(\eta>1/2).
-\]
-Consequently $\pi_t(S^{1/(1-\eta)})-M+p_t(1-\eta)\chi M^\eta$
-is jointly concave in $S,M$. The transformed first-order and costate
-conditions follow by the chain rule from the original equations.
-Moreover, $pS=qB/(1-\eta)$, so the original developer TVC implies
-$D_Tp_TS_T\to0$. Applying the supporting-hyperplane argument in these
-coordinates yields
-\[
+Since $\eta+\omega_X<1$ implies $(1-\alpha)\omega_X<1-\eta$, this
+exponent lies strictly between zero and one. Operating profit is therefore
+concave in $S$. With $p>0$, the transformed Hamiltonian
+$\pi_t(S^{1/\nu})-M+p_t\nu\chi S^{1-\eta}M^\eta$ is jointly concave.
+The research condition~\eqref{eq:rewrite-research-foc} and costate
+equation~\eqref{eq:rewrite-costate}, with $\psi=1$, give its control
+first-order condition and costate equation by the chain rule.
+
+Write $D_t=\exp(-\int_0^t r_s\dd s)$ and
+$J_T=\int_0^T D_t[\pi_t(B_t)-M_t]\dd t$.
+For any admissible alternative with the same initial $B$, concavity,
+the research condition, and the costate equation give, after integration
+by parts,
+\begin{equation}
  \widetilde J_T-J_T
  \leq-D_Tp_T(\widetilde S_T-S_T)
- \leq\frac{D_Tq_TB_T}{1-\eta}\longrightarrow0.
-\]
-Thus both ranges of $\eta$ give global developer optimality against all
-admissible research paths. The argument applies to any candidate satisfying
-the uncapped equations and developer TVC under the proposition's
-restrictions, not just the BGP.
+ \leq D_Tp_TS_T
+ =\frac{D_Tq_TB_T}{\nu}\longrightarrow0.
+ \label{eq:rewrite-uncapped-unit-developer-verification}
+\end{equation}
+The last limit follows from the developer TVC. Since the transformation
+preserves feasible research paths and their payoffs, no admissible
+alternative has a greater limiting payoff, or a greater upper limit of
+truncated payoff, than this finite-valued candidate. The same verification
+applies to nearby candidates satisfying the uncapped equations and the
+developer TVC; it does not require exact balanced growth.
 
 For the household, set $\Lambda_t=e^{-\rho t}N_t/C_t$.
 Euler implies $\dot\Lambda=-r\Lambda$.
@@ -202,9 +193,10 @@ $\chi$. No terminal restrictions were used to derive this Jacobian.
 I next establish the two local properties
 \eqref{eq:rewrite-uncapped-unit-local-spectrum}
 and~\eqref{eq:rewrite-uncapped-unit-local-projection} from the parameter
-restrictions, rather than impose them. For this linearization only, define
+restrictions, rather than impose them. Retain $\nu$ from
+\eqref{eq:rewrite-uncapped-unit-transformed-state} and, for this linearization,
+define
 \begin{align*}
- \nu&=\frac{1-\eta}{\eta},&
  a_K&=\frac{\alpha}{1-(1-\alpha)\omega_X},&
  a_T&=\frac{(1-\alpha)\omega_X\eta}
  {[1-(1-\alpha)\omega_X](1-\eta)},\\
