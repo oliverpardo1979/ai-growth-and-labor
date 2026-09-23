@@ -19,6 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install digital-edition build dependencies
+        run: pip install -r requirements-web.txt
       - name: Compile the current manuscript
         uses: xu-cheng/latex-action@v4
         with:
@@ -27,6 +32,12 @@ jobs:
         run: |
           mkdir -p docs/paper
           cp main_rewrite.pdf docs/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf
+      - name: Generate the digital edition from the same manuscript and stored data
+        run: |
+          python scripts/build_web_manuscript.py --build-dir .
+          python scripts/build_web_data.py
+          python scripts/build_web_data.py --check
+          python -m unittest discover -s tests -p 'test_web_*.py'
       - uses: actions/configure-pages@v5
         with:
           enablement: true
@@ -40,6 +51,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy PDF
+      - name: Deploy paper, digital edition, and simulation explorer
         id: deployment
         uses: actions/deploy-pages@v4

@@ -14,3 +14,5 @@ output/
 *.fls
 *.fdb_latexmk
 /main_rewrite.pdf
+/docs/generated/
+/docs/paper/

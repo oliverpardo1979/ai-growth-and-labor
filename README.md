@@ -7,8 +7,10 @@ returns, and AI-industry income when a monopolistic AI developer invests in
 recursive self-improvement.
 
 - [Read the paper](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf)
+- [Digital edition and simulation explorer](https://oliverpardo1979.github.io/ai-growth-and-labor/)
 - [Replication guide](REPLICATION.md)
 - [Manuscript source](main_rewrite.tex)
+- [Web-edition build and update guide](WEB_EDITION.md)
 
 ## Start here
 
