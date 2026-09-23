@@ -32,7 +32,8 @@ and records the endogenous jumps in consumption and research.
 
 \subsection{Boundary-value solution and reported outcomes}
 
-I use the collocation solver \texttt{scipy.integrate.solve\_bvp} with
+I use the collocation solver \texttt{scipy.integrate.solve\_bvp}, provided
+by the open-source Python library SciPy \citep{virtanenetal2020}, with
 computational coordinates
 \[
  \left(\log K,\ \log\frac{B}{\overline B-B},\ \log C,\ \log q\right).
