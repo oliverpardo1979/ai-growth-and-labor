@@ -341,13 +341,27 @@ net profit on the fixed horizon is
  [\pi(B_t)-M_t]\dd t.
 \]
 Integrability of $r$ bounds the discount factor above and away from zero.
-Since $\sigma>1$, optimized operating profit satisfies
+At the optimal service choice, equations~\eqref{eq:rewrite-ai-price}
+and~\eqref{eq:rewrite-monopoly-foc} imply
 \[
- \pi(B)\sim\kappa_XKB^\theta
- \qquad\text{as }B\to\infty,
+ \pi(B)=p_XX-\frac XB
+ =e_Xp_XX=(1-\alpha)e_Xs_XY.
 \]
-for a constant $\kappa_X>0$, uniformly along the given positive continuous
-paths of $K,A,$ and $L$ on $[0,T]$.
+For $\sigma>1$, marginal revenue is positive at every finite $X$
+and approaches zero as $X\to\infty$, as established in
+Lemma~\ref{lem:rewrite-monopoly-choice}. The monopoly condition
+therefore implies $X\to\infty$ as $B\to\infty$, holding $K,A,L$
+fixed. Consequently, $s_X\to1$ and $e_X\to\alpha$.
+Substituting these limits into
+equation~\eqref{eq:rewrite-substitutes-dated-output-capital} gives
+\[
+ \pi(B)\sim\kappa_XKB^\theta,\qquad
+ \kappa_X=\alpha(1-\alpha)
+ \left[(1-\alpha)^2\omega_X^{\sigma/(\sigma-1)}\right]^\theta>0.
+\]
+The convergence is uniform along the given paths because
+$K,A,L$ are continuous, bounded, and bounded away from zero
+on $[0,T]$.
 
 Fix $\Delta\in(0,T)$, choose $M=\mathcal M$ on $[0,\Delta]$, and choose
 $M=0$ afterward. The uncapped RSI technology gives
