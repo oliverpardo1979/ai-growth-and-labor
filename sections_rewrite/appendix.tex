@@ -329,6 +329,46 @@ the candidate state.
 \end{proof}
 
 \input{sections_rewrite/appendix_finite_frontier}
+
+\Needspace{6\baselineskip}
+\begin{proof}[Proof of Proposition~\ref{prop:rewrite-monopoly-threshold}]
+\phantomsection
+\label{proof:rewrite-monopoly-threshold}
+Fix $B>0$ and $\sigma>1$. Combining marginal-cost pricing, $p_X=1/B$,
+with the final-good firm's demand in equation~\eqref{eq:rewrite-ai-price}
+gives
+\begin{equation}
+ \frac XY=B(1-\alpha)s_X\longrightarrow B(1-\alpha)
+ \qquad\text{as }s_X\to1.
+ \label{eq:rewrite-marginal-cost-service-limit}
+\end{equation}
+The CES limit in equation~\eqref{eq:rewrite-composite-ai-limit} is
+unchanged. Substituting that limit and
+equation~\eqref{eq:rewrite-marginal-cost-service-limit} into
+$Y/K=[(Z/X)(X/Y)]^{(1-\alpha)/\alpha}$, from
+equation~\eqref{eq:rewrite-output-capital-limit}, yields
+\[
+ \frac YK\longrightarrow
+ \left[(1-\alpha)B\,\omega_X^{\sigma/(\sigma-1)}
+ \right]^{(1-\alpha)/\alpha}.
+\]
+Equation~\eqref{eq:rewrite-capital-return} then gives
+$\mathcal R^{\mathrm{mc}}(B)$ in
+equation~\eqref{eq:rewrite-marginal-cost-return}. Since
+$0<1-\alpha<1$, this return strictly exceeds the monopoly return
+in equation~\eqref{eq:rewrite-ai-terminal-ratio}.
+
+Both returns are strictly increasing in $B$, and their formulas imply
+$\mathcal R^{\mathrm{mc}}(B)=\mathcal R(B/(1-\alpha))$.
+Thus equation~\eqref{eq:rewrite-critical-frontier} gives
+\[
+ \mathcal R^{\mathrm{mc}}\bigl((1-\alpha)\mathcal B(\sigma)\bigr)
+ =\mathcal R\bigl(\mathcal B(\sigma)\bigr)=\rho+\gamma.
+\]
+Uniqueness of the threshold establishes
+equation~\eqref{eq:rewrite-marginal-cost-threshold}.
+\end{proof}
+
 \input{sections_rewrite/appendix_uncapped_complements_proofs}
 \input{sections_rewrite/appendix_uncapped_unit_proofs}
 

@@ -296,6 +296,54 @@ $\sigma>1$ & $\overline B>\mathcal B(\sigma)$ & $\mathcal R(\overline B) -\rho$ 
 \end{tabular}
 \end{table}
 
+\subsection{Monopoly pricing and the growth threshold}
+\label{subsec:rewrite-monopoly-threshold}
+
+The threshold in equation~\eqref{eq:rewrite-critical-frontier} reflects
+both production technology and monopoly pricing. To isolate the effect of
+pricing, I hold AI efficiency fixed and compare the monopolist's choice
+with AI services supplied at marginal cost, $p_X=1/B$.
+
+\Needspace{12\baselineskip}
+\begin{proposition}[Monopoly pricing and the AI-efficiency threshold]
+\label{prop:rewrite-monopoly-threshold}
+Suppose $\sigma>1$. Under marginal-cost pricing, let
+$\mathcal R^{\mathrm{mc}}(B)$ denote the net return on capital implied by
+production and pricing as $s_X\to1$. For every $B>0$,
+\begin{equation}
+ \mathcal R^{\mathrm{mc}}(B)
+ =\alpha\left[(1-\alpha)B\,
+ \omega_X^{\sigma/(\sigma-1)}\right]^{(1-\alpha)/\alpha}-\delta
+ >\mathcal R(B).
+ \label{eq:rewrite-marginal-cost-return}
+\end{equation}
+The efficiency threshold $\mathcal B^{\mathrm{mc}}(\sigma)$ defined by
+$\mathcal R^{\mathrm{mc}}(\mathcal B^{\mathrm{mc}}(\sigma))=\rho+\gamma$
+satisfies
+\begin{equation}
+ \mathcal B^{\mathrm{mc}}(\sigma)
+ =(1-\alpha)\mathcal B(\sigma)<\mathcal B(\sigma).
+ \label{eq:rewrite-marginal-cost-threshold}
+\end{equation}
+\end{proposition}
+\begin{proof}
+See Appendix~\ref{app:rewrite-proofs},
+\hyperref[proof:rewrite-monopoly-threshold]{Proof of
+Proposition~\ref*{prop:rewrite-monopoly-threshold}}.
+\end{proof}
+
+At a given efficiency, the monopoly markup restricts the use of AI
+services. This lowers the limiting output--capital ratio and therefore
+the return on capital. A higher efficiency is then needed for that return
+to exceed $\rho+\gamma$. For $\alpha=0.33$, the threshold under
+marginal-cost pricing is $33.0\%$ lower than under monopoly pricing.
+
+This comparison does not establish an alternative equilibrium with
+privately financed research. Marginal-cost pricing eliminates the
+operating profits that make research investment profitable in the model.
+I isolate the effect of pricing on the use of a given AI technology,
+not the effects of changing market structure on research or welfare.
+
 
 %I use this comparison as an economic regime threshold only for $\sigma>1$. For $\sigma<1$, $s_X\to1$ corresponds instead to AI services becoming scarce relative to effective labor. The condition $\overline B>\mathcal B(\sigma)$, or $\mathcal R(\overline B)>\rho+\gamma$, is then only a sufficient condition for the positive-labor-share construction in Proposition~\ref{prop:rewrite-capped-complements-existence}; it does not imply AI-dominated growth.
 
