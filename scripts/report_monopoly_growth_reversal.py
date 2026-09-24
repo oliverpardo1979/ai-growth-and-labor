@@ -182,7 +182,7 @@ def main():
     provenance=dict(parameters=asdict(p),monopoly_input_csv_sha256={
         '7.5':manifest['csv_sha256'],'1.5':low_manifest['csv_sha256']},
         competitive_solver='scripts/solve_competitive_ai_transition.py',
-        files_sha256={str(path.relative_to(ROOT)):hashlib.sha256(path.read_bytes()).hexdigest()
+        files_sha256={path.relative_to(ROOT).as_posix():hashlib.sha256(path.read_bytes()).hexdigest()
                       for path in [OUT/'comparison_paths.csv',OUT/'continued_competition.csv',*outputs]})
     write_json(OUT/'figure_manifest.json',provenance)
     print(json.dumps({k:summary[k] for k in ('competitive_initial_capital_output_ratio',

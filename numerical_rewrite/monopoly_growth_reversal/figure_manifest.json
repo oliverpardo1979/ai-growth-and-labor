@@ -17,11 +17,11 @@
   },
   "competitive_solver": "scripts/solve_competitive_ai_transition.py",
   "files_sha256": {
-    "numerical_rewrite\\monopoly_growth_reversal\\comparison_paths.csv": "31dec585a14e54fa32f0bc9ce5f9ed05ba270b58c8e47138aaa527d3913e7af1",
-    "numerical_rewrite\\monopoly_growth_reversal\\continued_competition.csv": "d7adc9d92eedae452ed91bed53c792be81f29acc00f6e0c9943ed3ca59ec64f0",
-    "figures_rewrite\\monopoly_growth_reversal\\monopoly_growth_reversal_growth.pdf": "8cf60c02e8cc182dd0f36d56a42befb7469254dcc99278602539b2b502aee997",
-    "figures_rewrite\\monopoly_growth_reversal\\monopoly_growth_reversal_growth.png": "7f2e7654c2682263d9072cbb4ff35854c6d4f7f00a9ef74711403c54f02567a8",
-    "figures_rewrite\\monopoly_growth_reversal\\monopoly_growth_reversal_technology.pdf": "a9d49c5b2e767f79ebd609c58d2445d3751ce8a3dec2b6104e4181f3deef0d69",
-    "figures_rewrite\\monopoly_growth_reversal\\monopoly_growth_reversal_technology.png": "d9d86d627235fd77161d1e6802a8602f9314b41c96e2e99be75edf6d61c435a6"
+    "numerical_rewrite/monopoly_growth_reversal/comparison_paths.csv": "31dec585a14e54fa32f0bc9ce5f9ed05ba270b58c8e47138aaa527d3913e7af1",
+    "numerical_rewrite/monopoly_growth_reversal/continued_competition.csv": "d7adc9d92eedae452ed91bed53c792be81f29acc00f6e0c9943ed3ca59ec64f0",
+    "figures_rewrite/monopoly_growth_reversal/monopoly_growth_reversal_growth.pdf": "9dc4f4b79023d9087e4cfa4fca1bf16e61073e3133aa9a984c7ce2f1386ba785",
+    "figures_rewrite/monopoly_growth_reversal/monopoly_growth_reversal_growth.png": "7f2e7654c2682263d9072cbb4ff35854c6d4f7f00a9ef74711403c54f02567a8",
+    "figures_rewrite/monopoly_growth_reversal/monopoly_growth_reversal_technology.pdf": "371d2e651010c8c24e926c4dc14f43c9b3664485f1a8a362365296a2f5351245",
+    "figures_rewrite/monopoly_growth_reversal/monopoly_growth_reversal_technology.png": "d9d86d627235fd77161d1e6802a8602f9314b41c96e2e99be75edf6d61c435a6"
   }
 }

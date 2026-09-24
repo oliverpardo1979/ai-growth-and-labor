@@ -54,6 +54,7 @@ class CompetitiveTransitionIdentities(unittest.TestCase):
         manifest=json.loads((directory/'figure_manifest.json').read_text())
         self.assertTrue(summary['competitive_audit']['passes'])
         for filename,digest in manifest['files_sha256'].items():
+            self.assertNotIn('\\',filename, 'Manifest paths must also work on Linux.')
             self.assertEqual(hashlib.sha256((ROOT/filename).read_bytes()).hexdigest(),digest)
         for chi in (7.5,1.5):
             d=make_design(chi)
