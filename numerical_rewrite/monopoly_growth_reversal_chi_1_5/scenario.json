@@ -1,0 +1,19 @@
+{
+  "parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 1.5,
+    "initial_labor_productivity": 1.0,
+    "initial_population": 1.0
+  },
+  "sigma": 1.5,
+  "frontier": 1113.5390230158212,
+  "initial_capability": 1002.185120714239,
+  "initial_capital": 14047.294019153645,
+  "initial_stock_reference": "Illustrative Corollary 1 experiment: sigma=1.5, Bbar=0.9*Bmon, B0=0.9*Bbar, A0=N0=1. K0/(A0*N0) equals the limiting monopoly capital/effective-labor ratio at Bbar, independently of chi. The competitive reference is a nonstationary equilibrium from these same stocks, not a labor-bottleneck BGP. Exclusive rights are unexpected and cover existing AI and future improvements."
+}

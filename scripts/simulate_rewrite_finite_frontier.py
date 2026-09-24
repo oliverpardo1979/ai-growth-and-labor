@@ -345,7 +345,8 @@ def run(sigma, design=MAIN_DESIGN):
     return payload
 
 
-def export_paths(horizon, points, design=MAIN_DESIGN, additional_times=None):
+def export_paths(horizon, points, design=MAIN_DESIGN, additional_times=None,
+                 *, track_transition_midpoint=True):
     """Refuse a partial or uncertified comparison; never extrapolate splines."""
     solutions = []
     checkpoint_hashes = {}
@@ -430,7 +431,7 @@ def export_paths(horizon, points, design=MAIN_DESIGN, additional_times=None):
         writer.writeheader()
         writer.writerows(rows)
     transition_dates = None
-    if 1.5 in design.sigmas:
+    if 1.5 in design.sigmas and track_transition_midpoint:
         ai_rows = [row for row in rows if row['sigma'] == 1.5]
         terminal_share = terminal_point(
             1.5, design.frontier, design.parameters).labor_income_share
@@ -465,7 +466,7 @@ def export_paths(horizon, points, design=MAIN_DESIGN, additional_times=None):
         checkpoint_sha256=checkpoint_hashes,
         transition_definition=(
             'fraction of the sigma=1.50 labor-share decline from its date-zero '
-            'value to its analytical limit'),
+            'value to its analytical limit') if track_transition_midpoint else None,
         sigma_1_50_transition_dates=transition_dates,
         csv_sha256=hashlib.sha256(csv_path.read_bytes()).hexdigest(),
     )

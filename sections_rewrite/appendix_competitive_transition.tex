@@ -118,3 +118,35 @@ productivity, containing the original paths, competitive benchmarks,
 impact changes, and numerical audits.
 Figure windows only select dates from those stored paths; they do not
 change the simulated economy or the numerical solution horizon.
+
+\paragraph{Growth reversal under exclusive rights.}
+For Section~\ref{subsec:rewrite-monopoly-growth-reversal}, continued
+competition is not a labor-bottleneck BGP. I solve the competitive
+resource constraint and Euler equation in
+\eqref{eq:rewrite-competitive-normalized}, with $M=0$ and $B=B_0$,
+using the inherited capital stock and the terminal condition
+$C/K\to\rho-n$ from
+\eqref{eq:rewrite-competitive-capital-growth}.
+The numerical coordinates are $\log(C/K)$ and
+$\log(K/(AL))-[\mathcal R^{\mathrm{mc}}(B_0)-\rho-\gamma]t$.
+Removing the limiting trend avoids extremely large levels without
+imposing balanced growth on the transition. I use the same
+\texttt{scipy.integrate.solve\_bvp} routine described in the numerical
+appendix. Extending its horizon from 1,200 to 1,800 years changes
+these coordinates by less than $10^{-9}$ over the displayed 500 years;
+independent finite-difference residuals are below $10^{-9}$.
+The static supply condition, positive allocation, limiting growth
+rates, and household transversality diagnostics also pass the checks.
+
+I solve the two monopoly paths using the existing continuation method,
+without changing its equilibrium-admission tolerances. Their final
+solution horizon is about 4,592 years, although the figures display
+only the first 500 years. Both pass the equation, horizon-extension,
+transversality, and developer-optimality checks, including denser
+checks over the first decade. A halfway date for labor's share is
+not required: that share is nonmonotonic here, and such a date is not
+an equilibrium condition. The repository's
+\href{https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/MONOPOLY_GROWTH_REVERSAL.md}
+{growth-reversal replication guide} records the separate input choices,
+data, audit reports, and commands. None of these outputs replaces an
+earlier simulation.

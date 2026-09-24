@@ -1,0 +1,27 @@
+{
+  "parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 7.5,
+    "initial_labor_productivity": 1.0,
+    "initial_population": 1.0
+  },
+  "monopoly_input_csv_sha256": {
+    "7.5": "de2e423d6b4170ba740bd9940a0fdaf898e33d0cdf44d7c8479b9abefd4bfa36",
+    "1.5": "8e8683e18afbe00ac5346d8540661e937752b68a25057725cc493a5ca6949e8b"
+  },
+  "competitive_solver": "scripts/solve_competitive_ai_transition.py",
+  "files_sha256": {
+    "numerical_rewrite\\monopoly_growth_reversal\\comparison_paths.csv": "31dec585a14e54fa32f0bc9ce5f9ed05ba270b58c8e47138aaa527d3913e7af1",
+    "numerical_rewrite\\monopoly_growth_reversal\\continued_competition.csv": "d7adc9d92eedae452ed91bed53c792be81f29acc00f6e0c9943ed3ca59ec64f0",
+    "figures_rewrite\\monopoly_growth_reversal\\monopoly_growth_reversal_growth.pdf": "8cf60c02e8cc182dd0f36d56a42befb7469254dcc99278602539b2b502aee997",
+    "figures_rewrite\\monopoly_growth_reversal\\monopoly_growth_reversal_growth.png": "7f2e7654c2682263d9072cbb4ff35854c6d4f7f00a9ef74711403c54f02567a8",
+    "figures_rewrite\\monopoly_growth_reversal\\monopoly_growth_reversal_technology.pdf": "a9d49c5b2e767f79ebd609c58d2445d3751ce8a3dec2b6104e4181f3deef0d69",
+    "figures_rewrite\\monopoly_growth_reversal\\monopoly_growth_reversal_technology.png": "d9d86d627235fd77161d1e6802a8602f9314b41c96e2e99be75edf6d61c435a6"
+  }
+}

@@ -97,7 +97,7 @@ table. The manually edited discussion in the two simulation subsections is
 separate from those digests. Reproduction does not rewrite that discussion.
 Numerical admission is not an interval-arithmetic proof of existence.
 
-## 5. Compile the paper
+### Additional institutional experiments
 
 The additional competitive-to-monopoly experiment in the paper is documented in
 [`COMPETITIVE_TRANSITION.md`](COMPETITIVE_TRANSITION.md). It uses the same two
@@ -106,6 +106,16 @@ BGP and introduces exclusive AI rights. Its outputs do not replace the
 published RSI-activation simulations. Run
 `python scripts/report_competitive_to_monopoly.py` to regenerate its figures
 from stored data, including the intermediate 10--100-year level panels.
+
+The growth-reversal experiment is documented separately in
+[`MONOPOLY_GROWTH_REVERSAL.md`](MONOPOLY_GROWTH_REVERSAL.md). It starts with
+efficiency above the competitive threshold but an upper bound below the
+monopoly threshold. It solves a nonstationary competitive reference and
+compares both research productivities from the same stocks. Run
+`python scripts/simulate_monopoly_growth_reversal.py --report` to solve that
+reference and regenerate the new figures from the saved monopoly paths.
+
+## 5. Compile the paper
 
 Select **main_rewrite.tex** as the main document in Overleaf. Locally, either:
 

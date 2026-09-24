@@ -1,0 +1,29 @@
+{
+  "design": "monopoly_growth_reversal_chi_7_5",
+  "parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 7.5,
+    "initial_labor_productivity": 1.0,
+    "initial_population": 1.0
+  },
+  "frontier": 1113.5390230158212,
+  "initial_capital": 14047.294019153645,
+  "initial_capability": 1002.185120714239,
+  "initial_capital_by_sigma": {
+    "sigma_1_50": 14047.294019153645
+  },
+  "horizon": 500,
+  "points_per_scenario": 4961,
+  "checkpoint_sha256": {
+    "sigma_1_50": "b02cd5944468ce8a3367f55b20cee40abf51f659a142766f628da90a3fb91219"
+  },
+  "transition_definition": null,
+  "sigma_1_50_transition_dates": null,
+  "csv_sha256": "de2e423d6b4170ba740bd9940a0fdaf898e33d0cdf44d7c8479b9abefd4bfa36"
+}
