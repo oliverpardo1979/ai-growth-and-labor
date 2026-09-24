@@ -19,7 +19,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 from matplotlib.lines import Line2D
-from matplotlib.ticker import PercentFormatter, MaxNLocator, FuncFormatter, LogLocator, NullLocator
+from matplotlib.ticker import PercentFormatter, MaxNLocator, FuncFormatter, LogLocator, NullLocator, FixedLocator
 from calibrate_rewrite_ai_price import write_json
 from plot_rewrite_equilibria import (
     STYLES, PANELS_QUANTITY_GROWTH, PANELS_PRICES_RETURNS, PANELS_DISTRIBUTION,
@@ -29,9 +29,11 @@ from simulate_competitive_to_monopoly import make_design, SIGMAS, key
 FIGDIR = ROOT/'figures_rewrite'/'competitive_to_monopoly'
 PDF = ROOT/'output'/'pdf'/'competitive_to_monopoly_simulations.pdf'
 LEVEL_PANELS = (
-    ('output_counterfactual_ratio', 'A. Output per worker\nrelative to competition', 'ratio'),
-    ('wage_counterfactual_ratio', 'B. Wage\nrelative to competition', 'ratio'),
-    ('consumption_counterfactual_ratio', 'C. Consumption per person\nrelative to competition', 'ratio'))
+    ('output_counterfactual_ratio', 'A. Output\nper worker', 'ratio'),
+    ('wage_counterfactual_ratio', 'B. Wage', 'ratio'),
+    ('consumption_counterfactual_ratio', 'C. Consumption\nper person', 'ratio'))
+LEVEL_WINDOWS = ((-2., 10.), (10., 100.), (10., 500.))
+DETAIL_WINDOWS = ((-2., 10.), (10., 500.))
 
 
 def read_json(path):
@@ -130,12 +132,13 @@ def write_report(design):
 
 def figure(design, rows, references, panels, title, levels=False):
     n=len(panels)
+    windows=LEVEL_WINDOWS if levels else DETAIL_WINDOWS
     # Distribution follows the paper's A/B, C/D arrangement in each time window.
-    fig,axes=plt.subplots(2 if n==3 else 4,3 if n==3 else 2,
-                         figsize=(8.6,6.6 if n==3 else 9.2))
-    axes=np.asarray(axes).reshape(2,n)
+    fig,axes=plt.subplots(len(windows) if n==3 else 2*len(windows),3 if n==3 else 2,
+                         figsize=(8.6,9.0 if levels else (6.6 if n==3 else 9.2)))
+    axes=np.asarray(axes).reshape(len(windows),n)
     limits=analytical_plot_limits(1.5,design.frontier,design.parameters)
-    for view,(start,end) in enumerate(((-2.,10.),(10.,design.display_horizon))):
+    for view,(start,end) in enumerate(windows):
         for axis,(field,label,scale) in zip(axes[view],panels):
             for sigma in SIGMAS:
                 color,style=STYLES[sigma]
@@ -155,14 +158,21 @@ def figure(design, rows, references, panels, title, levels=False):
                 axis.axhline(1,color='#999999',lw=.8)
             elif len({references[s][field] for s in SIGMAS})==1:
                 axis.axhline(references[1.][field],color='#999999',lw=.8)
-            if view==1 and not levels:
+            if view==len(windows)-1 and not levels:
                 axis.axhline(limits[field],color='#222222',ls=(0,(1,2)),lw=.9)
             axis.set_title(label,loc='left',pad=8,fontsize=11)
-            if levels and view==1:
+            if levels and view>0:
                 axis.set_yscale('log')
-                axis.yaxis.set_major_locator(LogLocator(base=10,numticks=4))
+                lo,hi=axis.get_ylim()
+                if hi/lo<10:
+                    ticks=[v for v in (.5,.75,1.,1.5,2.,3.,5.,10.) if lo<=v<=hi]
+                    axis.yaxis.set_major_locator(FixedLocator(ticks))
+                else:
+                    axis.yaxis.set_major_locator(LogLocator(base=10,numticks=5))
                 axis.yaxis.set_minor_locator(NullLocator())
-                axis.yaxis.set_major_formatter(FuncFormatter(lambda v,pos:f'{v:g}x'))
+                axis.yaxis.set_major_formatter(FuncFormatter(lambda v,pos:
+                    fr'$10^{{{int(round(np.log10(v)))}}}\times$' if v>=10000
+                    else fr'${v:g}\times$'))
             elif scale in ('rate','share','ratio'):
                 axis.yaxis.set_major_formatter(PercentFormatter(1,decimals=1))
                 axis.yaxis.set_major_locator(MaxNLocator(4))
@@ -171,8 +181,10 @@ def figure(design, rows, references, panels, title, levels=False):
                 axis.yaxis.set_major_formatter(FuncFormatter(lambda v,pos:f'{v:g}'))
             # Never let a distant analytical limit flatten the short-run A/C panels.
             axis.set_xlim(start,end)
-            axis.set_xticks([-2,0,5,10] if view==0 else [10,100,250,500])
-            axis.set_xlabel('Years: initial transition' if view==0 else 'Years: subsequent transition')
+            axis.set_xticks([-2,0,5,10] if view==0 else
+                           ([10,25,50,75,100] if end==100 else [10,100,250,500]))
+            axis.set_xlabel('Years: initial transition' if view==0 else
+                            ('Years: intermediate window' if end==100 else 'Years: longer window'))
             if view==0:
                 axis.axvline(0,color='#999999',ls=':',lw=.7)
             axis.grid(axis='y',color='#dddddd',lw=.5)
@@ -181,22 +193,24 @@ def figure(design, rows, references, panels, title, levels=False):
     handles=[Line2D([],[],color=STYLES[s][0],ls=STYLES[s][1],lw=1.5,label=fr'$\sigma={s:g}$') for s in SIGMAS]
     fig.suptitle(fr'{title} | $\chi={design.parameters.chi:g}$',fontsize=14,y=.99)
     fig.legend(handles=handles,loc='upper center',bbox_to_anchor=(.5,.948),ncol=4,frameon=False)
-    note=('Top: 100% = continued competition. Bottom: multiples of competition (log scale); 1x = the counterfactual.' if levels else
+    note=('Top: 100.0% = continued competition. Middle/bottom: multiples (log scale); 1x = competition.' if levels else
           'Thin lines: continued competition. Black dotted long-run line: monopoly limit for sigma = 1.5.')
     note+='\nOpen/filled dots: before/after exclusive rights. Growth rates exclude the date-zero level jumps.'
     fig.text(.08,.018,note,fontsize=8,color='#444444',va='bottom')
-    fig.subplots_adjust(left=.10,right=.97,top=.83 if n==3 else .87,bottom=.13 if n==3 else .12,
-                        wspace=.48 if n==3 else .33,hspace=.90)
+    fig.subplots_adjust(left=.10,right=.97,top=.855 if levels else (.83 if n==3 else .87),
+                        bottom=.105 if levels else (.13 if n==3 else .12),
+                        wspace=.48 if n==3 else .33,hspace=.95 if levels else .90)
     return fig
 
 
 def render_all():
     FIGDIR.mkdir(parents=True,exist_ok=True)
     PDF.parent.mkdir(parents=True,exist_ok=True)
-    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'pdf.fonttype':42})
+    plt.rcParams.update({'font.family':'DejaVu Serif','font.size':10,'pdf.fonttype':42})
     # Validate both sets before creating the final combined artifact.
     datasets=[(make_design(chi),*write_report(make_design(chi))) for chi in (7.5,1.5)]
     outputs=[]
+    individual_pdfs=[]
     with PdfPages(PDF, metadata={'Title':'From competitive AI to monopoly: eight equilibrium simulations'}) as pdf:
         for d,rows,refs in datasets:
             for name,panels,title in (
@@ -207,13 +221,19 @@ def render_all():
                 fig=figure(d,rows,refs,panels,title,levels=name=='levels')
                 png=FIGDIR/f'{d.name}_{name}.png'
                 fig.savefig(png,dpi=165)
+                individual_pdf=png.with_suffix('.pdf')
+                fig.savefig(individual_pdf,metadata={'Title':f'{title} | chi={d.parameters.chi:g}'})
                 pdf.savefig(fig)
                 plt.close(fig)
                 outputs.append(str(png.relative_to(ROOT)))
+                individual_pdfs.append(str(individual_pdf.relative_to(ROOT)))
     write_json(FIGDIR/'manifest.json',dict(pdf=str(PDF.relative_to(ROOT)), figures=outputs,
+        individual_pdfs=individual_pdfs,
         source_sha256={d.name:hashlib.sha256((d.output_directory/'comparison_paths.csv').read_bytes()).hexdigest()
                        for d,_,_ in datasets},
         percent_decimals=1, short_window=[-2,10], long_window=[10,500],
+        levels_windows=LEVEL_WINDOWS, detail_windows=DETAIL_WINDOWS,
+        levels_scales=['linear_percent','log_multiple','log_multiple'],
         note='Separate pre/post-event segments; no finite growth rate assigned to a discrete level jump.'))
     print(PDF,flush=True)
 

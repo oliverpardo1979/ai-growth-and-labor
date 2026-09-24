@@ -1,0 +1,120 @@
+\section{Additional competitive-to-monopoly simulation results}
+\label{app:rewrite-competitive-transition}
+
+I supplement Section~\ref{subsec:rewrite-competitive-transition} with
+the growth, price, and distributional trajectories underlying its
+level comparisons. All figures retain the four elasticities and show
+two pre-event years and years 0--10 above, with years 10--500 below.
+Thin horizontal lines show continued competition; black dotted
+long-run lines show the analytical monopoly limits at $\sigma=1.5$.
+The date-zero level changes are not finite growth rates: open and
+filled dots distinguish the values on either side of the event, and
+growth curves describe the smooth trajectory on each side separately.
+
+\paragraph{Initial conditions and numerical checks.}
+I obtain each competitive initial stock by imposing $r=\rho+\gamma$
+with the marginal-cost pricing condition $p_X=1/B_0$. Pre-event
+consumption follows from the resource constraint with $M=0$ and
+$\dot K=(n+\gamma)K$. The post-event calculation uses the same monopoly
+BVP and equilibrium checks as Appendix~\ref{app:rewrite-algorithm}.
+Previously computed RSI-activation trajectories supply numerical
+initial guesses, but I solve again at the competitive $K_0$, imposing
+neither their consumption nor their research choices. All eight
+paths pass the same residual, horizon-refinement, transversality,
+and developer-optimality checks; no tolerance is relaxed.
+
+\paragraph{Higher research productivity.}
+Figures~\ref{fig:rewrite-competitive-high-growth}--\ref{fig:rewrite-competitive-high-distribution}
+report $\chi=7.5$. Unlike the pure RSI-activation experiment, the grant
+immediately reduces the return on capital: output falls while capital
+cannot jump, so equation~\eqref{eq:rewrite-capital-return} implies a
+lower interest rate. The Euler equation~\eqref{eq:rewrite-euler}
+then gives lower consumption growth immediately after the grant,
+even where the level of consumption jumps upward. Subsequent RSI
+and capital adjustment determine recovery. Research absorbs resources
+before its gains are fully realized, and the distribution panels
+separate developer net profit from expenditure on inference and research.
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_accumulation_growth.pdf}
+ \caption{Competition to monopoly, $\chi=7.5$: annual growth of output,
+ AI services, and capital relative to effective labor. Zero denotes
+ growth at $n+\gamma$. Growth rates exclude the discrete level changes
+ at date zero.}
+ \label{fig:rewrite-competitive-high-growth}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_growth_returns.pdf}
+ \caption{Competition to monopoly, $\chi=7.5$: annual wage growth,
+ net interest, and AI-service prices. Prices are measured in final-good
+ units on a logarithmic scale. The wage level falls at the grant;
+ panel A reports wage growth on either side, not that level change.}
+ \label{fig:rewrite-competitive-high-prices}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_distribution.pdf}
+ \caption{Competition to monopoly, $\chi=7.5$: labor income, developer
+ net profit, inference expenditure, and research expenditure as shares
+ of output. The first two rows cover years $-2$--10; the last two
+ cover years 10--500. Gross capital income remains $33.0\%$ of output.}
+ \label{fig:rewrite-competitive-high-distribution}
+\end{figure}
+
+\paragraph{Lower research productivity.}
+Figures~\ref{fig:rewrite-competitive-low-growth}--\ref{fig:rewrite-competitive-low-distribution}
+report $\chi=1.5$. The impact pricing distortion is unchanged, but
+the initial research allocation and efficiency growth are smaller.
+At $\sigma=1.5$, the eventual rise in growth and decline in labor's
+share emerge later. At year 500, growth and returns still exceed
+their monopoly limits, so the final displayed values should not be
+read as those limits. The benchmark lines also distinguish the
+competitive income shares from the monopoly limits: competitive
+AI revenue pays for inference, whereas monopoly revenue also
+finances research and developer profit.
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_accumulation_growth.pdf}
+ \caption{Competition to monopoly, $\chi=1.5$: annual growth of output,
+ AI services, and capital relative to effective labor. Windows and
+ benchmarks match Figure~\ref{fig:rewrite-competitive-high-growth}.}
+ \label{fig:rewrite-competitive-low-growth}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_growth_returns.pdf}
+ \caption{Competition to monopoly, $\chi=1.5$: annual wage growth,
+ net interest, and AI-service prices in final-good units. Windows,
+ benchmarks, and the logarithmic price scale match
+ Figure~\ref{fig:rewrite-competitive-high-prices}.}
+ \label{fig:rewrite-competitive-low-prices}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_distribution.pdf}
+ \caption{Competition to monopoly, $\chi=1.5$: labor income, developer
+ net profit, inference expenditure, and research expenditure relative
+ to output. Layout and benchmarks match
+ Figure~\ref{fig:rewrite-competitive-high-distribution}.}
+ \label{fig:rewrite-competitive-low-distribution}
+\end{figure}
+
+\paragraph{Replication.}
+The repository's
+\href{https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/COMPETITIVE_TRANSITION.md}
+{competitive-transition guide} records the parameters, the institutional
+experiment, and the replication commands. The driver is
+\path{scripts/simulate_competitive_to_monopoly.py}; the renderer is
+\path{scripts/report_competitive_to_monopoly.py}.
+The guide links to the separate results folders for each research
+productivity, containing the original paths, competitive benchmarks,
+impact changes, and numerical audits.
+Figure windows only select dates from those stored paths; they do not
+change the simulated economy or the numerical solution horizon.

@@ -1,8 +1,9 @@
 # From competitive AI to monopoly
 
-This exploratory experiment is separate from the simulations currently in the
-paper. It does not replace their data, figures, or discussion, and it does not
-update the digital edition.
+This additional experiment appears in the paper's simulation subsection
+"From competitive provision to monopoly with RSI" and its supplementary
+simulation appendix. It does not replace the original RSI-activation data,
+figures, or discussion, and it does not update the digital edition.
 
 ## Economic experiment
 
@@ -85,8 +86,19 @@ The normalized competitive variables are constant, so the counterfactual CSV
 records their endpoints rather than repeating identical rows at every date.
 
 The combined eight-page figure PDF is generated at
-`output/pdf/competitive_to_monopoly_simulations.pdf`. The corresponding PNGs
-and a data-hash manifest are in `figures_rewrite/competitive_to_monopoly/`.
+`output/pdf/competitive_to_monopoly_simulations.pdf`. The corresponding PNGs,
+individual vector PDFs used by LaTeX, and a data-hash manifest are in
+`figures_rewrite/competitive_to_monopoly/`. Running only the reporting script
+rebuilds the figures from stored, audited paths without solving again.
+
+The two main-text level figures show three windows: -2 to 10 years (including
+two years before the event), 10 to 100 years, and 10 to 500 years. The middle
+window magnifies recoveries hidden by the 500-year view; it does not replace
+that view. The initial row uses percentages of continued competition, while
+the middle and last rows use multiples on logarithmic scales. Vertical axes
+are fitted independently and explicitly disclosed in the captions. All
+percentage ticks have one decimal place. The six appendix figures retain
+the original two windows. All windows use the same stored trajectories.
 
 ## Interpretation limits
 

@@ -99,11 +99,13 @@ Numerical admission is not an interval-arithmetic proof of existence.
 
 ## 5. Compile the paper
 
-An additional, separate competitive-to-monopoly experiment is documented in
+The additional competitive-to-monopoly experiment in the paper is documented in
 [`COMPETITIVE_TRANSITION.md`](COMPETITIVE_TRANSITION.md). It uses the same two
 research productivities and four elasticities, but starts on a competitive
 BGP and introduces exclusive AI rights. Its outputs do not replace the
-published RSI-activation simulations.
+published RSI-activation simulations. Run
+`python scripts/report_competitive_to_monopoly.py` to regenerate its figures
+from stored data, including the intermediate 10--100-year level panels.
 
 Select **main_rewrite.tex** as the main document in Overleaf. Locally, either:
 
