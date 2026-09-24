@@ -1,0 +1,187 @@
+\Needspace{6\baselineskip}
+\begin{proof}[Proof of Proposition~\ref{prop:rewrite-competitive-equilibrium}]
+\phantomsection
+\label{proof:rewrite-competitive-equilibrium}
+Free entry and the common unit cost $1/B$ imply $p_X=1/B$.
+Because improvements are immediately available to every supplier and
+research receives no separate payment, a supplier's net profit is $-M$.
+Its optimal research expenditure is zero. The RSI technology
+\eqref{eq:rewrite-capability-law} then gives $B=B_0$, establishing
+equation~\eqref{eq:rewrite-competitive-no-research}. The remaining
+argument constructs and verifies the allocation at this fixed efficiency.
+
+\emph{Net production and normalized dynamics.}
+Write $k=K/(AL)$, $c=C/(AL)$, and $f(k)=F_{B_0}(k,1)$.
+For $k>0$, the objective in
+\eqref{eq:rewrite-competitive-net-production} is strictly concave in $U$.
+Its marginal product tends to infinity at zero and to zero at infinity,
+so there is a unique positive maximizer. The first-order condition is
+$U=(1-\alpha)s_XY$. In normalized units, write
+$u=U/(AL)$ and $y=Y/(AL)$. Differentiating this condition, using
+\eqref{eq:rewrite-inverse-demand-elasticity}, gives
+\[
+ \frac{\dd\log u}{\dd\log k}=\frac{\alpha}{e_X},\qquad
+ f'(k)=\alpha\frac{y}{k},\qquad
+ \frac{kf''(k)}{f'(k)}
+ =-\frac{(1-\alpha)(1-s_X)}{\sigma e_X}<0.
+\]
+Thus $f$ is smooth, increasing, and strictly concave, with $f(0)=0$
+and $f'(0+)=\infty$. As $k\to\infty$, the optimal $u$ tends to
+infinity and $s_X\to1$. The pricing condition gives
+$X/Y\to B_0(1-\alpha)$, while
+\eqref{eq:rewrite-composite-ai-limit} gives
+$Z/X\to\omega_X^{\sigma/(\sigma-1)}$. It follows that
+\begin{equation}
+ \lim_{k\to\infty}f'(k)=\lim_{k\to\infty}\frac{f(k)}k
+ =\mathcal R^{\mathrm{mc}}(B_0)+\delta,
+ \qquad
+ f(k)-kf'(k)=(1-\alpha)(1-s_X)y>0.
+ \label{eq:rewrite-competitive-net-limits}
+\end{equation}
+This also derives equation~\eqref{eq:rewrite-marginal-cost-return}.
+
+Set $d=\rho-n>0$ and $G(k)=f(k)-(\delta+n+\gamma)k$.
+The household's objective, up to a positive factor and an additive
+constant, is $\int_0^\infty e^{-dt}\log c_t\dd t$.
+Equations~\eqref{eq:rewrite-competitive-dynamics} become
+\begin{equation}
+ \dot k=G(k)-c,\qquad
+ \frac{\dot c}{c}=G'(k)-d,\qquad
+ \lim_{t\to\infty}e^{-dt}\frac{k_t}{c_t}=0.
+ \label{eq:rewrite-competitive-normalized}
+\end{equation}
+An identity useful for constructing the trajectory is
+\begin{equation}
+ \frac{\dd}{\dd t}\log\frac ck
+ =\frac ck-d-\frac{f(k)-kf'(k)}k.
+ \label{eq:rewrite-competitive-consumption-ratio}
+\end{equation}
+
+\emph{Efficiency below the threshold.}
+If $\mathcal R^{\mathrm{mc}}(B_0)<\rho+\gamma$, there is a unique
+$\bar k>0$ satisfying $G'(\bar k)=d$. The stationary consumption
+level is $\bar c=G(\bar k)>d\bar k>0$, by
+\eqref{eq:rewrite-competitive-net-limits}. The Jacobian at this point is
+\[
+ \begin{pmatrix}d&-1\\ \bar c f''(\bar k)&0\end{pmatrix},
+\]
+whose determinant is negative. Its stable curve has positive slope,
+with $\dot k,\dot c>0$ on its left branch and
+$\dot k,\dot c<0$ on its right branch.
+
+Both branches extend to every $k>0$. On the left branch,
+$dk<c<G(k)$; on the right, $c>\max\{dk,G(k)\}$.
+To verify these restrictions, at $c=dk$ equation
+\eqref{eq:rewrite-competitive-consumption-ratio} points toward
+$c/k<d$, from which the path cannot return to $\bar c/\bar k>d$.
+At $c=G(k)$, the derivative of $\dot k=G(k)-c$ is
+$-\dot c$. Below $\bar k$, crossing this curve makes capital decrease
+while consumption increases, precluding convergence to $\bar k$.
+Above $\bar k$, it makes capital increase while consumption decreases,
+again precluding convergence. The stable branches cannot make either
+crossing.
+
+Continuing the left branch backward therefore takes $k$ to zero:
+otherwise its bounded, monotone coordinates would approach a positive
+stationary point different from $(\bar k,\bar c)$, which does not exist.
+The right branch extends to arbitrarily large $k$. It cannot approach
+another finite stationary point or diverge in consumption at a finite
+positive $k$: along this branch
+$\dd c/\dd k=c(G'(k)-d)/(G(k)-c)$ remains bounded when $c$ becomes
+large on a compact interval of $k$.
+For each $k_0>0$, the stable curve consequently supplies a positive
+trajectory converging to $(\bar k,\bar c)$ and satisfying the
+transversality condition in \eqref{eq:rewrite-competitive-normalized}.
+
+\emph{Efficiency at or above the threshold.}
+If $\mathcal R^{\mathrm{mc}}(B_0)\geq\rho+\gamma$, strict concavity
+implies $G'(k)>d$ and $G(k)>dk$ at every finite $k>0$.
+For any $k_0>0$, consider initial consumption in
+$[dk_0,G(k_0)]$ and the region
+\[
+ k>0,\qquad dk<c<G(k).
+\]
+At its lower consumption boundary,
+\eqref{eq:rewrite-competitive-consumption-ratio} points strictly out
+of the region. At its upper boundary, $\dot k=0$ and $\dot c>0$,
+so the vector field also points strictly out. Inside, both $k$ and $c$
+increase. There is no finite-time escape to infinity because concavity
+bounds $G(k)$ above by an affine function. Continuous dependence on
+initial consumption makes the sets of paths that leave through the
+two boundaries open and disjoint. Both sets are nonempty, as shown
+by the endpoint initial choices. They cannot exhaust the connected
+interval of initial choices. Hence at least one trajectory remains
+in the region forever.
+
+Along this trajectory $k\to\infty$. A finite limit would also bound
+$c$ and require a positive stationary point, but $G'(k)>d$ excludes one.
+Moreover, $d<c/k<G(k)/k$, and the upper bound satisfies
+\[
+ \frac{G(k)}k\longrightarrow\mathcal R^{\mathrm{mc}}(B_0)-n-\gamma.
+\]
+If $\mathcal R^{\mathrm{mc}}(B_0)=\rho+\gamma$, these bounds imply
+$c/k\to d$. If the inequality is strict, the same limit follows
+from \eqref{eq:rewrite-competitive-consumption-ratio}:
+$(f-kf')/k\to0$, and any persistent excess of $c/k$ over $d$
+would make the ratio increase until it violated its bounded upper
+limit. More precisely, for any $\varepsilon>0$ and sufficiently large
+$t$, reaching $c/k\geq d+\varepsilon$ implies
+$\dd\log(c/k)/\dd t\geq\varepsilon/2$ thereafter until that
+contradiction occurs. Thus
+\begin{equation}
+ \frac ck\to d,\qquad
+ \frac{\dot k}{k}\to\mathcal R^{\mathrm{mc}}(B_0)-\rho-\gamma.
+ \label{eq:rewrite-competitive-capital-growth}
+\end{equation}
+The transversality condition holds because $c/k>d$.
+At equality, capital per effective worker diverges but its growth rate
+tends to zero.
+
+\emph{Optimality, uniqueness, and decentralization.}
+The preceding constructions satisfy global optimality, not only the
+Euler equation. Let $\lambda_t=e^{-dt}/c_t$ along a constructed path;
+then $\dot\lambda=-G'(k)\lambda$.
+For any alternative feasible path $(\widetilde k,\widetilde c)$
+with the same $k_0$, concavity gives
+\[
+ \int_0^T e^{-dt}(\log\widetilde c-\log c)\dd t
+ \leq-\lambda_T(\widetilde k_T-k_T)
+ \leq\lambda_T k_T\longrightarrow0.
+\]
+The constructed path has finite utility: in the first case $c$ converges
+to a positive constant; in the other cases it is positive, increasing,
+and at most exponentially growing. Thus the inequality verifies
+optimality in the fixed-$B_0$ allocation problem. Strict concavity of
+log utility and concavity of the resource constraint imply uniqueness
+of consumption; the state equation then gives uniqueness of capital.
+This verification does not allow a planner to improve $B$: it concerns
+the allocation with the technology fixed by the private research choices.
+
+The maximizing $U$ in \eqref{eq:rewrite-competitive-net-production},
+the factor prices in \eqref{eq:rewrite-capital-return} and
+\eqref{eq:rewrite-wage}, and $p_X=1/B_0$ decentralize this allocation.
+In particular, $wN=(AL)[f(k)-kf'(k)]$, so the household budget coincides
+with the resource constraint. Its Euler and transversality conditions
+verify its optimum at these prices. Strict concavity also implies that
+any other competitive equilibrium would solve the same fixed-technology
+allocation problem and hence have the same aggregate allocation.
+
+\emph{Growth rates and income shares.}
+Below the threshold, convergence to $(\bar k,\bar c)$ gives
+$r\to\rho+\gamma$, $g_{Y/N},g_w\to\gamma$, and a positive limiting
+labor share, because optimal $u$ and $s_X$ have finite interior limits.
+At or above the threshold, $k,u\to\infty$ and $s_X\to1$.
+Differentiating the static allocation gives
+\[
+ \frac{\dd\log y}{\dd\log k}
+ =1-\frac{(1-\alpha)(1-s_X)}{\sigma e_X}\longrightarrow1,
+ \qquad
+ \frac{\dd\log(w/A)}{\dd\log k}
+ =\frac{\alpha}{\sigma e_X}\longrightarrow\frac1\sigma.
+\]
+Combining these elasticities with
+\eqref{eq:rewrite-competitive-capital-growth} proves the stated growth
+limits, including the equality case. Equation
+\eqref{eq:rewrite-competitive-net-limits} gives the interest-rate limit,
+and $wL/Y=(1-\alpha)(1-s_X)\to0$ completes the proof.
+\end{proof}
