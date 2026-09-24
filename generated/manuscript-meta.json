@@ -228,7 +228,7 @@
       "number": ""
     }
   ],
-  "source_sha256": "fb04ef51c58842f4412182fd42903dd6d3b1b42da93cb8f32bbdf066607959d4",
+  "source_sha256": "725f0da0d5b6bca59f87e9425f9ae0e1cb0efb1712943c6ca96db0d94b686ffe",
   "source_files": [
     "main_rewrite.tex",
     "sections_rewrite/01_introduction.tex",
@@ -355,13 +355,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 17639,
+    "visible_text_tokens_verified": 17621,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
     "aux": "6edaf0278be533a4dfff5f7d42120e6760806532570fd13ac9dd22314324f683",
     "bbl": "8dba60d492bcdea741b7fb97ae87a92a2939f2ef480725402835db455aeb670e",
-    "pdf": "e69c0c6280fed71d67152585f6b14d0093bee3835440fa18383260550dbb674c"
+    "pdf": "7aa5062db6ed6dda63074a4ff49710c09e6ffa2a0f18ac428bdb0efbf69895f8"
   }
 }
