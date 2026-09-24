@@ -1,0 +1,23 @@
+{
+  "horizons": [
+    1200.0,
+    1800.0
+  ],
+  "common_window": 500.0,
+  "maximum_common_window_coordinate_change": 8.985523436422227e-11,
+  "maximum_finite_difference_residuals": [
+    1.379799862148874e-10,
+    1.2317701258935873e-10
+  ],
+  "maximum_static_foc_log_residual": 4.263256414560601e-14,
+  "maximum_collocation_residual": 9.643849755807618e-11,
+  "log_initial_capital_error": 0.0,
+  "consumption_capital_limit": 0.037,
+  "terminal_rate_error": 1.700029006457271e-15,
+  "household_tvc_log": -63.30316263366208,
+  "limiting_interest_rate": 0.09700012756829186,
+  "limiting_output_per_worker_growth": 0.05700012756829186,
+  "limiting_wage_growth": 0.041333418378861245,
+  "method": "Concave competitive Ramsey problem; positive log-state path; C/K -> rho-n; independent finite differences and horizon extension.",
+  "passes": true
+}

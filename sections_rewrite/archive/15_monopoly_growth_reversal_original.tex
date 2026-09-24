@@ -1,3 +1,4 @@
+% Archived experiment, not input by the manuscript. Original stocks preserved.
 \subsection{When monopoly eliminates AI-dominated growth}
 \label{subsec:rewrite-monopoly-growth-reversal}
 
@@ -15,16 +16,13 @@ available throughout; the grant changes pricing and research incentives.
 Table~\ref{tab:rewrite-monopoly-growth-reversal} reports the new design.
 I retain the other parameters in Table~\ref{tab:rewrite-rsi-parameters}
 and compare continued competition with monopoly under $\chi=7.5$ and
-$\chi=1.5$, all from the same initial stocks. Before granting monopoly
-rights, I let the competitive economy approach its AI-dominated
-growth path. I select the first whole year when output-per-worker growth,
-wage growth, and the interest rate are each within 0.1 percentage point
-of their long-run limits, and reset the date to zero. I inherit $A_0$,
-$N_0$, and $K_0$ jointly from that date, keeping $B_0$ and both values of
-$\chi$ unchanged. This is a near-long-run competitive allocation, not
-an exact steady state: $K/(AL)$ continues to grow. Just before the grant,
-output per worker grows at $5.8\%$, wages at $4.2\%$, and the interest
-rate is $9.8\%$. The capital--output ratio is 2.23.
+$\chi=1.5$, all from the same initial stocks. I set $K_0/(A_0N_0)$
+equal to the limiting monopoly capital--effective-labor ratio at
+$\overline B$. This is an illustrative choice, not an empirical
+calibration. Unlike the preceding experiment, the competitive economy
+does not start on a labor-bottleneck BGP: I solve its transition from
+these stocks rather than impose constant growth or $K_0/Y_0=3.3$.
+Its initial capital--output ratio is 1.82.
 
 \begin{table}[H]
  \centering
@@ -39,9 +37,8 @@ rate is $9.8\%$. The capital--output ratio is 2.23.
  $\chi$ & 7.5; 1.5 & Same illustrative research productivities\\
  $\overline B$ & 1,113.5 & $0.90\mathcal B(1.5)$\\
  $B_0$ & 1,002.2 & $0.90\overline B$\\
- $A_0,N_0$ & 6.6859; 1.7683 & Inherited from competitive prehistory\\
- $K_0$ & $7.2907\times10^9$ & Inherited from the same date\\
- $K_0/Y_{0^-}$ & 2.23 & Competitive ratio before the grant\\
+ $A_0,N_0$ & 1; 1 & Normalizations\\
+ $K_0$ & 14,047.3 & Limiting monopoly ratio, with $A_0N_0=1$\\
  \bottomrule
  \end{tabular}
  \par\vspace{4pt}
@@ -50,88 +47,72 @@ rate is $9.8\%$. The capital--output ratio is 2.23.
  $\mathcal B(1.5)=1,237.3$. The upper bound and initial efficiency
  are chosen to satisfy the corollary's threshold inequalities.
  The three paths share the reported initial stocks; consumption
- and research are equilibrium choices. The initialization uses 190
- years of competitive prehistory, not a forecast of a policy date.
- Stocks retain their original units; these illustrative choices are
- not empirical estimates. Appendix~\ref{app:rewrite-competitive-transition}
- describes the prehistory and its starting stocks.}
+ and research are equilibrium choices.}
 \end{table}
 
 Figure~\ref{fig:rewrite-monopoly-growth-reversal-growth} shows annual
 output-per-worker growth, wage growth, and the net interest rate in
-panels A--C. The rows cover years $-10$--10, 10--100, and 100--500;
-negative dates show the common competitive prehistory.
+panels A--C. The rows cover years 0--10, 10--100, and 100--500.
 The dashed gray line denotes continued competition; the solid blue
 and dash-dotted gold lines denote monopoly with high and low research
-productivity. At the grant, output falls by $55.6\%$, wages by
-$33.5\%$, and AI services by $70.3\%$. These are instantaneous level
+productivity. At the grant, output falls by $54.4\%$, wages by
+$32.6\%$, and AI services by $71.4\%$. These are instantaneous level
 changes at unchanged $K$ and $B$, not annual growth rates in the figure.
 The lower output--capital ratio reduces the interest rate from
-$9.8\%$ to $1.6\%$.
+$13.1\%$ to $3.3\%$.
 
-After this level loss, high research productivity briefly raises
-output-per-worker growth to $13.4\%$ as efficiency improves rapidly.
-With low research productivity, initial growth is only $0.1\%$.
-Neither response restores sustained expansion: by year 10, output
-per worker contracts under both monopoly paths. The inherited capital
-stock supported faster growth under competitive AI supply; restricting
-that supply lowers its return and induces capital decumulation.
-Consumption initially jumps upward by $141.6\%$ and $132.2\%$,
-respectively, as lower compute use and investment release resources
-despite the fall in gross output. Consumption then falls: the interest
-rate initially lies below $\rho$, so the Euler equation implies
-negative consumption-per-person growth after the grant.
+After this initial drop, output per worker initially contracts at
+$0.1\%$ annually with high research productivity and $0.7\%$ with
+low research productivity. Capital accumulation slows and efficiency
+improves; faster research softens the contraction and brings an earlier
+recovery in growth. Consumption nevertheless jumps upward by $123.6\%$
+and $119.3\%$, respectively: less compute use and capital accumulation
+release resources even as gross output falls. Output alone therefore
+does not measure the household's immediate consumption response.
 
 \begin{figure}[tp]
  \centering
- \includegraphics[width=\textwidth]{figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_growth.pdf}
+ \includegraphics[width=\textwidth]{figures_rewrite/monopoly_growth_reversal/monopoly_growth_reversal_growth.pdf}
  \caption{Monopoly and the loss of AI-dominated growth: annual
  output-per-worker growth, wage growth, and net interest. Rows show
- years $-10$--10, 10--100, and 100--500. The grant occurs at zero,
- after the common competitive prehistory. Rates describe the smooth paths
+ years 0--10, 10--100, and 100--500. Rates describe the smooth paths
  in each scenario, not the instantaneous output and wage
  losses. Gray dotted lines in the bottom row indicate theoretical
  long-run limits. Vertical scales differ across windows.}
  \label{fig:rewrite-monopoly-growth-reversal-growth}
 \end{figure}
 
-The longer windows show that the loss of sustained growth is not
-confined to the initial repricing.
+The longer windows distinguish recovery from sustained acceleration.
 Under continued competition, output-per-worker growth tends to
 $5.7\%$, wage growth to $4.1\%$, and the interest rate to $9.7\%$,
 as in equation~\eqref{eq:rewrite-competitive-ai-growth}.
 Under either monopoly path, the corresponding limits are $1.0\%$,
 $1.0\%$, and $5.0\%$, consistent with the labor-bottleneck regime in
-Proposition~\ref{prop:rewrite-equilibrium-regimes}. Both monopoly
-economies are still adjusting at year 500: output-per-worker growth
-is about $-0.1\%$, wage growth is $0.3\%$, and the interest rate is
-$3.9\%$. The large stock of capital inherited from the competitive
-expansion takes a long time to adjust to restricted AI supply. The
-monopoly limit therefore remains distinct from the last plotted date:
-monopoly removes permanently faster growth, not all long-run growth.
+Proposition~\ref{prop:rewrite-equilibrium-regimes}. Growth can temporarily
+exceed its monopoly limit during the adjustment: with $\chi=1.5$,
+output-per-worker growth is still $1.1\%$ at year 500. Monopoly removes
+the permanently faster growth, not all growth, and the transition is
+not a monotonic decline in growth rates.
 
 Figure~\ref{fig:rewrite-monopoly-growth-reversal-technology} explains
 why efficiency gains do not prevent this outcome. Using the same lines
 and windows, panels A--C show $B/\overline B$, AI services relative to
 continued competition, and labor income as a share of output.
-In the first decade, high research productivity takes efficiency to
-$99.9\%$ of its upper bound, compared with $97.1\%$ under low research
-productivity. Both nevertheless supply fewer AI services than continued
-competition. In the longer run, efficiency approaches
+In the first decade, monopoly raises efficiency but supplies fewer
+AI services than competition. In the longer run, efficiency approaches
 $\overline B$, an improvement of $11.1\%$ over $B_0$; competition
 retains $B_0$. Yet the monopoly markup prevents these improvements
 from sustaining the joint expansion of capital and AI services that
 occurs under competition. AI services under monopoly become negligible
 \emph{relative to the competitive path}, not in absolute terms.
 Labor's income share tends to $4.5\%$ under monopoly rather than zero
-under competition. This larger limiting share coexists with slower
-wage growth. At year 500, the labor share is still only $2.1\%$ and
-$2.2\%$ under high and low research productivity, respectively,
-confirming that neither path has reached its labor-bottleneck limit.
+under competition. This larger share coexists with slower wage growth;
+at year 500, the low-research-productivity path is still adjusting,
+with a labor share of $4.8\%$.
 
 \begin{figure}[tp]
  \centering
- \includegraphics[width=\textwidth]{figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_technology.pdf}
+ \includegraphics[width=\textwidth]{figures_rewrite/monopoly_growth_reversal/monopoly_growth_reversal_technology.pdf}
  \caption{More efficient AI but slower growth under monopoly:
  efficiency relative to its upper bound, AI services relative to
  continued competition, and labor's income share. Windows and line

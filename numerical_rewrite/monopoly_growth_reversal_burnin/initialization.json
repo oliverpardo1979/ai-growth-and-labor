@@ -1,0 +1,97 @@
+{
+  "burnin_years": 190,
+  "rate_tolerance": 0.001,
+  "criterion": "First whole year with all three rates within 0.1 percentage point of their limits; checked through seed year 1000.",
+  "seed_parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 7.5,
+    "initial_labor_productivity": 1.0,
+    "initial_population": 1.0
+  },
+  "seed_capital": 14047.294019153645,
+  "stocks": {
+    "A0": 6.68589444227927,
+    "N0": 1.7682670514337353,
+    "K0": 7290728575.251018,
+    "B0": 1002.185120714239
+  },
+  "pre_event": {
+    "time": 190.0,
+    "sigma": 1.5,
+    "output_effective_labor": 276470523.71949583,
+    "capital_effective_labor": 616685248.556286,
+    "consumption_effective_labor": 23021638.439306367,
+    "wage_productivity": 291934.6331360723,
+    "ai_services_effective_labor": 185347439730.24332,
+    "capability": 1002.185120714239,
+    "ai_service_price": 0.0009978196436276347,
+    "output_per_person_growth": 0.05798435055046998,
+    "wage_growth": 0.04200638127595171,
+    "consumption_per_person_growth": 0.057944633086365153,
+    "net_interest": 0.09794463308636515,
+    "labor_income_share": 0.0010559340258358466,
+    "inference_output_share": 0.668944065974164,
+    "research_output_share": 0.0,
+    "profit_output_share": 0.0
+  },
+  "limits": {
+    "net_interest": 0.09700012756829186,
+    "output_per_person_growth": 0.05700012756829186,
+    "wage_growth": 0.041333418378861245
+  },
+  "selection_rate_error": 0.0009842229821781165,
+  "previous_year_rate_error": 0.0010001403722656454,
+  "maximum_rebase_log_error": 8.671452445361987e-11,
+  "prehistory_audit": {
+    "horizons": [
+      1200.0,
+      1800.0
+    ],
+    "common_window": 1000.0,
+    "maximum_common_window_coordinate_change": 7.978862015534105e-11,
+    "maximum_finite_difference_residuals": [
+      1.447772717683149e-10,
+      1.365246596329861e-10
+    ],
+    "maximum_static_foc_log_residual": 2.842170943040401e-14,
+    "maximum_collocation_residual": 9.97160903533399e-11,
+    "log_initial_capital_error": 0.0,
+    "consumption_capital_limit": 0.037,
+    "terminal_rate_error": 1.5980272660698347e-14,
+    "household_tvc_log": -63.30316263366208,
+    "limiting_interest_rate": 0.09700012756829186,
+    "limiting_output_per_worker_growth": 0.05700012756829186,
+    "limiting_wage_growth": 0.041333418378861245,
+    "method": "Concave competitive Ramsey problem; positive log-state path; C/K -> rho-n; independent finite differences and horizon extension.",
+    "passes": true
+  },
+  "rebased_competitive_audit": {
+    "horizons": [
+      1200.0,
+      1800.0
+    ],
+    "common_window": 500.0,
+    "maximum_common_window_coordinate_change": 8.985523436422227e-11,
+    "maximum_finite_difference_residuals": [
+      1.379799862148874e-10,
+      1.2317701258935873e-10
+    ],
+    "maximum_static_foc_log_residual": 4.263256414560601e-14,
+    "maximum_collocation_residual": 9.643849755807618e-11,
+    "log_initial_capital_error": 0.0,
+    "consumption_capital_limit": 0.037,
+    "terminal_rate_error": 1.700029006457271e-15,
+    "household_tvc_log": -63.30316263366208,
+    "limiting_interest_rate": 0.09700012756829186,
+    "limiting_output_per_worker_growth": 0.05700012756829186,
+    "limiting_wage_growth": 0.041333418378861245,
+    "method": "Concave competitive Ramsey problem; positive log-state path; C/K -> rho-n; independent finite differences and horizon extension.",
+    "passes": true
+  }
+}

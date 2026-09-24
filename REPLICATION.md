@@ -110,10 +110,12 @@ from stored data, including the intermediate 10--100-year level panels.
 The growth-reversal experiment is documented separately in
 [`MONOPOLY_GROWTH_REVERSAL.md`](MONOPOLY_GROWTH_REVERSAL.md). It starts with
 efficiency above the competitive threshold but an upper bound below the
-monopoly threshold. It solves a nonstationary competitive reference and
-compares both research productivities from the same stocks. Run
-`python scripts/simulate_monopoly_growth_reversal.py --report` to solve that
+monopoly threshold. It advances a competitive prehistory until output,
+wage growth, and interest are within 0.1 percentage point of their limits,
+inherits all stocks from that date, and compares both research productivities.
+Run `python scripts/simulate_monopoly_growth_reversal_burnin.py --report` to solve that
 reference and regenerate the new figures from the saved monopoly paths.
+The preceding version remains reproducible in the folders without `_burnin`.
 
 ## 5. Compile the paper
 

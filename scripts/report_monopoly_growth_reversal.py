@@ -13,7 +13,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from matplotlib.ticker import PercentFormatter, MaxNLocator, LogLocator, NullLocator
+from matplotlib.ticker import PercentFormatter, MaxNLocator, LogLocator, NullLocator, MultipleLocator
 from simulate_monopoly_growth_reversal import make_design, PRODUCTIVITIES, SIGMA
 from solve_competitive_ai_transition import solve, audit, rows as competitive_rows
 from analyze_axm_finite_cap_bvp import critical_capability_frontier, terminal_point
@@ -43,6 +43,11 @@ def checked_monopoly(design):
     path=design.output_directory/'equilibrium_paths.csv'
     manifest=read_json(design.output_directory/'paths_manifest.json')
     audit_record=read_json(design.output_directory/f'{key(SIGMA)}_audit.json')
+    if any(manifest[k] != value for k,value in dict(
+            parameters=asdict(design.parameters), frontier=design.frontier,
+            initial_capital=design.initial_capital,
+            initial_capability=design.initial_capability).items()):
+        raise RuntimeError('Stored paths do not match the requested initial stocks or parameters.')
     if (not audit_record['equilibrium_certified'] or
             not audit_record['early_window_checks']['passes'] or
             hashlib.sha256(path.read_bytes()).hexdigest()!=manifest['csv_sha256'] or
@@ -57,7 +62,7 @@ def checked_monopoly(design):
     return data,manifest
 
 
-def figure(data,kind,monopoly_limit,competition_limit):
+def figure(data,kind,monopoly_limit,competition_limit,prehistory=None):
     panels=(('output_per_person_growth','A. Output per worker\n$g_Y-n$','rate'),
             ('wage_growth','B. Wage growth\n$g_w$','rate'),
             ('net_interest','C. Net interest rate\n$r$','rate')) if kind=='growth' else (
@@ -66,8 +71,13 @@ def figure(data,kind,monopoly_limit,competition_limit):
             ('labor_income_share','C. Labor income\n$wL/Y$','share'))
     plt.rcParams.update({'font.family':'DejaVu Serif','font.size':9})
     fig,axes=plt.subplots(3,3,figsize=(8.6,9.0))
-    for i,(start,end) in enumerate(WINDOWS):
+    windows = ((-10.,10.), *WINDOWS[1:]) if prehistory else WINDOWS
+    for i,(start,end) in enumerate(windows):
         for ax,(field,label,scale) in zip(axes[i],panels):
+            if i == 0 and prehistory:
+                ax.plot([r['time'] for r in prehistory], [r[field] for r in prehistory],
+                    color=STYLES['Competition'][0], ls=STYLES['Competition'][1], lw=1.5)
+                ax.axvline(0, color='#aaaaaa', ls=':', lw=.8)
             for name,series in data.items():
                 chosen=[r for r in series if start<=r['time']<=end]
                 t=np.array([r['time'] for r in chosen])
@@ -89,9 +99,28 @@ def figure(data,kind,monopoly_limit,competition_limit):
             else:
                 ax.yaxis.set_major_formatter(PercentFormatter(1,decimals=1))
                 ax.yaxis.set_major_locator(MaxNLocator(4))
+            if prehistory and field=='labor_income_share' and i<2:
+                # Distinct one-decimal percent ticks (not repeated 0.1% labels).
+                ax.set_ylim(0, .002 if i==0 else .003)
+                ax.yaxis.set_major_locator(MultipleLocator(.001))
+            if prehistory and field=='capability_frontier_ratio':
+                ax.set_ylim(.89,1.005)
+                ax.set_yticks([.9,.95,1.])
+            if prehistory and kind=='growth' and field!='net_interest':
+                minimum = min(r[field] for series in data.values() for r in series
+                              if start<=r['time']<=end)
+                if minimum < 0:
+                    # Keep a labeled negative tick so contraction is explicit.
+                    lower, upper = ax.get_ylim()
+                    negative_tick = np.floor(minimum*100)/100
+                    if upper > .1:
+                        negative_tick = min(negative_tick,-.02)
+                    ticks = [v for v in ax.get_yticks() if 0<=v<=upper]
+                    ax.set_yticks([negative_tick,*ticks])
+                    ax.set_ylim(min(lower,negative_tick-.001),upper)
             ax.set_title(label,loc='left',fontsize=10,pad=8)
             ax.set_xlim(start,end)
-            ax.set_xticks([0,5,10] if i==0 else ([10,25,50,75,100] if i==1 else [100,250,500]))
+            ax.set_xticks(([-10,-5,0,5,10] if prehistory else [0,5,10]) if i==0 else ([10,25,50,75,100] if i==1 else [100,250,500]))
             ax.set_xlabel(['Years: initial transition','Years: intermediate window','Years: longer window'][i])
             ax.grid(axis='y',color='#dddddd',lw=.5)
             ax.spines[['top','right']].set_visible(False)
@@ -108,10 +137,12 @@ def figure(data,kind,monopoly_limit,competition_limit):
     return fig
 
 
-def main():
-    design=make_design(7.5)
+def main(design_factory=make_design, output=OUT, figure_directory=FIG,
+         initialization=None, prehistory=None):
+    OUT, FIG = output, figure_directory
+    design=design_factory(7.5)
     mon,manifest=checked_monopoly(design)
-    low,low_manifest=checked_monopoly(make_design(1.5))
+    low,low_manifest=checked_monopoly(design_factory(1.5))
     times=np.array([r['time'] for r in mon])
     if not np.array_equal(times,[r['time'] for r in low]):
         raise ValueError('Unequal comparison dates.')
@@ -141,12 +172,13 @@ def main():
         wage_growth=checks['limiting_wage_growth'],net_interest=checks['limiting_interest_rate'],
         labor_income_share=0.)
     threshold=critical_capability_frontier(SIGMA,p)
+    initial_k = design.initial_capital/(p.initial_labor_productivity*p.initial_population)
     summary=dict(parameters=asdict(p),sigma=SIGMA,chi_values=list(PRODUCTIVITIES),
         frontier=design.frontier,initial_capability=design.initial_capability,
         initial_capital=design.initial_capital,monopoly_threshold=threshold,
         competitive_threshold=(1-p.alpha)*threshold,
-        competitive_initial_capital_output_ratio=design.initial_capital/benchmark[0]['output_effective_labor'],
-        monopoly_initial_capital_output_ratio=design.initial_capital/mon[0]['output_effective_labor'],
+        competitive_initial_capital_output_ratio=initial_k/benchmark[0]['output_effective_labor'],
+        monopoly_initial_capital_output_ratio=initial_k/mon[0]['output_effective_labor'],
         monopoly_limits=monlimit,competitive_limits=complimit,
         competitive_audit=checks,observations={},impacts={})
     for name,series in data.items():
@@ -157,7 +189,7 @@ def main():
              'wage_counterfactual_ratio','consumption_counterfactual_ratio')}
         if name!='Competition':
             # Verify the economic event rather than depicting connected rate jumps.
-            if not (abs(series[0]['capital_effective_labor']/design.initial_capital-1)<1e-10
+            if not (abs(series[0]['capital_effective_labor']/initial_k-1)<1e-10
                 and abs(series[0]['capability']/design.initial_capability-1)<1e-10
                 and series[0]['output_counterfactual_ratio']<1
                 and series[0]['ai_services_counterfactual_ratio']<1):
@@ -165,6 +197,8 @@ def main():
     OUT.mkdir(parents=True,exist_ok=True); FIG.mkdir(parents=True,exist_ok=True)
     write_csv(OUT/'continued_competition.csv',benchmark)
     write_json(OUT/'competitive_audit.json',checks)
+    if initialization is not None:
+        summary['initialization'] = initialization
     write_json(OUT/'summary.json',summary)
     comparison=[dict(scenario=name,**{field:r[field] for field in
         ('time','capability_frontier_ratio','output_per_person_growth','wage_growth','net_interest',
@@ -174,16 +208,19 @@ def main():
     write_csv(OUT/'comparison_paths.csv',comparison)
     outputs=[]
     for kind in ('growth','technology'):
-        fig=figure(data,kind,monlimit,complimit)
+        fig=figure(data,kind,monlimit,complimit,prehistory=prehistory)
         for suffix in ('pdf','png'):
             path=FIG/f'monopoly_growth_reversal_{kind}.{suffix}'
             fig.savefig(path,dpi=190); outputs.append(path)
         plt.close(fig)
+    inputs = [OUT/'comparison_paths.csv',OUT/'continued_competition.csv',*outputs]
+    if prehistory is not None:
+        inputs += [OUT/'competitive_prehistory.csv', OUT/'initialization.json']
     provenance=dict(parameters=asdict(p),monopoly_input_csv_sha256={
         '7.5':manifest['csv_sha256'],'1.5':low_manifest['csv_sha256']},
         competitive_solver='scripts/solve_competitive_ai_transition.py',
         files_sha256={path.relative_to(ROOT).as_posix():hashlib.sha256(path.read_bytes()).hexdigest()
-                      for path in [OUT/'comparison_paths.csv',OUT/'continued_competition.csv',*outputs]})
+                      for path in inputs})
     write_json(OUT/'figure_manifest.json',provenance)
     print(json.dumps({k:summary[k] for k in ('competitive_initial_capital_output_ratio',
           'monopoly_initial_capital_output_ratio','monopoly_limits','competitive_limits','impacts')},indent=2))

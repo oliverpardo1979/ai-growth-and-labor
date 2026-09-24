@@ -1,0 +1,19 @@
+{
+  "parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 7.5,
+    "initial_labor_productivity": 6.68589444227927,
+    "initial_population": 1.7682670514337353
+  },
+  "sigma": 1.5,
+  "frontier": 1113.5390230158212,
+  "initial_capability": 1002.185120714239,
+  "initial_capital": 7290728575.251018,
+  "initial_stock_reference": "Competitive prehistory of 190 years; growth of output per worker, wage growth, and interest are each within 0.1 percentage point of their AI-dominated limits. A0,N0,K0 are jointly inherited without changing units; B0 is fixed. Not an exact stationary state. Unexpected exclusive rights cover existing AI and improvements."
+}

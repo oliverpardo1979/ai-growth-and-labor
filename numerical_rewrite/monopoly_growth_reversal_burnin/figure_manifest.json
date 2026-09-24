@@ -1,0 +1,29 @@
+{
+  "parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 7.5,
+    "initial_labor_productivity": 6.68589444227927,
+    "initial_population": 1.7682670514337353
+  },
+  "monopoly_input_csv_sha256": {
+    "7.5": "843035f22791e1613950f3e2bc89f7888b35717a1428f861923b00ca6ad3c7ad",
+    "1.5": "2756eec729aecba549e5d954c559924dacb677a7ac17e1ae3f9b154c711220c2"
+  },
+  "competitive_solver": "scripts/solve_competitive_ai_transition.py",
+  "files_sha256": {
+    "numerical_rewrite/monopoly_growth_reversal_burnin/comparison_paths.csv": "f53c495d598e0613ab91369c07ace7081609482df0563907ae86f1c35e076ed4",
+    "numerical_rewrite/monopoly_growth_reversal_burnin/continued_competition.csv": "38b69ef523dc9a0914fe8042c6b5ed3ea2aa972db1f901d3c593dd1f7fd5e653",
+    "figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_growth.pdf": "4ed5bbb80d4ec30eb14364f980738de255fccfaa1a5bee6af971d0df00f0638c",
+    "figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_growth.png": "567b004bf3489f9e52dea0e6da4f4c567a84e0e2bab0987552e99091167802d5",
+    "figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_technology.pdf": "c3cf0aaa7556e0084c1c5c44f985db6b9bd8ba01281915db5332509785806673",
+    "figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_technology.png": "72abe2b340af3426ba1a45c440c20e97017ef922a11015ba6f08d296340e76e5",
+    "numerical_rewrite/monopoly_growth_reversal_burnin/competitive_prehistory.csv": "bbc5c260469ba57d7c3bf602ff5b9f49ab975ba3ec701368483e280cdcfe10f7",
+    "numerical_rewrite/monopoly_growth_reversal_burnin/initialization.json": "8035d7f0addce48d3d39f785b24c86ba819cb4f55587fefafb965d8636b6aee1"
+  }
+}

@@ -77,16 +77,18 @@ def solve(B, sigma, p, capital, horizon=1200., previous=None):
     trend = limiting_return(B,sigma,p)-p.discount-p.labor_productivity_growth
     if trend <= 0 or capital <= 0:
         raise ValueError('Require positive capital and AI-dominated competition.')
-    if p.initial_labor_productivity != 1 or p.initial_population != 1:
-        raise ValueError('This experiment normalizes A0=N0=1.')
+    scale = p.initial_labor_productivity*p.initial_population
+    if scale <= 0:
+        raise ValueError('Initial effective labor must be positive.')
+    log_initial_k = math.log(capital/scale)
     times = np.unique(np.r_[np.linspace(0,10,101),np.linspace(10,horizon,700)])
-    guess = np.vstack([np.full_like(times,math.log(capital)),
+    guess = np.vstack([np.full_like(times,log_initial_k),
                        np.full_like(times,math.log(p.discount-p.population_growth))])
     if previous is not None:
         inside = times <= previous.horizon
         guess[:,inside] = previous.raw.sol(times[inside])
         guess[:,~inside] = previous.raw.sol(previous.horizon)[:,None]
-    bc = lambda a,b: np.array([a[0]-math.log(capital),
+    bc = lambda a,b: np.array([a[0]-log_initial_k,
         b[1]-math.log(p.discount-p.population_growth)])
     raw = solve_bvp(lambda t,z:rhs(t,z,B,sigma,p,trend),bc,times,guess,
         tol=1e-10,bc_tol=1e-12,max_nodes=40000)
@@ -146,7 +148,8 @@ def audit(shorter, longer, display_horizon=500.):
         maximum_finite_difference_residuals=residuals,
         maximum_static_foc_log_residual=float(np.max(np.abs(block['static_residual']))),
         maximum_collocation_residual=float(np.max(longer.raw.rms_residuals)),
-        log_initial_capital_error=float(abs(longer.raw.sol(0)[0]-math.log(longer.capital))),
+        log_initial_capital_error=float(abs(longer.raw.sol(0)[0]-math.log(
+            longer.capital/(p.initial_labor_productivity*p.initial_population)))),
         consumption_capital_limit=p.discount-p.population_growth,
         terminal_rate_error=final_error,
         household_tvc_log=float((p.population_growth-p.discount)*longer.horizon-longer.raw.sol(longer.horizon)[1]),

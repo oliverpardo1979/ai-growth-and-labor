@@ -48,8 +48,8 @@ def make_design(chi):
             'are unexpected and cover existing AI and future improvements.'))
 
 
-def solve_monopoly(chi):
-    design = make_design(chi)
+def solve_monopoly(chi, *, design=None):
+    design = make_design(chi) if design is None else design
     spec = dict(parameters=asdict(design.parameters), sigma=SIGMA,
         frontier=design.frontier, initial_capability=design.initial_capability,
         initial_capital=design.initial_capital,
