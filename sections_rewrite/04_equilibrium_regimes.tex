@@ -332,17 +332,61 @@ See Appendix~\ref{app:rewrite-proofs},
 Proposition~\ref*{prop:rewrite-monopoly-threshold}}.
 \end{proof}
 
-At a given efficiency, the monopoly markup restricts the use of AI
-services. This lowers the limiting output--capital ratio and therefore
-the return on capital. A higher efficiency is then needed for that return
-to exceed $\rho+\gamma$. For $\alpha=0.33$, the threshold under
-marginal-cost pricing is $33.0\%$ lower than under monopoly pricing.
+At a given AI efficiency, the monopolist charges more than the marginal
+cost of supplying AI services, so final-good firms use fewer of them.
+Because AI services complement physical capital in production, this
+restriction also lowers output and the marginal product of capital at
+given $K$ and $AL$. The restriction persists in the zero-labor-share
+limit, lowering the limiting output--capital ratio and the return on
+capital. A higher AI efficiency is therefore needed for that return to
+exceed $\rho+\gamma$. For $\alpha=0.33$, marginal-cost pricing lowers
+the required efficiency by $33.0\%$; this is a reduction in the threshold,
+not an increase of that magnitude in the growth rate.
 
-This comparison does not establish an alternative equilibrium with
-privately financed research. Marginal-cost pricing eliminates the
-operating profits that make research investment profitable in the model.
-I isolate the effect of pricing on the use of a given AI technology,
-not the effects of changing market structure on research or welfare.
+The comparison also identifies a gain from wider use of an existing AI
+technology. Holding $K$, $AL$, and $B$ fixed, marginal-cost pricing
+maximizes $Y-X/B$: output net of the inference compute needed to supply
+AI services. It therefore leaves more resources available for consumption,
+capital accumulation, or research. Yet marginal-cost pricing also
+eliminates the operating profits that reward research in the model.
+The incentive to remove a markup after a technology has been developed
+must therefore be considered alongside its effect on the incentive to
+develop that technology.
+
+This tension raises the commitment problem illustrated by patent policy
+in \citet{kydlandprescott1977}. A government may promise monopoly
+protection to encourage research, but later wish to withdraw it once the
+research costs are sunk. If the developer anticipates this reversal, it
+cannot value future research gains using the monopoly profits assumed
+here. In the present setting, continued RSI makes the trade-off relevant
+even after a valuable AI technology already exists: opening access to
+that technology changes the rewards for improving it further.
+
+An announced rule that ends monopoly protection at a specified efficiency
+level is different from reneging on a promise. It nevertheless changes
+the developer's problem. Without compensation, reaching that level would
+remove future monopoly rents, potentially giving the developer an
+incentive to delay reaching it. The threshold
+$\mathcal B^{\mathrm{mc}}(\sigma)$ is not an optimal intervention threshold:
+it identifies a return consistent with growth at $\gamma$, not the best
+time to change policy. Choosing that time requires accounting for the
+research response and comparing consumption paths under alternative rules.
+
+\Needspace{3\baselineskip}
+Patent buyouts offer a possible way to reward innovation without retaining
+the monopoly markup. \citet{kremer1998} studies government purchases of
+patents that are generally placed in the public domain. Applied here,
+the idea would be to compensate the developer for the rights to an
+existing AI technology and allow competing suppliers to use it.
+Competitive supply at the same efficiency would require access to the
+algorithms and model weights, not merely a change in the number of firms.
+The buyout would also need a credible valuation and payment rule, a
+source of financing, and arrangements to reward subsequent improvements.
+As Kremer emphasizes, incentives for further development depend on
+whether developers can appropriate its benefits. These issues are
+particularly important for RSI, where today's technology is also an
+input into tomorrow's research. I leave the design of such a policy,
+including its effects on research and welfare, to an extension of the model.
 
 
 %I use this comparison as an economic regime threshold only for $\sigma>1$. For $\sigma<1$, $s_X\to1$ corresponds instead to AI services becoming scarce relative to effective labor. The condition $\overline B>\mathcal B(\sigma)$, or $\mathcal R(\overline B)>\rho+\gamma$, is then only a sufficient condition for the positive-labor-share construction in Proposition~\ref{prop:rewrite-capped-complements-existence}; it does not imply AI-dominated growth.
