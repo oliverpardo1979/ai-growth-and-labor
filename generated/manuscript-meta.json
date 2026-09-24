@@ -1,0 +1,367 @@
+{
+  "title": "The Future of Growth and Human Labor\nUnder Recursive AI Self-Improvement",
+  "author": "Oliver Pardo\nDepartamento de Administración\nPontificia Universidad Javeriana\npardoo@javeriana.edu.co",
+  "date": "September 2026",
+  "abstract": "I develop an endogenous-growth model in which a monopolistic AI developer supplies AI services and invests in recursive AI self-improvement. I characterize two long-run equilibrium regimes under an upper bound on AI efficiency. Complementarity between AI and labor or a sufficiently low upper bound can leave labor as a production bottleneck. In this regime, improvements in AI efficiency can temporarily raise growth, but the growth rates of output per worker and wages eventually return to the exogenously given rate of labor-augmenting technological progress. When AI and labor are substitutes and the upper bound is sufficiently high, the economy sustains faster wage growth and a higher long-run return to capital than in the labor-bottleneck regime. However, output per worker grows even faster than wages, so labor’s income share converges to zero while AI-industry revenue rises as a share of output. Numerical simulations show that output-per-worker growth may remain moderate for a long time before accelerating in the AI-dominated regime or returning to the rate of labor-augmenting technological progress in the labor-bottleneck regime.",
+  "schema_version": 1,
+  "sections": [
+    {
+      "id": "sec:rewrite-introduction",
+      "title": "Introduction",
+      "level": 1,
+      "number": "1"
+    },
+    {
+      "id": "sec:rewrite-literature",
+      "title": "Related literature",
+      "level": 1,
+      "number": "2"
+    },
+    {
+      "id": "sec:rewrite-model",
+      "title": "Model",
+      "level": 1,
+      "number": "3"
+    },
+    {
+      "id": "subsec:rewrite-population",
+      "title": "Population and labor-augmenting technology",
+      "level": 2,
+      "number": "3.1"
+    },
+    {
+      "id": "subsec:rewrite-household",
+      "title": "Household",
+      "level": 2,
+      "number": "3.2"
+    },
+    {
+      "id": "subsec:rewrite-final-production",
+      "title": "Final-good production",
+      "level": 2,
+      "number": "3.3"
+    },
+    {
+      "id": "subsec:rewrite-developer",
+      "title": "The AI developer",
+      "level": 2,
+      "number": "3.4"
+    },
+    {
+      "id": "subsubsec:rewrite-ai-services",
+      "title": "Effective AI production and research services",
+      "level": 3,
+      "number": "3.4.1"
+    },
+    {
+      "id": "subsubsec:rewrite-capability",
+      "title": "RSI technology",
+      "level": 3,
+      "number": "3.4.2"
+    },
+    {
+      "id": "subsubsec:rewrite-market-structure",
+      "title": "Supply of effective AI production services",
+      "level": 3,
+      "number": "3.4.3"
+    },
+    {
+      "id": "subsubsec:rewrite-dynamic-developer",
+      "title": "The dynamic problem",
+      "level": 3,
+      "number": "3.4.4"
+    },
+    {
+      "id": "subsec:rewrite-equilibrium",
+      "title": "Equilibrium",
+      "level": 2,
+      "number": "3.5"
+    },
+    {
+      "id": "sec:rewrite-regimes",
+      "title": "Equilibrium with an upper bound on AI efficiency",
+      "level": 1,
+      "number": "4"
+    },
+    {
+      "id": "subsec:rewrite-return-threshold",
+      "title": "The return to capital and the efficiency threshold",
+      "level": 2,
+      "number": "4.1"
+    },
+    {
+      "id": "subsec:rewrite-equilibrium-existence",
+      "title": "Equilibrium existence and long-run regimes",
+      "level": 2,
+      "number": "4.2"
+    },
+    {
+      "id": "subsec:rewrite-monopoly-threshold",
+      "title": "Monopoly pricing and the growth threshold",
+      "level": 2,
+      "number": "4.3"
+    },
+    {
+      "id": "sec:rewrite-uncapped",
+      "title": "Equilibrium without an upper bound on AI efficiency",
+      "level": 1,
+      "number": "5"
+    },
+    {
+      "id": "subsec:rewrite-uncapped-complements",
+      "title": "Complementarity",
+      "level": 2,
+      "number": "5.1"
+    },
+    {
+      "id": "subsec:rewrite-uncapped-unit-bgp",
+      "title": "Unit elasticity",
+      "level": 2,
+      "number": "5.2"
+    },
+    {
+      "id": "subsec:rewrite-uncapped",
+      "title": "Substitution",
+      "level": 2,
+      "number": "5.3"
+    },
+    {
+      "id": "sec:rewrite-quantitative",
+      "title": "Numerical simulations",
+      "level": 1,
+      "number": "6"
+    },
+    {
+      "id": "subsec:rewrite-rsi-activation",
+      "title": "Parameters and initial conditions",
+      "level": 2,
+      "number": "6.1"
+    },
+    {
+      "id": "subsec:rewrite-rsi-half-decline",
+      "title": "Higher research productivity",
+      "level": 2,
+      "number": "6.2"
+    },
+    {
+      "id": "subsec:rewrite-rsi-research-share",
+      "title": "Lower research productivity",
+      "level": 2,
+      "number": "6.3"
+    },
+    {
+      "id": "sec:rewrite-conclusion",
+      "title": "Conclusion",
+      "level": 1,
+      "number": "7"
+    },
+    {
+      "id": "app:rewrite-proofs",
+      "title": "Proofs",
+      "level": 1,
+      "number": "A"
+    },
+    {
+      "id": "app:rewrite-algorithm",
+      "title": "Numerical algorithm and equilibrium audit",
+      "level": 1,
+      "number": "B"
+    },
+    {
+      "id": "economic-intuition-and-initial-conditions",
+      "title": "Economic intuition and initial conditions",
+      "level": 2,
+      "number": "B.1"
+    },
+    {
+      "id": "boundary-value-solution-and-reported-outcomes",
+      "title": "Boundary-value solution and reported outcomes",
+      "level": 2,
+      "number": "B.2"
+    },
+    {
+      "id": "equilibrium-checks",
+      "title": "Equilibrium checks",
+      "level": 2,
+      "number": "B.3"
+    },
+    {
+      "id": "app:rewrite-numerical-support-checks",
+      "title": "Analytical checks on developer optimality",
+      "level": 2,
+      "number": "B.4"
+    },
+    {
+      "id": "replication-files",
+      "title": "Replication files",
+      "level": 2,
+      "number": "B.5"
+    },
+    {
+      "id": "app:rewrite-uncapped-unit",
+      "title": "The uncapped economy with unit elasticity",
+      "level": 1,
+      "number": "C"
+    },
+    {
+      "id": "an-explicit-balanced-growth-equilibrium",
+      "title": "An explicit balanced-growth equilibrium",
+      "level": 2,
+      "number": "C.1"
+    },
+    {
+      "id": "equilibrium-trajectories-near-the-balanced-growth-path",
+      "title": "Equilibrium trajectories near the balanced-growth path",
+      "level": 2,
+      "number": "C.2"
+    },
+    {
+      "id": "growth-and-distribution-without-an-upper-bound",
+      "title": "Growth and distribution without an upper bound",
+      "level": 2,
+      "number": "C.3"
+    },
+    {
+      "id": "declaration-of-ai-use",
+      "title": "Declaration of AI use",
+      "level": 1,
+      "number": ""
+    }
+  ],
+  "source_sha256": "fb04ef51c58842f4412182fd42903dd6d3b1b42da93cb8f32bbdf066607959d4",
+  "source_files": [
+    "main_rewrite.tex",
+    "sections_rewrite/01_introduction.tex",
+    "sections_rewrite/02_literature.tex",
+    "sections_rewrite/03_model.tex",
+    "sections_rewrite/04_equilibrium_regimes.tex",
+    "sections_rewrite/05_uncapped_equilibria.tex",
+    "sections_rewrite/08_rsi_design.tex",
+    "sections_rewrite/rsi_parameters.tex",
+    "sections_rewrite/12_rsi_high_productivity.tex",
+    "sections_rewrite/13_rsi_low_productivity.tex",
+    "sections_rewrite/06_conclusion.tex",
+    "sections_rewrite/appendix.tex",
+    "sections_rewrite/appendix_finite_frontier.tex",
+    "sections_rewrite/appendix_uncapped_complements_proofs.tex",
+    "sections_rewrite/appendix_uncapped_unit_proofs.tex",
+    "sections_rewrite/appendix_rsi_illustrative.tex",
+    "sections_rewrite/rsi_illustrative_accuracy.tex",
+    "sections_rewrite/appendix_uncapped_unit.tex"
+  ],
+  "source": "main_rewrite.tex",
+  "figures": [
+    {
+      "id": "fig:rewrite-model-flow",
+      "number": "1",
+      "asset": "generated/assets/fig-rewrite-model-flow.svg",
+      "kind": "tikz-pdf-crop",
+      "pdf_page": 9,
+      "crop": [
+        104.6273193359375,
+        415.64178466796875,
+        507.3719482421875,
+        571.628662109375
+      ]
+    },
+    {
+      "id": "fig:rewrite-capability-flow",
+      "number": "2",
+      "asset": "generated/assets/fig-rewrite-capability-flow.svg",
+      "kind": "tikz-pdf-crop",
+      "pdf_page": 10,
+      "crop": [
+        132.70587158203125,
+        194.1210479736328,
+        479.19219970703125,
+        301.3808898925781
+      ]
+    },
+    {
+      "id": "fig:rewrite-frontier-regimes",
+      "number": "3",
+      "asset": "generated/assets/fig-rewrite-frontier-regimes.svg",
+      "kind": "tikz-pdf-crop",
+      "pdf_page": 18,
+      "crop": [
+        85.7751235961914,
+        115.53294372558594,
+        525.754150390625,
+        357.1263427734375
+      ]
+    },
+    {
+      "id": "fig:rewrite-rsi-half-accumulation",
+      "number": "4",
+      "asset": "generated/assets/fig-rewrite-rsi-half-accumulation.svg",
+      "kind": "pdf-figure",
+      "source": "figures_rewrite/equilibrium_rsi_chi_7_5_accumulation_growth_windows.pdf"
+    },
+    {
+      "id": "fig:rewrite-rsi-half-prices",
+      "number": "5",
+      "asset": "generated/assets/fig-rewrite-rsi-half-prices.svg",
+      "kind": "pdf-figure",
+      "source": "figures_rewrite/equilibrium_rsi_chi_7_5_growth_returns_windows.pdf"
+    },
+    {
+      "id": "fig:rewrite-rsi-half-distribution",
+      "number": "6",
+      "asset": "generated/assets/fig-rewrite-rsi-half-distribution.svg",
+      "kind": "pdf-figure",
+      "source": "figures_rewrite/equilibrium_rsi_chi_7_5_ai_distribution_windows.pdf"
+    },
+    {
+      "id": "fig:rewrite-rsi-research-accumulation",
+      "number": "7",
+      "asset": "generated/assets/fig-rewrite-rsi-research-accumulation.svg",
+      "kind": "pdf-figure",
+      "source": "figures_rewrite/equilibrium_rsi_chi_1_5_accumulation_growth_windows.pdf"
+    },
+    {
+      "id": "fig:rewrite-rsi-research-prices",
+      "number": "8",
+      "asset": "generated/assets/fig-rewrite-rsi-research-prices.svg",
+      "kind": "pdf-figure",
+      "source": "figures_rewrite/equilibrium_rsi_chi_1_5_growth_returns_windows.pdf"
+    },
+    {
+      "id": "fig:rewrite-rsi-research-distribution",
+      "number": "9",
+      "asset": "generated/assets/fig-rewrite-rsi-research-distribution.svg",
+      "kind": "pdf-figure",
+      "source": "figures_rewrite/equilibrium_rsi_chi_1_5_ai_distribution_windows.pdf"
+    }
+  ],
+  "mathjax": {
+    "required": true,
+    "tex_packages": [
+      "ams"
+    ],
+    "tags": "none"
+  },
+  "counts": {
+    "labels": 226,
+    "numbered_equation_rows": 163,
+    "display_math": 184,
+    "figures": 9,
+    "tables": 3,
+    "bibliography_entries": 48,
+    "citation_keys": 48
+  },
+  "validation": {
+    "all_active_labels_present": true,
+    "all_internal_links_resolved": true,
+    "numbering_checked_against_aux": true,
+    "compiled_inputs_fresh": true,
+    "display_math_inventory_matches": true,
+    "visible_text_tokens_verified": 17639,
+    "unsupported_tex": [],
+    "pandoc_warnings": []
+  },
+  "build_inputs": {
+    "aux": "6edaf0278be533a4dfff5f7d42120e6760806532570fd13ac9dd22314324f683",
+    "bbl": "8dba60d492bcdea741b7fb97ae87a92a2939f2ef480725402835db455aeb670e",
+    "pdf": "e69c0c6280fed71d67152585f6b14d0093bee3835440fa18383260550dbb674c"
+  }
+}
