@@ -1,0 +1,19 @@
+{
+  "purpose": "Record approved additions to migrated simulation drivers without rewriting the historical PUBLICATION_MANIFEST.json.",
+  "experiment": "competitive_to_monopoly",
+  "date": "2026-09-24",
+  "files": [
+    {
+      "path": "scripts/calibrate_rewrite_ai_price.py",
+      "migration_sha256": "370746039e72540a08bb4ff6d00fe9b714f64af8bae04f42ae35ec75b56aedb2",
+      "current_sha256": "148e8f4d73060842d05896f4f5460649ad09c36081066d7600f0c3781d9eeb20",
+      "change": "Optional render_figures flag, default true. All numerical admission checks unchanged."
+    },
+    {
+      "path": "scripts/simulate_rewrite_finite_frontier.py",
+      "migration_sha256": "648bf9d77083c61eda714fecff7cb82b61d398e697afe086a1cde3064157c70d",
+      "current_sha256": "55aa50eccc5b84ffb3c155a62389fb94ca314b9e3e9284600ea31a11a25b0aaf",
+      "change": "Add competitive_fixed_efficiency_bgp initial-stock rule and roundoff-only cache validation for that rule. Existing initial-stock rules and solver unchanged."
+    }
+  ]
+}

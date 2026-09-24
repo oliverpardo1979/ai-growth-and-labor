@@ -1,0 +1,39 @@
+{
+  "design": "competitive_to_monopoly_chi_1_5",
+  "parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 1.5,
+    "initial_labor_productivity": 1.0,
+    "initial_population": 1.0
+  },
+  "frontier": 1360.9921392415592,
+  "initial_capital": null,
+  "initial_capability": 13.609921392415593,
+  "initial_capital_by_sigma": {
+    "sigma_0_90": 6.235221642477948,
+    "sigma_1_00": 6.278062168197312,
+    "sigma_1_10": 6.323503979203803,
+    "sigma_1_50": 6.53547722915475
+  },
+  "horizon": 500.0,
+  "points_per_scenario": 4961,
+  "checkpoint_sha256": {
+    "sigma_0_90": "1872682209afd276b61add26ee334c36403413a74b0f556ce4959b245f088b96",
+    "sigma_1_00": "d72b4d57316305325b0958457ad1ca7dcb9937fdb7a96ea104a52464384c072d",
+    "sigma_1_10": "17066fb5697c1576956c8637589a3fc1d75044e203663f0731992c431b4bae2a",
+    "sigma_1_50": "4714fa8d97f9337554b6968bab582c5fb3000182dfc2a282656da4175dc077bc"
+  },
+  "transition_definition": "fraction of the sigma=1.50 labor-share decline from its date-zero value to its analytical limit",
+  "sigma_1_50_transition_dates": {
+    "T10": 40.00945845631749,
+    "T50": 213.06879050480214,
+    "T90": 413.14679614437824
+  },
+  "csv_sha256": "3a191dcc35822f01df2bcd41d3275a06e6b9745de17de02cc3dea8f7af5405bd"
+}

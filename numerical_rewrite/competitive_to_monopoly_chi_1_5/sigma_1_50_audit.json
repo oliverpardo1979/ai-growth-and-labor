@@ -1,0 +1,198 @@
+{
+  "sigma_xl": 1.5,
+  "frontier": 1360.9921392415592,
+  "critical_frontier": 1237.2655811286902,
+  "frontier_ratio": 1.1,
+  "terminal_regime": "ai_dominated",
+  "initial_capital": 6.53547722915475,
+  "initial_capability": 13.609921392415593,
+  "log_initial_consumption": 0.3718007422744116,
+  "log_initial_shadow_value": -2.8987660616162967,
+  "continuation_stages": [
+    {
+      "fraction": 1.0,
+      "horizon": 3632.021829273461,
+      "initial_effective_labor_scale": 1.0,
+      "iterations": 3,
+      "nodes": 612,
+      "maximum_rms_residual": 1.949483632283364e-06,
+      "maximum_boundary_residual": 4.717927992406259e-15
+    },
+    {
+      "fraction": 1.0,
+      "horizon": 4132.021829273461,
+      "initial_effective_labor_scale": 1.0,
+      "iterations": 6,
+      "nodes": 654,
+      "maximum_rms_residual": 9.946357269713116e-09,
+      "maximum_boundary_residual": 1.687372094568352e-15
+    }
+  ],
+  "audit": {
+    "success": true,
+    "horizon": 4632.021829273461,
+    "nodes": 1221,
+    "iterations": 6,
+    "maximum_rms_residual": 9.984467457500699e-10,
+    "maximum_equation_residual": 8.195369302892858e-10,
+    "maximum_boundary_residual": 3.855424861875519e-15,
+    "initial_capital_error": 0.0,
+    "initial_capability_error": 3.552713678800501e-15,
+    "minimum_log_positive_level": -4.4914425318999065,
+    "maximum_capability_frontier_ratio": 1.0,
+    "maximum_capability_log_ratio": 0.0,
+    "minimum_log_remaining_frontier_share": -146.93189750217718,
+    "maximum_absolute_bounded_coordinate": 13.024832343315198,
+    "maximum_absolute_capability_logit": 146.93189750217718,
+    "newton_safeguard_not_binding": true,
+    "minimum_monopoly_soc_margin": 0.22110000000000002,
+    "minimum_actual_path_concavity_margin": 0.13090305352169856,
+    "terminal_household_tvc_log": -169.25031407630632,
+    "terminal_developer_tvc_log": -168.03484880871284,
+    "asymptotic_household_tvc_growth": -0.037,
+    "asymptotic_developer_tvc_growth": -0.037,
+    "dated_candidate_accepted": true
+  },
+  "horizon_comparison": {
+    "common_window": 500.0,
+    "maximum_common_window_coordinate_change": 3.909573464966343e-08,
+    "maximum_initial_jump_change": 2.6938451469504798e-11
+  },
+  "counterfactual_developer_sufficiency": {
+    "time_points": 161,
+    "capability_points_per_date": 161,
+    "function_evaluations": 30057,
+    "minimum_counterfactual_concavity_margin": -1.009999997663458,
+    "date_of_minimum_margin": 4632.021829273461,
+    "capability_at_minimum_margin": 13.6099229582884,
+    "capability_frontier_ratio_at_minimum": 0.010000001150537731,
+    "ai_share_at_minimum_margin": 0.9999999999996085,
+    "service_capability_elasticity_at_minimum": 3.0303030303024223,
+    "developer_sufficiency_gate_passes": false
+  },
+  "equilibrium_certified": true,
+  "parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 1.5,
+    "initial_labor_productivity": 1.0,
+    "initial_population": 1.0
+  },
+  "design": "competitive_to_monopoly_chi_1_5",
+  "initial_stock_reference": "Each sigma inherits its competitive fixed-B labor-bottleneck BGP stocks. Chi is positive and unchanged; pre-event M=0 reflects public access and nonappropriability. At date zero, an unexpected perpetual exclusive right covers existing technology and subsequent improvements. No old competitive suppliers remain. K and B are continuous; all controls are solved anew. Continued competition from identical stocks is the counterfactual.",
+  "status": "numerically_admitted",
+  "settings": {
+    "base_tolerance": 2e-06,
+    "refined_tolerance": 1e-08,
+    "horizon_extension": 500,
+    "continuation_steps": 1,
+    "base_initialization": "original-experiment spline re-solved at competitive stocks"
+  },
+  "first_horizon_comparison": {
+    "common_window": 2500.0,
+    "maximum_common_window_coordinate_change": 2.1639582756805e-06,
+    "maximum_initial_jump_change": 2.6113636697466802e-08
+  },
+  "independent_dated_checks": [
+    {
+      "difference_step": 0.003,
+      "samples": 1001,
+      "maximum_ode_residual": 9.271306153357806e-10,
+      "maximum_research_foc_residual": 2.842170943040401e-14,
+      "maximum_monopoly_foc_residual": 9.237055564881302e-14
+    },
+    {
+      "difference_step": 0.001,
+      "samples": 1001,
+      "maximum_ode_residual": 9.270319269172322e-10,
+      "maximum_research_foc_residual": 2.842170943040401e-14,
+      "maximum_monopoly_foc_residual": 9.237055564881302e-14
+    }
+  ],
+  "optimality_method": "global_hamiltonian_upper_tangent_with_analytical_continuation",
+  "global_hamiltonian_support": [
+    {
+      "time_points": 81,
+      "capability_points": 101,
+      "gap_roundoff_tolerance": 1e-10,
+      "worst": {
+        "time": 4400.420737809788,
+        "minimum_gap": -3.197442310920451e-14,
+        "counterfactual_logit": 32.543023955731584,
+        "own_gap": 0.0,
+        "actual_capability_ratio": 1.0,
+        "unbounded_tail_derivative_ratio": 0.13533528323661184
+      },
+      "maximum_own_gap": 2.7755575615628914e-17,
+      "maximum_tail_derivative_ratio": 0.13533528323664062,
+      "support_diagnostic_passes": true,
+      "checkpoint_sha256": "4714fa8d97f9337554b6968bab582c5fb3000182dfc2a282656da4175dc077bc"
+    },
+    {
+      "time_points": 321,
+      "capability_points": 241,
+      "gap_roundoff_tolerance": 1e-10,
+      "worst": {
+        "time": 4414.895806026268,
+        "minimum_gap": -2.5868196473766147e-14,
+        "counterfactual_logit": 32.20941800816565,
+        "own_gap": 0.0,
+        "actual_capability_ratio": 1.0,
+        "unbounded_tail_derivative_ratio": 0.13533528323661184
+      },
+      "maximum_own_gap": 1.1102230246251565e-16,
+      "maximum_tail_derivative_ratio": 0.13533528323672478,
+      "support_diagnostic_passes": true,
+      "checkpoint_sha256": "4714fa8d97f9337554b6968bab582c5fb3000182dfc2a282656da4175dc077bc"
+    }
+  ],
+  "analytical_support_continuation": {
+    "frontier_fraction": 0.75,
+    "terminal_capability_above_cutoff": true,
+    "terminal_margin": 0.09781073967364928,
+    "analytical_limiting_margin": 0.09781073967364168
+  },
+  "maximum_terminal_coordinate_gap": 1.8474111129762605e-12,
+  "checkpoint_sha256": "4714fa8d97f9337554b6968bab582c5fb3000182dfc2a282656da4175dc077bc",
+  "checkpoint_filename": "sigma_1_50_long.npz",
+  "long_run_scope": "Regime-specific stable continuation, both TVCs, and sufficient developer optimality.",
+  "early_window_checks": {
+    "start": 0.0,
+    "end": 10.0,
+    "independent_residuals": [
+      {
+        "difference_step": 0.0003,
+        "samples": 801,
+        "maximum_ode_residual": 1.300260163428213e-09,
+        "maximum_research_foc_residual": 1.7763568394002505e-15,
+        "maximum_monopoly_foc_residual": 1.817990202823694e-15
+      },
+      {
+        "difference_step": 0.0001,
+        "samples": 801,
+        "maximum_ode_residual": 1.2972995733218085e-09,
+        "maximum_research_foc_residual": 1.7763568394002505e-15,
+        "maximum_monopoly_foc_residual": 1.817990202823694e-15
+      }
+    ],
+    "concavity": {
+      "time_points": 161,
+      "capability_points_per_date": 161,
+      "function_evaluations": 27780,
+      "minimum_counterfactual_concavity_margin": 0.19246435723514524,
+      "date_of_minimum_margin": 0.0,
+      "capability_at_minimum_margin": 247.79688562621055,
+      "capability_frontier_ratio_at_minimum": 0.1820707691701294,
+      "ai_share_at_minimum_margin": 0.3209629962643303,
+      "service_capability_elasticity_at_minimum": 1.9872928027593897,
+      "developer_sufficiency_gate_passes": true
+    },
+    "support": [],
+    "passes": true
+  }
+}

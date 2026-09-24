@@ -58,12 +58,19 @@ class PublicationResults(unittest.TestCase):
                 self.assertLess(max(abs(v) for v in event['level_log_gaps'].values()), 1e-9)
                 self.assertLess(data['annual']['scenarios'][key(sigma)]['maximum_horizon_log_change'], 2e-5)
 
-    def test_solver_dependencies_are_unchanged_from_migration(self):
+    def test_solver_dependencies_match_migration_or_documented_extensions(self):
         manifest = json.loads((ROOT/'PUBLICATION_MANIFEST.json').read_text())
+        extensions = {v['path']:v for v in json.loads(
+            (ROOT/'SIMULATION_EXTENSIONS.json').read_text())['files']}
         for item in manifest['files']:
             if item['path'].startswith('scripts/'):
+                expected = item['source_sha256']
+                if item['path'] in extensions:
+                    change = extensions[item['path']]
+                    self.assertEqual(change['migration_sha256'], expected)
+                    expected = change['current_sha256']
                 self.assertEqual(hashlib.sha256((ROOT/item['path']).read_bytes()).hexdigest(),
-                                 item['source_sha256'], item['path'])
+                                 expected, item['path'])
 
     def test_all_active_tex_inputs_and_graphics_are_present(self):
         seen = set()

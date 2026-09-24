@@ -195,6 +195,10 @@ def design_initial_stocks(design, sigma):
     elif design.initial_capital_rule == 'fixed_efficiency_bgp':
         capital = fixed_efficiency_bgp(
             sigma, design.initial_capability, design.parameters)['capital']
+    elif design.initial_capital_rule == 'competitive_fixed_efficiency_bgp':
+        from competitive_ai_bgp import competitive_fixed_efficiency_bgp
+        capital = competitive_fixed_efficiency_bgp(
+            sigma, design.initial_capability, design.parameters)['capital']
     elif design.initial_capital_rule == 'common':
         if design.initial_capital is None:
             raise ValueError('A common-capital design must specify initial capital.')
@@ -272,7 +276,7 @@ def validate_solution_design(solution, design, sigma):
     """Reject a stale checkpoint before it can enter a design's audit."""
     initial_capital, initial_capability = design_initial_stocks(design, sigma)
     capital_matches = solution.initial_capital == initial_capital
-    if design.initial_capital_rule == 'fixed_efficiency_bgp':
+    if design.initial_capital_rule in ('fixed_efficiency_bgp', 'competitive_fixed_efficiency_bgp'):
         # This stock is recomputed by a scalar root finder. Equivalent, more
         # accurate static evaluations can change its last floating-point bit.
         # Permit only roundoff (8 machine eps), not a different initial stock;

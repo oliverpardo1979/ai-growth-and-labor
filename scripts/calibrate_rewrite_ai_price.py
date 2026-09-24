@@ -500,7 +500,7 @@ def compare_rsi_price_targets(design):
 
 
 def finish(design, *, calibration_validator=None, calibration_filename='calibration.json',
-           retain_price_outcome_marker=False):
+           retain_price_outcome_marker=False, render_figures=True):
     """Shared, unchanged equilibrium gates; validate the selected moment last."""
     cache, output = design.cache_directory, design.output_directory
     calibration = output/calibration_filename
@@ -570,9 +570,10 @@ def finish(design, *, calibration_validator=None, calibration_filename='calibrat
     write_json(calibration, payload)
     export_paths(design.display_horizon, 4001, design,
                  additional_times=np.linspace(0.0, 10.0, 1001))
-    render(design)
-    render_comparison_views(design, show_price_target=(calibration_validator is None
-                                                     or retain_price_outcome_marker))
+    if render_figures:
+        render(design)
+        render_comparison_views(design, show_price_target=(calibration_validator is None
+                                                         or retain_price_outcome_marker))
     if retain_price_outcome_marker:
         manifest_path = output/'figure_manifest.json'
         manifest = json.loads(manifest_path.read_text())

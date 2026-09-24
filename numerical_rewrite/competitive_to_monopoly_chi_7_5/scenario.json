@@ -1,0 +1,27 @@
+{
+  "design": "competitive_to_monopoly_chi_7_5",
+  "parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 7.5,
+    "initial_labor_productivity": 1.0,
+    "initial_population": 1.0
+  },
+  "frontier": 1360.9921392415592,
+  "initial_capability": 13.609921392415593,
+  "initial_stock_reference": "Each sigma inherits its competitive fixed-B labor-bottleneck BGP stocks. Chi is positive and unchanged; pre-event M=0 reflects public access and nonappropriability. At date zero, an unexpected perpetual exclusive right covers existing technology and subsequent improvements. No old competitive suppliers remain. K and B are continuous; all controls are solved anew. Continued competition from identical stocks is the counterfactual.",
+  "initial_capital_by_sigma": {
+    "sigma_0_90": 6.235221642477948,
+    "sigma_1_00": 6.278062168197312,
+    "sigma_1_10": 6.323503979203803,
+    "sigma_1_50": 6.53547722915475
+  },
+  "status": "numerically_admitted",
+  "chi_is_illustrative": true,
+  "final_checkpoint_sha256": "4609f62ae6dc988034594da9b1855c3f4bf71e79d27a5fe722df28cebaa570e9"
+}

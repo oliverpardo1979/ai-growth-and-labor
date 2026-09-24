@@ -1,0 +1,7 @@
+{
+  "source_design": "rsi_chi_1_5",
+  "source_sha256": "0e23028c99296341b6faae34da334d2db189d67ff6c0894b684e39aed7ff07de",
+  "source_initial_capital": 5.036956080779938,
+  "target_initial_capital": 6.323503979203803,
+  "note": "Re-solved at new stocks; no inherited consumption or shadow-price constraint."
+}

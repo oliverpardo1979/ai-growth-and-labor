@@ -1,0 +1,47 @@
+{
+  "description": "Each sigma inherits its competitive fixed-B labor-bottleneck BGP stocks. Chi is positive and unchanged; pre-event M=0 reflects public access and nonappropriability. At date zero, an unexpected perpetual exclusive right covers existing technology and subsequent improvements. No old competitive suppliers remain. K and B are continuous; all controls are solved anew. Continued competition from identical stocks is the counterfactual.",
+  "stock_continuity_passes": true,
+  "jumps": {
+    "sigma_0_90": {
+      "output": -0.3237968247882199,
+      "wage": -0.3662796726739649,
+      "consumption": -0.11701876988344806,
+      "ai_service_price": 130.13854883522453,
+      "ai_services": -0.9917633514030804,
+      "interest_rate_pp": -3.2379682478821974,
+      "initial_capital_output_ratio": 4.880190038987132,
+      "initial_research_output_share": 0.00017066103861848207
+    },
+    "sigma_1_00": {
+      "output": -0.17643319466640595,
+      "wage": -0.17643319466640606,
+      "consumption": 0.009220080054047619,
+      "ai_service_price": 13.925373134328362,
+      "ai_services": -0.9448210240426492,
+      "interest_rate_pp": -1.7643319466640606,
+      "initial_capital_output_ratio": 4.006960915166198,
+      "initial_research_output_share": 0.0020648355674670596
+    },
+    "sigma_1_10": {
+      "output": -0.13683339886305745,
+      "wage": -0.11942643938000141,
+      "consumption": 0.04035582669582838,
+      "ai_service_price": 6.076609677968833,
+      "ai_services": -0.898973701899292,
+      "interest_rate_pp": -1.3683339886305725,
+      "initial_capital_output_ratio": 3.8231321689848965,
+      "initial_research_output_share": 0.004865363661194135
+    },
+    "sigma_1_50": {
+      "output": -0.10436489285742512,
+      "wage": -0.05387944577095005,
+      "consumption": 0.08154299238297558,
+      "ai_service_price": 1.7783526187141718,
+      "ai_services": -0.8012813307212769,
+      "interest_rate_pp": -1.0436489285742505,
+      "initial_capital_output_ratio": 3.684536228741955,
+      "initial_research_output_share": 0.03272559324955927
+    }
+  },
+  "interpretation": "Level changes, not instantaneous growth rates."
+}

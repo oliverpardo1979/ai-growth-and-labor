@@ -1,0 +1,27 @@
+{
+  "pdf": "output\\pdf\\competitive_to_monopoly_simulations.pdf",
+  "figures": [
+    "figures_rewrite\\competitive_to_monopoly\\competitive_to_monopoly_chi_7_5_levels.png",
+    "figures_rewrite\\competitive_to_monopoly\\competitive_to_monopoly_chi_7_5_accumulation_growth.png",
+    "figures_rewrite\\competitive_to_monopoly\\competitive_to_monopoly_chi_7_5_growth_returns.png",
+    "figures_rewrite\\competitive_to_monopoly\\competitive_to_monopoly_chi_7_5_distribution.png",
+    "figures_rewrite\\competitive_to_monopoly\\competitive_to_monopoly_chi_1_5_levels.png",
+    "figures_rewrite\\competitive_to_monopoly\\competitive_to_monopoly_chi_1_5_accumulation_growth.png",
+    "figures_rewrite\\competitive_to_monopoly\\competitive_to_monopoly_chi_1_5_growth_returns.png",
+    "figures_rewrite\\competitive_to_monopoly\\competitive_to_monopoly_chi_1_5_distribution.png"
+  ],
+  "source_sha256": {
+    "competitive_to_monopoly_chi_7_5": "2f368d0007e0fa6b3b8b6c2a6004d78aae33a69a4c07bc01cc218ed26f4baf3f",
+    "competitive_to_monopoly_chi_1_5": "32aa1f4895981e23861f1d6325d96ab51226976c24a12e997d08b634f31abeb7"
+  },
+  "percent_decimals": 1,
+  "short_window": [
+    -2,
+    10
+  ],
+  "long_window": [
+    10,
+    500
+  ],
+  "note": "Separate pre/post-event segments; no finite growth rate assigned to a discrete level jump."
+}
