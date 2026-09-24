@@ -44,7 +44,7 @@ collocation with residual control similar to that of
 \]
 The second coordinate expresses AI efficiency relative to the remaining
 gap below its upper bound; it can grow without bound while AI efficiency
-remains bounded. Subtracting the analytical terminal aggregate growth rate
+remains bounded. Subtracting the analytical long-run aggregate growth rate
 times $t$ from each coordinate removes its asymptotic linear trend.
 These transformations change the numerical representation, not the
 economic variables or calendar time.
@@ -61,7 +61,7 @@ is used as the starting point for continuation. These stages change the initial 
 of the numerical problem; they are not dates on the economic trajectory.
 At unit elasticity the static block
 uses its exact Cobb--Douglas limit; near one, \texttt{log1p} and
-\texttt{expm1} avoid cancellation. Under complementarity, marginal
+\texttt{expm1} reduce the loss of precision from subtracting nearly equal numbers. Under complementarity, marginal
 revenue is evaluated directly and the static root is polished when
 needed near zero marginal revenue; the first-order condition is unchanged.
 

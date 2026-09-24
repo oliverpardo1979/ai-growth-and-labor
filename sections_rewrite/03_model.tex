@@ -74,6 +74,7 @@ Competitive firms produce the final good from physical capital $K$, effective la
  \sigma/(\sigma-1)}.
  \label{eq:rewrite-ces}
 \end{align}
+The composite input $Z$ combines effective labor and AI production services.
 %At the continuous unit-elasticity limit,
 %$Z=(AL)^{\omega_L}X^{\omega_X}$.
 
@@ -136,6 +137,8 @@ The first-order conditions are
  p_X&=(1-\alpha)s_X\frac{Y}{X}.
  \label{eq:rewrite-ai-price}
 \end{align}
+Thus $(1-\alpha)s_X$ is AI revenue as a share of output, while
+$(1-\alpha)(1-s_X)$ is labor's income share.
 
 Constant returns and these conditions imply
 \begin{equation}
@@ -145,7 +148,7 @@ Constant returns and these conditions imply
 
 Solving the final-good firm's AI condition for its price yields the inverse
 demand schedule $p_X(X)$. %This notation conditions on the current values of $K,A,$ and $L$; I display those arguments only when the time dependence matters.
-The inverse absolute elasticity is
+The absolute elasticity of inverse demand, holding $K$, $A$, and $L$ fixed, is
 \begin{equation}
  e_X\equiv-
  \frac{\partial\ln p_X(X)}{\partial\ln X}
@@ -266,11 +269,11 @@ Figure~\ref{fig:rewrite-capability-flow} summarizes the RSI mechanism.
  room for improvement $\psi(B)$ determine \(\dot B\), which increases $B$.}
  \label{fig:rewrite-capability-flow}
 \end{figure}
-The parameter \(\chi\) shifts research productivity. The parameter \(\eta\) governs returns to current research scale. The same AI-efficiency index $B$ augments both inference and research compute. This common-productivity assumption is parsimonious but substantive. Equation~\eqref{eq:rewrite-capability-law} captures RSI: a higher $B$ produces more AI research services $BM$ from a given amount of research compute $M$, and these services help improve $B$ further. This is the AI-research feedback studied by \citet{davidsonetal2026}. The term \(\psi(B)\) reduces the remaining room for improvement as AI efficiency approaches \(\overline B\). A related approach appears in \citet{erdiletal2025gate}, who also reduce research productivity as hardware and software efficiency approach their respective upper bounds. The uncapped specification is recovered at \(\overline B=\infty\).
+The parameter \(\chi\) shifts research productivity, while \(\eta\) is the elasticity of \(\dot B\) with respect to research compute, holding $B$ fixed. The same AI-efficiency index $B$ augments both inference and research compute. This common-efficiency assumption is parsimonious but substantive. Equation~\eqref{eq:rewrite-capability-law} captures RSI: a higher $B$ produces more AI research services $BM$ from a given amount of research compute $M$, and these services help improve $B$ further. This is the AI-research feedback studied by \citet{davidsonetal2026}. The term \(\psi(B)\) reduces the remaining room for improvement as AI efficiency approaches \(\overline B\). A related approach appears in \citet{erdiletal2025gate}, who also reduce research productivity as hardware and software efficiency approach their respective upper bounds. The uncapped specification is recovered at \(\overline B=\infty\).
 
 Evidence that ideas become harder to find motivates allowing research
 productivity to decline as technology advances. \citet{bloometal2020} document that research effort has risen substantially while research productivity has fallen across several industries, products, and firms. %Following thisinterpretation, \citet{davidsonetal2026} use their estimates to discipline diminishing returns in idea production. 
-This evidence motivates diminishing returns, but it does not establish a literal finite technological ceiling. The term $1-B/\overline B$ is a deliberately stronger reduced-form specification. With this upper bound, I establish sufficient conditions for equilibrium existence and compute equilibrium trajectories. I then examine how these equilibria change as the bound rises and whether they have a meaningful limit as \(\overline B\to\infty\). Without the upper bound, recursive improvement may lead to the absence of an equilibrium, as shown further below. %instead produce a finite-time singularity: one or more endogenous quantities---such as AI efficiency, output, capital, or research compute---become unbounded at a finite date, so the trajectory cannot be continued as a path of finite allocations. %Section~\ref{subsec:rewrite-uncapped} explains why the uncapped economy requires a separate equilibrium analysis. %AI efficiency may approach the upper bound asymptotically but cannot cross it in finite time. %Appendix~\ref{app:rewrite-cap-invariance} gives the derivation.
+This evidence motivates diminishing returns, but it does not establish a literal finite technological ceiling. The term $1-B/\overline B$ is a deliberately stronger reduced-form specification. With this upper bound, I establish sufficient conditions for equilibrium existence and compute equilibrium trajectories. I then examine how these equilibria change as the bound rises and whether they have a meaningful limit as \(\overline B\to\infty\). Without the upper bound, recursive improvement may lead to the absence of an equilibrium, as shown in Section~\ref{subsec:rewrite-uncapped}. %instead produce a finite-time singularity: one or more endogenous quantities---such as AI efficiency, output, capital, or research compute---become unbounded at a finite date, so the trajectory cannot be continued as a path of finite allocations. %Section~\ref{subsec:rewrite-uncapped} explains why the uncapped economy requires a separate equilibrium analysis. %AI efficiency may approach the upper bound asymptotically but cannot cross it in finite time. %Appendix~\ref{app:rewrite-cap-invariance} gives the derivation.
 
 \subsubsection{Supply of effective AI production services}
 \label{subsubsec:rewrite-market-structure}
@@ -451,8 +454,8 @@ It rules out a path that leaves positive discounted value in the AI-efficiency s
 The preceding conditions are necessary for an interior optimum but do not
 establish global optimality.
 Lemma~\ref{lem:rewrite-developer-verification} in
-Appendix~\ref{app:rewrite-proofs} gives sufficient conditions for a research
-path to maximize the present value of the developer's net profit in
+Appendix~\ref{app:rewrite-proofs} gives sufficient conditions for a trajectory
+of research expenditure to maximize the present value of the developer's net profit in
 problem~\eqref{eq:rewrite-developer-reduced}.
 
 %\begin{proposition}[Research is interior]

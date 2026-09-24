@@ -51,7 +51,7 @@ in equations~\eqref{eq:rewrite-ai-output-limit} and
  \left[(1-\alpha)^2B\,\omega_X^{\sigma/(\sigma-1)}\right]^{(1-\alpha)/\alpha}.
  \label{eq:rewrite-output-capital-limit}
 \end{equation}
-Let $\mathcal R(B)$ be the net interest rate when $s_x \to 1$ for a given $B$. Substituting the limiting output--capital ratio in
+Let $\mathcal R(B)$ denote the net return on capital in this zero-labor-share limit at a given $B$. Substituting the limiting output--capital ratio in
 equation~\eqref{eq:rewrite-output-capital-limit} into $r=\alpha Y/K-\delta$ gives
 \begin{equation}
  \mathcal R(B)
@@ -63,7 +63,7 @@ This is a return at a particular limit of the production and pricing conditions,
 For $\sigma>1$, $s_X\to1$ means that AI production services become arbitrarily large relative to effective labor. For $\sigma<1$, $s_X\to1$ means that effective labor services become arbitrarily large relative to AI production services. Whether the equilibrium interest rate converges to $\mathcal R(\overline B)$ depends on both $\sigma$ and $\overline B$, as shown below.
 
 By the Euler equation \eqref{eq:rewrite-euler}, consumption per person grows at $r-\rho$. A long-run equilibrium in which consumption per person grows at $\gamma$
-therefore requires $r=\rho+\gamma$. Define $\mathcal B(\sigma)$ as the AI-efficiency level at which the zero-labor-share return equals $\rho+\gamma$, the return required for consumption per person to grow at $\gamma$:
+therefore requires $r=\rho+\gamma$. Define $\mathcal B(\sigma)$ as the AI-efficiency level at which the zero-labor-share return equals this benchmark:
 \begin{equation}
  \begin{aligned}
  \mathcal R(\mathcal B(\sigma))&=\rho+\gamma,\\
@@ -161,7 +161,7 @@ as in the capital-accumulation mechanisms of
 \citet{rebelo1991} and \citet{jonesmanuelli1990}.
 Equation~\eqref{eq:rewrite-output-capital-limit} gives a positive limiting
 output--capital ratio even as $B$ approaches the upper bound.
-Capital and inference compute can expand together, sustaining growth above
+Capital and inference compute can expand together, sustaining output-per-worker growth above
 $\gamma$ even when $B$ is arbitrarily close to $\overline B$ and further
 AI-efficiency gains vanish, as in the compute-expansion mechanism of
 \citet{restrepo2025agi}.
@@ -183,7 +183,7 @@ accumulating more capital does not restore the labor-bottleneck return.
 progress raises growth and the interest rate together, but their comparison
 of steady states does not determine the resulting wage dynamics.
 
-The proof of Proposition \ref{prop:rewrite-equilibrium-regimes} first normalizes growing quantities and shrinking efficiency gaps. For each parameter configuration covered by the proposition, I conjecture stationary values of these normalized variables. I then construct trajectories from every sufficiently nearby initial state, deriving equilibrium trajectories and checking they converge to the stationary conjectures. %The initial stocks need not lie on a balanced-growth path.
+The proof of Proposition~\ref{prop:rewrite-equilibrium-regimes} first removes the long-run trends from growing quantities and shrinking efficiency gaps. For each parameter configuration covered by the proposition, I identify candidate stationary values of these normalized variables. I then construct equilibrium trajectories from every sufficiently nearby initial state and verify convergence to those values. %The initial stocks need not lie on a balanced-growth path.
 %This result is local in initial states, not in time. Closeness concerns capital, the remaining AI-efficiency gap, and the scale of effective labor jointly; $B_0$ close to $\overline B$ alone is not sufficient.
 %The precise sets and l
 Local uniqueness results are given in the proof. %Existence from arbitrary initial states and global uniqueness are not established. 
