@@ -11,15 +11,23 @@ equation~\eqref{eq:rewrite-competitive-no-research}. The remaining
 argument constructs and verifies the allocation at this fixed efficiency.
 
 \emph{Net production and normalized dynamics.}
-Write $k=K/(AL)$, $c=C/(AL)$, and $f(k)=F_{B_0}(k,1)$.
-For $k>0$, the marginal product of compute in gross output,
-$\partial Y/\partial U$, decreases strictly from infinity to zero as
-$U$ rises from zero to infinity. The derivative of net output in
-\eqref{eq:rewrite-competitive-net-production} is
-$\partial Y/\partial U-1$, so there is a unique positive maximizer,
-at which $\partial Y/\partial U=1$. The first-order condition is
-$U=(1-\alpha)s_XY$. In normalized units, write
-$u=U/(AL)$ and $y=Y/(AL)$. Differentiating this condition, using
+Write $k=K/(AL)$, $c=C/(AL)$, $u=U/(AL)$, and $y=Y/(AL)$.
+At $p_X=1/B_0$, final-good firms' demand condition
+\eqref{eq:rewrite-ai-price} implies $\partial y/\partial u=1$.
+Their choice of AI services therefore maximizes output net of compute
+at a given $k$. For the proof, denote this net output per unit of
+effective labor by
+\begin{equation}
+ f(k)=\max_{u\geq0}\left\{
+ k^\alpha\left[\omega_L+\omega_X(B_0u)^{(\sigma-1)/\sigma}\right]^{
+ \sigma(1-\alpha)/(\sigma-1)}-u\right\}.
+ \label{eq:rewrite-competitive-net-production}
+\end{equation}
+For $k>0$, the marginal product of compute, $\partial y/\partial u$,
+decreases strictly from infinity to zero as $u$ rises from zero to
+infinity. The derivative of net output is $\partial y/\partial u-1$,
+so there is a unique positive maximizer. Its first-order condition is
+$u=(1-\alpha)s_Xy$. Differentiating this condition, using
 \eqref{eq:rewrite-inverse-demand-elasticity}, gives
 \[
  \frac{\dd\log u}{\dd\log k}=\frac{\alpha}{e_X},\qquad
@@ -45,7 +53,9 @@ This also derives equation~\eqref{eq:rewrite-marginal-cost-return}.
 Set $d=\rho-n>0$ and $G(k)=f(k)-(\delta+n+\gamma)k$.
 The household's objective, up to a positive factor and an additive
 constant, is $\int_0^\infty e^{-dt}\log c_t\dd t$.
-Equations~\eqref{eq:rewrite-competitive-dynamics} become
+The resource constraint~\eqref{eq:rewrite-resource} with $M=0$,
+the Euler equation~\eqref{eq:rewrite-euler}, and the transversality
+condition~\eqref{eq:rewrite-household-tvc} become
 \begin{equation}
  \dot k=G(k)-c,\qquad
  \frac{\dot c}{c}=G'(k)-d,\qquad
@@ -159,9 +169,10 @@ of consumption; the state equation then gives uniqueness of capital.
 This verification does not allow a planner to improve $B$: it concerns
 the allocation with the technology fixed by the private research choices.
 
-The maximizing $U$ in \eqref{eq:rewrite-competitive-net-production},
-the factor prices in \eqref{eq:rewrite-capital-return} and
-\eqref{eq:rewrite-wage}, and $p_X=1/B_0$ decentralize this allocation.
+The maximizing $u$ in \eqref{eq:rewrite-competitive-net-production}
+determines $U=(AL)u$. This compute use, the factor prices in
+\eqref{eq:rewrite-capital-return} and \eqref{eq:rewrite-wage}, and
+$p_X=1/B_0$ decentralize this allocation.
 In particular, $wN=(AL)[f(k)-kf'(k)]$, so the household budget coincides
 with the resource constraint. Its Euler and transversality conditions
 verify its optimum at these prices. Strict concavity also implies that

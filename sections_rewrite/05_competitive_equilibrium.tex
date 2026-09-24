@@ -1,4 +1,4 @@
-\section{Competition, research incentives, and growth}
+\section{Competitive Equilibrium}
 \label{sec:rewrite-competition}
 
 I now replace the monopolistic developer with competitive AI suppliers.
@@ -8,7 +8,7 @@ labor-bottleneck and AI-dominated growth are possible. I first characterize
 the competitive equilibrium and then compare it with the monopoly
 equilibria in Section~\ref{sec:rewrite-regimes}.
 
-\subsection{Competitive equilibrium}
+\subsection{Characterization}
 \label{subsec:rewrite-competitive-equilibrium}
 
 Consider now the case where multiple AI suppliers have free access to the same efficiency $B$. Entry is free,
@@ -23,31 +23,22 @@ inference compute: $p_XX=U$. A supplier that finances research pays $M$
 without acquiring an exclusive technology or a claim on future revenue.
 Private research therefore yields no return, and its optimal level is
 zero. %This conclusion depends on free access to improvements, not on
-competition in service provision alone. 
+%competition in service provision alone.
 Exclusive rights to improvements
 or payments for research would define a different economy.
 %Research expenditure is zero in both competitive growth regimes, not only when labor remains a bottleneck.
 
-With efficiency fixed at $B_0$, competitive input choices maximize output
-net of inference compute. Define
-\begin{equation}
- F_{B_0}(K,AL)
- =\max_{U\geq0}\left\{K^\alpha Z(AL,B_0U)^{1-\alpha}-U\right\}.
- \label{eq:rewrite-competitive-net-production}
-\end{equation}
-The function $Z$ is the CES aggregator in equation~\eqref{eq:rewrite-ces}.
-The subtraction of $U$ accounts for the resources needed to supply AI
-services. Capital accumulation and the household's Euler equation become
-\begin{equation}
- \dot K=F_{B_0}(K,AL)-C-\delta K,\qquad
- \frac{\dot C}{C}=n+\partial_K F_{B_0}(K,AL)-\delta-\rho.
- \label{eq:rewrite-competitive-dynamics}
-\end{equation}
-The envelope condition gives
-$\partial_K F_{B_0}=\alpha Y/K=r+\delta$.
-Together with the household's transversality condition
-\eqref{eq:rewrite-household-tvc}, these equations determine consumption
-and capital accumulation. Competitive suppliers' optimality replaces
+At the competitive price $p_X=1/B_0$, final-good firms continue to solve
+problem~\eqref{eq:rewrite-final-firm-problem}, with production given by
+equations~\eqref{eq:rewrite-output}--\eqref{eq:rewrite-ces}.
+Their demand for AI services in equation~\eqref{eq:rewrite-ai-price}
+then implies $U=(1-\alpha)s_XY$, since $X=B_0U$.
+
+The household continues to choose consumption and saving according to
+the Euler equation~\eqref{eq:rewrite-euler} and the transversality
+condition~\eqref{eq:rewrite-household-tvc}. Capital accumulation follows
+the resource constraint~\eqref{eq:rewrite-resource} with $M=0$.
+Competitive suppliers' optimality replaces
 the monopolist's pricing, research, and shadow-price conditions.
 In particular, the interior research condition is not imposed at $M=0$.
 
@@ -102,7 +93,8 @@ Proposition~\ref*{prop:rewrite-competitive-equilibrium}}.
 
 The absence of RSI does not eliminate AI-dominated growth. At fixed
 efficiency, $X=B_0U$ can continue expanding through greater compute use.
-When $B_0$ exceeds the competitive threshold, capital and AI services
+When $B_0$ exceeds the competitive threshold
+$\mathcal B^{\mathrm{mc}}(\sigma)$, capital and AI services
 grow together faster than effective labor. This is the capital-accumulation
 mechanism identified in Section~\ref{subsec:rewrite-equilibrium-existence},
 now sustained without private research. Below the threshold, diminishing
