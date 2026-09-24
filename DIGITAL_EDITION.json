@@ -1,7 +1,7 @@
 {
-  "snapshot_commit": "20fda5479727116aae83d9bc6ce89a253fd53255",
+  "snapshot_commit": "5fb8f7121b504766e6acf2c0ad83857ff3a2a208",
   "snapshot_branch": "codex/digital-edition",
-  "manuscript_commit": "c7a7fc422ee9a0e0513961b09738116c9ce7742d",
-  "source_deployment": "https://github.com/oliverpardo1979/ai-growth-and-labor/actions/runs/36002640075",
+  "manuscript_commit": "2c87816750082cb31f2d082a609d536f10c65b73",
+  "source_deployment": "https://github.com/oliverpardo1979/ai-growth-and-labor/actions/runs/36002873385",
   "policy": "Preserve this digital edition; advance only on Oliver's explicit request. The public PDF follows main."
 }
