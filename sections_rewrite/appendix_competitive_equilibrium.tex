@@ -12,10 +12,12 @@ argument constructs and verifies the allocation at this fixed efficiency.
 
 \emph{Net production and normalized dynamics.}
 Write $k=K/(AL)$, $c=C/(AL)$, and $f(k)=F_{B_0}(k,1)$.
-For $k>0$, the objective in
-\eqref{eq:rewrite-competitive-net-production} is strictly concave in $U$.
-Its marginal product tends to infinity at zero and to zero at infinity,
-so there is a unique positive maximizer. The first-order condition is
+For $k>0$, the marginal product of compute in gross output,
+$\partial Y/\partial U$, decreases strictly from infinity to zero as
+$U$ rises from zero to infinity. The derivative of net output in
+\eqref{eq:rewrite-competitive-net-production} is
+$\partial Y/\partial U-1$, so there is a unique positive maximizer,
+at which $\partial Y/\partial U=1$. The first-order condition is
 $U=(1-\alpha)s_XY$. In normalized units, write
 $u=U/(AL)$ and $y=Y/(AL)$. Differentiating this condition, using
 \eqref{eq:rewrite-inverse-demand-elasticity}, gives
@@ -69,7 +71,7 @@ whose determinant is negative. Its stable curve has positive slope,
 with $\dot k,\dot c>0$ on its left branch and
 $\dot k,\dot c<0$ on its right branch.
 
-Both branches extend to every $k>0$. On the left branch,
+Together, the two branches cover every $k>0$. On the left branch,
 $dk<c<G(k)$; on the right, $c>\max\{dk,G(k)\}$.
 To verify these restrictions, at $c=dk$ equation
 \eqref{eq:rewrite-competitive-consumption-ratio} points toward
@@ -107,9 +109,9 @@ of the region. At its upper boundary, $\dot k=0$ and $\dot c>0$,
 so the vector field also points strictly out. Inside, both $k$ and $c$
 increase. There is no finite-time escape to infinity because concavity
 bounds $G(k)$ above by an affine function. Continuous dependence on
-initial consumption makes the sets of paths that leave through the
-two boundaries open and disjoint. Both sets are nonempty, as shown
-by the endpoint initial choices. They cannot exhaust the connected
+initial consumption makes the sets of initial choices whose paths first
+exit through the two boundaries open and disjoint. Both sets are nonempty,
+as shown by the endpoint initial choices. They cannot exhaust the connected
 interval of initial choices. Hence at least one trajectory remains
 in the region forever.
 

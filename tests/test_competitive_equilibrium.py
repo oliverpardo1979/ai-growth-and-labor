@@ -105,6 +105,34 @@ class CompetitiveBenchmarkIdentities(unittest.TestCase):
         ratio_growth = c / k - (rho - n) - (a["f"] - k * a["fp"]) / k
         self.assertAlmostEqual(c_growth - k_growth, ratio_growth)
 
+    def test_conditional_growth_ordering_with_different_efficiencies(self):
+        """Check the ranking conditional on both AI-dominated limits existing."""
+        rho, gamma = 0.04, 0.02
+        for alpha in (0.2, 0.33, 0.6):
+            for sigma in (1.1, 1.5, 3.0):
+                B_mc = threshold(alpha, sigma, 0.1, rho=rho, gamma=gamma)
+                B_mon = B_mc / (1 - alpha)
+                cap = 4 * B_mon / (1 - alpha)
+                R_mon = limiting_return(cap, alpha, sigma, 0.1, monopoly=True)
+                for fraction, sign in ((0.5 * (1 - alpha), -1),
+                                       (1 - alpha, 0), (1 - alpha / 2, 1)):
+                    with self.subTest(alpha=alpha, sigma=sigma, fraction=fraction):
+                        B0 = fraction * cap
+                        self.assertGreater(B0, B_mc)
+                        self.assertLess(B0, cap)
+                        self.assertGreater(cap, B_mon)
+                        R_mc = limiting_return(B0, alpha, sigma, 0.1)
+                        output_gap = (R_mc - rho) - (R_mon - rho)
+                        wage_gap = ((gamma + (R_mc - rho - gamma) / sigma)
+                                    - (gamma + (R_mon - rho - gamma) / sigma))
+                        if sign == 0:
+                            self.assertAlmostEqual(R_mc / R_mon, 1.0, delta=1e-12)
+                        else:
+                            self.assertGreater(sign * output_gap, 0.0)
+                            self.assertGreater(sign * wage_gap, 0.0)
+                        self.assertAlmostEqual(wage_gap, output_gap / sigma,
+                                               delta=1e-12 * R_mon)
+
 
 if __name__ == "__main__":
     unittest.main()
