@@ -105,6 +105,32 @@ class CompetitiveBenchmarkIdentities(unittest.TestCase):
         ratio_growth = c / k - (rho - n) - (a["f"] - k * a["fp"]) / k
         self.assertAlmostEqual(c_growth - k_growth, ratio_growth)
 
+    def test_regime_reversal_despite_higher_monopoly_efficiency(self):
+        """Check the corollary's threshold region, not local path existence."""
+        rho, gamma = 0.04, 0.02
+        for alpha in (0.2, 0.33, 0.6):
+            for sigma in (1.1, 1.5, 3.0):
+                B_mc = threshold(alpha, sigma, 0.1, rho=rho, gamma=gamma)
+                B_mon = B_mc / (1 - alpha)
+                for cap_fraction in (0.25, 0.5, 0.75):
+                    cap = B_mc + cap_fraction * (B_mon - B_mc)
+                    for initial_fraction in (0.5, 0.99, 0.9999):
+                        with self.subTest(alpha=alpha, sigma=sigma,
+                                          cap_fraction=cap_fraction,
+                                          initial_fraction=initial_fraction):
+                            B0 = B_mc + initial_fraction * (cap - B_mc)
+                            self.assertLess(B_mc, B0)
+                            self.assertLess(B0, cap)
+                            self.assertLess(cap, B_mon)
+                            R_mc = limiting_return(B0, alpha, sigma, 0.1)
+                            R_mon = limiting_return(cap, alpha, sigma, 0.1,
+                                                    monopoly=True)
+                            self.assertGreater(R_mc, rho + gamma)
+                            self.assertLess(R_mon, rho + gamma)
+                            self.assertGreater(R_mc - rho, gamma)
+                            self.assertGreater(
+                                gamma + (R_mc - rho - gamma) / sigma, gamma)
+
     def test_conditional_growth_ordering_with_different_efficiencies(self):
         """Check the ranking conditional on both AI-dominated limits existing."""
         rho, gamma = 0.04, 0.02

@@ -372,6 +372,41 @@ Uniqueness of the threshold establishes
 equation~\eqref{eq:rewrite-marginal-cost-threshold}.
 \end{proof}
 
+\Needspace{6\baselineskip}
+\begin{proof}[Proof of Corollary~\ref{cor:rewrite-monopoly-bottleneck}]
+\phantomsection
+\label{proof:rewrite-monopoly-bottleneck}
+Proposition~\ref{prop:rewrite-monopoly-threshold} ensures that the
+interval in equation~\eqref{eq:rewrite-competition-escapes-bottleneck}
+is nonempty. Fix $\overline B$ in this interval. The labor-bottleneck
+construction of Proposition~\ref{prop:rewrite-capped-substitutes-labor-existence}
+uses initial values satisfying
+equation~\eqref{eq:rewrite-labor-local-initial}, with
+$B_0=\overline B-d_0\tau_0$, $d_0$ near $\overline d>0$, and
+$\tau_0=1/(A_0N_0)>0$ arbitrarily small.
+Since $\overline B>\mathcal B^{\mathrm{mc}}(\sigma)$, I can restrict this
+construction to $B_0>\mathcal B^{\mathrm{mc}}(\sigma)$ while preserving
+a nonempty open set of initial states.
+
+From each state in this set, the constructed monopoly equilibrium has
+$B\to\overline B$ and $g_{Y/N},g_w\to\gamma$.
+Proposition~\ref{prop:rewrite-competitive-equilibrium} supplies a
+competitive equilibrium from the same state. Since
+$B_0>\mathcal B^{\mathrm{mc}}(\sigma)$, this equilibrium is AI-dominated,
+with $B=B_0$ and both limiting growth rates strictly above $\gamma$.
+This proves the comparison without requiring monopoly equilibrium
+existence from arbitrary initial states or global uniqueness under monopoly.
+
+The accompanying comparison of AI services follows from the CES share
+identity in equation~\eqref{eq:rewrite-frontier-static-shares} and $L=N$.
+Under monopoly, $s_X$ converges to an interior value, so $X/(AL)$
+converges to a positive constant. Under competition, $s_X\to1$;
+since $\sigma>1$, the same identity gives $X/(AL)\to\infty$.
+The common paths of $A$ and $L$ therefore imply that AI services
+eventually exceed their monopoly level under competition, without
+establishing their ordering at every date.
+\end{proof}
+
 \input{sections_rewrite/appendix_uncapped_complements_proofs}
 \input{sections_rewrite/appendix_uncapped_unit_proofs}
 
