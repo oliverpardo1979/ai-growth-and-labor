@@ -1,15 +1,80 @@
 \section{Additional competitive-to-monopoly simulation results}
 \label{app:rewrite-competitive-transition}
 
-I supplement Section~\ref{subsec:rewrite-competitive-transition} with
-the growth, price, and distributional trajectories underlying its
-level comparisons. All figures retain the four elasticities and show
+I supplement the $\sigma=1.5$ comparison in
+Section~\ref{subsec:rewrite-competitive-transition} with the original
+four-elasticity exercises at both research productivities. No additional
+equilibria are computed for this presentation. The level figures retain
+the three windows used in that section; the growth, price, and
+distributional figures below show
 two pre-event years and years 0--10 above, with years 10--500 below.
 Thin horizontal lines show continued competition; black dotted
 long-run lines show the analytical monopoly limits at $\sigma=1.5$.
 The date-zero level changes are not finite growth rates: open and
 filled dots distinguish the values on either side of the event, and
 growth curves describe the smooth trajectory on each side separately.
+
+\begin{table}[H]
+ \centering
+ \caption{Competitive initial capital and the impact of exclusive AI rights}
+ \label{tab:rewrite-competitive-transition}
+ \small\setstretch{1.0}
+ \begin{tabular}{cccc}
+ \toprule
+ $\sigma$ & $K_0$ & Change in output & Change in wage\\
+ \midrule
+ 0.9 & 6.235 & $-32.4\%$ & $-36.6\%$\\
+ 1.0 & 6.278 & $-17.6\%$ & $-17.6\%$\\
+ 1.1 & 6.324 & $-13.7\%$ & $-11.9\%$\\
+ 1.5 & 6.535 & $-10.4\%$ & $-5.4\%$\\
+ \bottomrule
+ \end{tabular}
+ \par\vspace{4pt}
+ \parbox{0.95\textwidth}{\footnotesize\emph{Notes:} The capital stocks are
+ derived from the competitive BGP, not selected independently. All other
+ parameters and initial stocks are in Table~\ref{tab:rewrite-rsi-parameters}.
+ Changes compare levels immediately after and before the grant. They are
+ identical for both values of $\chi$, since $K$ and $B$ cannot jump.
+ The ratio $K_0/Y_{0^-}=3.3$ applies before the grant, not after output falls.}
+\end{table}
+
+\paragraph{Level comparisons across elasticities.}
+Figures~\ref{fig:rewrite-competitive-high-levels}
+and~\ref{fig:rewrite-competitive-low-levels} preserve the level comparisons
+for all four elasticities. Research can produce level gains even where it
+does not permanently raise growth. With $\chi=7.5$, output first regains
+its competitive counterpart around year 18.2 at $\sigma=1.1$ and year 46.9
+at $\sigma=1$. With $\chi=1.5$, those recoveries occur around years 87.3
+and 212.3. At $\sigma=0.9$, neither output nor wages regain their
+competitive counterparts within 500 years under either $\chi$.
+The initial AI-service price in that case is about 131 times its competitive
+level, a large distortion implied by the illustrative parameters rather
+than an empirical estimate. These recovery dates compare contemporaneous
+levels; they do not rank welfare.
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_levels.pdf}
+ \caption{From competition to monopoly with RSI, $\chi=7.5$: levels
+ relative to continued competition for all four elasticities. The rows
+ cover years $-2$--10, 10--100, and 10--500. The upper row uses percentages;
+ the middle and lower rows use multiples on logarithmic scales.
+ The horizontal benchmark is $100.0\%$ or $1\times$. Open and filled dots
+ mark levels before and after the grant. Vertical scales differ across
+ windows and between the two research-productivity exercises.}
+ \label{fig:rewrite-competitive-high-levels}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_levels.pdf}
+ \caption{From competition to monopoly with RSI, $\chi=1.5$: output
+ per worker, wages, and consumption per person relative to continued
+ competition for all four elasticities. Windows, normalizations, and
+ line styles match Figure~\ref{fig:rewrite-competitive-high-levels}.
+ Vertical scales are fitted to this exercise.}
+ \label{fig:rewrite-competitive-low-levels}
+\end{figure}
 
 \paragraph{Initial conditions and numerical checks.}
 I obtain each competitive initial stock by imposing $r=\rho+\gamma$
@@ -116,6 +181,9 @@ experiment, and the replication commands. The driver is
 The guide links to the separate results folders for each research
 productivity, containing the original paths, competitive benchmarks,
 impact changes, and numerical audits.
+The main-text $\sigma=1.5$ comparison is rendered by
+\path{scripts/report_competitive_main_comparison.py}, which reads these
+same audited paths without changing them.
 Figure windows only select dates from those stored paths; they do not
 change the simulated economy or the numerical solution horizon.
 

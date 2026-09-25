@@ -1,0 +1,86 @@
+{
+  "sigma": 1.5,
+  "chis": [
+    7.5,
+    1.5
+  ],
+  "windows": [
+    [
+      -2.0,
+      10.0
+    ],
+    [
+      10.0,
+      100.0
+    ],
+    [
+      10.0,
+      500.0
+    ]
+  ],
+  "scales": [
+    "linear_percent",
+    "log_multiple",
+    "log_multiple"
+  ],
+  "percent_decimals": 1,
+  "ratio_fields": {
+    "output_counterfactual_ratio": [
+      "output_effective_labor",
+      "output"
+    ],
+    "wage_counterfactual_ratio": [
+      "wage_productivity",
+      "wage"
+    ],
+    "consumption_counterfactual_ratio": [
+      "consumption_effective_labor",
+      "consumption"
+    ]
+  },
+  "sources": {
+    "7.5": {
+      "files": {
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/equilibrium_paths.csv": "e0c07d9ab527ef8c4499e6c3f292b5e35119368bb0b52cb4ffefa5fbfd8236f0",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/competitive_reference.json": "23daf316dcfa5748aa2848fb171b713b7abc724c98649beed2f1e68397c3112b",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/paths_manifest.json": "7a771562b0972dfc2aa5a88db4c0b3837308546c86979ab282041d059d3c523a",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/sigma_1_50_audit.json": "bdcfddd0cb33b4f724946e46c185127f7a9d5ce8bff24cb9ef05d07e1c7e58d0",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/scenario.json": "6141ca80907cdfb15c07006c2c9e52151b2ca7687eecf28b2da82991cdebc8cc"
+      },
+      "initial_change_percent": {
+        "output_counterfactual_ratio": -10.436489285742512,
+        "wage_counterfactual_ratio": -5.387944577095006,
+        "consumption_counterfactual_ratio": 8.154299238297558
+      },
+      "first_recovery_year": {
+        "output_counterfactual_ratio": 3.7609660760005217,
+        "wage_counterfactual_ratio": 4.619145655426766,
+        "consumption_counterfactual_ratio": null
+      }
+    },
+    "1.5": {
+      "files": {
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/equilibrium_paths.csv": "3a191dcc35822f01df2bcd41d3275a06e6b9745de17de02cc3dea8f7af5405bd",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/competitive_reference.json": "23daf316dcfa5748aa2848fb171b713b7abc724c98649beed2f1e68397c3112b",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/paths_manifest.json": "be8c307dbf5a26f39293a1bf86a99289804b4af8946b075a2344777b1b66c326",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/sigma_1_50_audit.json": "2e80b605d6b4819c181e39c3c981bfeeef34eba9722d0e44b13eb5005e9c0f6d",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/scenario.json": "bc02efac191232802a4abb22360d8a333fedce6f72d19cd277887e665a8f632a"
+      },
+      "initial_change_percent": {
+        "output_counterfactual_ratio": -10.436489285742512,
+        "wage_counterfactual_ratio": -5.387944577095006,
+        "consumption_counterfactual_ratio": 3.6927487281487315
+      },
+      "first_recovery_year": {
+        "output_counterfactual_ratio": 23.984246521599097,
+        "wage_counterfactual_ratio": 25.96684598902503,
+        "consumption_counterfactual_ratio": 11.274131874359126
+      }
+    }
+  },
+  "files": [
+    "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_levels.png",
+    "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_levels.pdf"
+  ],
+  "note": "Reads existing audited data only. Original four-elasticity figures are preserved."
+}
