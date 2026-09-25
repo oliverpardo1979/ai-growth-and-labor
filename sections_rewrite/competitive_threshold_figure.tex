@@ -1,5 +1,7 @@
 \begin{figure}[H]
 \centering
+\definecolor{thresholdCompetition}{RGB}{0,92,158}
+\definecolor{thresholdMonopoly}{RGB}{180,85,0}
 \resizebox{0.94\textwidth}{!}{%
 \begin{tikzpicture}[
  x=1.00cm,y=0.80cm,
@@ -22,28 +24,31 @@
       (\x,{0.67*3.7*exp(1/\x)}) -- cycle;
  \end{scope}
 
- \draw[semithick,dashed,<-]
+ \draw[semithick,dashed,thresholdMonopoly,<-]
   plot[domain=1.47:10.80,samples=150] (\x,{3.7*exp(1/\x)});
- \draw[semithick,<-]
+ \draw[semithick,thresholdCompetition,<-]
   plot[domain=0.927:10.80,samples=150] (\x,{0.67*3.7*exp(1/\x)});
 
- \node[anchor=west] at (10.90,4.06) {$\mathcal B(\sigma)$};
- \node[anchor=west] at (10.90,2.72) {$\mathcal B^{\mathrm{mc}}(\sigma)$};
+ \node[anchor=west,text=thresholdMonopoly] at (10.90,4.06) {$\mathcal B(\sigma)$};
+ \node[anchor=west,text=thresholdCompetition] at (10.90,2.72) {$\mathcal B^{\mathrm{mc}}(\sigma)$};
 
- \node[region] at (6.20,5.95) {Above both thresholds};
- \node[region,text width=4.4cm] at (6.20,3.65)
-  {Above competitive\\threshold only};
- \node[region] at (6.20,1.25) {Below both thresholds};
+ \node[region] at (6.20,5.95)
+  {AI-dominated\\under both market structures};
+ \node[region] at (6.20,3.65)
+  {\textcolor{thresholdCompetition}{Competition: AI-dominated}\\[0.15em]
+   \textcolor{thresholdMonopoly}{Monopoly: labor-bottleneck}};
+ \node[region] at (6.20,1.25)
+  {Labor-bottleneck\\under both market structures};
 \end{tikzpicture}%
 }
-\caption{AI-efficiency thresholds under monopoly and competition.
-For $\sigma>1$, marginal-cost pricing lowers the threshold to
-$\mathcal B^{\mathrm{mc}}(\sigma)=(1-\alpha)\mathcal B(\sigma)$,
-as established in Proposition~\ref{prop:rewrite-monopoly-threshold}.
-The schematic compares pricing rules at a common efficiency $B$.
-The equilibrium conditions instead compare $B_0$ with the competitive
-threshold and $\overline B$ with the monopoly threshold; the diagram
-does not rank equilibria from a common initial state.
+\caption{Long-run regimes under monopoly and competition ($\sigma>1$).
+The blue solid curve is the competitive threshold; the orange dashed
+curve is the monopoly threshold. Their relationship is
+$\mathcal B^{\mathrm{mc}}(\sigma)=(1-\alpha)\mathcal B(\sigma)$
+(Proposition~\ref{prop:rewrite-monopoly-threshold}).
+Read the vertical axis as $B_0$ under competition and as $\overline B$
+under monopoly. The labels describe the characterized equilibria,
+not a comparison from common initial states.
 Threshold equalities are not classified.}
 \label{fig:rewrite-competitive-thresholds}
 \end{figure}
