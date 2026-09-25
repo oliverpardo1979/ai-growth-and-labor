@@ -11,8 +11,8 @@ is unchanged. The [replication guide](REPLICATION.md) describes how to solve the
 The web build does not edit them. It follows active inputs, removes commented-out
 material, and uses the compiled AUX and bibliography to retain equation,
 proposition, section, figure, table, and citation references. The three TikZ
-diagrams are extracted from the compiled paper; the six simulation figures use
-the existing figure PDFs. No simulation is rerun by the web build.
+diagrams are extracted from the compiled paper; simulation figures in the main
+text and appendices use the existing figure PDFs. No simulation is rerun by the web build.
 
 The HTML reader is a generated edition, not a second manuscript to edit.
 Its equations are rendered using MathJax 3.2.2. The typeset PDF is the reference
@@ -21,9 +21,11 @@ reader and explorer; the PDF and repository remain available without it.
 
 ## Explorer: scope and provenance
 
-`scripts/build_web_data.py` exports the two active illustrative exercises,
+`scripts/build_web_data.py` exports the two illustrative RSI-activation exercises,
 `rsi_chi_7_5` and `rsi_chi_1_5`, for the four stored elasticities 0.9, 1.0, 1.1,
 and 1.5. It retains every sampled observation and its floating-point precision.
+The separate competition-to-monopoly experiments and their figures are included
+in the complete HTML reader, not in this eight-path interactive explorer.
 Source CSV hashes are checked against the figure, path, and summary manifests,
 and the recorded numerical-admission and activation checks must pass.
 

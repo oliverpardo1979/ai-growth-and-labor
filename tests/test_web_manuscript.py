@@ -84,6 +84,24 @@ class NumberingTests(unittest.TestCase):
         self.assertIn("Body text.", result)
         self.assertIn(r"\label{p}", result)
 
+    def test_corollaries_have_independent_checked_counters(self):
+        source = (r"\begin{proposition}\label{p1}First.\end{proposition}"
+                  r"\begin{corollary}[An implication]\label{c1}Implication.\end{corollary}"
+                  r"\begin{proposition}\label{p2}Second.\end{proposition}"
+                  r"\begin{corollary}\label{c2}Another.\end{corollary}")
+        labels = {key: {"number": number} for key, number in
+                  {"p1": "1", "c1": "1", "p2": "2", "c2": "2"}.items()}
+        result = web.prepare_theorems(source, labels)
+        for heading in ("Proposition 1.", "Proposition 2.",
+                        "Corollary 1 (An implication).", "Corollary 2."):
+            self.assertIn(heading, result)
+        self.assertEqual(result.count(r"\begin{quote}"), 4)
+        self.assertEqual(result.count(r"\end{quote}"), 4)
+        self.assertNotIn(r"\begin{corollary}", result)
+        labels["c2"]["number"] = "3"
+        with self.assertRaisesRegex(web.ConversionError, "Theorem numbering mismatch"):
+            web.prepare_theorems(source, labels)
+
 
 class CitationAndValidationTests(unittest.TestCase):
     def test_citation_locator_and_multiple_keys(self):
@@ -103,6 +121,34 @@ class CitationAndValidationTests(unittest.TestCase):
         ast = {"blocks": [{"t": "Para", "c": [{"t": "RawInline", "c": ["latex", r"\ref{case}"]}]}]}
         web.transform_ast(ast, {"case": {"number": "1(iv)"}})
         self.assertEqual(ast["blocks"][0]["c"][0]["c"][1][0]["c"], "1(iv)")
+
+    def test_literal_path_becomes_code_without_inventing_a_link(self):
+        value = "scripts/report_competitive_main_comparison.py"
+        for kind in ("RawInline", "RawBlock"):
+            with self.subTest(kind=kind):
+                raw = {"t": kind, "c": ["latex", r"\path{" + value + "}"]}
+                ast = {"blocks": [{"t": "Para", "c": [raw]}] if kind == "RawInline" else [raw]}
+                web.transform_ast(ast, {})
+                self.assertEqual(ast["blocks"][0]["c"],
+                                 [{"t": "Code", "c": [["", [], []], value]}])
+                self.assertNotIn('"Link"', json.dumps(ast))
+
+    def test_literal_path_does_not_admit_other_raw_tex(self):
+        for raw in (r"\path{scripts/a.py}\unknown{content}",
+                    r"\path{\unknown{content}}", r"\path|scripts/a.py|"):
+            with self.subTest(raw=raw), self.assertRaises(web.ConversionError):
+                web.transform_ast({"blocks": [{"t": "RawBlock", "c": ["latex", raw]}]}, {})
+
+    def test_corollary_gets_theorem_class(self):
+        ast = {"blocks": [{"t": "BlockQuote", "c": [
+            {"t": "Para", "c": [{"t": "Strong", "c": [
+                {"t": "Str", "c": "Corollary 1 (Growth)."}]}]},
+            {"t": "Para", "c": [{"t": "Str", "c": "Body."}]}
+        ]}]}
+        web.transform_ast(ast, {})
+        self.assertEqual(ast["blocks"][0]["t"], "Div")
+        self.assertEqual(ast["blocks"][0]["c"][0][1], ["theorem", "corollary"])
+        self.assertIn("Body.", json.dumps(ast))
 
 
 class GeneratedManuscriptTests(unittest.TestCase):
@@ -130,9 +176,10 @@ class GeneratedManuscriptTests(unittest.TestCase):
 
     def test_complete_structural_inventory(self):
         source = web.flatten(ROOT / "main_rewrite.tex", ROOT, [])
-        for kind in ("proposition", "lemma", "definition", "remark"):
+        for kind in ("proposition", "corollary", "lemma", "definition", "assumption", "remark"):
             expected = len(re.findall(r"\\begin\{" + kind + r"\}", source))
             self.assertEqual(self.content.count('class="theorem ' + kind + '"'), expected)
+        self.assertEqual(self.meta["counts"]["figures"], len(re.findall(r"\\begin\{figure\*?\}", source)))
         self.assertEqual(self.content.count("<figure "), self.meta["counts"]["figures"])
         self.assertEqual(self.content.count("<table "), self.meta["counts"]["tables"])
         self.assertEqual(self.content.count('class="csl-entry"'), self.meta["counts"]["bibliography_entries"])
@@ -144,6 +191,32 @@ class GeneratedManuscriptTests(unittest.TestCase):
         self.assertEqual(headings[0], {"id": "sec:rewrite-introduction", "title": "Introduction", "level": 1, "number": "1"})
         self.assertTrue(any(h["number"] == "B.1" for h in headings))
         self.assertTrue(any(h["number"] == "C.3" for h in headings))
+
+    def test_competitive_section_exercises_and_appendix_are_present(self):
+        headings = {item["id"]: item for item in self.meta["sections"]}
+        for key, number in {
+            "sec:rewrite-competition": "5",
+            "sec:rewrite-quantitative": "7",
+            "subsec:rewrite-competitive-transition": "7.4",
+            "subsec:rewrite-monopoly-growth-reversal": "7.5",
+            "sec:rewrite-conclusion": "8",
+            "app:rewrite-competitive-transition": "D",
+        }.items():
+            with self.subTest(key=key):
+                self.assertEqual(headings[key]["number"], number)
+        figure_ids = {item["id"] for item in self.meta["figures"]}
+        for key in ("fig:rewrite-competitive-sigma15-levels",
+                    "fig:rewrite-monopoly-growth-reversal-growth",
+                    "fig:rewrite-monopoly-growth-reversal-technology",
+                    "fig:rewrite-competitive-high-levels",
+                    "fig:rewrite-competitive-low-distribution"):
+            self.assertIn(key, figure_ids)
+        self.assertEqual(self.content.count('class="theorem corollary"'), 2)
+
+    def test_replication_paths_are_literal_code(self):
+        for name in ("simulate_competitive_to_monopoly.py", "report_competitive_to_monopoly.py",
+                     "report_competitive_main_comparison.py"):
+            self.assertIn(f"<code>scripts/{name}</code>", self.content)
 
     def test_textual_endpoints_and_replication_are_retained(self):
         for text in ("Advances in artificial intelligence", "Declaration of AI use",

@@ -306,7 +306,7 @@ class EquationNumbering:
 
 
 def prepare_theorems(source: str, labels: dict[str, dict[str, str]]) -> str:
-    pattern = re.compile(r"\\begin\{(proposition|lemma|definition|assumption|remark)\}")
+    pattern = re.compile(r"\\begin\{(proposition|corollary|lemma|definition|assumption|remark)\}")
     counters: dict[str, int] = {}
     result, pos = [], 0
     for match in pattern.finditer(source):
@@ -327,7 +327,7 @@ def prepare_theorems(source: str, labels: dict[str, dict[str, str]]) -> str:
         result.extend([source[pos:match.start()], r"\begin{quote}", "\n\\textbf{" + heading + "}\n\n"])
         pos = end
     result.append(source[pos:])
-    return re.sub(r"\\end\{(?:proposition|lemma|definition|assumption|remark)\}", r"\\end{quote}", "".join(result))
+    return re.sub(r"\\end\{(?:proposition|corollary|lemma|definition|assumption|remark)\}", r"\\end{quote}", "".join(result))
 
 
 def prepare_citations(source: str, citations: dict[str, dict[str, str]]) -> tuple[str, set[str]]:
@@ -487,12 +487,16 @@ def transform_ast(document: dict[str, Any], labels: dict[str, dict[str, str]],
     pending_tables = iter(table_labels or [])
     table_keys = set(table_labels or [])
     unsupported: set[str] = set()
+    # Literal source paths are code, not URLs or executable TeX. Support the
+    # brace form used in the manuscript; leave other constructs fail-closed.
+    literal_path = re.compile(r"\\path\{([^{}\r\n]*)\}")
 
     def inspect_raw(value: Any) -> None:
         if isinstance(value, dict):
             if value.get("t") in ("RawInline", "RawBlock") and value["c"][0] in ("latex", "tex"):
                 raw = value["c"][1]
-                if not re.fullmatch(r"\\(?:label|ref|eqref)\*?\{[^}]+\}", raw):
+                if not (re.fullmatch(r"\\(?:label|ref|eqref)\*?\{[^}]+\}", raw)
+                        or literal_path.fullmatch(raw)):
                     unsupported.add(raw)
             for child in value.values():
                 inspect_raw(child)
@@ -511,6 +515,10 @@ def transform_ast(document: dict[str, Any], labels: dict[str, dict[str, str]],
             return node
         kind, content = node.get("t"), node.get("c")
         if kind in ("RawInline", "RawBlock") and content[0] in ("latex", "tex"):
+            path = literal_path.fullmatch(content[1])
+            if path:
+                inline = {"t": "Code", "c": [["", [], []], path.group(1)]}
+                return {"t": "Plain", "c": [inline]} if kind == "RawBlock" else inline
             raw = re.fullmatch(r"\\(label|ref|eqref)\*?\{([^}]+)\}", content[1])
             if not raw or raw.group(2) not in labels:
                 raise ConversionError(f"Unsupported raw TeX or absent label: {content[1][:180]}")
@@ -561,7 +569,7 @@ def transform_ast(document: dict[str, Any], labels: dict[str, dict[str, str]],
         elif kind == "BlockQuote" and content and content[0].get("t") == "Para":
             first = content[0]["c"]
             heading = inlines_text(first[0]) if first and first[0].get("t") == "Strong" else ""
-            theorem = re.match(r"(Proposition|Lemma|Definition|Assumption|Remark) \d+", heading)
+            theorem = re.match(r"(Proposition|Corollary|Lemma|Definition|Assumption|Remark) \d+", heading)
             if theorem:
                 return {"t": "Div", "c": [["", ["theorem", theorem.group(1).lower()], []], visit(content)]}
         elif kind == "Figure":
