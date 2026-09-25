@@ -10,6 +10,10 @@ distributional figures below show
 two pre-event years and years 0--10 above, with years 10--500 below.
 Thin horizontal lines show continued competition; black dotted
 long-run lines show the analytical monopoly limits at $\sigma=1.5$.
+The benchmark lines also distinguish the
+competitive income shares from the monopoly limits: competitive
+AI revenue pays for inference, whereas monopoly revenue also
+finances research and developer profit.
 The date-zero level changes are not finite growth rates: open and
 filled dots distinguish the values on either side of the event, and
 growth curves describe the smooth trajectory on each side separately.
@@ -137,10 +141,7 @@ the initial research allocation and efficiency growth are smaller.
 At $\sigma=1.5$, the eventual rise in growth and decline in labor's
 share emerge later. At year 500, growth and returns still exceed
 their monopoly limits, so the final displayed values should not be
-read as those limits. The benchmark lines also distinguish the
-competitive income shares from the monopoly limits: competitive
-AI revenue pays for inference, whereas monopoly revenue also
-finances research and developer profit.
+read as those limits.
 
 \begin{figure}[H]
  \centering
@@ -187,6 +188,13 @@ same audited paths without changing them.
 Figure windows only select dates from those stored paths; they do not
 change the simulated economy or the numerical solution horizon.
 
+The repository's
+\href{https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/MONOPOLY_GROWTH_REVERSAL.md}
+{growth-reversal replication guide} records the separate input choices,
+data, audit reports, and commands. The original growth-reversal
+experiment, initialized at $A_0=N_0=1$, remains archived in separate
+files; the other simulation exercises are unchanged.
+
 \paragraph{Growth reversal under exclusive rights.}
 For Section~\ref{subsec:rewrite-monopoly-growth-reversal}, I first
 construct a competitive prehistory with $B=B_0$ above the competitive
@@ -225,11 +233,4 @@ without changing its equilibrium-admission tolerances. Their final
 solution horizon is about 4,592 years, although the figures display
 only the first 500 years. Both pass the equation, horizon-extension,
 transversality, and developer-optimality checks, including denser
-checks over the first decade. A halfway date for labor's share is
-not required: that share is nonmonotonic here, and such a date is not
-an equilibrium condition. The repository's
-\href{https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/MONOPOLY_GROWTH_REVERSAL.md}
-{growth-reversal replication guide} records the separate input choices,
-data, audit reports, and commands. The original growth-reversal
-experiment, initialized at $A_0=N_0=1$, remains archived in separate
-files; the other simulation exercises are unchanged.
+checks over the first decade.

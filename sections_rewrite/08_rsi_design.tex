@@ -20,6 +20,8 @@ AI-dominated growth despite the efficiency gains from research? I examine these
 opposing outcomes at $\sigma=1.5$, with both values of $\chi$, in
 Sections~\ref{subsec:rewrite-competitive-transition}
 and~\ref{subsec:rewrite-monopoly-growth-reversal}.
+Appendix~\ref{app:rewrite-algorithm}
+describes the algorithm used to find the equilibrium and presents the links to replication files.
 
 \subsection{Parameters and initial conditions}
 \label{subsec:rewrite-rsi-activation}
@@ -39,9 +41,9 @@ ratio fixed, not the initial AI revenue share or monopoly markup. Within
 each elasticity, the two research-productivity scenarios inherit exactly
 the same stocks; consumption and research are chosen anew after activation.
 
-Table~\ref{tab:rewrite-rsi-parameters} reports the parameter values and initial stocks used for the simulations. Time is measured in years, and the four values of $K_0$ follow the order of the elasticities in the table. I use standard values for $\alpha$, $\delta$, and $\rho$, while $n$ and $\gamma$ are guided by long-run population and productivity projections. The AI production weight $\omega_X=0.10$ and research exponent $\eta=0.20$ are illustrative choices, not empirical estimates. I choose them to satisfy $\omega_X+\eta<1$, the condition for the uncapped unit-elastic balanced-growth equilibrium in Proposition~\ref{prop:rewrite-uncapped-unit-bgp}; this is not a requirement for the simulations with an upper bound considered here. The common upper bound on AI efficiency satisfies $\mathcal B(1.5)<\overline B<\mathcal B(1.1)$. Thus, AI and labor are substitutes in both the $\sigma=1.1$ and $\sigma=1.5$ cases, but only the latter converges to the AI-dominated regime.
+Table~\ref{tab:rewrite-rsi-parameters} reports the parameter values and initial stocks used for the simulations. Time is measured in years, and the four values of $K_0$ follow the order of the elasticities in the table. I use standard values for $\alpha$, $\delta$, and $\rho$, while $n$ and $\gamma$ are guided by long-run population and productivity projections. The AI production weight $\omega_X=0.10$ and research exponent $\eta=0.20$ are illustrative choices, not empirical estimates. I choose them to satisfy $\omega_X+\eta<1$, the condition for the uncapped unit-elastic balanced-growth equilibrium in Proposition~\ref{prop:rewrite-uncapped-unit-bgp}; this is not a requirement for the simulations with an upper bound considered here.
 
-I study two levels of research productivity for each of the four elasticities of substitution: $\chi=7.5$ in the higher-productivity scenario and $\chi=1.5$ in the lower-productivity scenario. For a given elasticity, both lead to the same long-run regime, output and wage growth rates, and interest rate, but produce different initial adjustments and transition speeds. These are illustrative choices, intended to show how research productivity affects the short-run impact of RSI and the timing of subsequent growth.
+The common upper bound on AI efficiency satisfies $\mathcal B(1.5)<\overline B<\mathcal B(1.1)$. Thus, AI and labor are substitutes in both the $\sigma=1.1$ and $\sigma=1.5$ cases, but only the latter converges to the AI-dominated regime. Holding this upper bound fixed, I study two levels of research productivity for each of the four elasticities of substitution: $\chi=7.5$ in the higher-productivity scenario and $\chi=1.5$ in the lower-productivity scenario. For a given elasticity, both lead to the same long-run regime, output and wage growth rates, and interest rate, but produce different initial adjustments and transition speeds. These are illustrative choices, intended to show how research productivity affects the short-run impact of RSI and the timing of subsequent growth.
 
 %In Equation~\eqref{eq:rewrite-rsi-initial-ratio}, $Y_0$ is obtained from the production and monopoly conditions with AI already present. Thus $K_0$ differs across elasticities, while the initial capital--output ratio and interest rate are common. With $A_0=N_0=1$ and the common $B_0$, the four capital stocks are approximately $3.434$, $4.649$, $5.037$, and $5.505$. These are calibrated alternative economies, not different outcomes of introducing AI into one economy with the same capital stock. The ratio is a theoretical BGP reference, not an exact empirical fit: the PWT 11.0 comparison yields a 2023 current-price capital--output ratio of about $3.61$ for the covered world sample and $3.42$ for the United States, with capital definitions that differ from the one-good model \citep{pwt110}.
 
@@ -64,8 +66,6 @@ for compute capacity and other physical capital. Introducing such frictions
 could change the initial reallocation of resources and the timing of the
 transition shown here.
 
-Appendix~\ref{app:rewrite-algorithm}
-describes the algorithm used to find the equilibrium and presents the links to replication files.
 Section~\ref{subsec:rewrite-competitive-transition} then uses the same
 technology parameters at $\sigma=1.5$ in a different experiment, starting
 from a competitive labor-bottleneck BGP and granting exclusive rights over
