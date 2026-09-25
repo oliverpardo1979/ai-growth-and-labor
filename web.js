@@ -16,10 +16,10 @@ const titles = {output_per_person_growth:'Output per worker',output_effective_la
 const units = {instantaneous_percent_per_year:'Growth · % per year',percent_per_year:'% per year',percent_of_output:'% of output',percent_of_upper_bound:'% of upper bound',final_good_per_ai_service:'Final-good units per AI service · log scale'};
 let data, fields, shownIndices=[], readerReady=false, readerPromise, dataPromise, mathDone=false;
 
-async function readJSON(path){const r=await fetch(path);if(!r.ok)throw Error(`Cannot load ${path}`);return r.json();}
+async function readJSON(path){const r=await fetch(path,{cache:'no-cache'});if(!r.ok)throw Error(`Cannot load ${path}`);return r.json();}
 function fail(where,error){$(where).innerHTML=`<p class="error">This part of the digital edition could not load. You can still <a href="paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf">read the PDF</a> or <a href="https://github.com/oliverpardo1979/ai-growth-and-labor">open the repository</a>.</p>`;console.error(error);}
 function loadReader(){return readerPromise ||= (async()=>{
-  const [meta,r]=await Promise.all([readJSON('generated/manuscript-meta.json'),fetch('generated/manuscript.html')]);
+  const [meta,r]=await Promise.all([readJSON('generated/manuscript-meta.json'),fetch('generated/manuscript.html',{cache:'no-cache'})]);
   if(!r.ok)throw Error('Manuscript unavailable');
   $('#manuscript').innerHTML=await r.text();
   $('#abstract-preview').innerHTML=`<p>${esc(meta.abstract)}</p>`;
