@@ -149,6 +149,12 @@ The labor-bottleneck cases of Proposition~\ref{prop:rewrite-equilibrium-regimes}
 show that autonomous AI research need not eliminate the production
 bottleneck, a constraint also emphasized by \citet{aghionjonesjones2019}.
 AI efficiency improves in each of these cases, including complementarity.
+In the complementary labor-bottleneck equilibria, expanding AI services
+cannot substitute for the continued expansion of effective labor. As
+AI-efficiency gains vanish, output per worker and wages therefore return
+to growth at $\gamma$. A positive limiting labor share and the absence
+of a permanent growth acceleration are two consequences of this
+production bottleneck.
 Substitution is needed for a permanent increase in growth under an upper
 bound, not for research to improve AI efficiency.
 Moreover, $\sigma>1$ is not sufficient to escape the labor bottleneck: if
@@ -211,16 +217,64 @@ Labor's income share therefore converges to zero, while the AI industry's revenu
 %Equations~\eqref{eq:rewrite-capital-return}and~\eqref{eq:rewrite-final-zero-profit} imply a constant gross capital income share, $(r+\delta)K/Y=\alpha$. AI revenue is not the developer'sprofit: it also finances inference and research compute.
 \end{remark}
 
-Rising wages alongside a declining labor share also appear in
-\citet{acemoglurestrepo2018}, \citet{autorkausik2026}, and
-\citet{raymookherjee2022}. In my AI-dominated regime, wages grow
-permanently faster than in the labor-bottleneck regime, even as AI
-efficiency approaches its upper bound.
+To see why wages accelerate even as labor's share vanishes, I rewrite
+the wage condition~\eqref{eq:rewrite-wage} using the CES aggregator:
+\begin{equation}
+ w=(1-\alpha)\omega_L A
+ \left(\frac KZ\right)^\alpha
+ \left(\frac Z{AL}\right)^{1/\sigma}.
+ \label{eq:rewrite-wage-scale}
+\end{equation}
+In the AI-dominated regime, capital and AI services expand together,
+so $K/Z$ converges to a positive constant while $Z/(AL)$ keeps growing.
+Although labor accounts for a declining share of output, its marginal
+product grows faster than $A$: workers participate in an expanding
+production process and remain imperfectly replaceable by AI.
+The joint expansion of capital and AI services is essential to this
+argument; it is not the effect of increasing AI services while holding
+capital fixed.
+
 Equations~\eqref{eq:rewrite-substitutes-ai-limits}
-and~\eqref{eq:rewrite-substitutes-wage-growth} quantify this increase:
-relative to the labor-bottleneck regime, the increase in wage growth
-equals the increase in output-per-worker growth divided by the
-elasticity of substitution.
+and~\eqref{eq:rewrite-substitutes-wage-growth} make the distribution of
+this growth acceleration explicit:
+\begin{equation}
+ \lim_{t\to\infty}g_w-\gamma
+ =\frac{1}{\sigma}
+ \left(\lim_{t\to\infty}g_{Y/N}-\gamma\right).
+ \label{eq:rewrite-wage-growth-premium}
+\end{equation}
+For $1<\sigma<\infty$, wages receive a positive fraction of the
+additional output-per-worker growth, but not all of it. This explains
+both their permanent acceleration and the vanishing labor share.
+For example, long-run output-per-worker growth of $4.0\%$, with
+$\gamma=1.0\%$ and $\sigma=1.5$, implies wage growth of $3.0\%$.
+These numbers illustrate the formula, not an additional simulation.
+
+The wage-growth mechanism has a direct antecedent in the CES example
+of \citet[pp.~619, 623--624]{palivoskaragiannis2010}. Combining their
+production function with marginal-product wage determination implies
+that wages grow at a fraction $1/\sigma$ of output-per-worker growth,
+while labor's share vanishes. In their setting, substitution is between
+capital and labor, and technology is fixed. Here the analogous relationship applies
+to growth above $\gamma$, and AI efficiency and pricing determine
+whether that additional growth can be sustained.
+
+Perfect substitution clarifies why finite substitutability matters for
+the wage-growth premium. Holding the other parameters fixed and taking
+$\sigma\to\infty$ across the AI-dominated limits, the return
+$\mathcal R(\overline B)$ remains bounded, so
+equation~\eqref{eq:rewrite-wage-growth-premium} gives $g_w\to\gamma$
+in this limit of long-run growth rates. In the corresponding linear
+aggregator, $Z=\omega_L AL+\omega_X X$, the input-price conditions imply
+$w/A=(\omega_L/\omega_X)p_X$: effective labor and AI services can
+replace each other at a fixed rate. As AI efficiency and the price of
+AI services approach constants, additional AI use no longer raises
+the relative price of effective labor. Wage growth then reflects
+labor-augmenting technological progress alone. This is a limiting
+production and pricing argument, not an equilibrium-existence result
+at $\sigma=\infty$. Nor does the finite-elasticity result imply that
+a higher $\sigma$ always raises wage growth: it also changes output
+growth and reduces the fraction of its acceleration received as wages.
 
 Figure~\ref{fig:rewrite-frontier-regimes} shows where the long-run regimes
 characterized in Proposition~\ref{prop:rewrite-equilibrium-regimes} lie
