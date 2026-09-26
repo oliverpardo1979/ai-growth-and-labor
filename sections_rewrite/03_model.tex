@@ -144,28 +144,29 @@ of time. I assume that each unit of compute requires one unit of the
 final good, which could otherwise be consumed or invested in physical
 capital.
 
+AI efficiency $B$ measures the services obtained per unit of compute.
+A rise in $B$ represents algorithmic improvement rather than an
+expansion of physical computing capacity. This interpretation parallels
+measures of algorithmic efficiency based on the compute required to
+achieve a given level of performance
+\citep{hernandezbrown2020,erdilbesiroglu2022}.
+
 Inference compute $U$ supplies AI services for current final-good
 production, while research compute $M$ is used to develop better AI.
 \citet{korinekmckelvey2026} make a related distinction between compute
 used for inference and compute used for R\&D and training. Research
 compute includes both training and running AI systems that conduct
 research \citep{davidsonetal2026}. %The distinction between $U$ and $M$ therefore concerns their economic use, not a strict separation between inference and training.
-
-%In practice, AI research also uses human researchers, data, and complementary infrastructure. The benchmark does not treat $M$ as a complete measure of R\&D. It isolates its computational component and assumes that human research is no longer the binding input.
-
-AI efficiency $B$ measures the services obtained per unit of compute.
-I assume that the same $B$ augments both activities, producing flows
-$BU$ and $BM$ of AI production and research services, respectively.
-A rise in $B$ represents algorithmic improvement rather than an
-expansion of physical computing capacity. This interpretation parallels
-measures of algorithmic efficiency based on the compute required to
-achieve a given level of performance
-\citep{hernandezbrown2020,erdilbesiroglu2022}.
-AI production services therefore satisfy
+I assume that the same $B$ augments
+both activities, producing flows $BU$ and $BM$ of AI production and
+research services, respectively. AI production services therefore
+satisfy
 \begin{equation}
  X=BU.
  \label{eq:rewrite-ai-service}
 \end{equation}
+
+%In practice, AI research also uses human researchers, data, and complementary infrastructure. The benchmark does not treat $M$ as a complete measure of R\&D. It isolates its computational component and assumes that human research is no longer the binding input.
 
 Figure~\ref{fig:rewrite-model-flow} summarizes the production block.
 
