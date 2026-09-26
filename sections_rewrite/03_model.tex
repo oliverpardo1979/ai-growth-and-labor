@@ -149,7 +149,6 @@ Compute can be measured in floating-point operations; a flow of compute correspo
 I assume that one unit of compute requires one unit of the final good, which could otherwise be consumed or invested in physical capital. Compute is therefore a rival, costly input, not a measure of AI performance.
 
 I distinguish compute used to deploy AI from compute used to improve it. Inference compute $U$ runs existing AI systems and produces outputs used in current final-good production. Research compute $M$ is allocated to the development of better AI. It includes training and fine-tuning, but also computational experimentation, model evaluation, and other compute-intensive components of AI research. I therefore use the term \emph{research compute} rather than the narrower term \emph{training compute}. \citet{korinekmckelvey2026} make a related distinction between compute used for inference and compute used for R\&D and training.
-
 The distinction between $U$ and $M$ concerns the economic use of compute,
 rather than a strict separation between inference and training: running AI
 systems that conduct research also requires inference compute
@@ -158,7 +157,6 @@ systems that conduct research also requires inference compute
 %In practice, AI research also uses human researchers, data, and complementary infrastructure. The benchmark does not treat $M$ as a complete measure of R\&D. It isolates its computational component and assumes that human research is no longer the binding input.
 
 Raw compute does not by itself determine the quantity of AI services produced. The variable $B$ measures AI efficiency: AI services obtained per unit of compute. Thus $U$ and $M$ are raw computational inputs, while $BU$ and $BM$ are the corresponding flows of AI production and AI research services. This interpretation parallels measures of algorithmic efficiency based on the decline in compute required to achieve a given level of performance \citep{hernandezbrown2020,erdilbesiroglu2022}. A rise in $B$ therefore represents an improvement in the algorithms that use compute, rather than an expansion of physical computing capacity.\footnote{Measures of \emph{effective compute} adjust physical compute for algorithmic improvements \citep{hoetal2024algorithms,jones2026future}. I apply this distinction beyond model training to AI research more broadly. \citet{erdiletal2025gate} similarly distinguish nonrival model weights from recurring inference-compute costs.} I assume that the same $B$ augments compute in both activities.
-
 Inference compute produces AI production services according to
 \begin{equation}
  X=BU.
@@ -291,7 +289,6 @@ To see the resulting appropriability problem, suppose that competitive
 service providers had free access to $B$. Free entry would imply no operating rent. A developer that paid for $M$ would improve a common AI-efficiency index $B$ that competing providers could use without compensating it. The developer would bear the research cost but could not appropriate the resulting benefits. %The problem is therefor one of research incentives, not the physical availability of compute.
 %I therefore assign exclusive ownership of $B$ to an integrated developer that conducts research and sells effective AI production services.
 Exclusive ownership allows the developer to capture part of the value created by a higher $B$ and makes the return to research appropriable, as in the standard endogenous-growth treatment of nonrival ideas \citep{romer1990}.
-
 That being said, monopoly is an institutional assumption, not a technological implication of nonrivalry.\footnote{Licensing, oligopoly, public funding, or open-source provision with research subsidies could also support investment in $B$ \citep{korinekvipra2025,gans2024,demireretal2025}. I also abstract from the conflict between general-purpose AI suppliers and application developers studied by \citet{liuwan2026}.}
 
 \subsubsection{The dynamic problem}
