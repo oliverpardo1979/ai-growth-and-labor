@@ -134,20 +134,34 @@ This demand schedule is an input to the developer's problem.
 \subsubsection{Effective AI production and research services}
 \label{subsubsec:rewrite-ai-services}
 
-I use \emph{compute} to denote the computational resources used to execute the numerical operations required by AI systems \citep{sastryetal2024}. %The variables $U$ and $M$ are rates of compute use rather than stocks of processors or data centers. 
-Compute can be measured in floating-point operations; a flow of compute corresponds to operations per unit of time.
-I assume that one unit of compute requires one unit of the final good, which could otherwise be consumed or invested in physical capital. Compute is therefore a rival, costly input, not a measure of AI performance.
+I use \emph{compute} to denote the computational resources used by
+AI systems \citep{sastryetal2024}. %The variables $U$ and $M$ are rates of compute use rather than stocks of processors or data centers.
+Compute can be measured in
+floating-point operations, with flows measured in operations per unit
+of time. I assume that each unit of compute requires one unit of the
+final good, which could otherwise be consumed or invested in physical
+capital.
 
-I distinguish compute used to deploy AI from compute used to improve it. Inference compute $U$ runs existing AI systems and produces outputs used in current final-good production. Research compute $M$ is allocated to the development of better AI. It includes training and fine-tuning, but also computational experimentation, model evaluation, and other compute-intensive components of AI research. I therefore use the term \emph{research compute} rather than the narrower term \emph{training compute}. \citet{korinekmckelvey2026} make a related distinction between compute used for inference and compute used for R\&D and training.
-The distinction between $U$ and $M$ concerns the economic use of compute,
-rather than a strict separation between inference and training: running AI
-systems that conduct research also requires inference compute
-\citep{davidsonetal2026}.
+Inference compute $U$ supplies AI services for current final-good
+production, while research compute $M$ is used to develop better AI.
+\citet{korinekmckelvey2026} make a related distinction between compute
+used for inference and compute used for R\&D and training. Research
+compute includes both training and running AI systems that conduct
+research \citep{davidsonetal2026}. The distinction between $U$ and $M$
+therefore concerns their economic use, not a strict separation between
+inference and training.
 
 %In practice, AI research also uses human researchers, data, and complementary infrastructure. The benchmark does not treat $M$ as a complete measure of R\&D. It isolates its computational component and assumes that human research is no longer the binding input.
 
-Raw compute does not by itself determine the quantity of AI services produced. The variable $B$ measures AI efficiency: AI services obtained per unit of compute. Thus $U$ and $M$ are raw computational inputs, while $BU$ and $BM$ are the corresponding flows of AI production and AI research services. This interpretation parallels measures of algorithmic efficiency based on the decline in compute required to achieve a given level of performance \citep{hernandezbrown2020,erdilbesiroglu2022}. A rise in $B$ therefore represents an improvement in the algorithms that use compute, rather than an expansion of physical computing capacity.\footnote{Measures of \emph{effective compute} adjust physical compute for algorithmic improvements \citep{hoetal2024algorithms,jones2026future}. I apply this distinction beyond model training to AI research more broadly. \citet{erdiletal2025gate} similarly distinguish nonrival model weights from recurring inference-compute costs.} I assume that the same $B$ augments compute in both activities.
-Inference compute produces AI production services according to
+AI efficiency $B$ measures the services obtained per unit of compute.
+I assume that the same $B$ augments both activities, producing flows
+$BU$ and $BM$ of AI production and research services, respectively.
+A rise in $B$ represents algorithmic improvement rather than an
+expansion of physical computing capacity. This interpretation parallels
+measures of algorithmic efficiency based on the compute required to
+achieve a given level of performance
+\citep{hernandezbrown2020,erdilbesiroglu2022}.\footnote{Measures of \emph{effective compute} adjust physical compute for algorithmic improvements \citep{hoetal2024algorithms,jones2026future}. I apply this distinction beyond model training to AI research more broadly. \citet{erdiletal2025gate} similarly distinguish nonrival model weights from recurring inference-compute costs.}
+AI production services therefore satisfy
 \begin{equation}
  X=BU.
  \label{eq:rewrite-ai-service}
