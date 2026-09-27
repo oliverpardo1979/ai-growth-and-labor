@@ -309,60 +309,40 @@ $\sigma>1$ & $\overline B>\mathcal B(\sigma)$ & $\mathcal R(\overline B) -\rho$ 
 \subsection{Substitution and wage growth}
 \label{subsec:rewrite-substitution-wage-growth}
 
-To see why wages accelerate even as labor's share vanishes, I rewrite
-the wage condition~\eqref{eq:rewrite-wage} using the CES aggregator:
+To see why wages accelerate even as labor's share vanishes, rewrite the wage condition~\eqref{eq:rewrite-wage} using the CES aggregator:
 \begin{equation}
  w=(1-\alpha)\omega_L A
  \left(\frac KZ\right)^\alpha
  \left(\frac Z{AL}\right)^{1/\sigma}.
  \label{eq:rewrite-wage-scale}
 \end{equation}
-In the AI-dominated regime, capital and AI services expand together,
-so $K/Z$ converges to a positive constant while $Z/(AL)$ keeps growing.
-Although labor accounts for a declining share of output, its marginal
-product grows faster than $A$: workers participate in an expanding
-production process and remain imperfectly replaceable by AI.
-The joint expansion of capital and AI services is essential to this
-argument; it is not the effect of increasing AI services while holding
-capital fixed.
+In the AI-dominated regime, capital and AI services expand together, so $K/Z$ converges to a positive constant while $Z/(AL)$ keeps growing.
+Although labor accounts for a declining share of output, its marginal product grows faster than $A$: workers participate in an expanding production process and remain imperfectly replaceable by AI.
+%The joint expansion of capital and AI services is essential to this argument; it is not the effect of increasing AI services while holding capital fixed.
 
 Equations~\eqref{eq:rewrite-substitutes-ai-limits}
 and~\eqref{eq:rewrite-substitutes-wage-growth} make the distribution of
 this growth acceleration explicit:
 \begin{equation}
- \lim_{t\to\infty}g_w-\gamma
- =\frac{1}{\sigma}
+ \lim_{t\to\infty}g_w
+ =\gamma+ \frac{1}{\sigma}
  \left(\lim_{t\to\infty}g_{Y/N}-\gamma\right).
  \label{eq:rewrite-wage-growth-premium}
 \end{equation}
-For $1<\sigma<\infty$, wages receive a positive fraction of the
-additional output-per-worker growth, but not all of it. This explains
-both their permanent acceleration and the vanishing labor share.
-For example, long-run output-per-worker growth of $4.0\%$, with
-$\gamma=1.0\%$ and $\sigma=1.5$, implies wage growth of $3.0\%$.
-These numbers illustrate the formula, not an additional simulation.
+For $1<\sigma<\infty$, wages receive a fraction of the
+additional output-per-worker growth. %This fractionThis explains both their permanent acceleration and the vanishing labor share.
+For example, long-run output-per-worker growth of $4.0\%$, with $\gamma=1.0\%$ and $\sigma=1.5$, implies wage growth of $3.0\%$.
 
 The wage-growth mechanism has a direct antecedent in the CES example
-of \citet{palivoskaragiannis2010}. Combining their
-production function with marginal-product wage determination implies
-that wages grow at a fraction $1/\sigma$ of output-per-worker growth,
-while labor's share vanishes. In their setting, substitution is between
-capital and labor, and technology is fixed. Here the analogous relationship applies
-to growth above $\gamma$, and AI efficiency and pricing determine
-whether that additional growth can be sustained.
+of \citet{palivoskaragiannis2010}. %Combining their production function with marginal-product wage determination implies that wages grow at a fraction $1/\sigma$ of output-per-worker growth, while labor's share vanishes. 
+%In their setting, substitution is between capital and labor, and technology is fixed. Here the analogous relationship applies to growth above $\gamma$, and AI efficiency and pricing determine whether that additional growth can be sustained.
 
-A higher elasticity has two opposing effects on wage growth. Holding
-the upper bound and all other parameters fixed, it raises the limiting
-return in equation~\eqref{eq:rewrite-ai-terminal-ratio} and therefore
-output-per-worker growth in the AI-dominated regime. However, it reduces
-the fraction $1/\sigma$ of the additional growth that reaches wages.
+A higher elasticity has two opposing effects on wage growth. Holding the upper bound and all other parameters fixed, it raises the limiting return in equation~\eqref{eq:rewrite-ai-terminal-ratio} and therefore output-per-worker growth in the AI-dominated regime. However, it reduces the fraction $1/\sigma$ of the additional growth that reaches wages. This hints at the existence of an elasticity of substitution that maximizes long-run wage growth.
 
-\Needspace{8\baselineskip}
+%\Needspace{8\baselineskip}
 \begin{proposition}[Substitution and wage growth]
 \label{prop:rewrite-wage-growth-maximizer}
-Fix all parameters other than $\sigma$ and suppose
-$\overline B>\mathcal B(\sigma)$ for some $\sigma>1$.
-Among the AI-dominated equilibria characterized in
+Suppose $\overline B>\mathcal B(\sigma)$ for some $\sigma>1$. Among the AI-dominated equilibria characterized in
 Proposition~\ref{prop:rewrite-capped-substitutes-existence}, long-run
 wage growth is maximized at a unique finite elasticity of substitution
 $\sigma^\star>1$.
