@@ -574,6 +574,44 @@ Step 4 verifies the agent-optimality and transversality requirements of
 Definition~\ref{def:rewrite-equilibrium} for all these trajectories.
 \end{proof}
 
+\Needspace{12\baselineskip}
+\phantomsection
+\label{proof:rewrite-wage-growth-maximizer}
+\begin{proof}[Proof of Proposition~\ref{prop:rewrite-wage-growth-maximizer}]
+With all parameters other than $\sigma$ fixed, define
+\[
+ H(\sigma)=\mathcal R(\overline B)+\delta,\qquad
+ \kappa=-\frac{1-\alpha}{\alpha}\log\omega_X>0,\qquad
+ D=\rho+\gamma+\delta.
+\]
+Equation~\eqref{eq:rewrite-ai-terminal-ratio} gives
+\[
+ \begin{aligned}
+ H'(\sigma)&=\frac{\kappa H(\sigma)}{(\sigma-1)^2}>0,\\
+ H_\infty\equiv\lim_{\sigma\to\infty}H(\sigma)
+ &=\alpha\left[(1-\alpha)^2\overline B\omega_X\right]^{(1-\alpha)/\alpha}
+ <\infty.
+ \end{aligned}
+\]
+The AI-dominated domain is $H(\sigma)>D$. Since this domain is nonempty
+and $H$ is strictly increasing, $H_\infty>D$.
+By equation~\eqref{eq:rewrite-substitutes-wage-growth}, limiting wage growth
+is $\overline g_w(\sigma)=\gamma+[H(\sigma)-D]/\sigma$, so
+\[
+ \overline g_w'(\sigma)
+ =\frac{D-H(\sigma)\left[1-\kappa\sigma/(\sigma-1)^2\right]}{\sigma^2}.
+\]
+The bracketed factor increases strictly from $-\infty$ to $1$ as
+$\sigma$ increases from $1$ to infinity. While this factor is nonpositive,
+$\overline g_w'(\sigma)>0$. Once it is positive, its product with
+$H(\sigma)$ increases strictly from zero to $H_\infty>D$. The product
+therefore equals $D$ at exactly one finite $\sigma^\star>1$.
+At that point the factor is less than one, so $H(\sigma^\star)>D$:
+the critical point lies inside the AI-dominated domain.
+Limiting wage growth increases below $\sigma^\star$ and decreases above it
+within that domain. Hence $\sigma^\star$ is its unique maximizer.
+\end{proof}
+
 %\Needspace{20\baselineskip}
 %\begin{proposition}[Wage growth and labor's income share]
 %\label{prop:rewrite-output-wage-wedge}
