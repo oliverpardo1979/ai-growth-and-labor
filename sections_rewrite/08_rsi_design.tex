@@ -11,15 +11,10 @@ and initial conditions.
 
 The exercises answer three questions. First, how does an economy adjust
 when RSI becomes available under an existing monopoly, and how does that
-adjustment depend on research productivity? I retain all four elasticities
-in Sections~\ref{subsec:rewrite-rsi-half-decline}
-and~\ref{subsec:rewrite-rsi-research-share}. Second, can research financed
+adjustment depend on research productivity?  Second, can research financed
 by monopoly rents compensate for the restriction on AI use caused by monopoly pricing and enable permanently
 faster growth? Third, can monopoly pricing instead eliminate
-AI-dominated growth despite the efficiency gains from research? I examine these
-opposing outcomes at $\sigma=1.5$, with both values of $\chi$, in
-Sections~\ref{subsec:rewrite-competitive-transition}
-and~\ref{subsec:rewrite-monopoly-growth-reversal}.
+AI-dominated growth despite the efficiency gains from research? 
 Appendix~\ref{app:rewrite-algorithm}
 describes the algorithm used to find the equilibrium and presents the links to replication files.
 
@@ -35,13 +30,11 @@ I compare four economies with $\sigma=0.9,1.0,1.1,1.5$, holding all other parame
  \label{eq:rewrite-rsi-initial-ratio}
 \end{equation}
 This setup guarantees that $Y$, $X$, $U$, $w$, $r$, and $p_X$ behave continuously rather than jumping at date zero.
-Consumption, research expenditure, and growth rates can nevertheless jump when RSI becomes available.
-Across elasticities, this construction holds the pre-event capital--output
-ratio fixed, not the initial AI revenue share or monopoly markup. Within
+Consumption, research expenditure, and growth rates can nevertheless jump when RSI becomes available. Within
 each elasticity, the two research-productivity scenarios inherit exactly
 the same stocks; consumption and research are chosen anew after activation.
 
-Table~\ref{tab:rewrite-rsi-parameters} reports the parameter values and initial stocks used for the simulations. Time is measured in years, and the four values of $K_0$ follow the order of the elasticities in the table. I use standard values for $\alpha$, $\delta$, and $\rho$, while $n$ and $\gamma$ are guided by long-run population and productivity projections. The AI production weight $\omega_X=0.10$ and research exponent $\eta=0.20$ are illustrative choices, not empirical estimates. I choose them to satisfy $\omega_X+\eta<1$, the condition for the uncapped unit-elastic balanced-growth equilibrium in Proposition~\ref{prop:rewrite-uncapped-unit-bgp}; this is not a requirement for the simulations with an upper bound considered here.
+Table~\ref{tab:rewrite-rsi-parameters} reports the parameter values and initial stocks used for the simulations. Time is measured in years, and the four values of $K_0$ follow the order of the elasticities in the table. I use standard values for $\alpha$, $\delta$, and $\rho$, while $n$ and $\gamma$ are guided by long-run population and productivity projections. The AI production weight $\omega_X=0.10$ and research exponent $\eta=0.20$ are illustrative choices, not empirical estimates. I choose them to satisfy $\omega_X+\eta<1$ and $\eta<\alpha$.
 
 The common upper bound on AI efficiency satisfies $\mathcal B(1.5)<\overline B<\mathcal B(1.1)$. Thus, AI and labor are substitutes in both the $\sigma=1.1$ and $\sigma=1.5$ cases, but only the latter converges to the AI-dominated regime. Holding this upper bound fixed, I study two levels of research productivity for each of the four elasticities of substitution: $\chi=7.5$ in the higher-productivity scenario and $\chi=1.5$ in the lower-productivity scenario. For a given elasticity, both lead to the same long-run regime, output and wage growth rates, and interest rate, but produce different initial adjustments and transition speeds. These are illustrative choices, intended to show how research productivity affects the short-run impact of RSI and the timing of subsequent growth.
 
@@ -66,10 +59,4 @@ for compute capacity and other physical capital. Introducing such frictions
 could change the initial reallocation of resources and the timing of the
 transition shown here.
 
-Section~\ref{subsec:rewrite-competitive-transition} then uses the same
-technology parameters at $\sigma=1.5$ in a different experiment, starting
-from a competitive labor-bottleneck BGP and granting exclusive rights over
-the technology. Section~\ref{subsec:rewrite-monopoly-growth-reversal}
-changes $B_0$ and $\overline B$ and starts near the competitive economy's
-AI-dominated long-run path. In each institutional comparison, continued
-competition and both monopoly paths share the same initial stocks.
+%Section~\ref{subsec:rewrite-competitive-transition} then uses the same technology parameters at $\sigma=1.5$ in a different experiment, starting from a competitive labor-bottleneck BGP and granting exclusive rights over the technology. Section~\ref{subsec:rewrite-monopoly-growth-reversal} changes $B_0$ and $\overline B$ and starts near the competitive economy's AI-dominated long-run path. In each institutional comparison, continued competition and both monopoly paths share the same initial stocks.
