@@ -11,7 +11,7 @@
 <h1 id="sec:rewrite-introduction"><span class="section-number">1</span> Introduction</h1>
 <p>Advances in artificial intelligence raise both hopes and fears. One hope is that increasingly capable AI could generate unprecedented economic prosperity, with workers benefiting from higher wages. One fear is that the AI industry could capture a growing share of that prosperity while workers who depend on labor income receive a declining share. In this paper, I show how both outcomes can coexist: when AI and labor are substitutes, AI can permanently raise wage growth. Yet in the long run, output per worker grows even faster than wages, while AI-industry revenue grows faster than total labor income. Labor’s income share therefore converges to zero.</p>
 <p>To show this, I extend the Ramsey–Cass–Koopmans model to include AI services as an additional production input. Competitive firms produce the final good using capital, effective labor, and AI services. A monopolistic AI developer supplies the AI services and invests in recursive AI self-improvement (RSI) to improve AI efficiency—the quantity of AI services produced per unit of compute. Through RSI, more efficient AI helps develop still more efficient AI. A representative household chooses consumption and saving, receiving income from labor, capital ownership, and the AI developer’s profits.</p>
-<p>If labor and AI are substitutes and there are sufficiently strong research returns, the developer’s discounted net profit can become unbounded if AI efficiency is unrestricted. To rule this out, I first study an economy with an upper bound on AI efficiency and examine how equilibria change as the bound rises. Together, the elasticity of substitution between AI and labor and the upper bound on AI efficiency determine whether human labor remains a long-run production bottleneck or whether AI sustains permanently faster economic growth.</p>
+<p>If labor and AI are substitutes and there are sufficiently strong research returns, the developer’s profit can become unbounded if AI efficiency can grow without bound. To rule this out, I first study an economy with an upper bound on AI efficiency and examine how equilibria change as the bound rises. Together, the elasticity of substitution between AI and labor and the upper bound on AI efficiency determine whether human labor remains a long-run production bottleneck or whether AI sustains permanently faster economic growth.</p>
 <p>In the equilibria where labor remains a long-run production bottleneck, output per worker and wages eventually grow at the exogenous rate of labor-augmenting technological progress, and labor’s income share converges to a positive value. This is the result when there is complementarity between labor and AI production services or when the upper bound on AI efficiency is sufficiently low.</p>
 <p>An AI-dominated long-run regime becomes possible when AI and labor are substitutes and the upper bound on AI efficiency is sufficiently high. As in <a href="#ref-jonesmanuelli1990">Jones and Manuelli (1990)</a>, capital accumulation can sustain growth when its limiting return remains sufficiently high. In this regime, capital and AI production services eventually grow faster than effective labor. This does not require AI efficiency to keep improving: capital accumulation and expanding compute use sustain growth even as AI efficiency approaches its upper bound. The long-run growth rates of output per worker and wages, as well as the interest rate, exceed their labor-bottleneck values. Because output per worker grows faster than wages, labor’s income share converges to zero. Total labor income therefore grows faster than in the labor-bottleneck regime, but in the long run it grows more slowly than capital income and AI-industry revenue. Greater substitutability raises long-run output-per-worker growth, but long-run wage growth peaks at a finite elasticity of substitution.</p>
 <p>I also characterize a competitive economy in which AI models and any improvements are freely available to all suppliers of AI production services. Without a private return to research, AI efficiency remains at its initial level. When AI and labor are substitutes, a sufficiently high initial efficiency nevertheless sustains AI-dominated growth through capital accumulation and expanding compute use. Neither monopoly nor continuing RSI is therefore necessary to sustain this growth regime.</p>
@@ -1378,8 +1378,42 @@
  \left(g_B+\alpha\frac{\dot k}{k}\right)\longrightarrow0.\]</span> Hence <span class="math inline">\(\dot y\to0\)</span> and <span class="math inline">\(\dot s_X\to0\)</span>. Since <span class="math inline">\(y_\infty&gt;0\)</span> and <span class="math inline">\(1-s_\infty&gt;0\)</span>, <span class="math inline">\(g_{Y/N}\to\gamma\)</span> and, by <a href="#eq:rewrite-wage">(12)</a>, <span class="math inline">\(g_w\to\gamma\)</span>. The limiting income shares follow by substituting <span class="math inline">\(s_\infty\)</span> into <a href="#eq:rewrite-wage">(12)</a> and <a href="#eq:rewrite-ai-price">(13)</a>. The result is conditional on equilibrium existence and <span class="math inline">\(B\to\infty\)</span>, not an equilibrium-existence theorem or an assumption of balanced growth. ◻</p>
 </div>
 <div class="proof">
-<p><em>Proof of Proposition <a href="#prop:rewrite-uncapped-unit-bgp">7</a>.</em> <span id="proof:rewrite-uncapped-unit-bgp" class="source-anchor"></span> I use the reference BGP rates and allocation ratios derived in Appendix <a href="#app:rewrite-uncapped-unit">C</a>, denoted by a superscript <span class="math inline">\(*\)</span>. Here <span class="math inline">\(k^*=K/Y\)</span> is a capital–output ratio, rather than capital per unit of effective labor. I first verify the reference BGP and then establish convergence from nearby initial stocks.</p>
-<p><em>The reference BGP.</em> First, all candidate ratios are positive. The denominator of the research share <span class="math inline">\(m^*\)</span>, <span class="math inline">\(\rho-n+\eta g_Y^*\)</span>, is positive. Moreover, <span class="math display">\[i^*=\frac{\alpha(g_Y^*+\delta)}{\rho-n+g_Y^*+\delta}&lt;\alpha,
+<p><em>Proof of Proposition <a href="#prop:rewrite-uncapped-unit-bgp">7</a>.</em> <span id="proof:rewrite-uncapped-unit-bgp" class="source-anchor"></span> I first construct and verify the reference BGP, denoted by a superscript <span class="math inline">\(*\)</span>, and then establish convergence from nearby initial stocks.</p>
+<p><em>The reference BGP.</em> At unit elasticity, <span class="math inline">\(s_X=\omega_X\)</span> and <span class="math inline">\(e_X=1-(1-\alpha)\omega_X\)</span>. The AI-demand and monopoly conditions, equations <a href="#eq:rewrite-ai-price">(13)</a> and <a href="#eq:rewrite-monopoly-foc">(19)</a>, give <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-static-shares" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+
+ \frac{p_XX}{Y}=(1-\alpha)\omega_X,\qquad
+ \frac UY=(1-\alpha)^2\omega_X^2.
+ \tag{114}
+\end{equation}\]</span></span> Substituting <span class="math inline">\(X=BU=(1-\alpha)^2\omega_X^2BY\)</span> into production yields <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-production" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+
+ Y^{1-(1-\alpha)\omega_X}
+ =K^\alpha(AL)^{(1-\alpha)\omega_L}
+ \bigl[(1-\alpha)^2\omega_X^2B\bigr]^{(1-\alpha)\omega_X}.
+ \tag{115}
+\end{equation}\]</span></span> On an exact BGP with positive constant <span class="math inline">\(K/Y\)</span>, <span class="math inline">\(C/Y\)</span>, and <span class="math inline">\(M/Y\)</span>, log differentiation of this equation and the RSI technology <a href="#eq:rewrite-uncapped-unit-law">(50)</a> gives the growth restrictions <a href="#eq:rewrite-uncapped-unit-production-growth">(60)</a> and <a href="#eq:rewrite-uncapped-unit-research-growth">(61)</a>. Define <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-feedback" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+
+ \Delta\equiv(1-\alpha)(1-\eta-\omega_X)&gt;0.
+ \tag{116}
+\end{equation}\]</span></span> Their unique solution has <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-output-growth" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+
+ g_Y^*=\frac{(1-\eta)(1-\omega_X)}{1-\eta-\omega_X}(n+\gamma),
+ \tag{117}
+\end{equation}\]</span></span> and <span class="math inline">\(g_B^*\)</span> as in <a href="#eq:rewrite-uncapped-unit-efficiency-growth">(66)</a>. The equality <span class="math inline">\(g_K=g_C=g_Y^*\)</span> follows from constant capital and consumption ratios; equations <a href="#eq:rewrite-wage">(12)</a> and <a href="#eq:rewrite-euler">(5)</a> then give <a href="#eq:rewrite-uncapped-unit-wage-growth">(63)</a> and <a href="#eq:rewrite-uncapped-unit-return">(64)</a>. Since <span class="math inline">\(n+\gamma&gt;0\)</span>, the two growth restrictions are inconsistent if <span class="math inline">\(\Delta=0\)</span> and imply <span class="math inline">\(g_B&lt;0\)</span> if <span class="math inline">\(\Delta&lt;0\)</span>, contrary to the RSI technology. Thus <span class="math inline">\(\eta+\omega_X\geq1\)</span> excludes this positive finite-rate BGP, not every possible equilibrium trajectory.</p>
+<p>Define the candidate ratios <span class="math inline">\(k^*=K/Y\)</span>, <span class="math inline">\(u^*=U/Y\)</span>, <span class="math inline">\(i^*=(\dot K+\delta K)/Y\)</span>, <span class="math inline">\(m^*=M/Y\)</span>, and <span class="math inline">\(c^*=C/Y\)</span> by <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-capital-inference" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-investment" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-research-share" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-consumption" class="equation-anchor"></span><span class="math display">\[\begin{align}
+
+ k^*&amp;=\frac{\alpha}{r^*+\delta},\qquad u^*=(1-\alpha)^2\omega_X^2,
+ \tag{118}\\
+
+ i^*&amp;=(g_Y^*+\delta)k^*,
+ \tag{119}\\
+
+ m^*&amp;=\frac{u^*\eta g_B^*}{\rho-n+\eta g_Y^*},
+ \tag{120}\\
+
+ c^*&amp;=1-u^*-i^*-m^*.
+ \tag{121}
+\end{align}\]</span></span> Here <span class="math inline">\(k^*\)</span> is a capital–output ratio, not capital per unit of effective labor, and <span class="math inline">\(i^*\)</span> is gross physical investment as a share of output. The research share comes from the developer’s first-order and costate conditions; the consumption share comes from market clearing. These ratios are endogenous, not fixed saving or research rules.</p>
+<p>All candidate ratios are positive. The denominator of the research share <span class="math inline">\(m^*\)</span>, <span class="math inline">\(\rho-n+\eta g_Y^*\)</span>, is positive. Moreover, <span class="math display">\[i^*=\frac{\alpha(g_Y^*+\delta)}{\rho-n+g_Y^*+\delta}&lt;\alpha,
  \qquad
  m^*&lt;\frac{u^*\eta}{1-\eta}.\]</span> Since <span class="math inline">\(\Delta=(1-\alpha)(1-\eta-\omega_X)&gt;0\)</span>, <span class="math inline">\(\omega_X&lt;1-\eta\)</span> and <span class="math inline">\(\omega_X&lt;1\)</span>. Consequently, <span class="math display">\[u^*+m^*&lt;\frac{u^*}{1-\eta}&lt;(1-\alpha)\omega_X&lt;1-\alpha,
  \qquad c^*=1-u^*-i^*-m^*&gt;0.\]</span> Thus positive consumption follows from the stated conditions; it is not an additional assumption.</p>
@@ -1389,28 +1423,28 @@
  A_0N_0(k^*)^{\alpha/[(1-\alpha)\omega_L]}(u^*)^{\omega_X/\omega_L}
  m^*\left(\frac{\chi}{g_B^*}\right)^{1/\eta}
  \right]^{\eta\omega_L/(1-\eta-\omega_X)},
- \tag{114}\\
+ \tag{122}\\
 
  Y_0^*&amp;=A_0N_0(k^*)^{\alpha/[(1-\alpha)\omega_L]}
  (u^*B_0^*)^{\omega_X/\omega_L},
  \qquad K_0^*=k^*Y_0^*.
- \tag{115}
+ \tag{123}
 \end{align}\]</span></span> The exponent is positive. These choices solve simultaneously the initial production equation and <span class="math inline">\(g_B^*B_0^*=\chi(B_0^*m^*Y_0^*)^\eta\)</span>. Set <span class="math inline">\(U_0^*=u^*Y_0^*\)</span>, <span class="math inline">\(M_0^*=m^*Y_0^*\)</span>, <span class="math inline">\(C_0^*=c^*Y_0^*\)</span>, <span class="math inline">\(X_0^*=B_0^*U_0^*\)</span>, and <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-initial-q" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  q_0^*=\frac{M_0^*}{\eta g_B^*B_0^*}.
- \tag{116}
+ \tag{124}
 \end{equation}\]</span></span> Let <span class="math inline">\(Y_t^*=Y_0^*e^{g_Y^*t}\)</span>, <span class="math inline">\(B_t^*=B_0^*e^{g_B^*t}\)</span>, <span class="math inline">\(K_t^*=k^*Y_t^*\)</span>, <span class="math inline">\(C_t^*=c^*Y_t^*\)</span>, <span class="math inline">\(U_t^*=u^*Y_t^*\)</span>, <span class="math inline">\(M_t^*=m^*Y_t^*\)</span>, and <span class="math inline">\(q_t^*=q_0^*e^{(g_Y^*-g_B^*)t}\)</span>. Use the exogenous <span class="math inline">\(A_t,N_t\)</span> and set <span class="math inline">\(L_t=N_t\)</span> and <span class="math inline">\(X_t^*=B_t^*U_t^*\)</span>. The static equilibrium equations determine all remaining quantities and prices.</p>
-<p>The two growth identities <a href="#eq:rewrite-uncapped-unit-production-growth">(60)</a> and <a href="#eq:rewrite-uncapped-unit-research-growth">(61)</a> ensure that the production equation and the RSI technology hold at every date once they hold initially. The static monopoly condition gives <span class="math inline">\(p_XX=(1-\alpha)\omega_XY\)</span> and <span class="math inline">\(U=u^*Y\)</span>. Equation <a href="#eq:rewrite-uncapped-unit-initial-q">(116)</a> gives <span class="math inline">\(M=\eta q\dot B\)</span>, which is the research first-order condition <a href="#eq:rewrite-eq-research">(28k)</a> with <span class="math inline">\(\psi=1\)</span>. The definitions of <span class="math inline">\(k^*\)</span>, <span class="math inline">\(r^*\)</span>, and <span class="math inline">\(c^*\)</span> verify the capital-return, Euler, and resource equations. The costate equation reduces to <span class="math display">\[g_Y^*-g_B^*
- =r^*-\frac{u^*\eta g_B^*}{m^*}-\eta g_B^*.\]</span> This holds by equation <a href="#eq:rewrite-uncapped-unit-research-share">(145)</a> and <span class="math inline">\((1-\eta)g_B^*=\eta g_Y^*\)</span>. All allocations are positive and finite at every finite date.</p>
+<p>The two growth identities <a href="#eq:rewrite-uncapped-unit-production-growth">(60)</a> and <a href="#eq:rewrite-uncapped-unit-research-growth">(61)</a> ensure that the production equation and the RSI technology hold at every date once they hold initially. Equation <a href="#eq:rewrite-uncapped-unit-initial-q">(124)</a> gives <span class="math inline">\(M=\eta q\dot B\)</span>, which is the research first-order condition <a href="#eq:rewrite-eq-research">(28k)</a> with <span class="math inline">\(\psi=1\)</span>. The definitions of <span class="math inline">\(k^*\)</span>, <span class="math inline">\(r^*\)</span>, and <span class="math inline">\(c^*\)</span> verify the capital-return, Euler, and resource equations. The costate equation reduces to <span class="math display">\[g_Y^*-g_B^*
+ =r^*-\frac{u^*\eta g_B^*}{m^*}-\eta g_B^*.\]</span> This holds by equation <a href="#eq:rewrite-uncapped-unit-research-share">(120)</a> and <span class="math inline">\((1-\eta)g_B^*=\eta g_Y^*\)</span>. All allocations are positive and finite at every finite date.</p>
 <p>Both transversality conditions are explicit: <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-household-tvc" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-developer-tvc" class="equation-anchor"></span><span class="math display">\[\begin{align}
 
  e^{-\rho t}\frac{N_tK_t^*}{C_t^*}
  &amp;=\frac{N_0k^*}{c^*}e^{-(\rho-n)t}\longrightarrow0,
- \tag{117}\\
+ \tag{125}\\
 
  e^{-r^*t}q_t^*B_t^*
  &amp;=q_0^*B_0^*e^{-(\rho-n)t}\longrightarrow0.
- \tag{118}
+ \tag{126}
 \end{align}\]</span></span> Discounted developer profit is a constant multiple of <span class="math inline">\(e^{-(\rho-n)t}\)</span>. Discounted household utility is <span class="math inline">\(N_0e^{-(\rho-n)t}[\log(C_0^*/N_0)+(g_Y^*-n)t]\)</span>. Both improper objective integrals are finite.</p>
 <p>It remains to establish global optimality, rather than only satisfaction of the necessary conditions. At given paths of <span class="math inline">\(K,A,L\)</span>, static optimization gives <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-profit" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
@@ -1419,13 +1453,13 @@
  \bigl[K_t^\alpha(A_tL_t)^{(1-\alpha)\omega_L}\bigr]^{1/[1-(1-\alpha)\omega_X]}\\
  &amp;\times\bigl[(1-\alpha)^2\omega_X^2B\bigr]^{(1-\alpha)\omega_X/[1-(1-\alpha)\omega_X]}.
  \end{split}
- \tag{119}
+ \tag{127}
 \end{equation}\]</span></span> To verify developer optimality by concavity, define the invertible state transformation and its current-value costate by <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-transformed-state" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \nu=\frac{1-\eta}{\eta},\qquad
  S=B^\nu,\qquad p=\frac{q}{\nu B^{\nu-1}}.
- \tag{120}
-\end{equation}\]</span></span> The RSI technology becomes <span class="math display">\[\dot S=\nu\chi S^{1-\eta}M^\eta,\]</span> which is jointly concave in <span class="math inline">\(S,M\)</span> for every <span class="math inline">\(0&lt;\eta&lt;1\)</span>. At given <span class="math inline">\(K,A,L\)</span>, equation <a href="#eq:rewrite-uncapped-unit-profit">(119)</a> is a positive time-dependent coefficient times <span class="math display">\[S^{\frac{(1-\alpha)\omega_X}
+ \tag{128}
+\end{equation}\]</span></span> The RSI technology becomes <span class="math display">\[\dot S=\nu\chi S^{1-\eta}M^\eta,\]</span> which is jointly concave in <span class="math inline">\(S,M\)</span> for every <span class="math inline">\(0&lt;\eta&lt;1\)</span>. At given <span class="math inline">\(K,A,L\)</span>, equation <a href="#eq:rewrite-uncapped-unit-profit">(127)</a> is a positive time-dependent coefficient times <span class="math display">\[S^{\frac{(1-\alpha)\omega_X}
  {\nu[1-(1-\alpha)\omega_X]}}.\]</span> Since <span class="math inline">\(\eta+\omega_X&lt;1\)</span> implies <span class="math inline">\((1-\alpha)\omega_X&lt;1-\eta\)</span>, this exponent lies strictly between zero and one. Operating profit is therefore concave in <span class="math inline">\(S\)</span>. With <span class="math inline">\(p&gt;0\)</span>, the transformed Hamiltonian <span class="math inline">\(\pi_t(S^{1/\nu})-M+p_t\nu\chi S^{1-\eta}M^\eta\)</span> is jointly concave. The research condition <a href="#eq:rewrite-research-foc">(22)</a> and costate equation <a href="#eq:rewrite-costate">(23)</a>, with <span class="math inline">\(\psi=1\)</span>, give its control first-order condition and costate equation by the chain rule.</p>
 <p>Write <span class="math inline">\(D_t=\exp(-\int_0^t r_s\,\mathrm{d}s)\)</span> and <span class="math inline">\(J_T=\int_0^T D_t[\pi_t(B_t)-M_t]\,\mathrm{d}t\)</span>. For any admissible alternative with the same initial <span class="math inline">\(B\)</span>, concavity, the research condition, and the costate equation give, after integration by parts, <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-developer-verification" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
@@ -1433,7 +1467,7 @@
  \leq-D_Tp_T(\widetilde S_T-S_T)
  \leq D_Tp_TS_T
  =\frac{D_Tq_TB_T}{\nu}\longrightarrow0.
- \tag{121}
+ \tag{129}
 \end{equation}\]</span></span> The last limit follows from the developer TVC. Since the transformation preserves feasible research paths and their payoffs, no admissible alternative has a greater limiting payoff, or a greater upper limit of truncated payoff, than this finite-valued candidate. The same verification applies to nearby candidates satisfying the uncapped equations and the developer TVC; it does not require exact balanced growth.</p>
 <p>For the household, set <span class="math inline">\(\Lambda_t=e^{-\rho t}N_t/C_t\)</span>. Euler implies <span class="math inline">\(\dot\Lambda=-r\Lambda\)</span>. Concavity of log utility and the linear budget give, for any feasible alternative with the same <span class="math inline">\(K_0\)</span> and the same given prices and developer net profit, <span class="math display">\[\int_0^T e^{-\rho t}N_t
  \left[\log(\widetilde C_t/N_t)-\log(C_t/N_t)\right]\,\mathrm{d}t
@@ -1441,35 +1475,51 @@
  \leq\Lambda_TK_T\longrightarrow0.\]</span> This establishes global household optimality.</p>
 <p>Competitive final-good firms face a concave constant-returns technology, and Lemma <a href="#lem:rewrite-monopoly-choice">1</a> establishes global static monopoly optimality. The constructed path satisfies Definition <a href="#def:rewrite-equilibrium">1</a> with the uncapped RSI technology <a href="#eq:rewrite-uncapped-unit-law">(50)</a>.</p>
 <p><em>Local convergence from nearby initial stocks.</em></p>
-<p><span id="proof:rewrite-uncapped-unit-local" class="source-anchor"></span> Use the ordering <span class="math inline">\(\xi=(\xi_K,\xi_B,\xi_C,\xi_q)&#39;\)</span> in <a href="#eq:rewrite-uncapped-unit-deviations">(147)</a>, and let <span class="math inline">\(e_K,e_B,e_C,e_q\)</span> be the corresponding unit row vectors. Define the row vectors <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-output-row" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-research-row" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-efficiency-row" class="equation-anchor"></span><span class="math display">\[\begin{align}
+<p><span id="proof:rewrite-uncapped-unit-local" class="source-anchor"></span> For the given exogenous paths of population and labor-augmenting technology, compare each variable with its value on the reference BGP at the same date. Define log deviations <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-deviations" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+
+ \xi_K=\log\frac K{K^*},\quad
+ \xi_B=\log\frac B{B^*},\quad
+ \xi_C=\log\frac C{C^*},\quad
+ \xi_q=\log\frac q{q^*}.
+ \tag{130}
+\end{equation}\]</span></span> Time subscripts are suppressed: the reference quantities in the denominators follow the BGP rather than remain fixed at their initial values. Substitution into equations <a href="#eq:rewrite-eq-kdot">(29a)</a>–<a href="#eq:rewrite-eq-qdot">(29d)</a>, with <span class="math inline">\(\psi=1\)</span> and <span class="math inline">\(\psi&#39;=0\)</span>, gives a smooth autonomous system <span class="math inline">\(\dot\xi=f(\xi)\)</span> with <span class="math inline">\(f(0)=0\)</span>, where <span class="math inline">\(\xi=(\xi_K,\xi_B,\xi_C,\xi_q)&#39;\)</span>. Let <span class="math inline">\(J^*=Df(0)\)</span> denote its Jacobian, and let <span class="math inline">\(e_K,e_B,e_C,e_q\)</span> be the corresponding unit row vectors. No constant growth rates or allocation shares are imposed along these transitions. Define the row vectors <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-output-row" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-research-row" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-efficiency-row" class="equation-anchor"></span><span class="math display">\[\begin{align}
 
  y_\xi&amp;=\left(\frac{\alpha}{1-(1-\alpha)\omega_X},
  \frac{(1-\alpha)\omega_X}{1-(1-\alpha)\omega_X},0,0\right),
- \tag{122}\\
+ \tag{131}\\
 
  m_\xi&amp;=\frac{\eta e_B+e_q}{1-\eta},
- \tag{123}\\
+ \tag{132}\\
 
  b_\xi&amp;=g_B^*[(\eta-1)e_B+\eta m_\xi].
- \tag{124}
+ \tag{133}
 \end{align}\]</span></span> The reduced production equation gives the log deviation of output as <span class="math inline">\(y_\xi\xi\)</span>. The research FOC implies <span class="math inline">\(M=(q\chi\eta B^\eta)^{1/(1-\eta)}\)</span>, so the log deviation of <span class="math inline">\(M\)</span> is <span class="math inline">\(m_\xi\xi\)</span>. Differentiating <span class="math inline">\(g_B=\chi B^{\eta-1}M^\eta\)</span> at the BGP gives the level deviation <span class="math inline">\(b_\xi\xi\)</span>.</p>
 <p>The four rows of <span class="math inline">\(J^*\)</span>, derived from capital accumulation, AI research, the household Euler equation, and the developer costate equation, are <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-jacobian-k" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-jacobian-b" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-jacobian-c" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-jacobian-q" class="equation-anchor"></span><span class="math display">\[\begin{align}
 
  J_K^*&amp;=\frac{1-u^*}{k^*}y_\xi-(g_Y^*+\delta)e_K
  -\frac{c^*}{k^*}e_C-\frac{m^*}{k^*}m_\xi,
- \tag{125}\\
+ \tag{134}\\
 
  J_B^*&amp;=b_\xi,
- \tag{126}\\
+ \tag{135}\\
 
  J_C^*&amp;=(r^*+\delta)(y_\xi-e_K),
- \tag{127}\\
+ \tag{136}\\
 
  J_q^*&amp;=(r^*+\delta)(y_\xi-e_K)
  -(\rho-n+\eta g_Y^*)(y_\xi-e_q-e_B)-\eta b_\xi.
- \tag{128}
+ \tag{137}
 \end{align}\]</span></span> The last row uses <span class="math inline">\(U/(qB)=\rho-n+\eta g_Y^*\)</span> at the BGP. All entries depend on growth rates and ratios, which are independent of <span class="math inline">\(\chi\)</span>. No terminal restrictions were used to derive this Jacobian.</p>
-<p>I next establish the two local properties <a href="#eq:rewrite-uncapped-unit-local-spectrum">(148)</a> and <a href="#eq:rewrite-uncapped-unit-local-projection">(149)</a> from the parameter restrictions, rather than impose them. Retain <span class="math inline">\(\nu\)</span> from <a href="#eq:rewrite-uncapped-unit-transformed-state">(120)</a> and, for this linearization, define <span class="math display">\[\begin{align*}
+<p>I next establish two properties needed for local convergence from nearby initial stocks. First, writing <span class="math inline">\(E^s\)</span> for the real invariant subspace associated with eigenvalues having negative real parts, I show that <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-local-spectrum" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+
+ \operatorname{spec}(J^*)\cap i\mathbb R=\varnothing,
+ \qquad \dim E^s=2.
+ \tag{138}
+\end{equation}\]</span></span> Second, let <span class="math inline">\(V_S\in\mathbb R^{4\times2}\)</span> be any real basis matrix for <span class="math inline">\(E^s\)</span>, and let <span class="math inline">\(V_{KB}\)</span> consist of its first two rows. I show that <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-local-projection" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+
+ \det V_{KB}\ne0.
+ \tag{139}
+\end{equation}\]</span></span> This nonsingularity allows the stable manifold to select <span class="math inline">\(C_0,q_0\)</span> for every sufficiently close pair <span class="math inline">\(K_0,B_0\)</span>, rather than only for stocks on a curve. Both properties follow from the parameter restrictions, rather than being additional assumptions. Retain <span class="math inline">\(\nu\)</span> from <a href="#eq:rewrite-uncapped-unit-transformed-state">(128)</a> and, for this linearization, define <span class="math display">\[\begin{align*}
  a_K&amp;=\frac{\alpha}{1-(1-\alpha)\omega_X},&amp;
  a_T&amp;=\frac{(1-\alpha)\omega_X\eta}
  {[1-(1-\alpha)\omega_X](1-\eta)},\\
@@ -1479,8 +1529,8 @@
  1-a_K-a_T
  =\frac{(1-\alpha)(1-\eta-\omega_X)}
  {[1-(1-\alpha)\omega_X](1-\eta)}&gt;0.
- \tag{129}
-\end{equation}\]</span></span> Make the invertible linear change of deviations <span class="math display">\[\widehat\xi=(\xi_K,\nu\xi_B,\xi_C,\xi_q+(1-\nu)\xi_B)&#39;.\]</span> The second and fourth coordinates are the log deviations of the transformed state <span class="math inline">\(S\)</span> and its shadow price <span class="math inline">\(p\)</span>. This changes neither the model nor the eigenvalues. Applying it to <a href="#eq:rewrite-uncapped-unit-jacobian-k">(125)</a>–<a href="#eq:rewrite-uncapped-unit-jacobian-q">(128)</a> gives a similar matrix <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-local-similarity" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+ \tag{140}
+\end{equation}\]</span></span> Make the invertible linear change of deviations <span class="math display">\[\widehat\xi=(\xi_K,\nu\xi_B,\xi_C,\xi_q+(1-\nu)\xi_B)&#39;.\]</span> The second and fourth coordinates are the log deviations of the transformed state <span class="math inline">\(S\)</span> and its shadow price <span class="math inline">\(p\)</span>. This changes neither the model nor the eigenvalues. Applying it to <a href="#eq:rewrite-uncapped-unit-jacobian-k">(134)</a>–<a href="#eq:rewrite-uncapped-unit-jacobian-q">(137)</a> gives a similar matrix <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-local-similarity" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \widehat J=
  \begin{pmatrix}
@@ -1489,7 +1539,7 @@
   -\mathsf G&amp;\mathsf H&amp;0&amp;0\\
   -\mathsf E&amp;\mathsf F&amp;0&amp;d
  \end{pmatrix},
- \tag{130}
+ \tag{141}
 \end{equation}\]</span></span> where the following letters abbreviate matrix coefficients only: <span class="math display">\[\begin{align*}
  \mathsf A&amp;=d+(1-\alpha)\omega_X P,&amp;
  \mathsf B&amp;=\frac{(1-u^*)a_T-m^*}{k^*},&amp;
@@ -1504,11 +1554,11 @@
 
  \mathsf L&amp;\equiv\mathsf B-\frac{\mathsf Vd}{\mathsf D}
  =\frac{(1-\alpha)\omega_X\eta}{(1-\eta)k^*}&gt;0,
- \tag{131}\\
+ \tag{142}\\
 
  \mathsf G\mathsf F-\mathsf H\mathsf E
  &amp;=hP(1-a_K-a_T)&gt;0.
- \tag{132}
+ \tag{143}
 \end{align}\]</span></span> Set <span class="math inline">\(\mathsf N=\mathsf C\mathsf G+\mathsf V\mathsf E&gt;0\)</span> and <span class="math inline">\(\mathsf Q=\mathsf C\mathsf H+\mathsf V\mathsf F&gt;0\)</span>. Expanding the determinant gives the characteristic polynomial <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-local-polynomial" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \begin{split}
@@ -1517,14 +1567,28 @@
  (\ell^2-d\ell-\mathsf D\mathsf F)
  -\mathsf D\mathsf E(\mathsf Q-\mathsf L\ell).
  \end{split}
- \tag{133}
-\end{equation}\]</span></span> In particular, <span class="math display">\[p(0)=\mathsf D\mathsf C hP(1-a_K-a_T)&gt;0.\]</span> Let <span class="math inline">\(\mu=(d-\sqrt{d^2+4\mathsf D\mathsf F})/2&lt;0\)</span>, the negative root of the second quadratic factor. Then <span class="math inline">\(p(\mu)=-\mathsf D\mathsf E(\mathsf Q-\mathsf L\mu)&lt;0\)</span>. Since <span class="math inline">\(p(\ell)\to+\infty\)</span> as <span class="math inline">\(\ell\to-\infty\)</span>, there is one negative root below <span class="math inline">\(\mu\)</span> and another between <span class="math inline">\(\mu\)</span> and zero. These are the only negative roots: the cubic coefficient of <span class="math inline">\(p\)</span> is <span class="math inline">\(-(\mathsf A+d)&lt;0\)</span>, its linear coefficient is <span class="math inline">\(\mathsf A\mathsf D\mathsf F+d\mathsf N+\mathsf L\mathsf D\mathsf E&gt;0\)</span>, and its constant coefficient is positive. Thus the coefficient signs of <span class="math inline">\(p(-x)\)</span>, in descending powers, are <span class="math inline">\((+,+,\text{arbitrary},-,+)\)</span>. Descartes’ rule of signs gives exactly two sign changes, regardless of the quadratic coefficient. The two negative roots are therefore real, distinct, and simple. Write them as <span class="math inline">\(\ell_1&lt;\mu&lt;\ell_2&lt;0\)</span>. The remaining two roots have positive product and positive sum, because <span class="math inline">\(p(0)&gt;0\)</span> and the sum of all four roots is <span class="math inline">\(\mathsf A+d&gt;0\)</span>. If real, both are positive; if complex, their real parts are positive. This proves <a href="#eq:rewrite-uncapped-unit-local-spectrum">(148)</a>.</p>
-<p>To establish nonsingularity of the projection onto the two stocks, write a stable eigenvector in transformed coordinates as <span class="math inline">\((x,y,z,u)&#39;\)</span>. Its second component cannot be zero: the second, fourth, and first rows would successively imply <span class="math inline">\(u=x=z=0\)</span>. Normalize <span class="math inline">\(y=1\)</span>. The second and fourth rows then give <span class="math display">\[x(\ell)=\frac{\mathsf D\mathsf F+d\ell-\ell^2}{\mathsf D\mathsf E}.\]</span> The ordering of the roots implies <span class="math inline">\(x(\ell_1)&lt;0&lt;x(\ell_2)\)</span>. Hence the two projected stable eigenvectors <span class="math inline">\((x(\ell_1),1)&#39;\)</span> and <span class="math inline">\((x(\ell_2),1)&#39;\)</span> are linearly independent. Returning to <span class="math inline">\((\xi_K,\xi_B)\)</span> only rescales their second component by <span class="math inline">\(1/\nu&gt;0\)</span>, so <a href="#eq:rewrite-uncapped-unit-local-projection">(149)</a> follows as well.</p>
+ \tag{144}
+\end{equation}\]</span></span> In particular, <span class="math display">\[p(0)=\mathsf D\mathsf C hP(1-a_K-a_T)&gt;0.\]</span> Let <span class="math inline">\(\mu=(d-\sqrt{d^2+4\mathsf D\mathsf F})/2&lt;0\)</span>, the negative root of the second quadratic factor. Then <span class="math inline">\(p(\mu)=-\mathsf D\mathsf E(\mathsf Q-\mathsf L\mu)&lt;0\)</span>. Since <span class="math inline">\(p(\ell)\to+\infty\)</span> as <span class="math inline">\(\ell\to-\infty\)</span>, there is one negative root below <span class="math inline">\(\mu\)</span> and another between <span class="math inline">\(\mu\)</span> and zero. These are the only negative roots: the cubic coefficient of <span class="math inline">\(p\)</span> is <span class="math inline">\(-(\mathsf A+d)&lt;0\)</span>, its linear coefficient is <span class="math inline">\(\mathsf A\mathsf D\mathsf F+d\mathsf N+\mathsf L\mathsf D\mathsf E&gt;0\)</span>, and its constant coefficient is positive. Thus the coefficient signs of <span class="math inline">\(p(-x)\)</span>, in descending powers, are <span class="math inline">\((+,+,\text{arbitrary},-,+)\)</span>. Descartes’ rule of signs gives exactly two sign changes, regardless of the quadratic coefficient. The two negative roots are therefore real, distinct, and simple. Write them as <span class="math inline">\(\ell_1&lt;\mu&lt;\ell_2&lt;0\)</span>. The remaining two roots have positive product and positive sum, because <span class="math inline">\(p(0)&gt;0\)</span> and the sum of all four roots is <span class="math inline">\(\mathsf A+d&gt;0\)</span>. If real, both are positive; if complex, their real parts are positive. This proves <a href="#eq:rewrite-uncapped-unit-local-spectrum">(138)</a>.</p>
+<p>To establish nonsingularity of the projection onto the two stocks, write a stable eigenvector in transformed coordinates as <span class="math inline">\((x,y,z,u)&#39;\)</span>. Its second component cannot be zero: the second, fourth, and first rows would successively imply <span class="math inline">\(u=x=z=0\)</span>. Normalize <span class="math inline">\(y=1\)</span>. The second and fourth rows then give <span class="math display">\[x(\ell)=\frac{\mathsf D\mathsf F+d\ell-\ell^2}{\mathsf D\mathsf E}.\]</span> The ordering of the roots implies <span class="math inline">\(x(\ell_1)&lt;0&lt;x(\ell_2)\)</span>. Hence the two projected stable eigenvectors <span class="math inline">\((x(\ell_1),1)&#39;\)</span> and <span class="math inline">\((x(\ell_2),1)&#39;\)</span> are linearly independent. Returning to <span class="math inline">\((\xi_K,\xi_B)\)</span> only rescales their second component by <span class="math inline">\(1/\nu&gt;0\)</span>, so <a href="#eq:rewrite-uncapped-unit-local-projection">(139)</a> follows as well.</p>
 <p>The exact normalized vector field is continuously differentiable near <span class="math inline">\(\xi=0\)</span>. The spectral property just proved and the stable-manifold theorem supply a two-dimensional local manifold whose trajectories remain near zero and converge exponentially. The derivative of its projection onto <span class="math inline">\((\xi_K,\xi_B)\)</span> is <span class="math inline">\(V_{KB}\)</span>. The nonsingularity just proved and the inverse-function theorem therefore make this manifold locally the graph of a continuously differentiable function selecting <span class="math inline">\((\xi_C,\xi_q)\)</span> from the two initial stock deviations. Since exponentiation is a local diffeomorphism, the same holds for <span class="math inline">\((C_0,q_0)\)</span> as functions of <span class="math inline">\((K_0,B_0)\)</span>. More explicitly, for some constants <span class="math inline">\(a,H&gt;0\)</span>, trajectories on a sufficiently small stable manifold satisfy <span class="math display">\[\|\xi(t)\|\leq H e^{-at}\|\xi(0)\|,\qquad t\geq0.\]</span> For any sufficiently small open neighborhood <span class="math inline">\(\mathcal V\)</span> of zero, choose a ball contained in <span class="math inline">\(\mathcal V\)</span>. Continuity of the graph selecting the two jump variables permits an open neighborhood <span class="math inline">\(\mathcal U\)</span> of the initial stock deviations for which <span class="math inline">\(H\|\xi(0)\|\)</span> is smaller than that ball’s radius. Every initial stock pair in <span class="math inline">\(\mathcal U\)</span> therefore has a trajectory staying in <span class="math inline">\(\mathcal V\)</span> for all <span class="math inline">\(t\geq0\)</span> and converging to zero. Exponentiation maps <span class="math inline">\(\mathcal U\)</span> to an open neighborhood of <span class="math inline">\((K_0^*,B_0^*)\)</span>. Shrinking these neighborhoods preserves positivity, feasibility, and existence for every <span class="math inline">\(t\geq0\)</span>. Local uniqueness follows because every trajectory remaining in this local region and converging to zero belongs to the same stable manifold, which is a graph over stocks. This does not assert convergence from arbitrary initial <span class="math inline">\(C_0,q_0\)</span> or exclude equilibrium trajectories that leave the region.</p>
-<p>The statement also permits nearby <span class="math inline">\(A_0,N_0\)</span>. Equations <a href="#eq:rewrite-uncapped-unit-initial-b">(114)</a> and <a href="#eq:rewrite-uncapped-unit-initial-y-k">(115)</a> make the reference <span class="math inline">\(B_0^*,K_0^*\)</span> smooth functions of these two positive initial values. After normalization by the corresponding BGP, the exact vector field depends only on the parameters and BGP ratios, not on <span class="math inline">\(A_0,N_0\)</span>. The set of <span class="math inline">\((A_0,N_0,K_0,B_0)\)</span> whose stock deviations belong to <span class="math inline">\(\mathcal U\)</span> is therefore open and contains the reference initial condition. From each such initial condition, the construction converges to the BGP associated with its own <span class="math inline">\(A_0,N_0\)</span>, not necessarily to the same levels as the original reference path.</p>
+<p>The statement also permits nearby <span class="math inline">\(A_0,N_0\)</span>. Equations <a href="#eq:rewrite-uncapped-unit-initial-b">(122)</a> and <a href="#eq:rewrite-uncapped-unit-initial-y-k">(123)</a> make the reference <span class="math inline">\(B_0^*,K_0^*\)</span> smooth functions of these two positive initial values. After normalization by the corresponding BGP, the exact vector field depends only on the parameters and BGP ratios, not on <span class="math inline">\(A_0,N_0\)</span>. The set of <span class="math inline">\((A_0,N_0,K_0,B_0)\)</span> whose stock deviations belong to <span class="math inline">\(\mathcal U\)</span> is therefore open and contains the reference initial condition. From each such initial condition, the construction converges to the BGP associated with its own <span class="math inline">\(A_0,N_0\)</span>, not necessarily to the same levels as the original reference path.</p>
 <p>Since <span class="math inline">\(f(\xi(t))\to0\)</span>, growth rates converge to their BGP values, not only normalized levels. The static equations give the same convergence for the interest rate, wage growth, and allocation ratios. The unit-elastic labor income share remains <span class="math inline">\((1-\alpha)\omega_L\)</span> at every date.</p>
-<p>Exponential convergence implies that <span class="math inline">\(r_t-r^*\)</span> is integrable. Thus <span class="math inline">\(D_t/e^{-r^*t}\)</span> tends to a finite positive constant, and both TVC expressions equal their BGP counterparts in <a href="#eq:rewrite-uncapped-unit-household-tvc">(117)</a> and <a href="#eq:rewrite-uncapped-unit-developer-tvc">(118)</a> times factors tending to finite positive limits. Both TVCs hold. Output and all expenditure flows are bounded multiples of <span class="math inline">\(e^{g_Y^*t}\)</span>, while log consumption per person is a linear function of time plus a bounded deviation. Both objective integrals therefore remain finite. The global concavity verification established above applies at these new price and allocation paths, proving agent optimality. Static optimality and market clearing then establish equilibrium, not merely a solution of the necessary conditions. ◻</p>
+<p>Exponential convergence implies that <span class="math inline">\(r_t-r^*\)</span> is integrable. Thus <span class="math inline">\(D_t/e^{-r^*t}\)</span> tends to a finite positive constant, and both TVC expressions equal their BGP counterparts in <a href="#eq:rewrite-uncapped-unit-household-tvc">(125)</a> and <a href="#eq:rewrite-uncapped-unit-developer-tvc">(126)</a> times factors tending to finite positive limits. Both TVCs hold. Output and all expenditure flows are bounded multiples of <span class="math inline">\(e^{g_Y^*t}\)</span>, while log consumption per person is a linear function of time plus a bounded deviation. Both objective integrals therefore remain finite. The global concavity verification established above applies at these new price and allocation paths, proving agent optimality. Static optimality and market clearing then establish equilibrium, not merely a solution of the necessary conditions. ◻</p>
 </div>
+<p>The BGP allocations also give the income shares <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-distribution" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+
+ \frac{wL}{Y}=(1-\alpha)\omega_L&gt;0,\qquad
+ \frac{(r+\delta)K}{Y}=\alpha,\qquad
+ \frac{\Pi}{Y}=(1-\alpha)\omega_X-u^*-m^*.
+ \tag{145}
+\end{equation}\]</span></span> Within the restrictions of Proposition <a href="#prop:rewrite-uncapped-unit-bgp">7</a>, increasing the AI weight raises the common growth rate and the interest rate: <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-comparative-statics" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+
+ \frac{\partial g_{Y/N}^*}{\partial\omega_X}
+ =\frac{\partial g_w^*}{\partial\omega_X}
+ =\frac{\partial r^*}{\partial\omega_X}
+ =\frac{\eta(1-\eta)(n+\gamma)}{(1-\eta-\omega_X)^2}&gt;0.
+ \tag{146}
+\end{equation}\]</span></span> Labor’s income share falls across these parameterizations, but remains constant over time on each BGP. As <span class="math inline">\(\omega_X\to0^+\)</span>, the common per-worker growth rate converges to <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(r^*\to\rho+\gamma\)</span>. These comparisons concern BGPs, not a transition from a no-AI economy.</p>
 <div class="proof">
 <p><em>Proof of Proposition <a href="#prop:rewrite-research-scale">8</a>.</em> <span id="proof:rewrite-research-scale" class="source-anchor"></span> I construct a sequence of research trajectories whose discounted net profit grows without bound, although each trajectory has finite expenditure and AI efficiency. Write <span class="math inline">\(\theta=(1-\alpha)/\alpha\)</span>. For a research trajectory <span class="math inline">\(\{M_t\}_{t\in[0,T]}\)</span>, discounted net profit on the fixed horizon is <span class="math display">\[J_T(M)=\int_0^T
  \exp\left\{-\int_0^t r_s\,\mathrm{d}s\right\}
@@ -1538,7 +1602,7 @@
  J_T(\mathcal M)\geq c_\pi\mathcal M^{
  \eta(1-\alpha)/[\alpha(1-\eta)]}
  -c_M\mathcal M,
- \tag{134}
+ \tag{147}
 \end{equation}\]</span></span> where <span class="math inline">\(c_\pi,c_M&gt;0\)</span> are independent of <span class="math inline">\(\mathcal M\)</span>. The exponent exceeds one because <span class="math inline">\(\eta&gt;\alpha\)</span>, so <span class="math inline">\(J_T(\mathcal M)\to+\infty\)</span> as <span class="math inline">\(\mathcal M\to\infty\)</span>. Each finite <span class="math inline">\(\mathcal M\)</span> keeps AI efficiency and discounted net profit finite on <span class="math inline">\([0,T]\)</span>; it is the sequence of payoffs that is unbounded.</p>
 <p>To compare with an infinite-horizon equilibrium candidate, extend the deviation after <span class="math inline">\(T\)</span> using the candidate’s subsequent research expenditure. Once the initial research phase leaves AI efficiency above the candidate’s level at <span class="math inline">\(T\)</span>, subsequent operating profits cannot be lower than along that candidate. ◻</p>
 </div>
@@ -1558,14 +1622,14 @@
  r_t\leq\mathcal R(B_t)\leq\mathcal R(\overline B)&lt;\rho+\gamma,
  \qquad
  \frac{Y_t}{K_t}\leq\frac{\mathcal R(\overline B)+\delta}{\alpha}.
- \tag{135}
+ \tag{148}
 \end{equation}\]</span></span> The present value of the developer’s net profit from any date onward is nonnegative: it can stop research and earn nonnegative operating profit. Wage income is also nonnegative. Integrating the household budget <a href="#eq:rewrite-household-budget">(4)</a>, using its transversality condition <a href="#eq:rewrite-household-tvc">(6)</a> and the Euler equation <a href="#eq:rewrite-euler">(5)</a>, therefore gives the first inequality below; integrating the Euler equation with the return bound gives the second: <span class="manuscript-equation"><span id="eq:rewrite-low-cap-consumption-bound" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  C_t\geq(\rho-n)K_t,
  \qquad
  \frac{C_t}{N_t}\leq\frac{C_0}{N_0}
  e^{[\mathcal R(\overline B)-\rho]t}.
- \tag{136}
+ \tag{149}
 \end{equation}\]</span></span> Combining these inequalities yields <span class="manuscript-equation"><span id="eq:rewrite-low-cap-growth-bound" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \frac{Y_t}{N_t}\leq
@@ -1575,7 +1639,7 @@
  \limsup_{t\to\infty}\frac1t
  \log\left(\frac{Y_t/N_t}{Y_0/N_0}\right)
  \leq\mathcal R(\overline B)-\rho&lt;\gamma.
- \tag{137}
+ \tag{150}
 \end{equation}\]</span></span> Consequently <span class="math inline">\(Y/(AL)\to0\)</span>. Since equation <a href="#eq:rewrite-ai-output-limit">(32)</a> gives <span class="math inline">\(X/Y\leq\overline B(1-\alpha)^2\)</span> under complementarity, <span class="math inline">\(X/(AL)\to0\)</span>: AI production services become scarce relative to effective labor. Equation <a href="#eq:rewrite-sx">(10)</a> then implies <span class="math inline">\(s_X\to1\)</span> and hence <span class="math inline">\(wL/Y\to0\)</span>. The growth bound concerns the long-run average, not convergence of the instantaneous growth rate. Neither convergence of <span class="math inline">\(C/Y\)</span> nor <span class="math inline">\(B_t\to\overline B\)</span> is assumed. The growth bound and vanishing labor share are necessary properties of any equilibrium in this region, not a proof of equilibrium existence. ◻</p>
 </div>
 <h1 id="app:rewrite-algorithm"><span class="section-number">B</span> Numerical algorithm and equilibrium audit</h1>
@@ -1682,9 +1746,9 @@
  \widehat{\mathcal H}_t(R_{B,t})
  -\widehat{\mathcal H}&#39;_t(R_{B,t})(R_{B,t}-R_{B,0})
  \geq\widehat{\mathcal H}_t(R_B(B_*)).
- \tag{138}
+ \tag{151}
 \end{equation}\]</span></span> Above <span class="math inline">\(B_*\)</span> the tangent bound follows from concavity. Below <span class="math inline">\(B_*\)</span> the Hamiltonian is increasing in <span class="math inline">\(B\)</span>, so its value is at most the right-hand side, whereas the tangent is minimized at <span class="math inline">\(R_{B,0}\)</span>.</p>
-<p>Along an AI-dominated continuation, the difference between the two sides of <a href="#eq:rewrite-support-terminal-bound">(138)</a>, divided by <span class="math inline">\(Y_t\)</span>, converges to <span class="math display">\[\alpha(1-\alpha)
+<p>Along an AI-dominated continuation, the difference between the two sides of <a href="#eq:rewrite-support-terminal-bound">(151)</a>, divided by <span class="math inline">\(Y_t\)</span>, converges to <span class="math display">\[\alpha(1-\alpha)
  \left[1-\left(\frac{B_*}{\overline B}\right)^{(1-\alpha)/\alpha}\right]&gt;0.\]</span> To obtain this limit, use <span class="math inline">\(M/Y\to0\)</span>, <span class="math inline">\(\psi(B)R_B\to0\)</span>, and <span class="math inline">\(\pi(B_*)/Y\to\alpha(1-\alpha)(B_*/\overline B)^{(1-\alpha)/\alpha}\)</span>. Thus the global support condition holds sufficiently late on this continuation even when the stronger curvature condition fails at low counterfactual AI-efficiency levels. The finite transition still requires its own support check.</p>
 <h2 id="app:rewrite-competitive-transition-numerics"><span class="section-number">B.5</span> Transitions from competition to monopoly</h2>
 <h4 id="starting-from-a-competitive-labor-bottleneck-path.">Starting from a competitive labor-bottleneck path.</h4>
@@ -1703,80 +1767,6 @@
 <p>The <a href="https://github.com/oliverpardo1979/ai-growth-and-labor/tree/main/numerical_rewrite/rsi_chi_7_5">higher-productivity results folder</a> and <a href="https://github.com/oliverpardo1979/ai-growth-and-labor/tree/main/numerical_rewrite/rsi_chi_1_5">lower-productivity results folder</a> contain the scenario inputs, validated CSV files, outcome summaries, equilibrium checks and figure metadata. Checkpoint and CSV hashes bind the audits to the plotted data. No comparison is exported unless the equilibrium and activation-continuity checks pass for all four elasticities in that comparison.</p>
 <p>The repository’s <a href="https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/COMPETITIVE_TRANSITION.md">competitive-transition guide</a> records the parameters, the institutional experiment, and the replication commands. <code>scripts/simulate_competitive_to_monopoly.py</code> computes the paths; <code>scripts/report_competitive_to_monopoly.py</code> renders the figures. The guide links to the separate results folders for each research productivity, containing the original paths, competitive benchmarks, impact changes, and numerical audits. The main-text <span class="math inline">\(\sigma=1.5\)</span> comparison is rendered by <code>scripts/report_competitive_main_comparison.py</code>, which reads these same audited paths without changing them. Figure windows only select dates from those stored paths; they do not change the simulated economy or the numerical solution horizon.</p>
 <p>The repository’s <a href="https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/MONOPOLY_GROWTH_REVERSAL.md">growth-reversal replication guide</a> records the separate input choices, data, audit reports, and commands. The original growth-reversal experiment, initialized at <span class="math inline">\(A_0=N_0=1\)</span>, remains archived in separate files; the other simulation exercises are unchanged.</p>
-<h1 id="app:rewrite-uncapped-unit"><span class="section-number">C</span> The uncapped economy with unit elasticity</h1>
-<p>This appendix derives the rates and allocation ratios supporting Proposition <a href="#prop:rewrite-uncapped-unit-bgp">7</a> in Section <a href="#subsec:rewrite-uncapped-unit-bgp">6.2</a> and defines the normalized variables used to prove local convergence. I use the uncapped RSI technology <a href="#eq:rewrite-uncapped-unit-law">(50)</a> and the production function <a href="#eq:rewrite-uncapped-unit-elasticities">(59)</a>. In this appendix and its proofs, a superscript <span class="math inline">\(*\)</span> denotes the reference BGP characterized in Section <a href="#subsec:rewrite-uncapped-unit-bgp">6.2</a>, distinguishing it from nearby equilibrium trajectories.</p>
-<h2 id="an-explicit-balanced-growth-equilibrium"><span class="section-number">C.1</span> An explicit balanced-growth equilibrium</h2>
-<p>At unit elasticity, <span class="math inline">\(s_X=\omega_X\)</span> and <span class="math inline">\(e_X=1-(1-\alpha)\omega_X\)</span>. The AI-demand and monopoly conditions, equations <a href="#eq:rewrite-ai-price">(13)</a> and <a href="#eq:rewrite-monopoly-foc">(19)</a>, give <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-static-shares" class="equation-anchor"></span><span class="math display">\[\begin{equation}
-
- \frac{p_XX}{Y}=(1-\alpha)\omega_X,\qquad
- \frac UY=(1-\alpha)^2\omega_X^2.
- \tag{139}
-\end{equation}\]</span></span> Substituting <span class="math inline">\(X=BU=(1-\alpha)^2\omega_X^2BY\)</span> into production yields <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-production" class="equation-anchor"></span><span class="math display">\[\begin{equation}
-
- Y^{1-(1-\alpha)\omega_X}
- =K^\alpha(AL)^{(1-\alpha)\omega_L}
- \bigl[(1-\alpha)^2\omega_X^2B\bigr]^{(1-\alpha)\omega_X}.
- \tag{140}
-\end{equation}\]</span></span> On an exact balanced-growth path with positive constant <span class="math inline">\(K/Y\)</span>, <span class="math inline">\(C/Y\)</span>, and <span class="math inline">\(M/Y\)</span>, log differentiation of <a href="#eq:rewrite-uncapped-unit-production">(140)</a> and <a href="#eq:rewrite-uncapped-unit-law">(50)</a> gives the two growth restrictions <a href="#eq:rewrite-uncapped-unit-production-growth">(60)</a> and <a href="#eq:rewrite-uncapped-unit-research-growth">(61)</a>. Define <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-feedback" class="equation-anchor"></span><span class="math display">\[\begin{equation}
-
- \Delta\equiv(1-\alpha)(1-\eta-\omega_X).
- \tag{141}
-\end{equation}\]</span></span> For <span class="math inline">\(\Delta&gt;0\)</span>, their unique solution has <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-output-growth" class="equation-anchor"></span><span class="math display">\[\begin{equation}
-
- g_Y^*=\frac{(1-\eta)(1-\omega_X)}{1-\eta-\omega_X}(n+\gamma),
- \tag{142}
-\end{equation}\]</span></span> and <span class="math inline">\(g_B^*\)</span> as in <a href="#eq:rewrite-uncapped-unit-efficiency-growth">(66)</a>. The equality <span class="math inline">\(g_K=g_C=g_Y^*\)</span> follows from constant capital and consumption ratios; equations <a href="#eq:rewrite-wage">(12)</a> and <a href="#eq:rewrite-euler">(5)</a> then give <a href="#eq:rewrite-uncapped-unit-wage-growth">(63)</a> and <a href="#eq:rewrite-uncapped-unit-return">(64)</a>.</p>
-<p>Define the candidate ratios <span class="math inline">\(k^*=K/Y\)</span>, <span class="math inline">\(u^*=U/Y\)</span>, <span class="math inline">\(i^*=(\dot K+\delta K)/Y\)</span>, <span class="math inline">\(m^*=M/Y\)</span>, and <span class="math inline">\(c^*=C/Y\)</span> by <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-capital-inference" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-investment" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-research-share" class="equation-anchor"></span><span id="eq:rewrite-uncapped-unit-consumption" class="equation-anchor"></span><span class="math display">\[\begin{align}
-
- k^*&amp;=\frac{\alpha}{r^*+\delta},\qquad u^*=(1-\alpha)^2\omega_X^2,
- \tag{143}\\
-
- i^*&amp;=(g_Y^*+\delta)k^*,
- \tag{144}\\
-
- m^*&amp;=\frac{u^*\eta g_B^*}{\rho-n+\eta g_Y^*},
- \tag{145}\\
-
- c^*&amp;=1-u^*-i^*-m^*.
- \tag{146}
-\end{align}\]</span></span> In this appendix, <span class="math inline">\(k^*\)</span> is a capital–output ratio, not capital per unit of effective labor, and <span class="math inline">\(i^*\)</span> is gross physical investment as a share of output. The research share comes from the developer’s first-order and costate conditions; the consumption share comes from market clearing. These ratios are endogenous, not fixed saving or research rules. The proof in Appendix <a href="#app:rewrite-proofs">A</a> verifies their positivity and constructs the reference initial levels from the production and research equations, for given initial population and labor-augmenting technology. Along the BGP, <span class="math inline">\(B_t=B_0^*e^{g_B^*t}\to\infty\)</span>, <span class="math inline">\(g_K=g_C=g_U=g_M=g_Y^*\)</span>, <span class="math inline">\(g_X=g_Y^*+g_B^*\)</span>, and <span class="math inline">\(g_q=g_Y^*-g_B^*\)</span>.</p>
-<p>Since <span class="math inline">\(n+\gamma&gt;0\)</span>, equations <a href="#eq:rewrite-uncapped-unit-production-growth">(60)</a> and <a href="#eq:rewrite-uncapped-unit-research-growth">(61)</a> require <span class="math inline">\(\Delta&gt;0\)</span> for this positive finite-rate BGP. If <span class="math inline">\(\Delta=0\)</span>, they are inconsistent; if <span class="math inline">\(\Delta&lt;0\)</span>, they imply <span class="math inline">\(g_B&lt;0\)</span>, contrary to the RSI technology. Thus <span class="math inline">\(\eta+\omega_X\geq1\)</span> excludes this BGP, not every possible equilibrium trajectory. The same restriction <span class="math inline">\(\eta+\omega_X&lt;1\)</span> also suffices for global developer optimality: the proof uses the invertible state transformation <span class="math inline">\(S=B^{(1-\eta)/\eta}\)</span>, in which the RSI technology is jointly concave in <span class="math inline">\(S,M\)</span> and operating profit is concave in <span class="math inline">\(S\)</span>. Finally, <span class="math inline">\(\rho&gt;n\)</span> makes both transversality expressions decline and the objective integrals converge.</p>
-<h2 id="equilibrium-trajectories-near-the-balanced-growth-path"><span class="section-number">C.2</span> Equilibrium trajectories near the balanced-growth path</h2>
-<p>The BGP supplies a reference for proving existence from nearby initial stocks that need not be on that path. For the given exogenous paths of population and labor-augmenting technology, compare each variable with its value on the corresponding reference BGP at the same date. Define log deviations <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-deviations" class="equation-anchor"></span><span class="math display">\[\begin{equation}
-
- \xi_K=\log\frac K{K^*},\quad
- \xi_B=\log\frac B{B^*},\quad
- \xi_C=\log\frac C{C^*},\quad
- \xi_q=\log\frac q{q^*}.
- \tag{147}
-\end{equation}\]</span></span> Time subscripts are suppressed: the reference quantities in the denominators follow the BGP rather than remain fixed at their initial values. Substitution into the four equilibrium dynamics gives a smooth autonomous system <span class="math inline">\(\dot\xi=f(\xi)\)</span> with <span class="math inline">\(f(0)=0\)</span>, where <span class="math inline">\(\xi=(\xi_K,\xi_B,\xi_C,\xi_q)&#39;\)</span>. Let <span class="math inline">\(J^*=Df(0)\)</span> denote its Jacobian. The proof in Appendix <a href="#app:rewrite-proofs">A</a> derives its entries directly from equations <a href="#eq:rewrite-eq-kdot">(29a)</a>–<a href="#eq:rewrite-eq-qdot">(29d)</a>, with <span class="math inline">\(\psi=1\)</span> and <span class="math inline">\(\psi&#39;=0\)</span>. The normalized Jacobian is independent of <span class="math inline">\(\chi\)</span>, <span class="math inline">\(A_0\)</span>, and <span class="math inline">\(N_0\)</span>; changing research productivity changes the reference levels, not the eigenvalues governing local convergence.</p>
-<p>The parameter restrictions in Proposition <a href="#prop:rewrite-uncapped-unit-bgp">7</a> imply two local properties. First, the linearized dynamics have exactly two stable directions and no eigenvalue with zero real part. Writing <span class="math inline">\(E^s\)</span> for the real invariant subspace associated with eigenvalues having negative real parts, the first property is <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-local-spectrum" class="equation-anchor"></span><span class="math display">\[\begin{equation}
-
- \operatorname{spec}(J^*)\cap i\mathbb R=\varnothing,
- \qquad \dim E^s=2.
- \tag{148}
-\end{equation}\]</span></span> Second, these stable directions allow independent changes in the two predetermined stocks. Let <span class="math inline">\(V_S\in\mathbb R^{4\times2}\)</span> be any real basis matrix for <span class="math inline">\(E^s\)</span>, and let <span class="math inline">\(V_{KB}\)</span> consist of its first two rows. Then <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-local-projection" class="equation-anchor"></span><span class="math display">\[\begin{equation}
-
- \det V_{KB}\ne0.
- \tag{149}
-\end{equation}\]</span></span> Nonsingularity does not depend on the choice of basis. It allows the stable manifold to select <span class="math inline">\(C_0,q_0\)</span> for every sufficiently close pair <span class="math inline">\(K_0,B_0\)</span>, rather than only for stocks on a curve. Both properties follow analytically from the proposition’s parameter restrictions; neither is an additional assumption or a calibration-specific test. The complete argument, including both transversality conditions and global agent optimality, is in Appendix <a href="#app:rewrite-proofs">A</a>, <a href="#proof:rewrite-uncapped-unit-local">Proof of Proposition <span>7</span></a>.</p>
-<p>No constant growth rates or allocation shares are imposed along these transitions. The result is local in initial stocks, not in time. In particular, it concerns equilibrium choices of consumption and research, not convergence from arbitrary nearby values of all four variables: there are also two unstable directions. It does not rule out equilibria that leave the local neighborhood.</p>
-<h2 id="growth-and-distribution-without-an-upper-bound"><span class="section-number">C.3</span> Growth and distribution without an upper bound</h2>
-<p>The uncapped BGP has <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-distribution" class="equation-anchor"></span><span class="math display">\[\begin{equation}
-
- \frac{wL}{Y}=(1-\alpha)\omega_L&gt;0,\qquad
- \frac{(r+\delta)K}{Y}=\alpha,\qquad
- \frac{\Pi}{Y}=(1-\alpha)\omega_X-u^*-m^*.
- \tag{150}
-\end{equation}\]</span></span> Equation <a href="#eq:rewrite-uncapped-unit-wage-growth">(63)</a> shows that wages and output per worker grow together at a rate above <span class="math inline">\(\gamma\)</span>, even though labor retains a positive, constant income share. Without an upper bound, continued growth in AI efficiency sustains this wage-growth premium. With any upper bound, the unit-elastic equilibria in Proposition <a href="#prop:rewrite-capped-unit-existence">1(ii)</a> instead have <span class="math inline">\(g_{Y/N},g_w\to\gamma\)</span>. The equivalence between wage growth above <span class="math inline">\(\gamma\)</span> and a vanishing labor share across the four regimes in Proposition <a href="#prop:rewrite-equilibrium-regimes">1</a> does not extend to the uncapped economy.</p>
-<p>Within the restrictions of Proposition <a href="#prop:rewrite-uncapped-unit-bgp">7</a>, increasing the AI weight raises the common growth rate and the interest rate: <span class="manuscript-equation"><span id="eq:rewrite-uncapped-unit-comparative-statics" class="equation-anchor"></span><span class="math display">\[\begin{equation}
-
- \frac{\partial g_{Y/N}^*}{\partial\omega_X}
- =\frac{\partial g_w^*}{\partial\omega_X}
- =\frac{\partial r^*}{\partial\omega_X}
- =\frac{\eta(1-\eta)(n+\gamma)}{(1-\eta-\omega_X)^2}&gt;0.
- \tag{151}
-\end{equation}\]</span></span> Labor’s income share falls across these parameterizations, but remains constant over time on each BGP. As <span class="math inline">\(\omega_X\to0^+\)</span>, the common per-person growth rate converges to <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(r^*\to\rho+\gamma\)</span>. These statements compare balanced-growth equilibria; they do not describe a transition from a no-AI economy or establish an uncapped equilibrium for <span class="math inline">\(\sigma&gt;1\)</span>.</p>
 <h1 class="unnumbered" id="declaration-of-ai-use">Declaration of AI use</h1>
 <p>During the preparation of this work, I used OpenAI Codex to assist with mathematical derivations, consistency checks, manuscript editing, and the preparation and testing of computational code. I take full responsibility for the content of the paper.</p>
 <section class="manuscript-references" id="references"><h1>References</h1>

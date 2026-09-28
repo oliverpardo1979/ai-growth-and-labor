@@ -246,30 +246,6 @@
       "number": "B.6"
     },
     {
-      "id": "app:rewrite-uncapped-unit",
-      "title": "The uncapped economy with unit elasticity",
-      "level": 1,
-      "number": "C"
-    },
-    {
-      "id": "an-explicit-balanced-growth-equilibrium",
-      "title": "An explicit balanced-growth equilibrium",
-      "level": 2,
-      "number": "C.1"
-    },
-    {
-      "id": "equilibrium-trajectories-near-the-balanced-growth-path",
-      "title": "Equilibrium trajectories near the balanced-growth path",
-      "level": 2,
-      "number": "C.2"
-    },
-    {
-      "id": "growth-and-distribution-without-an-upper-bound",
-      "title": "Growth and distribution without an upper bound",
-      "level": 2,
-      "number": "C.3"
-    },
-    {
       "id": "declaration-of-ai-use",
       "title": "Declaration of AI use",
       "level": 1,
@@ -318,7 +294,7 @@
       "number": "S2"
     }
   ],
-  "source_sha256": "d09e0b8409b63dc07a3dd71f8883b32346a716b5972a37edb93946d83b90f779",
+  "source_sha256": "d40b49cbdf5eba25ff33dc09032dcac6790c489bf6bbdff7362dec6c891d55f8",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "b10e8aebf7256870eb40d3252b1c0e4a45da063d60507d794d6380c733a3c668",
@@ -329,7 +305,7 @@
     ],
     "build_inputs": {
       "aux": "c28b6b3ef6ac0cf6fede7bc14cf7b6dd9f8feb8850176ac34a0b4a5d82c3ddfb",
-      "pdf": "9b40a6186f5c11f4f849b75b0ad355d4b3a11c864d54190931cbc626732325dd"
+      "pdf": "656c1ea3906873c4ff347d2f8e3126dbbfe9a16683b5e9a5e8e65ac49b5c93ec"
     }
   },
   "source_files": [
@@ -353,8 +329,7 @@
     "sections_rewrite/appendix_uncapped_complements_proofs.tex",
     "sections_rewrite/appendix_uncapped_unit_proofs.tex",
     "sections_rewrite/appendix_rsi_illustrative.tex",
-    "sections_rewrite/rsi_illustrative_accuracy.tex",
-    "sections_rewrite/appendix_uncapped_unit.tex"
+    "sections_rewrite/rsi_illustrative_accuracy.tex"
   ],
   "source": "main_rewrite.tex",
   "figures": [
@@ -538,7 +513,7 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 268,
+    "labels": 267,
     "numbered_equation_rows": 174,
     "display_math": 208,
     "figures": 21,
@@ -552,13 +527,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 22956,
+    "visible_text_tokens_verified": 22486,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "86a2cb8d8a9f6c5084c5a1d21a1a831a5f25aa87cbfaa9c55bd43ceead437aec",
+    "aux": "a954eca223a98203a5340721baab1547a11c8687450cbbf725beeb2d1ea457a1",
     "bbl": "ce5636deb2c9be14ca3a39667c02f142f95eafa7c190a6d26e174132d217b72b",
-    "pdf": "8e83bdc40e7573c8b530ec843a2a376ac3fa51802a41de5bea97401c3cb3410c"
+    "pdf": "21b97665385d18e13097a0a8bfaa24b01569a07e4cd614a6ba6c4ebb51d2903d"
   }
 }
