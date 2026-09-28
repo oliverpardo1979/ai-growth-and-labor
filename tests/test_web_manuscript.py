@@ -248,7 +248,20 @@ class GeneratedManuscriptTests(unittest.TestCase):
         headings = self.meta["sections"]
         self.assertEqual(headings[0], {"id": "sec:rewrite-introduction", "title": "Introduction", "level": 1, "number": "1"})
         self.assertTrue(any(h["number"] == "B.1" for h in headings))
-        self.assertTrue(any(h["number"] == "C.3" for h in headings))
+        self.assertTrue(any(h["number"] == "B.6" for h in headings))
+
+    def test_uncapped_unit_construction_is_integrated_into_its_proof(self):
+        self.assertNotIn("sections_rewrite/appendix_uncapped_unit.tex", self.meta["source_files"])
+        self.assertNotIn('id="app:rewrite-uncapped-unit"', self.content)
+        proof_start = self.content.index('id="proof:rewrite-uncapped-unit-bgp"')
+        next_proof = self.content.index('id="proof:rewrite-research-scale"')
+        integrated = self.content[proof_start:next_proof]
+        for label in ("static-shares", "production", "feedback", "output-growth",
+                      "capital-inference", "investment", "research-share", "consumption",
+                      "deviations", "local-spectrum", "local-projection", "distribution",
+                      "comparative-statics"):
+            with self.subTest(label=label):
+                self.assertIn(f'id="eq:rewrite-uncapped-unit-{label}"', integrated)
 
     def test_competitive_section_exercises_and_appendix_are_present(self):
         headings = {item["id"]: item for item in self.meta["sections"]}
@@ -289,7 +302,7 @@ class GeneratedManuscriptTests(unittest.TestCase):
 
     def test_textual_endpoints_and_replication_are_retained(self):
         for text in ("Advances in artificial intelligence", "Declaration of AI use",
-                     "Equilibrium checks", "Replication files", "The uncapped economy with unit elasticity"):
+                     "Equilibrium checks", "Replication files", "Local convergence from nearby initial stocks."):
             self.assertIn(text, self.content)
         self.assertIn("ref-romer1990", self.content)
         self.assertIn("Journal of Political Economy", self.content)

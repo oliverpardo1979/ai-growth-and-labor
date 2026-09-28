@@ -2,14 +2,69 @@
 \begin{proof}[Proof of Proposition~\ref{prop:rewrite-uncapped-unit-bgp}]
 \phantomsection
 \label{proof:rewrite-uncapped-unit-bgp}
-I use the reference BGP rates and allocation ratios derived in
-Appendix~\ref{app:rewrite-uncapped-unit}, denoted by a superscript $*$.
-Here $k^*=K/Y$ is a capital--output ratio, rather than capital per unit
-of effective labor. I first verify the reference BGP and then establish
-convergence from nearby initial stocks.
+I first construct and verify the reference BGP, denoted by a superscript
+$*$, and then establish convergence from nearby initial stocks.
 
 \textit{The reference BGP.}
-First, all candidate ratios are positive. The denominator of the research share $m^*$,
+At unit elasticity, $s_X=\omega_X$ and $e_X=1-(1-\alpha)\omega_X$.
+The AI-demand and monopoly conditions,
+equations~\eqref{eq:rewrite-ai-price} and~\eqref{eq:rewrite-monopoly-foc}, give
+\begin{equation}
+ \frac{p_XX}{Y}=(1-\alpha)\omega_X,\qquad
+ \frac UY=(1-\alpha)^2\omega_X^2.
+ \label{eq:rewrite-uncapped-unit-static-shares}
+\end{equation}
+Substituting $X=BU=(1-\alpha)^2\omega_X^2BY$ into production yields
+\begin{equation}
+ Y^{1-(1-\alpha)\omega_X}
+ =K^\alpha(AL)^{(1-\alpha)\omega_L}
+ \bigl[(1-\alpha)^2\omega_X^2B\bigr]^{(1-\alpha)\omega_X}.
+ \label{eq:rewrite-uncapped-unit-production}
+\end{equation}
+On an exact BGP with positive constant $K/Y$, $C/Y$, and $M/Y$,
+log differentiation of this equation and the RSI technology
+\eqref{eq:rewrite-uncapped-unit-law} gives the growth restrictions
+\eqref{eq:rewrite-uncapped-unit-production-growth}
+and~\eqref{eq:rewrite-uncapped-unit-research-growth}.
+Define
+\begin{equation}
+ \Delta\equiv(1-\alpha)(1-\eta-\omega_X)>0.
+ \label{eq:rewrite-uncapped-unit-feedback}
+\end{equation}
+Their unique solution has
+\begin{equation}
+ g_Y^*=\frac{(1-\eta)(1-\omega_X)}{1-\eta-\omega_X}(n+\gamma),
+ \label{eq:rewrite-uncapped-unit-output-growth}
+\end{equation}
+and $g_B^*$ as in \eqref{eq:rewrite-uncapped-unit-efficiency-growth}.
+The equality $g_K=g_C=g_Y^*$ follows from constant capital and consumption ratios;
+equations~\eqref{eq:rewrite-wage} and~\eqref{eq:rewrite-euler} then give
+\eqref{eq:rewrite-uncapped-unit-wage-growth}
+and~\eqref{eq:rewrite-uncapped-unit-return}.
+Since $n+\gamma>0$, the two growth restrictions are inconsistent if
+$\Delta=0$ and imply $g_B<0$ if $\Delta<0$, contrary to the RSI technology.
+Thus $\eta+\omega_X\geq1$ excludes this positive finite-rate BGP,
+not every possible equilibrium trajectory.
+
+Define the candidate ratios $k^*=K/Y$, $u^*=U/Y$,
+$i^*=(\dot K+\delta K)/Y$, $m^*=M/Y$, and $c^*=C/Y$ by
+\begin{align}
+ k^*&=\frac{\alpha}{r^*+\delta},\qquad u^*=(1-\alpha)^2\omega_X^2,
+ \label{eq:rewrite-uncapped-unit-capital-inference}\\
+ i^*&=(g_Y^*+\delta)k^*,
+ \label{eq:rewrite-uncapped-unit-investment}\\
+ m^*&=\frac{u^*\eta g_B^*}{\rho-n+\eta g_Y^*},
+ \label{eq:rewrite-uncapped-unit-research-share}\\
+ c^*&=1-u^*-i^*-m^*.
+ \label{eq:rewrite-uncapped-unit-consumption}
+\end{align}
+Here $k^*$ is a capital--output ratio, not capital per unit of effective
+labor, and $i^*$ is gross physical investment as a share of output.
+The research share comes from the developer's first-order and costate
+conditions; the consumption share comes from market clearing.
+These ratios are endogenous, not fixed saving or research rules.
+
+All candidate ratios are positive. The denominator of the research share $m^*$,
 $\rho-n+\eta g_Y^*$, is positive. Moreover,
 \[
  i^*=\frac{\alpha(g_Y^*+\delta)}{\rho-n+g_Y^*+\delta}<\alpha,
@@ -56,7 +111,6 @@ The two growth identities
 \eqref{eq:rewrite-uncapped-unit-production-growth}
 and~\eqref{eq:rewrite-uncapped-unit-research-growth} ensure that the production
 equation and the RSI technology hold at every date once they hold initially.
-The static monopoly condition gives $p_XX=(1-\alpha)\omega_XY$ and $U=u^*Y$.
 Equation~\eqref{eq:rewrite-uncapped-unit-initial-q} gives
 $M=\eta q\dot B$, which is the research first-order condition
 \eqref{eq:rewrite-eq-research} with $\psi=1$.
@@ -161,9 +215,24 @@ with the uncapped RSI technology~\eqref{eq:rewrite-uncapped-unit-law}.
 \textit{Local convergence from nearby initial stocks.}
 \phantomsection
 \label{proof:rewrite-uncapped-unit-local}
-Use the ordering $\xi=(\xi_K,\xi_B,\xi_C,\xi_q)'$ in
-\eqref{eq:rewrite-uncapped-unit-deviations}, and let $e_K,e_B,e_C,e_q$
-be the corresponding unit row vectors. Define the row vectors
+For the given exogenous paths of population and labor-augmenting technology,
+compare each variable with its value on the reference BGP at the same date.
+Define log deviations
+\begin{equation}
+ \xi_K=\log\frac K{K^*},\quad
+ \xi_B=\log\frac B{B^*},\quad
+ \xi_C=\log\frac C{C^*},\quad
+ \xi_q=\log\frac q{q^*}.
+ \label{eq:rewrite-uncapped-unit-deviations}
+\end{equation}
+Time subscripts are suppressed: the reference quantities in the denominators
+follow the BGP rather than remain fixed at their initial values.
+Substitution into equations~\eqref{eq:rewrite-eq-kdot}--\eqref{eq:rewrite-eq-qdot},
+with $\psi=1$ and $\psi'=0$, gives a smooth autonomous system
+$\dot\xi=f(\xi)$ with $f(0)=0$, where $\xi=(\xi_K,\xi_B,\xi_C,\xi_q)'$.
+Let $J^*=Df(0)$ denote its Jacobian, and let $e_K,e_B,e_C,e_q$
+be the corresponding unit row vectors. No constant growth rates or
+allocation shares are imposed along these transitions. Define the row vectors
 \begin{align}
  y_\xi&=\left(\frac{\alpha}{1-(1-\alpha)\omega_X},
  \frac{(1-\alpha)\omega_X}{1-(1-\alpha)\omega_X},0,0\right),
@@ -197,10 +266,24 @@ The last row uses $U/(qB)=\rho-n+\eta g_Y^*$ at the BGP.
 All entries depend on growth rates and ratios, which are independent of
 $\chi$. No terminal restrictions were used to derive this Jacobian.
 
-I next establish the two local properties
-\eqref{eq:rewrite-uncapped-unit-local-spectrum}
-and~\eqref{eq:rewrite-uncapped-unit-local-projection} from the parameter
-restrictions, rather than impose them. Retain $\nu$ from
+I next establish two properties needed for local convergence from nearby
+initial stocks. First, writing $E^s$ for the real invariant subspace
+associated with eigenvalues having negative real parts, I show that
+\begin{equation}
+ \operatorname{spec}(J^*)\cap i\mathbb R=\varnothing,
+ \qquad \dim E^s=2.
+ \label{eq:rewrite-uncapped-unit-local-spectrum}
+\end{equation}
+Second, let $V_S\in\mathbb R^{4\times2}$ be any real basis matrix for
+$E^s$, and let $V_{KB}$ consist of its first two rows. I show that
+\begin{equation}
+ \det V_{KB}\ne0.
+ \label{eq:rewrite-uncapped-unit-local-projection}
+\end{equation}
+This nonsingularity allows the stable manifold to select $C_0,q_0$ for
+every sufficiently close pair $K_0,B_0$, rather than only for stocks on a
+curve. Both properties follow from the parameter restrictions, rather
+than being additional assumptions. Retain $\nu$ from
 \eqref{eq:rewrite-uncapped-unit-transformed-state} and, for this linearization,
 define
 \begin{align*}
@@ -366,3 +449,24 @@ applies at these new price and allocation paths, proving agent optimality.
 Static optimality and market clearing then establish equilibrium, not
 merely a solution of the necessary conditions.
 \end{proof}
+
+The BGP allocations also give the income shares
+\begin{equation}
+ \frac{wL}{Y}=(1-\alpha)\omega_L>0,\qquad
+ \frac{(r+\delta)K}{Y}=\alpha,\qquad
+ \frac{\Pi}{Y}=(1-\alpha)\omega_X-u^*-m^*.
+ \label{eq:rewrite-uncapped-unit-distribution}
+\end{equation}
+Within the restrictions of Proposition~\ref{prop:rewrite-uncapped-unit-bgp},
+increasing the AI weight raises the common growth rate and the interest rate:
+\begin{equation}
+ \frac{\partial g_{Y/N}^*}{\partial\omega_X}
+ =\frac{\partial g_w^*}{\partial\omega_X}
+ =\frac{\partial r^*}{\partial\omega_X}
+ =\frac{\eta(1-\eta)(n+\gamma)}{(1-\eta-\omega_X)^2}>0.
+ \label{eq:rewrite-uncapped-unit-comparative-statics}
+\end{equation}
+Labor's income share falls across these parameterizations, but remains
+constant over time on each BGP. As $\omega_X\to0^+$, the common per-worker
+growth rate converges to $\gamma$ and $r^*\to\rho+\gamma$.
+These comparisons concern BGPs, not a transition from a no-AI economy.
