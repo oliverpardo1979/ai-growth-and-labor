@@ -1,7 +1,8 @@
 # Monopoly and the loss of AI-dominated growth
 
-This illustrative experiment accompanies the subsection *When monopoly
-eliminates AI-dominated growth*. It leaves every earlier simulation intact.
+This illustrative experiment accompanies *Monopoly slows growth* in the
+[online appendix](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/online-appendix.pdf).
+It leaves every earlier simulation intact.
 
 ## Design
 
