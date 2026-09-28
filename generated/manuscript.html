@@ -891,6 +891,7 @@
  \tag{71}
 \end{equation}\]</span></span> where <span class="math inline">\(\pi_t(b)\)</span> is operating profit as defined in equation <a href="#eq:rewrite-service-choice">(18)</a>.</p></li>
 </ol>
+<p>Condition <a href="#eq:rewrite-hamiltonian-support">(71)</a> requires the maximized Hamiltonian, expressed in the transformed efficiency variable used below, to lie below its tangent at the candidate state.</p>
 </div>
 <div class="proof">
 <p><em>Proof of Lemma <a href="#lem:rewrite-developer-verification">2</a>.</em> Feasible research expenditure is nonnegative and integrable on every finite interval, with a locally absolutely continuous state satisfying the RSI technology almost everywhere. Integrating that technology gives <span class="manuscript-equation"><span id="eq:rewrite-cap-gap" class="equation-anchor"></span><span class="math display">\[\begin{equation}
@@ -900,7 +901,7 @@
  \int_0^t(B_sM_s)^\eta\,\mathrm{d}s\right\}&gt;0.
  \tag{72}
 \end{equation}\]</span></span> Local integrability of <span class="math inline">\(M\)</span> and <span class="math inline">\(0&lt;\eta&lt;1\)</span> make the exponent finite at every finite date. Thus every feasible trajectory remains in <span class="math inline">\([B_0,\overline B)\)</span>, where the following transformation is well defined.</p>
-<p>I first transform AI efficiency to compare the candidate with alternative research trajectories. Define <span class="manuscript-equation"><span id="eq:rewrite-research-depth" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+<p>To express condition <a href="#eq:rewrite-hamiltonian-support">(71)</a> as a supporting-tangent inequality, I transform AI efficiency. Define <span class="manuscript-equation"><span id="eq:rewrite-research-depth" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  R_B(B)=-\overline B\log\left(1-\frac{B}{\overline B}\right),
  \qquad
@@ -950,7 +951,7 @@
  \leq B_t,\]</span> the developer’s transversality condition <a href="#eq:rewrite-developer-tvc">(25)</a> gives <span class="math display">\[0\leq\mu_TR_{B,T}
  =D_Tq_T\psi(B_T)R_{B,T}
  \leq D_Tq_TB_T\longrightarrow0.\]</span> The candidate’s present value is finite by assumption. Hence <span class="math display">\[\limsup_{T\to\infty}\widetilde J_T
- \leq\lim_{T\to\infty}J_T&lt;\infty,\]</span> so no feasible alternative yields a higher present value of net profit. The argument requires the tangent to the maximized Hamiltonian at the candidate state to lie above its value at every alternative state. Global concavity is sufficient for this inequality, but is not required. ◻</p>
+ \leq\lim_{T\to\infty}J_T&lt;\infty,\]</span> so no feasible alternative yields a higher present value of net profit. Global concavity is sufficient for condition <a href="#eq:rewrite-hamiltonian-support">(71)</a>, but is not required. ◻</p>
 </div>
 <div class="theorem lemma">
 <p><strong>Lemma 3 (Sufficient conditions for Hamiltonian concavity).</strong></p>
@@ -965,6 +966,7 @@
  \tag{78}
 \end{equation}\]</span></span> The maximized Hamiltonian is therefore concave on <span class="math inline">\(R_B\in[R_B(B_0),\infty)\)</span> at every date, so the inequality <a href="#eq:rewrite-hamiltonian-support">(71)</a> required by Lemma <a href="#lem:rewrite-developer-verification">2</a> holds.</p>
 </div>
+<p>Condition <a href="#eq:rewrite-capped-concavity-gate">(77)</a> ensures concavity of operating profit in <span class="math inline">\(R_B\)</span>; condition <a href="#eq:rewrite-depth-research-concavity">(78)</a> ensures concavity of the optimized research term. The latter holds automatically if <span class="math inline">\(\eta\leq1/2\)</span>. For any fixed <span class="math inline">\(0&lt;\eta&lt;1\)</span>, it also holds when <span class="math inline">\(B_0\)</span> is sufficiently close to <span class="math inline">\(\overline B\)</span>. These curvature tests are sufficient, not necessary: they can fail even when the Hamiltonian has the required supporting tangent at the candidate state.</p>
 <div class="proof">
 <p><em>Proof of Lemma <a href="#lem:rewrite-hamiltonian-concavity">3</a>.</em> Fix a date <span class="math inline">\(t\)</span>. Lemma <a href="#lem:rewrite-monopoly-choice">1</a> ensures that <span class="math inline">\(X_t^*(b)\)</span> is unique and smooth. Let <span class="math inline">\(s_{X,t}(b)\)</span> and <span class="math inline">\(e_{X,t}(b)\)</span> be the corresponding elasticities defined in equations <a href="#eq:rewrite-sx">(10)</a> and <a href="#eq:rewrite-inverse-demand-elasticity">(15)</a>. Implicit differentiation of the monopoly condition <a href="#eq:rewrite-monopoly-foc">(19)</a> gives <span class="manuscript-equation"><span id="eq:rewrite-service-capability-elasticity" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
@@ -993,8 +995,7 @@
  =\frac{\eta}{1-\eta}b^{\eta/(1-\eta)-2}\psi(b)
  \left[\frac{2\eta-1}{1-\eta}\psi(b)-\frac b{\overline B}\right].
  \tag{82}
-\end{equation}\]</span></span> The bracket is nonpositive exactly when <span class="math inline">\(b/\overline B\geq(2\eta-1)/\eta\)</span>. Since <span class="math inline">\(b\geq B_0\)</span>, condition <a href="#eq:rewrite-depth-research-concavity">(78)</a> makes the research term concave as well. The maximized Hamiltonian is therefore concave, so its tangent at the candidate state is a global upper bound. As shown in the proof of Lemma <a href="#lem:rewrite-developer-verification">2</a>, this is condition <a href="#eq:rewrite-hamiltonian-support">(71)</a>.</p>
-<p>If <span class="math inline">\(\eta\leq1/2\)</span>, condition <a href="#eq:rewrite-depth-research-concavity">(78)</a> holds automatically. But for every fixed <span class="math inline">\(0&lt;\eta&lt;1\)</span> its right-hand side is strictly below one, so it also holds without this restriction when initial efficiency is sufficiently close to the upper bound. These curvature tests are sufficient, not necessary: they can fail even when the Hamiltonian has the required supporting tangent at the candidate state. ◻</p>
+\end{equation}\]</span></span> The bracket is nonpositive exactly when <span class="math inline">\(b/\overline B\geq(2\eta-1)/\eta\)</span>. Since <span class="math inline">\(b\geq B_0\)</span>, condition <a href="#eq:rewrite-depth-research-concavity">(78)</a> makes the research term concave as well. The maximized Hamiltonian is therefore concave, so its tangent at the candidate state is a global upper bound. As shown in the proof of Lemma <a href="#lem:rewrite-developer-verification">2</a>, this is condition <a href="#eq:rewrite-hamiltonian-support">(71)</a>. ◻</p>
 </div>
 <h2 id="app:rewrite-bounded-proofs"><span class="section-number">A.2</span> Equilibria with bounded AI efficiency</h2>
 <p><span id="app:rewrite-finite-existence" class="source-anchor"></span> <span id="proof:rewrite-equilibrium-regimes" class="source-anchor"></span></p>
@@ -1224,7 +1225,8 @@
  \qquad
  \frac{Y_t}{K_t}\leq\frac{\mathcal R(\overline B)+\delta}{\alpha}.
  \tag{98}
-\end{equation}\]</span></span> The present value of the developer’s net profit from any date onward is nonnegative: it can stop research and earn nonnegative operating profit. Wage income is also nonnegative. Integrating the household budget <a href="#eq:rewrite-household-budget">(4)</a>, using its transversality condition <a href="#eq:rewrite-household-tvc">(6)</a> and the Euler equation <a href="#eq:rewrite-euler">(5)</a>, therefore gives the first inequality below; integrating the Euler equation with the return bound gives the second: <span class="manuscript-equation"><span id="eq:rewrite-low-cap-consumption-bound" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+\end{equation}\]</span></span> The present value of the developer’s net profit from any date onward is nonnegative: it can stop research and earn nonnegative operating profit. Wage income is also nonnegative. Let <span class="math inline">\(D_{t,s}=\exp(-\int_t^s r_u\,\mathrm{d}u)\)</span>. Integrating the household budget <a href="#eq:rewrite-household-budget">(4)</a>, using its transversality condition <a href="#eq:rewrite-household-tvc">(6)</a> and the Euler equation <a href="#eq:rewrite-euler">(5)</a>, gives <span class="math display">\[\frac{C_t}{\rho-n}
+ =K_t+\int_t^\infty D_{t,s}(w_sN_s+\Pi_s)\,\mathrm{d}s.\]</span> The integral is nonnegative by the preceding argument, yielding the first inequality below. Integrating the Euler equation with the return bound gives the second: <span class="manuscript-equation"><span id="eq:rewrite-low-cap-consumption-bound" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  C_t\geq(\rho-n)K_t,
  \qquad
@@ -1352,13 +1354,13 @@
  \int_t^\infty D_{t,s}w_sL_s\,\mathrm{d}s\leq\frac{C_t}{d}.
  \tag{108}
 \end{equation}\]</span></span> Here <span class="math inline">\(V_t\)</span> is an auxiliary continuation value, not an additional traded asset or a change to the household budget.</p>
-<p><em>Step 3. Discounted research spending vanishes relative to effective labor.</em> Fix a positive rate <span class="math inline">\(a\)</span>. Step 1 permits a small <span class="math inline">\(k_a&gt;0\)</span> and a sufficiently late date such that <span class="math inline">\(r-(n+\gamma)\geq a\)</span> whenever <span class="math inline">\(k\leq k_a\)</span>. On <span class="math inline">\([k_a,k_{\max}]\)</span>, the wage equation <a href="#eq:rewrite-wage">(12)</a> and the static monopoly allocation give a uniform positive lower bound <span class="math inline">\(\ell_a\)</span> on <span class="math inline">\(w/A\)</span>. Since <span class="math inline">\(r\geq-\delta\)</span>, there is a finite constant <span class="math inline">\(H_a&gt;0\)</span> such that <span class="math display">\[a\leq r-(n+\gamma)+H_a w/A\]</span> at every sufficiently late date. Multiplication by <span class="math inline">\(D_{t,s}A_sL_s\)</span>, integration, and <a href="#eq:rewrite-complements-household-wealth-bound">(108)</a> give <span class="manuscript-equation"><span id="eq:rewrite-complements-effective-labor-pv-bound" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+<p><em>Step 3. Discounted research spending vanishes relative to effective labor.</em> I first bound the present value of future effective labor relative to its current level, without assuming that the interest rate converges. Fix a positive rate <span class="math inline">\(a\)</span>. Step 1 permits a small <span class="math inline">\(k_a&gt;0\)</span> and a sufficiently late date such that <span class="math inline">\(r-(n+\gamma)\geq a\)</span> whenever <span class="math inline">\(k\leq k_a\)</span>. On <span class="math inline">\([k_a,k_{\max}]\)</span>, the wage equation <a href="#eq:rewrite-wage">(12)</a> and the static monopoly allocation give a uniform positive lower bound <span class="math inline">\(\ell_a\)</span> on <span class="math inline">\(w/A\)</span>. Since <span class="math inline">\(r\geq-\delta\)</span>, there is a finite constant <span class="math inline">\(H_a&gt;0\)</span> such that <span class="math display">\[a\leq r-(n+\gamma)+H_a w/A\]</span> at every sufficiently late date. Multiplication by <span class="math inline">\(D_{t,s}A_sL_s\)</span>, integration, and <a href="#eq:rewrite-complements-household-wealth-bound">(108)</a> give <span class="manuscript-equation"><span id="eq:rewrite-complements-effective-labor-pv-bound" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \int_t^\infty D_{t,s}A_sL_s\,\mathrm{d}s
  \leq\frac{A_tL_t+H_aC_t/d}{a}
  \leq J A_tL_t
  \tag{109}
-\end{equation}\]</span></span> for a fixed finite <span class="math inline">\(J\)</span>. The omitted terminal contribution from discounted effective labor is nonpositive; no discount-rate limit is used.</p>
+\end{equation}\]</span></span> for a fixed finite <span class="math inline">\(J\)</span>. The omitted terminal contribution from discounted effective labor is nonpositive.</p>
 <p>The research condition <a href="#eq:rewrite-research-foc">(22)</a> and costate equation <a href="#eq:rewrite-costate">(23)</a> imply <span class="manuscript-equation"><span id="eq:rewrite-complements-shadow-stock" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \frac{\mathrm d(qB)}{\mathrm dt}
@@ -1395,9 +1397,9 @@
  \dot k=F(k)-c,\qquad
  \dot c=c\,[\alpha f_\infty k^{\alpha-1}-\delta-\rho-\gamma].
  \tag{113}
-\end{equation}\]</span></span> For clarity, the following argument verifies convergence rather than inferring it solely from convergence of the equations. This limiting system has one positive stationary point, <span class="math display">\[k_\infty=
+\end{equation}\]</span></span> To establish convergence, I examine the equilibrium path over time intervals centered at increasingly late dates. Any limiting path must solve this Ramsey system. I show that the only such path that remains in the compact positive region is its stationary point. This limiting system has one positive stationary point, <span class="math display">\[k_\infty=
  \left[\frac{\alpha f_\infty}{\rho+\gamma+\delta}\right]^{1/(1-\alpha)},
- \qquad c_\infty=F(k_\infty)&gt;0.\]</span> Its Jacobian has negative determinant, so it is a saddle. The standard Ramsey phase portrait is discussed by <a href="#ref-groth2013ramsey">Groth (2013)</a>. There is no nonconstant complete orbit confined to a compact subset of the positive quadrant. To see this, the multiplier <span class="math inline">\(1/c^2\)</span> gives <span class="math display">\[\frac{\partial}{\partial k}\frac{F(k)-c}{c^2}
+ \qquad c_\infty=F(k_\infty)&gt;0.\]</span> Its Jacobian has negative determinant, so it is a saddle. The standard Ramsey phase portrait is discussed by <a href="#ref-groth2013ramsey">Groth (2013)</a>. There is no nonconstant complete orbit (a trajectory defined for all positive and negative time) confined to a compact subset of the positive quadrant. To see this, the multiplier <span class="math inline">\(1/c^2\)</span> gives <span class="math display">\[\frac{\partial}{\partial k}\frac{F(k)-c}{c^2}
  +\frac{\partial}{\partial c}
    \frac{\alpha f_\infty k^{\alpha-1}-\delta-\rho-\gamma}{c}
  =\frac{\rho-n}{c^2}&gt;0.\]</span> The Bendixson–Dulac argument excludes both periodic orbits and homoclinic loops. The planar limit-set theorem, the unique stationary point, and its saddle character then exclude a nonconstant complete orbit confined to such a compact set: its forward and backward limits would otherwise require a periodic orbit or a connection back to that same saddle.</p>
@@ -1592,7 +1594,7 @@
  =e_Xp_XX=(1-\alpha)e_Xs_XY.\]</span> For <span class="math inline">\(\sigma&gt;1\)</span>, marginal revenue is positive at every finite <span class="math inline">\(X\)</span> and approaches zero as <span class="math inline">\(X\to\infty\)</span>, as established in Lemma <a href="#lem:rewrite-monopoly-choice">1</a>. The monopoly condition therefore implies <span class="math inline">\(X\to\infty\)</span> as <span class="math inline">\(B\to\infty\)</span>, holding <span class="math inline">\(K,A,L\)</span> fixed. Consequently, <span class="math inline">\(s_X\to1\)</span> and <span class="math inline">\(e_X\to\alpha\)</span>. Substituting these limits into equation <a href="#eq:rewrite-substitutes-dated-output-capital">(68)</a> gives <span class="math display">\[\pi(B)\sim\kappa_XKB^\theta,\qquad
  \kappa_X=\alpha(1-\alpha)
  \left[(1-\alpha)^2\omega_X^{\sigma/(\sigma-1)}\right]^\theta&gt;0.\]</span> The operating-profit asymptotic is uniform over dates in <span class="math inline">\([0,T]\)</span> because <span class="math inline">\(K,A,L\)</span> are continuous, bounded, and bounded away from zero on <span class="math inline">\([0,T]\)</span>.</p>
-<p>Fix <span class="math inline">\(\Delta\in(0,T)\)</span>, choose <span class="math inline">\(M=\mathcal M\)</span> on <span class="math inline">\([0,\Delta]\)</span>, and choose <span class="math inline">\(M=0\)</span> afterward. The uncapped RSI technology gives <span class="math display">\[B_{\mathcal M}(t)^{1-\eta}=B_0^{1-\eta}
+<p>The research trajectories constructed below are deviations in the developer’s optimization problem, not alternative equilibrium allocations. Fix <span class="math inline">\(\Delta\in(0,T)\)</span>, choose <span class="math inline">\(M=\mathcal M\)</span> on <span class="math inline">\([0,\Delta]\)</span>, and choose <span class="math inline">\(M=0\)</span> afterward. The uncapped RSI technology gives <span class="math display">\[B_{\mathcal M}(t)^{1-\eta}=B_0^{1-\eta}
  +(1-\eta)\chi\mathcal M^\eta\min\{t,\Delta\}.\]</span> Since optimized operating profit is nonnegative, a lower bound on discounted net profit counts only operating profits earned after research stops, while subtracting all research expenditure. For all sufficiently large <span class="math inline">\(\mathcal M\)</span>, <span class="manuscript-equation"><span id="eq:rewrite-research-burst-payoff" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  J_T(\mathcal M)\geq c_\pi\mathcal M^{
