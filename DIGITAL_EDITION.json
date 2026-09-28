@@ -1,7 +1,7 @@
 {
-  "snapshot_commit": "78494555cfae6aea8f6cacd19bf44e823af50e1b",
+  "snapshot_commit": "fabf9b51f3c769080be2f946ebb0b699e7994af8",
   "snapshot_branch": "codex/digital-edition",
-  "manuscript_commit": "ffae057e57d8dcf95b4dcab5f8d95ccb1fbe053f",
-  "updated_on": "2026-09-25",
-  "policy": "Preserve this digital edition; advance only on Oliver's explicit request. The public PDF follows main."
+  "manuscript_commit": "34c476a7e75fcfc72bcd9ae4cd9665881b6e4855",
+  "updated_on": "2026-09-27",
+  "policy": "Preserve this digital edition; advance only on Oliver's explicit request. Both public PDFs follow main."
 }
