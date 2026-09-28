@@ -1,0 +1,29 @@
+% Compile main_rewrite.tex first, retaining its AUX file for cross-references.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,graphicx,float,setspace,microtype}
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\IfFileExists{main_rewrite.aux}{%
+  \externaldocument[paper-]{main_rewrite}[https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf]%
+}{%
+  \externaldocument[paper-]{output/pdf/main_rewrite}[https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf]%
+}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\title{Online Appendix\\[0.5em]\large Recursive AI Self-Improvement, Market Power, and Growth}
+\author{Oliver Pardo}
+\date{September 2026}
+\begin{document}
+\maketitle
+\begin{center}
+\small
+\href{https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf}{Main paper}
+\quad\textbar\quad
+\href{https://github.com/oliverpardo1979/ai-growth-and-labor}{Code and data}
+\end{center}
+\onehalfspacing
+\input{sections_rewrite/appendix_competitive_transition}
+\end{document}

@@ -1,4 +1,4 @@
-name: Publish the PDF; preserve the approved digital edition
+name: Publish paper PDFs; preserve the approved digital edition
 
 on:
   push:
@@ -33,14 +33,17 @@ jobs:
           ref: ${{ steps.digital.outputs.ref }}
           path: _digital_snapshot
           persist-credentials: false
-      - name: Compile the current manuscript
+      - name: Compile the manuscript and its online appendix
         uses: xu-cheng/latex-action@v4
         with:
-          root_file: main_rewrite.tex
-      - name: Replace only the stable PDF in the approved site
+          root_file: |
+            main_rewrite.tex
+            online_appendix.tex
+      - name: Update paper PDFs and online-appendix links only
         run: |
           python scripts/prepare_pdf_publication.py stage \
-            --snapshot _digital_snapshot --pdf main_rewrite.pdf --output _site
+            --snapshot _digital_snapshot --pdf main_rewrite.pdf \
+            --supplement online_appendix.pdf --output _site
       - uses: actions/configure-pages@v5
         with:
           enablement: true
@@ -54,6 +57,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Publish the current PDF without changing the digital edition
+      - name: Publish paper PDFs without rebuilding the digital edition
         id: deployment
         uses: actions/deploy-pages@v4

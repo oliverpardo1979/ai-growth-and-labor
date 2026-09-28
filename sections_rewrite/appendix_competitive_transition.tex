@@ -2,9 +2,18 @@
 \label{app:rewrite-competitive-transition}
 
 I supplement the $\sigma=1.5$ comparison in
-Section~\ref{subsec:rewrite-competitive-transition} with the original
-four-elasticity exercises at both research productivities. No additional
-equilibria are computed for this presentation. The level figures retain
+Section~\ref{paper-subsec:rewrite-competitive-transition} of the main paper
+with the four-elasticity exercises at both research productivities:
+$\sigma=0.9,1.0,1.1,1.5$ and $\chi=7.5,1.5$. Each economy starts on a
+competitive labor-bottleneck balanced growth path. At date zero, an
+unexpected permanent grant of exclusive AI rights introduces monopoly
+pricing and incentives for RSI. Continued competition provides the
+benchmark from the same initial stocks.
+I use the existing simulated trajectories; no additional equilibria are
+computed for this presentation. Appendix~\ref{paper-app:rewrite-competitive-transition-numerics}
+of the main paper documents the initial conditions and numerical checks.
+
+The level figures retain
 the three windows used in that section; the growth, price, and
 distributional figures below show
 two pre-event years and years 0--10 above, with years 10--500 below.
@@ -36,7 +45,8 @@ growth curves describe the smooth trajectory on each side separately.
  \par\vspace{4pt}
  \parbox{0.95\textwidth}{\footnotesize\emph{Notes:} The capital stocks are
  derived from the competitive BGP, not selected independently. All other
- parameters and initial stocks are in Table~\ref{tab:rewrite-rsi-parameters}.
+ parameters and initial stocks, except capital, are in Table~\ref{paper-tab:rewrite-rsi-parameters}
+ of the main paper.
  Changes compare levels immediately after and before the grant. They are
  identical for both values of $\chi$, since $K$ and $B$ cannot jump.
  The ratio $K_0/Y_{0^-}=3.3$ applies before the grant, not after output falls.}
@@ -56,83 +66,17 @@ level, a large distortion implied by the illustrative parameters rather
 than an empirical estimate. These recovery dates compare contemporaneous
 levels; they do not rank welfare.
 
-\begin{figure}[H]
- \centering
- \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_levels.pdf}
- \caption{From competition to monopoly with RSI, $\chi=7.5$: levels
- relative to continued competition for all four elasticities. The rows
- cover years $-2$--10, 10--100, and 10--500. The upper row uses percentages;
- the middle and lower rows use multiples on logarithmic scales.
- The horizontal benchmark is $100.0\%$ or $1\times$. Open and filled dots
- mark levels before and after the grant. Vertical scales differ across
- windows and between the two research-productivity exercises.}
- \label{fig:rewrite-competitive-high-levels}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_levels.pdf}
- \caption{From competition to monopoly with RSI, $\chi=1.5$: output
- per worker, wages, and consumption per person relative to continued
- competition for all four elasticities. Windows, normalizations, and
- line styles match Figure~\ref{fig:rewrite-competitive-high-levels}.
- Vertical scales are fitted to this exercise.}
- \label{fig:rewrite-competitive-low-levels}
-\end{figure}
-
-\paragraph{Initial conditions and numerical checks.}
-I obtain each competitive initial stock by imposing $r=\rho+\gamma$
-with the marginal-cost pricing condition $p_X=1/B_0$. Pre-event
-consumption follows from the resource constraint with $M=0$ and
-$\dot K=(n+\gamma)K$. The post-event calculation uses the same monopoly
-BVP and equilibrium checks as Appendix~\ref{app:rewrite-algorithm}.
-Previously computed RSI-activation trajectories supply numerical
-initial guesses, but I solve again at the competitive $K_0$, imposing
-neither their consumption nor their research choices. All eight
-paths pass the same residual, horizon-refinement, transversality,
-and developer-optimality checks; no tolerance is relaxed.
-
 \paragraph{Higher research productivity.}
 Figures~\ref{fig:rewrite-competitive-high-growth}--\ref{fig:rewrite-competitive-high-distribution}
 report $\chi=7.5$. Unlike the pure RSI-activation experiment, the grant
 immediately reduces the return on capital: output falls while capital
-cannot jump, so equation~\eqref{eq:rewrite-capital-return} implies a
-lower interest rate. The Euler equation~\eqref{eq:rewrite-euler}
+cannot jump, so equation~\eqref{paper-eq:rewrite-capital-return} in the main paper implies a
+lower interest rate. The Euler equation~\eqref{paper-eq:rewrite-euler}
 then gives lower consumption growth immediately after the grant,
 even where the level of consumption jumps upward. Subsequent RSI
 and capital adjustment determine recovery. Research absorbs resources
 before its gains are fully realized, and the distribution panels
 separate developer net profit from expenditure on inference and research.
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_accumulation_growth.pdf}
- \caption{Competition to monopoly, $\chi=7.5$: annual growth of output,
- AI services, and capital relative to effective labor. Zero denotes
- growth at $n+\gamma$. Growth rates exclude the discrete level changes
- at date zero.}
- \label{fig:rewrite-competitive-high-growth}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_growth_returns.pdf}
- \caption{Competition to monopoly, $\chi=7.5$: annual wage growth,
- net interest, and AI-service prices. Prices are measured in final-good
- units on a logarithmic scale. The wage level falls at the grant;
- panel A reports wage growth on either side, not that level change.}
- \label{fig:rewrite-competitive-high-prices}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_distribution.pdf}
- \caption{Competition to monopoly, $\chi=7.5$: labor income, developer
- net profit, inference expenditure, and research expenditure as shares
- of output. The first two rows cover years $-2$--10; the last two
- cover years 10--500. Gross capital income remains $33.0\%$ of output.}
- \label{fig:rewrite-competitive-high-distribution}
-\end{figure}
 
 \paragraph{Lower research productivity.}
 Figures~\ref{fig:rewrite-competitive-low-growth}--\ref{fig:rewrite-competitive-low-distribution}
@@ -142,35 +86,6 @@ At $\sigma=1.5$, the eventual rise in growth and decline in labor's
 share emerge later. At year 500, growth and returns still exceed
 their monopoly limits, so the final displayed values should not be
 read as those limits.
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_accumulation_growth.pdf}
- \caption{Competition to monopoly, $\chi=1.5$: annual growth of output,
- AI services, and capital relative to effective labor. Windows and
- benchmarks match Figure~\ref{fig:rewrite-competitive-high-growth}.}
- \label{fig:rewrite-competitive-low-growth}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_growth_returns.pdf}
- \caption{Competition to monopoly, $\chi=1.5$: annual wage growth,
- net interest, and AI-service prices in final-good units. Windows,
- benchmarks, and the logarithmic price scale match
- Figure~\ref{fig:rewrite-competitive-high-prices}.}
- \label{fig:rewrite-competitive-low-prices}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_distribution.pdf}
- \caption{Competition to monopoly, $\chi=1.5$: labor income, developer
- net profit, inference expenditure, and research expenditure relative
- to output. Layout and benchmarks match
- Figure~\ref{fig:rewrite-competitive-high-distribution}.}
- \label{fig:rewrite-competitive-low-distribution}
-\end{figure}
 
 \paragraph{Replication.}
 The repository's
@@ -188,49 +103,93 @@ same audited paths without changing them.
 Figure windows only select dates from those stored paths; they do not
 change the simulated economy or the numerical solution horizon.
 
-The repository's
-\href{https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/MONOPOLY_GROWTH_REVERSAL.md}
-{growth-reversal replication guide} records the separate input choices,
-data, audit reports, and commands. The original growth-reversal
-experiment, initialized at $A_0=N_0=1$, remains archived in separate
-files; the other simulation exercises are unchanged.
+\clearpage
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_levels.pdf}
+ \caption{From competition to monopoly with RSI, $\chi=7.5$: levels
+ relative to continued competition for all four elasticities. The rows
+ cover years $-2$--10, 10--100, and 10--500. The upper row uses percentages;
+ the middle and lower rows use multiples on logarithmic scales.
+ The horizontal benchmark is $100.0\%$ or $1\times$. Open and filled dots
+ mark levels before and after the grant. Vertical scales differ across
+ windows and between the two research-productivity exercises.}
+ \label{fig:rewrite-competitive-high-levels}
+\end{figure}
 
-\paragraph{Growth reversal under exclusive rights.}
-For Section~\ref{subsec:rewrite-monopoly-growth-reversal}, I first
-construct a competitive prehistory with $B=B_0$ above the competitive
-threshold. At the start of this prehistory, I normalize $A=N=1$ and
-set $K=14{,}047.3$, the limiting monopoly capital--effective-labor ratio
-at the chosen upper bound. These seed values are illustrative; they
-are not the stocks at the monopoly grant. I advance the competitive
-path to year 190, the first whole year at which the three rates in
-\eqref{eq:rewrite-competitive-ai-growth} are each within 0.1 percentage
-point of their limits; all subsequent annual observations through
-year 1,000 also satisfy this criterion. I then set that date to zero
-and inherit $A$, $N$, and $K$ without changing units. Re-solving the
-competitive equilibrium from those stocks reproduces the continued
-prehistory path to within $10^{-9}$ in log levels over the next 500
-years. The figures include its last ten pre-grant years.
+\clearpage
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_levels.pdf}
+ \caption{From competition to monopoly with RSI, $\chi=1.5$: output
+ per worker, wages, and consumption per person relative to continued
+ competition for all four elasticities. Windows, normalizations, and
+ line styles match Figure~\ref{fig:rewrite-competitive-high-levels}.
+ Vertical scales are fitted to this exercise.}
+ \label{fig:rewrite-competitive-low-levels}
+\end{figure}
 
-I solve the competitive
-resource constraint and Euler equation in
-\eqref{eq:rewrite-competitive-normalized}, with $M=0$ and $B=B_0$,
-using the inherited capital stock and the terminal condition
-$C/K\to\rho-n$ from
-\eqref{eq:rewrite-competitive-capital-growth}.
-The numerical coordinates are $\log(C/K)$ and
-$\log(K/(AL))-[\mathcal R^{\mathrm{mc}}(B_0)-\rho-\gamma]t$.
-Removing the limiting trend avoids extremely large levels without
-imposing balanced growth on the transition. I use the same
-\texttt{scipy.integrate.solve\_bvp} routine described in the numerical
-appendix. Extending its horizon from 1,200 to 1,800 years changes
-these coordinates by less than $10^{-9}$ over the displayed 500 years;
-independent finite-difference residuals are below $10^{-9}$.
-The static supply condition, positive allocation, limiting growth
-rates, and household transversality diagnostics also pass the checks.
+\clearpage
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_accumulation_growth.pdf}
+ \caption{Competition to monopoly, $\chi=7.5$: annual growth of output,
+ AI services, and capital relative to effective labor. Zero denotes
+ growth at $n+\gamma$. Growth rates exclude the discrete level changes
+ at date zero.}
+ \label{fig:rewrite-competitive-high-growth}
+\end{figure}
 
-I solve the two monopoly paths using the existing continuation method,
-without changing its equilibrium-admission tolerances. Their final
-solution horizon is about 4,592 years, although the figures display
-only the first 500 years. Both pass the equation, horizon-extension,
-transversality, and developer-optimality checks, including denser
-checks over the first decade.
+\clearpage
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_growth_returns.pdf}
+ \caption{Competition to monopoly, $\chi=7.5$: annual wage growth,
+ net interest, and AI-service prices. Prices are measured in final-good
+ units on a logarithmic scale. The wage level falls at the grant;
+ panel A reports wage growth on either side, not that level change.}
+ \label{fig:rewrite-competitive-high-prices}
+\end{figure}
+
+\clearpage
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_distribution.pdf}
+ \caption{Competition to monopoly, $\chi=7.5$: labor income, developer
+ net profit, inference expenditure, and research expenditure as shares
+ of output. The first two rows cover years $-2$--10; the last two
+ cover years 10--500. Gross capital income remains $33.0\%$ of output.}
+ \label{fig:rewrite-competitive-high-distribution}
+\end{figure}
+
+\clearpage
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_accumulation_growth.pdf}
+ \caption{Competition to monopoly, $\chi=1.5$: annual growth of output,
+ AI services, and capital relative to effective labor. Windows and
+ benchmarks match Figure~\ref{fig:rewrite-competitive-high-growth}.}
+ \label{fig:rewrite-competitive-low-growth}
+\end{figure}
+
+\clearpage
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_growth_returns.pdf}
+ \caption{Competition to monopoly, $\chi=1.5$: annual wage growth,
+ net interest, and AI-service prices in final-good units. Windows,
+ benchmarks, and the logarithmic price scale match
+ Figure~\ref{fig:rewrite-competitive-high-prices}.}
+ \label{fig:rewrite-competitive-low-prices}
+\end{figure}
+
+\clearpage
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_distribution.pdf}
+ \caption{Competition to monopoly, $\chi=1.5$: labor income, developer
+ net profit, inference expenditure, and research expenditure relative
+ to output. Layout and benchmarks match
+ Figure~\ref{fig:rewrite-competitive-high-distribution}.}
+ \label{fig:rewrite-competitive-low-distribution}
+\end{figure}

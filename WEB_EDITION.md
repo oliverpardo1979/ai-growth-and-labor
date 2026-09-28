@@ -2,8 +2,9 @@
 
 Read the paper and explore its stored simulations at
 <https://oliverpardo1979.github.io/ai-growth-and-labor/>.
-The existing [stable PDF](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf)
-is unchanged. The [replication guide](REPLICATION.md) describes how to solve the model and reproduce its figures.
+The [main PDF](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf)
+and [online appendix](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/online-appendix.pdf)
+are published together. The [replication guide](REPLICATION.md) describes how to solve the model and reproduce its figures.
 
 ## One manuscript, two reading formats
 
@@ -53,15 +54,18 @@ that model and copies no simulation results or interface assets.
 
 Every push to `main` runs `.github/workflows/paper.yml`:
 
-1. Compile the current LaTeX manuscript.
+1. Compile the current LaTeX manuscript, then `online_appendix.tex`, which imports the main paper's AUX labels.
 2. Read the immutable snapshot commit pinned in `DIGITAL_EDITION.json`.
 3. Export that approved digital edition from `codex/digital-edition`.
-4. Replace only `paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf` with the new compilation.
-5. Verify that every other file is byte-identical to the pinned snapshot, then publish to GitHub Pages.
+4. Replace `paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf` and `paper/online-appendix.pdf` with the new compilations.
+5. Ensure the two author-approved online-appendix links are present in `index.html` (overview and reader sidebar). This narrow addition was approved when Appendix D became a separate supplement; it does not regenerate the HTML manuscript.
+6. Verify that every other file is byte-identical to the pinned snapshot, and that the index differs only by those exact link tags, then publish to GitHub Pages.
 
-A manual run of this workflow also updates only the PDF. The HTML reader,
-figures, interface, and simulation explorer stay at their last approved digital
-version. The current PDF and digital edition may therefore intentionally differ.
+A manual run of this workflow also updates only the PDFs and the approved
+download links. The HTML manuscript, figures, and simulation explorer stay at
+their last approved digital version. The current PDF and digital edition may
+therefore intentionally differ; the older HTML manuscript can still include
+the former Appendix D until a full digital update is requested.
 Missing snapshots or invalid files stop publication; they never trigger an
 automatic digital rebuild. Snapshots are kept in Git rather than expiring
 Actions artifacts. Do not delete or force-rewrite the snapshot branch.
@@ -76,9 +80,10 @@ Only do this when Oliver explicitly requests a digital update:
 4. Commit and push the new snapshot, then set `snapshot_commit` in `DIGITAL_EDITION.json` to its full SHA and update the manuscript provenance. Commit and push that pointer change on `main`.
 5. Verify successful deployment, the requested digital changes, and the stable PDF link. An unsuccessful deployment may be retried without rebuilding the approved snapshot.
 
-Never advance the snapshot pointer as part of an ordinary manuscript edit.
+Never advance the snapshot pointer as part of an ordinary manuscript edit or
+an update to the online appendix.
 Changes to files under `docs/` are also unpublished until included in an explicitly
-approved snapshot.
+approved snapshot, except for the two exact supplement-link additions documented above.
 
 Conversion stops on missing labels, unresolved internal references, unsupported
 TeX, Pandoc warnings, or inconsistent simulation provenance. A failed build does
@@ -109,7 +114,8 @@ python -m http.server 8765 --directory docs
 If the PDF/AUX/BBL files are under `output/pdf`, use
 `--build-dir output/pdf` instead. For the local PDF link, copy the compiled PDF
 to `docs/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf`.
-The CI build instead overlays the new PDF on the pinned site snapshot.
+The CI build instead overlays both new PDFs and the approved supplement links
+on the pinned site snapshot.
 
 Presentation lives in `docs/index.html`, `docs/web.css`, and `docs/web.js`.
 Edits here affect only the web interface, not the model, numerical code, data,

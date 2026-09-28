@@ -171,6 +171,63 @@ continuation even when the stronger curvature condition fails at low
 counterfactual AI-efficiency levels. The finite transition still requires its own
 support check.
 
+\subsection{Transitions from competition to monopoly}
+\label{app:rewrite-competitive-transition-numerics}
+
+\paragraph{Starting from a competitive labor-bottleneck path.}
+For Section~\ref{subsec:rewrite-competitive-transition}, I obtain the
+competitive initial stock by imposing $r=\rho+\gamma$ with marginal-cost
+pricing $p_X=1/B_0$. At $\sigma=1.5$, this gives $K_0=6.535$.
+Pre-event consumption follows from the resource constraint with $M=0$
+and $\dot K=(n+\gamma)K$. The post-event calculation uses the monopoly
+BVP and equilibrium checks described above. Previously computed
+RSI-activation trajectories supply numerical initial guesses, but I solve
+again at the competitive $K_0$, imposing neither their consumption nor
+their research choices. The same procedure applies to the four-elasticity
+comparisons in the
+\href{https://oliverpardo1979.github.io/ai-growth-and-labor/paper/online-appendix.pdf}{online appendix}.
+All eight paths pass the same residual, horizon-refinement, transversality,
+and developer-optimality checks; no tolerance is relaxed.
+
+\paragraph{Starting near competitive AI-dominated growth.}
+\phantomsection\label{app:rewrite-growth-reversal-numerics}
+For Section~\ref{subsec:rewrite-monopoly-growth-reversal}, I first
+construct a competitive prehistory with $B=B_0$ above the competitive
+threshold. At the start of this prehistory, I normalize $A=N=1$ and
+set $K=14{,}047.3$, the limiting monopoly capital--effective-labor ratio
+at the chosen upper bound. These seed values are illustrative; they
+are not the stocks at the monopoly grant. I advance the competitive
+path to year 190, the first whole year at which the three rates in
+\eqref{eq:rewrite-competitive-ai-growth} are each within 0.1 percentage
+point of their limits; all subsequent annual observations through
+year 1,000 also satisfy this criterion. I then set that date to zero
+and inherit $A$, $N$, and $K$ without changing units. Re-solving the
+competitive equilibrium from those stocks reproduces the continued
+prehistory path to within $10^{-9}$ in log levels over the next 500
+years. The figures include its last ten pre-grant years.
+
+I solve the competitive resource constraint and Euler equation in
+\eqref{eq:rewrite-competitive-normalized}, with $M=0$ and $B=B_0$,
+using the inherited capital stock and the terminal condition
+$C/K\to\rho-n$ from \eqref{eq:rewrite-competitive-capital-growth}.
+The numerical coordinates are $\log(C/K)$ and
+$\log(K/(AL))-[\mathcal R^{\mathrm{mc}}(B_0)-\rho-\gamma]t$.
+Removing the limiting trend avoids extremely large levels without
+imposing balanced growth on the transition. I use the same
+\texttt{scipy.integrate.solve\_bvp} routine described above.
+Extending its horizon from 1,200 to 1,800 years changes these coordinates
+by less than $10^{-9}$ over the displayed 500 years; independent
+finite-difference residuals are below $10^{-9}$.
+The static supply condition, positive allocation, limiting growth
+rates, and household transversality diagnostics also pass the checks.
+
+I solve the two monopoly paths using the existing continuation method,
+without changing its equilibrium-admission tolerances. Their final
+solution horizon is about 4,592 years, although the figures display
+only the first 500 years. Both pass the equation, horizon-extension,
+transversality, and developer-optimality checks, including denser
+checks over the first decade.
+
 \subsection{Replication files}
 
 I use NumPy for array operations and linear algebra \citep{harrisetal2020}
@@ -205,7 +262,24 @@ Checkpoint and CSV hashes bind the audits to the plotted data.
 No comparison is exported unless the equilibrium and activation-continuity
 checks pass for all four elasticities in that comparison.
 
-The repository includes the two RSI-activation comparisons reported here
-and the competitive-to-monopoly comparisons documented in
-Appendix~\ref{app:rewrite-competitive-transition}. Earlier
-experiments are preserved separately and are not needed for replication.
+The repository's
+\href{https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/COMPETITIVE_TRANSITION.md}
+{competitive-transition guide} records the parameters, the institutional
+experiment, and the replication commands.
+\path{scripts/simulate_competitive_to_monopoly.py} computes the paths;
+\path{scripts/report_competitive_to_monopoly.py} renders the figures.
+The guide links to the separate results folders for each research
+productivity, containing the original paths, competitive benchmarks,
+impact changes, and numerical audits.
+The main-text $\sigma=1.5$ comparison is rendered by
+\path{scripts/report_competitive_main_comparison.py}, which reads these
+same audited paths without changing them. Figure windows only select
+dates from those stored paths; they do not change the simulated economy
+or the numerical solution horizon.
+
+The repository's
+\href{https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/MONOPOLY_GROWTH_REVERSAL.md}
+{growth-reversal replication guide} records the separate input choices,
+data, audit reports, and commands. The original growth-reversal
+experiment, initialized at $A_0=N_0=1$, remains archived in separate
+files; the other simulation exercises are unchanged.

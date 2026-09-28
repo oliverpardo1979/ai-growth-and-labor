@@ -209,6 +209,69 @@ class PdfOnlyPublicationTests(unittest.TestCase):
             self.stage()
         self.assertEqual(self.tree_bytes(self.output), original)
 
+    def prepare_supplement(self):
+        self.supplement = self.root / "supplement.pdf"
+        self.supplement.write_bytes(b"%PDF-1.7\nonline appendix\n%%EOF\n")
+        index = self.files["index.html"] + b"\r\n".join(
+            anchor.encode("utf-8") for anchor, _ in publication.SUPPLEMENT_LINKS
+        )
+        (self.snapshot / "index.html").write_bytes(index)
+        self.files["index.html"] = index
+        self.commit = self.commit_snapshot()
+
+    def test_supplement_changes_only_two_pdfs_and_exact_approved_links(self):
+        self.prepare_supplement()
+        original = self.tree_bytes(self.snapshot)
+        publication.stage_site(
+            self.snapshot, self.pdf, self.output, self.commit, self.supplement
+        )
+        expected = dict(self.files)
+        expected[PDF_PATH] = self.pdf.read_bytes()
+        expected[publication.SUPPLEMENT_PATH] = self.supplement.read_bytes()
+        expected["index.html"] = publication.add_supplement_links(expected["index.html"])
+        self.assertEqual(self.tree_bytes(self.output), expected)
+        self.assertEqual(self.tree_bytes(self.snapshot), original)
+        # Removing precisely the added tags recovers the approved HTML verbatim.
+        recovered = expected["index.html"]
+        for _, link in publication.SUPPLEMENT_LINKS:
+            recovered = recovered.replace(link.encode("utf-8"), b"", 1)
+        self.assertEqual(recovered, self.files["index.html"])
+
+    def test_supplement_links_are_idempotent_for_future_snapshots(self):
+        self.prepare_supplement()
+        index = publication.add_supplement_links(self.files["index.html"])
+        self.assertEqual(publication.add_supplement_links(index), index)
+        (self.snapshot / "index.html").write_bytes(index)
+        self.commit = self.commit_snapshot()
+        publication.stage_site(
+            self.snapshot, self.pdf, self.output, self.commit, self.supplement
+        )
+        self.assertEqual((self.output / "index.html").read_bytes(), index)
+
+    def test_missing_or_ambiguous_link_anchor_stops_before_export(self):
+        self.prepare_supplement()
+        anchor = publication.SUPPLEMENT_LINKS[0][0].encode("utf-8")
+        for index in (
+            self.files["index.html"].replace(anchor, b""),
+            self.files["index.html"] + anchor,
+        ):
+            (self.snapshot / "index.html").write_bytes(index)
+            self.commit = self.commit_snapshot()
+            with self.assertRaises(ValueError):
+                publication.stage_site(
+                    self.snapshot, self.pdf, self.output, self.commit, self.supplement
+                )
+            self.assertFalse(self.output.exists())
+
+    def test_invalid_supplement_stops_before_export(self):
+        self.prepare_supplement()
+        self.supplement.write_bytes(b"<html>Compilation failed</html>")
+        with self.assertRaises(ValueError):
+            publication.stage_site(
+                self.snapshot, self.pdf, self.output, self.commit, self.supplement
+            )
+        self.assertFalse(self.output.exists())
+
 
 if __name__ == "__main__":
     unittest.main()

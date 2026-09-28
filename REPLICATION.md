@@ -117,20 +117,28 @@ Run `python scripts/simulate_monopoly_growth_reversal_burnin.py --report` to sol
 reference and regenerate the new figures from the saved monopoly paths.
 The preceding version remains reproducible in the folders without `_burnin`.
 
-## 5. Compile the paper
+## 5. Compile the paper and online appendix
 
 Select **main_rewrite.tex** as the main document in Overleaf. Locally, either:
 
 ```sh
 latexmk -pdf main_rewrite.tex
+latexmk -pdf online_appendix.tex
 ```
 
 or, with Tectonic installed and an existing output directory:
 
 ```sh
-tectonic --keep-logs --outdir output/pdf main_rewrite.tex
+tectonic --keep-logs --keep-intermediates --outdir output/pdf main_rewrite.tex
+tectonic --keep-logs --keep-intermediates --outdir output/pdf online_appendix.tex
 ```
 
-The GitHub workflow builds this manuscript and publishes its PDF at the stable
-link above whenever the manuscript changes. It does not rerun the simulations
-on every textual edit.
+Compile the main paper first and retain `main_rewrite.aux`: the online appendix
+imports its equation, section, and table numbers with links to the public paper.
+The appendix reuses the saved figures; it does not recompute simulations.
+In Overleaf, compile `main_rewrite.tex` before selecting `online_appendix.tex`
+as the main document to build the separate supplement.
+
+The GitHub workflow compiles both documents and publishes the main PDF and
+[online appendix](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/online-appendix.pdf)
+together. It does not rerun the simulations or rebuild the digital reader.

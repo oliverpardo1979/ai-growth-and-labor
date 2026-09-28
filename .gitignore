@@ -14,6 +14,7 @@ output/
 *.fls
 *.fdb_latexmk
 /main_rewrite.pdf
+/online_appendix.pdf
 /docs/generated/
 /docs/paper/
 /_digital_snapshot/
