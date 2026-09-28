@@ -259,10 +259,30 @@ class GeneratedManuscriptTests(unittest.TestCase):
         integrated = self.content[proof_start:next_proof]
         for label in ("static-shares", "production", "feedback", "output-growth",
                       "capital-inference", "investment", "research-share", "consumption",
-                      "deviations", "local-spectrum", "local-projection", "distribution",
-                      "comparative-statics"):
+                      "deviations", "local-spectrum", "local-projection", "local-similarity",
+                      "local-polynomial", "developer-verification"):
             with self.subTest(label=label):
                 self.assertIn(f'id="eq:rewrite-uncapped-unit-{label}"', integrated)
+        for label in ("distribution", "comparative-statics", "output-row",
+                      "research-row", "efficiency-row", "jacobian-k", "jacobian-b",
+                      "jacobian-c", "jacobian-q"):
+            with self.subTest(inactive_label=label):
+                self.assertNotIn(f'id="eq:rewrite-uncapped-unit-{label}"', self.content)
+
+    def test_proofs_are_grouped_by_economic_problem(self):
+        headings = {h["id"]: h for h in self.meta["sections"]}
+        keys = ("developer", "bounded", "competitive", "uncapped")
+        positions = []
+        for number, key in enumerate(keys, 1):
+            label = f"app:rewrite-{key}-proofs"
+            self.assertEqual(headings[label]["number"], f"A.{number}")
+            positions.append(self.content.index(f'id="{label}"'))
+        self.assertEqual(positions, sorted(positions))
+        low_cap = self.content.index('id="prop:rewrite-low-cap-complements"')
+        self.assertLess(positions[1], low_cap)
+        self.assertLess(low_cap, positions[2])
+        self.assertEqual(self.content.count('id="eq:rewrite-cap-gap"'), 1)
+        self.assertLess(self.content.index('id="eq:rewrite-cap-gap"'), positions[1])
 
     def test_competitive_section_exercises_and_appendix_are_present(self):
         headings = {item["id"]: item for item in self.meta["sections"]}
@@ -328,7 +348,7 @@ class GeneratedManuscriptTests(unittest.TestCase):
 
     def test_textual_endpoints_and_replication_are_retained(self):
         for text in ("Advances in artificial intelligence", "Declaration of AI use",
-                     "Accuracy and equilibrium checks", "Replication files", "Local convergence from nearby initial stocks."):
+                     "Accuracy and equilibrium checks", "Replication files", "Step 4. Reconstruction of nearby equilibria."):
             self.assertIn(text, self.content)
         self.assertIn("ref-romer1990", self.content)
         self.assertIn("Journal of Political Economy", self.content)

@@ -70,6 +70,11 @@ Taking logarithms, dividing by $t$, and taking the upper limit gives
 \begin{proof}[Proof of Proposition~\ref{cond:rewrite-uncapped-complements-limits}]
 \phantomsection
 \label{proof:rewrite-uncapped-complements-limits}
+I first bound consumption and discounted research spending, then show
+that capital per unit of effective labor stays away from zero. These
+bounds establish that research per unit of effective labor vanishes,
+allowing convergence to the limiting Ramsey allocation and its growth rates.
+
 All auxiliary variables below are confined to this proof. Write
 $x=X/(AL)$, $k=K/(AL)$, $c=C/(AL)$, $y=Y/(AL)$, $u=U/(AL)$,
 $m=M/(AL)$, $d=\rho-n>0$, and $\nu=\delta+n+\gamma$.
@@ -95,13 +100,18 @@ The monopoly condition can be written
  v(x)=\frac{(1-\alpha)s_Xf(x)(1-e_X)}x.
 \]
 On $(0,x_\infty)$, $v$ is strictly decreasing, from infinity to zero.
-Indeed, with a prime here denoting differentiation with respect to $\log x$,
-$e_X'=(\alpha-\sigma^{-1})\varphi s_X(1-s_X)>0$ and
-$-\mathrm d\log v/\mathrm d\log x=e_X+e_X'/(1-e_X)>\alpha s_X$.
+Indeed,
+\[
+ \frac{\mathrm d e_X}{\mathrm d\log x}
+ =(\alpha-\sigma^{-1})\varphi s_X(1-s_X)>0,\qquad
+ -\frac{\mathrm d\log v}{\mathrm d\log x}
+ =e_X+\frac{1}{1-e_X}\frac{\mathrm d e_X}{\mathrm d\log x}>\alpha s_X.
+\]
 Consequently $x$ increases with $B$ and $k$, while
 \[
  \frac{\partial\log y}{\partial\log k}
- =\alpha+\frac{\alpha(1-\alpha)s_X}{e_X+e_X'/(1-e_X)}<1.
+ =\alpha+\frac{\alpha(1-\alpha)s_X}
+ {e_X+(1-e_X)^{-1}\mathrm d e_X/\mathrm d\log x}<1.
 \]
 Thus $y/k$ decreases with $k$ and increases with $B$.
 For $k$ in any compact interval bounded away from zero, as $B\to\infty$,
@@ -233,6 +243,9 @@ a contradiction. Therefore $k$ is eventually bounded away from zero,
 and so is $c\geq dk$. In particular, $r$ is now bounded above.
 
 \textit{Step 5. Research per unit of effective labor vanishes and Ramsey dynamics determine the limit.}
+The discounted-spending bound from Step 3 does not by itself imply
+$m_t\to0$: expenditure could remain large over increasingly short intervals.
+The following bound on its growth rules out that possibility.
 Differentiating the research condition and using the costate equation gives
 \begin{equation}
  (1-\eta)g_M
@@ -314,8 +327,7 @@ The bound on $g_M$ from Step 5 and the RSI technology give
 \]
 Thus $g_B=\chi M^\eta/B^{1-\eta}$ is bounded above.
 At $x_\infty$, the marginal-revenue function $v$ defined in Step 1 has
-a simple zero: $v(x_\infty)=0$ and $v'(x_\infty)<0$, where the prime
-now denotes differentiation with respect to $x$.
+a simple zero: $v(x_\infty)=0$ and $v'(x_\infty)<0$.
 Differentiating $k^\alpha v(x)=1/B$ yields
 \[
  \dot x=-\frac{v(x)}{v'(x)}

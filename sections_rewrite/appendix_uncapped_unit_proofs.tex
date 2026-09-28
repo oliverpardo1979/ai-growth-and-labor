@@ -5,7 +5,7 @@
 I first construct and verify the reference BGP, denoted by a superscript
 $*$, and then establish convergence from nearby initial stocks.
 
-\textit{The reference BGP.}
+\textit{Step 1. Construction of the reference BGP.}
 At unit elasticity, $s_X=\omega_X$ and $e_X=1-(1-\alpha)\omega_X$.
 The AI-demand and monopoly conditions,
 equations~\eqref{eq:rewrite-ai-price} and~\eqref{eq:rewrite-monopoly-foc}, give
@@ -138,8 +138,9 @@ $e^{-(\rho-n)t}$. Discounted household utility is
 $N_0e^{-(\rho-n)t}[\log(C_0^*/N_0)+(g_Y^*-n)t]$.
 Both improper objective integrals are finite.
 
-It remains to establish global optimality, rather than only satisfaction of
-the necessary conditions. At given paths of $K,A,L$, static optimization gives
+\par\medskip\noindent\textit{Step 2. Global optimality.}
+
+At given paths of $K,A,L$, static optimization gives
 \begin{equation}
  \begin{split}
  \pi_t(B)={}&(1-\alpha)\omega_X[1-(1-\alpha)\omega_X]
@@ -193,17 +194,9 @@ truncated payoff, than this finite-valued candidate. The same verification
 applies to nearby candidates satisfying the uncapped equations and the
 developer TVC; it does not require exact balanced growth.
 
-For the household, set $\Lambda_t=e^{-\rho t}N_t/C_t$.
-Euler implies $\dot\Lambda=-r\Lambda$.
-Concavity of log utility and the linear budget give, for any feasible
-alternative with the same $K_0$ and the same given prices and developer net profit,
-\[
- \int_0^T e^{-\rho t}N_t
- \left[\log(\widetilde C_t/N_t)-\log(C_t/N_t)\right]\dd t
- \leq-\Lambda_T(\widetilde K_T-K_T)
- \leq\Lambda_TK_T\longrightarrow0.
-\]
-This establishes global household optimality.
+Household optimality follows from log-utility concavity, the linear budget,
+the Euler equation, and the TVC, by the same integration-by-parts argument
+as in Step 4 of the proof of Proposition~\ref{prop:rewrite-equilibrium-regimes}.
 
 Competitive final-good firms
 face a concave constant-returns technology, and
@@ -212,7 +205,7 @@ optimality. The constructed path satisfies Definition~\ref{def:rewrite-equilibri
 with the uncapped RSI technology~\eqref{eq:rewrite-uncapped-unit-law}.
 
 \medskip
-\textit{Local convergence from nearby initial stocks.}
+\textit{Step 3. Local stability and selection of initial consumption and research.}
 \phantomsection
 \label{proof:rewrite-uncapped-unit-local}
 For the given exogenous paths of population and labor-augmenting technology,
@@ -230,41 +223,8 @@ follow the BGP rather than remain fixed at their initial values.
 Substitution into equations~\eqref{eq:rewrite-eq-kdot}--\eqref{eq:rewrite-eq-qdot},
 with $\psi=1$ and $\psi'=0$, gives a smooth autonomous system
 $\dot\xi=f(\xi)$ with $f(0)=0$, where $\xi=(\xi_K,\xi_B,\xi_C,\xi_q)'$.
-Let $J^*=Df(0)$ denote its Jacobian, and let $e_K,e_B,e_C,e_q$
-be the corresponding unit row vectors. No constant growth rates or
-allocation shares are imposed along these transitions. Define the row vectors
-\begin{align}
- y_\xi&=\left(\frac{\alpha}{1-(1-\alpha)\omega_X},
- \frac{(1-\alpha)\omega_X}{1-(1-\alpha)\omega_X},0,0\right),
- \label{eq:rewrite-uncapped-unit-output-row}\\
- m_\xi&=\frac{\eta e_B+e_q}{1-\eta},
- \label{eq:rewrite-uncapped-unit-research-row}\\
- b_\xi&=g_B^*[(\eta-1)e_B+\eta m_\xi].
- \label{eq:rewrite-uncapped-unit-efficiency-row}
-\end{align}
-The reduced production equation gives the log deviation of output as
-$y_\xi\xi$. The research FOC implies
-$M=(q\chi\eta B^\eta)^{1/(1-\eta)}$, so the log deviation of $M$ is
-$m_\xi\xi$. Differentiating $g_B=\chi B^{\eta-1}M^\eta$ at the BGP
-gives the level deviation $b_\xi\xi$.
-
-The four rows of $J^*$, derived from capital accumulation, AI research,
-the household Euler equation, and the developer costate equation, are
-\begin{align}
- J_K^*&=\frac{1-u^*}{k^*}y_\xi-(g_Y^*+\delta)e_K
- -\frac{c^*}{k^*}e_C-\frac{m^*}{k^*}m_\xi,
- \label{eq:rewrite-uncapped-unit-jacobian-k}\\
- J_B^*&=b_\xi,
- \label{eq:rewrite-uncapped-unit-jacobian-b}\\
- J_C^*&=(r^*+\delta)(y_\xi-e_K),
- \label{eq:rewrite-uncapped-unit-jacobian-c}\\
- J_q^*&=(r^*+\delta)(y_\xi-e_K)
- -(\rho-n+\eta g_Y^*)(y_\xi-e_q-e_B)-\eta b_\xi.
- \label{eq:rewrite-uncapped-unit-jacobian-q}
-\end{align}
-The last row uses $U/(qB)=\rho-n+\eta g_Y^*$ at the BGP.
-All entries depend on growth rates and ratios, which are independent of
-$\chi$. No terminal restrictions were used to derive this Jacobian.
+Let $J^*=Df(0)$ denote its Jacobian. No constant growth rates or
+allocation shares are imposed along these transitions.
 
 I next establish two properties needed for local convergence from nearby
 initial stocks. First, writing $E^s$ for the real invariant subspace
@@ -305,9 +265,15 @@ Make the invertible linear change of deviations
 \]
 The second and fourth coordinates are the log deviations of the transformed
 state $S$ and its shadow price $p$. This changes neither the model nor the
-eigenvalues. Applying it to
-\eqref{eq:rewrite-uncapped-unit-jacobian-k}--\eqref{eq:rewrite-uncapped-unit-jacobian-q}
-gives a similar matrix
+eigenvalues. In these coordinates, the reduced production equation and
+the research condition give
+\[
+ \log\frac Y{Y^*}=a_K\widehat\xi_K+a_T\widehat\xi_S,\qquad
+ \log\frac M{M^*}=\widehat\xi_S+\frac{\widehat\xi_p}{1-\eta}.
+\]
+Differentiating the capital, transformed research, Euler, and transformed
+costate equations at the BGP, using
+$U/(qB)=\rho-n+\eta g_Y^*$, gives the similar matrix
 \begin{equation}
  \widehat J=
  \begin{pmatrix}
@@ -399,6 +365,9 @@ inverse-function theorem therefore make this manifold locally the
 graph of a continuously differentiable function selecting $(\xi_C,\xi_q)$
 from the two initial stock deviations. Since exponentiation is a local
 diffeomorphism, the same holds for $(C_0,q_0)$ as functions of $(K_0,B_0)$.
+
+\par\medskip\noindent\textit{Step 4. Reconstruction of nearby equilibria.}
+
 More explicitly, for some constants $a,H>0$, trajectories on a sufficiently
 small stable manifold satisfy
 \[
@@ -450,23 +419,24 @@ Static optimality and market clearing then establish equilibrium, not
 merely a solution of the necessary conditions.
 \end{proof}
 
-The BGP allocations also give the income shares
-\begin{equation}
- \frac{wL}{Y}=(1-\alpha)\omega_L>0,\qquad
- \frac{(r+\delta)K}{Y}=\alpha,\qquad
- \frac{\Pi}{Y}=(1-\alpha)\omega_X-u^*-m^*.
- \label{eq:rewrite-uncapped-unit-distribution}
-\end{equation}
-Within the restrictions of Proposition~\ref{prop:rewrite-uncapped-unit-bgp},
-increasing the AI weight raises the common growth rate and the interest rate:
-\begin{equation}
- \frac{\partial g_{Y/N}^*}{\partial\omega_X}
- =\frac{\partial g_w^*}{\partial\omega_X}
- =\frac{\partial r^*}{\partial\omega_X}
- =\frac{\eta(1-\eta)(n+\gamma)}{(1-\eta-\omega_X)^2}>0.
- \label{eq:rewrite-uncapped-unit-comparative-statics}
-\end{equation}
-Labor's income share falls across these parameterizations, but remains
-constant over time on each BGP. As $\omega_X\to0^+$, the common per-worker
-growth rate converges to $\gamma$ and $r^*\to\rho+\gamma$.
-These comparisons concern BGPs, not a transition from a no-AI economy.
+% Additional BGP comparisons retained in the source, outside the proof.
+%The BGP allocations also give the income shares
+%\begin{equation}
+% \frac{wL}{Y}=(1-\alpha)\omega_L>0,\qquad
+% \frac{(r+\delta)K}{Y}=\alpha,\qquad
+% \frac{\Pi}{Y}=(1-\alpha)\omega_X-u^*-m^*.
+% \label{eq:rewrite-uncapped-unit-distribution}
+%\end{equation}
+%Within the restrictions of Proposition~\ref{prop:rewrite-uncapped-unit-bgp},
+%increasing the AI weight raises the common growth rate and the interest rate:
+%\begin{equation}
+% \frac{\partial g_{Y/N}^*}{\partial\omega_X}
+% =\frac{\partial g_w^*}{\partial\omega_X}
+% =\frac{\partial r^*}{\partial\omega_X}
+% =\frac{\eta(1-\eta)(n+\gamma)}{(1-\eta-\omega_X)^2}>0.
+% \label{eq:rewrite-uncapped-unit-comparative-statics}
+%\end{equation}
+%Labor's income share falls across these parameterizations, but remains
+%constant over time on each BGP. As $\omega_X\to0^+$, the common per-worker
+%growth rate converges to $\gamma$ and $r^*\to\rho+\gamma$.
+%These comparisons concern BGPs, not a transition from a no-AI economy.

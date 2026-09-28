@@ -2,6 +2,9 @@
 \section{Proofs}
 \label{app:rewrite-proofs}
 
+\subsection{Developer optimization}
+\label{app:rewrite-developer-proofs}
+
 \Needspace{7\baselineskip}
 \begin{lemma}[Optimal AI-service supply]
 \label{lem:rewrite-monopoly-choice}
@@ -54,15 +57,8 @@ zero from above if \(\sigma\geq1\); if \(\sigma<1\), it eventually
 becomes negative. Hence \(R'(X)=1/B\) has exactly one solution. Operating profit
 increases before this solution and decreases after it. The linear cost \(X/B\)
 dominates revenue as \(X\to\infty\), so this solution is the unique global
-maximum. Equation \eqref{eq:rewrite-monopoly-proof-curvature} also proves the
-strict second-order condition:
-\begin{equation}
- e_X(1-e_X)
- +\left(\alpha-\frac1\sigma\right)\left(1-\frac1\sigma\right)s_X(1-s_X)>0.
- \label{eq:rewrite-monopoly-soc}
-\end{equation}
-At the unique solution of $R'(X)=1/B$, $R''(X)<0$.
-The implicit-function theorem therefore makes the maximizing service choice
+maximum. Since $R''(X)<0$ at this solution, the implicit-function theorem
+makes the maximizing service choice
 smooth in $K,A,L,B$.
 \end{proof}
 
@@ -82,7 +78,8 @@ $\{q_t\}_{t\geq0}$ satisfying the research condition
 \eqref{eq:rewrite-costate}, and the transversality condition
 \eqref{eq:rewrite-developer-tvc}.
 \item For every $t\geq0$ and every $b\in[B_0,\overline B)$,
-the following inequality holds:
+the following inequality holds. It compares the candidate with all
+alternative efficiencies reachable from $B_0$, not only nearby values:
 \begin{equation}
  \begin{aligned}
  \pi_t(b)-\pi_t(B_t)
@@ -101,11 +98,22 @@ the following inequality holds:
 where $\pi_t(b)$ is operating profit as defined in
 equation~\eqref{eq:rewrite-service-choice}.
 \end{enumerate}
-No other feasible research trajectory starting from
-the same $B_0$ yields a higher present value of net profit.
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-developer-verification}]
+Feasible research expenditure is nonnegative and integrable on every finite
+interval, with a locally absolutely continuous state satisfying the RSI
+technology almost everywhere. Integrating that technology gives
+\begin{equation}
+ \overline B-B_t=(\overline B-B_0)
+ \exp\left\{-\frac{\chi}{\overline B}
+ \int_0^t(B_sM_s)^\eta\dd s\right\}>0.
+ \label{eq:rewrite-cap-gap}
+\end{equation}
+Local integrability of $M$ and $0<\eta<1$ make the exponent finite at
+every finite date. Thus every feasible trajectory remains in
+$[B_0,\overline B)$, where the following transformation is well defined.
+
 I first transform AI efficiency to compare the candidate with alternative
 research trajectories. Define
 \begin{equation}
@@ -182,9 +190,6 @@ equation~\eqref{eq:rewrite-costate} therefore gives
 
 Consider any feasible alternative $\{\widetilde B_t,\widetilde M_t\}_{t\geq0}$
 starting from the same $B_0$, and write $\widetilde R_{B,t}=R_B(\widetilde B_t)$.
-Here feasible expenditure is nonnegative and integrable on every finite
-interval, with a locally absolutely continuous state satisfying the RSI
-technology almost everywhere.
 Let
 \[
  J_T=\int_0^T D_t[\pi_t(B_t)-M_t]\dd t
@@ -285,7 +290,7 @@ of the monopoly condition~\eqref{eq:rewrite-monopoly-foc} gives
  \label{eq:rewrite-service-capability-elasticity}
 \end{equation}
 The denominator is strictly positive by
-equation~\eqref{eq:rewrite-monopoly-soc}. The envelope
+equation~\eqref{eq:rewrite-monopoly-proof-curvature}. The envelope
 condition~\eqref{eq:rewrite-profit-envelope} gives
 $\pi_t'(b)=X_t^*(b)/b^2$, so
 \begin{equation}
@@ -303,8 +308,8 @@ The chain rule therefore gives
  -\frac{b}{\overline B}\right].
  \label{eq:rewrite-capped-profit-curvature}
 \end{equation}
-Condition~\eqref{eq:rewrite-capped-concavity-gate} makes this derivative
-nonpositive for every $b\in[B_0,\overline B)$.
+Condition~\eqref{eq:rewrite-capped-concavity-gate} therefore makes operating
+profit concave in the transformed state for every $b\in[B_0,\overline B)$.
 
 The research term in \eqref{eq:rewrite-maximized-depth-hamiltonian} is a
 positive multiple of $B(R_B)^{\eta/(1-\eta)}$. Its curvature is
@@ -331,47 +336,36 @@ can fail even when the Hamiltonian has the required supporting tangent at
 the candidate state.
 \end{proof}
 
+\Needspace{9\baselineskip}
+\subsection{Equilibria with bounded AI efficiency}
+\label{app:rewrite-bounded-proofs}
 \input{sections_rewrite/appendix_finite_frontier}
+\input{sections_rewrite/appendix_low_cap_complements}
+
+\Needspace{9\baselineskip}
+\subsection{Competitive equilibrium and comparison with monopoly}
+\label{app:rewrite-competitive-proofs}
 \input{sections_rewrite/appendix_competitive_equilibrium}
 
 \Needspace{6\baselineskip}
 \begin{proof}[Proof of Proposition~\ref{prop:rewrite-monopoly-threshold}]
 \phantomsection
 \label{proof:rewrite-monopoly-threshold}
-Fix $B>0$ and $\sigma>1$. Combining marginal-cost pricing, $p_X=1/B$,
-with the final-good firm's demand in equation~\eqref{eq:rewrite-ai-price}
-gives
-\begin{equation}
- \frac XY=B(1-\alpha)s_X\longrightarrow B(1-\alpha)
- \qquad\text{as }s_X\to1.
- \label{eq:rewrite-marginal-cost-service-limit}
-\end{equation}
-The CES limit in equation~\eqref{eq:rewrite-composite-ai-limit} is
-unchanged. Substituting that limit and
-equation~\eqref{eq:rewrite-marginal-cost-service-limit} into
-$Y/K=[(Z/X)(X/Y)]^{(1-\alpha)/\alpha}$, from
-equation~\eqref{eq:rewrite-output-capital-limit}, yields
+Fix $\sigma>1$. The limiting returns in
+equations~\eqref{eq:rewrite-ai-terminal-ratio} and
+\eqref{eq:rewrite-marginal-cost-return}, derived above, satisfy
 \[
- \frac YK\longrightarrow
- \left[(1-\alpha)B\,\omega_X^{\sigma/(\sigma-1)}
- \right]^{(1-\alpha)/\alpha}.
+ \mathcal R^{\mathrm{mc}}(B)=\mathcal R\bigl(B/(1-\alpha)\bigr).
 \]
-Equation~\eqref{eq:rewrite-capital-return} then gives
-$\mathcal R^{\mathrm{mc}}(B)$ in
-equation~\eqref{eq:rewrite-marginal-cost-return}.
-It exceeds the monopoly return in
-equation~\eqref{eq:rewrite-ai-terminal-ratio}, since $0<1-\alpha<1$.
-
-The marginal-cost threshold $\mathcal B^{\mathrm{mc}}(\sigma)$ is defined
-by $\mathcal R^{\mathrm{mc}}(\mathcal B^{\mathrm{mc}}(\sigma))=\rho+\gamma$.
-Both returns are strictly increasing in $B$, and their formulas imply
-$\mathcal R^{\mathrm{mc}}(B)=\mathcal R(B/(1-\alpha))$.
-Thus equation~\eqref{eq:rewrite-critical-frontier} gives
+Both returns increase strictly with $B$. Since each threshold is the
+efficiency at which the corresponding return equals $\rho+\gamma$,
 \[
  \mathcal R^{\mathrm{mc}}\bigl((1-\alpha)\mathcal B(\sigma)\bigr)
  =\mathcal R\bigl(\mathcal B(\sigma)\bigr)=\rho+\gamma.
 \]
-Uniqueness of the threshold establishes
+Uniqueness gives
+$\mathcal B^{\mathrm{mc}}(\sigma)=(1-\alpha)\mathcal B(\sigma)
+<\mathcal B(\sigma)$, establishing
 equation~\eqref{eq:rewrite-marginal-cost-threshold}.
 \end{proof}
 
@@ -437,6 +431,9 @@ Since the parameters are common to both economies, the same ordering
 applies to both growth rates, including the equality case.
 \end{proof}
 
+\Needspace{9\baselineskip}
+\subsection{Equilibria without an efficiency bound}
+\label{app:rewrite-uncapped-proofs}
 \input{sections_rewrite/appendix_uncapped_complements_proofs}
 \input{sections_rewrite/appendix_uncapped_unit_proofs}
 
@@ -497,11 +494,24 @@ so $J_T(\mathcal M)\to+\infty$ as $\mathcal M\to\infty$.
 Each finite $\mathcal M$ keeps AI efficiency and discounted net profit
 finite on $[0,T]$; it is the sequence of payoffs that is unbounded.
 
-To compare with an infinite-horizon equilibrium candidate, extend the
-deviation after $T$ using the candidate's subsequent research expenditure.
-Once the initial research phase leaves AI
-efficiency above the candidate's level at $T$, subsequent operating profits
-cannot be lower than along that candidate.
+Now consider an infinite-horizon equilibrium candidate
+$\{\widehat B_t,\widehat M_t\}$ with finite discounted net profit
+$\widehat V_0$, and let $\widehat J_T$ denote its payoff through $T$.
+After $T$, continue the deviation using $\widehat M_t$.
+For sufficiently large $\mathcal M$, the deviation has
+$B_{\mathcal M}(T)>\widehat B_T$. Because
+$\mathrm d(B^{1-\eta})/\mathrm dt=(1-\eta)\chi M^\eta$,
+this efficiency advantage persists under the common subsequent expenditure.
+Operating profit is increasing in efficiency by
+equation~\eqref{eq:rewrite-profit-envelope}, so the continuation payoff is
+at least $\widehat V_0-\widehat J_T$. The full deviation therefore yields
+\[
+ J_\infty(\mathcal M)\geq J_T(\mathcal M)
+ +\widehat V_0-\widehat J_T\longrightarrow+\infty.
+\]
+No candidate with finite discounted net profit can be optimal. This
+argument establishes unbounded value, not an equilibrium trajectory with
+a finite-time singularity.
 \end{proof}
 
 % BEGIN PRESERVED BROADER RESEARCH-SCALE PROOF (2026-09-15)
@@ -701,76 +711,6 @@ cannot be lower than along that candidate.
 % illustrative rather than estimated.
 % END PRESERVED BROADER RESEARCH-SCALE PROOF
 
-\Needspace{9\baselineskip}
-\begin{proposition}[An AI bottleneck under complementarity]
-\label{prop:rewrite-low-cap-complements}
-Suppose $\sigma<1$ and $\overline B<\mathcal B(\sigma)$.
-In any equilibrium, long-run average output-per-worker growth is
-bounded strictly below the rate of labor-augmenting technological progress:
-\begin{gather*}
- \limsup_{t\to\infty}\frac1t
- \log\left(\frac{Y_t/N_t}{Y_0/N_0}\right)
- \leq\mathcal R(\overline B)-\rho<\gamma.
-\end{gather*}
-AI production services become scarce relative to effective labor, and
-labor's income share vanishes:
-\begin{gather*}
- \frac{X}{AL}\to0,\qquad s_X\to1,\qquad \frac{wL}{Y}\to0.
-\end{gather*}
-\end{proposition}
-
-\Needspace{4\baselineskip}
-\begin{proof}[Proof of Proposition~\ref{prop:rewrite-low-cap-complements}]
-\phantomsection
-\label{proof:rewrite-low-cap-complements}
-Consider any equilibrium with $0<\sigma<1$ and
-$0<B_0<\overline B<\mathcal B(\sigma)$. The increasing share map in
-equation~\eqref{eq:rewrite-frontier-share-map}, established in Step 1 of the
-proof of Proposition~\ref{prop:rewrite-equilibrium-regimes},
-and $B_t\leq\overline B$ imply
-\begin{equation}
- r_t\leq\mathcal R(B_t)\leq\mathcal R(\overline B)<\rho+\gamma,
- \qquad
- \frac{Y_t}{K_t}\leq\frac{\mathcal R(\overline B)+\delta}{\alpha}.
- \label{eq:rewrite-low-cap-return-bound}
-\end{equation}
-The present value of the developer's net profit from any date onward is
-nonnegative: it can
-stop research and earn nonnegative operating profit. Wage income is also
-nonnegative. Integrating the household budget
-\eqref{eq:rewrite-household-budget}, using its transversality condition
-\eqref{eq:rewrite-household-tvc} and the Euler equation
-\eqref{eq:rewrite-euler}, therefore gives the first inequality below;
-integrating the Euler equation with the return bound gives the second:
-\begin{equation}
- C_t\geq(\rho-n)K_t,
- \qquad
- \frac{C_t}{N_t}\leq\frac{C_0}{N_0}
- e^{[\mathcal R(\overline B)-\rho]t}.
- \label{eq:rewrite-low-cap-consumption-bound}
-\end{equation}
-Combining these inequalities yields
-\begin{equation}
- \frac{Y_t}{N_t}\leq
- \frac{\mathcal R(\overline B)+\delta}{\alpha(\rho-n)}
- \frac{C_0}{N_0}e^{[\mathcal R(\overline B)-\rho]t},
- \qquad
- \limsup_{t\to\infty}\frac1t
- \log\left(\frac{Y_t/N_t}{Y_0/N_0}\right)
- \leq\mathcal R(\overline B)-\rho<\gamma.
- \label{eq:rewrite-low-cap-growth-bound}
-\end{equation}
-Consequently $Y/(AL)\to0$. Since equation~\eqref{eq:rewrite-ai-output-limit}
-gives $X/Y\leq\overline B(1-\alpha)^2$ under complementarity,
-$X/(AL)\to0$: AI production services become scarce relative to effective
-labor. Equation~\eqref{eq:rewrite-sx} then implies $s_X\to1$ and hence
-$wL/Y\to0$.
-The growth bound concerns the long-run average, not convergence of the
-instantaneous growth rate. Neither convergence of $C/Y$ nor
-$B_t\to\overline B$ is assumed. The growth bound and vanishing labor share
-are necessary properties of any equilibrium in this region, not a proof of
-equilibrium existence.
-\end{proof}
 % The previous Section 5.3 and its proposition are commented in the source.
 % Keep the complete proof file available without compiling an orphan proof.
 % \input{sections_rewrite/appendix_uncapped_substitutes_proof}

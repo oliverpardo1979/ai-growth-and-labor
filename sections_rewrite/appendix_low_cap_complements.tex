@@ -1,0 +1,70 @@
+\Needspace{8\baselineskip}
+\begin{proposition}[An AI bottleneck under complementarity]
+\label{prop:rewrite-low-cap-complements}
+Suppose $\sigma<1$ and $\overline B<\mathcal B(\sigma)$.
+In any equilibrium, long-run average output-per-worker growth is
+bounded strictly below the rate of labor-augmenting technological progress:
+\begin{gather*}
+ \limsup_{t\to\infty}\frac1t
+ \log\left(\frac{Y_t/N_t}{Y_0/N_0}\right)
+ \leq\mathcal R(\overline B)-\rho<\gamma.
+\end{gather*}
+AI production services become scarce relative to effective labor, and
+labor's income share vanishes:
+\begin{gather*}
+ \frac{X}{AL}\to0,\qquad s_X\to1,\qquad \frac{wL}{Y}\to0.
+\end{gather*}
+\end{proposition}
+
+\Needspace{4\baselineskip}
+\begin{proof}[Proof of Proposition~\ref{prop:rewrite-low-cap-complements}]
+\phantomsection
+\label{proof:rewrite-low-cap-complements}
+Consider any equilibrium with $0<\sigma<1$ and
+$0<B_0<\overline B<\mathcal B(\sigma)$. The increasing share map in
+equation~\eqref{eq:rewrite-frontier-share-map}, established in Step 1 of the
+proof of Proposition~\ref{prop:rewrite-equilibrium-regimes},
+and $B_t\leq\overline B$ imply
+\begin{equation}
+ r_t\leq\mathcal R(B_t)\leq\mathcal R(\overline B)<\rho+\gamma,
+ \qquad
+ \frac{Y_t}{K_t}\leq\frac{\mathcal R(\overline B)+\delta}{\alpha}.
+ \label{eq:rewrite-low-cap-return-bound}
+\end{equation}
+The present value of the developer's net profit from any date onward is
+nonnegative: it can
+stop research and earn nonnegative operating profit. Wage income is also
+nonnegative. Integrating the household budget
+\eqref{eq:rewrite-household-budget}, using its transversality condition
+\eqref{eq:rewrite-household-tvc} and the Euler equation
+\eqref{eq:rewrite-euler}, therefore gives the first inequality below;
+integrating the Euler equation with the return bound gives the second:
+\begin{equation}
+ C_t\geq(\rho-n)K_t,
+ \qquad
+ \frac{C_t}{N_t}\leq\frac{C_0}{N_0}
+ e^{[\mathcal R(\overline B)-\rho]t}.
+ \label{eq:rewrite-low-cap-consumption-bound}
+\end{equation}
+Combining these inequalities yields
+\begin{equation}
+ \frac{Y_t}{N_t}\leq
+ \frac{\mathcal R(\overline B)+\delta}{\alpha(\rho-n)}
+ \frac{C_0}{N_0}e^{[\mathcal R(\overline B)-\rho]t},
+ \qquad
+ \limsup_{t\to\infty}\frac1t
+ \log\left(\frac{Y_t/N_t}{Y_0/N_0}\right)
+ \leq\mathcal R(\overline B)-\rho<\gamma.
+ \label{eq:rewrite-low-cap-growth-bound}
+\end{equation}
+Consequently $Y/(AL)\to0$. Since equation~\eqref{eq:rewrite-ai-output-limit}
+gives $X/Y\leq\overline B(1-\alpha)^2$ under complementarity,
+$X/(AL)\to0$: AI production services become scarce relative to effective
+labor. Equation~\eqref{eq:rewrite-sx} then implies $s_X\to1$ and hence
+$wL/Y\to0$.
+The growth bound concerns the long-run average, not convergence of the
+instantaneous growth rate. Neither convergence of $C/Y$ nor
+$B_t\to\overline B$ is assumed. The growth bound and vanishing labor share
+are necessary properties of any equilibrium in this region, not a proof of
+equilibrium existence.
+\end{proof}
