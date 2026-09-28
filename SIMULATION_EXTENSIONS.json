@@ -14,6 +14,13 @@
       "migration_sha256": "648bf9d77083c61eda714fecff7cb82b61d398e697afe086a1cde3064157c70d",
       "current_sha256": "aa4ac5427014be17842a2fe9e2d00925136d5bd2e861101a723752ef7a01ca7e",
       "change": "Add competitive_fixed_efficiency_bgp initial-stock rule and roundoff-only cache validation for that rule. Add an optional track_transition_midpoint flag, default true, so growth-reversal exports can omit labor-share transition-date statistics. Existing initial-stock rules, numerical equations, solver, and admission tolerances are unchanged."
+    },
+    {
+      "path": "scripts/report_rewrite_illustrative_rsi.py",
+      "migration_sha256": "285e3aa02389aa73a6db9abf75b8a45e1d023fc02131701eb3971b3ca7bee738",
+      "current_sha256": "c2844ac5aa9c20d75da99907cb7a7163dc063439d9b4b2ed4fc15778780ab2c3",
+      "date": "2026-09-28",
+      "change": "Remove the mesh-point column from the numerical-accuracy table and clarify that horizons are measured in years. This records the presentation-only change in commit b436cf5; numerical calculations and admission criteria are unchanged."
     }
   ]
 }
