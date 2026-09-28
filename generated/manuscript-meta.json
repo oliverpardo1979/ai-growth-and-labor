@@ -1,5 +1,5 @@
 {
-  "title": "Recursive AI Self-Improvement, Market Power, and Growth",
+  "title": "The Upside of Being Replaceable:\nAI, Market Structure, and Growth",
   "author": "Oliver Pardo\nDepartamento de Administración\nPontificia Universidad Javeriana\npardoo@javeriana.edu.co",
   "date": "September 2026",
   "abstract": "I develop an endogenous-growth model in which a monopolistic AI developer supplies AI services and invests in recursive AI self-improvement. I characterize two long-run regimes under an upper bound on AI efficiency—the quantity of AI services produced per unit of compute. Complementarity between AI and labor, or a sufficiently low upper bound on AI efficiency, leaves labor as a production bottleneck. In this regime, output per worker and wages eventually grow at the exogenous rate of labor-augmenting technological progress. Instead, when AI and labor are substitutes and the upper bound is sufficiently high, an AI-dominated regime sustains permanently faster wage growth and a higher long-run return to capital. Output per worker grows faster than wages, so labor’s income share vanishes while AI-industry revenue increases as a share of output. Replacing monopoly with perfect competition eliminates private research incentives. Nevertheless, if AI is already sufficiently efficient, the competitive economy can sustain AI-dominated growth through capital accumulation and expanding AI use. By contrast, monopoly rewards research but restricts AI use through its markup. It may therefore produce more efficient AI yet slower long-run growth than competition. Numerical simulations show that early output-per-worker growth can remain moderate and similar across economies approaching different long-run regimes.",
@@ -318,10 +318,10 @@
       "number": "S2"
     }
   ],
-  "source_sha256": "e3c27a5afc3bd3b7167fa0ac8e71c62334ca4256b060c69235ae9c612f79d6b2",
+  "source_sha256": "d09e0b8409b63dc07a3dd71f8883b32346a716b5972a37edb93946d83b90f779",
   "supplement": {
     "source": "online_appendix.tex",
-    "source_sha256": "a5df299c8dac44f89a5f68e829740b309366101e37ec52e5fe915b386a716c01",
+    "source_sha256": "b10e8aebf7256870eb40d3252b1c0e4a45da063d60507d794d6380c733a3c668",
     "source_files": [
       "online_appendix.tex",
       "sections_rewrite/appendix_competitive_transition.tex",
@@ -329,7 +329,7 @@
     ],
     "build_inputs": {
       "aux": "c28b6b3ef6ac0cf6fede7bc14cf7b6dd9f8feb8850176ac34a0b4a5d82c3ddfb",
-      "pdf": "27c65675498eaa66d0ec677a25e0e67c747044abea131e31741cc3e8787f464b"
+      "pdf": "9b40a6186f5c11f4f849b75b0ad355d4b3a11c864d54190931cbc626732325dd"
     }
   },
   "source_files": [
@@ -552,13 +552,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 22957,
+    "visible_text_tokens_verified": 22956,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
     "aux": "86a2cb8d8a9f6c5084c5a1d21a1a831a5f25aa87cbfaa9c55bd43ceead437aec",
     "bbl": "ce5636deb2c9be14ca3a39667c02f142f95eafa7c190a6d26e174132d217b72b",
-    "pdf": "10ac2ac956ab2e69f77467a555c5c779f176e4f3f44c61f5d6daebd7db4fa082"
+    "pdf": "8e83bdc40e7573c8b530ec843a2a376ac3fa51802a41de5bea97401c3cb3410c"
   }
 }
