@@ -300,7 +300,7 @@
       "number": "S2.1"
     }
   ],
-  "source_sha256": "8dac915b373ce3c5436c9aeed7b5c217e9f9a09b4085e46d0dab9fbb46df790e",
+  "source_sha256": "72ffea842a685b6e4e8858dc45fc981876b45b8f2c4cd28b9ed51b1ab281e671",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "bc823e6bb5bfd923a2bdb90d3a95ddaec1ccd2b17d2ce3f4934182569fbef991",
@@ -312,7 +312,7 @@
     ],
     "build_inputs": {
       "aux": "557f186c9390f7e020e87629d2de0080c90fc9b975c42e5927fae08dfc84c666",
-      "pdf": "ddb88f4568b280cb02cde2edf3ee410cda60ecf570c93471e03cdb4c98658756"
+      "pdf": "7d89887ac8a3884914cc4e20eb01d8499898f8605a597f6ee7de864a122c1dee"
     }
   },
   "source_files": [
@@ -542,6 +542,6 @@
   "build_inputs": {
     "aux": "8f007bd998912233916c0730c13e88da7e8e24beb5fc5b2fcae88b9db8b5325b",
     "bbl": "ce5636deb2c9be14ca3a39667c02f142f95eafa7c190a6d26e174132d217b72b",
-    "pdf": "0181a89e09aba1829acca994e40ab63a30a9016b8f493eacecd4baceae331f03"
+    "pdf": "2bb7fac8a352ee5935ced71ba31dea658cff53e26b89b01d1587637fe44b3205"
   }
 }
