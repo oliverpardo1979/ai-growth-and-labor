@@ -1,7 +1,7 @@
 {
-  "snapshot_commit": "55a706523425bf9349216fee4e0e7b6eec2344c2",
+  "snapshot_commit": "4d2b9ee3af393b00491855b42920f65e3f4197d2",
   "snapshot_branch": "codex/digital-edition",
-  "manuscript_commit": "d18a7657caeaa2d847a9802738b56ce2b2e6e265",
+  "manuscript_commit": "cbe5ea0900918e0191a99327ba1b82fb66bf986f",
   "updated_on": "2026-09-27",
   "policy": "Refresh and validate the digital edition with every approved paper update, unless Oliver explicitly defers publication. Pin the new snapshot before the final main push; both public PDFs follow main."
 }
