@@ -157,6 +157,8 @@ Here $V_t$ is an auxiliary continuation value, not an additional traded
 asset or a change to the household budget.
 
 \textit{Step 3. Discounted research spending vanishes relative to effective labor.}
+I first bound the present value of future effective labor relative to its
+current level, without assuming that the interest rate converges.
 Fix a positive rate $a$. Step 1 permits a small $k_a>0$ and a sufficiently
 late date such that $r-(n+\gamma)\geq a$ whenever $k\leq k_a$.
 On $[k_a,k_{\max}]$, the wage equation~\eqref{eq:rewrite-wage} and the
@@ -174,7 +176,7 @@ integration, and~\eqref{eq:rewrite-complements-household-wealth-bound} give
  \label{eq:rewrite-complements-effective-labor-pv-bound}
 \end{equation}
 for a fixed finite $J$. The omitted terminal contribution from discounted
-effective labor is nonpositive; no discount-rate limit is used.
+effective labor is nonpositive.
 
 The research condition~\eqref{eq:rewrite-research-foc} and costate
 equation~\eqref{eq:rewrite-costate} imply
@@ -270,8 +272,10 @@ the compact positive region containing the path, the Ramsey system
  \dot c=c\,[\alpha f_\infty k^{\alpha-1}-\delta-\rho-\gamma].
  \label{eq:rewrite-complements-limiting-ramsey}
 \end{equation}
-For clarity, the following argument verifies convergence rather than
-inferring it solely from convergence of the equations.
+To establish convergence, I examine the equilibrium path over time
+intervals centered at increasingly late dates. Any limiting path must
+solve this Ramsey system. I show that the only such path that remains in
+the compact positive region is its stationary point.
 This limiting system has one positive stationary point,
 \[
  k_\infty=
@@ -280,8 +284,9 @@ This limiting system has one positive stationary point,
 \]
 Its Jacobian has negative determinant, so it is a saddle.
 The standard Ramsey phase portrait is discussed by \citet{groth2013ramsey}.
-There is no nonconstant complete orbit confined to a compact subset of
-the positive quadrant. To see this, the multiplier $1/c^2$ gives
+There is no nonconstant complete orbit (a trajectory defined for all
+positive and negative time) confined to a compact subset of the positive
+quadrant. To see this, the multiplier $1/c^2$ gives
 \[
  \frac{\partial}{\partial k}\frac{F(k)-c}{c^2}
  +\frac{\partial}{\partial c}

@@ -34,11 +34,17 @@ and $B_t\leq\overline B$ imply
 The present value of the developer's net profit from any date onward is
 nonnegative: it can
 stop research and earn nonnegative operating profit. Wage income is also
-nonnegative. Integrating the household budget
-\eqref{eq:rewrite-household-budget}, using its transversality condition
-\eqref{eq:rewrite-household-tvc} and the Euler equation
-\eqref{eq:rewrite-euler}, therefore gives the first inequality below;
-integrating the Euler equation with the return bound gives the second:
+nonnegative. Let $D_{t,s}=\exp(-\int_t^s r_u\dd u)$. Integrating the
+household budget~\eqref{eq:rewrite-household-budget}, using its
+transversality condition~\eqref{eq:rewrite-household-tvc} and the Euler
+equation~\eqref{eq:rewrite-euler}, gives
+\[
+ \frac{C_t}{\rho-n}
+ =K_t+\int_t^\infty D_{t,s}(w_sN_s+\Pi_s)\dd s.
+\]
+The integral is nonnegative by the preceding argument, yielding the first
+inequality below. Integrating the Euler equation with the return bound
+gives the second:
 \begin{equation}
  C_t\geq(\rho-n)K_t,
  \qquad

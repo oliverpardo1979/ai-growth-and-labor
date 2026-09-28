@@ -98,6 +98,9 @@ alternative efficiencies reachable from $B_0$, not only nearby values:
 where $\pi_t(b)$ is operating profit as defined in
 equation~\eqref{eq:rewrite-service-choice}.
 \end{enumerate}
+Condition~\eqref{eq:rewrite-hamiltonian-support} requires the maximized
+Hamiltonian, expressed in the transformed efficiency variable used below,
+to lie below its tangent at the candidate state.
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-developer-verification}]
@@ -114,8 +117,8 @@ Local integrability of $M$ and $0<\eta<1$ make the exponent finite at
 every finite date. Thus every feasible trajectory remains in
 $[B_0,\overline B)$, where the following transformation is well defined.
 
-I first transform AI efficiency to compare the candidate with alternative
-research trajectories. Define
+To express condition~\eqref{eq:rewrite-hamiltonian-support} as a
+supporting-tangent inequality, I transform AI efficiency. Define
 \begin{equation}
  R_B(B)=-\overline B\log\left(1-\frac{B}{\overline B}\right),
  \qquad
@@ -240,9 +243,8 @@ The candidate's present value is finite by assumption. Hence
  \leq\lim_{T\to\infty}J_T<\infty,
 \]
 so no feasible alternative yields a higher present value of net profit.
-The argument requires the tangent to the maximized Hamiltonian at the
-candidate state to lie above its value at every alternative state. Global
-concavity is sufficient for this inequality, but is not required.
+Global concavity is sufficient for
+condition~\eqref{eq:rewrite-hamiltonian-support}, but is not required.
 \end{proof}
 
 \Needspace{8\baselineskip}
@@ -274,6 +276,14 @@ $R_B\in[R_B(B_0),\infty)$ at every date, so the inequality
 \eqref{eq:rewrite-hamiltonian-support} required by
 Lemma~\ref{lem:rewrite-developer-verification} holds.
 \end{lemma}
+
+Condition~\eqref{eq:rewrite-capped-concavity-gate} ensures concavity of
+operating profit in $R_B$; condition~\eqref{eq:rewrite-depth-research-concavity}
+ensures concavity of the optimized research term. The latter holds
+automatically if $\eta\leq1/2$. For any fixed $0<\eta<1$, it also holds
+when $B_0$ is sufficiently close to $\overline B$. These curvature tests
+are sufficient, not necessary: they can fail even when the Hamiltonian
+has the required supporting tangent at the candidate state.
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-hamiltonian-concavity}]
 Fix a date $t$. Lemma~\ref{lem:rewrite-monopoly-choice} ensures that
@@ -327,13 +337,6 @@ bound. As shown in the proof of
 Lemma~\ref{lem:rewrite-developer-verification}, this is
 condition~\eqref{eq:rewrite-hamiltonian-support}.
 
-If $\eta\leq1/2$, condition~\eqref{eq:rewrite-depth-research-concavity}
-holds automatically. But for every fixed
-$0<\eta<1$ its right-hand side is strictly below one, so it also holds
-without this restriction when initial efficiency is sufficiently close to
-the upper bound. These curvature tests are sufficient, not necessary: they
-can fail even when the Hamiltonian has the required supporting tangent at
-the candidate state.
 \end{proof}
 
 \Needspace{9\baselineskip}
@@ -473,6 +476,8 @@ The operating-profit asymptotic is uniform over dates in $[0,T]$ because
 $K,A,L$ are continuous, bounded, and bounded away from zero
 on $[0,T]$.
 
+The research trajectories constructed below are deviations in the
+developer's optimization problem, not alternative equilibrium allocations.
 Fix $\Delta\in(0,T)$, choose $M=\mathcal M$ on $[0,\Delta]$, and choose
 $M=0$ afterward. The uncapped RSI technology gives
 \[
