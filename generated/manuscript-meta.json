@@ -2,8 +2,8 @@
   "title": "Recursive AI Self-Improvement, Market Power, and Growth",
   "author": "Oliver Pardo\nDepartamento de Administración\nPontificia Universidad Javeriana\npardoo@javeriana.edu.co",
   "date": "September 2026",
-  "abstract": "I develop an endogenous-growth model in which a monopolistic AI developer supplies AI services and invests in recursive AI self-improvement. I characterize two long-run regimes under an upper bound on AI efficiency—the quantity of AI services produced per unit of compute. Complementarity between AI and labor, or a sufficiently low upper bound on AI efficiency, can leave labor as a production bottleneck. In this regime, output per worker and wages eventually grow at the exogenous rate of labor-augmenting technological progress. When AI and labor are substitutes and the upper bound is sufficiently high, an AI-dominated regime sustains permanently faster wage growth and a higher long-run return to capital. Output per worker grows faster than wages, so labor’s income share vanishes while AI-industry revenue increases as a share of output. Replacing monopoly with perfect competition eliminates private research incentives, but sufficiently high initial efficiency sustains AI-dominated growth through capital accumulation and expanding AI use. Monopoly rewards research but restricts AI use: it can therefore produce more efficient AI yet slower long-run growth than competition. Numerical simulations show that early output-per-worker growth can remain moderate and similar across economies approaching different long-run regimes.",
-  "schema_version": 1,
+  "abstract": "I develop an endogenous-growth model in which a monopolistic AI developer supplies AI services and invests in recursive AI self-improvement. I characterize two long-run regimes under an upper bound on AI efficiency—the quantity of AI services produced per unit of compute. Complementarity between AI and labor, or a sufficiently low upper bound on AI efficiency, leaves labor as a production bottleneck. In this regime, output per worker and wages eventually grow at the exogenous rate of labor-augmenting technological progress. Instead, when AI and labor are substitutes and the upper bound is sufficiently high, an AI-dominated regime sustains permanently faster wage growth and a higher long-run return to capital. Output per worker grows faster than wages, so labor’s income share vanishes while AI-industry revenue increases as a share of output. Replacing monopoly with perfect competition eliminates private research incentives. Nevertheless, if AI is already sufficiently efficient, the competitive economy can sustain AI-dominated growth through capital accumulation and expanding AI use. By contrast, monopoly rewards research but restricts AI use through its markup. It may therefore produce more efficient AI yet slower long-run growth than competition. Numerical simulations show that early output-per-worker growth can remain moderate and similar across economies approaching different long-run regimes.",
+  "schema_version": 2,
   "sections": [
     {
       "id": "sec:rewrite-introduction",
@@ -96,6 +96,12 @@
       "number": "4.2"
     },
     {
+      "id": "subsec:rewrite-substitution-wage-growth",
+      "title": "Substitution and wage growth",
+      "level": 2,
+      "number": "4.3"
+    },
+    {
       "id": "sec:rewrite-competition",
       "title": "Competitive Equilibrium",
       "level": 1,
@@ -157,27 +163,21 @@
     },
     {
       "id": "subsec:rewrite-rsi-half-decline",
-      "title": "Higher research productivity",
+      "title": "Fast takeoff",
       "level": 2,
       "number": "7.2"
     },
     {
       "id": "subsec:rewrite-rsi-research-share",
-      "title": "Lower research productivity",
+      "title": "Slow takeoff",
       "level": 2,
       "number": "7.3"
     },
     {
       "id": "subsec:rewrite-competitive-transition",
-      "title": "From competitive provision to monopoly with RSI",
+      "title": "Monopoly boosts growth",
       "level": 2,
       "number": "7.4"
-    },
-    {
-      "id": "subsec:rewrite-monopoly-growth-reversal",
-      "title": "When monopoly eliminates AI-dominated growth",
-      "level": 2,
-      "number": "7.5"
     },
     {
       "id": "sec:rewrite-conclusion",
@@ -222,10 +222,28 @@
       "number": "B.4"
     },
     {
+      "id": "app:rewrite-competitive-transition-numerics",
+      "title": "Transitions from competition to monopoly",
+      "level": 2,
+      "number": "B.5"
+    },
+    {
+      "id": "starting-from-a-competitive-labor-bottleneck-path.",
+      "title": "Starting from a competitive labor-bottleneck path.",
+      "level": 4,
+      "number": ""
+    },
+    {
+      "id": "app:rewrite-growth-reversal-numerics",
+      "title": "Starting near competitive AI-dominated growth.",
+      "level": 4,
+      "number": ""
+    },
+    {
       "id": "replication-files",
       "title": "Replication files",
       "level": 2,
-      "number": "B.5"
+      "number": "B.6"
     },
     {
       "id": "app:rewrite-uncapped-unit",
@@ -252,20 +270,26 @@
       "number": "C.3"
     },
     {
+      "id": "declaration-of-ai-use",
+      "title": "Declaration of AI use",
+      "level": 1,
+      "number": ""
+    },
+    {
+      "id": "additional-results",
+      "title": "Supplementary simulations",
+      "level": 1,
+      "number": ""
+    },
+    {
       "id": "app:rewrite-competitive-transition",
       "title": "Additional competitive-to-monopoly simulation results",
       "level": 1,
-      "number": "D"
+      "number": "S1"
     },
     {
       "id": "level-comparisons-across-elasticities.",
       "title": "Level comparisons across elasticities.",
-      "level": 4,
-      "number": ""
-    },
-    {
-      "id": "initial-conditions-and-numerical-checks.",
-      "title": "Initial conditions and numerical checks.",
       "level": 4,
       "number": ""
     },
@@ -288,19 +312,26 @@
       "number": ""
     },
     {
-      "id": "growth-reversal-under-exclusive-rights.",
-      "title": "Growth reversal under exclusive rights.",
-      "level": 4,
-      "number": ""
-    },
-    {
-      "id": "declaration-of-ai-use",
-      "title": "Declaration of AI use",
+      "id": "subsec:rewrite-monopoly-growth-reversal",
+      "title": "Monopoly slows growth",
       "level": 1,
-      "number": ""
+      "number": "S2"
     }
   ],
-  "source_sha256": "2d48d6419d821e4cdee9baf6c71fced6195018933f82d6fec4838631b46aced9",
+  "source_sha256": "d8698ae29277a2c90d22bc1ced5687ab066be001faeaeeaafa2e4c4bf866d9cf",
+  "supplement": {
+    "source": "online_appendix.tex",
+    "source_sha256": "b97e9f0cb67a387a6cd58687d3f77edc570b2579a5930331823fc996acf805bc",
+    "source_files": [
+      "online_appendix.tex",
+      "sections_rewrite/appendix_competitive_transition.tex",
+      "sections_rewrite/15_monopoly_growth_reversal.tex"
+    ],
+    "build_inputs": {
+      "aux": "705acafd82d64e6586624fd73c11c88a1fdc15c4e3c45dc60a2a48226f8cc070",
+      "pdf": "4470d9f6b715a2a6fa4bf30c186db8fd37891d1053e0560bd7fe7ceca0df9c94"
+    }
+  },
   "source_files": [
     "main_rewrite.tex",
     "sections_rewrite/01_introduction.tex",
@@ -308,13 +339,13 @@
     "sections_rewrite/03_model.tex",
     "sections_rewrite/04_equilibrium_regimes.tex",
     "sections_rewrite/05_competitive_equilibrium.tex",
+    "sections_rewrite/competitive_threshold_figure.tex",
     "sections_rewrite/05_uncapped_equilibria.tex",
     "sections_rewrite/08_rsi_design.tex",
     "sections_rewrite/rsi_parameters.tex",
     "sections_rewrite/12_rsi_high_productivity.tex",
     "sections_rewrite/13_rsi_low_productivity.tex",
     "sections_rewrite/14_competitive_to_monopoly.tex",
-    "sections_rewrite/15_monopoly_growth_reversal.tex",
     "sections_rewrite/06_conclusion.tex",
     "sections_rewrite/appendix.tex",
     "sections_rewrite/appendix_finite_frontier.tex",
@@ -323,8 +354,7 @@
     "sections_rewrite/appendix_uncapped_unit_proofs.tex",
     "sections_rewrite/appendix_rsi_illustrative.tex",
     "sections_rewrite/rsi_illustrative_accuracy.tex",
-    "sections_rewrite/appendix_uncapped_unit.tex",
-    "sections_rewrite/appendix_competitive_transition.tex"
+    "sections_rewrite/appendix_uncapped_unit.tex"
   ],
   "source": "main_rewrite.tex",
   "figures": [
@@ -333,12 +363,12 @@
       "number": "1",
       "asset": "generated/assets/fig-rewrite-model-flow.svg",
       "kind": "tikz-pdf-crop",
-      "pdf_page": 10,
+      "pdf_page": 9,
       "crop": [
         104.62882995605469,
-        185.67636108398438,
+        67.19200897216797,
         507.3712158203125,
-        341.7191162109375
+        223.23477172851562
       ]
     },
     {
@@ -346,12 +376,12 @@
       "number": "2",
       "asset": "generated/assets/fig-rewrite-capability-flow.svg",
       "kind": "tikz-pdf-crop",
-      "pdf_page": 10,
+      "pdf_page": 9,
       "crop": [
         66.99993896484375,
-        185.67636108398438,
+        67.19200897216797,
         546.2763061523438,
-        640.035888671875
+        521.5515747070312
       ]
     },
     {
@@ -359,132 +389,145 @@
       "number": "3",
       "asset": "generated/assets/fig-rewrite-frontier-regimes.svg",
       "kind": "tikz-pdf-crop",
-      "pdf_page": 19,
+      "pdf_page": 17,
       "crop": [
         85.77465057373047,
-        73.06316375732422,
+        132.091064453125,
         525.7593994140625,
-        314.6602478027344
+        373.6881408691406
+      ]
+    },
+    {
+      "id": "fig:rewrite-competitive-thresholds",
+      "number": "4",
+      "asset": "generated/assets/fig-rewrite-competitive-thresholds.svg",
+      "kind": "tikz-pdf-crop",
+      "pdf_page": 20,
+      "crop": [
+        66.59635925292969,
+        252.41659545898438,
+        547.1226196289062,
+        544.0606079101562
       ]
     },
     {
       "id": "fig:rewrite-rsi-half-accumulation",
-      "number": "4",
+      "number": "5",
       "asset": "generated/assets/fig-rewrite-rsi-half-accumulation.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/equilibrium_rsi_chi_7_5_accumulation_growth_windows.pdf"
     },
     {
       "id": "fig:rewrite-rsi-half-prices",
-      "number": "5",
+      "number": "6",
       "asset": "generated/assets/fig-rewrite-rsi-half-prices.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/equilibrium_rsi_chi_7_5_growth_returns_windows.pdf"
     },
     {
       "id": "fig:rewrite-rsi-half-distribution",
-      "number": "6",
+      "number": "7",
       "asset": "generated/assets/fig-rewrite-rsi-half-distribution.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/equilibrium_rsi_chi_7_5_ai_distribution_windows.pdf"
     },
     {
       "id": "fig:rewrite-rsi-research-accumulation",
-      "number": "7",
+      "number": "8",
       "asset": "generated/assets/fig-rewrite-rsi-research-accumulation.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/equilibrium_rsi_chi_1_5_accumulation_growth_windows.pdf"
     },
     {
       "id": "fig:rewrite-rsi-research-prices",
-      "number": "8",
+      "number": "9",
       "asset": "generated/assets/fig-rewrite-rsi-research-prices.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/equilibrium_rsi_chi_1_5_growth_returns_windows.pdf"
     },
     {
       "id": "fig:rewrite-rsi-research-distribution",
-      "number": "9",
+      "number": "10",
       "asset": "generated/assets/fig-rewrite-rsi-research-distribution.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/equilibrium_rsi_chi_1_5_ai_distribution_windows.pdf"
     },
     {
       "id": "fig:rewrite-competitive-sigma15-levels",
-      "number": "10",
+      "number": "11",
       "asset": "generated/assets/fig-rewrite-competitive-sigma15-levels.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_levels.pdf"
     },
     {
-      "id": "fig:rewrite-monopoly-growth-reversal-growth",
-      "number": "11",
-      "asset": "generated/assets/fig-rewrite-monopoly-growth-reversal-growth.svg",
-      "kind": "pdf-figure",
-      "source": "figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_growth.pdf"
-    },
-    {
-      "id": "fig:rewrite-monopoly-growth-reversal-technology",
-      "number": "12",
-      "asset": "generated/assets/fig-rewrite-monopoly-growth-reversal-technology.svg",
-      "kind": "pdf-figure",
-      "source": "figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_technology.pdf"
-    },
-    {
       "id": "fig:rewrite-competitive-high-levels",
-      "number": "13",
+      "number": "S1",
       "asset": "generated/assets/fig-rewrite-competitive-high-levels.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_levels.pdf"
     },
     {
       "id": "fig:rewrite-competitive-low-levels",
-      "number": "14",
+      "number": "S2",
       "asset": "generated/assets/fig-rewrite-competitive-low-levels.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_levels.pdf"
     },
     {
       "id": "fig:rewrite-competitive-high-growth",
-      "number": "15",
+      "number": "S3",
       "asset": "generated/assets/fig-rewrite-competitive-high-growth.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_accumulation_growth.pdf"
     },
     {
       "id": "fig:rewrite-competitive-high-prices",
-      "number": "16",
+      "number": "S4",
       "asset": "generated/assets/fig-rewrite-competitive-high-prices.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_growth_returns.pdf"
     },
     {
       "id": "fig:rewrite-competitive-high-distribution",
-      "number": "17",
+      "number": "S5",
       "asset": "generated/assets/fig-rewrite-competitive-high-distribution.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_distribution.pdf"
     },
     {
       "id": "fig:rewrite-competitive-low-growth",
-      "number": "18",
+      "number": "S6",
       "asset": "generated/assets/fig-rewrite-competitive-low-growth.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_accumulation_growth.pdf"
     },
     {
       "id": "fig:rewrite-competitive-low-prices",
-      "number": "19",
+      "number": "S7",
       "asset": "generated/assets/fig-rewrite-competitive-low-prices.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_growth_returns.pdf"
     },
     {
       "id": "fig:rewrite-competitive-low-distribution",
-      "number": "20",
+      "number": "S8",
       "asset": "generated/assets/fig-rewrite-competitive-low-distribution.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_distribution.pdf"
+    },
+    {
+      "id": "fig:rewrite-monopoly-growth-reversal-growth",
+      "number": "S9",
+      "asset": "generated/assets/fig-rewrite-monopoly-growth-reversal-growth.svg",
+      "kind": "pdf-figure",
+      "source": "figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_growth.pdf"
+    },
+    {
+      "id": "fig:rewrite-monopoly-growth-reversal-technology",
+      "number": "S10",
+      "asset": "generated/assets/fig-rewrite-monopoly-growth-reversal-technology.svg",
+      "kind": "pdf-figure",
+      "source": "figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_technology.pdf"
     }
   ],
   "mathjax": {
@@ -495,13 +538,13 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 260,
-    "numbered_equation_rows": 172,
-    "display_math": 202,
-    "figures": 20,
+    "labels": 268,
+    "numbered_equation_rows": 174,
+    "display_math": 207,
+    "figures": 21,
     "tables": 5,
-    "bibliography_entries": 48,
-    "citation_keys": 48
+    "bibliography_entries": 42,
+    "citation_keys": 42
   },
   "validation": {
     "all_active_labels_present": true,
@@ -509,13 +552,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 23655,
+    "visible_text_tokens_verified": 22844,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "876a46187845878c1d885845e9d4cf667ec77b0c66e31f0254a194fa68086d79",
-    "bbl": "8dba60d492bcdea741b7fb97ae87a92a2939f2ef480725402835db455aeb670e",
-    "pdf": "b8cddd712df05b683b94b15589aa2cc4847e6014085ac5f7d2a99f2da1a94aaa"
+    "aux": "e145d636761674bef8cdcf7be5f32479c40148db3848f6fb1a091af0721227c7",
+    "bbl": "ce5636deb2c9be14ca3a39667c02f142f95eafa7c190a6d26e174132d217b72b",
+    "pdf": "1346fb3d059183a2dae060ca6cb957bfdae12831c22ce968c5d01212f41c838a"
   }
 }
