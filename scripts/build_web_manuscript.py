@@ -381,6 +381,57 @@ def read_bibliography(path: Path) -> list[tuple[str, str]]:
     return result
 
 
+def diagram_clip(page: Any, caption_top: float) -> Any:
+    """Find the last connected diagram above its caption, honoring PDF clips.
+
+    A page can contain several figures. Clipped fills may have off-screen
+    control points, and horizontal/vertical axes have zero geometric area.
+    Neither should make the crop absorb prose or omit part of the diagram.
+    """
+    import pymupdf as fitz
+    clips: dict[int, Any] = {}
+    rectangles = []
+    for drawing in page.get_drawings(extended=True):
+        level = drawing.get("level", 0)
+        clips = {depth: rect for depth, rect in clips.items() if depth < level}
+        if drawing["type"] == "clip":
+            clips[level] = fitz.Rect(drawing["scissor"])
+            continue
+        if "rect" not in drawing:
+            continue
+        rect = fitz.Rect(drawing["rect"])
+        if max(rect.width, rect.height) <= 10:
+            continue
+        rect += (-0.5, -0.5, 0.5, 0.5)
+        for mask in clips.values():
+            rect &= mask
+        if not rect.is_empty and rect.y1 < caption_top:
+            rectangles.append(rect)
+    clusters = []
+    for rect in sorted(rectangles, key=lambda r: r.y0):
+        if clusters and rect.y0 <= clusters[-1].y1 + 3:
+            clusters[-1] |= rect
+        else:
+            clusters.append(fitz.Rect(rect))
+    candidates = [rect for rect in clusters if rect.width >= 80 and rect.height >= 40]
+    if not candidates:
+        raise ConversionError("No complete vector diagram found above caption")
+    clip = fitz.Rect(candidates[-1])
+    if caption_top - clip.y1 > 60:
+        raise ConversionError("Nearest diagram is too far from its caption")
+    initial = fitz.Rect(clip)
+    for block in page.get_text("blocks"):
+        rect = fitz.Rect(block[:4])
+        if (rect.y1 >= initial.y0 - 2 and rect.y0 <= initial.y1 + 24
+                and rect.y1 < caption_top - 5 and rect.x1 >= initial.x0 - 25
+                and rect.x0 <= initial.x1 + 25):
+            clip |= rect
+    clip += (-5, -5, 5, 5)
+    clip.y1 = min(clip.y1, caption_top - 5)
+    clip &= page.rect
+    return clip
+
+
 def extract_figures(source: str, root: Path, pdf: Path, assets: Path,
                     labels: dict[str, dict[str, str]], asset_prefix: str) -> tuple[str, list[dict[str, Any]]]:
     try:
@@ -411,23 +462,7 @@ def extract_figures(source: str, root: Path, pdf: Path, assets: Path,
             if len(captions) != 1:
                 raise ConversionError(f"Cannot locate unique PDF caption for {key}")
             caption_top = captions[0].y0
-            drawings = [drawing["rect"] for drawing in page.get_drawings()
-                        if drawing["rect"].height > 8 and drawing["rect"].width > 10
-                        and drawing["rect"].y1 < caption_top]
-            if not drawings:
-                raise ConversionError(f"No vector diagram found above caption: {key}")
-            clip = fitz.Rect(drawings[0])
-            for rect in drawings[1:]:
-                clip |= rect
-            initial = fitz.Rect(clip)
-            for block in page.get_text("blocks"):
-                rect = fitz.Rect(block[:4])
-                if (rect.y1 >= initial.y0 - 2 and rect.y0 <= initial.y1 + 24
-                        and rect.y1 < caption_top - 5 and rect.x1 >= initial.x0 - 25
-                        and rect.x0 <= initial.x1 + 25):
-                    clip |= rect
-            clip += (-5, -5, 5, 5)
-            clip.y1 = min(clip.y1, caption_top - 5)
+            clip = diagram_clip(page, caption_top)
             if clip.width < 80 or clip.height < 40 or clip.y0 < 0:
                 raise ConversionError(f"Implausible diagram crop for {key}: {clip}")
             cropped = fitz.open()

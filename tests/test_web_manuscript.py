@@ -182,6 +182,31 @@ class CitationAndValidationTests(unittest.TestCase):
         self.assertIn("Body.", json.dumps(ast))
 
 
+class DiagramCropTests(unittest.TestCase):
+    def test_last_diagram_excludes_earlier_figure_and_prose(self):
+        import pymupdf as fitz
+        with fitz.open() as document:
+            page = document.new_page(width=500, height=600)
+            page.draw_rect(fitz.Rect(40, 30, 300, 110))
+            page.insert_text((40, 150), "Earlier figure caption and discussion")
+            page.draw_rect(fitz.Rect(70, 240, 350, 300))
+            page.insert_text((90, 270), "Current diagram")
+            clip = web.diagram_clip(page, 330)
+            self.assertGreater(clip.y0, 200)
+            self.assertGreater(clip.y1, 300)
+
+    def test_axes_with_zero_area_remain_in_crop(self):
+        import pymupdf as fitz
+        with fitz.open() as document:
+            page = document.new_page(width=500, height=600)
+            page.draw_line((70, 200), (70, 400))
+            page.draw_line((70, 400), (350, 400))
+            page.draw_rect(fitz.Rect(90, 220, 320, 300))
+            clip = web.diagram_clip(page, 440)
+            self.assertLess(clip.y0, 200)
+            self.assertGreater(clip.y1, 400)
+
+
 class GeneratedManuscriptTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
