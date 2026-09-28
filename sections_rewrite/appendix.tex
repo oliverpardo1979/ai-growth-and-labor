@@ -509,9 +509,21 @@ at least $\widehat V_0-\widehat J_T$. The full deviation therefore yields
  J_\infty(\mathcal M)\geq J_T(\mathcal M)
  +\widehat V_0-\widehat J_T\longrightarrow+\infty.
 \]
-No candidate with finite discounted net profit can be optimal. This
-argument establishes unbounded value, not an equilibrium trajectory with
-a finite-time singularity.
+No candidate with finite discounted net profit can be optimal.
+Moreover, every equilibrium must have finite discounted developer profit.
+Indeed, integrating the household budget~\eqref{eq:rewrite-household-budget}
+and using its Euler equation~\eqref{eq:rewrite-euler}
+and transversality condition~\eqref{eq:rewrite-household-tvc} gives
+\[
+ \int_0^\infty
+ e^{-\int_0^t r_s\dd s}(w_tN_t+\Pi_t)\dd t
+ =\frac{C_0}{\rho-n}-K_0.
+\]
+Since labor income is nonnegative, discounted developer profit is
+either finite or minus infinity. The latter cannot be optimal because
+stopping research yields nonnegative operating profit.
+Hence no equilibrium exists under the stated restrictions.
+This argument does not establish a finite-time singularity.
 \end{proof}
 
 % BEGIN PRESERVED BROADER RESEARCH-SCALE PROOF (2026-09-15)
