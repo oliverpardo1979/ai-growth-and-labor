@@ -212,14 +212,15 @@ class PdfOnlyPublicationTests(unittest.TestCase):
     def prepare_supplement(self):
         self.supplement = self.root / "supplement.pdf"
         self.supplement.write_bytes(b"%PDF-1.7\nonline appendix\n%%EOF\n")
-        index = self.files["index.html"] + b"\r\n".join(
-            anchor.encode("utf-8") for anchor, _ in publication.SUPPLEMENT_LINKS
+        index = self.files["index.html"] + (
+            b'<a href="#additional-results">Supplementary simulations</a>\r\n'
+            b'<a href="paper/online-appendix.pdf">Optional PDF</a>\r\n'
         )
         (self.snapshot / "index.html").write_bytes(index)
         self.files["index.html"] = index
         self.commit = self.commit_snapshot()
 
-    def test_supplement_changes_only_two_pdfs_and_exact_approved_links(self):
+    def test_supplement_changes_only_two_pdfs_and_preserves_html(self):
         self.prepare_supplement()
         original = self.tree_bytes(self.snapshot)
         publication.stage_site(
@@ -228,19 +229,12 @@ class PdfOnlyPublicationTests(unittest.TestCase):
         expected = dict(self.files)
         expected[PDF_PATH] = self.pdf.read_bytes()
         expected[publication.SUPPLEMENT_PATH] = self.supplement.read_bytes()
-        expected["index.html"] = publication.add_supplement_links(expected["index.html"])
         self.assertEqual(self.tree_bytes(self.output), expected)
         self.assertEqual(self.tree_bytes(self.snapshot), original)
-        # Removing precisely the added tags recovers the approved HTML verbatim.
-        recovered = expected["index.html"]
-        for _, link in publication.SUPPLEMENT_LINKS:
-            recovered = recovered.replace(link.encode("utf-8"), b"", 1)
-        self.assertEqual(recovered, self.files["index.html"])
 
-    def test_supplement_links_are_idempotent_for_future_snapshots(self):
+    def test_supplement_does_not_rewrite_approved_links(self):
         self.prepare_supplement()
-        index = publication.add_supplement_links(self.files["index.html"])
-        self.assertEqual(publication.add_supplement_links(index), index)
+        index = b'<a href="#additional-results">Read online</a>\n'
         (self.snapshot / "index.html").write_bytes(index)
         self.commit = self.commit_snapshot()
         publication.stage_site(
@@ -248,20 +242,15 @@ class PdfOnlyPublicationTests(unittest.TestCase):
         )
         self.assertEqual((self.output / "index.html").read_bytes(), index)
 
-    def test_missing_or_ambiguous_link_anchor_stops_before_export(self):
+    def test_supplement_does_not_require_or_add_download_links(self):
         self.prepare_supplement()
-        anchor = publication.SUPPLEMENT_LINKS[0][0].encode("utf-8")
-        for index in (
-            self.files["index.html"].replace(anchor, b""),
-            self.files["index.html"] + anchor,
-        ):
-            (self.snapshot / "index.html").write_bytes(index)
-            self.commit = self.commit_snapshot()
-            with self.assertRaises(ValueError):
-                publication.stage_site(
-                    self.snapshot, self.pdf, self.output, self.commit, self.supplement
-                )
-            self.assertFalse(self.output.exists())
+        index = b"<title>Snapshot without download links</title>\n"
+        (self.snapshot / "index.html").write_bytes(index)
+        self.commit = self.commit_snapshot()
+        publication.stage_site(
+            self.snapshot, self.pdf, self.output, self.commit, self.supplement
+        )
+        self.assertEqual((self.output / "index.html").read_bytes(), index)
 
     def test_invalid_supplement_stops_before_export(self):
         self.prepare_supplement()

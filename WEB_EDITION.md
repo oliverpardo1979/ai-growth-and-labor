@@ -3,8 +3,10 @@
 Read the paper and explore its stored simulations at
 <https://oliverpardo1979.github.io/ai-growth-and-labor/>.
 The [main PDF](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf)
-and [online appendix](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/online-appendix.pdf)
-are published together. The [replication guide](REPLICATION.md) describes how to solve the model and reproduce its figures.
+and [supplementary PDF](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/online-appendix.pdf)
+are published together. Supplementary simulations can also be read directly
+in the [digital edition](https://oliverpardo1979.github.io/ai-growth-and-labor/#additional-results).
+The [replication guide](REPLICATION.md) describes how to solve the model and reproduce its figures.
 
 ## One manuscript, two reading formats
 
@@ -14,6 +16,12 @@ material, and uses the compiled AUX and bibliography to retain equation,
 proposition, section, figure, table, and citation references. The three TikZ
 diagrams are extracted from the compiled paper; simulation figures in the main
 text and appendices use the existing figure PDFs. No simulation is rerun by the web build.
+
+`online_appendix.tex` and its active inputs supply the supplementary simulations
+in the HTML reader. These follow the main paper and its references, retain their
+S1/S2 numbering, and link back to the main paper's results. A PDF download remains
+available, but links from the paper lead directly to the relevant HTML section.
+Both source graphs and their compiled inputs are recorded in the reader metadata.
 
 The HTML reader is a generated edition, not a second manuscript to edit.
 Its equations are rendered using MathJax 3.2.2. The typeset PDF is the reference
@@ -58,14 +66,12 @@ Every push to `main` runs `.github/workflows/paper.yml`:
 2. Read the immutable snapshot commit pinned in `DIGITAL_EDITION.json`.
 3. Export that approved digital edition from `codex/digital-edition`.
 4. Replace `paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf` and `paper/online-appendix.pdf` with the new compilations.
-5. Ensure the two author-approved online-appendix links are present in `index.html` (overview and reader sidebar). This narrow addition was approved when Appendix D became a separate supplement; it does not regenerate the HTML manuscript.
-6. Verify that every other file is byte-identical to the pinned snapshot, and that the index differs only by those exact link tags, then publish to GitHub Pages.
+5. Verify that every other file, including `index.html`, is byte-identical to the pinned snapshot, then publish to GitHub Pages.
 
-A manual run of this workflow also updates only the PDFs and the approved
-download links. The HTML manuscript, figures, and simulation explorer stay at
+A manual run of this workflow also updates only the PDFs.
+The HTML manuscript, supplementary simulations, figures, and explorer stay at
 their last approved digital version. The current PDF and digital edition may
-therefore intentionally differ; the older HTML manuscript can still include
-the former Appendix D until a full digital update is requested.
+therefore intentionally differ until a full digital update is requested.
 Missing snapshots or invalid files stop publication; they never trigger an
 automatic digital rebuild. Snapshots are kept in Git rather than expiring
 Actions artifacts. Do not delete or force-rewrite the snapshot branch.
@@ -76,14 +82,14 @@ Only do this when Oliver explicitly requests a digital update:
 
 1. Build and validate the current PDF and digital edition using the commands below.
 2. Review the generated reader and explorer, including citations, math, figures, and links.
-3. In a separate checkout of `codex/digital-edition`, prepare a complete snapshot from the validated `docs/` output (including generated assets and the stable PDF). Preserve the branch history; do not force-push. Use `core.autocrlf=false` so snapshot bytes are unchanged.
+3. In a separate checkout of `codex/digital-edition`, prepare a complete snapshot from the validated `docs/` output (including generated assets and both PDFs). Preserve the branch history; do not force-push. Use `core.autocrlf=false` so snapshot bytes are unchanged.
 4. Commit and push the new snapshot, then set `snapshot_commit` in `DIGITAL_EDITION.json` to its full SHA and update the manuscript provenance. Commit and push that pointer change on `main`.
 5. Verify successful deployment, the requested digital changes, and the stable PDF link. An unsuccessful deployment may be retried without rebuilding the approved snapshot.
 
 Never advance the snapshot pointer as part of an ordinary manuscript edit or
 an update to the online appendix.
 Changes to files under `docs/` are also unpublished until included in an explicitly
-approved snapshot, except for the two exact supplement-link additions documented above.
+approved snapshot.
 
 Conversion stops on missing labels, unresolved internal references, unsupported
 TeX, Pandoc warnings, or inconsistent simulation provenance. A failed build does
@@ -104,6 +110,7 @@ installation.
 ```sh
 pip install -r requirements-web.txt
 latexmk -pdf main_rewrite.tex
+latexmk -pdf online_appendix.tex
 python scripts/build_web_manuscript.py --build-dir .
 python scripts/build_web_data.py
 python scripts/build_web_data.py --check
@@ -114,8 +121,9 @@ python -m http.server 8765 --directory docs
 If the PDF/AUX/BBL files are under `output/pdf`, use
 `--build-dir output/pdf` instead. For the local PDF link, copy the compiled PDF
 to `docs/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf`.
-The CI build instead overlays both new PDFs and the approved supplement links
-on the pinned site snapshot.
+Also copy `online_appendix.pdf` to `docs/paper/online-appendix.pdf`.
+The CI build instead overlays both new PDFs on the pinned site snapshot,
+without changing any HTML.
 
 Presentation lives in `docs/index.html`, `docs/web.css`, and `docs/web.js`.
 Edits here affect only the web interface, not the model, numerical code, data,

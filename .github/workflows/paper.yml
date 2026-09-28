@@ -39,7 +39,7 @@ jobs:
           root_file: |
             main_rewrite.tex
             online_appendix.tex
-      - name: Update paper PDFs and online-appendix links only
+      - name: Update paper PDFs only
         run: |
           python scripts/prepare_pdf_publication.py stage \
             --snapshot _digital_snapshot --pdf main_rewrite.pdf \

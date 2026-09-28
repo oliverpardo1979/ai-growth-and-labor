@@ -133,6 +133,37 @@ class CitationAndValidationTests(unittest.TestCase):
                                  [{"t": "Code", "c": [["", [], []], value]}])
                 self.assertNotIn('"Link"', json.dumps(ast))
 
+    def test_supplement_reference_targets_main_label(self):
+        label = {"paper-p": {"number": "2", "html_target": "p"}}
+        for node in (
+            {"t": "RawInline", "c": ["latex", r"\ref{paper-p}"]},
+            {"t": "Link", "c": [["", [], [["reference", "paper-p"]]], [], ["#paper-p", ""]]},
+        ):
+            ast = {"blocks": [{"t": "Para", "c": [node]}]}
+            web.transform_ast(ast, label)
+            self.assertEqual(ast["blocks"][0]["c"][0]["c"][2][0], "#p")
+
+    def test_digital_deep_link_stays_within_reader(self):
+        node = {"t": "Link", "c": [["", [], []], [],
+                ["https://oliverpardo1979.github.io/ai-growth-and-labor/#additional-results", ""]]}
+        ast = {"blocks": [{"t": "Para", "c": [node]}]}
+        web.transform_ast(ast, {})
+        self.assertEqual(node["c"][2][0], "#additional-results")
+
+    def test_frontmatter_separators_are_preserved(self):
+        ast = {"blocks": [{"t": "Para", "c": [
+            {"t": "RawInline", "c": ["latex", r"\quad"]},
+            {"t": "RawInline", "c": ["latex", r"\textbar"]}]}]}
+        web.transform_ast(ast, {})
+        self.assertEqual(ast["blocks"][0]["c"], [{"t": "Space"}, {"t": "Str", "c": "|"}])
+
+    def test_unnumbered_paragraph_keeps_anchor_not_parent_number(self):
+        ast = {"blocks": [{"t": "Header", "c": [4, ["p", [], []],
+                [{"t": "Str", "c": "Numerical construction"}]]}]}
+        sections = web.transform_ast(ast, {"p": {"number": "B.5", "destination": "section*.15"}})
+        self.assertEqual(sections[0]["number"], "")
+        self.assertEqual(ast["blocks"][0]["c"][1][0], "p")
+
     def test_literal_path_does_not_admit_other_raw_tex(self):
         for raw in (r"\path{scripts/a.py}\unknown{content}",
                     r"\path{\unknown{content}}", r"\path|scripts/a.py|"):
@@ -169,6 +200,7 @@ class GeneratedManuscriptTests(unittest.TestCase):
 
     def test_every_active_label_has_an_html_target(self):
         source = web.flatten(ROOT / "main_rewrite.tex", ROOT, [])
+        source += web.flatten(ROOT / "online_appendix.tex", ROOT, [])
         labels = set(re.findall(r"\\label\{([^}]+)\}", source))
         targets = re.findall(r'\bid="([^"]+)"', self.content)
         self.assertTrue(labels <= set(targets))
@@ -176,6 +208,7 @@ class GeneratedManuscriptTests(unittest.TestCase):
 
     def test_complete_structural_inventory(self):
         source = web.flatten(ROOT / "main_rewrite.tex", ROOT, [])
+        source += web.flatten(ROOT / "online_appendix.tex", ROOT, [])
         for kind in ("proposition", "corollary", "lemma", "definition", "assumption", "remark"):
             expected = len(re.findall(r"\\begin\{" + kind + r"\}", source))
             self.assertEqual(self.content.count('class="theorem ' + kind + '"'), expected)
@@ -198,9 +231,9 @@ class GeneratedManuscriptTests(unittest.TestCase):
             "sec:rewrite-competition": "5",
             "sec:rewrite-quantitative": "7",
             "subsec:rewrite-competitive-transition": "7.4",
-            "subsec:rewrite-monopoly-growth-reversal": "7.5",
+            "subsec:rewrite-monopoly-growth-reversal": "S2",
             "sec:rewrite-conclusion": "8",
-            "app:rewrite-competitive-transition": "D",
+            "app:rewrite-competitive-transition": "S1",
         }.items():
             with self.subTest(key=key):
                 self.assertEqual(headings[key]["number"], number)
@@ -212,6 +245,17 @@ class GeneratedManuscriptTests(unittest.TestCase):
                     "fig:rewrite-competitive-low-distribution"):
             self.assertIn(key, figure_ids)
         self.assertEqual(self.content.count('class="theorem corollary"'), 2)
+
+    def test_supplement_is_integrated_with_separate_provenance(self):
+        seen = []
+        source = web.flatten(ROOT / "online_appendix.tex", ROOT, seen)
+        provenance = self.meta["supplement"]
+        self.assertEqual(provenance["source_files"], [p.relative_to(ROOT).as_posix() for p in seen])
+        self.assertEqual(provenance["source_sha256"], web.hashlib.sha256(source.encode("utf-8")).hexdigest())
+        self.assertIn('id="additional-results"', self.content)
+        self.assertIn('href="paper/online-appendix.pdf"', self.content)
+        self.assertNotIn('href="#paper-', self.content)
+        self.assertEqual(len([f for f in self.meta["figures"] if str(f["number"]).startswith("S")]), 10)
 
     def test_replication_paths_are_literal_code(self):
         for name in ("simulate_competitive_to_monopoly.py", "report_competitive_to_monopoly.py",

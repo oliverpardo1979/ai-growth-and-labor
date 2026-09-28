@@ -2,7 +2,8 @@
 """Build the complete web manuscript from active LaTeX and compiled metadata.
 
 Dependencies: Pandoc >= 3, PyMuPDF, beautifulsoup4.  A completed LaTeX build
-must supply main_rewrite.aux, main_rewrite.bbl and main_rewrite.pdf together.
+must supply main_rewrite.aux, main_rewrite.bbl and main_rewrite.pdf together,
+then online_appendix.aux and online_appendix.pdf compiled against that main AUX.
 Install Python dependencies with ``pip install pymupdf beautifulsoup4``;
 ``pypandoc_binary`` optionally supplies Pandoc. No network is used by this
 script. Source text is not rewritten and inactive/commented material is not
@@ -132,7 +133,7 @@ def flatten(path: Path, root: Path, seen: list[Path], stack: tuple[Path, ...] = 
     return re.sub(r"\\(?:input|include)\s*\{([^}]+)\}", replace, source)
 
 
-def read_aux(path: Path) -> tuple[dict[str, dict[str, str]], dict[str, dict[str, str]]]:
+def read_aux(path: Path, require_citations: bool = True) -> tuple[dict[str, dict[str, str]], dict[str, dict[str, str]]]:
     labels, citations = {}, {}
     for line in path.read_text(encoding="utf-8").splitlines():
         if line.startswith(r"\newlabel{"):
@@ -148,7 +149,7 @@ def read_aux(path: Path) -> tuple[dict[str, dict[str, str]], dict[str, dict[str,
             value, _ = group(line, pos)
             fields = groups(value)
             citations[key] = {"year": fields[1], "author": fields[2].strip("{}")}
-    if not labels or not citations:
+    if not labels or (require_citations and not citations):
         raise ConversionError("Compiled AUX is missing labels or bibliography metadata")
     return labels, citations
 
@@ -159,7 +160,7 @@ def find_pandoc(explicit: str | None = None) -> str:
     try:
         import pypandoc
         candidates.append(pypandoc.get_pandoc_path())
-    except (ImportError, OSError):
+    except (ImportError, OSError, AttributeError):
         pass
     for candidate in candidates:
         if candidate and Path(candidate).is_file():
@@ -496,7 +497,7 @@ def transform_ast(document: dict[str, Any], labels: dict[str, dict[str, str]],
             if value.get("t") in ("RawInline", "RawBlock") and value["c"][0] in ("latex", "tex"):
                 raw = value["c"][1]
                 if not (re.fullmatch(r"\\(?:label|ref|eqref)\*?\{[^}]+\}", raw)
-                        or literal_path.fullmatch(raw)):
+                        or literal_path.fullmatch(raw) or raw in (r"\quad", r"\textbar")):
                     unsupported.add(raw)
             for child in value.values():
                 inspect_raw(child)
@@ -515,6 +516,9 @@ def transform_ast(document: dict[str, Any], labels: dict[str, dict[str, str]],
             return node
         kind, content = node.get("t"), node.get("c")
         if kind in ("RawInline", "RawBlock") and content[0] in ("latex", "tex"):
+            if content[1] in (r"\quad", r"\textbar"):
+                inline = {"t": "Space"} if content[1] == r"\quad" else {"t": "Str", "c": "|"}
+                return {"t": "Plain", "c": [inline]} if kind == "RawBlock" else inline
             path = literal_path.fullmatch(content[1])
             if path:
                 inline = {"t": "Code", "c": [["", [], []], path.group(1)]}
@@ -531,15 +535,20 @@ def transform_ast(document: dict[str, Any], labels: dict[str, dict[str, str]],
                 number = labels[key]["number"]
                 if command == "eqref":
                     number = "(" + number + ")"
-                inline = {"t": "Link", "c": [["", [], []], [{"t": "Str", "c": number}], ["#" + key, ""]]}
+                target = labels[key].get("html_target", key)
+                inline = {"t": "Link", "c": [["", [], []], [{"t": "Str", "c": number}], ["#" + target, ""]]}
             return {"t": "Plain", "c": [inline]} if kind == "RawBlock" else inline
         if kind == "Header":
             level, attrs, title = content
             key = attrs[0]
             number = labels.get(key, {}).get("number", "")
+            unnumbered_paragraph = (level >= 4 and
+                labels.get(key, {}).get("destination", "").startswith("section*."))
+            if unnumbered_paragraph:
+                number = ""
             if not number and heading_numbers:
                 number = heading_numbers.get((level, inlines_text(title)), "")
-            if key in labels and not labels[key]["destination"].startswith(("section.", "subsection.", "subsubsection.", "appendix.")):
+            if key in labels and not unnumbered_paragraph and not labels[key]["destination"].startswith(("section.", "subsection.", "subsubsection.", "appendix.")):
                 raise ConversionError(f"Header label has unexpected target: {key}")
             sections.append({"id": key, "title": inlines_text(title), "level": level, "number": number})
             if number:
@@ -556,7 +565,9 @@ def transform_ast(document: dict[str, Any], labels: dict[str, dict[str, str]],
                 if data.get("reference-type") == "eqref":
                     number = "(" + number + ")"
                 content[1] = [{"t": "Str", "c": number}]
-                content[2] = ["#" + key, target[1]]
+                content[2] = ["#" + labels[key].get("html_target", key), target[1]]
+            elif target[0].startswith("https://oliverpardo1979.github.io/ai-growth-and-labor/#"):
+                content[2][0] = "#" + target[0].split("#", 1)[1]
         elif kind == "Math":
             math_type, value = content
             math_labels = re.findall(r"\\label\{([^}]+)\}", value)
@@ -671,6 +682,55 @@ def ast_text_tokens(value: Any) -> list[str]:
     return ast_text_tokens(content)
 
 
+def build_supplement(root: Path, build_dir: Path, out_dir: Path, asset_prefix: str,
+                     pandoc: Pandoc, main_labels: dict, citations: dict) -> dict:
+    """Convert the same supplement source as its PDF, with links into the main text."""
+    paths: list[Path] = []
+    source = flatten(root / "online_appendix.tex", root, paths)
+    digest = hashlib.sha256(source.encode("utf-8")).hexdigest()
+    images = [root / name for name in re.findall(r"\\includegraphics(?:\[[^]]*\])?\{([^}]+)\}", source)]
+    latest = max(paths + images + [build_dir / "main_rewrite.aux"], key=lambda p: p.stat().st_mtime)
+    for suffix in ("aux", "pdf"):
+        compiled = build_dir / f"online_appendix.{suffix}"
+        if not compiled.is_file() or compiled.stat().st_mtime + 2 < latest.stat().st_mtime:
+            raise ConversionError("Recompile online_appendix.tex after the current main paper")
+    labels, _ = read_aux(build_dir / "online_appendix.aux", require_citations=False)
+    active = re.findall(r"\\label\{([^}]+)\}", source)
+    if len(set(active)) != len(active) or set(active) & main_labels.keys():
+        raise ConversionError("Supplement labels must be unique across both documents")
+    if set(active) - labels.keys():
+        raise ConversionError("Supplement labels missing from its compiled AUX")
+    labels.update({"paper-" + key: {**value, "html_target": key} for key, value in main_labels.items()})
+    # Omit the standalone cover, not any section content.
+    start = re.search(r"\\section\{", source)
+    if not start:
+        raise ConversionError("Supplement has no sections")
+    source = source[start.start():].rsplit(r"\end{document}", 1)[0]
+    source, figures = extract_figures(source, root, build_dir / "online_appendix.pdf",
+                                     out_dir / "assets", labels, asset_prefix.rstrip("/"))
+    source = prepare_theorems(clean_layout(source), labels)
+    source, cited = prepare_citations(source, citations)
+    numbering = EquationNumbering(labels)
+    source = numbering.apply(source)
+    displays = len(re.findall(r"\\begin\{(?:equation|align|gather)\*?\}|\\\[", source))
+    tables = []
+    for table in re.finditer(r"\\begin\{table\}[\s\S]*?\\end\{table\}", source):
+        keys = re.findall(r"\\label\{([^}]+)\}", table.group(0))
+        if len(keys) != 1:
+            raise ConversionError("Each supplement table must have exactly one label")
+        tables.append(keys[0])
+    ast = pandoc.ast(source)
+    sections = transform_ast(ast, labels, tables, compiled_headings(build_dir / "online_appendix.aux", pandoc))
+    fragment = pandoc.run(json.dumps(ast, ensure_ascii=False), "json", "html5", "--mathjax", "--wrap=none")
+    return {"fragment": fragment, "ast": ast, "sections": sections, "figures": figures,
+            "labels": active, "displays": displays, "cited": cited,
+            "numbered_rows": numbering.numbered_rows,
+            "provenance": {"source": "online_appendix.tex", "source_sha256": digest,
+                "source_files": [p.relative_to(root).as_posix() for p in paths],
+                "build_inputs": {s: hashlib.sha256((build_dir / f"online_appendix.{s}").read_bytes()).hexdigest()
+                                 for s in ("aux", "pdf")}}}
+
+
 def build(args: argparse.Namespace) -> dict[str, Any]:
     root = args.root.resolve()
     build_dir = (root / args.build_dir).resolve()
@@ -725,6 +785,13 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         table_labels.append(keys[0])
     sections = transform_ast(ast, labels, table_labels, compiled_headings(build_dir / "main_rewrite.aux", pandoc))
     fragment = pandoc.run(json.dumps(ast, ensure_ascii=False), "json", "html5", "--mathjax", "--wrap=none")
+    supplement = build_supplement(root, build_dir, out_dir, args.asset_prefix, pandoc, labels, citations)
+    figures.extend(supplement["figures"])
+    active_labels.extend(supplement["labels"])
+    expected_displays += supplement["displays"]
+    cited.update(supplement["cited"])
+    sections.append({"id": "additional-results", "title": "Supplementary simulations", "level": 1, "number": ""})
+    sections.extend(supplement["sections"])
     abstract_html = pandoc.fragment(abstract)
     bibliography = read_bibliography(build_dir / "main_rewrite.bbl")
     bibkeys = {key for key, _ in bibliography}
@@ -735,16 +802,20 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     result = ('<section class="manuscript-abstract" id="abstract"><h2>Abstract</h2>\n'
               + abstract_html + "\n</section>\n" + fragment
               + '<section class="manuscript-references" id="references"><h1>References</h1>\n'
-              + bib_html + "\n</section>\n")
+              + bib_html + "\n</section>\n"
+              + '<section class="supplementary-results" id="additional-results"><h1>Supplementary simulations</h1>'
+              + '<p>Additional results accompanying the paper. '
+                '<a href="paper/online-appendix.pdf">Download these results as a PDF ↗</a>.</p>'
+              + supplement["fragment"] + "\n</section>\n")
     try:
         from bs4 import BeautifulSoup
     except ImportError as exc:
         raise ConversionError("beautifulsoup4 is required for output validation") from exc
     soup = BeautifulSoup(result, "html.parser")
-    rendered_body = BeautifulSoup(fragment, "html.parser")
+    rendered_body = BeautifulSoup(fragment + supplement["fragment"], "html.parser")
     for math in rendered_body.select(".math"):
         math.decompose()
-    expected_tokens = Counter(ast_text_tokens(ast["blocks"]))
+    expected_tokens = Counter(ast_text_tokens(ast["blocks"]) + ast_text_tokens(supplement["ast"]["blocks"]))
     rendered_tokens = Counter(re.findall(r"\w+", rendered_body.get_text(" ")))
     missing_tokens = expected_tokens - rendered_tokens
     if missing_tokens:
@@ -766,11 +837,12 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         raise ConversionError("Display mathematics lost during conversion")
     if pandoc.warnings:
         raise ConversionError("Pandoc issued warnings (review before publishing):\n" + "\n".join(pandoc.warnings))
-    meta.update({"schema_version": 1, "sections": sections, "source_sha256": digest,
+    meta.update({"schema_version": 2, "sections": sections, "source_sha256": digest,
+                 "supplement": supplement["provenance"],
                  "source_files": [path.relative_to(root).as_posix() for path in paths],
                  "source": "main_rewrite.tex", "figures": figures,
                  "mathjax": {"required": True, "tex_packages": ["ams"], "tags": "none"},
-                 "counts": {"labels": len(active_labels), "numbered_equation_rows": numbering.numbered_rows,
+                 "counts": {"labels": len(active_labels), "numbered_equation_rows": numbering.numbered_rows + supplement["numbered_rows"],
                             "display_math": len(soup.select(".math.display")), "figures": len(figures),
                             "tables": len(soup.find_all("table")), "bibliography_entries": len(bibliography),
                             "citation_keys": len(cited)},

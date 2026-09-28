@@ -1,7 +1,7 @@
 # Monopoly and the loss of AI-dominated growth
 
 This illustrative experiment accompanies *Monopoly slows growth* in the
-[online appendix](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/online-appendix.pdf).
+[supplementary simulations in the digital edition](https://oliverpardo1979.github.io/ai-growth-and-labor/#subsec:rewrite-monopoly-growth-reversal).
 It leaves every earlier simulation intact.
 
 ## Design

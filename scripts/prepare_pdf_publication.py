@@ -12,17 +12,6 @@ import tarfile
 
 PDF_PATH = "paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf"
 SUPPLEMENT_PATH = "paper/online-appendix.pdf"
-# Narrow author-approved additions: download links, not a new HTML manuscript.
-SUPPLEMENT_LINKS = (
-    (
-        '<a class="button secondary" href="#explore">Explore the simulations →</a>',
-        f'<a class="button secondary" href="{SUPPLEMENT_PATH}">Online appendix PDF ↗</a>',
-    ),
-    (
-        f'<a class="text-link" href="{PDF_PATH}">Download the typeset PDF ↗</a>',
-        f'<a class="text-link" href="{SUPPLEMENT_PATH}">Online appendix PDF ↗</a>',
-    ),
-)
 REQUIRED = {
     "index.html", "web.css", "web.js", "favicon.svg",
     "generated/manuscript.html", "generated/manuscript-meta.json",
@@ -40,23 +29,11 @@ def load_snapshot_commit(config_path: Path) -> str:
     return commit
 
 
-def add_supplement_links(index: bytes) -> bytes:
-    """Insert only the two approved links; preserve all other HTML bytes."""
-    for anchor, link in SUPPLEMENT_LINKS:
-        anchor, link = anchor.encode("utf-8"), link.encode("utf-8")
-        if anchor + link in index:
-            continue
-        if index.count(anchor) != 1 or link in index:
-            raise ValueError("Cannot locate the approved online-appendix link position.")
-        index = index.replace(anchor, anchor + link, 1)
-    return index
-
-
 def stage_site(
     snapshot: Path, pdf: Path, output: Path, expected_commit: str,
     supplement: Path | None = None,
 ) -> int:
-    """Export the pinned site and update PDFs plus approved supplement links."""
+    """Export the pinned site and update only its two downloadable PDFs."""
     head = subprocess.check_output(
         ["git", "-C", str(snapshot), "rev-parse", "HEAD"], text=True
     ).strip()
@@ -89,7 +66,6 @@ def stage_site(
             for name in original
         ):
             raise ValueError(f"Incomplete digital snapshot; required files/assets missing: {sorted(missing)}")
-        index = add_supplement_links(original["index.html"]) if supplement else None
         output.mkdir(parents=True, exist_ok=True)
         archive.extractall(output, filter="data")
 
@@ -97,8 +73,6 @@ def stage_site(
         destination = output / name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, destination)
-    if index is not None:
-        (output / "index.html").write_bytes(index)
     expected_files = set(original) | set(replacements)
     actual_files = {
         path.relative_to(output).as_posix() for path in output.rglob("*") if path.is_file()
@@ -106,13 +80,12 @@ def stage_site(
     if actual_files != expected_files:
         raise ValueError("Publication unexpectedly added or removed site files.")
     for name, content in original.items():
-        expected_content = index if name == "index.html" and index is not None else content
-        if name not in replacements and (output / name).read_bytes() != expected_content:
+        if name not in replacements and (output / name).read_bytes() != content:
             raise ValueError(f"Digital edition changed unexpectedly: {name}")
     for name, source in replacements.items():
         if (output / name).read_bytes() != source.read_bytes():
             raise ValueError(f"The public PDF does not match the new compilation: {name}")
-    changed = set(replacements) | ({"index.html"} if index is not None else set())
+    changed = set(replacements)
     return len(expected_files - changed)
 
 
@@ -132,7 +105,7 @@ def main() -> None:
     if any(value is None for value in (args.snapshot, args.pdf, args.output)):
         parser.error("stage requires --snapshot, --pdf, and --output")
     count = stage_site(args.snapshot, args.pdf, args.output, commit, args.supplement)
-    updated = "the paper PDFs and approved supplement links" if args.supplement else "the stable PDF"
+    updated = "the paper PDFs" if args.supplement else "the stable PDF"
     print(f"Updated only {updated}; all {count} other digital-edition files are byte-identical.")
 
 
