@@ -108,13 +108,14 @@ def write_reports():
                          upper_scientific(residual)+' & '+upper_scientific(gap)+r'\\')
     lines += [r'\bottomrule', r'\end{tabular}', r'\par\smallskip',
         r'\begin{minipage}{0.98\textwidth}\footnotesize',
-        'Horizons are measured in years. Dynamic residuals are the largest independently reconstructed errors across',
+        'Horizons are measured in years. Dynamic residuals are the largest absolute',
+        'errors in the derivatives of the four logarithmic coordinates, across',
         'the full-horizon and dense first-decade checks. Horizon change compares the',
         'last two solutions in detrended logarithmic coordinates over years 0--500.',
-        'Error bounds are rounded upward. All eight paths pass the equation,',
+        'Reported error maxima are rounded upward. All eight paths pass the equation,',
         'event-continuity, developer-optimality and long-run-continuation checks.',
         r'The $\sigma=1.50$ cases use the global Hamiltonian-support test and its',
-        'analytical continuation bound; the other cases pass the concavity test.',
+        'analytical long-run bound; the other cases pass the concavity test.',
         r'\end{minipage}', r'\end{table}']
     (ROOT/'sections_rewrite/rsi_illustrative_accuracy.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 
