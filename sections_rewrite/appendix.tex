@@ -3,13 +3,13 @@
 \label{app:rewrite-proofs}
 
 \Needspace{7\baselineskip}
-\begin{lemma}[Static AI-service choice]
+\begin{lemma}[Optimal AI-service supply]
 \label{lem:rewrite-monopoly-choice}
-For $K,A,L,B>0$, $0<\alpha<1$, $\sigma>0$, and strictly positive CES weights
-that sum to one, problem~\eqref{eq:rewrite-service-choice} has a unique,
-strictly positive global maximizer. It is characterized by
-condition~\eqref{eq:rewrite-monopoly-foc} and depends smoothly on the positive
-variables $K,A,L,B$, for each fixed $\sigma$.
+The developer's operating profit in
+problem~\eqref{eq:rewrite-service-choice} has a unique global maximizer
+$X>0$. This optimal supply of AI services is characterized by
+condition~\eqref{eq:rewrite-monopoly-foc} and varies smoothly with
+$K,A,L,$ and $B$, for each fixed $\sigma$.
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-monopoly-choice}]
@@ -68,19 +68,21 @@ smooth in $K,A,L,B$.
 
 \begin{lemma}[Optimal research expenditure]
 \label{lem:rewrite-developer-verification}
+Suppose $\overline B<\infty$.
 Consider a feasible research trajectory $\{B_t,M_t\}_{t\geq0}$
 for problem~\eqref{eq:rewrite-developer-reduced}, starting from
 $B_0$ and satisfying the RSI technology
-\eqref{eq:rewrite-capability-law}. Suppose $M_t>0$ and the
-present value of net profit is finite. Suppose there exists
-a continuously differentiable shadow-price trajectory
+\eqref{eq:rewrite-capability-law}. Assume $M_t>0$ at every date and a
+finite present value of net profit. This trajectory maximizes the
+developer's discounted net profit if:
+\begin{enumerate}[label=(\roman*),leftmargin=*,itemsep=0.5em]
+\item There exists a continuously differentiable shadow-price trajectory
 $\{q_t\}_{t\geq0}$ satisfying the research condition
 \eqref{eq:rewrite-research-foc}, the costate equation
 \eqref{eq:rewrite-costate}, and the transversality condition
 \eqref{eq:rewrite-developer-tvc}.
-
-Suppose $0<B_0<\overline B<\infty$ and, for every $t\geq0$
-and every $b\in[B_0,\overline B)$,
+\item For every $t\geq0$ and every $b\in[B_0,\overline B)$,
+the following inequality holds:
 \begin{equation}
  \begin{aligned}
  \pi_t(b)-\pi_t(B_t)
@@ -98,9 +100,8 @@ and every $b\in[B_0,\overline B)$,
 \end{equation}
 where $\pi_t(b)$ is operating profit as defined in
 equation~\eqref{eq:rewrite-service-choice}.
-Then $\{M_t\}_{t\geq0}$ solves the developer's
-problem~\eqref{eq:rewrite-developer-reduced}:
-no other feasible research trajectory starting from
+\end{enumerate}
+No other feasible research trajectory starting from
 the same $B_0$ yields a higher present value of net profit.
 \end{lemma}
 
@@ -242,10 +243,12 @@ concavity is sufficient for this inequality, but is not required.
 \Needspace{8\baselineskip}
 \begin{lemma}[Sufficient conditions for Hamiltonian concavity]
 \label{lem:rewrite-hamiltonian-concavity}
-Consider the maximized Hamiltonian in
-equation~\eqref{eq:rewrite-maximized-depth-hamiltonian} for a feasible
-trajectory satisfying the research condition~\eqref{eq:rewrite-research-foc},
-with $M_t>0$ and $0<B_0<\overline B<\infty$.
+Suppose $\overline B<\infty$.
+Consider a feasible research trajectory with $M_t>0$ satisfying the
+research condition~\eqref{eq:rewrite-research-foc}. The following
+conditions ensure that the maximized Hamiltonian in
+equation~\eqref{eq:rewrite-maximized-depth-hamiltonian} is concave in
+transformed AI efficiency $R_B$.
 Let $X_t^*(b)$ denote the optimal AI-service choice in
 problem~\eqref{eq:rewrite-service-choice} at efficiency $b$, and let
 $\varepsilon_{B,t}(b)=\partial\ln X_t^*(b)/\partial\ln b$
@@ -261,9 +264,9 @@ and
  \max\left\{0,\frac{2\eta-1}{\eta}\right\}.
  \label{eq:rewrite-depth-research-concavity}
 \end{equation}
-Then the maximized Hamiltonian is concave in the transformed state
-$R_B\in[R_B(B_0),\infty)$ at every date. Consequently, the support
-condition~\eqref{eq:rewrite-hamiltonian-support} in
+The maximized Hamiltonian is therefore concave on
+$R_B\in[R_B(B_0),\infty)$ at every date, so the inequality
+\eqref{eq:rewrite-hamiltonian-support} required by
 Lemma~\ref{lem:rewrite-developer-verification} holds.
 \end{lemma}
 
@@ -701,12 +704,17 @@ cannot be lower than along that candidate.
 \Needspace{9\baselineskip}
 \begin{proposition}[An AI bottleneck under complementarity]
 \label{prop:rewrite-low-cap-complements}
-Suppose $0<\sigma<1$ and $0<B_0<\overline B<\mathcal B(\sigma)$.
-Any equilibrium satisfies
+Suppose $\sigma<1$ and $\overline B<\mathcal B(\sigma)$.
+In any equilibrium, long-run average output-per-worker growth is
+bounded strictly below the rate of labor-augmenting technological progress:
 \begin{gather*}
  \limsup_{t\to\infty}\frac1t
  \log\left(\frac{Y_t/N_t}{Y_0/N_0}\right)
- \leq\mathcal R(\overline B)-\rho<\gamma,\\
+ \leq\mathcal R(\overline B)-\rho<\gamma.
+\end{gather*}
+AI production services become scarce relative to effective labor, and
+labor's income share vanishes:
+\begin{gather*}
  \frac{X}{AL}\to0,\qquad s_X\to1,\qquad \frac{wL}{Y}\to0.
 \end{gather*}
 \end{proposition}

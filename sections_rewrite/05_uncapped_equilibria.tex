@@ -31,11 +31,12 @@ When $\sigma<1$, effective labor remains necessary even if AI becomes arbitraril
 \Needspace{7\baselineskip}
 \begin{proposition}[Production bounds under complementarity]
 \label{prop:rewrite-uncapped-complements-bounds}
-Let $0<\sigma<1$ and $\overline B=\infty$.
+Let $\sigma<1$ and $\overline B=\infty$.
 Along any feasible path satisfying the production equations~\eqref{eq:rewrite-output}
 and~\eqref{eq:rewrite-ces}, labor-market clearing $L=N$ in
 equation~\eqref{eq:rewrite-eq-labor},
-and the resource constraint~\eqref{eq:rewrite-resource}, the following holds:
+and the resource constraint~\eqref{eq:rewrite-resource}, long-run average
+output-per-worker growth cannot exceed $\gamma$:
 \begin{equation}
  \limsup_{t\to\infty}\frac1t
  \log\left(\frac{Y_t/N_t}{Y_0/N_0}\right)\leq\gamma.
@@ -57,7 +58,7 @@ Complementarity bounds long-run average output-per-worker growth despite RSI and
 \Needspace{7\baselineskip}
 \begin{proposition}[Long-run outcomes under complementarity without an AI efficiency upper bound]
 \label{cond:rewrite-uncapped-complements-limits}
-Suppose $0<\sigma<1$, $\overline B=\infty$, and an equilibrium satisfies
+Suppose $\sigma<1$, $\overline B=\infty$, and an equilibrium satisfies
 $B\to\infty$. Then
 \begin{align}
  \frac KY&\to\frac{\alpha}{\rho+\gamma+\delta}>0,\qquad
@@ -237,12 +238,14 @@ problem, not a trajectory that attains infinite profit in finite time.
 %The developer's problem distinguishes the cases $\eta<\alpha$ and $\eta>\alpha$.
 
 \Needspace{8\baselineskip}
-\begin{proposition}[Research expenditure and the developer's value]
+\begin{proposition}[Unbounded discounted net profit]
 \label{prop:rewrite-research-scale}
-Suppose $\sigma>1$, $\overline B=\infty$ and $0<\alpha <\eta<1$.
-Fix any $B_0>0$, any finite horizon $T>0$, positive continuous paths of
-$K,A,L$, and an integrable interest-rate path. For the developer's
-problem~\eqref{eq:rewrite-developer-reduced} restricted to $[0,T]$%:
+Suppose $\sigma>1$, $\overline B=\infty$, and $\eta>\alpha$.
+Fix an initial efficiency $B_0$, a finite horizon $T>0$, continuous
+paths of $K,A,L$, and an integrable interest-rate path.
+The developer's discounted net profit in
+problem~\eqref{eq:rewrite-developer-reduced}, restricted to $[0,T]$,
+is unbounded above over feasible research trajectories.%:
 %\begin{enumerate}[label=(\roman*),leftmargin=*]
 %\item If $\eta<\alpha$, discounted net profit is bounded above over all
 %research plans and tends to minus infinity as total research expenditure
@@ -250,7 +253,6 @@ problem~\eqref{eq:rewrite-developer-reduced} restricted to $[0,T]$%:
 %\item If $\eta>\alpha$, the developer can make discounted net profit arbitrarily large. Consequently, there is no infinite-horizon equilibrium
 %with a finite-valued developer optimum.
 %\end{enumerate}
-, the developer can make discounted net profit arbitrarily large.
 \end{proposition}
 \begin{proof}
 See Appendix~\ref{app:rewrite-proofs},
