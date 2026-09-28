@@ -198,52 +198,28 @@
       "number": "B"
     },
     {
-      "id": "economic-intuition-and-initial-conditions",
-      "title": "Economic intuition and initial conditions",
+      "id": "numerical-solution",
+      "title": "Numerical solution",
       "level": 2,
       "number": "B.1"
     },
     {
-      "id": "boundary-value-solution-and-reported-outcomes",
-      "title": "Boundary-value solution and reported outcomes",
+      "id": "accuracy-and-equilibrium-checks",
+      "title": "Accuracy and equilibrium checks",
       "level": 2,
       "number": "B.2"
-    },
-    {
-      "id": "equilibrium-checks",
-      "title": "Equilibrium checks",
-      "level": 2,
-      "number": "B.3"
     },
     {
       "id": "app:rewrite-numerical-support-checks",
       "title": "Analytical checks on developer optimality",
       "level": 2,
-      "number": "B.4"
+      "number": "B.3"
     },
     {
-      "id": "app:rewrite-competitive-transition-numerics",
-      "title": "Transitions from competition to monopoly",
-      "level": 2,
-      "number": "B.5"
-    },
-    {
-      "id": "starting-from-a-competitive-labor-bottleneck-path.",
-      "title": "Starting from a competitive labor-bottleneck path.",
+      "id": "replication-files.",
+      "title": "Replication files.",
       "level": 4,
       "number": ""
-    },
-    {
-      "id": "app:rewrite-growth-reversal-numerics",
-      "title": "Starting near competitive AI-dominated growth.",
-      "level": 4,
-      "number": ""
-    },
-    {
-      "id": "replication-files",
-      "title": "Replication files",
-      "level": 2,
-      "number": "B.6"
     },
     {
       "id": "declaration-of-ai-use",
@@ -292,20 +268,27 @@
       "title": "Monopoly slows growth",
       "level": 1,
       "number": "S2"
+    },
+    {
+      "id": "app:rewrite-growth-reversal-numerics",
+      "title": "Numerical construction and checks",
+      "level": 2,
+      "number": "S2.1"
     }
   ],
-  "source_sha256": "d40b49cbdf5eba25ff33dc09032dcac6790c489bf6bbdff7362dec6c891d55f8",
+  "source_sha256": "74eec7ca9738546550ede31b0a424d09a516b92f51953f1ad9c2236949ad8dc0",
   "supplement": {
     "source": "online_appendix.tex",
-    "source_sha256": "b10e8aebf7256870eb40d3252b1c0e4a45da063d60507d794d6380c733a3c668",
+    "source_sha256": "bc823e6bb5bfd923a2bdb90d3a95ddaec1ccd2b17d2ce3f4934182569fbef991",
     "source_files": [
       "online_appendix.tex",
       "sections_rewrite/appendix_competitive_transition.tex",
-      "sections_rewrite/15_monopoly_growth_reversal.tex"
+      "sections_rewrite/15_monopoly_growth_reversal.tex",
+      "sections_rewrite/growth_reversal_numerics.tex"
     ],
     "build_inputs": {
-      "aux": "c28b6b3ef6ac0cf6fede7bc14cf7b6dd9f8feb8850176ac34a0b4a5d82c3ddfb",
-      "pdf": "656c1ea3906873c4ff347d2f8e3126dbbfe9a16683b5e9a5e8e65ac49b5c93ec"
+      "aux": "557f186c9390f7e020e87629d2de0080c90fc9b975c42e5927fae08dfc84c666",
+      "pdf": "5d339ef69474de331936654a9cfb0fba9dc6b5c1df5ad1cbe6581ff9421e54ac"
     }
   },
   "source_files": [
@@ -527,13 +510,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 22486,
+    "visible_text_tokens_verified": 21880,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "a954eca223a98203a5340721baab1547a11c8687450cbbf725beeb2d1ea457a1",
+    "aux": "f677b3bc4d0fc5341dedef99497623eee8568d1370d9ff4f20773ecdf2727f6b",
     "bbl": "ce5636deb2c9be14ca3a39667c02f142f95eafa7c190a6d26e174132d217b72b",
-    "pdf": "21b97665385d18e13097a0a8bfaa24b01569a07e4cd614a6ba6c4ebb51d2903d"
+    "pdf": "c7de984d29f299c84662a54e002ce3e5bf99c693665b96dd282122acf8668704"
   }
 }
