@@ -13,7 +13,7 @@ The [replication guide](REPLICATION.md) describes how to solve the model and rep
 `main_rewrite.tex` and its active inputs remain the authoritative manuscript.
 The web build does not edit them. It follows active inputs, removes commented-out
 material, and uses the compiled AUX and bibliography to retain equation,
-proposition, section, figure, table, and citation references. The three TikZ
+proposition, section, figure, table, and citation references. The four TikZ
 diagrams are extracted from the compiled paper; simulation figures in the main
 text and appendices use the existing figure PDFs. No simulation is rerun by the web build.
 
@@ -58,7 +58,13 @@ The digital edition draws inspiration from the reading/exploration format of
 [Epoch AI's model playground](https://epoch.ai/gate), but implements no part of
 that model and copies no simulation results or interface assets.
 
-## Automatic PDF publication; digital updates on request
+## Synchronized paper and digital-edition updates
+
+Under Oliver's standing instruction of 2026-09-27, each completed paper update
+includes rebuilding and validating both PDFs and the digital edition. No
+separate request to update the website is needed. This supersedes the earlier
+PDF-only policy; an explicit request to defer publication still takes precedence.
+The editing workflow refreshes the immutable snapshot before the final push.
 
 Every push to `main` runs `.github/workflows/paper.yml`:
 
@@ -68,17 +74,18 @@ Every push to `main` runs `.github/workflows/paper.yml`:
 4. Replace `paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf` and `paper/online-appendix.pdf` with the new compilations.
 5. Verify that every other file, including `index.html`, is byte-identical to the pinned snapshot, then publish to GitHub Pages.
 
-A manual run of this workflow also updates only the PDFs.
-The HTML manuscript, supplementary simulations, figures, and explorer stay at
-their last approved digital version. The current PDF and digital edition may
-therefore intentionally differ until a full digital update is requested.
+A manual run of this CI workflow also overlays only the PDFs; it does not build
+HTML. A source-only push therefore does not by itself synchronize the reader.
+Complete the snapshot-update steps below for each paper-editing task, so the
+HTML manuscript, supplementary simulations, and figures match the current
+sources. Refresh the explorer from the stored data without rerunning simulations.
 Missing snapshots or invalid files stop publication; they never trigger an
 automatic digital rebuild. Snapshots are kept in Git rather than expiring
 Actions artifacts. Do not delete or force-rewrite the snapshot branch.
 
 ### Updating the digital edition
 
-Only do this when Oliver explicitly requests a digital update:
+Do this as part of each approved paper update, unless publication has been deferred:
 
 1. Build and validate the current PDF and digital edition using the commands below.
 2. Review the generated reader and explorer, including citations, math, figures, and links.
@@ -86,10 +93,10 @@ Only do this when Oliver explicitly requests a digital update:
 4. Commit and push the new snapshot, then set `snapshot_commit` in `DIGITAL_EDITION.json` to its full SHA and update the manuscript provenance. Commit and push that pointer change on `main`.
 5. Verify successful deployment, the requested digital changes, and the stable PDF link. An unsuccessful deployment may be retried without rebuilding the approved snapshot.
 
-Never advance the snapshot pointer as part of an ordinary manuscript edit or
-an update to the online appendix.
-Changes to files under `docs/` are also unpublished until included in an explicitly
-approved snapshot.
+Updates to the online appendix follow the same workflow. Changes under `docs/`
+are unpublished until included in a validated snapshot and referenced by
+`DIGITAL_EDITION.json`. Do not treat a successful PDF build as verification of
+the digital edition.
 
 Conversion stops on missing labels, unresolved internal references, unsupported
 TeX, Pandoc warnings, or inconsistent simulation provenance. A failed build does
