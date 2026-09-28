@@ -94,8 +94,8 @@ def write_reports():
     lines = [r'\begin{table}[H]', r'\centering',
              r'\caption{Numerical accuracy of the illustrative RSI comparisons}',
              r'\label{tab:rewrite-rsi-illustrative-accuracy}', r'\small',
-             r'\begin{tabular}{rrrrrr}', r'\toprule',
-             r'$\chi$ & $\sigma$ & Final horizon & Mesh points & Dynamic residual & Horizon change\\',
+             r'\begin{tabular}{rrrrr}', r'\toprule',
+             r'$\chi$ & $\sigma$ & Final horizon & Dynamic residual & Horizon change\\',
              r'\midrule']
     for d in data:
         for r in d['reports']:
@@ -104,11 +104,11 @@ def write_reports():
             gap = r['horizon_comparison']['maximum_common_window_coordinate_change']
             a = r['audit']
             lines.append(f'{r["parameters"]["chi"]:g} & {r["sigma_xl"]:.2f} & '
-                         f'{a["horizon"]:,.1f} & {a["nodes"]:,} & '+
+                         f'{a["horizon"]:,.1f} & '+
                          upper_scientific(residual)+' & '+upper_scientific(gap)+r'\\')
     lines += [r'\bottomrule', r'\end{tabular}', r'\par\smallskip',
         r'\begin{minipage}{0.98\textwidth}\footnotesize',
-        'Dynamic residuals are the largest independently reconstructed errors across',
+        'Horizons are measured in years. Dynamic residuals are the largest independently reconstructed errors across',
         'the full-horizon and dense first-decade checks. Horizon change compares the',
         'last two solutions in detrended logarithmic coordinates over years 0--500.',
         'Error bounds are rounded upward. All eight paths pass the equation,',

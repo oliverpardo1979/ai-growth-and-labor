@@ -97,6 +97,64 @@ table. The manually edited discussion in the two simulation subsections is
 separate from those digests. Reproduction does not rewrite that discussion.
 Numerical admission is not an interval-arithmetic proof of existence.
 
+### Numerical implementation and tolerances
+
+The following details complement the compact numerical appendix in the
+paper. They document the existing calculations; no simulation settings
+were changed when the appendix was shortened.
+
+For each RSI-activation configuration, the solver starts near the analytical
+limiting point and moves the initial stocks to the prescribed values in 32
+continuation stages. These stages are numerical problems, not dates on the
+economic trajectory. At unit elasticity the static block uses its exact
+Cobb-Douglas limit. Near one, `log1p` and `expm1` reduce cancellation errors.
+Under complementarity, marginal revenue is evaluated directly and the static
+root is polished when necessary near zero marginal revenue; the first-order
+condition is unchanged.
+
+Each computational horizon is extended twice by 500 years. The collocation
+tolerances are `2e-6`, `1e-8`, and `1e-9`, with initial meshes of 221, 401,
+and 601 points that adapt as needed; the final boundary tolerance is `1e-11`.
+Final mesh sizes are retained in each admission report's `audit.nodes` field.
+The displayed window is inside the solved horizon, without extrapolation.
+Figure windows select dates from the stored paths; they do not alter the
+economy or the solution horizon.
+
+The independent checks reconstruct the original equations with five-point
+differences at 1,001 dates, using steps of 0.003 and 0.001 years. An additional
+801-date check over the first ten years uses steps of 0.0003 and 0.0001 years.
+Acceptance requires dynamic residuals below `1e-6`, first-order residuals
+below `1e-9`, final-horizon changes below `2e-5` in detrended logarithmic
+coordinates, and terminal-coordinate gaps below `1e-4`.
+
+When global concavity fails, the Hamiltonian-support checks use grids with
+81 dates and 101 alternative states, then 321 dates and 241 alternative
+states, supplemented by dense first-decade checks when needed. At each date,
+the test holds capital, effective labor, and the transformed shadow price
+fixed while varying counterfactual AI efficiency. Counterfactual-state
+minimization and the analytical bound in the paper supplement these grids.
+The asymptotic decay rate of both transversality expressions is `n - rho < 0`.
+
+The activation audit checks the pre-event Euler, resource, and monopoly
+conditions, continuity of production quantities and prices, and the jumps
+in consumption and research. On the pre-event BGP, capital, output,
+consumption, inference compute, and AI services grow at `n + gamma`, wages
+grow at `gamma`, and efficiency, prices, the interest rate, and income shares
+are constant. The inequality `rho > n` ensures finite pre-event developer
+value and decay of the household transversality expression. Checkpoint and
+CSV hashes link the audit reports to the plotted data. A comparison is
+exported only after all four elasticities pass its equilibrium and
+activation-continuity checks.
+
+### Annual research-expenditure outcomes
+
+The stored first-year research expenditure ratio is
+`integral_0^1 M(t) dt / integral_0^1 Y(t) dt`, not the impact ratio `M(0)/Y(0)`.
+Gauss-Legendre quadrature with 64 and 128 nodes must agree within `1e-8`
+in logs, and the annual ratio must change by less than `2e-5` in logs across
+horizon extensions. These checks are recorded in `annual_moments.json`.
+Research shares and price declines are outputs, not calibration targets.
+
 ### Additional institutional experiments
 
 The additional competitive-to-monopoly experiment in the paper is documented in

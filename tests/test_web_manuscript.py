@@ -247,8 +247,9 @@ class GeneratedManuscriptTests(unittest.TestCase):
     def test_headings_keep_numbers_separate_from_titles(self):
         headings = self.meta["sections"]
         self.assertEqual(headings[0], {"id": "sec:rewrite-introduction", "title": "Introduction", "level": 1, "number": "1"})
-        self.assertTrue(any(h["number"] == "B.1" for h in headings))
-        self.assertTrue(any(h["number"] == "B.6" for h in headings))
+        numerical_subsections = [h["number"] for h in headings
+                                 if h["level"] == 2 and h["number"].startswith("B.")]
+        self.assertEqual(numerical_subsections, ["B.1", "B.2", "B.3"])
 
     def test_uncapped_unit_construction_is_integrated_into_its_proof(self):
         self.assertNotIn("sections_rewrite/appendix_uncapped_unit.tex", self.meta["source_files"])
@@ -295,14 +296,39 @@ class GeneratedManuscriptTests(unittest.TestCase):
         self.assertNotIn('href="#paper-', self.content)
         self.assertEqual(len([f for f in self.meta["figures"] if str(f["number"]).startswith("S")]), 10)
 
-    def test_replication_paths_are_literal_code(self):
+    def test_replication_details_are_linked_from_the_compact_appendix(self):
+        self.assertIn('href="https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/REPLICATION.md"',
+                      self.content)
+        guide = (ROOT / "COMPETITIVE_TRANSITION.md").read_text(encoding="utf-8")
         for name in ("simulate_competitive_to_monopoly.py", "report_competitive_to_monopoly.py",
                      "report_competitive_main_comparison.py"):
-            self.assertIn(f"<code>scripts/{name}</code>", self.content)
+            self.assertIn(f"scripts/{name}", guide)
+        implementation = (ROOT / "REPLICATION.md").read_text(encoding="utf-8")
+        for detail in ("32", "log1p", "expm1", "1,001", "801", "Gauss-Legendre"):
+            self.assertIn(detail, implementation)
+
+    def test_growth_reversal_method_accompanies_the_supplementary_experiment(self):
+        main = web.flatten(ROOT / "main_rewrite.tex", ROOT, [])
+        supplement = web.flatten(ROOT / "online_appendix.tex", ROOT, [])
+        label = r"\label{app:rewrite-growth-reversal-numerics}"
+        self.assertNotIn(label, main)
+        self.assertIn(label, supplement)
+        self.assertNotIn(r"\ref{paper-app:rewrite-growth-reversal-numerics}", supplement)
+        experiment = self.content.index('id="subsec:rewrite-monopoly-growth-reversal"')
+        method = self.content.index('id="app:rewrite-growth-reversal-numerics"')
+        self.assertGreater(method, experiment)
+        self.assertIn('href="#app:rewrite-growth-reversal-numerics"', self.content)
+
+    def test_accuracy_table_retains_eight_cases_without_mesh_column(self):
+        table = (ROOT / "sections_rewrite/rsi_illustrative_accuracy.tex").read_text(encoding="utf-8")
+        self.assertNotIn("Mesh points", table)
+        rows = [line for line in table.splitlines() if re.match(r"[17]\.5 &", line)]
+        self.assertEqual(len(rows), 8)
+        self.assertTrue(all(line.count(" & ") == 4 for line in rows))
 
     def test_textual_endpoints_and_replication_are_retained(self):
         for text in ("Advances in artificial intelligence", "Declaration of AI use",
-                     "Equilibrium checks", "Replication files", "Local convergence from nearby initial stocks."):
+                     "Accuracy and equilibrium checks", "Replication files", "Local convergence from nearby initial stocks."):
             self.assertIn(text, self.content)
         self.assertIn("ref-romer1990", self.content)
         self.assertIn("Journal of Political Economy", self.content)
