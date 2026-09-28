@@ -1,4 +1,4 @@
-# The Future of Growth and Human Labor Under Recursive AI Self-Improvement
+# The Upside of Being Replaceable: AI, Market Structure, and Growth
 
 **Oliver Pardo** · Departamento de Administración, Pontificia Universidad Javeriana
 
@@ -55,8 +55,8 @@ records the source commit and initial copied-file hashes.
 
 ## Cite and contact
 
-Oliver Pardo (2026), *The Future of Growth and Human Labor Under Recursive AI
-Self-Improvement*, working paper. Contact: pardoo@javeriana.edu.co.
+Oliver Pardo (2026), *The Upside of Being Replaceable: AI, Market Structure,
+and Growth*, working paper. Contact: pardoo@javeriana.edu.co.
 
 Please cite the paper and identify the repository commit used when reporting a
 replication. No additional license is granted by this migration.
