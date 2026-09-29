@@ -300,7 +300,7 @@
       "number": "S2.1"
     }
   ],
-  "source_sha256": "d0b2f1fa11114b8b365664d6da67b4957a1fdcd496befe2a9268845efdcfb616",
+  "source_sha256": "ba893574f4e152e664fbbc8ec3242126ee0655dabd9f8814e46d95c7a27412c9",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "bc823e6bb5bfd923a2bdb90d3a95ddaec1ccd2b17d2ce3f4934182569fbef991",
@@ -312,7 +312,7 @@
     ],
     "build_inputs": {
       "aux": "557f186c9390f7e020e87629d2de0080c90fc9b975c42e5927fae08dfc84c666",
-      "pdf": "fd016c943800208e84e87bd863e4ad85ace1f0c5b0c26a52a43c02c85c622700"
+      "pdf": "2c82471e7d8792a1d7461d32d8fe1db14ee3c8bd2eba935df9f6f8479810e355"
     }
   },
   "source_files": [
@@ -521,8 +521,8 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 254,
-    "numbered_equation_rows": 156,
+    "labels": 252,
+    "numbered_equation_rows": 154,
     "display_math": 205,
     "figures": 21,
     "tables": 5,
@@ -540,8 +540,8 @@
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "adf4394eb39e743f0c15910bd1c39b901327b2d57810579514f3b6a30292757a",
+    "aux": "27e72096ff0807eb5cf5f850c89123501315ea78477c422e08f91c3096f4a466",
     "bbl": "ce5636deb2c9be14ca3a39667c02f142f95eafa7c190a6d26e174132d217b72b",
-    "pdf": "d24cffca91862d8d41e15c71a776e10438bf68f4d60d3442f66992768160fbb7"
+    "pdf": "8a3e4f1e09048d91c77e0140ba184fd1f9c74abe4b5550df210fe46e1c4c4153"
   }
 }
