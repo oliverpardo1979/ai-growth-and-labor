@@ -539,6 +539,74 @@ AI-dominated case. Together with the optimality and transversality checks
 in Step 4, these constructions satisfy Definition~\ref{def:rewrite-equilibrium}.
 \end{proof}
 
+\Needspace{8\baselineskip}
+\phantomsection
+\label{proof:rewrite-efficiency-nonattainment}
+\begin{proof}[Proof of Remark~\ref{rem:rewrite-efficiency-nonattainment}]
+I bound the improvement in AI efficiency that the economy can finance
+from low initial efficiency and capital. The bound uses only the static
+monopoly allocation, the resource constraint, and the RSI technology;
+it therefore applies to any equilibrium from those initial states.
+
+For $\sigma<1$, the CES aggregator~\eqref{eq:rewrite-ces} implies
+$Z\leq\omega_X^{\sigma/(\sigma-1)}X$.
+Also, $e_X\geq\alpha$ in
+\eqref{eq:rewrite-inverse-demand-elasticity}, so
+\eqref{eq:rewrite-ai-output-limit} gives
+$X\leq B(1-\alpha)^2Y$.
+Substituting both inequalities into production~\eqref{eq:rewrite-output}
+and rearranging yields the following bound at every date:
+\[
+ \frac{Y_t}{K_t}
+ \leq\left[(1-\alpha)^2B_t
+ \omega_X^{\sigma/(\sigma-1)}\right]^{(1-\alpha)/\alpha}
+ =\frac{\mathcal R(B_t)+\delta}{\alpha}.
+\]
+The right-hand side tends to zero as $B_t\downarrow0$. Since $\delta>0$,
+I can choose an efficiency level $b<\overline B$ such that
+\[
+ d\equiv\delta-\frac{\mathcal R(b)+\delta}{\alpha}>0.
+\]
+Choose $B_0<b/2$ and $K_0$ small enough that
+\[
+ \chi b^\eta K_0^\eta
+ \left(\frac{1-\eta}{d\eta}\right)^{1-\eta}<\frac b2.
+\]
+These strict inequalities define a nonempty open set of initial states,
+with no further restriction on $A_0$ or $N_0$.
+
+As long as $B_t\leq b$, the output bound and
+resource constraint~\eqref{eq:rewrite-resource}, with $C_t,U_t\geq0$, imply
+$\dot K_t\leq-dK_t-M_t$.
+Multiplying by $e^{dt}$ and integrating gives
+\[
+ e^{dT}K_T+\int_0^T e^{dt}M_t\dd t\leq K_0.
+\]
+Since capital is nonnegative, H\"older's inequality then bounds the
+cumulative research input to the RSI technology:
+\[
+ \begin{aligned}
+ \int_0^T M_t^\eta\dd t
+ &=\int_0^T(e^{dt}M_t)^\eta e^{-d\eta t}\dd t\\
+ &\leq\left(\int_0^T e^{dt}M_t\dd t\right)^\eta
+ \left(\int_0^T e^{-d\eta t/(1-\eta)}\dd t\right)^{1-\eta}\\
+ &\leq K_0^\eta\left(\frac{1-\eta}{d\eta}\right)^{1-\eta}.
+ \end{aligned}
+\]
+By the RSI technology~\eqref{eq:rewrite-capability-law},
+$\dot B_t\leq\chi b^\eta M_t^\eta$ while $B_t\leq b$. Hence
+\[
+ B_T-B_0\leq\chi b^\eta K_0^\eta
+ \left(\frac{1-\eta}{d\eta}\right)^{1-\eta}<\frac b2.
+\]
+If $T$ were the first date at which $B_T=b$, this inequality would
+contradict $b-B_0>b/2$. Thus efficiency never reaches $b$, and the same
+bound applies at every horizon. Since $B_t$ is nondecreasing, its limit
+exists and is strictly below $b<\overline B$.
+The argument holds for every admissible $\eta$ and $\chi$, including
+$\eta<\min\{\alpha,1/\sigma\}$.
+\end{proof}
+
 \Needspace{12\baselineskip}
 \phantomsection
 \label{proof:rewrite-wage-growth-maximizer}
