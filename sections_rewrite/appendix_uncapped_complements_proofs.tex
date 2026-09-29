@@ -265,17 +265,17 @@ Consequently
 The left side tends to zero by~\eqref{eq:rewrite-complements-research-pv-bound}.
 Hence $m\to0$, and Step 1 already gives $u\to0$.
 
-The normalized equilibrium equations therefore approach, uniformly on
+I now show that capital and consumption per unit of effective labor
+converge to their stationary values. The bounds established above rule
+out divergence and convergence to zero, but do not by themselves rule
+out persistent fluctuations. Since $u,m\to0$, the normalized equilibrium
+equations approach, uniformly on
 the compact positive region containing the path, the Ramsey system
 \begin{equation}
  \dot k=F(k)-c,\qquad
  \dot c=c\,[\alpha f_\infty k^{\alpha-1}-\delta-\rho-\gamma].
  \label{eq:rewrite-complements-limiting-ramsey}
 \end{equation}
-To establish convergence, I examine the equilibrium path over time
-intervals centered at increasingly late dates. Any limiting path must
-solve this Ramsey system. I show that the only such path that remains in
-the compact positive region is its stationary point.
 This limiting system has one positive stationary point,
 \[
  k_\infty=
@@ -284,29 +284,38 @@ This limiting system has one positive stationary point,
 \]
 Its Jacobian has negative determinant, so it is a saddle.
 The standard Ramsey phase portrait is discussed by \citet{groth2013ramsey}.
-There is no nonconstant complete orbit (a trajectory defined for all
-positive and negative time) confined to a compact subset of the positive
-quadrant. To see this, the multiplier $1/c^2$ gives
+
+To connect this stationary point to the original equilibrium path, I
+examine that path over intervals centered at increasingly late dates,
+resetting each center to time zero. Bounded derivatives and uniform
+convergence of the equations imply that, from any sequence of such
+dates, a subsequence of the shifted paths converges on every bounded
+time interval to a solution of
+\eqref{eq:rewrite-complements-limiting-ramsey}. This follows by taking
+limits in the integral form of the equations. Each limiting trajectory
+remains in the same compact positive region and is defined for all
+positive and negative times relative to its center; such a trajectory
+is called a complete orbit. I next show that it must be stationary.
+
+The following calculation excludes cycles and nonconstant paths that
+approach the same stationary point in both time directions. Multiplying
+both equations of the limiting system by $1/c^2$ gives the divergence
 \[
  \frac{\partial}{\partial k}\frac{F(k)-c}{c^2}
  +\frac{\partial}{\partial c}
    \frac{\alpha f_\infty k^{\alpha-1}-\delta-\rho-\gamma}{c}
  =\frac{\rho-n}{c^2}>0.
 \]
-The Bendixson--Dulac argument excludes both periodic orbits and homoclinic
-loops. The planar limit-set theorem, the unique stationary point, and its
-saddle character then exclude a nonconstant complete orbit confined to
-such a compact set: its forward and backward limits would otherwise
-require a periodic orbit or a connection back to that same saddle.
-
-For any sequence of dates tending to infinity, time translations of our
-bounded positive path have a subsequence converging on every bounded
-time interval to a complete orbit of
-\eqref{eq:rewrite-complements-limiting-ramsey}. This follows from bounded
-derivatives, uniform convergence of the vector fields, and the integral
-form of the differential equations. The preceding paragraph forces that
-orbit to be the stationary point. Thus every accumulation point is
-$(k_\infty,c_\infty)$, proving convergence of the original path.
+Its strictly positive sign rules out both types of paths by the
+Bendixson--Dulac argument; the second type is a homoclinic loop. With
+these paths excluded and only one stationary point, the planar
+limit-set theorem implies that any nonconstant complete orbit confined
+to the compact positive region would have to approach
+$(k_\infty,c_\infty)$ in both time directions. That would be precisely
+the homoclinic loop already ruled out. Hence every limiting trajectory
+constructed above is the stationary path. Every accumulation point of
+the original equilibrium path is therefore $(k_\infty,c_\infty)$,
+which proves $k_t\to k_\infty$ and $c_t\to c_\infty$.
 
 It follows that $y\to y_\infty=f_\infty k_\infty^\alpha>0$ and
 \begin{equation}
