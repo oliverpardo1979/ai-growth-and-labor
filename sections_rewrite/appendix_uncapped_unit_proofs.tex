@@ -140,7 +140,9 @@ Both improper objective integrals are finite.
 
 \par\medskip\noindent\textit{Step 2. Global optimality.}
 
-At given paths of $K,A,L$, static optimization gives
+The constructed path satisfies the necessary conditions, but these do
+not yet rule out profitable deviations. For the developer, holding the
+paths of $K,A,L$ fixed, static optimization gives
 \begin{equation}
  \begin{split}
  \pi_t(B)={}&(1-\alpha)\omega_X[1-(1-\alpha)\omega_X]
@@ -156,7 +158,8 @@ transformation and its current-value costate by
  S=B^\nu,\qquad p=\frac{q}{\nu B^{\nu-1}}.
  \label{eq:rewrite-uncapped-unit-transformed-state}
 \end{equation}
-The RSI technology becomes
+The exponent $\nu$ is chosen so that the transformed research technology
+has constant returns in $S$ and $M$:
 \[
  \dot S=\nu\chi S^{1-\eta}M^\eta,
 \]
@@ -208,6 +211,9 @@ with the uncapped RSI technology~\eqref{eq:rewrite-uncapped-unit-law}.
 \textit{Step 3. Local stability and selection of initial consumption and research.}
 \phantomsection
 \label{proof:rewrite-uncapped-unit-local}
+The initial stocks are predetermined. I must select initial consumption
+and the shadow price so that the resulting path converges to the BGP;
+the research condition then determines initial research expenditure.
 For the given exogenous paths of population and labor-augmenting technology,
 compare each variable with its value on the reference BGP at the same date.
 Define log deviations
@@ -226,9 +232,10 @@ $\dot\xi=f(\xi)$ with $f(0)=0$, where $\xi=(\xi_K,\xi_B,\xi_C,\xi_q)'$.
 Let $J^*=Df(0)$ denote its Jacobian. No constant growth rates or
 allocation shares are imposed along these transitions.
 
-I next establish two properties needed for local convergence from nearby
-initial stocks. First, writing $E^s$ for the real invariant subspace
-associated with eigenvalues having negative real parts, I show that
+I next establish two properties needed for this selection. First, the
+linearized system has exactly two independent directions of convergence
+and no eigenvalues with zero real part. Writing $E^s$ for the real
+invariant subspace associated with the convergent directions, this means
 \begin{equation}
  \operatorname{spec}(J^*)\cap i\mathbb R=\varnothing,
  \qquad \dim E^s=2.
@@ -243,7 +250,10 @@ $E^s$, and let $V_{KB}$ consist of its first two rows. I show that
 This nonsingularity allows the stable manifold to select $C_0,q_0$ for
 every sufficiently close pair $K_0,B_0$, rather than only for stocks on a
 curve. Both properties follow from the parameter restrictions, rather
-than being additional assumptions. Retain $\nu$ from
+than being additional assumptions. I establish them by locating the
+stable eigenvalues from the signs of the characteristic polynomial,
+then checking that their eigenvectors allow the two stocks to vary
+independently. Retain $\nu$ from
 \eqref{eq:rewrite-uncapped-unit-transformed-state} and, for this linearization,
 define
 \begin{align*}
@@ -259,7 +269,8 @@ All six quantities are positive, and the restriction $\eta+\omega_X<1$ gives
  {[1-(1-\alpha)\omega_X](1-\eta)}>0.
  \label{eq:rewrite-uncapped-unit-local-gap}
 \end{equation}
-Make the invertible linear change of deviations
+For this calculation, return to the transformed state $S$ and its shadow
+price $p$ from Step 2. This gives the invertible linear change of deviations
 \[
  \widehat\xi=(\xi_K,\nu\xi_B,\xi_C,\xi_q+(1-\nu)\xi_B)'.
 \]
@@ -319,12 +330,14 @@ Expanding the determinant gives the characteristic polynomial
  \end{split}
  \label{eq:rewrite-uncapped-unit-local-polynomial}
 \end{equation}
-In particular,
+To locate the negative eigenvalues without solving the quartic, first
+evaluate the polynomial at zero:
 \[
  p(0)=\mathsf D\mathsf C hP(1-a_K-a_T)>0.
 \]
 Let $\mu=(d-\sqrt{d^2+4\mathsf D\mathsf F})/2<0$, the negative
-root of the second quadratic factor. Then
+root of the second quadratic factor. At this point the first product
+in the polynomial vanishes, leaving
 $p(\mu)=-\mathsf D\mathsf E(\mathsf Q-\mathsf L\mu)<0$.
 Since $p(\ell)\to+\infty$ as $\ell\to-\infty$, there is one
 negative root below $\mu$ and another between $\mu$ and zero.
@@ -341,8 +354,11 @@ $p(0)>0$ and the sum of all four roots is $\mathsf A+d>0$.
 If real, both are positive; if complex, their real parts are positive.
 This proves \eqref{eq:rewrite-uncapped-unit-local-spectrum}.
 
-To establish nonsingularity of the projection onto the two stocks, write a
-stable eigenvector in transformed coordinates as $(x,y,z,u)'$.
+The eigenvalue count does not by itself ensure that a convergent path can
+be selected for every nearby pair of initial stocks. I establish this by
+showing that the stock components of the stable eigenvectors are linearly
+independent. Write a stable eigenvector in transformed coordinates as
+$(x,y,z,u)'$.
 Its second component cannot be zero:
 the second, fourth, and first rows would successively imply $u=x=z=0$.
 Normalize $y=1$. The second and fourth rows then give
@@ -355,21 +371,25 @@ $(x(\ell_2),1)'$ are linearly independent. Returning to $(\xi_K,\xi_B)$
 only rescales their second component by $1/\nu>0$, so
 \eqref{eq:rewrite-uncapped-unit-local-projection} follows as well.
 
-The exact normalized vector field is continuously differentiable near
-$\xi=0$. The spectral property just proved and the stable-manifold
+These matrix properties now provide a selection rule for the nonlinear
+system. The exact normalized vector field is continuously differentiable
+near $\xi=0$. The spectral property just proved and the stable-manifold
 theorem supply a two-dimensional local manifold
 whose trajectories remain near zero and converge exponentially.
 The derivative of its projection onto $(\xi_K,\xi_B)$ is $V_{KB}$.
 The nonsingularity just proved and the
 inverse-function theorem therefore make this manifold locally the
 graph of a continuously differentiable function selecting $(\xi_C,\xi_q)$
-from the two initial stock deviations. Since exponentiation is a local
-diffeomorphism, the same holds for $(C_0,q_0)$ as functions of $(K_0,B_0)$.
+from the two initial stock deviations. Returning from log deviations to
+levels is a smooth invertible change of variables, so the same holds for
+$(C_0,q_0)$ as functions of $(K_0,B_0)$.
 
 \par\medskip\noindent\textit{Step 4. Reconstruction of nearby equilibria.}
 
-More explicitly, for some constants $a,H>0$, trajectories on a sufficiently
-small stable manifold satisfy
+I first choose a neighborhood of initial states so that the selected
+trajectories stay within the region where the local construction is valid.
+For some constants $a,H>0$, trajectories on a sufficiently small stable
+manifold satisfy
 \[
  \|\xi(t)\|\leq H e^{-at}\|\xi(0)\|,\qquad t\geq0.
 \]

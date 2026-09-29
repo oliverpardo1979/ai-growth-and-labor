@@ -179,6 +179,10 @@ following inequality for every $\widetilde R_B\geq R_{B,0}$:
  (\widetilde R_B-R_{B,t}).
 \]
 
+To compare discounted profits, I use the costate equation to bound the
+alternative's discounted profit gain at each date by a total derivative.
+Integrating this bound will leave only the shadow value of the difference
+between the terminal states.
 Let $D_t=\exp(-\int_0^t r_s\dd s)$ be the discount factor and
 $\mu_t=D_tq_{R,t}$ the present-value shadow price of the transformed state $R_B$.
 The research condition~\eqref{eq:rewrite-research-foc} and the RSI
@@ -474,7 +478,8 @@ equation~\eqref{eq:rewrite-substitutes-dated-output-capital} gives
 \]
 The operating-profit asymptotic is uniform over dates in $[0,T]$ because
 $K,A,L$ are continuous, bounded, and bounded away from zero
-on $[0,T]$.
+on $[0,T]$. Thus a common lower bound proportional to $B^\theta$ applies
+at every date once $B$ is sufficiently large.
 
 The research trajectories constructed below are deviations in the
 developer's optimization problem, not alternative equilibrium allocations.
@@ -484,6 +489,11 @@ $M=0$ afterward. The uncapped RSI technology gives
  B_{\mathcal M}(t)^{1-\eta}=B_0^{1-\eta}
  +(1-\eta)\chi\mathcal M^\eta\min\{t,\Delta\}.
 \]
+Efficiency after the research burst is asymptotically proportional to
+$\mathcal M^{\eta/(1-\eta)}$. Discounted operating profit over the remaining
+interval therefore grows in proportion to
+$\mathcal M^{\eta\theta/(1-\eta)}$, while research expenditure grows only
+linearly in $\mathcal M$.
 Since optimized operating profit is nonnegative, a lower bound on discounted
 net profit counts only operating profits earned after research stops, while
 subtracting all research expenditure. For all sufficiently large $\mathcal M$,

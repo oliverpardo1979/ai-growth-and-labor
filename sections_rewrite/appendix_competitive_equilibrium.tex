@@ -81,7 +81,9 @@ whose determinant is negative. Its stable curve has positive slope,
 with $\dot k,\dot c>0$ on its left branch and
 $\dot k,\dot c<0$ on its right branch.
 
-Together, the two branches cover every $k>0$. On the left branch,
+Local convergence is not enough to establish existence from every
+initial capital stock. I therefore show that the two branches of this
+stable curve together cover every $k>0$. On the left branch,
 $dk<c<G(k)$; on the right, $c>\max\{dk,G(k)\}$.
 To verify these restrictions, at $c=dk$ equation
 \eqref{eq:rewrite-competitive-consumption-ratio} points toward
@@ -113,17 +115,25 @@ $[dk_0,G(k_0)]$ and the region
 \[
  k>0,\qquad dk<c<G(k).
 \]
-At its lower consumption boundary,
+I choose initial consumption so that the path stays between these
+boundaries. At the lower boundary,
 \eqref{eq:rewrite-competitive-consumption-ratio} points strictly out
-of the region. At its upper boundary, $\dot k=0$ and $\dot c>0$,
-so the vector field also points strictly out. Inside, both $k$ and $c$
+of the region: consumption falls relative to capital. At the upper
+boundary, $\dot k=0$ and $\dot c>0$, so consumption rises above $G(k)$.
+Inside, both $k$ and $c$
 increase. There is no finite-time escape to infinity because concavity
-bounds $G(k)$ above by an affine function. Continuous dependence on
-initial consumption makes the sets of initial choices whose paths first
-exit through the two boundaries open and disjoint. Both sets are nonempty,
-as shown by the endpoint initial choices. They cannot exhaust the connected
-interval of initial choices. Hence at least one trajectory remains
-in the region forever.
+bounds $G(k)$ above by an affine function.
+
+The endpoint choices of initial consumption leave through opposite
+boundaries. A small change in initial consumption preserves a finite-time
+exit through either boundary, by continuous dependence of the solution
+on its initial value. Thus the choices that first exit through the lower
+boundary and those that first exit through the upper boundary form two
+nonempty, disjoint sets that are open within the interval. They cannot cover
+the whole interval
+$[dk_0,G(k_0)]$, because an interval is connected. At least one initial
+consumption choice therefore generates a path that never leaves the
+region.
 
 Along this trajectory $k\to\infty$. A finite limit would also bound
 $c$ and require a positive stationary point, but $G'(k)>d$ excludes one.
@@ -151,7 +161,8 @@ tends to zero.
 
 \emph{Optimality, uniqueness, and decentralization.}
 The preceding constructions satisfy global optimality, not only the
-Euler equation. Let $\lambda_t=e^{-dt}/c_t$ along a constructed path;
+Euler equation. Let $\lambda_t=e^{-dt}/c_t$ be discounted marginal utility
+along a constructed path;
 then $\dot\lambda=-G'(k)\lambda$.
 For any alternative feasible path $(\widetilde k,\widetilde c)$
 with the same $k_0$, concavity gives

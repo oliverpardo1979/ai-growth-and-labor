@@ -2,9 +2,12 @@
 \begin{proof}[Proof of Proposition~\ref{prop:rewrite-uncapped-complements-bounds}]
 \phantomsection
 \label{proof:rewrite-uncapped-complements-bounds}
-Equations~\eqref{eq:rewrite-uncapped-complements-z-bound}
-and~\eqref{eq:rewrite-uncapped-complements-y-bound} follow because
-$\sigma/(\sigma-1)<0$. Define $k=K/(AL)$. The resource constraint
+Removing the positive AI term inside the CES aggregator raises its
+value because the outer exponent $\sigma/(\sigma-1)$ is negative.
+This gives the production bounds in
+\eqref{eq:rewrite-uncapped-complements-z-bound}
+and~\eqref{eq:rewrite-uncapped-complements-y-bound}.
+Define $k=K/(AL)$. The resource constraint
 \eqref{eq:rewrite-eq-kdot}, nonnegative consumption and compute expenditure,
 and $L=N$ imply
 \begin{equation}
@@ -159,6 +162,8 @@ asset or a change to the household budget.
 \textit{Step 3. Discounted research spending vanishes relative to effective labor.}
 I first bound the present value of future effective labor relative to its
 current level, without assuming that the interest rate converges.
+Since $U\leq x_\infty AL/B$, this bound will let me use the developer's
+optimality conditions to bound discounted research spending.
 Fix a positive rate $a$. Step 1 permits a small $k_a>0$ and a sufficiently
 late date such that $r-(n+\gamma)\geq a$ whenever $k\leq k_a$.
 On $[k_a,k_{\max}]$, the wage equation~\eqref{eq:rewrite-wage} and the
@@ -201,6 +206,10 @@ Its value divided by $A_tL_t$ tends to zero. This argument requires
 $0<\eta<1$, but neither $\eta\leq1/2$ nor $\eta<\alpha$.
 
 \textit{Step 4. Capital per unit of effective labor stays away from zero.}
+At sufficiently low capital, the high return makes consumption grow.
+Its upper bound therefore limits how long capital can remain low. I
+also need to rule out repeated returns to low capital at increasingly
+late dates.
 Let $F(k)=f_\infty k^\alpha-\nu k$.
 Choose $\varepsilon>0$ small enough that $F$ is positive and increasing on
 $(0,\varepsilon]$. Step 1 also permits a sufficiently late date and
@@ -221,7 +230,7 @@ $c_{t_0}\geq d\varepsilon$, so
  t_1-t_0\leq T_\varepsilon
  :=a^{-1}\log\!\left(\frac{c_{\max}}{d\varepsilon}\right)<\infty.
 \]
-At $t_1$, the preceding invariant-region argument requires
+At $t_1$, the path cannot lie in the region excluded above, so
 $c_{t_1}<F(\varepsilon/2)$. Thus $c_s<F(\varepsilon/2)$ throughout the crossing.
 The uniform convergence in Step 1, applied on the crossing interval, yields
 numbers $\epsilon_{t_0}\to0$ such that
@@ -241,7 +250,9 @@ then implies
    \frac{\eta x_\infty J}{(1-\eta)B_{t_0}}
  \longrightarrow0,
 \]
-a contradiction. Therefore $k$ is eventually bounded away from zero,
+The fall in $k$ would be $\varepsilon/2$, but the maximum fall allowed
+by the resource constraint tends to zero. This contradiction rules out
+such late crossings. Therefore $k$ is eventually bounded away from zero,
 and so is $c\geq dk$. In particular, $r$ is now bounded above.
 
 \textit{Step 5. Research per unit of effective labor vanishes and Ramsey dynamics determine the limit.}
@@ -340,8 +351,8 @@ The bound on $g_M$ from Step 5 and the RSI technology give
  \geq(1-\eta)\chi M_t^\eta\int_0^1e^{-\eta H v}\dd v.
 \]
 Thus $g_B=\chi M^\eta/B^{1-\eta}$ is bounded above.
-At $x_\infty$, the marginal-revenue function $v$ defined in Step 1 has
-a simple zero: $v(x_\infty)=0$ and $v'(x_\infty)<0$.
+At $x_\infty$, the marginal-revenue function $v$ defined in Step 1
+satisfies $v(x_\infty)=0$ and $v'(x_\infty)<0$.
 Differentiating $k^\alpha v(x)=1/B$ yields
 \[
  \dot x=-\frac{v(x)}{v'(x)}

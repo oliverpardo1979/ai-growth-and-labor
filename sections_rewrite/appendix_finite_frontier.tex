@@ -150,7 +150,8 @@ $\dot d/d=n+\gamma-\dot B/(\overline B-B)$.
 The variable $d$ measures the scaled gap, not its rate of closure.
 The constants $\overline k,\overline d$ are the limiting values of $k,d$;
 they are determined by the model, not additional parameters.
-Also $\dot\tau=-(n+\gamma)\tau$, so $\tau\to0$.
+Including $\tau$ as a state removes explicit calendar time from the
+normalized equations. Since $\dot\tau=-(n+\gamma)\tau$, its limit is zero.
 These coordinates leave the model unchanged: $K=k/\tau$ and
 $B=\overline B-d\tau$ at every finite date.
 
@@ -194,7 +195,11 @@ is a fixed point of \eqref{eq:rewrite-labor-proof-dynamics}.
 This boundary point is a device for constructing paths with $\tau>0$ and
 $B<\overline B$, not an admissible date-zero state itself.
 
-I next verify saddle-path stability. Write $\mu=\eta/(1-\eta)$,
+I next verify saddle-path stability to determine whether initial consumption
+and the shadow price can be selected so that nearby initial stocks lead
+to convergence.
+
+Write $\mu=\eta/(1-\eta)$,
 $r_k=\partial r/\partial\log k$, and
 $a_k=\partial[(y-u)/k]/\partial\log k+\overline c/\overline k$,
 evaluated at the fixed point. In
@@ -247,8 +252,10 @@ Both blocks have negative determinants:
 \]
 There are therefore three stable and two unstable eigenvalues. The stable
 direction in $J_R$ has a nonzero $k$ component, and the stable direction in
-$J_B$ has a nonzero $d$ component. To verify that their number suffices to
-select the jump variables, consider a vector in the stable subspace whose
+$J_B$ has a nonzero $d$ component. Counting stable directions is not enough:
+their projection must also allow the three predetermined coordinates to
+vary independently. To verify this, consider a vector in the stable subspace
+whose
 state components $(k,d,\tau)$ are all zero. Its linearized $\tau$ path is
 zero. The unforced capital--consumption block must then follow its stable direction;
 its zero initial $k$ component forces its $c$ component to be zero as well.
@@ -260,8 +267,10 @@ invertible. This argument also covers repeated stable eigenvalues.
 Lemma~\ref{lem:rewrite-monopoly-choice} makes the static solution smooth.
 The normalized vector field extends smoothly through $\tau=0$, since
 $B=\overline B-d\tau$ remains positive nearby. The stable-manifold theorem
-and the inverse-function theorem therefore give a local graph
-$(c,\widetilde q)$ over $(k,d,\tau)$; see \citet{dyatlov2018}.
+therefore gives a local manifold whose trajectories converge to the fixed
+point. The invertible projection just established lets the inverse-function
+theorem express this manifold as a local graph selecting $(c,\widetilde q)$
+from $(k,d,\tau)$; see \citet{dyatlov2018}.
 Choose a small neighborhood of the full fixed point and then a smaller
 initial-state neighborhood $\mathcal U_L$ of
 $(\overline k,\overline d,0)$. The size of this neighborhood depends on the parameters
@@ -308,6 +317,8 @@ The two sets of coordinates are:
 \end{array}
 \]
 In both cases $\tau=(AN)^{-1}$.
+The exponent $\varphi$ makes $h$ enter the CES sum linearly, so the
+zero-labor-share limit can be studied at $h=0$.
 Within this construction, $y,x,u$ denote $Y/K,X/K,U/K$, respectively.
 The constant $\overline d$ now denotes the limit of $(\overline B-B)K$,
 not of $(\overline B-B)AN$; no original state or control is redefined.
@@ -333,10 +344,13 @@ The CES term divided by capital is
 $[\omega_Lh+\omega_Xx^\varphi]^{1/\varphi}$.
 At $h=0$ the monopoly equation has the strictly positive curvature
 $D(1)=\alpha(1-\alpha)$. Its implicit static solution is therefore smooth
-in $(h,B)$ near $(0,\overline B)$. For the remaining terms, replacing
+in $(h,B)$ near $(0,\overline B)$. To apply the stable-manifold theorem at
+$h=0$, I extend the vector field to an open neighborhood of this boundary.
+For the remaining terms, replacing
 $h^{1/\varphi}$ by $\max\{h,0\}^{1/\varphi}$ outside the physical domain
-gives a $C^1$ extension because $1/\varphi>1$. The $C^1$ stable-manifold
-theorem applies; see \citet[p.~7]{feldman2021stable}. The extension is only a
+gives a $C^1$ extension because $1/\varphi>1$. This meets the regularity
+requirement of the $C^1$ stable-manifold theorem; see
+\citet[p.~7]{feldman2021stable}. The extension is only a
 mathematical device and does not change any equation on $h\geq0$.
 
 The limiting interest and aggregate growth rates are
