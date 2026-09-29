@@ -109,23 +109,14 @@ production quantities and prices at RSI activation.
 Small equation residuals do not establish that the developer prefers the
 computed research path to every feasible alternative. I therefore check
 feasibility and the sufficient conditions for global optimality in
-Lemma~\ref{lem:rewrite-developer-verification}. When either sufficient
-concavity condition~\eqref{eq:rewrite-capped-concavity-gate}
-or~\eqref{eq:rewrite-depth-research-concavity} fails, I check the support
-condition~\eqref{eq:rewrite-hamiltonian-support} directly: the tangent at the candidate
-state must lie above the maximized Hamiltonian at every alternative
-AI-efficiency level. At each checked date, I minimize the difference
-between that tangent and the Hamiltonian over alternative efficiency
-levels, holding the transformed shadow price, capital, and effective
-labor fixed. An analytical bound covers the alternative states beyond
-the numerical search range as efficiency approaches $\overline B$.
+Lemma~\ref{lem:rewrite-developer-verification}. The parameter condition
+\eqref{eq:rewrite-research-optimality-condition} is verified below for
+all eight configurations.
 
-I assess the trajectory beyond the computational horizon separately.
-For the AI-dominated paths, I check the support bound derived below at
-the terminal date, as well as proximity to the limiting equilibrium.
-Along an AI-dominated path converging to that equilibrium, the bound holds
-sufficiently late. Both transversality expressions also decay
-asymptotically at rate $n-\rho<0$. These checks support the numerical
+To assess continuation beyond the computational horizon, I check proximity
+to the analytical limiting equilibrium at the terminal date and use the
+asymptotic decay of both transversality
+expressions at rate $n-\rho<0$. These checks support the numerical
 approximation over an infinite horizon; they do not constitute a proof
 of equilibrium existence from arbitrary initial stocks.
 The competitive-to-monopoly paths satisfy the same residual,
@@ -136,75 +127,34 @@ horizon-refinement, transversality, and developer-optimality criteria.
 \subsection{Analytical checks on developer optimality}
 \label{app:rewrite-numerical-support-checks}
 
-Two analytical results supplement the numerical optimality checks:
-global concavity at unit elasticity and a long-run support bound for the
-AI-dominated paths, which have $\sigma=1.50$ in these simulations.
-
-At unit elasticity, define $\beta=(1-\alpha)\omega_X$. The static monopoly solution implies
-$\pi_t(B)=a_tB^{\beta/(1-\beta)}$ for some $a_t>0$, conditional on the
-dated values of capital and effective labor. Here $R_B$ is the transformed
-AI-efficiency state in equation~\eqref{eq:rewrite-research-depth}.
-Because $B(R_B)$ is
-increasing and concave in $R_B$, $R_B\mapsto\pi_t(B(R_B))$ is globally concave whenever
-$\beta\leq1/2$. The illustrative values $\beta=0.067$ and $\eta=0.20$
-therefore satisfy both sufficient concavity conditions used in
-Lemma~\ref{lem:rewrite-developer-verification}.
-
-For the AI-dominated paths, I next show why the support condition holds
-eventually even if global concavity fails at low alternative efficiency
-levels. For $1<\sigma\leq1/\alpha$, the elasticity of optimal AI services
-with respect to AI efficiency, defined in
-equation~\eqref{eq:rewrite-service-capability-elasticity}, satisfies
-$\varepsilon_{B,t}(b)\leq1/\alpha$ for every $t$ and $b$. Suppressing these
-arguments, subtracting $\alpha(1-e_X)$ from the denominator in that equation
-gives
+All eight RSI-activation configurations have $\alpha=0.33$, $\eta=0.20$,
+and $B_0/\overline B=0.01$. For each of the four elasticities
+$\sigma\in\{0.90,1.00,1.10,1.50\}$,
+condition~\eqref{eq:rewrite-research-optimality-condition} holds because
 \[
- (\sigma^{-1}-\alpha)(1-s_X)
- \left[(1-\sigma^{-1})(1-s_X)+(\sigma^{-1}-\alpha)s_X\right]\geq0.
+ \eta\left(1-\frac{B_0}{\overline B}\right)
+ =0.20(1-0.01)=0.198<0.33
+ =\min\left\{\alpha,\frac1\sigma\right\}.
 \]
-To separate the alternative efficiency levels covered by concavity from
-those requiring an additional bound, choose $B_*\in(B_0,\overline B)$ with
-$B_*/\overline B>\max\{0,(1-2\alpha)/(1-\alpha)\}$.
-Operating profit is then concave in the transformed state $R_B$ for $B\geq B_*$ by
-equation~\eqref{eq:rewrite-capped-profit-curvature}.
-If $\eta\leq1/2$, the research term in
-\eqref{eq:rewrite-maximized-depth-hamiltonian} is concave there as well.
-For a candidate with $B_t\geq B_*$, concavity gives the tangent bound at
-all alternative efficiencies above $B_*$. Below $B_*$, the maximized
-Hamiltonian increases with alternative efficiency $b$ and is therefore bounded above by its value at
-$B_*$. The tangent has positive slope by
-\eqref{eq:rewrite-depth-hamiltonian-slope}, so its lowest value over
-feasible transformed efficiencies is at $R_{B,0}$. If that value is at least
-the Hamiltonian at $B_*$, the tangent also bounds every alternative below
-$B_*$. It therefore suffices to check
-\begin{equation}
- \widehat{\mathcal H}_t(R_{B,t})
- -\widehat{\mathcal H}'_t(R_{B,t})(R_{B,t}-R_{B,0})
- \geq\widehat{\mathcal H}_t(R_B(B_*)).
- \label{eq:rewrite-support-terminal-bound}
-\end{equation}
-At the terminal date, I verify $B_t\geq B_*$ and
-\eqref{eq:rewrite-support-terminal-bound} with $B_*=0.75\overline B$.
+This condition does not depend on the dated values of capital and
+effective labor or on research productivity $\chi$.
+The baseline competitive-to-monopoly comparisons use the same parameters
+and initial efficiency ratio, so the same calculation applies.
+The supplementary growth-reversal exercise instead has
+$B_0/\overline B=0.90$, giving $0.20(1-0.90)=0.02<0.33$.
 
-Along an AI-dominated path converging to its long-run limit, the left-hand
-side minus the right-hand side of
-\eqref{eq:rewrite-support-terminal-bound}, divided by $Y_t$, converges to
-\[
- \alpha(1-\alpha)
- \left[1-\left(\frac{B_*}{\overline B}\right)^{(1-\alpha)/\alpha}\right]>0.
-\]
-To obtain this limit, substitute
-\eqref{eq:rewrite-maximized-depth-hamiltonian} and
-\eqref{eq:rewrite-depth-hamiltonian-slope} into the difference above,
-using $M/Y\to0$ and $\psi(B)R_B\to0$.
-Production and monopoly pricing imply
-$\pi(B_*)/Y\to\alpha(1-\alpha)(B_*/\overline B)^{(1-\alpha)/\alpha}$.
-Thus the global support condition holds sufficiently late along such a
-path even when the stronger curvature condition fails at low alternative
-AI-efficiency levels. The positive terminal margin and the small
-terminal-coordinate gap provide numerical evidence that the computed
-path has approached this region. The finite transition still requires its
-own support check.
+The limiting continuation also gives a finite present value of net
+profit. Let $D_t=\exp(-\int_0^t r_s\,\dd s)$. Discounted output $D_tY_t$
+has limiting logarithmic growth $n-\rho<0$, and operating profit is
+bounded above by output. Research expenditure converges to a finite
+level, while the interest rate converges to a positive limit.
+Both discounted operating profit and discounted research expenditure
+are therefore integrable.
+Lemma~\ref{lem:rewrite-developer-verification} then gives global developer
+optimality for a feasible trajectory satisfying the research condition,
+costate equation, and transversality condition.
+The residual and horizon checks assess how closely the computed paths
+approximate a trajectory satisfying these conditions.
 
 \paragraph{Replication files.}
 

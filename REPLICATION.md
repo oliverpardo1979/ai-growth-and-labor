@@ -127,12 +127,20 @@ Acceptance requires dynamic residuals below `1e-6`, first-order residuals
 below `1e-9`, final-horizon changes below `2e-5` in detrended logarithmic
 coordinates, and terminal-coordinate gaps below `1e-4`.
 
-When global concavity fails, the Hamiltonian-support checks use grids with
+The saved audits include additional checks in the original
+logarithmic-efficiency coordinate `R_B = -Bbar * log(1 - B/Bbar)`.
+When the concavity diagnostic fails, the Hamiltonian-support checks use grids with
 81 dates and 101 alternative states, then 321 dates and 241 alternative
 states, supplemented by dense first-decade checks when needed. At each date,
 the test holds capital, effective labor, and the transformed shadow price
 fixed while varying counterfactual AI efficiency. Counterfactual-state
-minimization and the analytical bound in the paper supplement these grids.
+minimization and the analytical continuation bound implemented in
+`scripts/audit_rewrite_equilibria.py` supplement these grids.
+These diagnostics and the recorded admission procedure are retained for
+reproducibility. The current manuscript establishes sufficient conditions
+for developer optimality using
+`eta * (1 - B0/Bbar) <= min(alpha, 1/sigma)`, which holds for all the
+illustrative RSI and competitive-to-monopoly configurations.
 The asymptotic decay rate of both transversality expressions is `n - rho < 0`.
 
 The activation audit checks the pre-event Euler, resource, and monopoly

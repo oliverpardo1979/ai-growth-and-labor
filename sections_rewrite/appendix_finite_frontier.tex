@@ -484,38 +484,22 @@ The candidate's present value of net profit is finite, because its research comp
 bounded and $r_t\to\overline r>0$. An alternative with infinite discounted
 research expenditure has payoff $-\infty$ and cannot improve on it.
 
-It remains to verify the sufficient curvature conditions
-\eqref{eq:rewrite-capped-concavity-gate} and
-\eqref{eq:rewrite-depth-research-concavity} used in
-Lemma~\ref{lem:rewrite-developer-verification} for every date and every alternative
-AI-efficiency level in $[B_0,\overline B)$, not just on the selected path.
-First fix a compact normalized-state neighborhood and an interval of
-alternative AI-efficiency levels $[b_*,\overline B]$, with $0<b_*<\overline B$.
-In the positive labor-share construction, $K/(AN)$ stays in a compact
-neighborhood of $\overline k>0$. Smoothness of the static monopoly solution
-bounds $\varepsilon_{B,t}(b)$ uniformly for these states and for AI-efficiency levels near
-$\overline B$. In the AI-dominated construction, $h$ stays near zero, and
-the same uniform bound follows from the smooth static limit
-$\varepsilon_{B,t}(b)\to1/\alpha$ as $h\to0$. Thus in either case there is a finite constant
-$E$ with $\varepsilon_{B,t}(b)-2\leq E$ throughout that state domain.
-This bound is chosen before shrinking the initial-state neighborhood.
-Because $\mu=\eta/(1-\eta)$ is finite for each $0<\eta<1$, choose
-$b_{**}\in[b_*,\overline B)$ sufficiently close to $\overline B$ that
-\[
- (1-b_{**}/\overline B)\max\{E,\mu-1,0\}<b_{**}/\overline B.
-\]
+It remains to verify
+condition~\eqref{eq:rewrite-research-optimality-condition} in
+Lemma~\ref{lem:rewrite-developer-verification}.
 Shrink the open neighborhood $\mathcal U_L$ or $\mathcal U_A$ so that
-$B_0>b_{**}$.
+\[
+ \eta\left(1-\frac{B_0}{\overline B}\right)
+ <\min\left\{\alpha,\frac1\sigma\right\}.
+\]
 This is possible because $B_0=\overline B-d_0\tau_0$ in the first
 construction and $B_0=\overline B-d_0\tau_0h_0^{1/\varphi}$ in the second.
-Every feasible research policy has $b\geq B_0$, so the two curvature
-conditions hold throughout the entire alternative-state domain at every
-date. These conditions imply the support
-inequality~\eqref{eq:rewrite-hamiltonian-support}. With the verified TVC,
-Lemma~\ref{lem:rewrite-developer-verification} therefore establishes
-global developer optimality without imposing
-$\eta\leq1/2$. The curvature conditions follow from the primitives and the
-chosen initial-state neighborhood.
+For every fixed $0<\eta<1$, the left-hand side can therefore be made
+arbitrarily small while the right-hand side is positive.
+The strict inequality preserves an open initial-state neighborhood.
+Together with the finite payoff and the verified TVC,
+Lemma~\ref{lem:rewrite-developer-verification} establishes global
+developer optimality.
 
 Final-good optimality follows from concavity and constant returns.
 The pointwise monopoly optimum is global by

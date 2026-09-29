@@ -82,83 +82,81 @@ for each fixed \(\sigma\).
 
 The first-order and transversality conditions alone do not establish that
 a research trajectory maximizes discounted net profit. The next lemma
-provides a global optimality test by adding the following inequality for
-the candidate $\{B_t,M_t\}_{t\geq0}$ and alternative AI-efficiency levels $b$:
-\begin{equation}
- \begin{aligned}
- \pi_t(b)-\pi_t(B_t)
- &+\frac{1-\eta}{\eta}M_t
- \left[
- \left(\frac{b}{B_t}\right)^{\eta/(1-\eta)}-1
- \right]\\
- &\leq
- \frac{\overline B-B_t}{B_t}(U_t+M_t)
- \log\!\left(
- \frac{\overline B-B_t}{\overline B-b}
- \right),
- \end{aligned}
- \label{eq:rewrite-hamiltonian-support}
-\end{equation}
-Here $\pi_t(b)$ is optimized operating profit at efficiency $b$, as defined
-in equation~\eqref{eq:rewrite-service-choice}, and $U_t$ is the inference
-compute used at the candidate efficiency $B_t$ after optimizing AI-service
-supply.
+provides a sufficient condition using only the research elasticity $\eta$, the
+production parameters, and initial AI efficiency relative to its upper
+bound. For this verification, the given paths of $K,A,L$ are continuous
+and $r$ is locally integrable.
 
 \Needspace{12\baselineskip}
 \begin{lemma}[Sufficient conditions for optimal research]
 \label{lem:rewrite-developer-verification}
-Suppose $\overline B<\infty$. Consider a feasible research trajectory
-$\{B_t,M_t\}_{t\geq0}$ for problem~\eqref{eq:rewrite-developer-reduced},
+Suppose $\overline B<\infty$ and
+\begin{equation}
+ \eta\left(1-\frac{B_0}{\overline B}\right)
+ \leq\min\left\{\alpha,\frac1\sigma\right\}.
+ \label{eq:rewrite-research-optimality-condition}
+\end{equation}
+Consider a feasible research trajectory $\{B_t,M_t\}_{t\geq0}$
+for problem~\eqref{eq:rewrite-developer-reduced},
 with $M_t>0$ at every date and a finite present value of net profit.
-Suppose there exists a continuously differentiable shadow-price trajectory
+If there exists a continuously differentiable shadow-price trajectory
 $\{q_t\}_{t\geq0}$ satisfying the research condition
 \eqref{eq:rewrite-research-foc}, the costate equation
 \eqref{eq:rewrite-costate}, and the transversality condition
-\eqref{eq:rewrite-developer-tvc}.
-If inequality~\eqref{eq:rewrite-hamiltonian-support} also holds for every
-$t\geq0$ and $b\in[B_0,\overline B)$, then the research trajectory maximizes
-the developer's discounted net profit.
-
-In particular, the two curvature conditions stated below in
-\eqref{eq:rewrite-capped-concavity-gate} and
-\eqref{eq:rewrite-depth-research-concavity} guarantee
-inequality~\eqref{eq:rewrite-hamiltonian-support}.
+\eqref{eq:rewrite-developer-tvc}, then the research trajectory
+maximizes the developer's discounted net profit.
 \end{lemma}
 
-To state these sufficient conditions, let $X_t^*(b)$ denote optimal
-AI-service supply in problem~\eqref{eq:rewrite-service-choice} at efficiency
-$b$, and let $\varepsilon_{B,t}(b)=\partial\ln X_t^*(b)/\partial\ln b$
-denote its elasticity with respect to AI efficiency. The condition for
-operating profit, required at every $t\geq0$ and $b\in[B_0,\overline B)$, is
-\begin{equation}
- \psi(b)[\varepsilon_{B,t}(b)-2]\leq\frac{b}{\overline B}.
- \label{eq:rewrite-capped-concavity-gate}
-\end{equation}
-The condition for the optimized research term is
-\begin{equation}
- \frac{B_0}{\overline B}\geq
- \max\left\{0,\frac{2\eta-1}{\eta}\right\}.
- \label{eq:rewrite-depth-research-concavity}
-\end{equation}
-As the proof shows, these conditions make the maximized Hamiltonian concave
-in a transformed efficiency variable, ensuring that it lies below its
-tangent at the candidate state.
-
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-developer-verification}]
-\textbf{Part 1. Optimality under inequality~\eqref{eq:rewrite-hamiltonian-support}.}
-I compare the candidate with any feasible research trajectory starting
-from the same $B_0$. The key step is to bound the alternative's gain in
-discounted net profit by a terminal term that vanishes under the
-candidate's transversality condition.
+I first bound the response of optimal AI-service supply to efficiency.
+I then use this bound and
+condition~\eqref{eq:rewrite-research-optimality-condition} to make the
+research-maximized Hamiltonian concave after a change of state variable.
+Concavity bounds the gain from any alternative trajectory by a quantity
+that vanishes under the candidate's transversality condition.
 
-\emph{1. Transforming AI efficiency.}
-I use a change of variable to remove $\psi(B)$ from the RSI technology.
-For this transformation to apply to every feasible trajectory, AI
-efficiency must remain below $\overline B$ at every finite date.
-Feasibility requires nonnegative, locally integrable research expenditure
-and a locally absolutely continuous state satisfying
-equation~\eqref{eq:rewrite-capability-law} almost everywhere. Integrating
-the RSI technology gives
+\emph{1. Bounding the response of AI-service supply.}
+Let $X_t^*(b)$ denote optimal supply at efficiency $b$, and let
+$\pi_t(b)$ denote the resulting operating profit in
+problem~\eqref{eq:rewrite-service-choice}.
+Lemma~\ref{lem:rewrite-monopoly-choice} ensures that this supply is unique
+and smooth. Implicit differentiation of the monopoly condition
+\eqref{eq:rewrite-monopoly-foc} gives its elasticity with respect to $b$:
+\begin{equation}
+ \varepsilon_{B,t}(b)\equiv
+ \frac{\partial\ln X_t^*(b)}{\partial\ln b}
+ =\frac{1-e_X}{e_X(1-e_X)
+ +(\alpha-\sigma^{-1})(1-\sigma^{-1})s_X(1-s_X)}.
+ \label{eq:rewrite-service-capability-elasticity}
+\end{equation}
+Here $s_X$ and $e_X$ are evaluated at $X_t^*(b)$.
+The denominator is positive by
+equation~\eqref{eq:rewrite-monopoly-proof-curvature}, and $0<e_X<1$ at
+the optimum. If $(\alpha-1/\sigma)(1-1/\sigma)\geq0$, the denominator
+is at least $e_X(1-e_X)$, with
+$e_X\geq\min\{\alpha,1/\sigma\}$.
+In the remaining case, $\alpha<1/\sigma<1$. Substituting
+$e_X=\sigma^{-1}(1-s_X)+\alpha s_X$ and subtracting
+$\alpha(1-e_X)$ from the denominator gives
+\[
+ (\sigma^{-1}-\alpha)(1-s_X)
+ \left[(1-\sigma^{-1})(1-s_X)+(\sigma^{-1}-\alpha)s_X\right]\geq0.
+\]
+Thus, in both cases, the denominator is at least
+$\min\{\alpha,1/\sigma\}(1-e_X)$, so
+\begin{equation}
+ 0<\varepsilon_{B,t}(b)\leq\max\{\sigma,1/\alpha\}.
+ \label{eq:rewrite-service-elasticity-bound}
+\end{equation}
+This bound holds at every date and every positive efficiency, independently
+of the quantities of capital and effective labor.
+
+\emph{2. Transforming AI efficiency and maximizing over research.}
+Every feasible trajectory remains below $\overline B$ at finite dates.
+Indeed, feasibility requires nonnegative, locally integrable research
+expenditure and a locally absolutely continuous state satisfying the
+RSI technology~\eqref{eq:rewrite-capability-law} almost everywhere.
+Integrating that law gives
 \begin{equation}
  \overline B-B_t=(\overline B-B_0)
  \exp\left\{-\frac{\chi}{\overline B}
@@ -166,224 +164,152 @@ the RSI technology gives
  \label{eq:rewrite-cap-gap}
 \end{equation}
 Continuity of $B$, local integrability of $M$, and $0<\eta<1$ make the
-exponent finite at every finite date. Thus every feasible trajectory
-remains in $[B_0,\overline B)$.
+exponent finite at every finite date. Hence the relevant efficiency domain,
+for both the candidate and every feasible alternative, is $[B_0,\overline B)$.
 
-Define the transformed efficiency variable and its inverse by
+I choose the following transformation so that the remaining room for
+efficiency improvements and the returns to research enter the concavity
+test together:
 \begin{equation}
- R_B(B)=-\overline B\log\left(1-\frac{B}{\overline B}\right),
+ v=\frac{1-\eta}{\eta\psi(B_0)},\qquad
+ p=\frac1{\eta\psi(B_0)}-1,\qquad
+ S(B)=\int_0^B\frac{z^{v-1}}{\psi(z)}\,\dd z.
+ \label{eq:rewrite-optimality-state}
+\end{equation}
+Both exponents are positive. The transformation is strictly increasing,
+with inverse $B(S)$ and derivative $B'(S)=\psi(B)B^{1-v}$.
+It maps $[B_0,\overline B)$ onto $[S(B_0),\infty)$.
+Writing $S_t=S(B_t)$, the chain rule applied to the RSI technology gives
+\[
+ \dot S_t=\chi B_t^{v-1+\eta}M_t^\eta.
+\]
+The corresponding shadow price is
+$q_{S,t}=q_t\psi(B_t)B_t^{1-v}>0$.
+
+At each date, hold this shadow price at its candidate value and maximize
+the transformed Hamiltonian over research expenditure:
+\[
+ \widehat{\mathcal H}_t(S)=
+ \max_{\widetilde M\geq0}
+ \left\{\pi_t(B(S))-\widetilde M+
+ q_{S,t}\chi B(S)^{v-1+\eta}\widetilde M^\eta\right\}.
+\]
+The expression is strictly concave in $\widetilde M$. Its first-order
+condition, together with the candidate's research
+condition~\eqref{eq:rewrite-research-foc}, gives
+$\widetilde M=M_t[B(S)/B_t]^p$, since
+$p=(v-1+\eta)/(1-\eta)$. Substituting this choice yields
+\begin{equation}
+ \widehat{\mathcal H}_t(S)
+ =\pi_t(B(S))+\frac{1-\eta}{\eta}M_t
+ \left[\frac{B(S)}{B_t}\right]^p.
+ \label{eq:rewrite-optimality-hamiltonian}
+\end{equation}
+
+\emph{3. Establishing concavity.}
+Fix a date and write $b=B(S)$. I show that each term in
+\eqref{eq:rewrite-optimality-hamiltonian} is concave in $S$ over the
+entire feasible efficiency domain.
+The envelope condition~\eqref{eq:rewrite-profit-envelope} gives
+$\pi_t'(b)=X_t^*(b)/b^2$. Differentiating this expression gives
+$\pi_t''(b)=X_t^*(b)[\varepsilon_{B,t}(b)-2]/b^3$.
+Using $B'(S)=\psi(b)b^{1-v}$ and $\psi'(b)=-1/\overline B$,
+the chain rule therefore gives
+\[
+ \frac{\dd^2\pi_t(B(S))}{\dd S^2}
+ =X_t^*(b)b^{-1-2v}\psi(b)
+ \left[(\varepsilon_{B,t}(b)-1-v)\psi(b)-\frac b{\overline B}\right].
+\]
+Applying the same chain rule to the power $B(S)^p$ in the research term gives
+\[
+ \frac{\dd^2 B(S)^p}{\dd S^2}
+ =p\,b^{p-2v}\psi(b)
+ \left[(p-v)\psi(b)-\frac b{\overline B}\right].
+\]
+The parameter condition~\eqref{eq:rewrite-research-optimality-condition}
+and the supply-elasticity bound~\eqref{eq:rewrite-service-elasticity-bound}
+imply
+\[
+ \varepsilon_{B,t}(b)\leq\frac1{\eta\psi(B_0)}=p+1.
+\]
+The bracket in the operating-profit derivative is therefore no greater
+than the bracket in the research-term derivative. Substitution of $p$,
+$v$, and $\psi(b)=1-b/\overline B$ reduces the latter bracket to
+\[
+ (p-v)\psi(b)-\frac b{\overline B}
+ =\frac{B_0-b}{\overline B-B_0}\leq0.
+\]
+Both second derivatives are nonpositive for every $b\geq B_0$.
+Consequently, the maximized Hamiltonian is concave in $S$ and lies
+below its tangent at the candidate state $S_t$.
+
+\emph{4. Comparing discounted net profits.}
+Let $D_t=\exp(-\int_0^t r_s\dd s)$ and $\mu_t=D_tq_{S,t}$.
+Differentiating~\eqref{eq:rewrite-optimality-hamiltonian} at $S_t$ and
+using the envelope condition gives
+\[
+ \widehat{\mathcal H}'_t(S_t)
+ =\psi(B_t)B_t^{-v}
+ \left[U_t+\frac{1-\eta}{\eta}pM_t\right].
+\]
+The research condition and the RSI law imply
+$q_t\eta\dot B_t=M_t$. Differentiating
+$q_{S,t}=q_t\psi(B_t)B_t^{1-v}$ and using this identity and the
+costate equation~\eqref{eq:rewrite-costate} gives
+\[
+ \dot q_{S,t}=r_tq_{S,t}-\widehat{\mathcal H}'_t(S_t),
  \qquad
- B(R_B)=\overline B\left(1-e^{-R_B/\overline B}\right).
- \label{eq:rewrite-research-depth}
-\end{equation}
-The transformation $R_B(B)$ maps $B\in[B_0,\overline B)$ into
-$R_B\in[R_{B,0},\infty)$, where $R_{B,t}=R_B(B_t)$ and
-$R_{B,0}=R_B(B_0)$. Since $R_B'(B)=1/\psi(B)$, this transformation removes
-the factor $\psi(B)$ from the RSI technology~\eqref{eq:rewrite-capability-law}:
-\begin{equation}
- \dot R_B=\chi[B(R_B)M]^\eta.
- \label{eq:rewrite-research-depth-law}
-\end{equation}
-The corresponding current-value shadow price is $q_{R,t}=q_t\psi(B_t)$,
-which is positive by the research condition~\eqref{eq:rewrite-research-foc}.
-
-\emph{2. Comparing Hamiltonians.}
-To compare the candidate with alternative trajectories, I maximize the
-Hamiltonian over research expenditure at each alternative transformed
-efficiency $\widetilde R_B$. Throughout this comparison, the shadow price
-$q_{R,t}$ is held at its value along the candidate trajectory:
-\[
- \widehat{\mathcal H}_t(\widetilde R_B)
- \equiv\max_{\widetilde M\geq0}
- \left\{\pi_t(B(\widetilde R_B))-\widetilde M
- +q_{R,t}\chi[B(\widetilde R_B)\widetilde M]^\eta\right\}.
-\]
-Because $0<\eta<1$, the expression being maximized is strictly concave in
-research expenditure. Using the candidate's research
-condition~\eqref{eq:rewrite-research-foc}, the maximizing expenditure at
-$\widetilde R_B$ is
-\[
- M_t\left[\frac{B(\widetilde R_B)}{B_t}\right]^{\eta/(1-\eta)},
-\]
-where $M_t$ is the candidate's research expenditure. Substitution gives
-\begin{equation}
- \widehat{\mathcal H}_t(\widetilde R_B)
- =\pi_t(B(\widetilde R_B))+
- \frac{1-\eta}{\eta}M_t
- \left[\frac{B(\widetilde R_B)}{B_t}\right]^{\eta/(1-\eta)}.
- \label{eq:rewrite-maximized-depth-hamiltonian}
-\end{equation}
-Differentiating the maximized Hamiltonian with respect to transformed
-efficiency $R_B$
-and using the envelope condition~\eqref{eq:rewrite-profit-envelope} gives
-\begin{equation}
- \widehat{\mathcal H}'_t(R_{B,t})
- =\frac{\psi(B_t)}{B_t}(U_t+M_t).
- \label{eq:rewrite-depth-hamiltonian-slope}
-\end{equation}
-Since equation~\eqref{eq:rewrite-research-depth} implies
-\[
- R_B(b)-R_{B,t}
- =\overline B\log\!\left(\frac{\overline B-B_t}{\overline B-b}\right),
-\]
-setting $b=B(\widetilde R_B)$ makes
-condition~\eqref{eq:rewrite-hamiltonian-support} equivalent to
-\[
- \widehat{\mathcal H}_t(\widetilde R_B)
- \leq\widehat{\mathcal H}_t(R_{B,t})
- +\widehat{\mathcal H}'_t(R_{B,t})
- (\widetilde R_B-R_{B,t}).
-\]
-This inequality holds for every $\widetilde R_B\geq R_{B,0}$: the
-maximized Hamiltonian lies below its tangent at the candidate state.
-
-\emph{3. Comparing discounted net profits.}
-I now combine the Hamiltonian inequality with the costate equation and
-the transversality condition.
-Let $D_t=\exp(-\int_0^t r_s\dd s)$ be the discount factor and
-$\mu_t=D_tq_{R,t}$ the present-value shadow price of the transformed state $R_B$.
-The research condition~\eqref{eq:rewrite-research-foc} and the RSI
-technology~\eqref{eq:rewrite-capability-law} imply $q_t\eta\dot B_t=M_t$.
-Differentiating $q_{R,t}=q_t\psi(B_t)$ and using the costate
-equation~\eqref{eq:rewrite-costate} therefore gives
-\[
- \dot q_{R,t}=r_tq_{R,t}-\frac{\psi(B_t)}{B_t}(U_t+M_t),
- \qquad
- \dot\mu_t=-D_t\widehat{\mathcal H}'_t(R_{B,t}).
+ \dot\mu_t=-D_t\widehat{\mathcal H}'_t(S_t).
 \]
 
-Consider any feasible alternative $\{\widetilde B_t,\widetilde M_t\}_{t\geq0}$
-starting from the same $B_0$, and write $\widetilde R_{B,t}=R_B(\widetilde B_t)$.
-Let
-\[
- J_T=\int_0^T D_t[\pi_t(B_t)-M_t]\dd t
-\]
-denote discounted net profit through date $T$ under the candidate, and let
-$\widetilde J_T$ denote the corresponding value under the alternative.
-Evaluated at the candidate's shadow price $q_{R,t}$, the alternative's
-Hamiltonian cannot exceed
-$\widehat{\mathcal H}_t(\widetilde R_{B,t})$, whereas the candidate attains
-$\widehat{\mathcal H}_t(R_{B,t})$. Applying
-condition~\eqref{eq:rewrite-hamiltonian-support} and the transformed costate
-equation yields, for almost every $t$,
+Consider any feasible alternative
+$\{\widetilde B_t,\widetilde M_t\}_{t\geq0}$ starting from the same $B_0$,
+and write $\widetilde S_t=S(\widetilde B_t)$.
+Its Hamiltonian is at most
+$\widehat{\mathcal H}_t(\widetilde S_t)$, whereas the candidate attains
+$\widehat{\mathcal H}_t(S_t)$.
+Concavity and the transformed costate equation therefore imply, almost
+everywhere,
 \[
  \begin{aligned}
- &D_t\left[
- \pi_t(\widetilde B_t)-\widetilde M_t
- -\pi_t(B_t)+M_t
- \right]\\
- &\quad\leq D_t\widehat{\mathcal H}'_t(R_{B,t})
- (\widetilde R_{B,t}-R_{B,t})
- -\mu_t(\dot{\widetilde R}_{B,t}-\dot R_{B,t})\\
- &\quad=-\frac{\mathrm d}{\mathrm dt}
- \left[\mu_t(\widetilde R_{B,t}-R_{B,t})\right].
+ &D_t\left[\pi_t(\widetilde B_t)-\widetilde M_t-\pi_t(B_t)+M_t\right]\\
+ &\quad\leq
+ D_t\widehat{\mathcal H}'_t(S_t)(\widetilde S_t-S_t)
+ -\mu_t(\dot{\widetilde S}_t-\dot S_t)\\
+ &\quad=-\frac{\dd}{\dd t}
+ \left[\mu_t(\widetilde S_t-S_t)\right].
  \end{aligned}
 \]
-Integrating from zero to $T$ and using the common initial
-state gives
+Let $J_T$ and $\widetilde J_T$ denote the candidate's and the alternative's
+discounted net profits through date $T$. Integrating the inequality and
+using their common initial state gives
 \[
- \widetilde J_T-J_T
- \leq-\mu_T(\widetilde R_{B,T}-R_{B,T})
- \leq\mu_TR_{B,T},
+ \widetilde J_T-J_T\leq-\mu_T(\widetilde S_T-S_T)\leq\mu_TS_T,
 \]
-where the second inequality uses $\mu_T>0$ and $\widetilde R_{B,T}\geq0$.
-To show that this upper bound vanishes, I relate the transformed state
-to the original state used in the developer's transversality condition.
-The inequality $-(1-x)\log(1-x)\leq x$ for $0\leq x<1$, applied to
-$x=B_t/\overline B$, gives
+since $\mu_T>0$ and $\widetilde S_T\geq0$.
+To bound the terminal term, note that $\psi(z)\geq\psi(B)$ for $0\leq z\leq B$.
+The definition of $S$ thus gives
 \[
- \psi(B_t)R_{B,t}
- =-(\overline B-B_t)\log\left(1-\frac{B_t}{\overline B}\right)
- \leq B_t.
+ 0\leq q_{S,t}S_t
+ =q_t\psi(B_t)B_t^{1-v}
+ \int_0^{B_t}\frac{z^{v-1}}{\psi(z)}\,\dd z
+ \leq\frac{q_tB_t}{v}.
 \]
-The transversality condition~\eqref{eq:rewrite-developer-tvc} therefore gives
-\[
- 0\leq\mu_TR_{B,T}
- =D_Tq_T\psi(B_T)R_{B,T}
- \leq D_Tq_TB_T\longrightarrow0.
-\]
-The candidate's present value of net profit is finite by assumption. Hence
+The candidate's transversality condition implies
+$\mu_TS_T\leq D_Tq_TB_T/v\to0$.
+Because its present value of net profit is finite,
 \[
  \limsup_{T\to\infty}\widetilde J_T
- \leq\lim_{T\to\infty}J_T<\infty,
+ \leq\lim_{T\to\infty}J_T<\infty.
 \]
-so no feasible alternative yields a higher present value of net profit.
-Concavity of $\widehat{\mathcal H}_t$ in $R_B$ is sufficient for
-condition~\eqref{eq:rewrite-hamiltonian-support}, but is not required.
-
-\Needspace{6\baselineskip}
-\medskip
-\textbf{Part 2. Sufficient conditions for inequality~\eqref{eq:rewrite-hamiltonian-support}.}
-Fix a date $t$ and write $b=B(R_B)$. In
-equation~\eqref{eq:rewrite-maximized-depth-hamiltonian}, the candidate
-values $B_t$ and $M_t$ are held fixed. I show that each of the two terms
-in that Hamiltonian is concave in $R_B$ under the corresponding condition.
-
-\emph{1. Operating profit.}
-Lemma~\ref{lem:rewrite-monopoly-choice} ensures that $X_t^*(b)$ is unique
-and smooth. Let $s_{X,t}(b)$ and $e_{X,t}(b)$ denote the elasticities in
-equations~\eqref{eq:rewrite-sx} and~\eqref{eq:rewrite-inverse-demand-elasticity},
-evaluated at this optimal supply. Implicit differentiation of the monopoly
-condition~\eqref{eq:rewrite-monopoly-foc} gives
-\begin{equation}
- \varepsilon_{B,t}(b)\equiv
- \frac{\partial\ln X_t^*(b)}{\partial\ln b}
- =\frac{1-e_{X,t}(b)}{e_{X,t}(b)[1-e_{X,t}(b)]
- +(\alpha-\sigma^{-1})(1-\sigma^{-1})
- s_{X,t}(b)[1-s_{X,t}(b)]}.
- \label{eq:rewrite-service-capability-elasticity}
-\end{equation}
-The denominator is strictly positive by
-equation~\eqref{eq:rewrite-monopoly-proof-curvature}. The envelope
-condition~\eqref{eq:rewrite-profit-envelope} gives
-$\pi_t'(b)=X_t^*(b)/b^2$, so
-\begin{equation}
- \pi_t''(b)=\frac{X_t^*(b)}{b^3}[\varepsilon_{B,t}(b)-2].
- \label{eq:rewrite-profit-curvature}
-\end{equation}
-
-The transformation~\eqref{eq:rewrite-research-depth} satisfies
-$B'(R_B)=\psi(b)$ and $B''(R_B)=-\psi(b)/\overline B$.
-The chain rule therefore gives
-\begin{equation}
- \frac{\mathrm d^2\pi_t(B(R_B))}{\mathrm dR_B^2}
- =\frac{X_t^*(b)\psi(b)}{b^3}
- \left[\psi(b)(\varepsilon_{B,t}(b)-2)
- -\frac{b}{\overline B}\right].
- \label{eq:rewrite-capped-profit-curvature}
-\end{equation}
-Condition~\eqref{eq:rewrite-capped-concavity-gate} makes this second
-derivative nonpositive for every $b\in[B_0,\overline B)$. Hence operating
-profit $\pi_t(B(R_B))$ is concave throughout $R_B\in[R_B(B_0),\infty)$.
-
-\emph{2. The optimized research term.}
-The second term in \eqref{eq:rewrite-maximized-depth-hamiltonian} is a
-positive multiple of $B(R_B)^{\eta/(1-\eta)}$. The second derivative of
-this power with respect to $R_B$ is
-\begin{equation}
- \frac{\mathrm d^2 B(R_B)^{\eta/(1-\eta)}}{\mathrm dR_B^2}
- =\frac{\eta}{1-\eta}b^{\eta/(1-\eta)-2}\psi(b)
- \left[\frac{2\eta-1}{1-\eta}\psi(b)-\frac b{\overline B}\right].
- \label{eq:rewrite-depth-research-curvature}
-\end{equation}
-The expression in brackets is nonpositive exactly when
-$b/\overline B\geq(2\eta-1)/\eta$. Because $b\geq B_0$,
-condition~\eqref{eq:rewrite-depth-research-concavity} ensures that the
-research term is concave throughout the same domain.
-
-Both terms are therefore concave in $R_B$. Their sum, the maximized
-Hamiltonian, lies below its tangent at the candidate state. As shown in
-Part~1, this is
-inequality~\eqref{eq:rewrite-hamiltonian-support}.
+No feasible alternative yields a higher present value of net profit.
 \end{proof}
 
-Condition~\eqref{eq:rewrite-depth-research-concavity} holds automatically
-if $\eta\leq1/2$. For any fixed $0<\eta<1$, that condition also holds when
-$B_0$ is sufficiently close to $\overline B$. The two conditions in
-\eqref{eq:rewrite-capped-concavity-gate} and
-\eqref{eq:rewrite-depth-research-concavity} are sufficient, not necessary,
-for inequality~\eqref{eq:rewrite-hamiltonian-support}: the inequality can
-hold even when one of the two conditions fails.
+Condition~\eqref{eq:rewrite-research-optimality-condition} is sufficient,
+not necessary. For any fixed production parameters and research elasticity $\eta$,
+it holds when $B_0$ is sufficiently close to $\overline B$.
+The lemma verifies optimality of a candidate trajectory; it does not
+establish that such a trajectory exists.
 
 \Needspace{9\baselineskip}
 \subsection{Equilibria with bounded AI efficiency}

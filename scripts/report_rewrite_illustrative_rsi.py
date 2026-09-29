@@ -114,8 +114,8 @@ def write_reports():
         'last two solutions in detrended logarithmic coordinates over years 0--500.',
         'Reported error maxima are rounded upward. All eight paths pass the equation,',
         'event-continuity, developer-optimality and long-run-continuation checks.',
-        r'The $\sigma=1.50$ cases use the global Hamiltonian-support test and its',
-        'analytical long-run bound; the other cases pass the concavity test.',
+        'All eight configurations satisfy the sufficient parameter condition in',
+        r'Lemma~\ref{lem:rewrite-developer-verification}.',
         r'\end{minipage}', r'\end{table}']
     (ROOT/'sections_rewrite/rsi_illustrative_accuracy.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 
