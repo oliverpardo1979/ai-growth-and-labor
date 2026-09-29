@@ -255,6 +255,9 @@ class EquationNumbering:
     def __init__(self, labels: dict[str, dict[str, str]]):
         self.labels, self.counter, self.numbered_rows = labels, 0, 0
         self.checked_labels: set[str] = set()
+        self.appendix_section: int | None = None
+        self.within_section = False
+        self.section_separator = "."
 
     def validate(self, source: str, number: str) -> None:
         for label in re.findall(r"\\label\{([^}]+)\}", source):
@@ -263,18 +266,61 @@ class EquationNumbering:
                 raise ConversionError(f"Equation numbering mismatch for {label}: source {number}, AUX {actual}")
             self.checked_labels.add(label)
 
+    def next_number(self) -> str:
+        self.counter += 1
+        if not self.within_section:
+            return str(self.counter)
+        if self.appendix_section is None or not 1 <= self.appendix_section <= 26:
+            raise ConversionError("Section-numbered equations require appendix sections A through Z")
+        return chr(64 + self.appendix_section) + self.section_separator + str(self.counter)
+
     def apply(self, source: str, sub: dict[str, Any] | None = None) -> str:
-        pattern = re.compile(r"\\begin\{(subequations|equation\*?|align\*?|gather\*?)\}")
+        # Read numbering controls before layout cleanup. Derive each number
+        # from source order, then check the AUX; never infer counters from it.
+        pattern = re.compile(
+            r"\\begin\{(?P<environment>subequations|equation\*?|align\*?|gather\*?)\}"
+            r"|\\(?P<command>appendix|section\*?|numberwithin)(?![A-Za-z])"
+            r"|(?P<format>\\renewcommand\s*\{\s*\\theequation\s*\})")
         result, pos = [], 0
         while match := pattern.search(source, pos):
-            name = match.group(1)
-            body, end = environment_end(source, match.start(), name)
             result.append(source[pos:match.start()])
+            name = match.group("environment")
+            if name is None:
+                if sub is not None:
+                    raise ConversionError("Numbering controls inside subequations are unsupported")
+                command, end = match.group("command"), match.end()
+                if command == "appendix":
+                    self.appendix_section = 0
+                elif command == "numberwithin":
+                    counter, end = group(source, end)
+                    parent, end = group(source, end)
+                    if (counter.strip(), parent.strip()) != ("equation", "section") or self.appendix_section is None:
+                        raise ConversionError("Only appendix equation numbering within section is supported")
+                    self.within_section = True
+                    self.section_separator = "."
+                elif match.group("format"):
+                    value, end = group(source, end)
+                    if not self.within_section or re.sub(r"\s+", "", value) != r"\thesection\arabic{equation}":
+                        raise ConversionError("Unsupported equation-number format")
+                    self.section_separator = ""
+                else:
+                    while end < len(source) and source[end].isspace():
+                        end += 1
+                    if source[end:end + 1] == "[":
+                        _, end = group(source, end, "[", "]")
+                    _, end = group(source, end)
+                    if command == "section" and self.appendix_section is not None:
+                        self.appendix_section += 1
+                        if self.within_section:
+                            self.counter = 0
+                    result.append(source[match.start():end])
+                pos = end
+                continue
+            body, end = environment_end(source, match.start(), name)
             if name == "subequations":
                 if sub is not None:
                     raise ConversionError("Nested subequations are unsupported")
-                self.counter += 1
-                parent = str(self.counter)
+                parent = self.next_number()
                 before_inner = re.split(r"\\begin\{", body, maxsplit=1)[0]
                 self.validate(before_inner, parent)
                 # Pandoc need not understand the wrapper; its parent label stays.
@@ -289,8 +335,7 @@ class EquationNumbering:
                         continue
                     if not re.search(r"\\(?:nonumber|notag)\b", row):
                         if sub is None:
-                            self.counter += 1
-                            number = str(self.counter)
+                            number = self.next_number()
                         else:
                             sub["row"] += 1
                             if sub["row"] > 26:
@@ -743,10 +788,10 @@ def build_supplement(root: Path, build_dir: Path, out_dir: Path, asset_prefix: s
     source = source[start.start():].rsplit(r"\end{document}", 1)[0]
     source, figures = extract_figures(source, root, build_dir / "online_appendix.pdf",
                                      out_dir / "assets", labels, asset_prefix.rstrip("/"))
-    source = prepare_theorems(clean_layout(source), labels)
-    source, cited = prepare_citations(source, citations)
     numbering = EquationNumbering(labels)
     source = numbering.apply(source)
+    source = prepare_theorems(clean_layout(source), labels)
+    source, cited = prepare_citations(source, citations)
     displays = len(re.findall(r"\\begin\{(?:equation|align|gather)\*?\}|\\\[", source))
     tables = []
     for table in re.finditer(r"\\begin\{table\}[\s\S]*?\\end\{table\}", source):
@@ -801,11 +846,11 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     source = source[:abstract_match.start()] + source[abstract_end:]
     source = source.split(r"\begin{document}", 1)[1].rsplit(r"\end{document}", 1)[0]
     source, figures = extract_figures(source, root, build_dir / "main_rewrite.pdf", out_dir / "assets", labels, args.asset_prefix.rstrip("/"))
+    numbering = EquationNumbering(labels)
+    source = numbering.apply(source)
     source = clean_layout(source)
     source = prepare_theorems(source, labels)
     source, cited = prepare_citations(source, citations)
-    numbering = EquationNumbering(labels)
-    source = numbering.apply(source)
     expected_displays = len(re.findall(r"\\begin\{(?:equation|align|gather)\*?\}|\\\[", source))
     # Supply source-defined math shorthands and the table column type to the
     # reader. MathJax gets the expanded commands from Pandoc's LaTeX reader.

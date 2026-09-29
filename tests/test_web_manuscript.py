@@ -51,6 +51,9 @@ class SourceParsingTests(unittest.TestCase):
 
 
 class NumberingTests(unittest.TestCase):
+    APPENDIX_NUMBERING = (r"\appendix\numberwithin{equation}{section}"
+                          r"\renewcommand{\theequation}{\thesection\arabic{equation}}")
+
     def test_rows_do_not_split_matrix(self):
         rows = web.split_math_rows(r"A&=\begin{pmatrix}1&2\\3&4\end{pmatrix}\\b&=c")
         self.assertEqual(len(rows), 2)
@@ -76,6 +79,79 @@ class NumberingTests(unittest.TestCase):
         numbering = web.EquationNumbering({"x": {"number": "1"}})
         result = numbering.apply(r"\begin{align}a&=b\nonumber\\c&=d\label{x}\end{align}")
         self.assertEqual(result.count(r"\tag{"), 1)
+
+    def test_appendix_sections_reset_but_subsections_and_starred_sections_do_not(self):
+        numbers = {"main": "1", "main-next": "2", "a1": "A1", "a2": "A2", "a3": "A3", "b1": "B1"}
+        labels = {key: {"number": number} for key, number in numbers.items()}
+        source = (r"\section{Main}\begin{equation}x=y\label{main}\end{equation}"
+                  r"\section{More main text}\begin{equation}x=y\label{main-next}\end{equation}"
+                  + self.APPENDIX_NUMBERING +
+                  r"\section[Proofs]{Proofs {and details}}\begin{equation}x=y\label{a1}\end{equation}"
+                  r"\subsection{Another proof}\begin{equation*}x=y\end{equation*}"
+                  r"\begin{align}x&=y\notag\\a&=b\label{a2}\end{align}"
+                  r"\section*{An unnumbered heading}\begin{equation}x=y\label{a3}\end{equation}"
+                  r"\section{Numerical methods}\begin{equation}x=y\label{b1}\end{equation}")
+        numbering = web.EquationNumbering(labels)
+        result = web.clean_layout(numbering.apply(source))
+        self.assertEqual(re.findall(r"\\tag\{([^}]+)\}", result), list(numbers.values()))
+        self.assertEqual(numbering.numbered_rows, 6)
+        self.assertEqual(numbering.checked_labels, set(labels))
+        self.assertIn(r"\section[Proofs]{Proofs {and details}}", result)
+        self.assertIn(r"\section*{An unnumbered heading}", result)
+        for command in (r"\appendix", r"\numberwithin", r"\renewcommand"):
+            self.assertNotIn(command, result)
+
+    def test_appendix_subequations_share_prefixed_parent_counter(self):
+        labels = {key: {"number": number} for key, number in
+                  {"parent": "A14", "a": "A14a", "b": "A14b", "next": "A15", "b1": "B1"}.items()}
+        source = (self.APPENDIX_NUMBERING + r"\section{Proofs}"
+                  + r"\begin{equation}x=y\end{equation}" * 13 +
+                  r"\subsection{Grouped result}\begin{subequations}\label{parent}"
+                  r"\begin{align}a&=b\label{a}\\b&=c\nonumber\\c&=d\label{b}\end{align}"
+                  r"\end{subequations}\begin{equation}x=y\label{next}\end{equation}"
+                  r"\section{Methods}\begin{equation}x=y\label{b1}\end{equation}")
+        numbering = web.EquationNumbering(labels)
+        tags = re.findall(r"\\tag\{([^}]+)\}", numbering.apply(source))
+        self.assertEqual(tags, [f"A{i}" for i in range(1, 14)] + ["A14a", "A14b", "A15", "B1"])
+        self.assertEqual(numbering.numbered_rows, 17)
+        self.assertEqual(numbering.checked_labels, set(labels))
+
+    def test_appendix_without_numberwithin_keeps_global_equation_counter(self):
+        source = (r"\begin{equation}x=y\end{equation}\appendix\section{Proofs}"
+                  r"\begin{equation}x=y\label{x}\end{equation}")
+        result = web.EquationNumbering({"x": {"number": "2"}}).apply(source)
+        self.assertEqual(re.findall(r"\\tag\{([^}]+)\}", result), ["1", "2"])
+
+    def test_numberwithin_default_separator_is_not_silently_removed(self):
+        source = (r"\appendix\numberwithin{equation}{section}\section{Proofs}"
+                  r"\begin{equation}x=y\label{x}\end{equation}")
+        result = web.EquationNumbering({"x": {"number": "A.1"}}).apply(source)
+        self.assertIn(r"\tag{A.1}", result)
+
+    def test_stale_or_missing_appendix_labels_fail(self):
+        source = (self.APPENDIX_NUMBERING + r"\section{Proofs}"
+                  r"\begin{equation}x=y\label{x}\end{equation}")
+        for labels in ({}, {"x": {"number": "8"}}, {"x": {"number": "A.1"}},
+                       {"x": {"number": "A2"}}, {"x": {"number": "B1"}}):
+            with self.subTest(labels=labels), self.assertRaisesRegex(web.ConversionError, "Equation numbering mismatch"):
+                web.EquationNumbering(labels).apply(source)
+
+    def test_stale_appendix_subequation_parent_and_children_fail(self):
+        source = (self.APPENDIX_NUMBERING + r"\section{Proofs}"
+                  r"\begin{subequations}\label{parent}"
+                  r"\begin{equation}x=y\label{child}\end{equation}\end{subequations}")
+        for numbers in ({"parent": "A2", "child": "A1a"}, {"parent": "A1", "child": "A2a"}):
+            labels = {key: {"number": number} for key, number in numbers.items()}
+            with self.subTest(numbers=numbers), self.assertRaisesRegex(web.ConversionError, "Equation numbering mismatch"):
+                web.EquationNumbering(labels).apply(source)
+
+    def test_unsupported_equation_numbering_controls_fail_closed(self):
+        for source in (r"\numberwithin{equation}{section}",
+                       r"\appendix\numberwithin{equation}{subsection}",
+                       r"\appendix\renewcommand{\theequation}{\thesection\arabic{equation}}",
+                       r"\appendix\numberwithin{equation}{section}\renewcommand{\theequation}{\roman{equation}}"):
+            with self.subTest(source=source), self.assertRaises(web.ConversionError):
+                web.EquationNumbering({}).apply(source)
 
     def test_theorem_title_and_body_survive(self):
         source = r"\begin{proposition}[A title]\label{p}Body text.\end{proposition}"
@@ -257,13 +333,15 @@ class GeneratedManuscriptTests(unittest.TestCase):
         proof_start = self.content.index('id="proof:rewrite-uncapped-unit-bgp"')
         next_proof = self.content.index('id="proof:rewrite-research-scale"')
         integrated = self.content[proof_start:next_proof]
-        for label in ("static-shares", "production", "feedback", "output-growth",
+        for label in ("static-shares", "production", "output-growth",
                       "capital-inference", "investment", "research-share", "consumption",
                       "deviations", "local-spectrum", "local-projection", "local-similarity",
                       "local-polynomial", "developer-verification"):
             with self.subTest(label=label):
                 self.assertIn(f'id="eq:rewrite-uncapped-unit-{label}"', integrated)
-        for label in ("distribution", "comparative-statics", "output-row",
+        self.assertIn(r'<span class="math display">\[\Delta\equiv(1-\alpha)(1-\eta-\omega_X)&gt;0.\]</span>',
+                      integrated)
+        for label in ("feedback", "distribution", "comparative-statics", "output-row",
                       "research-row", "efficiency-row", "jacobian-k", "jacobian-b",
                       "jacobian-c", "jacobian-q"):
             with self.subTest(inactive_label=label):
