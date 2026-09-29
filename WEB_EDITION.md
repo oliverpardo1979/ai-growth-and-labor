@@ -4,7 +4,8 @@ Read the paper and explore its stored simulations at
 <https://oliverpardo1979.github.io/ai-growth-and-labor/>.
 The [main PDF](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf)
 and [supplementary PDF](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/online-appendix.pdf)
-are published together. Supplementary simulations can also be read directly
+are published together. Additional proofs, supplementary simulations, and
+numerical implementation details can also be read directly
 in the [digital edition](https://oliverpardo1979.github.io/ai-growth-and-labor/#additional-results).
 The [replication guide](REPLICATION.md) describes how to solve the model and reproduce its figures.
 
@@ -17,11 +18,17 @@ proposition, section, figure, table, and citation references. The four TikZ
 diagrams are extracted from the compiled paper; simulation figures in the main
 text and appendices use the existing figure PDFs. No simulation is rerun by the web build.
 
-`online_appendix.tex` and its active inputs supply the supplementary simulations
-in the HTML reader. These follow the main paper and its references, retain their
-S1/S2 numbering, and link back to the main paper's results. A PDF download remains
+`online_appendix.tex` and its active inputs supply supplementary material in the
+HTML reader: S1/S2 contain the additional simulations, S3 the bounded-efficiency
+results outside the main existence construction, S4 the proofs without an
+efficiency bound, and S5 the numerical implementation details and accuracy table.
+These follow the main paper and its references, retain their S-section numbering,
+and link back to the main paper's results. A PDF download remains
 available, but links from the paper lead directly to the relevant HTML section.
 Both source graphs and their compiled inputs are recorded in the reader metadata.
+The converter resolves both ordinary and legacy `paper-` references to main-paper
+anchors, checks the separate supplementary theorem/equation counters against its
+compiled AUX, and merges the two compiled bibliographies without duplicate entries.
 
 The HTML reader is a generated edition, not a second manuscript to edit.
 Its equations are rendered using MathJax 3.2.2. The typeset PDF is the reference
@@ -77,7 +84,7 @@ Every push to `main` runs `.github/workflows/paper.yml`:
 A manual run of this CI workflow also overlays only the PDFs; it does not build
 HTML. A source-only push therefore does not by itself synchronize the reader.
 Complete the snapshot-update steps below for each paper-editing task, so the
-HTML manuscript, supplementary simulations, and figures match the current
+HTML manuscript, supplementary material, and figures match the current
 sources. Refresh the explorer from the stored data without rerunning simulations.
 Missing snapshots or invalid files stop publication; they never trigger an
 automatic digital rebuild. Snapshots are kept in Git rather than expiring

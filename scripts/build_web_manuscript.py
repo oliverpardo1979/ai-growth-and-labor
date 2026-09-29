@@ -252,11 +252,12 @@ def split_math_rows(source: str) -> list[str]:
 
 
 class EquationNumbering:
-    def __init__(self, labels: dict[str, dict[str, str]]):
+    def __init__(self, labels: dict[str, dict[str, str]], section_prefix: str | None = None):
         self.labels, self.counter, self.numbered_rows = labels, 0, 0
         self.checked_labels: set[str] = set()
-        self.appendix_section: int | None = None
-        self.within_section = False
+        self.section_prefix = section_prefix
+        self.appendix_section: int | None = 0 if section_prefix is not None else None
+        self.within_section = section_prefix is not None
         self.section_separator = "."
 
     def validate(self, source: str, number: str) -> None:
@@ -270,6 +271,10 @@ class EquationNumbering:
         self.counter += 1
         if not self.within_section:
             return str(self.counter)
+        if self.section_prefix is not None:
+            if not self.appendix_section:
+                raise ConversionError("Section-numbered equations require a preceding section")
+            return self.section_prefix + str(self.appendix_section) + self.section_separator + str(self.counter)
         if self.appendix_section is None or not 1 <= self.appendix_section <= 26:
             raise ConversionError("Section-numbered equations require appendix sections A through Z")
         return chr(64 + self.appendix_section) + self.section_separator + str(self.counter)
@@ -290,6 +295,8 @@ class EquationNumbering:
                     raise ConversionError("Numbering controls inside subequations are unsupported")
                 command, end = match.group("command"), match.end()
                 if command == "appendix":
+                    if self.section_prefix is not None:
+                        raise ConversionError("Appendix reset inside a supplementary section series is unsupported")
                     self.appendix_section = 0
                 elif command == "numberwithin":
                     counter, end = group(source, end)
@@ -351,7 +358,8 @@ class EquationNumbering:
         return "".join(result)
 
 
-def prepare_theorems(source: str, labels: dict[str, dict[str, str]]) -> str:
+def prepare_theorems(source: str, labels: dict[str, dict[str, str]],
+                     prefixes: dict[str, str] | None = None) -> str:
     pattern = re.compile(r"\\begin\{(proposition|corollary|lemma|definition|assumption|remark)\}")
     counters: dict[str, int] = {}
     result, pos = [], 0
@@ -363,7 +371,7 @@ def prepare_theorems(source: str, labels: dict[str, dict[str, str]]) -> str:
         if source[end:end + 1] == "[":
             title, end = group(source, end, "[", "]")
         counters[kind] = counters.get(kind, 0) + 1
-        number = str(counters[kind])
+        number = (prefixes or {}).get(kind, "") + str(counters[kind])
         first_label = re.match(r"\s*\\label\{([^}]+)\}", source[end:])
         if first_label:
             key = first_label.group(1)
@@ -424,6 +432,17 @@ def read_bibliography(path: Path) -> list[tuple[str, str]]:
     if not result:
         raise ConversionError("Empty compiled bibliography")
     return result
+
+
+def merge_bibliographies(*bibliographies: list[tuple[str, str]]) -> list[tuple[str, str]]:
+    """Combine the two PDFs' references without duplicate HTML destinations."""
+    entries: dict[str, str] = {}
+    for bibliography in bibliographies:
+        for key, entry in bibliography:
+            if key in entries and re.sub(r"\s+", " ", entries[key]) != re.sub(r"\s+", " ", entry):
+                raise ConversionError(f"Conflicting compiled bibliography entries: {key}")
+            entries.setdefault(key, entry)
+    return list(entries.items())
 
 
 def diagram_clip(page: Any, caption_top: float) -> Any:
@@ -660,7 +679,7 @@ def transform_ast(document: dict[str, Any], labels: dict[str, dict[str, str]],
         elif kind == "BlockQuote" and content and content[0].get("t") == "Para":
             first = content[0]["c"]
             heading = inlines_text(first[0]) if first and first[0].get("t") == "Strong" else ""
-            theorem = re.match(r"(Proposition|Corollary|Lemma|Definition|Assumption|Remark) \d+", heading)
+            theorem = re.match(r"(Proposition|Corollary|Lemma|Definition|Assumption|Remark) S?\d+", heading)
             if theorem:
                 return {"t": "Div", "c": [["", ["theorem", theorem.group(1).lower()], []], visit(content)]}
         elif kind == "Figure":
@@ -762,6 +781,37 @@ def ast_text_tokens(value: Any) -> list[str]:
     return ast_text_tokens(content)
 
 
+def supplement_labels(local: dict, main: dict) -> dict:
+    """Resolve relocated proofs' original labels and legacy paper- references."""
+    if local.keys() & main.keys():
+        raise ConversionError("Supplement labels must be unique across both documents")
+    aliases = {"paper-" + key: {**value, "html_target": key} for key, value in main.items()}
+    if local.keys() & aliases.keys():
+        raise ConversionError("Supplement label collides with a main-paper reference alias")
+    return {**main, **aliases, **local}
+
+
+def supplement_numbering(preamble: str, labels: dict) -> tuple[EquationNumbering, dict[str, str]]:
+    """Read the supported supplement counter setup before omitting its cover."""
+    compact = re.sub(r"\s+", "", preamble)
+    if r"\renewcommand{\thesection}{S\arabic{section}}" not in compact:
+        raise ConversionError("Supplement must use the S1, S2 section series")
+    numbered_by_section = r"\numberwithin{equation}{section}" in compact
+    numbering = EquationNumbering(labels, section_prefix="S" if numbered_by_section else None)
+    equation_formats = re.findall(r"\\renewcommand\s*\{\\theequation\}", preamble)
+    if equation_formats and r"\renewcommand{\theequation}{\thesection.\arabic{equation}}" not in compact:
+        raise ConversionError("Unsupported supplementary equation-number format")
+    prefixes = {}
+    for kind in ("proposition", "corollary", "lemma", "definition", "assumption", "remark"):
+        if r"\newtheorem{" + kind + "}" not in compact:
+            continue
+        expected = r"\renewcommand{\the" + kind + "}{S\\arabic{" + kind + "}}"
+        if expected not in compact:
+            raise ConversionError(f"Supplement must use an independent S-prefixed {kind} counter")
+        prefixes[kind] = "S"
+    return numbering, prefixes
+
+
 def build_supplement(root: Path, build_dir: Path, out_dir: Path, asset_prefix: str,
                      pandoc: Pandoc, main_labels: dict, citations: dict) -> dict:
     """Convert the same supplement source as its PDF, with links into the main text."""
@@ -774,23 +824,33 @@ def build_supplement(root: Path, build_dir: Path, out_dir: Path, asset_prefix: s
         compiled = build_dir / f"online_appendix.{suffix}"
         if not compiled.is_file() or compiled.stat().st_mtime + 2 < latest.stat().st_mtime:
             raise ConversionError("Recompile online_appendix.tex after the current main paper")
-    labels, _ = read_aux(build_dir / "online_appendix.aux", require_citations=False)
+    local_labels, local_citations = read_aux(build_dir / "online_appendix.aux", require_citations=False)
     active = re.findall(r"\\label\{([^}]+)\}", source)
     if len(set(active)) != len(active) or set(active) & main_labels.keys():
         raise ConversionError("Supplement labels must be unique across both documents")
-    if set(active) - labels.keys():
+    if set(active) - local_labels.keys():
         raise ConversionError("Supplement labels missing from its compiled AUX")
-    labels.update({"paper-" + key: {**value, "html_target": key} for key, value in main_labels.items()})
+    labels = supplement_labels(local_labels, main_labels)
+    shared_citations = citations.keys() & local_citations.keys()
+    if any(citations[key] != local_citations[key] for key in shared_citations):
+        raise ConversionError("Main and supplementary citation metadata disagree")
+    citations = {**citations, **local_citations}
+    bibliography = []
+    if local_citations:
+        bbl = build_dir / "online_appendix.bbl"
+        if not bbl.is_file() or bbl.stat().st_mtime + 2 < (root / "references.bib").stat().st_mtime:
+            raise ConversionError("Rebuild the supplementary bibliography after references.bib")
+        bibliography = read_bibliography(bbl)
     # Omit the standalone cover, not any section content.
     start = re.search(r"\\section\{", source)
     if not start:
         raise ConversionError("Supplement has no sections")
+    numbering, theorem_prefixes = supplement_numbering(source[:start.start()], labels)
     source = source[start.start():].rsplit(r"\end{document}", 1)[0]
     source, figures = extract_figures(source, root, build_dir / "online_appendix.pdf",
                                      out_dir / "assets", labels, asset_prefix.rstrip("/"))
-    numbering = EquationNumbering(labels)
     source = numbering.apply(source)
-    source = prepare_theorems(clean_layout(source), labels)
+    source = prepare_theorems(clean_layout(source), labels, theorem_prefixes)
     source, cited = prepare_citations(source, citations)
     displays = len(re.findall(r"\\begin\{(?:equation|align|gather)\*?\}|\\\[", source))
     tables = []
@@ -799,16 +859,23 @@ def build_supplement(root: Path, build_dir: Path, out_dir: Path, asset_prefix: s
         if len(keys) != 1:
             raise ConversionError("Each supplement table must have exactly one label")
         tables.append(keys[0])
-    ast = pandoc.ast(source)
+    ast = pandoc.ast(math_preamble() + source)
     sections = transform_ast(ast, labels, tables, compiled_headings(build_dir / "online_appendix.aux", pandoc))
     fragment = pandoc.run(json.dumps(ast, ensure_ascii=False), "json", "html5", "--mathjax", "--wrap=none")
     return {"fragment": fragment, "ast": ast, "sections": sections, "figures": figures,
             "labels": active, "displays": displays, "cited": cited,
+            "bibliography": bibliography,
             "numbered_rows": numbering.numbered_rows,
             "provenance": {"source": "online_appendix.tex", "source_sha256": digest,
                 "source_files": [p.relative_to(root).as_posix() for p in paths],
                 "build_inputs": {s: hashlib.sha256((build_dir / f"online_appendix.{s}").read_bytes()).hexdigest()
-                                 for s in ("aux", "pdf")}}}
+                                 for s in (("aux", "bbl", "pdf") if bibliography else ("aux", "pdf"))}}}
+
+
+def math_preamble() -> str:
+    """Shorthands shared by main and supplementary manuscript sources."""
+    return (r"\newcommand{\dd}{\,\mathrm{d}}" + "\n"
+            r"\newcommand{\gA}{g_A}\newcommand{\gY}{g_Y}\newcommand{\gw}{g_w}\newcommand{\sX}{s_X}" + "\n")
 
 
 def build(args: argparse.Namespace) -> dict[str, Any]:
@@ -854,9 +921,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     expected_displays = len(re.findall(r"\\begin\{(?:equation|align|gather)\*?\}|\\\[", source))
     # Supply source-defined math shorthands and the table column type to the
     # reader. MathJax gets the expanded commands from Pandoc's LaTeX reader.
-    preamble = (r"\newcommand{\dd}{\,\mathrm{d}}" + "\n"
-                r"\newcommand{\gA}{g_A}\newcommand{\gY}{g_Y}\newcommand{\gw}{g_w}\newcommand{\sX}{s_X}" + "\n")
-    ast = pandoc.ast(preamble + source)
+    ast = pandoc.ast(math_preamble() + source)
     table_labels = []
     for table in re.finditer(r"\\begin\{table\}[\s\S]*?\\end\{table\}", source):
         keys = re.findall(r"\\label\{([^}]+)\}", table.group(0))
@@ -870,10 +935,11 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     active_labels.extend(supplement["labels"])
     expected_displays += supplement["displays"]
     cited.update(supplement["cited"])
-    sections.append({"id": "additional-results", "title": "Supplementary simulations", "level": 1, "number": ""})
+    sections.append({"id": "additional-results", "title": "Additional proofs and simulations", "level": 1, "number": ""})
     sections.extend(supplement["sections"])
     abstract_html = pandoc.fragment(abstract)
-    bibliography = read_bibliography(build_dir / "main_rewrite.bbl")
+    bibliography = merge_bibliographies(read_bibliography(build_dir / "main_rewrite.bbl"),
+                                       supplement["bibliography"])
     bibkeys = {key for key, _ in bibliography}
     if cited != bibkeys:
         raise ConversionError(f"Compiled bibliography/citation mismatch: missing {sorted(cited - bibkeys)}, extra {sorted(bibkeys - cited)}")
@@ -883,9 +949,9 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
               + abstract_html + "\n</section>\n" + fragment
               + '<section class="manuscript-references" id="references"><h1>References</h1>\n'
               + bib_html + "\n</section>\n"
-              + '<section class="supplementary-results" id="additional-results"><h1>Supplementary simulations</h1>'
-              + '<p>Additional results accompanying the paper. '
-                '<a href="paper/online-appendix.pdf">Download these results as a PDF ↗</a>.</p>'
+              + '<section class="supplementary-results" id="additional-results"><h1>Additional proofs and simulations</h1>'
+              + '<p>Supplementary simulations, additional proofs, and numerical implementation details. '
+                '<a href="paper/online-appendix.pdf">Download this material as a PDF ↗</a>.</p>'
               + supplement["fragment"] + "\n</section>\n")
     try:
         from bs4 import BeautifulSoup

@@ -178,6 +178,30 @@ class NumberingTests(unittest.TestCase):
         with self.assertRaisesRegex(web.ConversionError, "Theorem numbering mismatch"):
             web.prepare_theorems(source, labels)
 
+    def test_supplementary_sections_equations_and_theorems_match_aux(self):
+        preamble = (r"\renewcommand{\thesection}{S\arabic{section}}"
+                    r"\numberwithin{equation}{section}"
+                    r"\newtheorem{proposition}{Proposition}"
+                    r"\renewcommand{\theproposition}{S\arabic{proposition}}")
+        labels = {key: {"number": number} for key, number in
+                  {"eq": "S3.1", "next": "S4.1", "p": "S1"}.items()}
+        numbering, prefixes = web.supplement_numbering(preamble, labels)
+        source = (r"\section{Simulations}\section{Reversal}\section{Bounded results}"
+                  r"\begin{equation}x=y\label{eq}\end{equation}"
+                  r"\begin{proposition}[Low cap]\label{p}Statement.\end{proposition}"
+                  r"\section{Uncapped results}\begin{equation}x=y\label{next}\end{equation}")
+        result = web.prepare_theorems(numbering.apply(source), labels, prefixes)
+        self.assertEqual(re.findall(r"\\tag\{([^}]+)\}", result), ["S3.1", "S4.1"])
+        self.assertIn("Proposition S1 (Low cap)", result)
+        self.assertEqual(numbering.checked_labels, {"eq", "next"})
+
+    def test_supplementary_numbering_fails_closed_on_unsupported_formats(self):
+        section = r"\renewcommand{\thesection}{S\arabic{section}}"
+        for preamble in ("", section + r"\newtheorem{proposition}{Proposition}",
+                         section + r"\renewcommand{\theequation}{S\arabic{equation}}"):
+            with self.subTest(preamble=preamble), self.assertRaises(web.ConversionError):
+                web.supplement_numbering(preamble, {})
+
 
 class CitationAndValidationTests(unittest.TestCase):
     def test_citation_locator_and_multiple_keys(self):
@@ -219,6 +243,28 @@ class CitationAndValidationTests(unittest.TestCase):
             web.transform_ast(ast, label)
             self.assertEqual(ast["blocks"][0]["c"][0]["c"][2][0], "#p")
 
+    def test_supplement_resolves_unprefixed_and_legacy_main_references(self):
+        labels = web.supplement_labels({"local": {"number": "S3.1"}}, {"main": {"number": "A2"}})
+        ast = {"blocks": [{"t": "Para", "c": [
+            {"t": "RawInline", "c": ["latex", r"\eqref{" + key + "}"]}
+            for key in ("main", "paper-main", "local")]}]}
+        web.transform_ast(ast, labels)
+        links = ast["blocks"][0]["c"]
+        self.assertEqual([node["c"][2][0] for node in links], ["#main", "#main", "#local"])
+        self.assertEqual([node["c"][1][0]["c"] for node in links], ["(A2)", "(A2)", "(S3.1)"])
+
+    def test_supplement_label_collisions_fail(self):
+        for local in ({"same": {}}, {"paper-same": {}}):
+            with self.subTest(local=local), self.assertRaises(web.ConversionError):
+                web.supplement_labels(local, {"same": {}})
+
+    def test_two_bibliographies_merge_and_fail_on_conflicts(self):
+        merged = web.merge_bibliographies([("shared", "An entry."), ("main", "Main.")],
+                                         [("shared", "An\nentry."), ("extra", "Extra.")])
+        self.assertEqual([key for key, _ in merged], ["shared", "main", "extra"])
+        with self.assertRaisesRegex(web.ConversionError, "Conflicting compiled bibliography"):
+            web.merge_bibliographies([("key", "Old version")], [("key", "New version")])
+
     def test_digital_deep_link_stays_within_reader(self):
         node = {"t": "Link", "c": [["", [], []], [],
                 ["https://oliverpardo1979.github.io/ai-growth-and-labor/#additional-results", ""]]}
@@ -256,6 +302,13 @@ class CitationAndValidationTests(unittest.TestCase):
         self.assertEqual(ast["blocks"][0]["t"], "Div")
         self.assertEqual(ast["blocks"][0]["c"][0][1], ["theorem", "corollary"])
         self.assertIn("Body.", json.dumps(ast))
+
+    def test_supplementary_theorem_gets_theorem_class(self):
+        ast = {"blocks": [{"t": "BlockQuote", "c": [
+            {"t": "Para", "c": [{"t": "Strong", "c": [{"t": "Str", "c": "Proposition S1."}]}]},
+            {"t": "Para", "c": [{"t": "Str", "c": "Statement."}]}]}]}
+        web.transform_ast(ast, {})
+        self.assertEqual(ast["blocks"][0]["c"][0][1], ["theorem", "proposition"])
 
 
 class DiagramCropTests(unittest.TestCase):
@@ -325,7 +378,7 @@ class GeneratedManuscriptTests(unittest.TestCase):
         self.assertEqual(headings[0], {"id": "sec:rewrite-introduction", "title": "Introduction", "level": 1, "number": "1"})
         numerical_subsections = [h["number"] for h in headings
                                  if h["level"] == 2 and h["number"].startswith("B.")]
-        self.assertEqual(numerical_subsections, ["B.1", "B.2", "B.3"])
+        self.assertEqual(numerical_subsections, ["B.1", "B.2"])
 
     def test_uncapped_unit_construction_is_integrated_into_its_proof(self):
         self.assertNotIn("sections_rewrite/appendix_uncapped_unit.tex", self.meta["source_files"])
@@ -349,16 +402,18 @@ class GeneratedManuscriptTests(unittest.TestCase):
 
     def test_proofs_are_grouped_by_economic_problem(self):
         headings = {h["id"]: h for h in self.meta["sections"]}
-        keys = ("developer", "bounded", "competitive", "uncapped")
+        keys = ("developer", "bounded", "competitive")
         positions = []
         for number, key in enumerate(keys, 1):
             label = f"app:rewrite-{key}-proofs"
             self.assertEqual(headings[label]["number"], f"A.{number}")
             positions.append(self.content.index(f'id="{label}"'))
         self.assertEqual(positions, sorted(positions))
+        self.assertEqual(headings["app:rewrite-uncapped-proofs"]["number"], "S4")
+        supplementary = self.content.index('id="additional-results"')
         low_cap = self.content.index('id="prop:rewrite-low-cap-complements"')
-        self.assertLess(positions[1], low_cap)
-        self.assertLess(low_cap, positions[2])
+        self.assertLess(supplementary, low_cap)
+        self.assertLess(supplementary, self.content.index('id="rem:rewrite-efficiency-nonattainment"'))
         self.assertEqual(self.content.count('id="eq:rewrite-cap-gap"'), 1)
         self.assertLess(self.content.index('id="eq:rewrite-cap-gap"'), positions[1])
 
@@ -393,6 +448,21 @@ class GeneratedManuscriptTests(unittest.TestCase):
         self.assertIn('href="paper/online-appendix.pdf"', self.content)
         self.assertNotIn('href="#paper-', self.content)
         self.assertEqual(len([f for f in self.meta["figures"] if str(f["number"]).startswith("S")]), 10)
+
+    def test_relocated_proofs_and_numerical_details_are_supplementary(self):
+        main = web.flatten(ROOT / "main_rewrite.tex", ROOT, [])
+        supplement = web.flatten(ROOT / "online_appendix.tex", ROOT, [])
+        headings = {item["id"]: item for item in self.meta["sections"]}
+        for key, number in {"app:rewrite-additional-bounded-results": "S3",
+                            "app:rewrite-uncapped-proofs": "S4",
+                            "app:rewrite-numerical-details": "S5"}.items():
+            with self.subTest(key=key):
+                label = r"\label{" + key + "}"
+                self.assertNotIn(label, main)
+                self.assertIn(label, supplement)
+                self.assertEqual(headings[key]["number"], number)
+        self.assertIn("Additional proofs and simulations", self.content)
+        self.assertEqual(self.content.count('id="ref-kierzenkashampine2001"'), 1)
 
     def test_replication_details_are_linked_from_the_compact_appendix(self):
         self.assertIn('href="https://github.com/oliverpardo1979/ai-growth-and-labor/blob/main/REPLICATION.md"',

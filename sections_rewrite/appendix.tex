@@ -315,7 +315,7 @@ establish that such a trajectory exists.
 \subsection{Equilibria with bounded AI efficiency}
 \label{app:rewrite-bounded-proofs}
 \input{sections_rewrite/appendix_finite_frontier}
-\input{sections_rewrite/appendix_low_cap_complements}
+% The omitted low-cap case is included in the digital edition.
 
 \Needspace{9\baselineskip}
 \subsection{Competitive equilibrium and comparison with monopoly}
@@ -407,111 +407,7 @@ Since the parameters are common to both economies, the same ordering
 applies to both growth rates, including the equality case.
 \end{proof}
 
-\Needspace{9\baselineskip}
-\subsection{Equilibria without an efficiency bound}
-\label{app:rewrite-uncapped-proofs}
-\input{sections_rewrite/appendix_uncapped_complements_proofs}
-\input{sections_rewrite/appendix_uncapped_unit_proofs}
-
-\Needspace{6\baselineskip}
-\begin{proof}[Proof of Proposition~\ref{prop:rewrite-research-scale}]
-\label{proof:rewrite-research-scale}
-I construct a sequence of research trajectories whose discounted net profit
-grows without bound, although each trajectory has finite expenditure and
-AI efficiency. Write $\theta=(1-\alpha)/\alpha$. For a research trajectory
-$\{M_t\}_{t\in[0,T]}$, discounted net profit on the fixed horizon is
-\[
- J_T(M)=\int_0^T
- \exp\left\{-\int_0^t r_s\dd s\right\}
- [\pi(B_t)-M_t]\dd t.
-\]
-Integrability of $r$ bounds the discount factor above and away from zero
-on $[0,T]$.
-At the optimal service choice, equations~\eqref{eq:rewrite-ai-price}
-and~\eqref{eq:rewrite-monopoly-foc} imply
-\[
- \pi(B)=p_XX-\frac XB
- =e_Xp_XX=(1-\alpha)e_Xs_XY.
-\]
-For $\sigma>1$, marginal revenue is positive at every finite $X$
-and approaches zero as $X\to\infty$, as established in
-Lemma~\ref{lem:rewrite-monopoly-choice}. The monopoly condition
-therefore implies $X\to\infty$ as $B\to\infty$, holding $K,A,L$
-fixed. Consequently, $s_X\to1$ and $e_X\to\alpha$.
-Substituting these limits into
-equation~\eqref{eq:rewrite-substitutes-dated-output-capital} gives
-\[
- \pi(B)\sim\kappa_XKB^\theta,\qquad
- \kappa_X=\alpha(1-\alpha)
- \left[(1-\alpha)^2\omega_X^{\sigma/(\sigma-1)}\right]^\theta>0.
-\]
-The operating-profit asymptotic is uniform over dates in $[0,T]$ because
-$K,A,L$ are continuous, bounded, and bounded away from zero
-on $[0,T]$. Thus a common lower bound proportional to $B^\theta$ applies
-at every date once $B$ is sufficiently large.
-
-The research trajectories constructed below are deviations in the
-developer's optimization problem, not alternative equilibrium allocations.
-Fix $\Delta\in(0,T)$, choose $M=\mathcal M$ on $[0,\Delta]$, and choose
-$M=0$ afterward. Integrating the uncapped RSI technology
-\eqref{eq:rewrite-uncapped-unit-law} over the research burst gives
-\[
- B_{\mathcal M}(t)^{1-\eta}=B_0^{1-\eta}
- +(1-\eta)\chi\mathcal M^\eta\min\{t,\Delta\}.
-\]
-As $\mathcal M\to\infty$, efficiency after the research burst is
-asymptotically proportional to
-$\mathcal M^{\eta/(1-\eta)}$. Discounted operating profit over the remaining
-interval therefore grows in proportion to
-$\mathcal M^{\eta\theta/(1-\eta)}$, while research expenditure grows only
-linearly in $\mathcal M$.
-Since optimized operating profit is nonnegative, a lower bound on discounted
-net profit counts only operating profits earned after research stops, while
-subtracting all research expenditure. For all sufficiently large $\mathcal M$,
-\begin{equation}
- J_T(\mathcal M)\geq c_\pi\mathcal M^{
- \eta(1-\alpha)/[\alpha(1-\eta)]}
- -c_M\mathcal M,
- \label{eq:rewrite-research-burst-payoff}
-\end{equation}
-where $c_\pi,c_M>0$ are independent of $\mathcal M$.
-The exponent exceeds one because $\eta>\alpha$,
-so $J_T(\mathcal M)\to+\infty$ as $\mathcal M\to\infty$.
-Each finite $\mathcal M$ keeps AI efficiency and discounted net profit
-finite on $[0,T]$; it is the sequence of payoffs that is unbounded.
-
-Now consider an infinite-horizon equilibrium candidate
-$\{\widehat B_t,\widehat M_t\}$ with finite discounted net profit
-$\widehat V_0$, and let $\widehat J_T$ denote its payoff through $T$.
-After $T$, continue the deviation using $\widehat M_t$.
-For sufficiently large $\mathcal M$, the deviation has
-$B_{\mathcal M}(T)>\widehat B_T$. Because
-$\mathrm d(B^{1-\eta})/\mathrm dt=(1-\eta)\chi M^\eta$,
-this efficiency advantage persists under the common subsequent expenditure.
-Operating profit is increasing in efficiency by
-equation~\eqref{eq:rewrite-profit-envelope}, so the continuation payoff is
-at least $\widehat V_0-\widehat J_T$. The full deviation therefore yields
-\[
- J_\infty(\mathcal M)\geq J_T(\mathcal M)
- +\widehat V_0-\widehat J_T\longrightarrow+\infty.
-\]
-No candidate with finite discounted net profit can be optimal.
-Moreover, every equilibrium must have finite discounted developer profit.
-Indeed, multiplying the household budget~\eqref{eq:rewrite-household-budget}
-by the discount factor and integrating, using the Euler equation~\eqref{eq:rewrite-euler}
-and transversality condition~\eqref{eq:rewrite-household-tvc} gives
-\[
- \int_0^\infty
- e^{-\int_0^t r_s\dd s}(w_tN_t+\Pi_t)\dd t
- =\frac{C_0}{\rho-n}-K_0.
-\]
-Since labor income is nonnegative, discounted developer profit is
-either finite or minus infinity. A payoff of minus infinity cannot be
-optimal because
-stopping research yields nonnegative operating profit.
-Hence no equilibrium exists under the stated restrictions.
-This argument does not establish a finite-time singularity.
-\end{proof}
+% Uncapped proofs are preserved in supplement_uncapped_proofs.tex and the digital edition.
 
 % BEGIN PRESERVED BROADER RESEARCH-SCALE PROOF (2026-09-15)
 % The active proposition now states only the eta > alpha finite-horizon result.

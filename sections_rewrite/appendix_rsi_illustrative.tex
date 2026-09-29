@@ -14,37 +14,23 @@ using the given stocks as initial conditions and the long-run
 characterization in Proposition~\ref{prop:rewrite-equilibrium-regimes}
 to construct terminal conditions.
 
-For each $\sigma$, I first solve the existing-AI economy with efficiency
-fixed at $B_0$ and research unavailable. A scalar root search in $\log K_0$
-solves Equation~\eqref{eq:rewrite-rsi-initial-ratio} using the production
-and monopoly equations. The resource constraint~\eqref{eq:rewrite-resource},
-with $M=0$ and $\dot K=(n+\gamma)K$, gives pre-event consumption.
-The post-activation problem inherits the stocks but selects consumption,
+\phantomsection\label{app:rewrite-competitive-transition-numerics}
+For each $\sigma$, I obtain the pre-RSI capital stock from
+Equation~\eqref{eq:rewrite-rsi-initial-ratio} under monopoly pricing with
+efficiency fixed at $B_0$. For the competitive-to-monopoly comparison in
+Section~\ref{subsec:rewrite-competitive-transition}, I instead impose
+$r=\rho+\gamma$ with marginal-cost pricing $p_X=1/B_0$, giving
+$K_0=6.535$ at $\sigma=1.5$. In both cases, the resource constraint
+with $M=0$ and $\dot K=(n+\gamma)K$ gives pre-event consumption.
+The post-event monopoly BVP inherits the stocks but selects consumption,
 research, and the shadow price anew.
 
-To represent positive variables and keep AI efficiency below its upper
-bound, I use the computational coordinates
-\[
- \left(\log K,\ \log\frac{B}{\overline B-B},\ \log C,\ \log q\right).
-\]
-The second coordinate expresses AI efficiency relative to the remaining
-gap below its upper bound; it can grow without bound while AI efficiency
-remains bounded. I subtract the long-run growth rate of aggregate capital
-times $t$ from each coordinate: $n+\gamma$ in the labor-bottleneck regime
-and $n+\mathcal R(\overline B)-\rho$ in the AI-dominated regime.
-The efficiency coordinate has the same asymptotic slope because the
-remaining gap $\overline B-B$ shrinks at that proportional rate.
-Removing these trends makes the numerical coordinates converge to finite
-limits without changing the economic variables or calendar time.
-
-The terminal conditions approximate convergence to the long-run
-equilibrium. In the normalized coordinates of
-Appendix~\ref{app:rewrite-finite-existence}, I require the terminal deviation
-from the limiting point to lie in the stable subspace of the linearized
-dynamics. This gives two restrictions excluding locally divergent
-directions. Together with the initial stocks $K_0,B_0$, they select
-initial consumption and the developer's shadow price. The conditions do
-not require the economy to reach its long-run limit at a finite date.
+In the normalized coordinates of Appendix~\ref{app:rewrite-finite-existence},
+I require the terminal deviation from the limiting point to lie in the
+stable subspace of the linearized dynamics. The resulting two terminal
+restrictions, together with the initial stocks, select initial consumption
+and the shadow price without requiring the economy to reach its long-run
+limit at a finite date.
 
 I solve this BVP with \texttt{scipy.integrate.solve\_bvp} from the
 open-source Python library SciPy \citep{virtanenetal2020}. The solver
@@ -53,80 +39,20 @@ of \citet{kierzenkashampine2001}. At each trial state, I solve the static
 monopoly problem and recover research expenditure from its first-order
 condition.
 
-For each of the eight parameter configurations, I start near its
-analytical limiting point and move the initial stocks to their prescribed
-values through a sequence of auxiliary boundary-value problems, using
-each solution as the initial guess for the next. This procedure changes
-the initial conditions of the numerical problem, not the dates on the
-economic trajectory.
-
-\phantomsection\label{app:rewrite-competitive-transition-numerics}
-For the competitive-to-monopoly comparison in
-Section~\ref{subsec:rewrite-competitive-transition}, I instead obtain
-$K_0$ from $r=\rho+\gamma$ with marginal-cost pricing $p_X=1/B_0$;
-at $\sigma=1.5$, $K_0=6.535$. Pre-event consumption follows from the same
-resource constraint. I then solve the monopoly BVP at these initial
-stocks, using the RSI-activation trajectories only as numerical initial
-guesses, not as restrictions on consumption or research. This procedure
-also applies to the four-elasticity comparisons in the
-\href{https://oliverpardo1979.github.io/ai-growth-and-labor/\#app:rewrite-competitive-transition}{digital edition}.
-
 \subsection{Accuracy and equilibrium checks}
 
-To check whether the computed transition depends on the terminal date or
-solver accuracy, I extend each computational horizon twice by 500 years and tighten the
-collocation tolerance from $2\times10^{-6}$ to $10^{-8}$ and $10^{-9}$.
-The final boundary tolerance is $10^{-11}$. All plotted values lie within
-the solved interval; none is extrapolated beyond it.
+I check the dynamic and first-order conditions independently of the
+solver's residual report, tighten tolerances, and extend each horizon
+twice. I also check pre-event conditions, continuity at RSI activation,
+proximity to the limiting equilibrium, and the asymptotic decay of both
+transversality expressions at rate $n-\rho<0$. The
+\href{https://oliverpardo1979.github.io/ai-growth-and-labor/\#app:rewrite-numerical-details}{digital edition}
+reports the computational coordinates, continuation procedure, tolerances,
+and accuracy table. All plotted values lie within the solved interval.
+The competitive-to-monopoly paths satisfy the same checks.
 
-I check the four dynamic equations independently of the solver's residual
-report. Five-point finite differences approximate the time derivatives of
-the four logarithmic coordinates above; I compare these derivatives with
-the equations' right-hand sides expressed in the same coordinates.
-The dynamic residual is the largest absolute discrepancy across
-coordinates and checked dates, measured per year, with denser checks over
-the first ten years. For the monopoly and research first-order conditions, I report the
-absolute logarithmic deviations of $Bp_X(1-e_X)$ and
-$q\chi\eta B^\eta M^{\eta-1}\psi(B)$ from one.
-Acceptance requires dynamic residuals below $10^{-6}$ and both
-first-order residuals below $10^{-9}$.
-
-I also require the last horizon extension to change the four detrended
-coordinates by less than $2\times10^{-5}$ over years 0--500, with the same
-tolerance for changes in $\log C_0$ and $\log q_0$.
-At the terminal date, the largest coordinate deviation from the
-analytical limiting point must be below $10^{-4}$. This last check uses
-the regime-specific normalized coordinates of
-Appendix~\ref{app:rewrite-finite-existence}, with logarithms for coordinates
-having positive limits and with $\tau=(AN)^{-1}$ scaled by
-$\overline d/\overline B$. Here $\overline d$ is the limiting value of the
-normalized efficiency gap $d$ in the corresponding regime. Unlike the
-horizon comparison, this check measures proximity to the limiting
-equilibrium, not agreement between two numerical solutions.
-I also check the pre-event equilibrium conditions and the continuity of
-production quantities and prices at RSI activation.
-
-Small equation residuals do not establish that the developer prefers the
-computed research path to every feasible alternative. I therefore check
-feasibility and the sufficient conditions for global optimality in
-Lemma~\ref{lem:rewrite-developer-verification}. The parameter condition
-\eqref{eq:rewrite-research-optimality-condition} is verified below for
-all eight configurations.
-
-To assess continuation beyond the computational horizon, I check proximity
-to the analytical limiting equilibrium at the terminal date and use the
-asymptotic decay of both transversality
-expressions at rate $n-\rho<0$. These checks support the numerical
-approximation over an infinite horizon; they do not constitute a proof
-of equilibrium existence from arbitrary initial stocks.
-The competitive-to-monopoly paths satisfy the same residual,
-horizon-refinement, transversality, and developer-optimality criteria.
-
-\input{sections_rewrite/rsi_illustrative_accuracy}
-
-\subsection{Analytical checks on developer optimality}
-\label{app:rewrite-numerical-support-checks}
-
+\phantomsection\label{app:rewrite-numerical-support-checks}
+Small equation residuals do not establish global developer optimality.
 All eight RSI-activation configurations have $\alpha=0.33$, $\eta=0.20$,
 and $B_0/\overline B=0.01$. For each of the four elasticities
 $\sigma\in\{0.90,1.00,1.10,1.50\}$,
@@ -154,7 +80,8 @@ Lemma~\ref{lem:rewrite-developer-verification} then gives global developer
 optimality for a feasible trajectory satisfying the research condition,
 costate equation, and transversality condition.
 The residual and horizon checks assess how closely the computed paths
-approximate a trajectory satisfying these conditions.
+approximate a trajectory satisfying these conditions; they do not prove
+equilibrium existence from arbitrary initial stocks.
 
 \paragraph{Replication files.}
 

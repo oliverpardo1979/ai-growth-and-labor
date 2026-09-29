@@ -1,16 +1,35 @@
 % Compile main_rewrite.tex first, retaining its AUX file for cross-references.
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs,graphicx,float,setspace,microtype}
+\usepackage{needspace,enumitem}
+\usepackage[round,authoryear]{natbib}
 \usepackage{xr-hyper}
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
 \IfFileExists{main_rewrite.aux}{%
+  \externaldocument{main_rewrite}[https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf]%
   \externaldocument[paper-]{main_rewrite}[https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf]%
 }{%
+  \externaldocument{output/pdf/main_rewrite}[https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf]%
   \externaldocument[paper-]{output/pdf/main_rewrite}[https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf]%
 }
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\renewcommand{\theproposition}{S\arabic{proposition}}
+\renewcommand{\thecorollary}{S\arabic{corollary}}
+\renewcommand{\thelemma}{S\arabic{lemma}}
+\renewcommand{\thedefinition}{S\arabic{definition}}
+\renewcommand{\theassumption}{S\arabic{assumption}}
+\renewcommand{\theremark}{S\arabic{remark}}
+\newcommand{\dd}{\,\mathrm{d}}
 \renewcommand{\thesection}{S\arabic{section}}
+\numberwithin{equation}{section}
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \title{Online Appendix\\[0.5em]\large The Upside of Being Replaceable:\\AI, Market Structure, and Growth}
@@ -24,8 +43,23 @@
 \quad\textbar\quad
 \href{https://github.com/oliverpardo1979/ai-growth-and-labor}{Code and data}
 \end{center}
+\begingroup
+\singlespacing
+\small
+\setcounter{tocdepth}{2}
+\tableofcontents
+\endgroup
+\clearpage
 \onehalfspacing
 \input{sections_rewrite/appendix_competitive_transition}
 \clearpage
 \input{sections_rewrite/15_monopoly_growth_reversal}
+\clearpage
+\input{sections_rewrite/supplement_bounded_results}
+\clearpage
+\input{sections_rewrite/supplement_uncapped_proofs}
+\clearpage
+\input{sections_rewrite/supplement_numerical_details}
+\bibliographystyle{apalike}
+\bibliography{references}
 \end{document}
