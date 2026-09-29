@@ -956,20 +956,25 @@
 <p>The next lemma gives conditions for concavity that ensure inequality <a href="#eq:rewrite-hamiltonian-support">(71)</a> holds. I use these conditions to apply Lemma <a href="#lem:rewrite-developer-verification">2</a> when verifying developer optimality in the equilibrium existence proof and the numerical checks.</p>
 <div class="theorem lemma">
 <p><strong>Lemma 3 (Sufficient conditions for Hamiltonian concavity).</strong></p>
-<p><span id="lem:rewrite-hamiltonian-concavity" class="source-anchor"></span> Suppose <span class="math inline">\(\overline B&lt;\infty\)</span>. Consider a feasible research trajectory with <span class="math inline">\(M_t&gt;0\)</span> satisfying the research condition <a href="#eq:rewrite-research-foc">(22)</a>. The following conditions ensure that the maximized Hamiltonian in equation <a href="#eq:rewrite-maximized-depth-hamiltonian">(75)</a> is concave in transformed AI efficiency <span class="math inline">\(R_B\)</span>. Let <span class="math inline">\(X_t^*(b)\)</span> denote the optimal AI-service choice in problem <a href="#eq:rewrite-service-choice">(18)</a> at efficiency <span class="math inline">\(b\)</span>, and let <span class="math inline">\(\varepsilon_{B,t}(b)=\partial\ln X_t^*(b)/\partial\ln b\)</span> denote its elasticity with respect to AI efficiency. Suppose that, for every <span class="math inline">\(t\geq0\)</span> and <span class="math inline">\(b\in[B_0,\overline B)\)</span>, <span class="manuscript-equation"><span id="eq:rewrite-capped-concavity-gate" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+<p><span id="lem:rewrite-hamiltonian-concavity" class="source-anchor"></span> Suppose <span class="math inline">\(\overline B&lt;\infty\)</span>. Consider a feasible research trajectory <span class="math inline">\(\{B_t,M_t\}_{t\geq0}\)</span> with <span class="math inline">\(M_t&gt;0\)</span> at every date, satisfying the research condition <a href="#eq:rewrite-research-foc">(22)</a>. Let <span class="math inline">\(X_t^*(b)\)</span> denote the optimal AI-service choice in problem <a href="#eq:rewrite-service-choice">(18)</a> at efficiency <span class="math inline">\(b\)</span>, and let <span class="math inline">\(\varepsilon_{B,t}(b)=\partial\ln X_t^*(b)/\partial\ln b\)</span> denote its elasticity with respect to AI efficiency. The maximized Hamiltonian <a href="#eq:rewrite-maximized-depth-hamiltonian">(75)</a> is concave in <span class="math inline">\(R_B\)</span> on <span class="math inline">\([R_B(B_0),\infty)\)</span> at every date if:</p>
+<ol>
+<li><p>For operating profit, the following inequality holds for every <span class="math inline">\(t\geq0\)</span> and <span class="math inline">\(b\in[B_0,\overline B)\)</span>: <span class="manuscript-equation"><span id="eq:rewrite-capped-concavity-gate" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \psi(b)[\varepsilon_{B,t}(b)-2]\leq\frac{b}{\overline B},
  \tag{77}
-\end{equation}\]</span></span> and <span class="manuscript-equation"><span id="eq:rewrite-depth-research-concavity" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+\end{equation}\]</span></span></p></li>
+<li><p>For the optimized research term, the following inequality holds: <span class="manuscript-equation"><span id="eq:rewrite-depth-research-concavity" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \frac{B_0}{\overline B}\geq
  \max\left\{0,\frac{2\eta-1}{\eta}\right\}.
  \tag{78}
-\end{equation}\]</span></span> The maximized Hamiltonian is therefore concave on <span class="math inline">\(R_B\in[R_B(B_0),\infty)\)</span> at every date, so the inequality <a href="#eq:rewrite-hamiltonian-support">(71)</a> required by Lemma <a href="#lem:rewrite-developer-verification">2</a> holds.</p>
+\end{equation}\]</span></span></p></li>
+</ol>
+<p>These conditions therefore imply inequality <a href="#eq:rewrite-hamiltonian-support">(71)</a> in Lemma <a href="#lem:rewrite-developer-verification">2</a>.</p>
 </div>
-<p>Condition <a href="#eq:rewrite-capped-concavity-gate">(77)</a> ensures concavity of operating profit in <span class="math inline">\(R_B\)</span>; condition <a href="#eq:rewrite-depth-research-concavity">(78)</a> ensures concavity of the optimized research term. The latter holds automatically if <span class="math inline">\(\eta\leq1/2\)</span>. For any fixed <span class="math inline">\(0&lt;\eta&lt;1\)</span>, it also holds when <span class="math inline">\(B_0\)</span> is sufficiently close to <span class="math inline">\(\overline B\)</span>. These curvature tests are sufficient, not necessary: they can fail even when the Hamiltonian has the required supporting tangent at the candidate state.</p>
 <div class="proof">
-<p><em>Proof of Lemma <a href="#lem:rewrite-hamiltonian-concavity">3</a>.</em> Fix a date <span class="math inline">\(t\)</span>. Lemma <a href="#lem:rewrite-monopoly-choice">1</a> ensures that <span class="math inline">\(X_t^*(b)\)</span> is unique and smooth. Let <span class="math inline">\(s_{X,t}(b)\)</span> and <span class="math inline">\(e_{X,t}(b)\)</span> be the corresponding elasticities defined in equations <a href="#eq:rewrite-sx">(10)</a> and <a href="#eq:rewrite-inverse-demand-elasticity">(15)</a>. Implicit differentiation of the monopoly condition <a href="#eq:rewrite-monopoly-foc">(19)</a> gives <span class="manuscript-equation"><span id="eq:rewrite-service-capability-elasticity" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+<p><em>Proof of Lemma <a href="#lem:rewrite-hamiltonian-concavity">3</a>.</em> Fix a date <span class="math inline">\(t\)</span> and write <span class="math inline">\(b=B(R_B)\)</span>. In equation <a href="#eq:rewrite-maximized-depth-hamiltonian">(75)</a>, the candidate values <span class="math inline">\(B_t\)</span> and <span class="math inline">\(M_t\)</span> are held fixed. I show that each of the two terms in that Hamiltonian is concave in <span class="math inline">\(R_B\)</span> under the corresponding condition.</p>
+<p><em>1. Operating profit.</em> Lemma <a href="#lem:rewrite-monopoly-choice">1</a> ensures that <span class="math inline">\(X_t^*(b)\)</span> is unique and smooth. Let <span class="math inline">\(s_{X,t}(b)\)</span> and <span class="math inline">\(e_{X,t}(b)\)</span> denote the elasticities in equations <a href="#eq:rewrite-sx">(10)</a> and <a href="#eq:rewrite-inverse-demand-elasticity">(15)</a>, evaluated at this optimal supply. Implicit differentiation of the monopoly condition <a href="#eq:rewrite-monopoly-foc">(19)</a> gives <span class="manuscript-equation"><span id="eq:rewrite-service-capability-elasticity" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \varepsilon_{B,t}(b)\equiv
  \frac{\partial\ln X_t^*(b)}{\partial\ln b}
@@ -982,22 +987,24 @@
  \pi_t&#39;&#39;(b)=\frac{X_t^*(b)}{b^3}[\varepsilon_{B,t}(b)-2].
  \tag{80}
 \end{equation}\]</span></span></p>
-<p>The transformation <a href="#eq:rewrite-research-depth">(73)</a> satisfies <span class="math inline">\(B&#39;(R_B)=\psi(b)\)</span> and <span class="math inline">\(B&#39;&#39;(R_B)=-\psi(b)/\overline B\)</span>, where <span class="math inline">\(b=B(R_B)\)</span>. The chain rule therefore gives <span class="manuscript-equation"><span id="eq:rewrite-capped-profit-curvature" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+<p>The transformation <a href="#eq:rewrite-research-depth">(73)</a> satisfies <span class="math inline">\(B&#39;(R_B)=\psi(b)\)</span> and <span class="math inline">\(B&#39;&#39;(R_B)=-\psi(b)/\overline B\)</span>. The chain rule therefore gives <span class="manuscript-equation"><span id="eq:rewrite-capped-profit-curvature" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \frac{\mathrm d^2\pi_t(B(R_B))}{\mathrm dR_B^2}
  =\frac{X_t^*(b)\psi(b)}{b^3}
  \left[\psi(b)(\varepsilon_{B,t}(b)-2)
  -\frac{b}{\overline B}\right].
  \tag{81}
-\end{equation}\]</span></span> Condition <a href="#eq:rewrite-capped-concavity-gate">(77)</a> therefore makes operating profit concave in the transformed state for every <span class="math inline">\(b\in[B_0,\overline B)\)</span>.</p>
-<p>The research term in <a href="#eq:rewrite-maximized-depth-hamiltonian">(75)</a> is a positive multiple of <span class="math inline">\(B(R_B)^{\eta/(1-\eta)}\)</span>. The second derivative of this power with respect to <span class="math inline">\(R_B\)</span> is <span class="manuscript-equation"><span id="eq:rewrite-depth-research-curvature" class="equation-anchor"></span><span class="math display">\[\begin{equation}
+\end{equation}\]</span></span> Condition <a href="#eq:rewrite-capped-concavity-gate">(77)</a> makes this second derivative nonpositive for every <span class="math inline">\(b\in[B_0,\overline B)\)</span>. Hence operating profit <span class="math inline">\(\pi_t(B(R_B))\)</span> is concave throughout <span class="math inline">\(R_B\in[R_B(B_0),\infty)\)</span>.</p>
+<p><em>2. The optimized research term.</em> The second term in <a href="#eq:rewrite-maximized-depth-hamiltonian">(75)</a> is a positive multiple of <span class="math inline">\(B(R_B)^{\eta/(1-\eta)}\)</span>. The second derivative of this power with respect to <span class="math inline">\(R_B\)</span> is <span class="manuscript-equation"><span id="eq:rewrite-depth-research-curvature" class="equation-anchor"></span><span class="math display">\[\begin{equation}
 
  \frac{\mathrm d^2 B(R_B)^{\eta/(1-\eta)}}{\mathrm dR_B^2}
  =\frac{\eta}{1-\eta}b^{\eta/(1-\eta)-2}\psi(b)
  \left[\frac{2\eta-1}{1-\eta}\psi(b)-\frac b{\overline B}\right].
  \tag{82}
-\end{equation}\]</span></span> The bracket is nonpositive exactly when <span class="math inline">\(b/\overline B\geq(2\eta-1)/\eta\)</span>. Since <span class="math inline">\(b\geq B_0\)</span>, condition <a href="#eq:rewrite-depth-research-concavity">(78)</a> makes the research term concave as well. The maximized Hamiltonian is therefore concave, so its tangent at the candidate state is a global upper bound. As shown in the proof of Lemma <a href="#lem:rewrite-developer-verification">2</a>, this is condition <a href="#eq:rewrite-hamiltonian-support">(71)</a>. ◻</p>
+\end{equation}\]</span></span> The expression in brackets is nonpositive exactly when <span class="math inline">\(b/\overline B\geq(2\eta-1)/\eta\)</span>. Because <span class="math inline">\(b\geq B_0\)</span>, condition <a href="#eq:rewrite-depth-research-concavity">(78)</a> ensures that the research term is concave throughout the same domain.</p>
+<p>Both terms are therefore concave in <span class="math inline">\(R_B\)</span>. Their sum, the maximized Hamiltonian, lies below its tangent at the candidate state. As shown in the proof of Lemma <a href="#lem:rewrite-developer-verification">2</a>, this is inequality <a href="#eq:rewrite-hamiltonian-support">(71)</a>. ◻</p>
 </div>
+<p>Condition <a href="#eq:rewrite-depth-research-concavity">(78)</a> holds automatically if <span class="math inline">\(\eta\leq1/2\)</span>. For any fixed <span class="math inline">\(0&lt;\eta&lt;1\)</span>, that condition also holds when <span class="math inline">\(B_0\)</span> is sufficiently close to <span class="math inline">\(\overline B\)</span>. The two conditions in Lemma <a href="#lem:rewrite-hamiltonian-concavity">3</a> are sufficient, not necessary, for inequality <a href="#eq:rewrite-hamiltonian-support">(71)</a>: the inequality can hold even when one of the two conditions fails.</p>
 <h2 id="app:rewrite-bounded-proofs"><span class="section-number">A.2</span> Equilibria with bounded AI efficiency</h2>
 <p><span id="app:rewrite-finite-existence" class="source-anchor"></span> <span id="proof:rewrite-equilibrium-regimes" class="source-anchor"></span></p>
 <div class="proof">
