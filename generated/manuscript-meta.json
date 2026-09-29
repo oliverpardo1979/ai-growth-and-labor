@@ -300,7 +300,7 @@
       "number": "S2.1"
     }
   ],
-  "source_sha256": "f3ea2a9faae9cc710589498d9db46cf9c508ef5207412d467c72ed406c485bd3",
+  "source_sha256": "0ddc60480c2c6ae70bd148b02e3fd4e5b0c127f46f6275a1e91409c7bfdb6b73",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "bc823e6bb5bfd923a2bdb90d3a95ddaec1ccd2b17d2ce3f4934182569fbef991",
@@ -312,7 +312,7 @@
     ],
     "build_inputs": {
       "aux": "557f186c9390f7e020e87629d2de0080c90fc9b975c42e5927fae08dfc84c666",
-      "pdf": "a91b5b8f3cde282b41fb6bcb02483a96a4ff68bd780e66e843894ee7cf2c4b33"
+      "pdf": "c45def3cbb3b3efd7ee061c062eeac114c4399e7eaa21565ce244db57fbcda03"
     }
   },
   "source_files": [
@@ -375,9 +375,9 @@
       "pdf_page": 17,
       "crop": [
         85.77465057373047,
-        131.49761962890625,
+        261.77130126953125,
         525.7593994140625,
-        373.0946960449219
+        503.3683776855469
       ]
     },
     {
@@ -521,9 +521,9 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 252,
+    "labels": 254,
     "numbered_equation_rows": 156,
-    "display_math": 199,
+    "display_math": 205,
     "figures": 21,
     "tables": 5,
     "bibliography_entries": 42,
@@ -535,13 +535,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 22800,
+    "visible_text_tokens_verified": 23073,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "69c0eac2a5a8f801794a25ecef0b29d5d0f1a325d28df4f15412cc65699d90af",
+    "aux": "80c70255a3f7d47929a8617f56da4facbb2ecd75bfd890ccdf8700e2a055720d",
     "bbl": "ce5636deb2c9be14ca3a39667c02f142f95eafa7c190a6d26e174132d217b72b",
-    "pdf": "8bc5b3874f57fa6ea8c6489bb042bb7f593acc6be47d139277564ba95a7a8e6d"
+    "pdf": "c7c8499c73a1990179969f1c88f01745997e1ecb319d00a94a31236b808de8c8"
   }
 }
