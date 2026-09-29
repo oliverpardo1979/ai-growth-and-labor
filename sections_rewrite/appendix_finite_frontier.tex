@@ -278,10 +278,12 @@ therefore gives a local manifold whose trajectories converge to the fixed
 point. The invertible projection just established lets the inverse-function
 theorem express this manifold as a local graph selecting $(c,\widetilde q)$
 from $(k,d,\tau)$; see \citet{dyatlov2018}.
-Choose a small neighborhood of the full fixed point and then a smaller
-initial-state neighborhood $\mathcal U_L$ of
-$(\overline k,\overline d,0)$. The size of this neighborhood depends on the parameters
-and the case under consideration. In original initial stocks the restriction is
+
+Choose a sufficiently small neighborhood of the full fixed point and then
+a smaller initial-state neighborhood $\mathcal U_L$ of
+$(\overline k,\overline d,0)$. These neighborhoods may depend on the
+parameters and the case under consideration. In original initial stocks,
+the restriction is
 \begin{equation}
  (k_0,d_0,\tau_0)=
  \left(\frac{K_0}{A_0N_0},\,
@@ -290,21 +292,23 @@ and the case under consideration. In original initial stocks the restriction is
  \label{eq:rewrite-labor-local-initial}
 \end{equation}
 Closeness is required in all three coordinates; $B_0$ close to
-$\overline B$ alone is not sufficient.
-Every physical initial state satisfying
-\eqref{eq:rewrite-labor-local-initial} has a solution on this
-graph that stays in the full neighborhood for all future time and converges
-to the fixed point. It is unique among solutions with those properties.
-Positivity of $\tau,d,c,\widetilde q,k$ and the original RSI technology
-ensure $0<B_t<\overline B$ and $M_t>0$ at every finite date.
-Reconstruction gives the original initial stocks, the equilibrium equations,
-and the limiting rates in
+$\overline B$ alone is not sufficient. For every physical initial state
+satisfying \eqref{eq:rewrite-labor-local-initial}, the graph selects a
+solution that stays in the full neighborhood for all future time and
+converges to the fixed point. It is unique among solutions with those
+properties.
+
+The full neighborhood can be chosen so that $k,d,c,\widetilde q$ and
+$B=\overline B-d\tau$ remain positive. For a physical initial state,
+$\tau_t>0$ at every finite date, so $B_t<\overline B$; the research
+condition also gives $M_t>0$. Reconstruction recovers the original initial
+stocks and equilibrium equations. The normalized vector field tends to
+zero, so the smooth ratios $K/(AN)$, $C/(AN)$, $Y/(AN)$, and $w/A$
+have time derivatives tending to zero. These ratios also converge to
+positive constants, implying $g_K,g_C,g_Y\to n+\gamma$ and
+$g_w\to\gamma$. Together with the candidate limits of $r$ and $s_X$,
+this establishes
 \eqref{eq:rewrite-complements-terminal}--\eqref{eq:rewrite-substitutes-labor-terminal}.
-Indeed, the normalized vector field tends to zero at its fixed point, so
-the time derivatives of the smooth ratios determined by the static
-solution tend to zero as well.
-This step, not convergence of ratios alone, establishes convergence of
-the growth rates.
 Optimality and transversality are verified below.
 
 \par\medskip\noindent\textit{Step 3. The AI-dominated case.}
@@ -471,18 +475,36 @@ $(\widetilde C,\widetilde K)$ with the same initial capital,
 \]
 Here $\widetilde K_T\geq0$ and the last limit is the household TVC.
 
-For developer optimality, let $S_t=A_tN_t$ in the positive-share
-construction and $S_t=K_t$ in the AI-dominated construction, and let
-$D_t=\exp(-\int_0^t r_s\,\dd s)$. Homogeneity of the static problem and
-compactness of the normalized state neighborhood give a constant $C_\pi$
-such that $0\leq\pi_t(b)\leq C_\pi S_t$ for every date and every
-$b\in[B_0,\overline B]$. Since
-$\mathrm d\log(D_tS_t)/\mathrm dt\to\overline g-\overline r=n-\rho<0$,
-$\int_0^\infty D_tS_t\,\dd t<\infty$. Thus discounted operating profit
-is uniformly bounded above across all alternative research policies.
-The candidate's present value of net profit is finite, because its research compute is
-bounded and $r_t\to\overline r>0$. An alternative with infinite discounted
-research expenditure has payoff $-\infty$ and cannot improve on it.
+Before applying Lemma~\ref{lem:rewrite-developer-verification}, I verify
+that the developer's discounted payoff is well defined.
+Hold the candidate paths of $K,A,N,r$ fixed, and let $S_t=A_tN_t$
+in the positive-share construction and $S_t=K_t$ in the AI-dominated
+construction. Operating profit increases with efficiency by
+\eqref{eq:rewrite-profit-envelope}, so $\pi_t(b)\leq\pi_t(\overline B)$
+for every feasible $b$. Homogeneity implies that
+$\pi_t(\overline B)/S_t$ depends only on $K_t/S_t$ and $A_tN_t/S_t$.
+These ratios converge to $(\overline k,1)$ in the first construction
+and to $(1,0)$ in the second. The corresponding limiting static
+allocations give a finite limit for $\pi_t(\overline B)/S_t$.
+Continuity at finite dates therefore gives a constant $C_\pi$ such that
+\[
+ 0\leq\pi_t(b)\leq\pi_t(\overline B)\leq C_\pi S_t
+ \qquad
+ \text{for every }t\geq0
+ \text{ and }b\in[B_0,\overline B].
+\]
+
+Let $D_t=\exp(-\int_0^t r_s\,\dd s)$. Since
+$\mathrm d\log(D_tS_t)/\mathrm dt
+\to\overline g-\overline r=n-\rho<0$,
+we have $\int_0^\infty D_tS_t\,\dd t<\infty$.
+The bound above therefore makes discounted operating profit uniformly
+bounded across all feasible alternative research policies.
+The candidate's discounted research expenditure is also finite, because
+its research compute is bounded and $r_t\to\overline r>0$.
+Its present value of net profit is consequently finite.
+An alternative with infinite discounted research expenditure has payoff
+$-\infty$ and cannot improve on it.
 
 It remains to verify
 condition~\eqref{eq:rewrite-research-optimality-condition} in

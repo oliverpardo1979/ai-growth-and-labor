@@ -69,19 +69,23 @@ and initial efficiency ratio, so the same calculation applies.
 The supplementary growth-reversal exercise instead has
 $B_0/\overline B=0.90$, giving $0.20(1-0.90)=0.02<0.33$.
 
-The limiting continuation also gives a finite present value of net
-profit. Let $D_t=\exp(-\int_0^t r_s\,\dd s)$. Discounted output $D_tY_t$
-has limiting logarithmic growth $n-\rho<0$, and operating profit is
-bounded above by output. Research expenditure converges to a finite
-level, while the interest rate converges to a positive limit.
-Both discounted operating profit and discounted research expenditure
-are therefore integrable.
-Lemma~\ref{lem:rewrite-developer-verification} then gives global developer
-optimality for a feasible trajectory satisfying the research condition,
-costate equation, and transversality condition.
-The residual and horizon checks assess how closely the computed paths
-approximate a trajectory satisfying these conditions; they do not prove
-equilibrium existence from arbitrary initial stocks.
+The long-run limits used to construct the terminal conditions imply a
+finite present value of net profit for any feasible trajectory attaining
+those limits. Let $D_t=\exp(-\int_0^t r_s\,\dd s)$.
+Discounted output $D_tY_t$ has limiting logarithmic growth $n-\rho<0$,
+and operating profit is bounded above by output. Research expenditure
+converges to a finite level, while the interest rate converges to a
+positive limit. Both discounted operating profit and discounted research
+expenditure are therefore integrable.
+
+Together with the parameter restriction verified above, these properties
+allow Lemma~\ref{lem:rewrite-developer-verification} to establish global
+developer optimality for a feasible trajectory satisfying the research
+condition, costate equation, and transversality condition.
+The numerical checks assess how closely the computed paths satisfy these
+conditions over the solved horizon and approach the required long-run
+limits. They do not prove equilibrium existence from arbitrary initial
+stocks.
 
 \paragraph{Replication files.}
 

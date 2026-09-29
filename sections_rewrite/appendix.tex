@@ -167,24 +167,26 @@ Continuity of $B$, local integrability of $M$, and $0<\eta<1$ make the
 exponent finite at every finite date. Hence the relevant efficiency domain,
 for both the candidate and every feasible alternative, is $[B_0,\overline B)$.
 
-I choose the following transformation so that the remaining room for
-efficiency improvements and the returns to research enter the concavity
-test together:
+I express the research problem in terms of an increasing transformation
+$S(B)$ of AI efficiency. The transformation is chosen so that
+condition~\eqref{eq:rewrite-research-optimality-condition} ensures
+concavity of the maximized Hamiltonian, as verified in Step 3. Define
 \begin{equation}
  v=\frac{1-\eta}{\eta\psi(B_0)},\qquad
  p=\frac1{\eta\psi(B_0)}-1,\qquad
  S(B)=\int_0^B\frac{z^{v-1}}{\psi(z)}\,\dd z.
  \label{eq:rewrite-optimality-state}
 \end{equation}
-Both exponents are positive. The transformation is strictly increasing,
-with inverse $B(S)$ and derivative $B'(S)=\psi(B)B^{1-v}$.
-It maps $[B_0,\overline B)$ onto $[S(B_0),\infty)$.
+Both exponents are positive. The transformation maps
+$[B_0,\overline B)$ increasingly onto $[S(B_0),\infty)$ and has
+inverse $B(S)$, with derivative $B'(S)=\psi(B)B^{1-v}$.
+
 Writing $S_t=S(B_t)$, the chain rule applied to the RSI technology gives
 \[
  \dot S_t=\chi B_t^{v-1+\eta}M_t^\eta.
 \]
-The corresponding shadow price is
-$q_{S,t}=q_t\psi(B_t)B_t^{1-v}>0$.
+The shadow price in the new coordinates is
+$q_{S,t}=q_tB'(S_t)=q_t\psi(B_t)B_t^{1-v}>0$.
 
 At each date, hold this shadow price at its candidate value and maximize
 the transformed Hamiltonian over research expenditure:
@@ -265,11 +267,12 @@ costate equation~\eqref{eq:rewrite-costate} gives
 Consider any feasible alternative
 $\{\widetilde B_t,\widetilde M_t\}_{t\geq0}$ starting from the same $B_0$,
 and write $\widetilde S_t=S(\widetilde B_t)$.
-Its Hamiltonian is at most
+At the candidate shadow price, the alternative's Hamiltonian is at most
 $\widehat{\mathcal H}_t(\widetilde S_t)$, whereas the candidate attains
 $\widehat{\mathcal H}_t(S_t)$.
-Concavity and the transformed costate equation therefore imply, almost
-everywhere,
+The Hamiltonian equals current net profit plus $q_{S,t}\dot S_t$.
+Subtracting these state-accumulation terms and applying concavity
+therefore bounds the difference in discounted net profit, almost everywhere:
 \[
  \begin{aligned}
  &D_t\left[\pi_t(\widetilde B_t)-\widetilde M_t-\pi_t(B_t)+M_t\right]\\
@@ -278,24 +281,31 @@ everywhere,
  -\mu_t(\dot{\widetilde S}_t-\dot S_t)\\
  &\quad=-\frac{\dd}{\dd t}
  \left[\mu_t(\widetilde S_t-S_t)\right].
- \end{aligned}
+\end{aligned}
 \]
+The last equality uses the transformed costate equation.
+
 Let $J_T$ and $\widetilde J_T$ denote the candidate's and the alternative's
-discounted net profits through date $T$. Integrating the inequality and
-using their common initial state gives
+discounted net profits through date $T$. Integrating and using their
+common initial state gives
 \[
- \widetilde J_T-J_T\leq-\mu_T(\widetilde S_T-S_T)\leq\mu_TS_T,
+ \widetilde J_T-J_T
+ \leq-\mu_T(\widetilde S_T-S_T)\leq\mu_TS_T,
 \]
-since $\mu_T>0$ and $\widetilde S_T\geq0$.
-To bound the terminal term, note that $\psi(z)\geq\psi(B)$ for $0\leq z\leq B$.
-The definition of $S$ thus gives
+because $\mu_T>0$ and $\widetilde S_T\geq0$.
+Thus any gain from the alternative is bounded above by the candidate's
+terminal value $\mu_TS_T$.
+
+It remains to show that this terminal value vanishes.
+Since $\psi(z)\geq\psi(B_t)$ for $0\leq z\leq B_t$, the definition of $S$
+gives
 \[
  0\leq q_{S,t}S_t
  =q_t\psi(B_t)B_t^{1-v}
  \int_0^{B_t}\frac{z^{v-1}}{\psi(z)}\,\dd z
  \leq\frac{q_tB_t}{v}.
 \]
-The candidate's transversality condition implies
+The candidate's transversality condition therefore implies
 $\mu_TS_T\leq D_Tq_TB_T/v\to0$.
 Because its present value of net profit is finite,
 \[
