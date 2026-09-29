@@ -108,10 +108,11 @@ production quantities and prices at RSI activation.
 
 Small equation residuals do not establish that the developer prefers the
 computed research path to every feasible alternative. I therefore check
-feasibility and the sufficient conditions for global optimality. When the
-concavity conditions of Lemma~\ref{lem:rewrite-hamiltonian-concavity} fail,
-I use the support condition in
-Lemma~\ref{lem:rewrite-developer-verification}: the tangent at the candidate
+feasibility and the sufficient conditions for global optimality in
+Lemma~\ref{lem:rewrite-developer-verification}. When either sufficient
+concavity condition~\eqref{eq:rewrite-capped-concavity-gate}
+or~\eqref{eq:rewrite-depth-research-concavity} fails, I check the support
+condition~\eqref{eq:rewrite-hamiltonian-support} directly: the tangent at the candidate
 state must lie above the maximized Hamiltonian at every alternative
 AI-efficiency level. At each checked date, I minimize the difference
 between that tangent and the Hamiltonian over alternative efficiency
@@ -146,8 +147,8 @@ AI-efficiency state in equation~\eqref{eq:rewrite-research-depth}.
 Because $B(R_B)$ is
 increasing and concave in $R_B$, $R_B\mapsto\pi_t(B(R_B))$ is globally concave whenever
 $\beta\leq1/2$. The illustrative values $\beta=0.067$ and $\eta=0.20$
-therefore satisfy both concavity conditions in
-Lemma~\ref{lem:rewrite-hamiltonian-concavity}.
+therefore satisfy both sufficient concavity conditions used in
+Lemma~\ref{lem:rewrite-developer-verification}.
 
 For the AI-dominated paths, I next show why the support condition holds
 eventually even if global concavity fails at low alternative efficiency

@@ -484,10 +484,10 @@ The candidate's present value of net profit is finite, because its research comp
 bounded and $r_t\to\overline r>0$. An alternative with infinite discounted
 research expenditure has payoff $-\infty$ and cannot improve on it.
 
-It remains to verify the curvature conditions of
-Lemma~\ref{lem:rewrite-hamiltonian-concavity},
+It remains to verify the sufficient curvature conditions
 \eqref{eq:rewrite-capped-concavity-gate} and
-\eqref{eq:rewrite-depth-research-concavity} for every date and every alternative
+\eqref{eq:rewrite-depth-research-concavity} used in
+Lemma~\ref{lem:rewrite-developer-verification} for every date and every alternative
 AI-efficiency level in $[B_0,\overline B)$, not just on the selected path.
 First fix a compact normalized-state neighborhood and an interval of
 alternative AI-efficiency levels $[b_*,\overline B]$, with $0<b_*<\overline B$.
@@ -510,10 +510,10 @@ This is possible because $B_0=\overline B-d_0\tau_0$ in the first
 construction and $B_0=\overline B-d_0\tau_0h_0^{1/\varphi}$ in the second.
 Every feasible research policy has $b\geq B_0$, so the two curvature
 conditions hold throughout the entire alternative-state domain at every
-date. Lemma~\ref{lem:rewrite-hamiltonian-concavity} therefore gives the
-support inequality~\eqref{eq:rewrite-hamiltonian-support}.
-Lemma~\ref{lem:rewrite-developer-verification} and the verified TVC
-then establish global developer optimality without imposing
+date. These conditions imply the support
+inequality~\eqref{eq:rewrite-hamiltonian-support}. With the verified TVC,
+Lemma~\ref{lem:rewrite-developer-verification} therefore establishes
+global developer optimality without imposing
 $\eta\leq1/2$. The curvature conditions follow from the primitives and the
 chosen initial-state neighborhood.
 

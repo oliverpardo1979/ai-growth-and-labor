@@ -104,6 +104,7 @@ in equation~\eqref{eq:rewrite-service-choice}, and $U_t$ is the inference
 compute used at the candidate efficiency $B_t$ after optimizing AI-service
 supply.
 
+\Needspace{12\baselineskip}
 \begin{lemma}[Sufficient conditions for optimal research]
 \label{lem:rewrite-developer-verification}
 Suppose $\overline B<\infty$. Consider a feasible research trajectory
@@ -117,9 +118,34 @@ $\{q_t\}_{t\geq0}$ satisfying the research condition
 If inequality~\eqref{eq:rewrite-hamiltonian-support} also holds for every
 $t\geq0$ and $b\in[B_0,\overline B)$, then the research trajectory maximizes
 the developer's discounted net profit.
+
+In particular, the two curvature conditions stated below in
+\eqref{eq:rewrite-capped-concavity-gate} and
+\eqref{eq:rewrite-depth-research-concavity} guarantee
+inequality~\eqref{eq:rewrite-hamiltonian-support}.
 \end{lemma}
 
+To state these sufficient conditions, let $X_t^*(b)$ denote optimal
+AI-service supply in problem~\eqref{eq:rewrite-service-choice} at efficiency
+$b$, and let $\varepsilon_{B,t}(b)=\partial\ln X_t^*(b)/\partial\ln b$
+denote its elasticity with respect to AI efficiency. The condition for
+operating profit, required at every $t\geq0$ and $b\in[B_0,\overline B)$, is
+\begin{equation}
+ \psi(b)[\varepsilon_{B,t}(b)-2]\leq\frac{b}{\overline B}.
+ \label{eq:rewrite-capped-concavity-gate}
+\end{equation}
+The condition for the optimized research term is
+\begin{equation}
+ \frac{B_0}{\overline B}\geq
+ \max\left\{0,\frac{2\eta-1}{\eta}\right\}.
+ \label{eq:rewrite-depth-research-concavity}
+\end{equation}
+As the proof shows, these conditions make the maximized Hamiltonian concave
+in a transformed efficiency variable, ensuring that it lies below its
+tangent at the candidate state.
+
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-developer-verification}]
+\textbf{Part 1. Optimality under inequality~\eqref{eq:rewrite-hamiltonian-support}.}
 I compare the candidate with any feasible research trajectory starting
 from the same $B_0$. The key step is to bound the alternative's gain in
 discounted net profit by a terminal term that vanishes under the
@@ -284,47 +310,10 @@ The candidate's present value of net profit is finite by assumption. Hence
 so no feasible alternative yields a higher present value of net profit.
 Concavity of $\widehat{\mathcal H}_t$ in $R_B$ is sufficient for
 condition~\eqref{eq:rewrite-hamiltonian-support}, but is not required.
-\end{proof}
 
-The next lemma gives conditions for concavity that ensure
-inequality~\eqref{eq:rewrite-hamiltonian-support} holds. I use these
-conditions to apply Lemma~\ref{lem:rewrite-developer-verification} when
-verifying developer optimality in the equilibrium existence proof and
-the numerical checks.
-
-\Needspace{8\baselineskip}
-\begin{lemma}[Sufficient conditions for Hamiltonian concavity]
-\label{lem:rewrite-hamiltonian-concavity}
-Suppose $\overline B<\infty$.
-Consider a feasible research trajectory $\{B_t,M_t\}_{t\geq0}$ with
-$M_t>0$ at every date, satisfying the research
-condition~\eqref{eq:rewrite-research-foc}.
-Let $X_t^*(b)$ denote the optimal AI-service choice in
-problem~\eqref{eq:rewrite-service-choice} at efficiency $b$, and let
-$\varepsilon_{B,t}(b)=\partial\ln X_t^*(b)/\partial\ln b$
-denote its elasticity with respect to AI efficiency.
-The maximized Hamiltonian~\eqref{eq:rewrite-maximized-depth-hamiltonian}
-is concave in $R_B$ on $[R_B(B_0),\infty)$ at every date if:
-\begin{enumerate}[label=(\roman*),leftmargin=*,itemsep=0.5em]
-\item For operating profit, the following inequality holds for every
-$t\geq0$ and $b\in[B_0,\overline B)$:
-\begin{equation}
- \psi(b)[\varepsilon_{B,t}(b)-2]\leq\frac{b}{\overline B},
- \label{eq:rewrite-capped-concavity-gate}
-\end{equation}
-\item For the optimized research term, the following inequality holds:
-\begin{equation}
- \frac{B_0}{\overline B}\geq
- \max\left\{0,\frac{2\eta-1}{\eta}\right\}.
- \label{eq:rewrite-depth-research-concavity}
-\end{equation}
-\end{enumerate}
-These conditions therefore imply
-inequality~\eqref{eq:rewrite-hamiltonian-support} in
-Lemma~\ref{lem:rewrite-developer-verification}.
-\end{lemma}
-
-\begin{proof}[Proof of Lemma~\ref{lem:rewrite-hamiltonian-concavity}]
+\Needspace{6\baselineskip}
+\medskip
+\textbf{Part 2. Sufficient conditions for inequality~\eqref{eq:rewrite-hamiltonian-support}.}
 Fix a date $t$ and write $b=B(R_B)$. In
 equation~\eqref{eq:rewrite-maximized-depth-hamiltonian}, the candidate
 values $B_t$ and $M_t$ are held fixed. I show that each of the two terms
@@ -384,14 +373,15 @@ research term is concave throughout the same domain.
 
 Both terms are therefore concave in $R_B$. Their sum, the maximized
 Hamiltonian, lies below its tangent at the candidate state. As shown in
-the proof of Lemma~\ref{lem:rewrite-developer-verification}, this is
+Part~1, this is
 inequality~\eqref{eq:rewrite-hamiltonian-support}.
 \end{proof}
 
 Condition~\eqref{eq:rewrite-depth-research-concavity} holds automatically
 if $\eta\leq1/2$. For any fixed $0<\eta<1$, that condition also holds when
 $B_0$ is sufficiently close to $\overline B$. The two conditions in
-Lemma~\ref{lem:rewrite-hamiltonian-concavity} are sufficient, not necessary,
+\eqref{eq:rewrite-capped-concavity-gate} and
+\eqref{eq:rewrite-depth-research-concavity} are sufficient, not necessary,
 for inequality~\eqref{eq:rewrite-hamiltonian-support}: the inequality can
 hold even when one of the two conditions fails.
 
