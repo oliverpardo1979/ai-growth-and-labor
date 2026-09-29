@@ -57,13 +57,14 @@ Since
 \]
 the share map $\mathcal H_\sigma(s)$ increases from zero to
 $\mathcal H_\sigma(1)=[(1-\alpha)^2\omega_X^{1/\varphi}]^\theta$.
-Thus the equation
+Setting $r=\rho+\gamma$ in \eqref{eq:rewrite-capital-return} and using
+\eqref{eq:rewrite-frontier-share-map} gives the candidate terminal equation:
 \begin{equation}
  \frac{\rho+\gamma+\delta}{\alpha}
  =\overline B^\theta\mathcal H_\sigma(\overline s_X)
  \label{eq:rewrite-terminal-share-root}
 \end{equation}
-has exactly one interior solution if and only if
+This equation has exactly one interior solution if and only if
 $\overline B>\mathcal B(\sigma)$.
 
 If $\sigma>1$, $\mathcal H_\sigma(s)$ decreases strictly with $s$ on $(0,1)$.
@@ -100,7 +101,9 @@ by $AN$, respectively. Construct their candidate limiting values sequentially:
  \label{eq:rewrite-labor-terminal-values}
 \end{align}
 At $\sigma=1$, define $\beta=(1-\alpha)\omega_X$.
-The exact static solution is
+Combining the compute-share identity in
+\eqref{eq:rewrite-frontier-static-shares} with the unit-elasticity limit of
+\eqref{eq:rewrite-output}--\eqref{eq:rewrite-ces} gives
 \[
  y=\left[(\beta^2B)^\beta k^\alpha\right]^{1/(1-\beta)},
  \qquad u=\beta^2y,\qquad x=Bu.
@@ -180,7 +183,9 @@ Substituting \eqref{eq:rewrite-eq-research} and
  \dot\tau&=-(n+\gamma)\tau.
 \end{align}
 \end{subequations}
-Complete the candidate long-run allocation by setting
+At $\tau=0$, the stationarity conditions for $d$ and $\widetilde q$ in
+\eqref{eq:rewrite-labor-proof-dynamics}, together with the research
+relations above, give
 \begin{equation}
  \overline M=
  \left[\frac{(n+\gamma)\overline B^{1-\eta}}{\chi}\right]^{1/\eta},
@@ -203,10 +208,11 @@ to convergence.
 Write $\mu=\eta/(1-\eta)$,
 $r_k=\partial r/\partial\log k$, and
 $a_k=\partial[(y-u)/k]/\partial\log k+\overline c/\overline k$,
-evaluated at the fixed point. In
-$(\log k,\log c,\log d,\log\widetilde q,\tau)$ coordinates the Jacobian has
-two diagonal blocks: one for capital and consumption, and one for the scaled
-efficiency gap and normalized shadow price,
+evaluated at the fixed point. Differentiating
+\eqref{eq:rewrite-labor-proof-dynamics} in
+$(\log k,\log c,\log d,\log\widetilde q,\tau)$ coordinates gives two
+diagonal Jacobian blocks: one for capital and consumption, and one for the
+scaled efficiency gap and normalized shadow price,
 \begin{equation}
  J_R=\begin{pmatrix}
  a_k&-\overline c/\overline k\\ r_k&0
@@ -324,14 +330,15 @@ zero-labor-share limit can be studied at $h=0$.
 Within this construction, $y,x,u$ denote $Y/K,X/K,U/K$, respectively.
 The constant $\overline d$ now denotes the limit of $(\overline B-B)K$,
 not of $(\overline B-B)AN$; no original state or control is redefined.
-Then
+Rewriting the relations used in Step 2 in these coordinates gives
 \[
  B=\overline B-d\tau h^{1/\varphi},\quad
  M=\left[vd\,\chi\eta B^\eta/\overline B\right]^{1/(1-\eta)},\quad
  a=\chi B^\eta M^\eta/\overline B,\quad r=\alpha y-\delta.
 \]
-Capital's growth rate is $g_K=y-c-u-M\tau h^{1/\varphi}-\delta$.
-The exact equations are
+Using \eqref{eq:rewrite-equilibrium-dynamics}, capital's growth rate is
+$g_K=y-c-u-M\tau h^{1/\varphi}-\delta$.
+Differentiating the normalized variables then gives
 \begin{subequations}
 \label{eq:rewrite-ai-proof-dynamics}
 \begin{align}
@@ -361,7 +368,8 @@ The limiting interest and aggregate growth rates are
  \overline g=n+\overline r-\rho>n+\gamma.
  \label{eq:rewrite-substitutes-terminal-growth}
 \end{equation}
-At $h=\tau=0$, the terminal constants are
+At $h=\tau=0$, combining the static limits from Step 1 with the
+stationarity conditions in \eqref{eq:rewrite-ai-proof-dynamics} gives
 \begin{align}
  \overline y&=\frac{\mathcal R(\overline B)+\delta}{\alpha},&
  \overline u&=(1-\alpha)^2\overline y,&
@@ -452,8 +460,9 @@ Household utility is finite because $\log(C/N)$ grows at most linearly and
 $\rho>n$, as imposed in the household problem. Log utility is concave, and the
 household budget is linear at given prices and distributed profits. More explicitly,
 let $\lambda_t=e^{-\rho t}N_t/C_t$, so $\dot\lambda_t=-r_t\lambda_t$ by
-\eqref{eq:rewrite-euler}. Concavity of log utility and equal initial capital
-give, for any admissible alternative $(\widetilde C,\widetilde K)$,
+\eqref{eq:rewrite-euler}. Concavity of log utility, the household budget,
+and integration by parts give, for any admissible alternative
+$(\widetilde C,\widetilde K)$ with the same initial capital,
 \[
  \int_0^T e^{-\rho t}N_t
  \log\frac{\widetilde C_t}{C_t}\,\dd t

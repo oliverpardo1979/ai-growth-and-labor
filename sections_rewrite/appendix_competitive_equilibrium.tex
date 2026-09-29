@@ -29,7 +29,10 @@ infinity. The derivative of net output with respect to $u$ is
 $\partial y/\partial u-1$,
 so there is a unique positive maximizer. Its first-order condition is
 $u=(1-\alpha)s_Xy$. Differentiating this condition with respect to $k$, using
-\eqref{eq:rewrite-inverse-demand-elasticity}, gives
+\eqref{eq:rewrite-inverse-demand-elasticity}, gives the compute elasticity
+below. The envelope theorem applied to
+\eqref{eq:rewrite-competitive-net-production} gives $f'(k)$;
+differentiating $f'(k)$ then gives the curvature of net production:
 \[
  \frac{\dd\log u}{\dd\log k}=\frac{\alpha}{e_X},\qquad
  f'(k)=\alpha\frac{y}{k},\qquad
@@ -63,7 +66,9 @@ condition~\eqref{eq:rewrite-household-tvc} become
  \lim_{t\to\infty}e^{-dt}\frac{k_t}{c_t}=0.
  \label{eq:rewrite-competitive-normalized}
 \end{equation}
-An identity useful for constructing the trajectory is
+Subtracting $\dot k/k$ from $\dot c/c$ in
+\eqref{eq:rewrite-competitive-normalized} and substituting the definition
+of $G$ gives an identity useful for constructing the trajectory:
 \begin{equation}
  \frac{\dd}{\dd t}\log\frac ck
  =\frac ck-d-\frac{f(k)-kf'(k)}k.
@@ -167,7 +172,9 @@ Euler equation. Let $\lambda_t=e^{-dt}/c_t$ be discounted marginal utility
 along a constructed path;
 then $\dot\lambda=-G'(k)\lambda$.
 For any alternative feasible path $(\widetilde k,\widetilde c)$
-with the same $k_0$, concavity gives
+with the same $k_0$, concavity of log utility and $G$, the resource
+constraint in \eqref{eq:rewrite-competitive-normalized}, and integration
+by parts give
 \[
  \int_0^T e^{-dt}(\log\widetilde c-\log c)\dd t
  \leq-\lambda_T(\widetilde k_T-k_T)
@@ -197,7 +204,10 @@ Below the threshold, convergence to $(\bar k,\bar c)$ gives
 $r\to\rho+\gamma$, $g_{Y/N},g_w\to\gamma$, and a positive limiting
 labor share, because optimal $u$ and $s_X$ have finite interior limits.
 At or above the threshold, $k,u\to\infty$ and $s_X\to1$.
-Differentiating the static allocation gives
+Differentiating the production and wage equations
+\eqref{eq:rewrite-output}--\eqref{eq:rewrite-ces} and
+\eqref{eq:rewrite-wage}, using $X=B_0U$ and
+$\dd\log u/\dd\log k=\alpha/e_X$, gives
 \[
  \frac{\dd\log y}{\dd\log k}
  =1-\frac{(1-\alpha)(1-s_X)}{\sigma e_X}\longrightarrow1,

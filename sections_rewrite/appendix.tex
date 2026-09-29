@@ -195,7 +195,7 @@ and using the envelope condition~\eqref{eq:rewrite-profit-envelope} gives
  =\frac{\psi(B_t)}{B_t}(U_t+M_t).
  \label{eq:rewrite-depth-hamiltonian-slope}
 \end{equation}
-Because
+Since equation~\eqref{eq:rewrite-research-depth} implies
 \[
  R_B(b)-R_{B,t}
  =\overline B\log\!\left(\frac{\overline B-B_t}{\overline B-b}\right),
@@ -262,7 +262,9 @@ state gives
 \]
 where the second inequality uses $\mu_T>0$ and $\widetilde R_{B,T}\geq0$.
 To show that this upper bound vanishes, I relate the transformed state
-to the original state used in the developer's transversality condition:
+to the original state used in the developer's transversality condition.
+The inequality $-(1-x)\log(1-x)\leq x$ for $0\leq x<1$, applied to
+$x=B_t/\overline B$, gives
 \[
  \psi(B_t)R_{B,t}
  =-(\overline B-B_t)\log\left(1-\frac{B_t}{\overline B}\right)
@@ -535,7 +537,8 @@ at every date once $B$ is sufficiently large.
 The research trajectories constructed below are deviations in the
 developer's optimization problem, not alternative equilibrium allocations.
 Fix $\Delta\in(0,T)$, choose $M=\mathcal M$ on $[0,\Delta]$, and choose
-$M=0$ afterward. The uncapped RSI technology gives
+$M=0$ afterward. Integrating the uncapped RSI technology
+\eqref{eq:rewrite-uncapped-unit-law} over the research burst gives
 \[
  B_{\mathcal M}(t)^{1-\eta}=B_0^{1-\eta}
  +(1-\eta)\chi\mathcal M^\eta\min\{t,\Delta\}.
@@ -578,8 +581,8 @@ at least $\widehat V_0-\widehat J_T$. The full deviation therefore yields
 \]
 No candidate with finite discounted net profit can be optimal.
 Moreover, every equilibrium must have finite discounted developer profit.
-Indeed, integrating the household budget~\eqref{eq:rewrite-household-budget}
-and using its Euler equation~\eqref{eq:rewrite-euler}
+Indeed, multiplying the household budget~\eqref{eq:rewrite-household-budget}
+by the discount factor and integrating, using the Euler equation~\eqref{eq:rewrite-euler}
 and transversality condition~\eqref{eq:rewrite-household-tvc} gives
 \[
  \int_0^\infty

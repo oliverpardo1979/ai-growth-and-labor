@@ -110,7 +110,9 @@ Indeed,
  -\frac{\mathrm d\log v}{\mathrm d\log x}
  =e_X+\frac{1}{1-e_X}\frac{\mathrm d e_X}{\mathrm d\log x}>\alpha s_X.
 \]
-Consequently $x$ increases with $B$ and $k$, while
+Consequently $x$ increases with $B$ and $k$. Implicit differentiation of
+$k^\alpha v(x)=1/B$ at fixed $B$, followed by log differentiation of
+$y=k^\alpha f(x)$, gives
 \[
  \frac{\partial\log y}{\partial\log k}
  =\alpha+\frac{\alpha(1-\alpha)s_X}
@@ -350,7 +352,9 @@ $g_C\to n+\gamma$.
 
 \textit{Step 6. Output and wage growth converge as well.}
 A convergent level need not have a convergent derivative.
-The bound on $g_M$ from Step 5 and the RSI technology give
+Integrating the uncapped RSI technology for $B^{1-\eta}$ over
+$[t-1,t]$, applying the bound on $M_s$ from Step 5, and dropping
+the positive term $B_{t-1}^{1-\eta}$ gives
 \[
  B_t^{1-\eta}
  \geq(1-\eta)\chi M_t^\eta\int_0^1e^{-\eta H v}\dd v.
