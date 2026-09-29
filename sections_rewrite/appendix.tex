@@ -74,24 +74,10 @@ to \(R'(X)=1/B\) implies that optimal supply is smooth in \(K,A,L,B\)
 for each fixed \(\sigma\).
 \end{proof}
 
-\begin{lemma}[Optimal research expenditure]
-\label{lem:rewrite-developer-verification}
-Suppose $\overline B<\infty$.
-Consider a feasible research trajectory $\{B_t,M_t\}_{t\geq0}$
-for problem~\eqref{eq:rewrite-developer-reduced}, starting from
-$B_0$ and satisfying the RSI technology
-\eqref{eq:rewrite-capability-law}. Assume $M_t>0$ at every date and a
-finite present value of net profit. This trajectory maximizes the
-developer's discounted net profit if:
-\begin{enumerate}[label=(\roman*),leftmargin=*,itemsep=0.5em]
-\item There exists a continuously differentiable shadow-price trajectory
-$\{q_t\}_{t\geq0}$ satisfying the research condition
-\eqref{eq:rewrite-research-foc}, the costate equation
-\eqref{eq:rewrite-costate}, and the transversality condition
-\eqref{eq:rewrite-developer-tvc}.
-\item For every $t\geq0$ and every $b\in[B_0,\overline B)$,
-the following inequality holds. It compares the candidate with all
-alternative efficiencies reachable from $B_0$, not only nearby values:
+The next lemma gives sufficient conditions for a research trajectory to
+maximize discounted net profit. In addition to the first-order and
+transversality conditions, it requires the following inequality for the
+candidate $\{B_t,M_t\}_{t\geq0}$ and alternative AI-efficiency levels $b$:
 \begin{equation}
  \begin{aligned}
  \pi_t(b)-\pi_t(B_t)
@@ -107,30 +93,51 @@ alternative efficiencies reachable from $B_0$, not only nearby values:
  \end{aligned}
  \label{eq:rewrite-hamiltonian-support}
 \end{equation}
-where $\pi_t(b)$ is operating profit as defined in
-equation~\eqref{eq:rewrite-service-choice}.
-\end{enumerate}
-Condition~\eqref{eq:rewrite-hamiltonian-support} requires the maximized
-Hamiltonian, expressed in the transformed efficiency variable used below,
-to lie below its tangent at the candidate state.
+Here $\pi_t(b)$ is optimized operating profit at efficiency $b$, as defined
+in equation~\eqref{eq:rewrite-service-choice}, and $U_t$ is the inference
+compute used at the candidate efficiency $B_t$ after optimizing AI-service
+supply.
+
+\begin{lemma}[Sufficient conditions for optimal research]
+\label{lem:rewrite-developer-verification}
+Suppose $\overline B<\infty$. Consider a feasible research trajectory
+$\{B_t,M_t\}_{t\geq0}$ for problem~\eqref{eq:rewrite-developer-reduced},
+with $M_t>0$ at every date and a finite present value of net profit.
+Suppose there exists a continuously differentiable shadow-price trajectory
+$\{q_t\}_{t\geq0}$ satisfying the research condition
+\eqref{eq:rewrite-research-foc}, the costate equation
+\eqref{eq:rewrite-costate}, and the transversality condition
+\eqref{eq:rewrite-developer-tvc}.
+If inequality~\eqref{eq:rewrite-hamiltonian-support} also holds for every
+$t\geq0$ and $b\in[B_0,\overline B)$, then the research trajectory maximizes
+the developer's discounted net profit.
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-developer-verification}]
-Feasible research expenditure is nonnegative and integrable on every finite
-interval, with a locally absolutely continuous state satisfying the RSI
-technology almost everywhere. Integrating that technology gives
+I compare the candidate with any feasible research trajectory starting
+from the same $B_0$. The key step is to bound the alternative's gain in
+discounted net profit by a terminal term that vanishes under the
+candidate's transversality condition.
+
+\emph{1. Transforming AI efficiency.}
+I use a change of variable to remove $\psi(B)$ from the RSI technology.
+For this transformation to apply to every feasible trajectory, AI
+efficiency must remain below $\overline B$ at every finite date.
+Feasibility requires nonnegative, locally integrable research expenditure
+and a locally absolutely continuous state satisfying
+equation~\eqref{eq:rewrite-capability-law} almost everywhere. Integrating
+the RSI technology gives
 \begin{equation}
  \overline B-B_t=(\overline B-B_0)
  \exp\left\{-\frac{\chi}{\overline B}
  \int_0^t(B_sM_s)^\eta\dd s\right\}>0.
  \label{eq:rewrite-cap-gap}
 \end{equation}
-Local integrability of $M$ and $0<\eta<1$ make the exponent finite at
-every finite date. Thus every feasible trajectory remains in
-$[B_0,\overline B)$, where the following transformation is well defined.
+Continuity of $B$, local integrability of $M$, and $0<\eta<1$ make the
+exponent finite at every finite date. Thus every feasible trajectory
+remains in $[B_0,\overline B)$.
 
-To express condition~\eqref{eq:rewrite-hamiltonian-support} as a
-supporting-tangent inequality, I transform AI efficiency. Define
+Define the transformed efficiency variable and its inverse by
 \begin{equation}
  R_B(B)=-\overline B\log\left(1-\frac{B}{\overline B}\right),
  \qquad
@@ -147,8 +154,12 @@ the factor $\psi(B)$ from the RSI technology~\eqref{eq:rewrite-capability-law}:
 \end{equation}
 The corresponding current-value shadow price is $q_{R,t}=q_t\psi(B_t)$,
 which is positive by the research condition~\eqref{eq:rewrite-research-foc}.
-At each date $t$, hold $q_{R,t}$ at its value along the candidate trajectory
-and define the maximized Hamiltonian for an alternative state $\widetilde R_B$:
+
+\emph{2. Comparing Hamiltonians.}
+To compare the candidate with alternative trajectories, I maximize the
+Hamiltonian over research expenditure at each alternative transformed
+efficiency $\widetilde R_B$. Throughout this comparison, the shadow price
+$q_{R,t}$ is held at its value along the candidate trajectory:
 \[
  \widehat{\mathcal H}_t(\widetilde R_B)
  \equiv\max_{\widetilde M\geq0}
@@ -183,19 +194,20 @@ Because
  R_B(b)-R_{B,t}
  =\overline B\log\!\left(\frac{\overline B-B_t}{\overline B-b}\right),
 \]
-condition~\eqref{eq:rewrite-hamiltonian-support} is equivalent to the
-following inequality for every $\widetilde R_B\geq R_{B,0}$:
+setting $b=B(\widetilde R_B)$ makes
+condition~\eqref{eq:rewrite-hamiltonian-support} equivalent to
 \[
  \widehat{\mathcal H}_t(\widetilde R_B)
  \leq\widehat{\mathcal H}_t(R_{B,t})
  +\widehat{\mathcal H}'_t(R_{B,t})
  (\widetilde R_B-R_{B,t}).
 \]
+This inequality holds for every $\widetilde R_B\geq R_{B,0}$: the
+maximized Hamiltonian lies below its tangent at the candidate state.
 
-To compare discounted profits, I use the costate equation to bound the
-alternative's discounted profit gain at each date by a total derivative.
-Integrating this bound will leave only the shadow value of the difference
-between the terminal states.
+\emph{3. Comparing discounted net profits.}
+I now combine the Hamiltonian inequality with the costate equation and
+the transversality condition.
 Let $D_t=\exp(-\int_0^t r_s\dd s)$ be the discount factor and
 $\mu_t=D_tq_{R,t}$ the present-value shadow price of the transformed state $R_B$.
 The research condition~\eqref{eq:rewrite-research-foc} and the RSI
@@ -214,9 +226,10 @@ Let
 \[
  J_T=\int_0^T D_t[\pi_t(B_t)-M_t]\dd t
 \]
-denote discounted net profit through date $T$ under the candidate, and define
-$\widetilde J_T$ analogously for the alternative.
-At each date, the alternative's Hamiltonian cannot exceed
+denote discounted net profit through date $T$ under the candidate, and let
+$\widetilde J_T$ denote the corresponding value under the alternative.
+Evaluated at the candidate's shadow price $q_{R,t}$, the alternative's
+Hamiltonian cannot exceed
 $\widehat{\mathcal H}_t(\widetilde R_{B,t})$, whereas the candidate attains
 $\widehat{\mathcal H}_t(R_{B,t})$. Applying
 condition~\eqref{eq:rewrite-hamiltonian-support} and the transformed costate
@@ -242,13 +255,14 @@ state gives
  \leq\mu_TR_{B,T},
 \]
 where the second inequality uses $\mu_T>0$ and $\widetilde R_{B,T}\geq0$.
-Since
+To show that this upper bound vanishes, I relate the transformed state
+to the original state used in the developer's transversality condition:
 \[
  \psi(B_t)R_{B,t}
  =-(\overline B-B_t)\log\left(1-\frac{B_t}{\overline B}\right)
- \leq B_t,
+ \leq B_t.
 \]
-the developer's transversality condition~\eqref{eq:rewrite-developer-tvc} gives
+The transversality condition~\eqref{eq:rewrite-developer-tvc} therefore gives
 \[
  0\leq\mu_TR_{B,T}
  =D_Tq_T\psi(B_T)R_{B,T}
@@ -260,7 +274,7 @@ The candidate's present value of net profit is finite by assumption. Hence
  \leq\lim_{T\to\infty}J_T<\infty,
 \]
 so no feasible alternative yields a higher present value of net profit.
-Global concavity is sufficient for
+Concavity of $\widehat{\mathcal H}_t$ in $R_B$ is sufficient for
 condition~\eqref{eq:rewrite-hamiltonian-support}, but is not required.
 \end{proof}
 
