@@ -2,8 +2,8 @@
 \begin{proof}[Proof of Proposition~\ref{prop:rewrite-uncapped-complements-bounds}]
 \phantomsection
 \label{proof:rewrite-uncapped-complements-bounds}
-Removing the positive AI term inside the CES aggregator raises its
-value because the outer exponent $\sigma/(\sigma-1)$ is negative.
+Dropping the positive AI term from the CES sum gives an upper bound for
+$Z$, because the outer exponent $\sigma/(\sigma-1)$ is negative.
 This gives the production bounds in
 \eqref{eq:rewrite-uncapped-complements-z-bound}
 and~\eqref{eq:rewrite-uncapped-complements-y-bound}.
@@ -17,7 +17,7 @@ and $L=N$ imply
  \label{eq:rewrite-uncapped-complements-k-bound}
 \end{equation}
 Since $\delta+n+\gamma>0$ and $0<\alpha<1$, the right-hand side is
-negative above a finite positive level. In particular,
+negative whenever $k$ exceeds a finite positive level. In particular,
 \[
  k_t\leq
  \max\left\{k_0,
@@ -102,7 +102,7 @@ The monopoly condition can be written
  k^\alpha v(x)=1/B,\qquad
  v(x)=\frac{(1-\alpha)s_Xf(x)(1-e_X)}x.
 \]
-On $(0,x_\infty)$, $v$ is strictly decreasing, from infinity to zero.
+On $(0,x_\infty)$, $v(x)$ decreases strictly with $x$, from infinity to zero.
 Indeed,
 \[
  \frac{\mathrm d e_X}{\mathrm d\log x}
@@ -121,8 +121,9 @@ For $k$ in any compact interval bounded away from zero, as $B\to\infty$,
 \[
  x\to x_\infty,\qquad y\to f_\infty k^\alpha,\qquad u\to0
 \]
-uniformly. These are properties of the monopoly allocation at given $k,B$,
-not assumptions about the equilibrium path. They also imply that, for any
+uniformly. These limits concern the monopoly allocation at given $k,B$,
+not the equilibrium path. Together with the monotonicity of $y/k$, they
+imply that, for any
 prescribed finite return, sufficiently small $k$ and sufficiently large $B$
 make $r$ exceed that return, uniformly over those small values of $k$.
 
@@ -200,16 +201,17 @@ intervals and then using the developer TVC~\eqref{eq:rewrite-developer-tvc} give
  \leq\frac{x_\infty J}{B_t}A_tL_t.
  \label{eq:rewrite-complements-research-pv-bound}
 \end{equation}
-The right side is finite by~\eqref{eq:rewrite-complements-effective-labor-pv-bound};
-nonnegativity then ensures that the research integral is finite as well.
-Its value divided by $A_tL_t$ tends to zero. This argument requires
+The upper bound is finite by~\eqref{eq:rewrite-complements-effective-labor-pv-bound}.
+Since $q_tB_t\geq0$, the discounted research integral is finite as well.
+That integral, divided by $A_tL_t$, tends to zero because $B_t\to\infty$.
+This argument requires
 $0<\eta<1$, but neither $\eta\leq1/2$ nor $\eta<\alpha$.
 
 \textit{Step 4. Capital per unit of effective labor stays away from zero.}
-At sufficiently low capital, the high return makes consumption grow.
-Its upper bound therefore limits how long capital can remain low. I
-also need to rule out repeated returns to low capital at increasingly
-late dates.
+At sufficiently late dates, a low $k$ makes the return high enough for
+$c$ to grow. The upper bound $c_{\max}$ therefore limits how long $k$ can
+remain low. I also need to rule out repeated returns to low $k$ at
+increasingly late dates.
 Let $F(k)=f_\infty k^\alpha-\nu k$.
 Choose $\varepsilon>0$ small enough that $F$ is positive and increasing on
 $(0,\varepsilon]$. Step 1 also permits a sufficiently late date and
@@ -218,8 +220,8 @@ For any $j\leq\varepsilon$, the equilibrium path cannot enter
 $\{k\leq j,\ c\geq F(j)\}$: there $\dot k\leq F(k)-c\leq0$,
 whereas $c$ continues to grow at least at rate $a$, contradicting its upper bound.
 
-If $k$ stayed below $\varepsilon$ forever, consumption would likewise
-exceed its upper bound. Hence the path eventually reaches $\varepsilon$.
+If $k$ stayed below $\varepsilon$ forever, $c$ would likewise exceed
+$c_{\max}$. Hence $k$ eventually reaches $\varepsilon$.
 Suppose arbitrarily late crossings from $\varepsilon$ to $\varepsilon/2$
 were possible. Let $t_0$ be the last crossing of $\varepsilon$ before the
 first subsequent crossing $t_1$ of $\varepsilon/2$.
@@ -257,8 +259,9 @@ and so is $c\geq dk$. In particular, $r$ is now bounded above.
 
 \textit{Step 5. Research per unit of effective labor vanishes and Ramsey dynamics determine the limit.}
 The discounted-spending bound from Step 3 does not by itself imply
-$m_t\to0$: expenditure could remain large over increasingly short intervals.
-The following bound on its growth rules out that possibility.
+$m_t\to0$: $m$ could remain large over increasingly short intervals.
+The following bound on the growth rate of aggregate research expenditure
+$M$ rules out that possibility.
 Differentiating the research condition and using the costate equation gives
 \begin{equation}
  (1-\eta)g_M
@@ -293,7 +296,8 @@ This limiting system has one positive stationary point,
  \left[\frac{\alpha f_\infty}{\rho+\gamma+\delta}\right]^{1/(1-\alpha)},
  \qquad c_\infty=F(k_\infty)>0.
 \]
-Its Jacobian has negative determinant, so it is a saddle.
+The Jacobian at $(k_\infty,c_\infty)$ has negative determinant, so the
+stationary point is a saddle.
 The standard Ramsey phase portrait is discussed by \citet{groth2013ramsey}.
 
 To connect this stationary point to the original equilibrium path, I
@@ -335,13 +339,14 @@ It follows that $y\to y_\infty=f_\infty k_\infty^\alpha>0$ and
  \frac CY\to1-\frac{\alpha(\delta+n+\gamma)}{\rho+\gamma+\delta}>0.
  \label{eq:rewrite-complements-euler-limit}
 \end{equation}
-Positivity follows because the numerator of the final expression is
+The limit of $C/Y$ is positive because the numerator of its expression is
 $\rho-n+(1-\alpha)(\delta+n+\gamma)>0$.
 This proves~\eqref{eq:rewrite-uncapped-complements-allocation-ratios}.
 Since $u,m\to0$ and $y\to y_\infty>0$, it follows that
 $U/Y=u/y\to0$ and $M/Y=m/y\to0$, proving
 \eqref{eq:rewrite-uncapped-complements-compute-shares}.
-It also gives $\dot k\to0$ and $g_C\to n+\gamma$.
+The resource constraint and Euler equation then give $\dot k\to0$ and
+$g_C\to n+\gamma$.
 
 \textit{Step 6. Output and wage growth converge as well.}
 A convergent level need not have a convergent derivative.

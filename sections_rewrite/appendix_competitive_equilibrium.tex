@@ -23,11 +23,12 @@ effective labor by
  \sigma(1-\alpha)/(\sigma-1)}-u\right\}.
  \label{eq:rewrite-competitive-net-production}
 \end{equation}
-For $k>0$, the marginal product of compute, $\partial y/\partial u$,
+At each fixed $k>0$, the marginal product of compute, $\partial y/\partial u$,
 decreases strictly from infinity to zero as $u$ rises from zero to
-infinity. The derivative of net output is $\partial y/\partial u-1$,
+infinity. The derivative of net output with respect to $u$ is
+$\partial y/\partial u-1$,
 so there is a unique positive maximizer. Its first-order condition is
-$u=(1-\alpha)s_Xy$. Differentiating this condition, using
+$u=(1-\alpha)s_Xy$. Differentiating this condition with respect to $k$, using
 \eqref{eq:rewrite-inverse-demand-elasticity}, gives
 \[
  \frac{\dd\log u}{\dd\log k}=\frac{\alpha}{e_X},\qquad
@@ -48,7 +49,7 @@ $Z/X\to\omega_X^{\sigma/(\sigma-1)}$. It follows that
  f(k)-kf'(k)=(1-\alpha)(1-s_X)y>0.
  \label{eq:rewrite-competitive-net-limits}
 \end{equation}
-This also derives equation~\eqref{eq:rewrite-marginal-cost-return}.
+The limit of $f'(k)$ also yields equation~\eqref{eq:rewrite-marginal-cost-return}.
 
 Set $d=\rho-n>0$ and $G(k)=f(k)-(\delta+n+\gamma)k$.
 The household's objective, up to a positive factor and an additive
@@ -77,7 +78,8 @@ level is $\bar c=G(\bar k)>d\bar k>0$, by
 \[
  \begin{pmatrix}d&-1\\ \bar c f''(\bar k)&0\end{pmatrix},
 \]
-whose determinant is negative. Its stable curve has positive slope,
+whose determinant is negative. The stable curve through $(\bar k,\bar c)$
+has positive slope,
 with $\dot k,\dot c>0$ on its left branch and
 $\dot k,\dot c<0$ on its right branch.
 
@@ -88,7 +90,7 @@ $dk<c<G(k)$; on the right, $c>\max\{dk,G(k)\}$.
 To verify these restrictions, at $c=dk$ equation
 \eqref{eq:rewrite-competitive-consumption-ratio} points toward
 $c/k<d$, from which the path cannot return to $\bar c/\bar k>d$.
-At $c=G(k)$, the derivative of $\dot k=G(k)-c$ is
+At $c=G(k)$, the time derivative of $\dot k=G(k)-c$ is
 $-\dot c$. Below $\bar k$, crossing this curve makes capital decrease
 while consumption increases, precluding convergence to $\bar k$.
 Above $\bar k$, it makes capital increase while consumption decreases,
@@ -142,11 +144,11 @@ Moreover, $d<c/k<G(k)/k$, and the upper bound satisfies
  \frac{G(k)}k\longrightarrow\mathcal R^{\mathrm{mc}}(B_0)-n-\gamma.
 \]
 If $\mathcal R^{\mathrm{mc}}(B_0)=\rho+\gamma$, these bounds imply
-$c/k\to d$. If the inequality is strict, the same limit follows
+$c/k\to d$. If $\mathcal R^{\mathrm{mc}}(B_0)>\rho+\gamma$, the same limit follows
 from \eqref{eq:rewrite-competitive-consumption-ratio}:
 $(f-kf')/k\to0$, and any persistent excess of $c/k$ over $d$
-would make the ratio increase until it violated its bounded upper
-limit. More precisely, for any $\varepsilon>0$ and sufficiently large
+would make $c/k$ increase until it exceeded its upper bound $G(k)/k$.
+More precisely, for any $\varepsilon>0$ and sufficiently large
 $t$, reaching $c/k\geq d+\varepsilon$ implies
 $\dd\log(c/k)/\dd t\geq\varepsilon/2$ thereafter until that
 contradiction occurs. Thus
@@ -156,8 +158,8 @@ contradiction occurs. Thus
  \label{eq:rewrite-competitive-capital-growth}
 \end{equation}
 The transversality condition holds because $c/k>d$.
-At equality, capital per effective worker diverges but its growth rate
-tends to zero.
+At $\mathcal R^{\mathrm{mc}}(B_0)=\rho+\gamma$, capital per effective
+worker diverges but its growth rate tends to zero.
 
 \emph{Optimality, uniqueness, and decentralization.}
 The preceding constructions satisfy global optimality, not only the
@@ -171,9 +173,9 @@ with the same $k_0$, concavity gives
  \leq-\lambda_T(\widetilde k_T-k_T)
  \leq\lambda_T k_T\longrightarrow0.
 \]
-The constructed path has finite utility: in the first case $c$ converges
-to a positive constant; in the other cases it is positive, increasing,
-and at most exponentially growing. Thus the inequality verifies
+The constructed path has finite utility: below the efficiency threshold,
+$c$ converges to a positive constant; at or above the threshold, $c$ is
+positive, increasing, and at most exponentially growing. Thus the inequality verifies
 optimality in the fixed-$B_0$ allocation problem. Strict concavity of
 log utility and concavity of the resource constraint imply uniqueness
 of consumption; the state equation then gives uniqueness of capital.
@@ -185,8 +187,8 @@ determines $U=(AL)u$. This compute use, the factor prices in
 \eqref{eq:rewrite-capital-return} and \eqref{eq:rewrite-wage}, and
 $p_X=1/B_0$ decentralize this allocation.
 In particular, $wN=(AL)[f(k)-kf'(k)]$, so the household budget coincides
-with the resource constraint. Its Euler and transversality conditions
-verify its optimum at these prices. Strict concavity also implies that
+with the resource constraint. The household's Euler and transversality
+conditions verify household optimality at these prices. Strict concavity also implies that
 any other competitive equilibrium would solve the same fixed-technology
 allocation problem and hence have the same aggregate allocation.
 

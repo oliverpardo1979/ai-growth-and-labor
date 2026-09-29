@@ -31,7 +31,7 @@ Define
  \Delta\equiv(1-\alpha)(1-\eta-\omega_X)>0.
  \label{eq:rewrite-uncapped-unit-feedback}
 \end{equation}
-Their unique solution has
+The unique solution to the two growth restrictions has
 \begin{equation}
  g_Y^*=\frac{(1-\eta)(1-\omega_X)}{1-\eta-\omega_X}(n+\gamma),
  \label{eq:rewrite-uncapped-unit-output-growth}
@@ -92,8 +92,8 @@ For given $A_0,N_0>0$, choose the reference initial stocks as
  \qquad K_0^*=k^*Y_0^*.
  \label{eq:rewrite-uncapped-unit-initial-y-k}
 \end{align}
-The exponent is positive. These choices solve simultaneously the initial
-production equation and
+The outer exponent in the expression for $B_0^*$ is positive. These
+choices solve simultaneously the initial production equation and
 $g_B^*B_0^*=\chi(B_0^*m^*Y_0^*)^\eta$.
 Set $U_0^*=u^*Y_0^*$, $M_0^*=m^*Y_0^*$, $C_0^*=c^*Y_0^*$,
 $X_0^*=B_0^*U_0^*$, and
@@ -164,8 +164,9 @@ has constant returns in $S$ and $M$:
  \dot S=\nu\chi S^{1-\eta}M^\eta,
 \]
 which is jointly concave in $S,M$ for every $0<\eta<1$.
-At given $K,A,L$, equation~\eqref{eq:rewrite-uncapped-unit-profit} is a
-positive time-dependent coefficient times
+At given $K,A,L$, operating profit in
+equation~\eqref{eq:rewrite-uncapped-unit-profit} is a positive
+time-dependent coefficient times
 \[
  S^{\frac{(1-\alpha)\omega_X}
  {\nu[1-(1-\alpha)\omega_X]}}.
@@ -173,10 +174,10 @@ positive time-dependent coefficient times
 Since $\eta+\omega_X<1$ implies $(1-\alpha)\omega_X<1-\eta$, this
 exponent lies strictly between zero and one. Operating profit is therefore
 concave in $S$. With $p>0$, the transformed Hamiltonian
-$\pi_t(S^{1/\nu})-M+p_t\nu\chi S^{1-\eta}M^\eta$ is jointly concave.
+$\pi_t(S^{1/\nu})-M+p_t\nu\chi S^{1-\eta}M^\eta$ is jointly concave in $S,M$.
 The research condition~\eqref{eq:rewrite-research-foc} and costate
-equation~\eqref{eq:rewrite-costate}, with $\psi=1$, give its control
-first-order condition and costate equation by the chain rule.
+equation~\eqref{eq:rewrite-costate}, with $\psi=1$, give the transformed
+problem's control first-order condition and costate equation by the chain rule.
 
 Write $D_t=\exp(-\int_0^t r_s\dd s)$ and
 $J_T=\int_0^T D_t[\pi_t(B_t)-M_t]\dd t$.
@@ -262,7 +263,8 @@ define
  {[1-(1-\alpha)\omega_X](1-\eta)},\\
  d&=\rho-n,&P&=r^*+\delta,&h&=\rho-n+\eta g_Y^*.
 \end{align*}
-All six quantities are positive, and the restriction $\eta+\omega_X<1$ gives
+The quantities $\nu,a_K,a_T,d,P,h$ are positive, and the restriction
+$\eta+\omega_X<1$ gives
 \begin{equation}
  1-a_K-a_T
  =\frac{(1-\alpha)(1-\eta-\omega_X)}
@@ -284,7 +286,7 @@ the research condition give
 \]
 Differentiating the capital, transformed research, Euler, and transformed
 costate equations at the BGP, using
-$U/(qB)=\rho-n+\eta g_Y^*$, gives the similar matrix
+$U/(qB)=\rho-n+\eta g_Y^*$, gives a matrix similar to $J^*$:
 \begin{equation}
  \widehat J=
  \begin{pmatrix}
@@ -336,8 +338,8 @@ evaluate the polynomial at zero:
  p(0)=\mathsf D\mathsf C hP(1-a_K-a_T)>0.
 \]
 Let $\mu=(d-\sqrt{d^2+4\mathsf D\mathsf F})/2<0$, the negative
-root of the second quadratic factor. At this point the first product
-in the polynomial vanishes, leaving
+root of $\ell^2-d\ell-\mathsf D\mathsf F$. At $\ell=\mu$, the product
+of the two quadratic factors in $p(\ell)$ vanishes, leaving
 $p(\mu)=-\mathsf D\mathsf E(\mathsf Q-\mathsf L\mu)<0$.
 Since $p(\ell)\to+\infty$ as $\ell\to-\infty$, there is one
 negative root below $\mu$ and another between $\mu$ and zero.
@@ -359,8 +361,8 @@ be selected for every nearby pair of initial stocks. I establish this by
 showing that the stock components of the stable eigenvectors are linearly
 independent. Write a stable eigenvector in transformed coordinates as
 $(x,y,z,u)'$.
-Its second component cannot be zero:
-the second, fourth, and first rows would successively imply $u=x=z=0$.
+The component $y$ cannot be zero: the second, fourth, and first rows
+of the eigenvalue equation for $\widehat J$ would successively imply $u=x=z=0$.
 Normalize $y=1$. The second and fourth rows then give
 \[
  x(\ell)=\frac{\mathsf D\mathsf F+d\ell-\ell^2}{\mathsf D\mathsf E}.
@@ -419,8 +421,8 @@ From each such initial condition, the construction converges to the BGP
 associated with its own $A_0,N_0$, not necessarily to the same levels as
 the original reference path.
 
-Since $f(\xi(t))\to0$, growth rates converge to their BGP values, not only
-normalized levels. The static equations give the same convergence for
+Since $f(\xi(t))\to0$, the growth rates of $K,B,C,q$ converge to their
+BGP values, not only normalized levels. The static equations give the same convergence for
 the interest rate, wage growth, and allocation ratios. The unit-elastic
 labor income share remains $(1-\alpha)\omega_L$ at every date.
 

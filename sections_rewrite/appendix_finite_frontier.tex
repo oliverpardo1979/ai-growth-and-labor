@@ -48,14 +48,14 @@ If $0<\sigma<1$, positive marginal revenue requires
 \[
  s>s_{\min}\equiv\frac{1-\sigma}{1-\alpha\sigma}.
 \]
-On $(s_{\min},1)$, both $m(s)$ and $s^{-1/(\sigma-1)}$ increase strictly.
+On $(s_{\min},1)$, both $m(s)$ and $s^{-1/(\sigma-1)}$ increase strictly with $s$.
 Since
 \[
  \mathcal H_\sigma(s)^{1/\theta}
  =(1-\alpha)\omega_X^{1/\varphi}
  m(s)s^{-1/(\sigma-1)},
 \]
-the share map increases from zero to
+the share map $\mathcal H_\sigma(s)$ increases from zero to
 $\mathcal H_\sigma(1)=[(1-\alpha)^2\omega_X^{1/\varphi}]^\theta$.
 Thus the equation
 \begin{equation}
@@ -66,10 +66,11 @@ Thus the equation
 has exactly one interior solution if and only if
 $\overline B>\mathcal B(\sigma)$.
 
-If $\sigma>1$, the share map decreases strictly on $(0,1)$.
+If $\sigma>1$, $\mathcal H_\sigma(s)$ decreases strictly with $s$ on $(0,1)$.
 To verify the sign, put $a=\sigma^{-1}-\alpha$, so $m(s)=\varphi+as$.
-Its logarithmic derivative has the sign of $a(\sigma-2)s-\varphi$.
-If $a(\sigma-2)\leq0$ this is negative. If $\sigma>2$ and $a>0$,
+The logarithmic derivative of $\mathcal H_\sigma(s)$ with respect to $s$
+has the sign of $a(\sigma-2)s-\varphi$.
+If $a(\sigma-2)\leq0$, then $a(\sigma-2)s-\varphi<0$. If $\sigma>2$ and $a>0$,
 $a(\sigma-2)<(\sigma-2)/\sigma<\varphi$; if $1<\sigma<2$ and $a<0$,
 $a(\sigma-2)<(1-\sigma^{-1})(2-\sigma)<\varphi$.
 The map therefore decreases from infinity to $\mathcal H_\sigma(1)$.
@@ -145,7 +146,7 @@ effective labor:
  \label{eq:rewrite-labor-proof-coordinates}
 \end{equation}
 Dividing by $AN$ removes effective-labor growth. Multiplying the shrinking
-gap by $AN$ allows it to converge to a positive value:
+gap by $AN$ allows the scaled gap $d$ to converge to a positive value:
 $\dot d/d=n+\gamma-\dot B/(\overline B-B)$.
 The variable $d$ measures the scaled gap, not its rate of closure.
 The constants $\overline k,\overline d$ are the limiting values of $k,d$;
@@ -237,11 +238,11 @@ Moreover,
        \left(\alpha-\frac1\sigma\right)
        \left(1-\frac1\sigma\right)s_X\right\}>0.
 \]
-The sign is immediate when $1/\sigma\geq1$ or $1/\sigma\leq\alpha$.
-For $\alpha<1/\sigma<1$, the braces are linear in $s_X$, with positive
-endpoint values $(1/\sigma)(1-1/\sigma)$ and
-$1/\sigma^2+\alpha(1-2/\sigma)$.
-The latter is positive if $1/\sigma\leq1/2$; otherwise $\alpha<1/\sigma$
+The expression in braces is positive when $1/\sigma\geq1$ or $1/\sigma\leq\alpha$.
+For $\alpha<1/\sigma<1$, the expression is linear in $s_X$, with positive
+values $(1/\sigma)(1-1/\sigma)$ at $s_X=0$ and
+$1/\sigma^2+\alpha(1-2/\sigma)$ at $s_X=1$.
+The value at $s_X=1$ is positive if $1/\sigma\leq1/2$; otherwise $\alpha<1/\sigma$
 implies it exceeds $(1/\sigma)(1-1/\sigma)>0$.
 Thus $r_k<0$ in every interior-share case.
 
@@ -294,7 +295,8 @@ Reconstruction gives the original initial stocks, the equilibrium equations,
 and the limiting rates in
 \eqref{eq:rewrite-complements-terminal}--\eqref{eq:rewrite-substitutes-labor-terminal}.
 Indeed, the normalized vector field tends to zero at its fixed point, so
-the time derivatives of its smooth static ratios tend to zero as well.
+the time derivatives of the smooth ratios determined by the static
+solution tend to zero as well.
 This step, not convergence of ratios alone, establishes convergence of
 the growth rates.
 Optimality and transversality are verified below.
@@ -343,7 +345,7 @@ The exact equations are
 The CES term divided by capital is
 $[\omega_Lh+\omega_Xx^\varphi]^{1/\varphi}$.
 At $h=0$ the monopoly equation has the strictly positive curvature
-$D(1)=\alpha(1-\alpha)$. Its implicit static solution is therefore smooth
+$D(1)=\alpha(1-\alpha)$. The static monopoly solution is therefore smooth
 in $(h,B)$ near $(0,\overline B)$. To apply the stable-manifold theorem at
 $h=0$, I extend the vector field to an open neighborhood of this boundary.
 For the remaining terms, replacing
@@ -405,7 +407,7 @@ $\mathcal U_A$ of $(0,\overline d,0)$ such that the initial-state condition is
        (\overline B-B_0)K_0,\; \frac{1}{A_0N_0}\right]\in\mathcal U_A.
  \label{eq:rewrite-ai-local-initial}
 \end{equation}
-It constructs a convergent trajectory for every admissible initial state
+The graph determines a convergent trajectory for every admissible initial state
 in this neighborhood, with a unique nearby convergent choice
 of $C_0,q_0$ and positive quantities at every finite date.
 
@@ -443,7 +445,8 @@ have limiting logarithmic growth
  -r+g_q+g_B\to\overline g-\overline r=n-\rho<0.
  \label{eq:rewrite-finite-existence-tvcs}
 \end{equation}
-They therefore converge to zero, rather than merely remaining bounded.
+Both transversality expressions therefore converge to zero, rather than
+merely remaining bounded.
 
 Household utility is finite because $\log(C/N)$ grows at most linearly and
 $\rho>n$, as imposed in the household problem. Log utility is concave, and the
@@ -484,7 +487,7 @@ neighborhood of $\overline k>0$. Smoothness of the static monopoly solution
 bounds $\varepsilon_{B,t}(b)$ uniformly for these states and for AI-efficiency levels near
 $\overline B$. In the AI-dominated construction, $h$ stays near zero, and
 the same uniform bound follows from the smooth static limit
-$\varepsilon_{B,t}(b)\to1/\alpha$. Thus in either case there is a finite constant
+$\varepsilon_{B,t}(b)\to1/\alpha$ as $h\to0$. Thus in either case there is a finite constant
 $E$ with $\varepsilon_{B,t}(b)-2\leq E$ throughout that state domain.
 This bound is chosen before shrinking the initial-state neighborhood.
 Because $\mu=\eta/(1-\eta)$ is finite for each $0<\eta<1$, choose
@@ -570,14 +573,15 @@ is $\overline g_w(\sigma)=\gamma+[H(\sigma)-D]/\sigma$, so
  \overline g_w'(\sigma)
  =\frac{D-H(\sigma)\left[1-\kappa\sigma/(\sigma-1)^2\right]}{\sigma^2}.
 \]
-The bracketed factor increases strictly from $-\infty$ to $1$ as
+The factor $1-\kappa\sigma/(\sigma-1)^2$ increases strictly from $-\infty$ to $1$ as
 $\sigma$ increases from $1$ to infinity. While this factor is nonpositive,
-$\overline g_w'(\sigma)>0$. Once it is positive, its product with
-$H(\sigma)$ increases strictly from zero to $H_\infty>D$. The product
+$\overline g_w'(\sigma)>0$. Once this factor is positive,
+$H(\sigma)[1-\kappa\sigma/(\sigma-1)^2]$ increases strictly with $\sigma$
+from zero to $H_\infty>D$. The product
 therefore equals $D$ at exactly one finite $\sigma^\star>1$.
 At that point the factor is less than one, so $H(\sigma^\star)>D$:
 the critical point lies inside the AI-dominated domain.
-Limiting wage growth increases below $\sigma^\star$ and decreases above it
+Limiting wage growth increases with $\sigma$ below $\sigma^\star$ and decreases above it
 within that domain. Hence $\sigma^\star$ is its unique maximizer.
 All other regimes characterized in
 Proposition~\ref{prop:rewrite-equilibrium-regimes} have long-run wage growth

@@ -17,21 +17,25 @@ $K,A,L,$ and $B$, for each fixed $\sigma$.
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-monopoly-choice}]
 Fix \(K,A,L,B>0\) and let \(R(X)=p_X(X)X\) denote AI-service revenue.
+To establish uniqueness, I first show that marginal revenue falls as
+AI-service supply increases wherever \(R'(X)>0\).
 The inverse-demand elasticity in \eqref{eq:rewrite-inverse-demand-elasticity}
 and differentiation of \eqref{eq:rewrite-sx} give
 \[
  R'(X)=p_X(X)(1-e_X),\qquad
  \frac{\dd s_X}{\dd\ln X}=\left(1-\frac1\sigma\right)s_X(1-s_X).
 \]
-Wherever marginal revenue is positive, direct differentiation gives
+For supply levels with \(R'(X)>0\), differentiation with respect to \(X\) gives
 \begin{equation}
  -\frac{XR''(X)}{p_X(X)}
  =e_X(1-e_X)+\left(\alpha-\frac1\sigma\right)
  \left(1-\frac1\sigma\right)s_X(1-s_X).
  \label{eq:rewrite-monopoly-proof-curvature}
 \end{equation}
-If \((\alpha-1/\sigma)(1-1/\sigma)\geq0\), the right-hand side is positive.
-If this product is negative, the parameter restrictions imply
+Since \(R'(X)>0\) implies \(0<e_X<1\), the term \(e_X(1-e_X)\) is positive.
+If \((\alpha-1/\sigma)(1-1/\sigma)\geq0\), the remaining term is nonnegative,
+so the right-hand side is positive.
+If \((\alpha-1/\sigma)(1-1/\sigma)<0\), the parameter restrictions imply
 \(0<\alpha<1/\sigma<1\), and
 \[
  \begin{aligned}
@@ -41,23 +45,27 @@ If this product is negative, the parameter restrictions imply
  +\alpha(1-\alpha)s_X^2.
  \end{aligned}
 \]
-The middle coefficient is positive because
+The coefficient of \(s_X(1-s_X)\) is positive because
 \[
  \frac1{\sigma^2}+2\alpha-\frac{3\alpha}{\sigma}
  =\left(\frac1\sigma-\alpha\right)^2
  +\alpha\left(2-\frac1\sigma-\alpha\right)>0.
 \]
-Thus marginal revenue decreases strictly whenever it is positive.
+Thus, wherever \(R'(X)>0\), marginal revenue decreases strictly as
+AI-service supply \(X\) increases: \(R''(X)<0\).
 
 As \(X\downarrow0\), revenue is asymptotically proportional to \(X^{1-1/\sigma}\) when
 \(\sigma>1\), to \(X^{(1-\alpha)\omega_X}\) when \(\sigma=1\), and to
 \(X^{1-\alpha}\) when \(\sigma<1\). Every exponent lies between zero and
 one, so \(R'(X)\to\infty\). As \(X\to\infty\), marginal revenue converges to
-zero from above if \(\sigma\geq1\); if \(\sigma<1\), it eventually
-becomes negative. Hence \(R'(X)=1/B\) has exactly one solution. Operating profit
-increases before this solution and decreases after it. The linear cost \(X/B\)
-dominates revenue as \(X\to\infty\), so this solution is the unique global
-maximum. Since $R''(X)<0$ at this solution, the implicit-function theorem
+zero from above if \(\sigma\geq1\); if \(\sigma<1\), marginal revenue
+becomes negative at sufficiently large \(X\).
+Hence \(R'(X)=1/B\) has exactly one solution. As \(X\) increases, operating
+profit \(R(X)-X/B\) rises below this supply level and falls at higher
+supply levels.
+The linear cost \(X/B\) dominates revenue as \(X\to\infty\), so this
+supply level is the unique global maximizer.
+Since $R''(X)<0$ at the optimum, the implicit-function theorem
 makes the maximizing service choice
 smooth in $K,A,L,B$.
 \end{proof}
@@ -125,7 +133,7 @@ supporting-tangent inequality, I transform AI efficiency. Define
  B(R_B)=\overline B\left(1-e^{-R_B/\overline B}\right).
  \label{eq:rewrite-research-depth}
 \end{equation}
-It maps $B\in[B_0,\overline B)$ into
+The transformation $R_B(B)$ maps $B\in[B_0,\overline B)$ into
 $R_B\in[R_{B,0},\infty)$, where $R_{B,t}=R_B(B_t)$ and
 $R_{B,0}=R_B(B_0)$. Since $R_B'(B)=1/\psi(B)$, this transformation removes
 the factor $\psi(B)$ from the RSI technology~\eqref{eq:rewrite-capability-law}:
@@ -158,7 +166,8 @@ where $M_t$ is the candidate's research expenditure. Substitution gives
  \left[\frac{B(\widetilde R_B)}{B_t}\right]^{\eta/(1-\eta)}.
  \label{eq:rewrite-maximized-depth-hamiltonian}
 \end{equation}
-Differentiating the maximized Hamiltonian with respect to its state argument
+Differentiating the maximized Hamiltonian with respect to transformed
+efficiency $R_B$
 and using the envelope condition~\eqref{eq:rewrite-profit-envelope} gives
 \begin{equation}
  \widehat{\mathcal H}'_t(R_{B,t})
@@ -241,7 +250,7 @@ the developer's transversality condition~\eqref{eq:rewrite-developer-tvc} gives
  =D_Tq_T\psi(B_T)R_{B,T}
  \leq D_Tq_TB_T\longrightarrow0.
 \]
-The candidate's present value is finite by assumption. Hence
+The candidate's present value of net profit is finite by assumption. Hence
 \[
  \limsup_{T\to\infty}\widetilde J_T
  \leq\lim_{T\to\infty}J_T<\infty,
@@ -326,7 +335,8 @@ Condition~\eqref{eq:rewrite-capped-concavity-gate} therefore makes operating
 profit concave in the transformed state for every $b\in[B_0,\overline B)$.
 
 The research term in \eqref{eq:rewrite-maximized-depth-hamiltonian} is a
-positive multiple of $B(R_B)^{\eta/(1-\eta)}$. Its curvature is
+positive multiple of $B(R_B)^{\eta/(1-\eta)}$. The second derivative of
+this power with respect to $R_B$ is
 \begin{equation}
  \frac{\mathrm d^2 B(R_B)^{\eta/(1-\eta)}}{\mathrm dR_B^2}
  =\frac{\eta}{1-\eta}b^{\eta/(1-\eta)-2}\psi(b)
@@ -370,7 +380,7 @@ efficiency at which the corresponding return equals $\rho+\gamma$,
  \mathcal R^{\mathrm{mc}}\bigl((1-\alpha)\mathcal B(\sigma)\bigr)
  =\mathcal R\bigl(\mathcal B(\sigma)\bigr)=\rho+\gamma.
 \]
-Uniqueness gives
+Uniqueness of the competitive efficiency threshold gives
 $\mathcal B^{\mathrm{mc}}(\sigma)=(1-\alpha)\mathcal B(\sigma)
 <\mathcal B(\sigma)$, establishing
 equation~\eqref{eq:rewrite-marginal-cost-threshold}.
@@ -421,7 +431,8 @@ Equations~\eqref{eq:rewrite-ai-terminal-ratio} and
  \mathcal R(\overline B)
  =\mathcal R^{\mathrm{mc}}\bigl((1-\alpha)\overline B\bigr).
 \]
-Since $\mathcal R^{\mathrm{mc}}$ is strictly increasing, it follows that
+Since $\mathcal R^{\mathrm{mc}}$ is strictly increasing in AI efficiency,
+it follows that
 \[
  \mathcal R(\overline B)\gtrless\mathcal R^{\mathrm{mc}}(B_0)
  \quad\Longleftrightarrow\quad
@@ -489,7 +500,8 @@ $M=0$ afterward. The uncapped RSI technology gives
  B_{\mathcal M}(t)^{1-\eta}=B_0^{1-\eta}
  +(1-\eta)\chi\mathcal M^\eta\min\{t,\Delta\}.
 \]
-Efficiency after the research burst is asymptotically proportional to
+As $\mathcal M\to\infty$, efficiency after the research burst is
+asymptotically proportional to
 $\mathcal M^{\eta/(1-\eta)}$. Discounted operating profit over the remaining
 interval therefore grows in proportion to
 $\mathcal M^{\eta\theta/(1-\eta)}$, while research expenditure grows only
@@ -535,7 +547,8 @@ and transversality condition~\eqref{eq:rewrite-household-tvc} gives
  =\frac{C_0}{\rho-n}-K_0.
 \]
 Since labor income is nonnegative, discounted developer profit is
-either finite or minus infinity. The latter cannot be optimal because
+either finite or minus infinity. A payoff of minus infinity cannot be
+optimal because
 stopping research yields nonnegative operating profit.
 Hence no equilibrium exists under the stated restrictions.
 This argument does not establish a finite-time singularity.
