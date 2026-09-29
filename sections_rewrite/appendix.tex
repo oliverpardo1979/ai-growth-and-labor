@@ -16,23 +16,24 @@ $K,A,L,$ and $B$, for each fixed $\sigma$.
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-monopoly-choice}]
-Fix \(K,A,L,B>0\) and let \(R(X)=p_X(X)X\) denote AI-service revenue.
-To establish uniqueness, I first show that marginal revenue falls as
-AI-service supply increases wherever \(R'(X)>0\).
+Hold \(K,A,L,B\) fixed and let \(R(X)=p_X(X)X\) denote AI-service revenue.
+I show that marginal revenue crosses the constant marginal cost \(1/B\)
+exactly once, from above, so operating profit has a unique global maximum.
 The inverse-demand elasticity in \eqref{eq:rewrite-inverse-demand-elasticity}
 and differentiation of \eqref{eq:rewrite-sx} give
 \[
  R'(X)=p_X(X)(1-e_X),\qquad
  \frac{\dd s_X}{\dd\ln X}=\left(1-\frac1\sigma\right)s_X(1-s_X).
 \]
-For supply levels with \(R'(X)>0\), differentiation with respect to \(X\) gives
+Differentiating \(R'(X)\) with respect to \(X\) gives
 \begin{equation}
  -\frac{XR''(X)}{p_X(X)}
  =e_X(1-e_X)+\left(\alpha-\frac1\sigma\right)
  \left(1-\frac1\sigma\right)s_X(1-s_X).
  \label{eq:rewrite-monopoly-proof-curvature}
 \end{equation}
-Since \(R'(X)>0\) implies \(0<e_X<1\), the term \(e_X(1-e_X)\) is positive.
+At supply levels with \(R'(X)>0\), we have \(0<e_X<1\), so
+\(e_X(1-e_X)>0\).
 If \((\alpha-1/\sigma)(1-1/\sigma)\geq0\), the remaining term is nonnegative,
 so the right-hand side is positive.
 If \((\alpha-1/\sigma)(1-1/\sigma)<0\), the parameter restrictions imply
@@ -45,29 +46,32 @@ If \((\alpha-1/\sigma)(1-1/\sigma)<0\), the parameter restrictions imply
  +\alpha(1-\alpha)s_X^2.
  \end{aligned}
 \]
-The coefficient of \(s_X(1-s_X)\) is positive because
+All three coefficients in this expansion are positive. For the coefficient
+of \(s_X(1-s_X)\), this follows from
 \[
  \frac1{\sigma^2}+2\alpha-\frac{3\alpha}{\sigma}
  =\left(\frac1\sigma-\alpha\right)^2
  +\alpha\left(2-\frac1\sigma-\alpha\right)>0.
 \]
-Thus, wherever \(R'(X)>0\), marginal revenue decreases strictly as
-AI-service supply \(X\) increases: \(R''(X)<0\).
+Hence \(R''(X)<0\) at every supply level where marginal revenue
+\(R'(X)\) is positive.
 
 As \(X\downarrow0\), revenue is asymptotically proportional to \(X^{1-1/\sigma}\) when
 \(\sigma>1\), to \(X^{(1-\alpha)\omega_X}\) when \(\sigma=1\), and to
 \(X^{1-\alpha}\) when \(\sigma<1\). Every exponent lies between zero and
-one, so \(R'(X)\to\infty\). As \(X\to\infty\), marginal revenue converges to
+one, and \(R'(X)=(1-e_X)R(X)/X\) gives \(R'(X)\to\infty\).
+As \(X\to\infty\), marginal revenue converges to
 zero from above if \(\sigma\geq1\); if \(\sigma<1\), marginal revenue
 becomes negative at sufficiently large \(X\).
-Hence \(R'(X)=1/B\) has exactly one solution. As \(X\) increases, operating
-profit \(R(X)-X/B\) rises below this supply level and falls at higher
-supply levels.
-The linear cost \(X/B\) dominates revenue as \(X\to\infty\), so this
-supply level is the unique global maximizer.
-Since $R''(X)<0$ at the optimum, the implicit-function theorem
-makes the maximizing service choice
-smooth in $K,A,L,B$.
+Together with \(R''(X)<0\) wherever \(R'(X)>0\), these limits imply that
+the derivative of operating profit, \(R'(X)-1/B\), changes sign exactly
+once, from positive to negative. The unique solution to \(R'(X)=1/B\)
+therefore maximizes operating profit globally and satisfies
+condition~\eqref{eq:rewrite-monopoly-foc}.
+
+At this solution, \(R''(X)<0\), so the implicit-function theorem applied
+to \(R'(X)=1/B\) implies that optimal supply is smooth in \(K,A,L,B\)
+for each fixed \(\sigma\).
 \end{proof}
 
 \begin{lemma}[Optimal research expenditure]
