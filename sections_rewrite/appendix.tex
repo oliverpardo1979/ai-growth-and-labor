@@ -5,6 +5,12 @@
 \subsection{Developer optimization}
 \label{app:rewrite-developer-proofs}
 
+The research problem uses operating profit after AI-service supply has
+been chosen optimally. I first establish that
+condition~\eqref{eq:rewrite-monopoly-foc} identifies the unique
+profit-maximizing supply, so I can use this condition when constructing
+equilibrium trajectories.
+
 \Needspace{7\baselineskip}
 \begin{lemma}[Optimal AI-service supply]
 \label{lem:rewrite-monopoly-choice}
@@ -74,10 +80,10 @@ to \(R'(X)=1/B\) implies that optimal supply is smooth in \(K,A,L,B\)
 for each fixed \(\sigma\).
 \end{proof}
 
-The next lemma gives sufficient conditions for a research trajectory to
-maximize discounted net profit. In addition to the first-order and
-transversality conditions, it requires the following inequality for the
-candidate $\{B_t,M_t\}_{t\geq0}$ and alternative AI-efficiency levels $b$:
+The first-order and transversality conditions alone do not establish that
+a research trajectory maximizes discounted net profit. The next lemma
+provides a global optimality test by adding the following inequality for
+the candidate $\{B_t,M_t\}_{t\geq0}$ and alternative AI-efficiency levels $b$:
 \begin{equation}
  \begin{aligned}
  \pi_t(b)-\pi_t(B_t)
@@ -277,6 +283,12 @@ so no feasible alternative yields a higher present value of net profit.
 Concavity of $\widehat{\mathcal H}_t$ in $R_B$ is sufficient for
 condition~\eqref{eq:rewrite-hamiltonian-support}, but is not required.
 \end{proof}
+
+The next lemma gives conditions for concavity that ensure
+inequality~\eqref{eq:rewrite-hamiltonian-support} holds. I use these
+conditions to apply Lemma~\ref{lem:rewrite-developer-verification} when
+verifying developer optimality in the equilibrium existence proof and
+the numerical checks.
 
 \Needspace{8\baselineskip}
 \begin{lemma}[Sufficient conditions for Hamiltonian concavity]
