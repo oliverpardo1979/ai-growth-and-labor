@@ -294,46 +294,46 @@ the numerical checks.
 \begin{lemma}[Sufficient conditions for Hamiltonian concavity]
 \label{lem:rewrite-hamiltonian-concavity}
 Suppose $\overline B<\infty$.
-Consider a feasible research trajectory with $M_t>0$ satisfying the
-research condition~\eqref{eq:rewrite-research-foc}. The following
-conditions ensure that the maximized Hamiltonian in
-equation~\eqref{eq:rewrite-maximized-depth-hamiltonian} is concave in
-transformed AI efficiency $R_B$.
+Consider a feasible research trajectory $\{B_t,M_t\}_{t\geq0}$ with
+$M_t>0$ at every date, satisfying the research
+condition~\eqref{eq:rewrite-research-foc}.
 Let $X_t^*(b)$ denote the optimal AI-service choice in
 problem~\eqref{eq:rewrite-service-choice} at efficiency $b$, and let
 $\varepsilon_{B,t}(b)=\partial\ln X_t^*(b)/\partial\ln b$
 denote its elasticity with respect to AI efficiency.
-Suppose that, for every $t\geq0$ and $b\in[B_0,\overline B)$,
+The maximized Hamiltonian~\eqref{eq:rewrite-maximized-depth-hamiltonian}
+is concave in $R_B$ on $[R_B(B_0),\infty)$ at every date if:
+\begin{enumerate}[label=(\roman*),leftmargin=*,itemsep=0.5em]
+\item For operating profit, the following inequality holds for every
+$t\geq0$ and $b\in[B_0,\overline B)$:
 \begin{equation}
  \psi(b)[\varepsilon_{B,t}(b)-2]\leq\frac{b}{\overline B},
  \label{eq:rewrite-capped-concavity-gate}
 \end{equation}
-and
+\item For the optimized research term, the following inequality holds:
 \begin{equation}
  \frac{B_0}{\overline B}\geq
  \max\left\{0,\frac{2\eta-1}{\eta}\right\}.
  \label{eq:rewrite-depth-research-concavity}
 \end{equation}
-The maximized Hamiltonian is therefore concave on
-$R_B\in[R_B(B_0),\infty)$ at every date, so the inequality
-\eqref{eq:rewrite-hamiltonian-support} required by
-Lemma~\ref{lem:rewrite-developer-verification} holds.
+\end{enumerate}
+These conditions therefore imply
+inequality~\eqref{eq:rewrite-hamiltonian-support} in
+Lemma~\ref{lem:rewrite-developer-verification}.
 \end{lemma}
 
-Condition~\eqref{eq:rewrite-capped-concavity-gate} ensures concavity of
-operating profit in $R_B$; condition~\eqref{eq:rewrite-depth-research-concavity}
-ensures concavity of the optimized research term. The latter holds
-automatically if $\eta\leq1/2$. For any fixed $0<\eta<1$, it also holds
-when $B_0$ is sufficiently close to $\overline B$. These curvature tests
-are sufficient, not necessary: they can fail even when the Hamiltonian
-has the required supporting tangent at the candidate state.
-
 \begin{proof}[Proof of Lemma~\ref{lem:rewrite-hamiltonian-concavity}]
-Fix a date $t$. Lemma~\ref{lem:rewrite-monopoly-choice} ensures that
-$X_t^*(b)$ is unique and smooth. Let $s_{X,t}(b)$ and $e_{X,t}(b)$ be the
-corresponding elasticities defined in equations~\eqref{eq:rewrite-sx}
-and~\eqref{eq:rewrite-inverse-demand-elasticity}. Implicit differentiation
-of the monopoly condition~\eqref{eq:rewrite-monopoly-foc} gives
+Fix a date $t$ and write $b=B(R_B)$. In
+equation~\eqref{eq:rewrite-maximized-depth-hamiltonian}, the candidate
+values $B_t$ and $M_t$ are held fixed. I show that each of the two terms
+in that Hamiltonian is concave in $R_B$ under the corresponding condition.
+
+\emph{1. Operating profit.}
+Lemma~\ref{lem:rewrite-monopoly-choice} ensures that $X_t^*(b)$ is unique
+and smooth. Let $s_{X,t}(b)$ and $e_{X,t}(b)$ denote the elasticities in
+equations~\eqref{eq:rewrite-sx} and~\eqref{eq:rewrite-inverse-demand-elasticity},
+evaluated at this optimal supply. Implicit differentiation of the monopoly
+condition~\eqref{eq:rewrite-monopoly-foc} gives
 \begin{equation}
  \varepsilon_{B,t}(b)\equiv
  \frac{\partial\ln X_t^*(b)}{\partial\ln b}
@@ -352,7 +352,7 @@ $\pi_t'(b)=X_t^*(b)/b^2$, so
 \end{equation}
 
 The transformation~\eqref{eq:rewrite-research-depth} satisfies
-$B'(R_B)=\psi(b)$ and $B''(R_B)=-\psi(b)/\overline B$, where $b=B(R_B)$.
+$B'(R_B)=\psi(b)$ and $B''(R_B)=-\psi(b)/\overline B$.
 The chain rule therefore gives
 \begin{equation}
  \frac{\mathrm d^2\pi_t(B(R_B))}{\mathrm dR_B^2}
@@ -361,10 +361,12 @@ The chain rule therefore gives
  -\frac{b}{\overline B}\right].
  \label{eq:rewrite-capped-profit-curvature}
 \end{equation}
-Condition~\eqref{eq:rewrite-capped-concavity-gate} therefore makes operating
-profit concave in the transformed state for every $b\in[B_0,\overline B)$.
+Condition~\eqref{eq:rewrite-capped-concavity-gate} makes this second
+derivative nonpositive for every $b\in[B_0,\overline B)$. Hence operating
+profit $\pi_t(B(R_B))$ is concave throughout $R_B\in[R_B(B_0),\infty)$.
 
-The research term in \eqref{eq:rewrite-maximized-depth-hamiltonian} is a
+\emph{2. The optimized research term.}
+The second term in \eqref{eq:rewrite-maximized-depth-hamiltonian} is a
 positive multiple of $B(R_B)^{\eta/(1-\eta)}$. The second derivative of
 this power with respect to $R_B$ is
 \begin{equation}
@@ -373,15 +375,23 @@ this power with respect to $R_B$ is
  \left[\frac{2\eta-1}{1-\eta}\psi(b)-\frac b{\overline B}\right].
  \label{eq:rewrite-depth-research-curvature}
 \end{equation}
-The bracket is nonpositive exactly when $b/\overline B\geq(2\eta-1)/\eta$.
-Since $b\geq B_0$, condition~\eqref{eq:rewrite-depth-research-concavity}
-makes the research term concave as well. The maximized Hamiltonian is
-therefore concave, so its tangent at the candidate state is a global upper
-bound. As shown in the proof of
-Lemma~\ref{lem:rewrite-developer-verification}, this is
-condition~\eqref{eq:rewrite-hamiltonian-support}.
+The expression in brackets is nonpositive exactly when
+$b/\overline B\geq(2\eta-1)/\eta$. Because $b\geq B_0$,
+condition~\eqref{eq:rewrite-depth-research-concavity} ensures that the
+research term is concave throughout the same domain.
 
+Both terms are therefore concave in $R_B$. Their sum, the maximized
+Hamiltonian, lies below its tangent at the candidate state. As shown in
+the proof of Lemma~\ref{lem:rewrite-developer-verification}, this is
+inequality~\eqref{eq:rewrite-hamiltonian-support}.
 \end{proof}
+
+Condition~\eqref{eq:rewrite-depth-research-concavity} holds automatically
+if $\eta\leq1/2$. For any fixed $0<\eta<1$, that condition also holds when
+$B_0$ is sufficiently close to $\overline B$. The two conditions in
+Lemma~\ref{lem:rewrite-hamiltonian-concavity} are sufficient, not necessary,
+for inequality~\eqref{eq:rewrite-hamiltonian-support}: the inequality can
+hold even when one of the two conditions fails.
 
 \Needspace{9\baselineskip}
 \subsection{Equilibria with bounded AI efficiency}
