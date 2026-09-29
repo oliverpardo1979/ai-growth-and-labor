@@ -137,21 +137,6 @@ See Appendix~\ref{app:rewrite-proofs},
 Proposition~\ref*{prop:rewrite-equilibrium-regimes}}.
 \end{proof}
 
-\begin{remark}[Initial conditions and the efficiency bound]
-\label{rem:rewrite-efficiency-nonattainment}
-Suppose $\sigma<1$ and $\delta>0$. For any $\overline B<\infty$,
-including $\overline B>\mathcal B(\sigma)$, there is a nonempty open set
-of initial states from which no equilibrium can satisfy
-$B_t\to\overline B$. With sufficiently low initial AI efficiency and
-capital, production cannot replace depreciating capital and leaves
-insufficient resources for research to raise efficiency enough to reverse
-the capital decline. This obstacle persists under
-$\eta<\min\{\alpha,1/\sigma\}$.
-I give the proof in
-\hyperref[proof:rewrite-efficiency-nonattainment]{Appendix~\ref*{app:rewrite-proofs}};
-the argument does not establish the existence of an alternative equilibrium.
-\end{remark}
-
 I omit the case $0<\sigma<1$ with
 $\overline B<\mathcal B(\sigma)$ from
 Proposition~\ref{prop:rewrite-equilibrium-regimes} because it describes
@@ -212,6 +197,10 @@ The proof of Proposition~\ref{prop:rewrite-equilibrium-regimes} first removes th
 %This result is local in initial states, not in time. Closeness concerns capital, the remaining AI-efficiency gap, and the scale of effective labor jointly; $B_0$ close to $\overline B$ alone is not sufficient.
 %The precise sets and l
 Local uniqueness results are given in the proof. %Existence from arbitrary initial states and global uniqueness are not established. 
+Under complementarity and positive depreciation, sufficiently low initial
+AI efficiency and capital can prevent efficiency from approaching its upper
+bound; see Remark~\ref{rem:rewrite-efficiency-nonattainment} in
+Appendix~\ref{app:rewrite-proofs}.
 These analytical results guide the algorithm's boundary conditions
 (Appendix~\ref{app:rewrite-algorithm})%, but do not determine the duration or shape of the transition
 .
