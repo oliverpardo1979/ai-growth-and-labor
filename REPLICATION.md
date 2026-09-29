@@ -1,7 +1,7 @@
 # Replication guide
 
 Companion code for Oliver Pardo's [working paper](https://oliverpardo1979.github.io/ai-growth-and-labor/paper/the-future-of-growth-and-human-labor-under-recursive-ai-self-improvement.pdf),
-*The Future of Growth and Human Labor Under Recursive AI Self-Improvement*.
+*The Upside of Being Replaceable: AI, Market Structure, and Growth*.
 
 ## 1. Install
 
