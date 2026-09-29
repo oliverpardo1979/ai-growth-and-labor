@@ -210,12 +210,6 @@
       "number": "A.3"
     },
     {
-      "id": "app:rewrite-uncapped-proofs",
-      "title": "Equilibria without an efficiency bound",
-      "level": 2,
-      "number": "A.4"
-    },
-    {
       "id": "app:rewrite-algorithm",
       "title": "Numerical algorithm and equilibrium audit",
       "level": 1,
@@ -234,12 +228,6 @@
       "number": "B.2"
     },
     {
-      "id": "app:rewrite-numerical-support-checks",
-      "title": "Analytical checks on developer optimality",
-      "level": 2,
-      "number": "B.3"
-    },
-    {
       "id": "replication-files.",
       "title": "Replication files.",
       "level": 4,
@@ -253,7 +241,7 @@
     },
     {
       "id": "additional-results",
-      "title": "Supplementary simulations",
+      "title": "Additional proofs and simulations",
       "level": 1,
       "number": ""
     },
@@ -298,21 +286,59 @@
       "title": "Numerical construction and checks",
       "level": 2,
       "number": "S2.1"
+    },
+    {
+      "id": "app:rewrite-additional-bounded-results",
+      "title": "Additional results with bounded AI efficiency",
+      "level": 1,
+      "number": "S3"
+    },
+    {
+      "id": "app:rewrite-uncapped-proofs",
+      "title": "Equilibria without an efficiency bound",
+      "level": 1,
+      "number": "S4"
+    },
+    {
+      "id": "app:rewrite-numerical-details",
+      "title": "Numerical implementation and accuracy checks",
+      "level": 1,
+      "number": "S5"
+    },
+    {
+      "id": "computational-coordinates-and-initial-guesses",
+      "title": "Computational coordinates and initial guesses",
+      "level": 2,
+      "number": "S5.1"
+    },
+    {
+      "id": "residuals-and-horizon-checks",
+      "title": "Residuals and horizon checks",
+      "level": 2,
+      "number": "S5.2"
     }
   ],
-  "source_sha256": "ba893574f4e152e664fbbc8ec3242126ee0655dabd9f8814e46d95c7a27412c9",
+  "source_sha256": "924678bd5d70c7c178770c7a00c9b621211446207596b690239637bf9fd8d7ad",
   "supplement": {
     "source": "online_appendix.tex",
-    "source_sha256": "bc823e6bb5bfd923a2bdb90d3a95ddaec1ccd2b17d2ce3f4934182569fbef991",
+    "source_sha256": "d01adb181e9c31598015a7590d9317b5f0270a95f435172ff2c8c9f3a258706a",
     "source_files": [
       "online_appendix.tex",
       "sections_rewrite/appendix_competitive_transition.tex",
       "sections_rewrite/15_monopoly_growth_reversal.tex",
-      "sections_rewrite/growth_reversal_numerics.tex"
+      "sections_rewrite/growth_reversal_numerics.tex",
+      "sections_rewrite/supplement_bounded_results.tex",
+      "sections_rewrite/appendix_low_cap_complements.tex",
+      "sections_rewrite/supplement_uncapped_proofs.tex",
+      "sections_rewrite/appendix_uncapped_complements_proofs.tex",
+      "sections_rewrite/appendix_uncapped_unit_proofs.tex",
+      "sections_rewrite/supplement_numerical_details.tex",
+      "sections_rewrite/rsi_illustrative_accuracy.tex"
     ],
     "build_inputs": {
-      "aux": "557f186c9390f7e020e87629d2de0080c90fc9b975c42e5927fae08dfc84c666",
-      "pdf": "2c82471e7d8792a1d7461d32d8fe1db14ee3c8bd2eba935df9f6f8479810e355"
+      "aux": "dc662ae2e84d89cec20bfbedc6b015b87053f0b74f004e7ebef5182618611ddc",
+      "bbl": "f304f9061053bc7ee74c03b4d15e582c518d7eea8790032a3c7bb4173928bddc",
+      "pdf": "010a80678504719a777c9aa73cf5e80bcc4240d752e261002f2196f151407d89"
     }
   },
   "source_files": [
@@ -332,12 +358,8 @@
     "sections_rewrite/06_conclusion.tex",
     "sections_rewrite/appendix.tex",
     "sections_rewrite/appendix_finite_frontier.tex",
-    "sections_rewrite/appendix_low_cap_complements.tex",
     "sections_rewrite/appendix_competitive_equilibrium.tex",
-    "sections_rewrite/appendix_uncapped_complements_proofs.tex",
-    "sections_rewrite/appendix_uncapped_unit_proofs.tex",
-    "sections_rewrite/appendix_rsi_illustrative.tex",
-    "sections_rewrite/rsi_illustrative_accuracy.tex"
+    "sections_rewrite/appendix_rsi_illustrative.tex"
   ],
   "source": "main_rewrite.tex",
   "figures": [
@@ -375,9 +397,9 @@
       "pdf_page": 17,
       "crop": [
         85.77465057373047,
-        147.9327392578125,
+        164.36788940429688,
         525.7593994140625,
-        389.5298156738281
+        405.9649658203125
       ]
     },
     {
@@ -521,7 +543,7 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 252,
+    "labels": 254,
     "numbered_equation_rows": 154,
     "display_math": 205,
     "figures": 21,
@@ -535,13 +557,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 23092,
+    "visible_text_tokens_verified": 23319,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "27e72096ff0807eb5cf5f850c89123501315ea78477c422e08f91c3096f4a466",
-    "bbl": "ce5636deb2c9be14ca3a39667c02f142f95eafa7c190a6d26e174132d217b72b",
-    "pdf": "8a3e4f1e09048d91c77e0140ba184fd1f9c74abe4b5550df210fe46e1c4c4153"
+    "aux": "8f38ddaae77bf29c1787c7fffee2a7401babb42c41178b4712e0cabd43013740",
+    "bbl": "5f0168d1e4ef2e4e99ea307bd10d5a532f6711750e579057adca02aba1c33684",
+    "pdf": "be00f29fdd3ef26dacbff11afa6fed9703bab0a4e47c69d97a4230626113c715"
   }
 }
