@@ -300,7 +300,7 @@
       "number": "S2.1"
     }
   ],
-  "source_sha256": "f6202dd2d73177ae3b8bfe0c70af9a52059035d61388d262a38536b2d308f63d",
+  "source_sha256": "08639fb96f7632377b0f80aa9277a6d389ee75bcc10f076d2e5f2ec799932ced",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "bc823e6bb5bfd923a2bdb90d3a95ddaec1ccd2b17d2ce3f4934182569fbef991",
@@ -312,7 +312,7 @@
     ],
     "build_inputs": {
       "aux": "557f186c9390f7e020e87629d2de0080c90fc9b975c42e5927fae08dfc84c666",
-      "pdf": "e9765aa0da412cfdcf39962172bb695caec8aa42721289357f9b16dc9e62c58b"
+      "pdf": "04bde2d2404fdb672cff1fb49ff55673b1de370f9bb85d75ba93f96943001369"
     }
   },
   "source_files": [
@@ -535,13 +535,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 22250,
+    "visible_text_tokens_verified": 22318,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "01466875eb7533e0aa4f5501a007a7e80b0c8ee7e2d3eea507b0f61ec4fad6b3",
+    "aux": "80b1985f323f01e4418e47fc4ddcf7051f922c25ab974dc711e5b98834e48b52",
     "bbl": "ce5636deb2c9be14ca3a39667c02f142f95eafa7c190a6d26e174132d217b72b",
-    "pdf": "f76bd2e33dd6576821c281544f3d0241049c0c80a9f29be5fd103e3f88bfeb58"
+    "pdf": "eb793997f477b6daff965ace667b896d5f9f90a0683e21d9d6a7e2b8a4746992"
   }
 }
