@@ -300,7 +300,7 @@
       "number": "S2.1"
     }
   ],
-  "source_sha256": "26e629be9d694ea368ad041bd3cb930454d82dce2ccf5f630d25379824e57035",
+  "source_sha256": "1ff0dd4bfd79d8e1794ad20f7276745dd208d1d1307fca633f3379b66830bce1",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "bc823e6bb5bfd923a2bdb90d3a95ddaec1ccd2b17d2ce3f4934182569fbef991",
@@ -312,7 +312,7 @@
     ],
     "build_inputs": {
       "aux": "557f186c9390f7e020e87629d2de0080c90fc9b975c42e5927fae08dfc84c666",
-      "pdf": "a06f47f8c5816ec7ce838063433bb984872f2295a19d415252d911440ee54afe"
+      "pdf": "be68b25233fa898f75e4effb6b9d4ca6eaa55283170928a68ca222c6fe4ba338"
     }
   },
   "source_files": [
@@ -521,7 +521,7 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 260,
+    "labels": 259,
     "numbered_equation_rows": 163,
     "display_math": 205,
     "figures": 21,
@@ -535,13 +535,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 23453,
+    "visible_text_tokens_verified": 23435,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "c2f21d5b702962bc5ff1e498738f7da6d8271876e3187860426810783ac5692e",
+    "aux": "f9b523ce8ee01a142c8e85010d08cdd2970e53158bf6571806288219b82ce718",
     "bbl": "ce5636deb2c9be14ca3a39667c02f142f95eafa7c190a6d26e174132d217b72b",
-    "pdf": "e9d9fde77a0f80a2a3ceeee40540b6abd919b3ee709e65082faa979beaad8a98"
+    "pdf": "50fde26127ee6b3a248751d783374f1eb4585889a5068819b207b3163073a069"
   }
 }
