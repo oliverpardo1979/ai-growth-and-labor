@@ -175,12 +175,9 @@ Capital and inference compute can expand together, sustaining output-per-worker 
 $\gamma$ even when $B$ is arbitrarily close to $\overline B$ and further
 AI-efficiency gains vanish, as in the compute-expansion mechanism of
 \citet{restrepo2025agi}.
-\citet{erdiletal2025gate} also discuss how expanding digital-worker services
-alongside physical capital can generate $AK$-type dynamics. Here, the
-corresponding growth regime arises under fixed aggregate production weights
-and private research and pricing decisions.
+%\citet{erdiletal2025gate} also discuss how expanding digital-worker services alongside physical capital can generate $AK$-type dynamics. Here, the corresponding growth regime arises under fixed aggregate production weights and private research and pricing decisions.
 RSI can help the economy reach an efficiency at which this mechanism
-supports growth faster than $\gamma$; continuing efficiency improvements
+supports growth faster than $\gamma$. However, continuing efficiency improvements
 are not necessary to sustain it. Section~\ref{sec:rewrite-competition}
 shows that sufficiently high initial efficiency also allows this growth
 mechanism to operate under competition without RSI.
@@ -194,19 +191,24 @@ a level at which $r=\alpha Y/K-\delta$ remains above $\rho+\gamma$:
 accumulating more capital does not restore the labor-bottleneck return.
 %\citet{casellimanning2019} also discuss the possibility that technological progress raises growth and the interest rate together, but their comparison of steady states does not determine the resulting wage dynamics.
 
-The proof of Proposition~\ref{prop:rewrite-equilibrium-regimes} first removes the long-run trends from growing quantities and shrinking efficiency gaps. For each parameter configuration covered by the proposition, I identify candidate stationary values of these normalized variables. I then construct equilibrium trajectories from every sufficiently nearby initial state and verify convergence to those values. %The initial stocks need not lie on a balanced-growth path.
+The proof of Proposition~\ref{prop:rewrite-equilibrium-regimes} first removes the long-run trends from growing quantities and shrinking efficiency gaps. For each parameter configuration covered by the proposition, I identify candidate stationary values of these normalized variables. I then construct equilibrium trajectories from every sufficiently nearby initial state and verify convergence to those values. These analytical results guide the algorithm's boundary conditions, as described in
+Appendix~\ref{app:rewrite-algorithm}.%, but do not determine the duration or shape of the transition
+
+%The initial stocks need not lie on a balanced-growth path.
 %This result is local in initial states, not in time. Closeness concerns capital, the remaining AI-efficiency gap, and the scale of effective labor jointly; $B_0$ close to $\overline B$ alone is not sufficient.
 %The precise sets and l
-Local uniqueness results are given in the proof. %Existence from arbitrary initial states and global uniqueness are not established. 
-Under complementarity and positive depreciation, sufficiently low initial
-AI efficiency and capital can prevent efficiency from approaching its upper
-bound; see the
-\href{https://oliverpardo1979.github.io/ai-growth-and-labor/#rem:rewrite-efficiency-nonattainment}
-{initial-conditions counterexample in the digital edition}.
-These analytical results guide the algorithm's boundary conditions
-(Appendix~\ref{app:rewrite-algorithm})%, but do not determine the duration or shape of the transition
-.
+%Local uniqueness results are given in the proof. %Existence from arbitrary initial states and global uniqueness are not established. 
 
+Convergence to the upper bound is not guaranteed from arbitrary initial
+states. Under complementarity and positive depreciation, sufficiently
+low initial AI efficiency can make output insufficient to replace
+depreciating capital. If the initial capital stock is also sufficiently
+low, the resources available for research cannot raise AI efficiency
+enough to reverse the decline in capital. This obstacle can arise even
+when $\overline B>\mathcal B(\sigma)$, as shown in the counterexample
+in the
+\href{https://oliverpardo1979.github.io/ai-growth-and-labor/#rem:rewrite-efficiency-nonattainment}
+{digital edition}.
 
 \begin{remark}[Wages and AI revenue in the AI-dominated regime]
 \label{rem:rewrite-ai-revenue-share}
@@ -337,8 +339,8 @@ this growth acceleration explicit:
  \label{eq:rewrite-wage-growth-premium}
 \end{equation}
 For $1<\sigma<\infty$, only a fraction $1/\sigma$ of output-per-worker growth above $\gamma$ translates into wage growth above $\gamma$. %This fractionThis explains both their permanent acceleration and the vanishing labor share.
-This wage-growth mechanism has a direct antecedent in the CES example of \citet{palivoskaragiannis2010}.
 For example, long-run output-per-worker growth of $4.0\%$, with $\gamma=1.0\%$ and $\sigma=1.5$, implies wage growth of $3.0\%$.
+This wage-growth mechanism has a direct antecedent in the CES example of \citet{palivoskaragiannis2010}.
 
 %Combining their production function with marginal-product wage determination implies that wages grow at a fraction $1/\sigma$ of output-per-worker growth, while labor's share vanishes.
 %In their setting, substitution is between capital and labor, and technology is fixed. Here the analogous relationship applies to growth above $\gamma$, and AI efficiency and pricing determine whether that additional growth can be sustained.
