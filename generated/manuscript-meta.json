@@ -318,10 +318,10 @@
       "number": "S5.2"
     }
   ],
-  "source_sha256": "f4cf0f93e0533acb9d7ec81bd0b565138bf44f0597d441df67655308a8aafe58",
+  "source_sha256": "bbd00c14ca2892e21db0e4d34a33e0df75ed59554f05354e6016cd1053a988c4",
   "supplement": {
     "source": "online_appendix.tex",
-    "source_sha256": "d01adb181e9c31598015a7590d9317b5f0270a95f435172ff2c8c9f3a258706a",
+    "source_sha256": "9ef7783f29a3b252ff656bcb4db1a3508a699f14e550cca0adec92496110c05d",
     "source_files": [
       "online_appendix.tex",
       "sections_rewrite/appendix_competitive_transition.tex",
@@ -336,9 +336,8 @@
       "sections_rewrite/rsi_illustrative_accuracy.tex"
     ],
     "build_inputs": {
-      "aux": "dc662ae2e84d89cec20bfbedc6b015b87053f0b74f004e7ebef5182618611ddc",
-      "bbl": "f304f9061053bc7ee74c03b4d15e582c518d7eea8790032a3c7bb4173928bddc",
-      "pdf": "0fddc89448e7686ebcb85318c8e0ef595947aff5e7c14b8fac2e2257e1927b21"
+      "aux": "f3fadf0fdaddf4b3cc150c69ca83da9048922bc2d18c21c13ebc6c311821b805",
+      "pdf": "0b759018c0d6e56a14a5e0f5c511300f62b15e4274a281bf44b8a0bf621180bb"
     }
   },
   "source_files": [
@@ -543,13 +542,13 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 254,
-    "numbered_equation_rows": 154,
-    "display_math": 206,
+    "labels": 239,
+    "numbered_equation_rows": 141,
+    "display_math": 183,
     "figures": 21,
     "tables": 5,
-    "bibliography_entries": 42,
-    "citation_keys": 42
+    "bibliography_entries": 41,
+    "citation_keys": 41
   },
   "validation": {
     "all_active_labels_present": true,
@@ -557,13 +556,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 23476,
+    "visible_text_tokens_verified": 22069,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "b972847b19dddae9f59e8cf802038ab145d7b00842b8c744a661c4c3fe604f97",
+    "aux": "294e64cf4cebb68e4a21f23b50a4d137f2410b26431a37ba162bab91b3b91b3e",
     "bbl": "5f0168d1e4ef2e4e99ea307bd10d5a532f6711750e579057adca02aba1c33684",
-    "pdf": "7f73569b54510945dbd1220a64e3160758d116943770d97a40e2061f532cb652"
+    "pdf": "307d56183be2287a739644e8ce647cdd4c24fd02bfb41741989bc3d4f0eff935"
   }
 }
