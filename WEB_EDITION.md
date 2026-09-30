@@ -17,6 +17,8 @@ material, and uses the compiled AUX and bibliography to retain equation,
 proposition, section, figure, table, and citation references. The four TikZ
 diagrams are extracted from the compiled paper; simulation figures in the main
 text and appendices use the existing figure PDFs. No simulation is rerun by the web build.
+The results without an upper bound on AI efficiency appear in Appendix C
+of the main paper; their proofs remain in supplementary section S4.
 
 `online_appendix.tex` and its active inputs supply supplementary material in the
 HTML reader: S1/S2 contain the additional simulations, S3 the bounded-efficiency

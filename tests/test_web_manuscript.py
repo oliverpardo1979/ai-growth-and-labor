@@ -421,10 +421,10 @@ class GeneratedManuscriptTests(unittest.TestCase):
         headings = {item["id"]: item for item in self.meta["sections"]}
         for key, number in {
             "sec:rewrite-competition": "5",
-            "sec:rewrite-quantitative": "7",
-            "subsec:rewrite-competitive-transition": "7.4",
+            "sec:rewrite-quantitative": "6",
+            "subsec:rewrite-competitive-transition": "6.4",
             "subsec:rewrite-monopoly-growth-reversal": "S2",
-            "sec:rewrite-conclusion": "8",
+            "sec:rewrite-conclusion": "7",
             "app:rewrite-competitive-transition": "S1",
         }.items():
             with self.subTest(key=key):
@@ -437,6 +437,26 @@ class GeneratedManuscriptTests(unittest.TestCase):
                     "fig:rewrite-competitive-low-distribution"):
             self.assertIn(key, figure_ids)
         self.assertEqual(self.content.count('class="theorem corollary"'), 2)
+
+    def test_uncapped_results_are_in_main_appendix_c(self):
+        headings = {item["id"]: item for item in self.meta["sections"]}
+        for key, number in {
+            "sec:rewrite-uncapped": "C",
+            "subsec:rewrite-uncapped-complements": "C.1",
+            "subsec:rewrite-uncapped-unit-bgp": "C.2",
+            "subsec:rewrite-uncapped": "C.3",
+        }.items():
+            with self.subTest(key=key):
+                self.assertEqual(headings[key]["number"], number)
+        appendix = self.content.index('id="sec:rewrite-uncapped"')
+        self.assertGreater(appendix, self.content.index('id="app:rewrite-algorithm"'))
+        self.assertLess(appendix, self.content.index('id="additional-results"'))
+        for label in ("uncapped-complements-bounds", "uncapped-unit-bgp", "research-scale"):
+            with self.subTest(result=label):
+                self.assertGreater(self.content.index(f'id="prop:rewrite-{label}"'), appendix)
+                self.assertLess(self.content.index(f'id="prop:rewrite-{label}"'),
+                                self.content.index('id="additional-results"'))
+        self.assertEqual(headings["app:rewrite-uncapped-proofs"]["number"], "S4")
 
     def test_supplement_is_integrated_with_separate_provenance(self):
         seen = []
