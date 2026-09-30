@@ -11,18 +11,36 @@
     ],
     [
       10.0,
-      100.0
-    ],
-    [
-      10.0,
-      500.0
+      50.0
     ]
   ],
-  "scales": [
-    "linear_percent",
-    "log_multiple",
-    "log_multiple"
+  "panels": [
+    {
+      "field": "output_counterfactual_ratio",
+      "competitive_benchmark": 1.0,
+      "scales_by_window": [
+        "linear_percent",
+        "log_multiple"
+      ]
+    },
+    {
+      "field": "wage_counterfactual_ratio",
+      "competitive_benchmark": 1.0,
+      "scales_by_window": [
+        "linear_percent",
+        "log_multiple"
+      ]
+    },
+    {
+      "field": "ai_revenue_output_share",
+      "competitive_benchmark": 0.08584870412533899,
+      "scales_by_window": [
+        "linear_percent",
+        "linear_percent"
+      ]
+    }
   ],
+  "revenue_definition": "p_X X / own output = 1 - alpha - labor income share; includes inference, research and net profit",
   "percent_decimals": 1,
   "ratio_fields": {
     "output_counterfactual_ratio": [
@@ -56,7 +74,8 @@
         "output_counterfactual_ratio": 3.7609660760005217,
         "wage_counterfactual_ratio": 4.619145655426766,
         "consumption_counterfactual_ratio": null
-      }
+      },
+      "competitive_ai_revenue_output_share": 0.08584870412533899
     },
     "1.5": {
       "files": {
@@ -75,8 +94,16 @@
         "output_counterfactual_ratio": 23.984246521599097,
         "wage_counterfactual_ratio": 25.96684598902503,
         "consumption_counterfactual_ratio": 11.274131874359126
-      }
+      },
+      "competitive_ai_revenue_output_share": 0.08584870412533899
     }
+  },
+  "preserved_supplemental_files": {
+    "scripts/report_competitive_to_monopoly.py": "d0a72eb86e6c1bef11092fc5a5364864cd17b1fbbf3b465b6f891a5965c40668",
+    "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_levels.pdf": "09396a719f7466f91a7c64090df737cb49a3f0b791da74614ac9fa74d3605e33",
+    "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_levels.png": "a44dd76f704a83e2c431c81d3b1d1d07bf575a37d1548a36589aed413d90fc86",
+    "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_levels.pdf": "6692017b9da861b178c2e5d80672072af1026329e1490b941cd21c12573aa603",
+    "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_levels.png": "665973cc9bcee7f364b9b487f824936280680e454b79eda673fc03397f0180c4"
   },
   "files": [
     "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_levels.png",

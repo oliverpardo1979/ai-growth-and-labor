@@ -49,12 +49,12 @@ class CompetitiveMainComparison(unittest.TestCase):
     def test_shared_axes_and_discontinuous_event_are_honest(self):
         fig = report.make_figure(self.datasets)
         try:
-            self.assertEqual(len(fig.axes), 9)
-            for view, window in enumerate(report.LEVEL_WINDOWS):
-                for col, (field, _, _) in enumerate(report.LEVEL_PANELS):
+            self.assertEqual(len(fig.axes), 6)
+            for view, window in enumerate(report.MAIN_WINDOWS):
+                for col, (field, _, unit) in enumerate(report.MAIN_PANELS):
                     axis = fig.axes[view * 3 + col]
                     self.assertEqual(tuple(axis.get_xlim()), window)
-                    self.assertEqual(axis.get_yscale(), "linear" if view == 0 else "log")
+                    self.assertEqual(axis.get_yscale(), "linear" if view == 0 or unit == "share" else "log")
                     for chi in report.CHIS:
                         line = next(line for line in axis.lines if line.get_gid() == f"chi_{chi}_post")
                         series = [r for r in self.datasets[chi] if window[0] <= r["time"] <= window[1]]
@@ -62,19 +62,51 @@ class CompetitiveMainComparison(unittest.TestCase):
                         self.assertEqual(list(line.get_ydata()), [r[field] for r in series])
                         self.assertGreaterEqual(min(line.get_xdata()), max(window[0], 0))
                     benchmark = next(line for line in axis.lines if line.get_gid() == "continued_competition")
-                    self.assertEqual(list(benchmark.get_ydata()), [1, 1])
-                    if view == 0:
+                    value = report.competitive_benchmark(self.datasets, field)
+                    self.assertEqual(list(benchmark.get_ydata()), [value, value])
+                    if view == 0 and unit == "ratio":
                         self.assertIn("100.0", axis.yaxis.get_major_formatter()(1))
+                    if view == 0:
+                        for chi in report.CHIS:
+                            before = next(line for line in axis.lines if line.get_gid() == f"chi_{chi}_before")
+                            after = next(line for line in axis.lines if line.get_gid() == f"chi_{chi}_after")
+                            self.assertEqual(list(before.get_ydata()), [value])
+                            self.assertEqual(list(after.get_ydata()), [self.datasets[chi][0][field]])
             self.assertEqual([t.get_text() for t in fig.legends[0].get_texts()],
                              ["Continued competition", r"Monopoly, $\chi=7.5$", r"Monopoly, $\chi=1.5$"])
         finally:
             report.plt.close(fig)
 
+    def test_revenue_is_not_net_profit_or_a_ratio_to_competitive_revenue(self):
+        for chi, series in self.datasets.items():
+            folder = report.make_design(chi).output_directory
+            parameters = json.loads((folder / "scenario.json").read_text())["parameters"]
+            reference = json.loads((folder / "competitive_reference.json").read_text())["sigma_1_50"]
+            with (folder / "equilibrium_paths.csv").open(newline="") as stream:
+                expected = {float(row["time"]): row for row in csv.DictReader(stream)
+                            if float(row["sigma"]) == 1.5}
+            self.assertGreater(reference["ai_revenue_output_share"], 0)
+            self.assertEqual(reference["profit_output_share"], 0)
+            for row in series:
+                revenue = row["ai_revenue_output_share"]
+                self.assertEqual(revenue, float(expected[row["time"]]["ai_revenue_output_share"]))
+                self.assertAlmostEqual(revenue, 1 - parameters["alpha"] - row["labor_income_share"])
+                self.assertAlmostEqual(revenue, sum(row[field] for field in
+                                      ("profit_output_share", "inference_output_share", "research_output_share")))
+                self.assertEqual(row["competitive_ai_revenue_output_share"],
+                                 reference["ai_revenue_output_share"])
+
     def test_figure_provenance_and_appendix_preservation(self):
         manifest = json.loads((report.FIGDIR / f"{report.STEM}_manifest.json").read_text())
         self.assertEqual(manifest["sigma"], 1.5)
         self.assertEqual(manifest["chis"], [7.5, 1.5])
-        self.assertEqual(manifest["windows"], [[-2, 10], [10, 100], [10, 500]])
+        self.assertEqual(manifest["windows"], [[-2, 10], [10, 50]])
+        self.assertEqual([panel["field"] for panel in manifest["panels"]],
+                         ["output_counterfactual_ratio", "wage_counterfactual_ratio", "ai_revenue_output_share"])
+        self.assertEqual(manifest["panels"][2]["scales_by_window"], ["linear_percent", "linear_percent"])
+        self.assertGreater(manifest["panels"][2]["competitive_benchmark"], 0)
+        for path, digest in manifest["preserved_supplemental_files"].items():
+            self.assertEqual(report.sha256(ROOT / path), digest)
         for entry in manifest["sources"].values():
             for path, digest in entry["files"].items():
                 self.assertEqual(report.sha256(ROOT / path), digest)

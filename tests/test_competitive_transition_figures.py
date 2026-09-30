@@ -11,7 +11,7 @@ import report_competitive_to_monopoly as report
 
 
 class CompetitiveTransitionFigures(unittest.TestCase):
-    def test_main_figures_have_intermediate_window_and_honest_scales(self):
+    def test_supplemental_figures_have_intermediate_window_and_honest_scales(self):
         for chi in (7.5, 1.5):
             design = report.make_design(chi)
             rows, references = report.write_report(design)
@@ -47,8 +47,10 @@ class CompetitiveTransitionFigures(unittest.TestCase):
                                      'comparison_paths.csv').read_bytes()).hexdigest()
             self.assertEqual(actual, expected)
         main = (ROOT / 'main_rewrite.tex').read_text()
+        supplement = (ROOT / 'online_appendix.tex').read_text()
         self.assertIn(r'\input{sections_rewrite/14_competitive_to_monopoly}', main)
-        self.assertIn(r'\input{sections_rewrite/appendix_competitive_transition}', main)
+        self.assertNotIn(r'\input{sections_rewrite/appendix_competitive_transition}', main)
+        self.assertIn(r'\input{sections_rewrite/appendix_competitive_transition}', supplement)
 
 
 if __name__ == '__main__':

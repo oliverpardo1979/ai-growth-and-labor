@@ -2,7 +2,7 @@
 
 This experiment asks whether research financed by monopoly rents can offset
 restricted AI use and allow an escape from the labor bottleneck. The main-text
-subsection "From competitive provision to monopoly with RSI" focuses on
+subsection "Monopoly boosts growth" focuses on
 sigma=1.5 and compares both research productivities in a single figure.
 The supplementary appendix retains the full four-elasticity comparison,
 including the original level figures and initial-stock table.
@@ -106,14 +106,23 @@ in `figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_le
 The previous main-text discussion is preserved in
 `sections_rewrite/archive/14_competitive_to_monopoly_four_sigmas.tex`.
 
-The main-text figure and the two appendix level figures show three windows: -2 to 10 years (including
-two years before the event), 10 to 100 years, and 10 to 500 years. The middle
-window magnifies recoveries hidden by the 500-year view; it does not replace
-that view. The initial row uses percentages of continued competition, while
-the middle and last rows use multiples on logarithmic scales. Vertical axes
-are fitted independently and explicitly disclosed in the captions. All
-percentage ticks have one decimal place. The six additional appendix figures retain
-the original two windows. All windows use the same stored trajectories.
+The main-text figure shows two windows: -2 to 10 years (including two
+pre-event years) and 10 to 50 years. Its columns show output per worker,
+wages, and AI-industry revenue. Output and wages are relative to continued
+competition: percentages in the upper row and multiples on logarithmic
+scales below. AI revenue is p_X X divided by each economy's own output,
+displayed as a percentage in both rows. Its competitive benchmark is
+positive, not zero: competitive AI revenue pays for inference compute.
+The renderer checks revenue against both the factor-income identity and
+the sum of inference expenditure, research expenditure, and net profit.
+
+The two appendix level figures retain consumption and three windows:
+-2 to 10, 10 to 100, and 10 to 500 years. Their initial row uses percentages
+of continued competition; the middle and last rows use multiples on
+logarithmic scales. Vertical scales differ across windows. All percentage
+ticks have one decimal place. The six additional appendix figures retain
+the original two windows. All windows use the same stored trajectories;
+the shorter main-text display does not change the solution horizon.
 
 ## Interpretation limits
 

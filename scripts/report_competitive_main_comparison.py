@@ -7,7 +7,7 @@ import hashlib
 import json
 
 from report_competitive_to_monopoly import (
-    ROOT, FIGDIR, LEVEL_PANELS, LEVEL_WINDOWS, checked_data, make_design,
+    ROOT, FIGDIR, checked_data, make_design,
     first_upcrossing, np, plt, Line2D, PercentFormatter, MaxNLocator,
     FixedLocator, LogLocator, NullLocator, FuncFormatter,
 )
@@ -20,6 +20,17 @@ STYLES = {
 }
 COMPETITION_STYLE = ("#414141", (0, (4, 2)))
 STEM = "competitive_to_monopoly_sigma_1_5_levels"
+MAIN_WINDOWS = ((-2., 10.), (10., 50.))
+MAIN_PANELS = (
+    ("output_counterfactual_ratio", "A. Output per worker", "ratio"),
+    ("wage_counterfactual_ratio", "B. Wage", "ratio"),
+    ("ai_revenue_output_share", "C. AI-industry revenue\n$p_X X/Y$", "share"),
+)
+PRESERVED_SUPPLEMENTAL_FILES = (
+    ROOT / "scripts/report_competitive_to_monopoly.py",
+    *(FIGDIR / f"competitive_to_monopoly_chi_{chi}_levels.{extension}"
+      for chi in ("7_5", "1_5") for extension in ("pdf", "png")),
+)
 RATIO_FIELDS = {
     "output_counterfactual_ratio": ("output_effective_labor", "output"),
     "wage_counterfactual_ratio": ("wage_productivity", "wage"),
@@ -63,6 +74,25 @@ def load_comparison():
                     raise ValueError("Invalid level ratio.")
         if abs(series[0]["capital_effective_labor"] / ref["capital"] - 1) > 1e-9:
             raise ValueError("The inherited capital stock must not jump.")
+        if ref["profit_output_share"] != 0:
+            raise ValueError("Continued competition must have zero developer profit.")
+        competitive_revenue = ref["ai_revenue_output_share"]
+        if (not np.isfinite(competitive_revenue) or competitive_revenue <= 0
+                or abs(competitive_revenue - ref["inference_output_share"]) > 1e-12
+                or abs(competitive_revenue - (1 - parameters["alpha"]
+                                              - ref["labor_income_share"])) > 1e-12):
+            raise ValueError("Competitive AI revenue must cover inference and reconcile with income shares.")
+        for row in series:
+            row["competitive_ai_revenue_output_share"] = competitive_revenue
+            net_profit = (row["ai_revenue_output_share"]
+                          - row["inference_output_share"] - row["research_output_share"])
+            if (not np.isfinite(row["profit_output_share"])
+                    or abs(row["profit_output_share"] - net_profit) > 1e-12):
+                raise ValueError("Net profit must deduct both inference and research costs.")
+            if (not np.isfinite(row["ai_revenue_output_share"])
+                    or abs(row["ai_revenue_output_share"] - (1 - parameters["alpha"]
+                                                           - row["labor_income_share"])) > 1e-12):
+                raise ValueError("AI revenue must reconcile with capital and labor income shares.")
         datasets[chi] = series
         sources[str(chi)] = {
             "files": {
@@ -77,17 +107,25 @@ def load_comparison():
             "first_recovery_year": {
                 ratio: first_upcrossing(series, ratio) for ratio in RATIO_FIELDS
             },
+            "competitive_ai_revenue_output_share": competitive_revenue,
         }
     return datasets, sources
 
 
+def competitive_benchmark(datasets, field):
+    if field == "ai_revenue_output_share":
+        return datasets[CHIS[0]][0]["competitive_ai_revenue_output_share"]
+    return 1.
+
+
 def make_figure(datasets):
     """Shared axes for the two chi values; no line bridges the impact jump."""
-    fig, axes = plt.subplots(3, 3, figsize=(8.6, 9.0))
-    for view, (start, end) in enumerate(LEVEL_WINDOWS):
-        for axis, (field, label, _) in zip(axes[view], LEVEL_PANELS):
+    fig, axes = plt.subplots(2, 3, figsize=(8.6, 6.4))
+    for view, (start, end) in enumerate(MAIN_WINDOWS):
+        for axis, (field, label, unit) in zip(axes[view], MAIN_PANELS):
+            benchmark = competitive_benchmark(datasets, field)
             color, style = COMPETITION_STYLE
-            axis.plot([start, end], [1, 1], color=color, ls=style, lw=1.3,
+            axis.plot([start, end], [benchmark, benchmark], color=color, ls=style, lw=1.3,
                       gid="continued_competition")
             for chi in CHIS:
                 color, style = STYLES[chi]
@@ -98,15 +136,16 @@ def make_figure(datasets):
                           [row[field] for row in series], color=color, ls=style,
                           lw=1.5, gid=f"chi_{chi}_post")
                 if view == 0:
-                    axis.plot([start, 0], [1, 1], color=color, ls=style, lw=1.2,
+                    axis.plot([start, 0], [benchmark, benchmark], color=color, ls=style, lw=1.2,
                               gid=f"chi_{chi}_pre")
-                    axis.plot(0, 1, marker="o", mfc="white", mec=color, ms=3)
-                    axis.plot(0, series[0][field], marker="o", color=color, ms=3)
+                    axis.plot(0, benchmark, marker="o", mfc="white", mec=color, ms=3,
+                              gid=f"chi_{chi}_before")
+                    axis.plot(0, series[0][field], marker="o", color=color, ms=3,
+                              gid=f"chi_{chi}_after")
             axis.set_title(label, loc="left", pad=8, fontsize=11)
-            if view == 0:
+            if view == 0 or unit == "share":
                 axis.yaxis.set_major_formatter(PercentFormatter(1, decimals=1))
                 axis.yaxis.set_major_locator(MaxNLocator(4))
-                axis.axvline(0, color="#999999", ls=":", lw=.7)
             else:
                 axis.set_yscale("log")
                 lo, hi = axis.get_ylim()
@@ -120,11 +159,11 @@ def make_figure(datasets):
                 axis.yaxis.set_major_formatter(FuncFormatter(
                     lambda v, pos: fr"$10^{{{int(round(np.log10(v)))}}}\times$"
                     if v >= 10000 else "$" + format(v, "g") + r"\times$"))
+            if view == 0:
+                axis.axvline(0, color="#999999", ls=":", lw=.7)
             axis.set_xlim(start, end)
-            axis.set_xticks([-2, 0, 5, 10] if view == 0 else
-                            ([10, 25, 50, 75, 100] if end == 100 else [10, 100, 250, 500]))
-            axis.set_xlabel(("Years: initial transition", "Years: intermediate window",
-                             "Years: longer window")[view])
+            axis.set_xticks([-2, 0, 5, 10] if view == 0 else [10, 20, 30, 40, 50])
+            axis.set_xlabel(("Years: initial transition", "Years: subsequent transition")[view])
             axis.grid(axis="y", color="#dddddd", lw=.5)
             axis.spines[["top", "right"]].set_visible(False)
             axis.spines[["left", "bottom"]].set_color("#999999")
@@ -132,15 +171,16 @@ def make_figure(datasets):
                       lw=1.3, label="Continued competition")]
     handles += [Line2D([], [], color=STYLES[chi][0], ls=STYLES[chi][1], lw=1.5,
                        label=fr"Monopoly, $\chi={chi:g}$") for chi in CHIS]
-    fig.suptitle(r"Levels relative to continued competition | $\sigma=1.5$",
+    fig.suptitle(r"From competition to monopoly | $\sigma=1.5$",
                  fontsize=14, y=.99)
-    fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(.5, .948),
+    fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(.5, .93),
                ncol=3, frameon=False, fontsize=9)
     fig.text(.08, .018,
-             "Top: 100.0% = continued competition. Middle/bottom: multiples (log scale); 1x = competition.\n"
+             "Output and wages: top, 100% = competition; bottom, multiples (log scale), 1x = competition.\n"
+             "AI-industry revenue: percent of own output in both rows; not net profit.\n"
              "Open/filled dots: before/after exclusive rights. Vertical scales differ across windows.",
              fontsize=8, color="#444444", va="bottom")
-    fig.subplots_adjust(left=.10, right=.97, top=.855, bottom=.105,
+    fig.subplots_adjust(left=.10, right=.97, top=.80, bottom=.175,
                         wspace=.48, hspace=.95)
     return fig
 
@@ -155,14 +195,24 @@ def main():
     fig.savefig(pdf, metadata={"Title": "Competition to monopoly: sigma=1.5, two research productivities"})
     plt.close(fig)
     manifest = {
-        "sigma": SIGMA, "chis": CHIS, "windows": LEVEL_WINDOWS,
-        "scales": ["linear_percent", "log_multiple", "log_multiple"],
+        "sigma": SIGMA, "chis": CHIS, "windows": MAIN_WINDOWS,
+        "panels": [
+            {"field": field, "competitive_benchmark": competitive_benchmark(datasets, field),
+             "scales_by_window": ["linear_percent", "linear_percent"
+                                  if unit == "share" else "log_multiple"]}
+            for field, _, unit in MAIN_PANELS
+        ],
+        "revenue_definition": "p_X X / own output = 1 - alpha - labor income share; includes inference, research and net profit",
         "percent_decimals": 1, "ratio_fields": RATIO_FIELDS, "sources": sources,
+        "preserved_supplemental_files": {
+            path.relative_to(ROOT).as_posix(): sha256(path)
+            for path in PRESERVED_SUPPLEMENTAL_FILES
+        },
         "files": [path.relative_to(ROOT).as_posix() for path in (png, pdf)],
         "note": "Reads existing audited data only. Original four-elasticity figures are preserved.",
     }
     (FIGDIR / f"{STEM}_manifest.json").write_text(
-        json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+        json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(pdf, flush=True)
 
 
