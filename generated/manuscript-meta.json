@@ -276,6 +276,12 @@
       "number": ""
     },
     {
+      "id": "ai-industry-revenue-at-sigma1.5.",
+      "title": "AI-industry revenue at \\sigma=1.5.",
+      "level": 4,
+      "number": ""
+    },
+    {
       "id": "subsec:rewrite-monopoly-growth-reversal",
       "title": "Monopoly slows growth",
       "level": 1,
@@ -318,10 +324,10 @@
       "number": "S5.2"
     }
   ],
-  "source_sha256": "37172553f8432b6fcdd0694637ddceac3419d718b7ebec21d9ff0f6c394dc89c",
+  "source_sha256": "0a3040d7822eb1eb9e07323e254d9ff2426a94d2d3c76df3f18f5c5723dc07e3",
   "supplement": {
     "source": "online_appendix.tex",
-    "source_sha256": "7f059ab36ba6fa49780525badfdad9b92e128232c5bbeb5e6ca61cd0c22c4655",
+    "source_sha256": "69dfe10db597f51675e058b4a1e5f29adaf76ffb82f742c7f8dd9349e769237c",
     "source_files": [
       "online_appendix.tex",
       "sections_rewrite/appendix_competitive_transition.tex",
@@ -336,8 +342,8 @@
       "sections_rewrite/rsi_illustrative_accuracy.tex"
     ],
     "build_inputs": {
-      "aux": "f3fadf0fdaddf4b3cc150c69ca83da9048922bc2d18c21c13ebc6c311821b805",
-      "pdf": "53b14a22cdd014d83f987f7b34758c9008556836adb0c389b8148b6492eea422"
+      "aux": "65279351dda0c72a321429f68471fc2ff34c1314c96c0752159fccd6fafadee8",
+      "pdf": "55835e83f4f3f771ea8c4a40aabf8e1a006bf04aaf868f1c674be2d99b2d330e"
     }
   },
   "source_files": [
@@ -464,71 +470,78 @@
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_levels.pdf"
     },
     {
-      "id": "fig:rewrite-competitive-high-levels",
+      "id": "fig:rewrite-competitive-sigma15-revenue",
       "number": "S1",
+      "asset": "generated/assets/fig-rewrite-competitive-sigma15-revenue.svg",
+      "kind": "pdf-figure",
+      "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_revenue.pdf"
+    },
+    {
+      "id": "fig:rewrite-competitive-high-levels",
+      "number": "S2",
       "asset": "generated/assets/fig-rewrite-competitive-high-levels.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_levels.pdf"
     },
     {
       "id": "fig:rewrite-competitive-low-levels",
-      "number": "S2",
+      "number": "S3",
       "asset": "generated/assets/fig-rewrite-competitive-low-levels.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_levels.pdf"
     },
     {
       "id": "fig:rewrite-competitive-high-growth",
-      "number": "S3",
+      "number": "S4",
       "asset": "generated/assets/fig-rewrite-competitive-high-growth.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_accumulation_growth.pdf"
     },
     {
       "id": "fig:rewrite-competitive-high-prices",
-      "number": "S4",
+      "number": "S5",
       "asset": "generated/assets/fig-rewrite-competitive-high-prices.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_growth_returns.pdf"
     },
     {
       "id": "fig:rewrite-competitive-high-distribution",
-      "number": "S5",
+      "number": "S6",
       "asset": "generated/assets/fig-rewrite-competitive-high-distribution.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_7_5_distribution.pdf"
     },
     {
       "id": "fig:rewrite-competitive-low-growth",
-      "number": "S6",
+      "number": "S7",
       "asset": "generated/assets/fig-rewrite-competitive-low-growth.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_accumulation_growth.pdf"
     },
     {
       "id": "fig:rewrite-competitive-low-prices",
-      "number": "S7",
+      "number": "S8",
       "asset": "generated/assets/fig-rewrite-competitive-low-prices.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_growth_returns.pdf"
     },
     {
       "id": "fig:rewrite-competitive-low-distribution",
-      "number": "S8",
+      "number": "S9",
       "asset": "generated/assets/fig-rewrite-competitive-low-distribution.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_chi_1_5_distribution.pdf"
     },
     {
       "id": "fig:rewrite-monopoly-growth-reversal-growth",
-      "number": "S9",
+      "number": "S10",
       "asset": "generated/assets/fig-rewrite-monopoly-growth-reversal-growth.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_growth.pdf"
     },
     {
       "id": "fig:rewrite-monopoly-growth-reversal-technology",
-      "number": "S10",
+      "number": "S11",
       "asset": "generated/assets/fig-rewrite-monopoly-growth-reversal-technology.svg",
       "kind": "pdf-figure",
       "source": "figures_rewrite/monopoly_growth_reversal_burnin/monopoly_growth_reversal_technology.pdf"
@@ -542,10 +555,10 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 239,
+    "labels": 240,
     "numbered_equation_rows": 141,
     "display_math": 183,
-    "figures": 21,
+    "figures": 22,
     "tables": 5,
     "bibliography_entries": 41,
     "citation_keys": 41
@@ -556,13 +569,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 21959,
+    "visible_text_tokens_verified": 22102,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "b251b3e7c1d06bb658cee278acd42006c0636fddde46091483de3e0e54d68256",
+    "aux": "57ee66ec7b1227941bcaad4b16e330d9c10aa526bc8c30a5bb88d6c8cf7cf9b8",
     "bbl": "5f0168d1e4ef2e4e99ea307bd10d5a532f6711750e579057adca02aba1c33684",
-    "pdf": "8616c529c9e4cb03d6b122051c6dac1b0d2e691794007fd2128b538779795076"
+    "pdf": "a12b1e610805879f9a1d235b5eb15c20daef146cd8b33385f08dab6fed85287d"
   }
 }
