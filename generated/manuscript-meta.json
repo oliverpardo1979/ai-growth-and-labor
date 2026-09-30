@@ -151,7 +151,7 @@
     },
     {
       "id": "subsec:rewrite-competitive-transition",
-      "title": "Monopoly boosts growth",
+      "title": "From competition to monopoly",
       "level": 2,
       "number": "6.4"
     },
@@ -324,7 +324,7 @@
       "number": "S5.2"
     }
   ],
-  "source_sha256": "0a3040d7822eb1eb9e07323e254d9ff2426a94d2d3c76df3f18f5c5723dc07e3",
+  "source_sha256": "12e77cbb7683a431b32703aaa7b7f68b8dfc5e69ba5535d8739ab7081e4e6ce3",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "69dfe10db597f51675e058b4a1e5f29adaf76ffb82f742c7f8dd9349e769237c",
@@ -343,7 +343,7 @@
     ],
     "build_inputs": {
       "aux": "65279351dda0c72a321429f68471fc2ff34c1314c96c0752159fccd6fafadee8",
-      "pdf": "55835e83f4f3f771ea8c4a40aabf8e1a006bf04aaf868f1c674be2d99b2d330e"
+      "pdf": "b9a46a36cb04910eb862d4ac755c4f7bab32ae06906bf889ad2fe7c4a6716217"
     }
   },
   "source_files": [
@@ -569,13 +569,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 22102,
+    "visible_text_tokens_verified": 21916,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "57ee66ec7b1227941bcaad4b16e330d9c10aa526bc8c30a5bb88d6c8cf7cf9b8",
+    "aux": "f58607546d24f96734c37ec221451376d057215ce136f443d7f467fc3772814a",
     "bbl": "5f0168d1e4ef2e4e99ea307bd10d5a532f6711750e579057adca02aba1c33684",
-    "pdf": "a12b1e610805879f9a1d235b5eb15c20daef146cd8b33385f08dab6fed85287d"
+    "pdf": "61b2fdf3a5c2be9e7fc13165334ed8d381a403d3146ca3258f16dd78e1e3ea3a"
   }
 }
