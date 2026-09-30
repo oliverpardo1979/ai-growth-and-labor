@@ -126,64 +126,40 @@
       "number": "5.3"
     },
     {
-      "id": "sec:rewrite-uncapped",
-      "title": "Equilibrium without an upper bound on AI efficiency",
-      "level": 1,
-      "number": "6"
-    },
-    {
-      "id": "subsec:rewrite-uncapped-complements",
-      "title": "Complementarity",
-      "level": 2,
-      "number": "6.1"
-    },
-    {
-      "id": "subsec:rewrite-uncapped-unit-bgp",
-      "title": "Unit elasticity",
-      "level": 2,
-      "number": "6.2"
-    },
-    {
-      "id": "subsec:rewrite-uncapped",
-      "title": "Substitution",
-      "level": 2,
-      "number": "6.3"
-    },
-    {
       "id": "sec:rewrite-quantitative",
       "title": "Numerical simulations",
       "level": 1,
-      "number": "7"
+      "number": "6"
     },
     {
       "id": "subsec:rewrite-rsi-activation",
       "title": "Parameters and initial conditions",
       "level": 2,
-      "number": "7.1"
+      "number": "6.1"
     },
     {
       "id": "subsec:rewrite-rsi-half-decline",
       "title": "Fast takeoff",
       "level": 2,
-      "number": "7.2"
+      "number": "6.2"
     },
     {
       "id": "subsec:rewrite-rsi-research-share",
       "title": "Slow takeoff",
       "level": 2,
-      "number": "7.3"
+      "number": "6.3"
     },
     {
       "id": "subsec:rewrite-competitive-transition",
       "title": "Monopoly boosts growth",
       "level": 2,
-      "number": "7.4"
+      "number": "6.4"
     },
     {
       "id": "sec:rewrite-conclusion",
       "title": "Conclusion",
       "level": 1,
-      "number": "8"
+      "number": "7"
     },
     {
       "id": "app:rewrite-proofs",
@@ -232,6 +208,30 @@
       "title": "Replication files.",
       "level": 4,
       "number": ""
+    },
+    {
+      "id": "sec:rewrite-uncapped",
+      "title": "Equilibrium without an upper bound on AI efficiency",
+      "level": 1,
+      "number": "C"
+    },
+    {
+      "id": "subsec:rewrite-uncapped-complements",
+      "title": "Complementarity",
+      "level": 2,
+      "number": "C.1"
+    },
+    {
+      "id": "subsec:rewrite-uncapped-unit-bgp",
+      "title": "Unit elasticity",
+      "level": 2,
+      "number": "C.2"
+    },
+    {
+      "id": "subsec:rewrite-uncapped",
+      "title": "Substitution",
+      "level": 2,
+      "number": "C.3"
     },
     {
       "id": "declaration-of-ai-use",
@@ -318,7 +318,7 @@
       "number": "S5.2"
     }
   ],
-  "source_sha256": "e737a4b097565ff29923ef5306c75d8a89a36bd1207a73469b33552abd8a3b3c",
+  "source_sha256": "cfdd8ca20a823beca828b44c6560b90d40d6f498e0daef6471c3ec2cfd227f4f",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "9ef7783f29a3b252ff656bcb4db1a3508a699f14e550cca0adec92496110c05d",
@@ -337,7 +337,7 @@
     ],
     "build_inputs": {
       "aux": "f3fadf0fdaddf4b3cc150c69ca83da9048922bc2d18c21c13ebc6c311821b805",
-      "pdf": "ba32a77afd68a6efb945a077ac001729ed19101e914cf33d65586c750d69ebac"
+      "pdf": "855ca7c480583129ec17f0edc995c0938b23ca0714442c8638dd013638136767"
     }
   },
   "source_files": [
@@ -348,7 +348,6 @@
     "sections_rewrite/04_equilibrium_regimes.tex",
     "sections_rewrite/05_competitive_equilibrium.tex",
     "sections_rewrite/competitive_threshold_figure.tex",
-    "sections_rewrite/05_uncapped_equilibria.tex",
     "sections_rewrite/08_rsi_design.tex",
     "sections_rewrite/rsi_parameters.tex",
     "sections_rewrite/12_rsi_high_productivity.tex",
@@ -358,7 +357,8 @@
     "sections_rewrite/appendix.tex",
     "sections_rewrite/appendix_finite_frontier.tex",
     "sections_rewrite/appendix_competitive_equilibrium.tex",
-    "sections_rewrite/appendix_rsi_illustrative.tex"
+    "sections_rewrite/appendix_rsi_illustrative.tex",
+    "sections_rewrite/05_uncapped_equilibria.tex"
   ],
   "source": "main_rewrite.tex",
   "figures": [
@@ -556,13 +556,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 22035,
+    "visible_text_tokens_verified": 22092,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "294e64cf4cebb68e4a21f23b50a4d137f2410b26431a37ba162bab91b3b91b3e",
+    "aux": "b18853ea69d43be30e51d64c49065c60a922328d3b925f60780e9c0ce0965bbc",
     "bbl": "5f0168d1e4ef2e4e99ea307bd10d5a532f6711750e579057adca02aba1c33684",
-    "pdf": "901a4d73831db0afba523aece0010660643931ad06497470ca2d532a028d39cc"
+    "pdf": "53ff2d29f4b883cfbfb5ac494d98626b2243c8b64da7d6b2228756fc36377f82"
   }
 }
