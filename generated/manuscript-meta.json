@@ -324,10 +324,10 @@
       "number": "S5.2"
     }
   ],
-  "source_sha256": "12e77cbb7683a431b32703aaa7b7f68b8dfc5e69ba5535d8739ab7081e4e6ce3",
+  "source_sha256": "0beb3978539436676013d7219fcbe07dac29bc22cb4532c4b7a2dd7c1d1b3385",
   "supplement": {
     "source": "online_appendix.tex",
-    "source_sha256": "69dfe10db597f51675e058b4a1e5f29adaf76ffb82f742c7f8dd9349e769237c",
+    "source_sha256": "61361ac7c3ee455c1923036e6acc87b19ae90614be91daf94b22bfa89026898d",
     "source_files": [
       "online_appendix.tex",
       "sections_rewrite/appendix_competitive_transition.tex",
@@ -342,8 +342,8 @@
       "sections_rewrite/rsi_illustrative_accuracy.tex"
     ],
     "build_inputs": {
-      "aux": "65279351dda0c72a321429f68471fc2ff34c1314c96c0752159fccd6fafadee8",
-      "pdf": "b9a46a36cb04910eb862d4ac755c4f7bab32ae06906bf889ad2fe7c4a6716217"
+      "aux": "80183adbe193f1baa2d41036f32ccf866e63f1b86407ef6e974477671b6b3248",
+      "pdf": "d01199d53ccdcc2c7f7cc4573488af0d822af4e895f4f1f3993ebae304dad00d"
     }
   },
   "source_files": [
@@ -569,13 +569,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 21916,
+    "visible_text_tokens_verified": 21999,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
     "aux": "f58607546d24f96734c37ec221451376d057215ce136f443d7f467fc3772814a",
     "bbl": "5f0168d1e4ef2e4e99ea307bd10d5a532f6711750e579057adca02aba1c33684",
-    "pdf": "61b2fdf3a5c2be9e7fc13165334ed8d381a403d3146ca3258f16dd78e1e3ea3a"
+    "pdf": "f52aa54c0fb33608b4a57058d575e5c459fabe6b841ae4a364ddd3c730e440d8"
   }
 }
