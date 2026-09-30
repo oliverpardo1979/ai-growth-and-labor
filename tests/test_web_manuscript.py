@@ -467,7 +467,8 @@ class GeneratedManuscriptTests(unittest.TestCase):
         self.assertIn('id="additional-results"', self.content)
         self.assertIn('href="paper/online-appendix.pdf"', self.content)
         self.assertNotIn('href="#paper-', self.content)
-        self.assertEqual(len([f for f in self.meta["figures"] if str(f["number"]).startswith("S")]), 10)
+        self.assertEqual(len([f for f in self.meta["figures"] if str(f["number"]).startswith("S")]), 11)
+        self.assertIn('id="fig:rewrite-competitive-sigma15-revenue"', self.content)
 
     def test_relocated_proofs_and_numerical_details_are_supplementary(self):
         main = web.flatten(ROOT / "main_rewrite.tex", ROOT, [])

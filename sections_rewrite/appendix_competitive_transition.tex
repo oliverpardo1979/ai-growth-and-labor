@@ -13,8 +13,8 @@ I use the existing simulated trajectories; no additional equilibria are
 computed for this presentation. Appendix~\ref{paper-app:rewrite-competitive-transition-numerics}
 of the main paper documents the initial conditions and numerical checks.
 
-The level figures retain consumption and the longer horizons omitted
-from the main-text figure, with windows of years $-2$--10, 10--100, and
+The level figures retain the longer horizons omitted from the main-text
+figure, with windows of years $-2$--10, 10--100, and
 10--500. The growth, price, and
 distributional figures below show
 two pre-event years and years 0--10 above, with years 10--500 below.
@@ -98,11 +98,32 @@ experiment, and the replication commands. The driver is
 The guide links to the separate results folders for each research
 productivity, containing the original paths, competitive benchmarks,
 impact changes, and numerical audits.
-The main-text $\sigma=1.5$ comparison is rendered by
+The main-text $\sigma=1.5$ comparison and the AI-revenue figure below are rendered by
 \path{scripts/report_competitive_main_comparison.py}, which reads these
 same audited paths without changing them.
 Figure windows only select dates from those stored paths; they do not
 change the simulated economy or the numerical solution horizon.
+
+\paragraph{AI-industry revenue at $\sigma=1.5$.}
+Figure~\ref{fig:rewrite-competitive-sigma15-revenue} supplements the
+main-text level comparison with AI-industry revenue as a share of each
+economy's output. The share falls from $8.6\%$ to $5.3\%$ at the grant
+under either $\chi$. The markup reduces AI use enough to lower this share,
+despite the higher AI-service price. As research improves efficiency and
+AI use expands, the share rises, reaching $37.4\%$ with $\chi=7.5$ and
+$12.9\%$ with $\chi=1.5$ at year 50. Revenue is not net profit: it also
+pays for inference and research compute.
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\textwidth]{figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_revenue.pdf}
+ \caption{From competition to monopoly with RSI at $\sigma=1.5$:
+ AI-industry revenue, $p_XX/Y$, as a percentage of each economy's output.
+ Panels cover years $-2$--10 and 10--50. The gray dashed line denotes
+ continued competition; blue solid and gold dash-dotted lines denote
+ monopoly with $\chi=7.5$ and $\chi=1.5$, respectively.}
+ \label{fig:rewrite-competitive-sigma15-revenue}
+\end{figure}
 
 \clearpage
 \begin{figure}[H]

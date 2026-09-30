@@ -20,11 +20,12 @@ STYLES = {
 }
 COMPETITION_STYLE = ("#414141", (0, (4, 2)))
 STEM = "competitive_to_monopoly_sigma_1_5_levels"
+REVENUE_STEM = "competitive_to_monopoly_sigma_1_5_revenue"
 MAIN_WINDOWS = ((-2., 10.), (10., 50.))
 MAIN_PANELS = (
     ("output_counterfactual_ratio", "A. Output per worker", "ratio"),
     ("wage_counterfactual_ratio", "B. Wage", "ratio"),
-    ("ai_revenue_output_share", "C. AI-industry revenue\n$p_X X/Y$", "share"),
+    ("consumption_counterfactual_ratio", "C. Consumption\nper person", "ratio"),
 )
 PRESERVED_SUPPLEMENTAL_FILES = (
     ROOT / "scripts/report_competitive_to_monopoly.py",
@@ -118,30 +119,42 @@ def competitive_benchmark(datasets, field):
     return 1.
 
 
+def plot_comparison(axis, datasets, field, start, end):
+    """Plot actual stored observations with separate before/after impact marks."""
+    benchmark = competitive_benchmark(datasets, field)
+    color, style = COMPETITION_STYLE
+    axis.plot([start, end], [benchmark, benchmark], color=color, ls=style, lw=1.3,
+              gid="continued_competition")
+    for chi in CHIS:
+        color, style = STYLES[chi]
+        series = [row for row in datasets[chi] if start <= row["time"] <= end]
+        if not series or series[-1]["time"] < end:
+            raise ValueError("The data do not cover the figure window.")
+        axis.plot([row["time"] for row in series],
+                  [row[field] for row in series], color=color, ls=style,
+                  lw=1.5, gid=f"chi_{chi}_post")
+        if start < 0:
+            axis.plot([start, 0], [benchmark, benchmark], color=color, ls=style, lw=1.2,
+                      gid=f"chi_{chi}_pre")
+            axis.plot(0, benchmark, marker="o", mfc="white", mec=color, ms=3,
+                      gid=f"chi_{chi}_before")
+            axis.plot(0, series[0][field], marker="o", color=color, ms=3,
+                      gid=f"chi_{chi}_after")
+
+
+def comparison_handles():
+    handles = [Line2D([], [], color=COMPETITION_STYLE[0], ls=COMPETITION_STYLE[1],
+                      lw=1.3, label="Continued competition")]
+    return handles + [Line2D([], [], color=STYLES[chi][0], ls=STYLES[chi][1], lw=1.5,
+                             label=fr"Monopoly, $\chi={chi:g}$") for chi in CHIS]
+
+
 def make_figure(datasets):
     """Shared axes for the two chi values; no line bridges the impact jump."""
     fig, axes = plt.subplots(2, 3, figsize=(8.6, 6.4))
     for view, (start, end) in enumerate(MAIN_WINDOWS):
         for axis, (field, label, unit) in zip(axes[view], MAIN_PANELS):
-            benchmark = competitive_benchmark(datasets, field)
-            color, style = COMPETITION_STYLE
-            axis.plot([start, end], [benchmark, benchmark], color=color, ls=style, lw=1.3,
-                      gid="continued_competition")
-            for chi in CHIS:
-                color, style = STYLES[chi]
-                series = [row for row in datasets[chi] if start <= row["time"] <= end]
-                if not series or series[-1]["time"] < end:
-                    raise ValueError("The data do not cover the figure window.")
-                axis.plot([row["time"] for row in series],
-                          [row[field] for row in series], color=color, ls=style,
-                          lw=1.5, gid=f"chi_{chi}_post")
-                if view == 0:
-                    axis.plot([start, 0], [benchmark, benchmark], color=color, ls=style, lw=1.2,
-                              gid=f"chi_{chi}_pre")
-                    axis.plot(0, benchmark, marker="o", mfc="white", mec=color, ms=3,
-                              gid=f"chi_{chi}_before")
-                    axis.plot(0, series[0][field], marker="o", color=color, ms=3,
-                              gid=f"chi_{chi}_after")
+            plot_comparison(axis, datasets, field, start, end)
             axis.set_title(label, loc="left", pad=8, fontsize=11)
             if view == 0 or unit == "share":
                 axis.yaxis.set_major_formatter(PercentFormatter(1, decimals=1))
@@ -167,21 +180,45 @@ def make_figure(datasets):
             axis.grid(axis="y", color="#dddddd", lw=.5)
             axis.spines[["top", "right"]].set_visible(False)
             axis.spines[["left", "bottom"]].set_color("#999999")
-    handles = [Line2D([], [], color=COMPETITION_STYLE[0], ls=COMPETITION_STYLE[1],
-                      lw=1.3, label="Continued competition")]
-    handles += [Line2D([], [], color=STYLES[chi][0], ls=STYLES[chi][1], lw=1.5,
-                       label=fr"Monopoly, $\chi={chi:g}$") for chi in CHIS]
     fig.suptitle(r"From competition to monopoly | $\sigma=1.5$",
                  fontsize=14, y=.99)
-    fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(.5, .93),
+    fig.legend(handles=comparison_handles(), loc="upper center", bbox_to_anchor=(.5, .93),
                ncol=3, frameon=False, fontsize=9)
     fig.text(.08, .018,
-             "Output and wages: top, 100% = competition; bottom, multiples (log scale), 1x = competition.\n"
-             "AI-industry revenue: percent of own output in both rows; not net profit.\n"
+             "Top: 100% = competition. Bottom: multiples (log scale), 1x = competition.\n"
              "Open/filled dots: before/after exclusive rights. Vertical scales differ across windows.",
              fontsize=8, color="#444444", va="bottom")
     fig.subplots_adjust(left=.10, right=.97, top=.80, bottom=.175,
                         wspace=.48, hspace=.95)
+    return fig
+
+
+def make_revenue_figure(datasets):
+    """AI revenue is a share of each economy's own output, not a level ratio."""
+    fig, axes = plt.subplots(1, 2, figsize=(8.6, 3.8), sharey=True)
+    for view, (axis, (start, end)) in enumerate(zip(axes, MAIN_WINDOWS)):
+        plot_comparison(axis, datasets, "ai_revenue_output_share", start, end)
+        axis.set_title(("A. Initial transition", "B. Subsequent transition")[view],
+                       loc="left", pad=8, fontsize=11)
+        axis.yaxis.set_major_formatter(PercentFormatter(1, decimals=1))
+        axis.yaxis.set_major_locator(MaxNLocator(4))
+        axis.tick_params(axis="y", labelleft=True)
+        if view == 0:
+            axis.axvline(0, color="#999999", ls=":", lw=.7)
+        axis.set_xlim(start, end)
+        axis.set_xticks([-2, 0, 5, 10] if view == 0 else [10, 20, 30, 40, 50])
+        axis.set_xlabel("Years after exclusive rights")
+        axis.grid(axis="y", color="#dddddd", lw=.5)
+        axis.spines[["top", "right"]].set_visible(False)
+        axis.spines[["left", "bottom"]].set_color("#999999")
+    fig.suptitle(r"AI-industry revenue | $\sigma=1.5$", fontsize=14, y=.99)
+    fig.legend(handles=comparison_handles(), loc="upper center", bbox_to_anchor=(.5, .91),
+               ncol=3, frameon=False, fontsize=9)
+    fig.text(.08, .018,
+             r"Revenue $p_X X/Y$: percent of each economy's own output; not net profit." "\n"
+             "Open/filled dots: before/after exclusive rights. Both panels use the same linear scale.",
+             fontsize=8, color="#444444", va="bottom")
+    fig.subplots_adjust(left=.10, right=.97, top=.72, bottom=.27, wspace=.30)
     return fig
 
 
@@ -194,6 +231,11 @@ def main():
     fig.savefig(png, dpi=165)
     fig.savefig(pdf, metadata={"Title": "Competition to monopoly: sigma=1.5, two research productivities"})
     plt.close(fig)
+    revenue = make_revenue_figure(datasets)
+    revenue_png, revenue_pdf = FIGDIR / f"{REVENUE_STEM}.png", FIGDIR / f"{REVENUE_STEM}.pdf"
+    revenue.savefig(revenue_png, dpi=165)
+    revenue.savefig(revenue_pdf, metadata={"Title": "AI-industry revenue: competition to monopoly, sigma=1.5"})
+    plt.close(revenue)
     manifest = {
         "sigma": SIGMA, "chis": CHIS, "windows": MAIN_WINDOWS,
         "panels": [
@@ -203,17 +245,24 @@ def main():
             for field, _, unit in MAIN_PANELS
         ],
         "revenue_definition": "p_X X / own output = 1 - alpha - labor income share; includes inference, research and net profit",
+        "supplementary_revenue": {
+            "stem": REVENUE_STEM, "field": "ai_revenue_output_share",
+            "windows": MAIN_WINDOWS, "scales_by_window": ["linear_percent", "linear_percent"],
+            "competitive_benchmark": competitive_benchmark(datasets, "ai_revenue_output_share"),
+            "files": [path.relative_to(ROOT).as_posix() for path in (revenue_png, revenue_pdf)],
+        },
         "percent_decimals": 1, "ratio_fields": RATIO_FIELDS, "sources": sources,
         "preserved_supplemental_files": {
             path.relative_to(ROOT).as_posix(): sha256(path)
             for path in PRESERVED_SUPPLEMENTAL_FILES
         },
-        "files": [path.relative_to(ROOT).as_posix() for path in (png, pdf)],
-        "note": "Reads existing audited data only. Original four-elasticity figures are preserved.",
+        "files": [path.relative_to(ROOT).as_posix() for path in (png, pdf, revenue_png, revenue_pdf)],
+        "note": "Both figures read the same existing audited data only. Original four-elasticity figures are preserved.",
     }
     (FIGDIR / f"{STEM}_manifest.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(pdf, flush=True)
+    print(revenue_pdf, flush=True)
 
 
 if __name__ == "__main__":

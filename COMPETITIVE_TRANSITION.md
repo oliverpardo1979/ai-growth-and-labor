@@ -108,15 +108,19 @@ The previous main-text discussion is preserved in
 
 The main-text figure shows two windows: -2 to 10 years (including two
 pre-event years) and 10 to 50 years. Its columns show output per worker,
-wages, and AI-industry revenue. Output and wages are relative to continued
-competition: percentages in the upper row and multiples on logarithmic
-scales below. AI revenue is p_X X divided by each economy's own output,
-displayed as a percentage in both rows. Its competitive benchmark is
-positive, not zero: competitive AI revenue pays for inference compute.
+wages, and consumption per person, all relative to continued competition:
+percentages in the upper row and multiples on logarithmic scales below.
+The competitive benchmark is 100% above and 1x below.
+
+The same renderer produces `competitive_to_monopoly_sigma_1_5_revenue.pdf`
+for the digital supplement. Its two panels show the same time windows.
+AI revenue is p_X X divided by each economy's own output, displayed as a
+percentage on linear scales. Its competitive benchmark is positive,
+not zero: competitive AI revenue pays for inference compute.
 The renderer checks revenue against both the factor-income identity and
 the sum of inference expenditure, research expenditure, and net profit.
 
-The two appendix level figures retain consumption and three windows:
+The two four-elasticity appendix level figures retain three windows:
 -2 to 10, 10 to 100, and 10 to 500 years. Their initial row uses percentages
 of continued competition; the middle and last rows use multiples on
 logarithmic scales. Vertical scales differ across windows. All percentage

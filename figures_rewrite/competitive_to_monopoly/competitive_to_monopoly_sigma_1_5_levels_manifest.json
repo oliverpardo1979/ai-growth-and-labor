@@ -32,15 +32,38 @@
       ]
     },
     {
-      "field": "ai_revenue_output_share",
-      "competitive_benchmark": 0.08584870412533899,
+      "field": "consumption_counterfactual_ratio",
+      "competitive_benchmark": 1.0,
       "scales_by_window": [
         "linear_percent",
-        "linear_percent"
+        "log_multiple"
       ]
     }
   ],
   "revenue_definition": "p_X X / own output = 1 - alpha - labor income share; includes inference, research and net profit",
+  "supplementary_revenue": {
+    "stem": "competitive_to_monopoly_sigma_1_5_revenue",
+    "field": "ai_revenue_output_share",
+    "windows": [
+      [
+        -2.0,
+        10.0
+      ],
+      [
+        10.0,
+        50.0
+      ]
+    ],
+    "scales_by_window": [
+      "linear_percent",
+      "linear_percent"
+    ],
+    "competitive_benchmark": 0.08584870412533899,
+    "files": [
+      "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_revenue.png",
+      "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_revenue.pdf"
+    ]
+  },
   "percent_decimals": 1,
   "ratio_fields": {
     "output_counterfactual_ratio": [
@@ -107,7 +130,9 @@
   },
   "files": [
     "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_levels.png",
-    "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_levels.pdf"
+    "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_levels.pdf",
+    "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_revenue.png",
+    "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_revenue.pdf"
   ],
-  "note": "Reads existing audited data only. Original four-elasticity figures are preserved."
+  "note": "Both figures read the same existing audited data only. Original four-elasticity figures are preserved."
 }
