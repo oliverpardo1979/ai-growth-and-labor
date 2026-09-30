@@ -1,7 +1,7 @@
 """Presentation changes must select stored paths, not alter the experiment."""
 import hashlib
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import sys
 import unittest
 
@@ -11,6 +11,15 @@ import report_competitive_to_monopoly as report
 
 
 class CompetitiveTransitionFigures(unittest.TestCase):
+    def test_manifest_paths_are_portable_relative_paths(self):
+        manifest = json.loads((report.FIGDIR / 'manifest.json').read_text(encoding='utf-8'))
+        for name in [manifest['pdf'], *manifest['figures'], *manifest['individual_pdfs']]:
+            with self.subTest(path=name):
+                self.assertNotIn('\\', name)
+                path = PurePosixPath(name)
+                self.assertFalse(path.is_absolute())
+                self.assertNotIn('..', path.parts)
+
     def test_supplemental_figures_have_intermediate_window_and_honest_scales(self):
         for chi in (7.5, 1.5):
             design = report.make_design(chi)

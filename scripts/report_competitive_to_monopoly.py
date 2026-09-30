@@ -225,9 +225,9 @@ def render_all():
                 fig.savefig(individual_pdf,metadata={'Title':f'{title} | chi={d.parameters.chi:g}'})
                 pdf.savefig(fig)
                 plt.close(fig)
-                outputs.append(str(png.relative_to(ROOT)))
-                individual_pdfs.append(str(individual_pdf.relative_to(ROOT)))
-    write_json(FIGDIR/'manifest.json',dict(pdf=str(PDF.relative_to(ROOT)), figures=outputs,
+                outputs.append(png.relative_to(ROOT).as_posix())
+                individual_pdfs.append(individual_pdf.relative_to(ROOT).as_posix())
+    write_json(FIGDIR/'manifest.json',dict(pdf=PDF.relative_to(ROOT).as_posix(), figures=outputs,
         individual_pdfs=individual_pdfs,
         source_sha256={d.name:hashlib.sha256((d.output_directory/'comparison_paths.csv').read_bytes()).hexdigest()
                        for d,_,_ in datasets},

@@ -18,9 +18,9 @@
     {
       "path": "scripts/report_rewrite_illustrative_rsi.py",
       "migration_sha256": "285e3aa02389aa73a6db9abf75b8a45e1d023fc02131701eb3971b3ca7bee738",
-      "current_sha256": "c2844ac5aa9c20d75da99907cb7a7163dc063439d9b4b2ed4fc15778780ab2c3",
-      "date": "2026-09-28",
-      "change": "Remove the mesh-point column from the numerical-accuracy table and clarify that horizons are measured in years. This records the presentation-only change in commit b436cf5; numerical calculations and admission criteria are unchanged."
+      "current_sha256": "de8738d729004b14dccd6e46ab234002e89dc272e522338cb553f012fab7ad29",
+      "date": "2026-09-30",
+      "change": "Remove the mesh-point column from the numerical-accuracy table and clarify that horizons are measured in years (b436cf5). Clarify the table note on derivative residuals, upward rounding, and the analytical long-run bound (15b9c9d), then refer to the sufficient parameter condition in the developer-verification lemma (74f1ad2). These are presentation-only changes; numerical calculations, stored results, and admission criteria are unchanged."
     }
   ]
 }
