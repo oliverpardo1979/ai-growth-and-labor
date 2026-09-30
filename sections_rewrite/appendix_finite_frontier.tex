@@ -224,9 +224,9 @@ scaled efficiency gap and normalized shadow price,
  \end{pmatrix},
  \label{eq:rewrite-labor-proof-blocks}
 \end{equation}
-and the additional eigenvalue $-(n+\gamma)$. There can be forcing from
-$\tau$ to both blocks and from $(k,c)$ to $(d,\widetilde q)$, but not in the
-reverse directions at the fixed point.
+and the additional eigenvalue $-(n+\gamma)$. In the linearized system,
+deviations in $\tau$ can affect both blocks, and deviations in $(k,c)$
+can affect $(d,\widetilde q)$, but not conversely.
 
 To check $r_k<0$, let $D(s_X)$ be the positive curvature expression in
 \eqref{eq:rewrite-monopoly-proof-curvature}. Implicit differentiation of the
@@ -264,15 +264,18 @@ their projection must also allow the three predetermined coordinates to
 vary independently. To verify this, consider a vector in the stable subspace
 whose
 state components $(k,d,\tau)$ are all zero. Its linearized $\tau$ path is
-zero. The unforced capital--consumption block must then follow its stable direction;
+zero. With the $\tau$ component equal to zero, the capital--consumption
+block must follow its stable direction;
 its zero initial $k$ component forces its $c$ component to be zero as well.
-With that forcing absent, the same argument in the research block forces
-$\widetilde q=0$. The projection of the three-dimensional stable subspace
+With the capital and consumption components also zero, the same argument
+in the research block makes the $\widetilde q$ component zero.
+The projection of the three-dimensional stable subspace
 onto the three predetermined coordinates is therefore injective and hence
 invertible. This argument also covers repeated stable eigenvalues.
 
 Lemma~\ref{lem:rewrite-monopoly-choice} makes the static solution smooth.
-The normalized vector field extends smoothly through $\tau=0$, since
+The right-hand sides of the normalized dynamic equations extend smoothly
+through $\tau=0$, since
 $B=\overline B-d\tau$ remains positive nearby. The stable-manifold theorem
 therefore gives a local manifold whose trajectories converge to the fixed
 point. The invertible projection just established lets the inverse-function
@@ -302,8 +305,8 @@ The full neighborhood can be chosen so that $k,d,c,\widetilde q$ and
 $B=\overline B-d\tau$ remain positive. For a physical initial state,
 $\tau_t>0$ at every finite date, so $B_t<\overline B$; the research
 condition also gives $M_t>0$. Reconstruction recovers the original initial
-stocks and equilibrium equations. The normalized vector field tends to
-zero, so the smooth ratios $K/(AN)$, $C/(AN)$, $Y/(AN)$, and $w/A$
+stocks and equilibrium equations. The right-hand sides of the normalized
+dynamic equations tend to zero, so the smooth ratios $K/(AN)$, $C/(AN)$, $Y/(AN)$, and $w/A$
 have time derivatives tending to zero. These ratios also converge to
 positive constants, implying $g_K,g_C,g_Y\to n+\gamma$ and
 $g_w\to\gamma$. Together with the candidate limits of $r$ and $s_X$,
@@ -358,7 +361,8 @@ $[\omega_Lh+\omega_Xx^\varphi]^{1/\varphi}$.
 At $h=0$ the monopoly equation has the strictly positive curvature
 $D(1)=\alpha(1-\alpha)$. The static monopoly solution is therefore smooth
 in $(h,B)$ near $(0,\overline B)$. To apply the stable-manifold theorem at
-$h=0$, I extend the vector field to an open neighborhood of this boundary.
+$h=0$, I extend the right-hand sides of the normalized dynamic equations
+to an open neighborhood of this boundary.
 For the remaining terms, replacing
 $h^{1/\varphi}$ by $\max\{h,0\}^{1/\varphi}$ outside the physical domain
 gives a $C^1$ extension because $1/\varphi>1$. This meets the regularity
@@ -408,8 +412,10 @@ The remaining block in $(\log d,\log v)$ is
 \]
 The linearized system is triangular in the order
 $(h,\tau),c,(d,v)$. A stable vector with zero state components $(h,d,\tau)$
-has zero $h,\tau$ paths; its consumption component must be zero because the
-unforced consumption equation is unstable. The research block then has zero
+has zero $h,\tau$ paths. With those components zero, the linearized
+consumption equation has a positive coefficient $\overline c$; its
+consumption component must therefore also be zero for convergence.
+The research block then has zero
 $d$ component and hence zero $v$ component, as in the previous construction.
 Thus the three-dimensional stable subspace projects invertibly onto
 $(h,d,\tau)$. The same graph argument gives a neighborhood
@@ -423,7 +429,8 @@ The graph determines a convergent trajectory for every admissible initial state
 in this neighborhood, with a unique nearby convergent choice
 of $C_0,q_0$ and positive quantities at every finite date.
 
-The normalized vector field tends to zero, so the time derivatives of the
+The right-hand sides of the normalized dynamic equations tend to zero,
+so the time derivatives of the
 smooth positive ratios $Y/K$, $X/K$, and $C/K$ tend to zero.
 Consequently $g_Y,g_X,g_C,g_K\to\overline g$ and $s_X\to1$.
 Log differentiation of the CES share in
@@ -537,10 +544,10 @@ equilibria with different long-run ratios.
 
 \par\medskip\noindent\textit{Step 5. Initial-state sets and the four conclusions.}
 
-The preimage of each open neighborhood under its continuous
-initial-state map, restricted to $A_0,N_0,K_0>0$ and
-$0<B_0<\overline B$, is open in the original initial stocks.
-It is nonempty. In the positive-labor-share cases, choose
+The initial-state maps are continuous. For each chosen neighborhood,
+the stocks satisfying $A_0,N_0,K_0>0$ and $0<B_0<\overline B$ whose
+normalized coordinates lie in that neighborhood therefore form an open set.
+Each set is nonempty. In the positive-labor-share cases, choose
 $k_0,d_0$ close to $\overline k,\overline d$ and $\tau_0>0$
 sufficiently small. Then $A_0N_0=1/\tau_0$,
 $K_0=k_0/\tau_0$, and $B_0=\overline B-d_0\tau_0$ are admissible.
