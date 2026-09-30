@@ -2,7 +2,7 @@
   "title": "The Upside of Being Replaceable:\nAI, Market Structure, and Growth",
   "author": "Oliver Pardo\nDepartamento de Administración\nPontificia Universidad Javeriana\npardoo@javeriana.edu.co",
   "date": "September 2026",
-  "abstract": "I develop an endogenous-growth model in which a monopolistic AI developer supplies AI services and invests in recursive AI self-improvement. I characterize two long-run regimes under an upper bound on AI efficiency—the quantity of AI services produced per unit of compute. Complementarity between AI and labor, or a sufficiently low upper bound on AI efficiency, leaves labor as a production bottleneck. In this regime, output per worker and wages eventually grow at the exogenous rate of labor-augmenting technological progress. Instead, when AI and labor are substitutes and the upper bound is sufficiently high, an AI-dominated regime sustains permanently faster wage growth and a higher long-run return to capital. Output per worker grows faster than wages, so labor’s income share vanishes while AI-industry revenue increases as a share of output. Replacing monopoly with perfect competition eliminates private research incentives. Nevertheless, if AI is already sufficiently efficient, the competitive economy can sustain AI-dominated growth through capital accumulation and expanding AI use. By contrast, monopoly rewards research but restricts AI use through its markup. It may therefore produce more efficient AI yet slower long-run growth than competition. Numerical simulations show that early output-per-worker growth can remain moderate and similar across economies approaching different long-run regimes.",
+  "abstract": "I develop an endogenous-growth model in which a monopolistic AI developer supplies AI services and invests in recursive AI self-improvement. I characterize two long-run regimes under an upper bound on AI efficiency—the quantity of AI services produced per unit of compute. Complementarity between AI and labor, or a sufficiently low upper bound on AI efficiency, can leave labor as a production bottleneck. In this regime, output per worker and wages eventually grow at the exogenous rate of labor-augmenting technological progress. Instead, when AI and labor are substitutes and the upper bound is sufficiently high, an AI-dominated regime sustains permanently faster wage growth and a higher long-run return to capital. Output per worker grows faster than wages, so labor’s income share vanishes while AI-industry revenue increases as a share of output. Replacing monopoly with perfect competition eliminates private research incentives. Nevertheless, if AI is already sufficiently efficient, the competitive economy can sustain AI-dominated growth through capital accumulation and expanding AI use. By contrast, monopoly rewards research but restricts AI use through its markup. It may therefore produce more efficient AI yet slower long-run growth than competition. Numerical simulations show that early output-per-worker growth can remain moderate and similar across economies approaching different long-run regimes.",
   "schema_version": 2,
   "sections": [
     {
@@ -324,7 +324,7 @@
       "number": "S5.2"
     }
   ],
-  "source_sha256": "0beb3978539436676013d7219fcbe07dac29bc22cb4532c4b7a2dd7c1d1b3385",
+  "source_sha256": "141d7248c945c75ec35509789c2201a022618e8b5cad040ee960a780bcee4360",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "61361ac7c3ee455c1923036e6acc87b19ae90614be91daf94b22bfa89026898d",
@@ -343,7 +343,7 @@
     ],
     "build_inputs": {
       "aux": "80183adbe193f1baa2d41036f32ccf866e63f1b86407ef6e974477671b6b3248",
-      "pdf": "d01199d53ccdcc2c7f7cc4573488af0d822af4e895f4f1f3993ebae304dad00d"
+      "pdf": "4335fab66a46b784ea10b6a40e57ad0c15d908608c2f5e20c1111e54de2cf560"
     }
   },
   "source_files": [
@@ -569,13 +569,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 21999,
+    "visible_text_tokens_verified": 21997,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
     "aux": "f58607546d24f96734c37ec221451376d057215ce136f443d7f467fc3772814a",
     "bbl": "5f0168d1e4ef2e4e99ea307bd10d5a532f6711750e579057adca02aba1c33684",
-    "pdf": "f52aa54c0fb33608b4a57058d575e5c459fabe6b841ae4a364ddd3c730e440d8"
+    "pdf": "8ff7ca7f00268e670b27ecd10559258bef492839e9301cd12cf986c58f90a804"
   }
 }
