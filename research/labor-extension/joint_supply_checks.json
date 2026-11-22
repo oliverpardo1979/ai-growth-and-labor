@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "parameters": {
+    "alpha": 0.33,
+    "sigma_S": 1.5,
+    "sigma_C": 0.25,
+    "K": 1,
+    "HS": 1,
+    "HC": 1,
+    "omega_L": 0.5,
+    "omega_X": 0.5,
+    "B": 1.2990442402452336
+  },
+  "entry_mu": 1.2599210498948732,
+  "entry_MR_before": 0.5065483390759689,
+  "entry_MR_after": 1.0330451081975742,
+  "maxima": [
+    {
+      "mu": 1.2507626502746374,
+      "X": 0.27515831723350637,
+      "profit": 0.059236238794779836,
+      "marginal_revenue": 0.7697967252671583,
+      "unit_cost": 0.7697967236367715,
+      "XC": 0.1763747825820419
+    },
+    {
+      "mu": 1.8516384867161653,
+      "X": 0.04325369772086004,
+      "profit": 0.04582893416664776,
+      "marginal_revenue": 0.7697967230376773,
+      "unit_cost": 0.7697967236367715,
+      "XC": 0.0
+    }
+  ],
+  "max_elasticity_fd_error": 6.928932816396838e-09,
+  "scope": "Static counterexample to unimodality and verification of aggregation and demand. Not nonuniqueness of the global maximizer or dynamic equilibrium."
+}

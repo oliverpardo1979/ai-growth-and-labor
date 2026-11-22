@@ -64,4 +64,6 @@ La integración a `main` y la publicación pública se hacen después de revisar
 
 ## Próxima tarea
 
-Ejecutar los pasos 1 y 2. El cuello de botella actual es el proveedor monopolístico de IA frente a dos demandas sectoriales y reasignación de capital, no la redacción ni las simulaciones.
+Primer avance de los pasos 1 y 2 documentado en `research/labor-extension/static_equilibrium.tex`. Se especificaron el hogar, los cierres laborales y el equilibrio extendido. Para trabajo sectorial se derivaron la asignación conjunta, la demanda inversa y la existencia de un máximo global positivo y finito del proveedor. La condición de primer orden no basta: un ejemplo con sigma_C=0.25 tiene dos máximos locales. No se ha afirmado multiplicidad de máximos globales.
+
+La próxima tarea es comprobar la selección global y su regularidad cerca de los límites de largo plazo, luego abordar el paso 3. El problema de asignación con trabajo móvil, la optimalidad dinámica de investigación y la existencia de las trayectorias siguen pendientes. No se ha insertado todavía una sección en el manuscrito.

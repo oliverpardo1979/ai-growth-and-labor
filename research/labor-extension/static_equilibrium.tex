@@ -1,0 +1,195 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\title{Labor Heterogeneity and Reallocation: Equilibrium and Joint AI Supply}
+\author{Working derivations for Oliver Pardo}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+I extend the original equilibrium, labelled \texttt{def:rewrite-equilibrium}
+in the manuscript. This working note is not yet inserted into the paper.
+
+\section{Environment and equilibrium}
+Two competitive activities produce the same final good,
+\begin{equation}
+ Y=Y_S+Y_C,\quad Y_j=K_j^\alpha Z_j^{1-\alpha},\quad
+ Z_j=[\omega_{Lj}(AL_j)^{d_j}+\omega_{Xj}X_j^{d_j}]^{1/d_j},\quad
+ d_j=(\sigma_j-1)/\sigma_j,
+ \label{eq:extension-production}
+\end{equation}
+with $0<\sigma_C<1<\sigma_S$. Both products have price one.
+Positive CES weights sum to one within each activity. The capital share is
+the same in both activities. Capital can move freely, with $K_S+K_C=K$.
+In the sector-specific benchmark, $L_j=\ell_jN$, with fixed positive shares
+summing to one. In the mobile benchmark, identical workers choose their
+activity, and $L_S+L_C=N$. These are alternative labor-market closures.
+
+The household pools labor income and owns capital and the developer. It has
+the original preferences $\int_0^\infty e^{-\rho t}N\log(C/N)\,dt$,
+population growth $n$, and labor-augmenting growth $\gamma$. Its budget is
+\[
+ \dot K=rK+w_SL_S+w_CL_C+\Pi-C.
+\]
+The Euler equation remains $\dot C/C=n+r-\rho$, and the household
+transversality condition is unchanged. I do not introduce asset-ownership
+heterogeneity or separate consumption decisions by worker type.
+
+A single integrated developer supplies identical AI services at a common
+linear price $p_X$. It purchases $U=(X_S+X_C)/B$ units of compute and
+research compute $M$. Efficiency follows the original law
+\[
+ \dot B=\chi(BM)^\eta(1-B/\overline B).
+\]
+The developer takes aggregate $K,A,N,r$ as given, as in the original model.
+Its within-date demand incorporates allocation of capital and AI services
+between activities. The sector-specific labor supplies are fixed in that
+demand. Under mobile labor, labor reallocation must also be incorporated.
+There is no discriminatory pricing or access fee in this benchmark.
+
+\begin{definition}[Extended equilibrium]
+An equilibrium is a trajectory of finite allocations and prices satisfying
+the original initial conditions and exogenous laws, household optimality,
+profit maximization by both final-good activities, and global optimality
+of the developer's discounted net profit. Capital and AI markets clear,
+the selected labor-market closure holds, and
+\begin{equation}
+ C+\dot K+\delta K+(X_S+X_C)/B+M=Y.
+ \label{eq:extension-resources}
+\end{equation}
+Under mobile labor, an employed activity pays the maximum available wage.
+The developer maximizes operating profit at each date and then solves the
+original research problem with that optimized profit function.
+Both transversality requirements are retained. First-order conditions alone
+do not define global developer optimality.
+\end{definition}
+
+Euler's identity in each active activity gives
+$Y_j=(r+\delta)K_j+w_jL_j+p_XX_j$.
+Summing and using $\Pi=p_X(X_S+X_C)-(X_S+X_C)/B-M$ establishes
+\eqref{eq:extension-resources} from the household budget. No AI payment
+is counted as an additional resource cost beyond compute and research.
+
+\section{Reduction with sector-specific labor}
+Write $H_j=AL_j$ and $X=X_S+X_C$.
+At given positive composites, maximizing the sum of outputs over capital
+gives $K_j/K=Z_j/(Z_S+Z_C)$, since the capital marginal products must
+coincide. This also gives the correct boundary allocation if a composite
+is zero. Substitution gives $Y=K^\alpha(Z_S+Z_C)^{1-\alpha}$.
+For a given total supply $X$, define
+\begin{equation}
+ G(X)=\max_{x_S+x_C=X,\ x_j\geq0}
+       \{Z_S(H_S,x_S)+Z_C(H_C,x_C)\}.
+ \label{eq:extension-G}
+\end{equation}
+Each CES is concave and strictly concave in its AI argument for positive
+labor and positive AI. Thus the allocation is unique. If both activities
+use AI, their marginal composite products equal a common $\mu=G'(X)$.
+At a zero quantity, use the corresponding right-derivative inequality.
+
+Let $c_S=\omega_{XS}^{\sigma_S/(\sigma_S-1)}<1$ and
+$b_C=\omega_{XC}^{\sigma_C/(\sigma_C-1)}>1$.
+The allocation can be parameterized explicitly by $\mu\in(c_S,\infty)$:
+\begin{equation}
+ x_j(\mu)=H_j
+ \left[\frac{\omega_{Lj}}
+ {(\mu/\omega_{Xj})^{\sigma_j-1}-\omega_{Xj}}\right]^{\sigma_j/(\sigma_j-1)}.
+ \label{eq:extension-sector-demand}
+\end{equation}
+For $S$ this expression applies throughout that interval.
+For $C$ use it only at $\mu<b_C$, and set $x_C=0$ at $\mu\geq b_C$.
+The formula follows by solving $Z_{j,X}=\mu$ and substituting into the
+CES identity. Total $X(\mu)=x_S(\mu)+x_C(\mu)$ is continuous and
+strictly decreasing from infinity to zero. Hence every positive supply
+has a unique allocation. The complementary activity can be closed at low
+AI supplies. Its right marginal product at zero AI is finite, unlike that
+of the substituting activity.
+
+The common marginal value of composites and inverse AI demand are
+\begin{equation}
+ Q=(1-\alpha)(K/G)^\alpha,\qquad P(X)=QG'(X)=Q\mu.
+ \label{eq:extension-inverse}
+\end{equation}
+Demand is strictly decreasing. Away from entry kinks,
+\begin{equation}
+ e_X=\alpha\frac{XG'}G-\frac{XG''}{G'},\qquad
+ G''=\left(\sum_{j:x_j>0}\frac1{Z_{j,XX}}\right)^{-1}.
+ \label{eq:extension-elasticity}
+\end{equation}
+To derive the second equation, differentiate $Z_{j,X}(x_j)=\mu$ and
+sum $dx_j/d\mu$. Log-differentiating \eqref{eq:extension-inverse} gives
+the first. At a kink use one-sided derivatives, not this smooth formula.
+
+\section{Global within-date monopoly choice}
+\begin{proposition}[Global service supply]
+At fixed positive $K,H_S,H_C,B$, operating profit
+\begin{equation}
+ \pi(B)=\max_{X\geq0}\{P(X)X-X/B\}
+ \label{eq:extension-monopoly}
+\end{equation}
+has a positive finite global maximizer. Its set of maximizers is compact.
+Every smooth maximizer satisfies $P(X)(1-e_X)=1/B$.
+The global solution is obtained by comparing objective values over the
+scalar parameterization \eqref{eq:extension-sector-demand}, including
+the entry point $\mu=b_C$ and any smooth stationary candidates.
+Neither uniqueness nor sufficiency of the first-order condition is claimed.
+\end{proposition}
+\begin{proof}
+As $X\downarrow0$, only $S$ uses AI. Its composite has a positive limit
+and marginal product proportional to $X^{-1/\sigma_S}$. Thus $G$ has
+a positive limit and revenue is asymptotically proportional to
+$X^{1-1/\sigma_S}$. Revenue extends continuously to zero at $X=0$ and
+dominates the linear compute cost at sufficiently small positive $X$.
+
+As $X\to\infty$, $\mu\downarrow c_S$, $x_C$ converges to a finite
+positive value, $x_S/X\to1$, $G/X\to c_S$, and $G'\to c_S$.
+Revenue is therefore of order $X^{1-\alpha}$, while cost is linear.
+Profit tends to minus infinity. Continuity gives a positive finite global
+maximum and a compact maximizer set. Differentiation at a smooth maximizer
+gives the stated necessary condition. The scalar parameterization is
+one-to-one, so maximizing over that parameter is globally equivalent.
+\end{proof}
+
+Under competitive provision, solve $P(X)=1/B$. Strictly decreasing demand
+with endpoint limits infinity and zero gives one positive solution.
+Every monopoly maximizer has positive profit, hence $P(X)>1/B$ and less
+total AI supply than competition at the same $K,H_S,H_C,B$.
+Each sector's quantity is nondecreasing in total supply, by the $\mu$
+parameterization. The monopoly therefore weakly reduces each activity's
+AI use, strictly in each activity that is active at both allocations.
+
+\subsection{Why the original uniqueness proof cannot simply be reused}
+For $\sigma_C<1/2$, the complementary CES has $Z_{C,XX}(0+)=0$.
+When it begins using AI, $G''$ changes from $Z_{S,XX}<0$ to a right
+limit of zero. The marginal revenue $P+XP'$ therefore jumps upward.
+If compute cost lies between the two one-sided marginal revenues,
+profit can have a local maximum on each side of entry.
+
+A static numerical example uses $\alpha=0.33$, $\sigma_S=1.5$,
+$\sigma_C=0.25$, $K=H_S=H_C=1$, all CES weights $1/2$, and
+$B=1.2990442402452336$. At entry the one-sided marginal revenues are
+approximately $0.50655$ and $1.03305$, while compute cost is $0.76980$.
+There are two smooth local maxima, approximately
+\[
+ (X,\pi)=(0.04325,0.04583),\qquad (0.27516,0.05924).
+\]
+The larger-supply local maximum has higher profit. These computations
+disprove sufficiency of an arbitrary first-order solution, not uniqueness
+of the global optimum. The accompanying Python check records the example
+and verifies both price derivatives and capital aggregation.
+
+At a differentiability point of $\pi(B)$, the original envelope remains
+$\pi_B=X^*/B^2$. If maximizers differ, differentiability must be checked
+before using the original smooth research costate equation.
+The dynamic verification lemma and the equilibrium existence proof are
+not established by the static result above.
+
+\section{Next proof obligations}
+I must establish the global selection relevant to long-run equilibria,
+then developer research optimality and existence near the candidate limits.
+Under mobile labor, replace \eqref{eq:extension-G} by maximization over
+both AI and labor allocation. That separate problem must be solved before
+stating a mobile-labor equilibrium proposition. The original manuscript,
+its simulations and its closed sections remain unchanged.
+\end{document}
