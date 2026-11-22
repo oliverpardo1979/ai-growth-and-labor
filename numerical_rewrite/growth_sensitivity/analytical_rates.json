@@ -1,0 +1,155 @@
+{
+  "source": "numerical_rewrite/rsi_chi_7_5/scenario.json",
+  "parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "chi": 7.5,
+    "initial_labor_productivity": 1.0,
+    "initial_population": 1.0
+  },
+  "bounds": [
+    1000.0,
+    1360.9921392415592,
+    1500.0,
+    2000.0
+  ],
+  "rows": [
+    {
+      "sigma": 1.45,
+      "threshold": 2063.883380539912,
+      "cells": [
+        {
+          "bound": 1000.0,
+          "growth": 0.01,
+          "regime": "labor-bottleneck"
+        },
+        {
+          "bound": 1360.9921392415592,
+          "growth": 0.01,
+          "regime": "labor-bottleneck"
+        },
+        {
+          "bound": 1500.0,
+          "growth": 0.01,
+          "regime": "labor-bottleneck"
+        },
+        {
+          "bound": 2000.0,
+          "growth": 0.01,
+          "regime": "labor-bottleneck"
+        }
+      ]
+    },
+    {
+      "sigma": 1.5,
+      "threshold": 1237.2655811286904,
+      "cells": [
+        {
+          "bound": 1000.0,
+          "growth": 0.01,
+          "regime": "labor-bottleneck"
+        },
+        {
+          "bound": 1360.9921392415592,
+          "growth": 0.03134997581384653,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 1500.0,
+          "growth": 0.05783962303512876,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 2000.0,
+          "growth": 0.17512723465564226,
+          "regime": "AI-dominated"
+        }
+      ]
+    },
+    {
+      "sigma": 1.55,
+      "threshold": 814.0381335498187,
+      "cells": [
+        {
+          "bound": 1000.0,
+          "growth": 0.06185120240355287,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 1360.9921392415592,
+          "growth": 0.19391327513635478,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 1500.0,
+          "growth": 0.2558890806473332,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 2000.0,
+          "growth": 0.5302979523819508,
+          "regime": "AI-dominated"
+        }
+      ]
+    },
+    {
+      "sigma": 1.6,
+      "threshold": 574.2878105580354,
+      "cells": [
+        {
+          "bound": 1000.0,
+          "growth": 0.21834712708789142,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 1360.9921392415592,
+          "growth": 0.48651069826735055,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 1500.0,
+          "growth": 0.6123579834767363,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 2000.0,
+          "growth": 1.169569160652238,
+          "regime": "AI-dominated"
+        }
+      ]
+    },
+    {
+      "sigma": 2.0,
+      "threshold": 123.72655811286906,
+      "cells": [
+        {
+          "bound": 1000.0,
+          "growth": 6.869455463298364,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 1360.9921392415592,
+          "growth": 12.921960145693298,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 1500.0,
+          "growth": 15.76235818949307,
+          "regime": "AI-dominated"
+        },
+        {
+          "bound": 2000.0,
+          "growth": 28.338724338348424,
+          "regime": "AI-dominated"
+        }
+      ]
+    }
+  ],
+  "units": "100 times the continuous-time annual growth rate",
+  "scope": "Analytical regime limits, not transition solutions or global existence claims"
+}

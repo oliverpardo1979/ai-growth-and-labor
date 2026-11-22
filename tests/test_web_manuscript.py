@@ -421,10 +421,10 @@ class GeneratedManuscriptTests(unittest.TestCase):
         headings = {item["id"]: item for item in self.meta["sections"]}
         for key, number in {
             "sec:rewrite-competition": "5",
-            "sec:rewrite-quantitative": "6",
-            "subsec:rewrite-competitive-transition": "6.4",
+            "sec:rewrite-quantitative": "7",
+            "subsec:rewrite-competitive-transition": "7.4",
             "subsec:rewrite-monopoly-growth-reversal": "S2",
-            "sec:rewrite-conclusion": "7",
+            "sec:rewrite-conclusion": "8",
             "app:rewrite-competitive-transition": "S1",
         }.items():
             with self.subTest(key=key):
@@ -436,7 +436,7 @@ class GeneratedManuscriptTests(unittest.TestCase):
                     "fig:rewrite-competitive-high-levels",
                     "fig:rewrite-competitive-low-distribution"):
             self.assertIn(key, figure_ids)
-        self.assertEqual(self.content.count('class="theorem corollary"'), 2)
+        self.assertEqual(self.content.count('class="theorem corollary"'), 3)
 
     def test_uncapped_results_are_in_main_appendix_c(self):
         headings = {item["id"]: item for item in self.meta["sections"]}
