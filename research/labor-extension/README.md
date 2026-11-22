@@ -25,3 +25,11 @@ Una proposición adicional muestra que B_infinito=Bbar dentro de un equilibrio a
 `check_long_run_selection.py` compara candidatos estáticos globales a intensidades de capital crecientes en dos configuraciones. `long_run_checks.json` registra PASS. Los valores elevados de K/H son comprobaciones de límites, no una calibración ni una predicción de fechas.
 
 Pendientes actuales: construir trayectorias de equilibrio y verificar el óptimo global intertemporal. La movilidad laboral también sigue pendiente. El manuscrito activo permanece sin cambios.
+
+## Integración condicional aprobada
+
+El alcance posterior acordado con Oliver omite la construcción de existencia y presenta resultados condicionales a equilibrios con límites explícitos. El texto activo de la rama ahora incluye `07_labor_heterogeneity.tex` y las correspondientes pruebas en `appendix_labor_heterogeneity.tex`. Las afirmaciones anteriores sobre pendientes se conservan como historial, no como una descripción del alcance actual.
+
+La movilidad se resolvió con una cota global y un umbral suficiente finito de X/(AN). Por encima de ese umbral, toda la asignación eficiente está en S. El corolario demuestra cierre de C después de una fecha finita en la trayectoria acelerada supuesta. `check_mobile_labor.py` y `mobile_labor_checks.json` comprueban el umbral y la cota, no la existencia de trayectorias ni su bienestar.
+
+No se modifican título, abstract, introducción, Related Literature ni conclusiones. El cambio mecánico del párrafo de organización de la introducción requiere aprobación. No hay publicación de esta rama en main ni actualización digital pública.

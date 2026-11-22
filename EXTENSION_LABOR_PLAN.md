@@ -68,4 +68,12 @@ Primer avance de los pasos 1 y 2 documentado en `research/labor-extension/static
 
 Segundo avance documentado en `research/labor-extension/long_run_selection.tex`. Se establece selección global única y suave para capital suficientemente alto respecto al trabajo efectivo, con B cerca de un límite finito positivo. Se derivan las tasas salariales condicionales bajo monopolio. También se prueba que B debe alcanzar Bbar dentro de un equilibrio acelerado regular con el costate y las condiciones necesarias explícitamente indicados.
 
-La próxima tarea es construir las trayectorias y verificar optimalidad global intertemporal, distinguiendo ambas obligaciones. El problema de asignación con trabajo móvil también sigue pendiente. No se ha insertado todavía una sección en el manuscrito.
+## Alcance acordado después del segundo avance
+
+Oliver decidió priorizar una caracterización condicional, sin una nueva construcción de existencia ni una verificación global intertemporal de la extensión. No se transfieren las pruebas originales ni se presentan las condiciones de primer orden como suficientes. Los enunciados parten de un equilibrio y explicitan K/(AN) divergente, B convergente y C/K convergente positivo. La construcción de existencia queda fuera de esta sección, no resuelta por omisión.
+
+Se resolvió el caso móvil mediante una cota global: por encima de un umbral finito de X/(AN), asignar todo el trabajo y los insumos a S domina cualquier reparto. En el régimen acelerado supuesto, el cierre de C ocurre después de una fecha finita. `check_mobile_labor.py` verifica la cota en seis combinaciones de elasticidades.
+
+La sección se incorporó como `sections_rewrite/07_labor_heterogeneity.tex`, entre competencia y simulaciones, con proposición para trabajo sectorial y corolario para trabajo móvil. Sus pruebas de caracterización están en `sections_rewrite/appendix_labor_heterogeneity.tex`, dentro del apéndice de pruebas. No se añadieron simulaciones ni citas nuevas ni se afirmó novedad bibliográfica.
+
+Pendientes editoriales: el párrafo cerrado de organización de la introducción aún dice siete secciones. Ahora son ocho y falta la referencia a la extensión. Se comunica para aprobación en vez de editarlo. La revisión bibliográfica focalizada puede precisar atribuciones antes de cerrar la extensión. La edición digital pública y main no se actualizan en esta fase.

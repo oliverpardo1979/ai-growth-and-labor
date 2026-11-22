@@ -1,0 +1,134 @@
+\section{Labor heterogeneity and reallocation}
+\label{sec:rewrite-labor-heterogeneity}
+
+Does the wage-growth result require all workers to have the same relation
+to AI? I consider two activities, one in which labor and AI are complements
+and another in which they are substitutes. Both produce the same final good,
+so their outputs are perfect substitutes. This assumption allows aggregate
+production to expand without requiring both activities to expand together.
+I characterize long-run outcomes conditional on an equilibrium with the
+stated limiting properties, rather than establish a new existence result.
+
+For $j\in\{S,C\}$, production is
+\begin{align}
+ Y&=Y_S+Y_C,\qquad Y_j=K_j^\alpha Z_j^{1-\alpha},
+ \label{eq:rewrite-heterogeneous-output}\\
+ Z_j&=\left[\omega_{Lj}(AL_j)^{(\sigma_j-1)/\sigma_j}
+ +\omega_{Xj}X_j^{(\sigma_j-1)/\sigma_j}\right]^{\sigma_j/(\sigma_j-1)},
+ \qquad 0<\sigma_C<1<\sigma_S.
+ \label{eq:rewrite-heterogeneous-ces}
+\end{align}
+The CES weights are positive and sum to one within each activity.
+Capital is freely mobile, $K_S+K_C=K$, and both activities use the same
+AI efficiency, $X_j=BU_j$. The developer charges a common price $p_X$.
+The representative household pools the two labor incomes and retains the
+preferences and asset ownership of Section~\ref{sec:rewrite-model}.
+Its wage income is now $w_SL_S+w_CL_C$, and the resource constraint is
+$C+\dot K+\delta K+(X_S+X_C)/B+M=Y$.
+The research technology is unchanged.
+
+Optimal capital allocation gives
+\begin{equation}
+ \frac{K_j}{K}=\frac{Z_j}{Z_S+Z_C},\qquad
+ Y=K^\alpha(Z_S+Z_C)^{1-\alpha}.
+ \label{eq:rewrite-heterogeneous-capital}
+\end{equation}
+Writing $Q=(1-\alpha)[K/(Z_S+Z_C)]^\alpha$ for the marginal value of
+either composite, the input conditions in an active activity are
+\begin{equation}
+ p_X=Q\frac{\partial Z_j}{\partial X_j},\qquad
+ w_j=AQ\omega_{Lj}\left(\frac{Z_j}{AL_j}\right)^{1/\sigma_j}.
+ \label{eq:rewrite-heterogeneous-prices}
+\end{equation}
+The developer faces demand after capital and AI services have been allocated
+between activities. It takes aggregate capital and the exogenous paths as
+given, as before, and maximizes operating profit globally. The original
+single-activity condition~\eqref{eq:rewrite-monopoly-foc} cannot be used
+with either sector's demand elasticity in place of the joint elasticity.
+Appendix~\ref{app:rewrite-labor-heterogeneity} derives the joint demand
+and the limiting global supply choice.
+
+\subsection{Sector-specific labor}
+\label{subsec:rewrite-sector-specific-labor}
+
+First, let $L_j=\ell_jN$, where the positive shares $\ell_S$ and $\ell_C$
+are fixed and sum to one. Workers cannot change activities, although capital
+can. Let $\mathcal R_S(B)$ denote the limiting monopoly return generated
+by activity $S$:
+\begin{equation}
+ \mathcal R_S(B)=\alpha\left[(1-\alpha)^2B
+ \omega_{XS}^{\sigma_S/(\sigma_S-1)}\right]^{(1-\alpha)/\alpha}-\delta.
+ \label{eq:rewrite-heterogeneous-return}
+\end{equation}
+This is the return in equation~\eqref{eq:rewrite-ai-terminal-ratio}
+with the substitution parameters of activity $S$.
+In the following results, growth denotes the long-run average
+$\lim_{t\to\infty}t^{-1}\log(V_t/V_0)$ for the indicated positive variable.
+Instantaneous growth has the same limit whenever that limit exists.
+
+\begin{proposition}[Wage growth with sector-specific labor]
+\label{prop:rewrite-heterogeneous-wages}
+Consider a monopoly equilibrium with $K/(AN)\to\infty$,
+$B\to B_\infty\in(0,\overline B]$, and $C/K$ converging to a positive
+constant. If $\mathcal R_S(B_\infty)>\rho+\gamma$, output per worker
+has long-run growth $g=\mathcal R_S(B_\infty)-\rho>\gamma$, and
+\begin{equation}
+ g_{w_S}=\left(1-\frac1{\sigma_S}\right)\gamma+\frac g{\sigma_S},
+ \qquad g_{w_C}=\gamma.
+ \label{eq:rewrite-heterogeneous-wage-growth}
+\end{equation}
+The wage ratio $w_S/w_C$ diverges. Both labor-income shares in aggregate
+output converge to zero, as does $Y_C/Y$, although activity $C$ remains active.
+\end{proposition}
+\begin{proof}
+See Appendix~\ref{app:rewrite-labor-heterogeneity}.
+\end{proof}
+
+Substitution allows capital and AI services in $S$ to expand faster than its
+effective labor endowment, sustaining wage growth above $\gamma$.
+Complementarity keeps $C$ tied to the scale of its effective labor, so its
+wages grow at $\gamma$. Thus workers in the activity where AI substitutes
+for labor experience faster wage growth. Neither group keeps pace with
+aggregate output per worker. The declining output share of $C$ does not
+mean that its output or wages decline in levels, and these growth comparisons
+do not establish welfare gains or the sign of wage changes during the transition.
+
+The characterization allows $B_\infty<\overline B$ rather than importing
+the efficiency-convergence result from the original model.
+Under competitive provision with constant $B=B_0$, the same wage-growth
+expressions apply to an equilibrium with these limiting properties, using
+the marginal-cost return obtained by replacing $(1-\alpha)^2$ in
+equation~\eqref{eq:rewrite-heterogeneous-return} with $1-\alpha$.
+
+\subsection{Mobile labor}
+\label{subsec:rewrite-mobile-labor}
+
+Now let workers be identical and freely mobile, with $L_S+L_C=N$.
+If both activities employ labor, their wages must coincide. The divergent
+wage ratio in Proposition~\ref{prop:rewrite-heterogeneous-wages} therefore
+cannot persist with fixed positive employment shares in both activities.
+
+\Needspace{13\baselineskip}
+\begin{corollary}[Reallocation to the substituting activity]
+\label{cor:rewrite-mobile-labor}
+Consider a monopoly equilibrium with mobile labor, $K/(AN)\to\infty$,
+$B\to B_\infty\in(0,\overline B]$, and $C/K$ converging to a positive
+constant. If $\mathcal R_S(B_\infty)>\rho+\gamma$, then after a finite
+date all workers and productive inputs are allocated to $S$.
+Long-run output-per-worker and wage growth are
+\begin{equation}
+ g=\mathcal R_S(B_\infty)-\rho>\gamma,\qquad
+ g_w=\left(1-\frac1{\sigma_S}\right)\gamma+\frac g{\sigma_S}.
+ \label{eq:rewrite-mobile-wage-growth}
+\end{equation}
+\end{corollary}
+\begin{proof}
+See Appendix~\ref{app:rewrite-labor-heterogeneity}.
+\end{proof}
+
+With free reallocation, accelerated wage growth is not restricted to workers
+initially employed in $S$. They all eventually work there, and the
+single-activity growth and wage formulas are recovered. This conclusion
+uses both labor mobility and perfect substitution between the products.
+If the product of $C$ were essential to final production, the economy could
+not abandon that activity in this way.

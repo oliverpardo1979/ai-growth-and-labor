@@ -1,0 +1,138 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "sigma_S": 1.5,
+      "sigma_C": 0.25,
+      "threshold": 10.286301114332243,
+      "rows": [
+        {
+          "X_over_H": 10.389164125475565,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 20.572602228664486,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 102.86301114332244,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        }
+      ]
+    },
+    {
+      "sigma_S": 1.5,
+      "sigma_C": 0.5,
+      "threshold": 27.0,
+      "rows": [
+        {
+          "X_over_H": 27.27,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 54.0,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 270.0,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        }
+      ]
+    },
+    {
+      "sigma_S": 1.5,
+      "sigma_C": 0.9,
+      "threshold": 250047.0000000005,
+      "rows": [
+        {
+          "X_over_H": 252547.4700000005,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 500094.000000001,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 2500470.000000005,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        }
+      ]
+    },
+    {
+      "sigma_S": 3.0,
+      "sigma_C": 0.25,
+      "threshold": 40.01609603756476,
+      "rows": [
+        {
+          "X_over_H": 40.41625699794041,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 80.03219207512952,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 400.16096037564756,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        }
+      ]
+    },
+    {
+      "sigma_S": 3.0,
+      "sigma_C": 0.5,
+      "threshold": 172.60069524773067,
+      "rows": [
+        {
+          "X_over_H": 174.326702200208,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 345.20139049546134,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 1726.0069524773066,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        }
+      ]
+    },
+    {
+      "sigma_S": 3.0,
+      "sigma_C": 0.9,
+      "threshold": 3036998327.744289,
+      "rows": [
+        {
+          "X_over_H": 3067368311.021732,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 6073996655.488578,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        },
+        {
+          "X_over_H": 30369983277.44289,
+          "max_relative_alternative_gain": 0.0,
+          "max_relative_bound_violation": 0.0
+        }
+      ]
+    }
+  ],
+  "scope": "Static checks of a proved sufficient threshold. Not a necessary threshold, a transition simulation or an existence proof."
+}

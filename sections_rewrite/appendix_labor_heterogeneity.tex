@@ -1,0 +1,157 @@
+\subsection{Labor heterogeneity and reallocation}
+\label{app:rewrite-labor-heterogeneity}
+
+\paragraph{Joint demand and global monopoly supply.}
+Write $H=AN$ and $H_j=AL_j$. At fixed positive sectoral labor supplies,
+define the optimized composite at total AI supply $X$ by
+\[
+ G(X)=\max_{x_S+x_C=X,\ x_j\geq0}
+ \{Z_S(H_S,x_S)+Z_C(H_C,x_C)\}.
+\]
+Capital allocation in equation~\eqref{eq:rewrite-heterogeneous-capital}
+then gives $Y=K^\alpha G(X)^{1-\alpha}$.
+Both CES functions are concave, and their marginal products of AI decrease
+strictly on the positive domain. The allocation is therefore unique.
+Let $\mu=G'(X)$ denote their common marginal product when both use AI.
+Set
+\[
+ c_S=\omega_{XS}^{\sigma_S/(\sigma_S-1)}<1,\qquad
+ b_C=\omega_{XC}^{\sigma_C/(\sigma_C-1)}>1.
+\]
+Solving $\partial Z_j/\partial x_j=\mu$ yields
+\begin{equation}
+ x_j(\mu)=H_j\left[
+ \frac{\omega_{Lj}}{(\mu/\omega_{Xj})^{\sigma_j-1}-\omega_{Xj}}
+ \right]^{\sigma_j/(\sigma_j-1)}.
+ \label{eq:rewrite-heterogeneous-allocation}
+\end{equation}
+For $S$, use this expression for every $\mu>c_S$. For $C$, use it only
+when $\mu<b_C$, and set $x_C=0$ otherwise. Total supply decreases
+continuously from infinity to zero as $\mu$ runs from $c_S$ to infinity.
+The resulting inverse demand is
+\[
+ P(X)=(1-\alpha)[K/G(X)]^\alpha G'(X).
+\]
+It is strictly decreasing. Its elasticity must account for the changing
+allocation of services, rather than hold sectoral capital fixed.
+
+Operating profit $P(X)X-X/B$ has a positive finite global maximum.
+At small $X$, only $S$ uses AI, and revenue is proportional to
+$X^{1-1/\sigma_S}$ to leading order. This dominates compute cost $X/B$.
+At large $X$, equation~\eqref{eq:rewrite-heterogeneous-allocation} gives
+$x_C/H$ a finite limit, $x_S/X\to1$, $G(X)/X\to c_S$, and
+$G'(X)\to c_S$. Revenue is then of order $X^{1-\alpha}$, whereas cost
+is linear. Profit is continuous, vanishes at zero and tends to minus infinity
+at infinity, establishing the claim. This argument does not assert uniqueness
+at all states, so the developer must select a global maximum.
+
+For the limiting supply, let $k=K/H$ and $G(X)=H\mathcal G(X/H)$.
+At a fixed supply-to-capital ratio $y=X/K>0$, profit divided by $K$ converges,
+as $k\to\infty$ and $B\to B_\infty$, to
+\begin{equation}
+ f_\infty(y)=(1-\alpha)c_S^{1-\alpha}y^{1-\alpha}-y/B_\infty.
+ \label{eq:rewrite-heterogeneous-profit-limit}
+\end{equation}
+The convergence is uniform on compact positive intervals. All global
+maximizers lie in such an interval for large $k$. To verify this last step,
+use concavity to obtain $x\mathcal G'(x)\leq\mathcal G(x)$ and a supporting
+bound $\mathcal G(x)\leq a+bx$ with finite positive constants. Normalized
+profit is bounded above by
+\[
+ (1-\alpha)(a/k+by)^{1-\alpha}-y/B.
+\]
+This excludes arbitrarily large $y$. It also shows that $y\to0$ gives
+limiting normalized profit at most zero, whereas a fixed positive $y$ can
+give positive profit in equation~\eqref{eq:rewrite-heterogeneous-profit-limit}.
+The limit objective has a unique maximum. Uniform convergence on the
+remaining compact interval therefore implies, for every global selection,
+\begin{equation}
+ \frac{X}{K}\to
+ [B_\infty(1-\alpha)^2c_S^{1-\alpha}]^{1/\alpha},\qquad
+ p_X\to p_*\equiv\frac1{B_\infty(1-\alpha)}.
+ \label{eq:rewrite-heterogeneous-supply-limit}
+\end{equation}
+This proof requires no assumption of global concavity of the finite-state
+monopoly objective.
+
+\begin{proof}[Proof of Proposition~\ref{prop:rewrite-heterogeneous-wages}]
+The preceding supply limit and $G/X\to c_S$ give
+$r\to\mathcal R_S(B_\infty)$ and $Y/K$ a positive finite limit.
+The household Euler equation implies average consumption-per-person growth
+$\mathcal R_S(B_\infty)-\rho$. Since $C/K$ converges to a positive
+constant, capital and output per worker have the same average growth $g$.
+
+Equation~\eqref{eq:rewrite-heterogeneous-allocation} gives $X_C/H_C$
+a finite positive limit because $c_S<b_C$. Hence $Z_C/H_C$ converges to
+a positive constant. Also $Q\to Q_*=p_*/c_S>0$.
+The wage equation~\eqref{eq:rewrite-heterogeneous-prices} then gives
+$w_C/A$ a positive finite limit, and therefore $g_{w_C}=\gamma$.
+Since $Z_C=O(H)$ and $G/H\to\infty$, $Z_C/G\to0$ and
+$Z_S/G\to1$. Thus $Z_S$ has average growth $n+g$.
+Taking logarithms of the wage equation for $S$ gives
+\[
+ g_{w_S}=\gamma+\frac{g-\gamma}{\sigma_S}.
+\]
+Both wages grow more slowly than output per worker, and their employment
+shares are fixed. Each labor-income share in aggregate output therefore
+vanishes. Since capital is allocated proportionally to composites,
+$Y_C/Y=Z_C/G\to0$. The positive limiting ratios in activity $C$ imply
+that it remains active at sufficiently late dates, despite its vanishing share.
+For competitive provision, replace the monopoly condition with $P(X)=1/B_0$.
+The same allocation argument gives the stated marginal-cost return and wages.
+\end{proof}
+
+\paragraph{A finite supply threshold for mobile labor.}
+Let
+\[
+ b_L=\omega_{LC}^{\sigma_C/(\sigma_C-1)}.
+\]
+For every feasible pair $(H_C,x_C)$, complementarity gives
+$Z_C(H_C,x_C)\leq b_L H_C$.
+The marginal product of effective labor in $S$, evaluated using all
+effective labor and all AI there, is
+\[
+ Z_{S,H}(H,X)=\omega_{LS}
+ [\omega_{LS}+\omega_{XS}(X/H)^{(\sigma_S-1)/\sigma_S}]^{1/(\sigma_S-1)}.
+\]
+It exceeds $b_L$ at every $X/H$ above the finite threshold
+\begin{equation}
+ x_{\mathrm{mob}}=
+ \left[
+ \frac{(b_L/\omega_{LS})^{\sigma_S-1}-\omega_{LS}}{\omega_{XS}}
+ \right]^{\sigma_S/(\sigma_S-1)}.
+ \label{eq:rewrite-mobile-threshold}
+\end{equation}
+For any alternative allocation with $H_C>0$, monotonicity in AI and
+concavity in labor imply
+\begin{align*}
+ Z_S(H-H_C,X-x_C)+Z_C(H_C,x_C)
+ &\leq Z_S(H-H_C,X)+b_LH_C\\
+ &\leq Z_S(H,X)-[Z_{S,H}(H,X)-b_L]H_C.
+\end{align*}
+Above the threshold, the final expression is strictly below $Z_S(H,X)$.
+An allocation with $H_C=0$ and $x_C>0$ also wastes services, because the
+complementary activity produces zero without labor. Thus the unique
+efficient allocation above this sufficient threshold assigns labor and AI
+entirely to $S$, and optimal capital allocation assigns all capital there too.
+
+\begin{proof}[Proof of Corollary~\ref{cor:rewrite-mobile-labor}]
+With mobile labor, maximize $Z_S+Z_C$ over both labor and AI allocation.
+This frontier is concave and homogeneous in total effective labor and AI.
+By the finite threshold above, it equals $Z_S(H,X)$ whenever
+$X/H>x_{\mathrm{mob}}$. Its high-supply slope is therefore $c_S$,
+and it admits a supporting affine bound per unit of $H$.
+The compactness and limiting-profit argument leading to
+equation~\eqref{eq:rewrite-heterogeneous-supply-limit} applies to this
+frontier as well. Hence any global monopoly choice has $X/K$ converging
+to the same strictly positive constant. Since $K/H\to\infty$, $X/H$
+eventually exceeds $x_{\mathrm{mob}}$ and stays above it.
+There is therefore a finite date after which $L_C=X_C=K_C=0$.
+Production and the dated input prices then coincide with the original
+single-activity technology using $\sigma_S,\omega_{LS},\omega_{XS}$.
+The limiting return and the household Euler equation give $g$ as stated,
+and the wage equation with $L_S=N$ gives the claimed average wage growth.
+This identifies dated allocations and limiting rates along the assumed
+equilibrium. It does not transfer an existence theorem or a global
+research-verification argument from the original model.
+\end{proof}
