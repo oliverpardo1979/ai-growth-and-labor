@@ -1,0 +1,178 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{proposition}{Proposition}
+\title{Growth Regimes with Endogenous Task Automation}
+\author{Exploratory note for Oliver Pardo}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+I retain the task technology and equilibrium conventions of
+\texttt{model\_note.tex}. This note establishes exact balanced-growth equilibria
+under competition and conditional limiting restrictions under monopoly.
+It does not establish an exhaustive classification of dynamic equilibria.
+
+\section{Normalization and the two competitive thresholds}
+Let $H=AN$, $\dot H/H=n+\gamma$, $k=K/H$, $x=X/H$, and
+$z(x)=\mathcal Z(1,x)$. Define
+\[
+ R_* =\rho+\gamma+\delta,\qquad
+ a=\left(\frac{\alpha}{R_*}\right)^{1/(1-\alpha)},\qquad
+ B_a=\frac1{(1-\alpha)a^\alpha}.
+\]
+I assume $\rho>n$, $\gamma>0$, and the original interior parameter ranges.
+Here $B_a$ is an efficiency threshold, not an upper bound. At a balanced-growth
+allocation with finite $k,x$, the household Euler equation requires
+$r=\rho+\gamma$. The capital condition then gives $k=a z(x)$.
+Under competitive AI supply, $B$ stays at $B_0$ and $p_X=1/B_0$.
+
+Let $m$ be the endogenous task cutoff, and define
+\[
+ D_\sigma(m)=\int_0^m e^{-\beta(\sigma-1)i}\,di,\quad
+ S(m)=1-m+D_\sigma(m)e^{\beta(\sigma-1)m},\quad
+ c_\sigma=\left[D_\sigma(1)\right]^{1/(\sigma-1)}.
+\]
+At $\sigma=1$, use $c_1=e^{-\beta/2}$.
+The marginal product $z_x$ along the optimal allocation decreases strictly
+from $1$ to $c_\sigma$. Indeed,
+\[
+ \frac{d\log z_x}{dm}=-\frac{\beta(1-m)}{S(m)}<0.
+\]
+This formula also holds at unit elasticity, where $S=1$.
+Define the second threshold
+\begin{equation}
+ B_g^{\mathrm{mc}}(\sigma)=\frac{B_a}{c_\sigma}>B_a.
+ \label{eq:regimes-comp-threshold}
+\end{equation}
+
+\begin{proposition}[Exact competitive balanced-growth allocations]
+If $B_0\leq B_a$, there is a competitive balanced-growth equilibrium with
+$k=a$, $X=0$ and no research. If
+$B_a<B_0<B_g^{\mathrm{mc}}(\sigma)$, there is exactly one competitive
+balanced-growth allocation with finite positive $k,x$. Its cutoff solves
+\begin{equation}
+ z_x(m)=\frac{B_a}{B_0},\qquad
+ x=\frac{D_\sigma(m)e^{\sigma\beta m}}{1-m},\qquad k=a z(x).
+ \label{eq:regimes-coexistence}
+\end{equation}
+Starting at the corresponding $K_0=kH_0$, these allocations extend to
+infinite-horizon equilibria. Output per worker and wages grow at $\gamma$.
+These statements do not claim convergence from arbitrary initial capital.
+\end{proposition}
+\begin{proof}
+When $X=0$, $z=1$ and the capital condition gives $k=a$.
+The right marginal value of AI services is $(1-\alpha)a^\alpha=1/B_a$,
+so zero adoption maximizes final-firm profit exactly when $B_0\leq B_a$.
+With positive adoption, substitute $k/z=a$ into
+$(1-\alpha)(k/z)^\alpha z_x=1/B_0$. Strict monotonicity and the endpoint
+values of $z_x$ prove existence and uniqueness of the positive finite solution.
+
+For either allocation, let $y=k^\alpha z^{1-\alpha}$ and $u=x/B_0$.
+Set $C/H=y-u-(\delta+n+\gamma)k$. The AI revenue share
+$s_X=xz_x/z$ belongs to $[0,1)$, and
+\[
+ \frac{C}{K}=\frac{R_*}{\alpha}
+ [1-(1-\alpha)s_X]-\delta-n-\gamma>\rho-n>0.
+\]
+The weak bound suffices in the zero-adoption case as well.
+The resource constraint and Euler equation hold. The household transversality
+term is proportional to $e^{-(\rho-n)t}$ and converges to zero.
+Concavity of production and log utility makes the household first-order
+conditions sufficient under the usual no-Ponzi restriction. Competitive
+AI providers earn zero profit. Under the same nonappropriable-research
+benchmark as the original paper, private research is zero.
+\end{proof}
+
+The constant labor share in the positive-adoption equilibrium is
+$s_L=(1-\alpha)z_H/z>0$. The no-adoption share is $1-\alpha$.
+There is no positive finite balanced-growth solution at
+$B_0\geq B_g^{\mathrm{mc}}$. At equality, the finite-cutoff solution escapes
+to $m=1$. The critical dynamic case requires separate analysis.
+
+\section{Conditional AI-dominated growth under either market structure}
+Consider a path with $X/H\to\infty$ and $B\to B_\infty>0$.
+The task result gives $m\to1$, $Z/X\to c_\sigma$ and $Z_X\to c_\sigma$.
+For competitive pricing use $\lambda=1$. For a monopoly that globally solves
+its static supply problem at each date, the limiting inverse-demand elasticity
+is $\alpha$, so use $\lambda=1-\alpha$. The limiting supply condition is
+\[
+ \frac1{B_\infty}=\lambda(1-\alpha)(K/Z)^\alpha c_\sigma.
+\]
+Consequently,
+\begin{equation}
+ r\longrightarrow\mathcal R^j(B_\infty)
+ =\alpha[B_\infty\lambda_j(1-\alpha)c_\sigma]^{(1-\alpha)/\alpha}-\delta,
+ \quad \lambda_{\mathrm{mc}}=1,\quad\lambda_{\mathrm{mon}}=1-\alpha.
+ \label{eq:regimes-returns}
+\end{equation}
+If $C/K$ converges to a positive constant, the Euler equation implies
+\[
+ g_{Y/N}=g_{K/N}=\mathcal R^j(B_\infty)-\rho.
+\]
+This refers to limiting average growth, and to instantaneous growth only
+when those rates converge. Permanently faster growth requires
+\begin{equation}
+ B_\infty>B_g^j(\sigma),\qquad
+ B_g^{\mathrm{mon}}(\sigma)=\frac{B_a}{(1-\alpha)c_\sigma}
+ =\frac{B_g^{\mathrm{mc}}(\sigma)}{1-\alpha}.
+ \label{eq:regimes-mon-threshold}
+\end{equation}
+These are conditional threshold identities, not dynamic existence theorems.
+In particular, $B_\infty$ cannot yet be replaced by $\overline B$ without
+establishing attainment along the relevant monopoly trajectory.
+
+The wage identity $w/A=p_Xe^{\beta m}$ gives limiting average wage growth
+$\gamma$, since the AI price converges to a positive constant.
+If output per worker grows faster than $\gamma$, labor's income share
+vanishes. AI-industry revenue converges to share $1-\alpha$ of gross output.
+Competitive operating profit is zero. Under monopoly, compute expenditure
+and operating profit converge to shares $(1-\alpha)^2$ and
+$\alpha(1-\alpha)$ of gross output, respectively. These operating-profit
+limits do not identify net profit without accounting for research expenditure.
+
+\section{What changes with the elasticity}
+The coefficient $c_\sigma$ is a power mean of $e^{-\beta i}$, with order
+$\sigma-1$. It therefore increases strictly with $\sigma$, with limits
+\[
+ \lim_{\sigma\downarrow0}c_\sigma=\frac{\beta}{e^\beta-1},\qquad
+ \lim_{\sigma\to\infty}c_\sigma=1.
+\]
+For completeness, writing $V=-\beta i$ and
+$L(q)=\log\int_0^1e^{qV}\,di$, convexity gives
+$qL'(q)-L(q)\geq0$ because $L(0)=0$. Strict convexity for nonconstant $V$
+gives strict increase of $L(q)/q=\log c_\sigma$, including its continuous
+extension at $q=0$.
+Thus the conditional return in~\eqref{eq:regimes-returns} rises with
+$\sigma$, and both growth thresholds fall. Complementarity between tasks
+does not rule out AI-dominated growth when every task is automatable.
+Wages nevertheless have limiting average growth $\gamma$ in all the
+regular AI-dominated cases described above. The finite wage-growth maximizer
+in the original fixed-weight model is not reproduced by this benchmark.
+
+\section{Monopoly cases that remain to be resolved}
+There is one exact zero-research construction. If $B_0\leq\overline B\leq B_a$,
+set $k=a$, $X=M=0$, and $B=B_0$. Facing these aggregate paths, the developer
+cannot earn positive operating profit at any attainable efficiency, since
+$P(0)=1/B_a\leq1/B$. Any positive research expenditure lowers profit.
+The competitive no-adoption construction therefore also supplies a monopoly
+equilibrium. If $\overline B>B_a$, this argument no longer works. Research
+that crosses the adoption threshold must be evaluated globally before declaring
+zero research optimal.
+
+For a finite positive limiting allocation with $r\to\rho+\gamma$, the
+static monopoly first-order condition instead requires
+\begin{equation}
+ z_x(m)[1-e_X(m)]=\frac{B_a}{B_\infty}.
+ \label{eq:regimes-mon-finite}
+\end{equation}
+The left side starts at $1$ and converges to $(1-\alpha)c_\sigma$.
+These endpoints alone do not establish monotonicity or uniqueness.
+Every root must be checked against all alternative quantities at its own
+$k=a z(x)$. The developer's dynamic optimum, the limit of $B$, research costs
+and household feasibility must then be verified. I do not label these roots
+equilibria before those checks.
+
+The unresolved tasks are global static monopoly selection, dynamic research
+optimality, existence of AI-dominated paths, and the critical threshold cases.
+No transition simulations have been run for this note.
+\end{document}

@@ -42,6 +42,20 @@ Permitir la automatización de tareas adicionales puede preservar el mecanismo a
 
 ## Pendientes antes de resolver transiciones
 
+### Clasificación de regímenes antes de las transiciones
+
+`regimes_note.tex` y su PDF derivan dos umbrales distintos. Con a=[alpha/(rho+gamma+delta)]^(1/(1-alpha)), el umbral de adopción en crecimiento balanceado es Ba=1/[(1-alpha)a^alpha]. El umbral de crecimiento dominado por IA bajo competencia es Bg_mc=Ba/c_sigma. El segundo excede al primero porque c_sigma<1.
+
+Bajo competencia se construyen equilibrios exactos desde sus estados balanceados. Para B0<=Ba hay cero adopción. Para Ba<B0<Bg_mc hay un único estado balanceado con adopción parcial. En ambos, producto por trabajador y salario crecen a gamma y la participación laboral es positiva. No se afirma convergencia desde cualquier K0. El caso crítico B0=Bg_mc queda pendiente.
+
+Para trayectorias con X/H divergente, B convergente y C/K con límite positivo, se derivan rendimientos y tasas candidatas de crecimiento dominado por IA. Bajo monopolio, el umbral correspondiente es Bg_mon=Bg_mc/(1-alpha). Estas identidades no prueban existencia dinámica ni que B alcance Bbar. El salario tiene crecimiento medio gamma si el precio de IA converge a un valor positivo y la participación laboral desaparece si el producto por trabajador crece más rápido.
+
+c_sigma aumenta con sigma. Así, una mayor elasticidad eleva el rendimiento límite candidato y reduce el umbral de crecimiento en ambas estructuras, aunque la clasificación ya no separe los casos sigma<1 y sigma>1 de la manera del paper original.
+
+Existe además una construcción exacta sin IA ni investigación bajo monopolio cuando B0<=Bbar<=Ba. Para Bbar>Ba no se ha demostrado optimalidad de permanecer sin investigación. Tampoco se han demostrado unicidad de la oferta monopolística, existencia de los regímenes monopolísticos con investigación o una clasificación exhaustiva.
+
+`check_regimes.py` verifica seis estados competitivos interiores, las identidades de recursos y precios y los dos umbrales de rendimiento. `regime_checks.json` registra PASS, con error máximo de identidades inferior a 6e-16. Los parámetros son diagnósticos, no una calibración. No se han simulado transiciones.
+
 - Verificar originalidad frente a Korinek–Suh y Jones–Tonetti. No reclamar novedad por obtener una frontera o perder la prima salarial.
 - Demostrar o refutar unicidad y regularidad de la oferta monopolística global.
 - Establecer optimalidad global del problema de investigación y existencia dinámica desde estados iniciales explícitos.

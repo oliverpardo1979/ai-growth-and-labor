@@ -8,6 +8,8 @@ El benchmark mantiene dot B = chi (B M)^eta (1-B/Bbar). La cota permite aislar e
 
 ## Secuencia de trabajo
 
+Actualización: Oliver prioriza ahora la clasificación y existencia de los regímenes de largo plazo. El análisis de la transición y de las expectativas queda pospuesto. `regimes_note.tex` documenta el primer avance de esa clasificación. Los puntos siguientes sobre la transición se conservan como agenda posterior, no como la prioridad actual.
+
 1. Precisar la transición económica que se quiere explicar: adopción de IA en producción, inicio de investigación o automatización de la investigación. La primera es endógena en el bloque estático. Las otras dos no se deducen de ese resultado.
 2. Comprobar si una economía inicialmente sin adopción puede despegar sin un impulso externo. Si la eficiencia no cambia y la acumulación lleva a un estado estacionario debajo del umbral de adopción, el paso del tiempo no produce un despegue por sí solo. La inversión anticipatoria en investigación debe resolverse globalmente, incluyendo M=0 y la posibilidad de cruzar el umbral.
 3. Verificar los antecedentes más próximos antes de atribuir novedad. Distinguir resultados estáticos demostrados de límites condicionales de equilibrio.
