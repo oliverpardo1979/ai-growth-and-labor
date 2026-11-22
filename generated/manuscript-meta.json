@@ -126,40 +126,58 @@
       "number": "5.3"
     },
     {
+      "id": "sec:rewrite-labor-heterogeneity",
+      "title": "Labor heterogeneity and reallocation",
+      "level": 1,
+      "number": "6"
+    },
+    {
+      "id": "subsec:rewrite-sector-specific-labor",
+      "title": "Sector-specific labor",
+      "level": 2,
+      "number": "6.1"
+    },
+    {
+      "id": "subsec:rewrite-mobile-labor",
+      "title": "Mobile labor",
+      "level": 2,
+      "number": "6.2"
+    },
+    {
       "id": "sec:rewrite-quantitative",
       "title": "Numerical simulations",
       "level": 1,
-      "number": "6"
+      "number": "7"
     },
     {
       "id": "subsec:rewrite-rsi-activation",
       "title": "Parameters and initial conditions",
       "level": 2,
-      "number": "6.1"
+      "number": "7.1"
     },
     {
       "id": "subsec:rewrite-rsi-half-decline",
       "title": "Fast takeoff",
       "level": 2,
-      "number": "6.2"
+      "number": "7.2"
     },
     {
       "id": "subsec:rewrite-rsi-research-share",
       "title": "Slow takeoff",
       "level": 2,
-      "number": "6.3"
+      "number": "7.3"
     },
     {
       "id": "subsec:rewrite-competitive-transition",
       "title": "From competition to monopoly",
       "level": 2,
-      "number": "6.4"
+      "number": "7.4"
     },
     {
       "id": "sec:rewrite-conclusion",
       "title": "Conclusion",
       "level": 1,
-      "number": "7"
+      "number": "8"
     },
     {
       "id": "app:rewrite-proofs",
@@ -184,6 +202,24 @@
       "title": "Competitive equilibrium and comparison with monopoly",
       "level": 2,
       "number": "A.3"
+    },
+    {
+      "id": "app:rewrite-labor-heterogeneity",
+      "title": "Labor heterogeneity and reallocation",
+      "level": 2,
+      "number": "A.4"
+    },
+    {
+      "id": "joint-demand-and-global-monopoly-supply.",
+      "title": "Joint demand and global monopoly supply.",
+      "level": 4,
+      "number": ""
+    },
+    {
+      "id": "a-finite-supply-threshold-for-mobile-labor.",
+      "title": "A finite supply threshold for mobile labor.",
+      "level": 4,
+      "number": ""
     },
     {
       "id": "app:rewrite-algorithm",
@@ -324,7 +360,7 @@
       "number": "S5.2"
     }
   ],
-  "source_sha256": "141d7248c945c75ec35509789c2201a022618e8b5cad040ee960a780bcee4360",
+  "source_sha256": "03eef9e8df2af38703e99b529044aeb8852d4232d194d1f8f3915e9796209578",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "61361ac7c3ee455c1923036e6acc87b19ae90614be91daf94b22bfa89026898d",
@@ -343,7 +379,7 @@
     ],
     "build_inputs": {
       "aux": "80183adbe193f1baa2d41036f32ccf866e63f1b86407ef6e974477671b6b3248",
-      "pdf": "4335fab66a46b784ea10b6a40e57ad0c15d908608c2f5e20c1111e54de2cf560"
+      "pdf": "1a4ddaf0a5bfe514e5c602dc031424ade9cc8f44ceccad5f3f0f4c4dd127027b"
     }
   },
   "source_files": [
@@ -354,8 +390,10 @@
     "sections_rewrite/04_equilibrium_regimes.tex",
     "sections_rewrite/05_competitive_equilibrium.tex",
     "sections_rewrite/competitive_threshold_figure.tex",
+    "sections_rewrite/07_labor_heterogeneity.tex",
     "sections_rewrite/08_rsi_design.tex",
     "sections_rewrite/rsi_parameters.tex",
+    "sections_rewrite/growth_sensitivity.tex",
     "sections_rewrite/12_rsi_high_productivity.tex",
     "sections_rewrite/13_rsi_low_productivity.tex",
     "sections_rewrite/14_competitive_to_monopoly.tex",
@@ -363,6 +401,7 @@
     "sections_rewrite/appendix.tex",
     "sections_rewrite/appendix_finite_frontier.tex",
     "sections_rewrite/appendix_competitive_equilibrium.tex",
+    "sections_rewrite/appendix_labor_heterogeneity.tex",
     "sections_rewrite/appendix_rsi_illustrative.tex",
     "sections_rewrite/05_uncapped_equilibria.tex"
   ],
@@ -555,11 +594,11 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 240,
-    "numbered_equation_rows": 141,
-    "display_math": 183,
+    "labels": 258,
+    "numbered_equation_rows": 152,
+    "display_math": 201,
     "figures": 22,
-    "tables": 5,
+    "tables": 6,
     "bibliography_entries": 41,
     "citation_keys": 41
   },
@@ -569,13 +608,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 21997,
+    "visible_text_tokens_verified": 23703,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "f58607546d24f96734c37ec221451376d057215ce136f443d7f467fc3772814a",
+    "aux": "8a192477cbf11f98bba64c7dedd5fb33646afb7ae07b79ef44b7440a18138c1f",
     "bbl": "5f0168d1e4ef2e4e99ea307bd10d5a532f6711750e579057adca02aba1c33684",
-    "pdf": "8ff7ca7f00268e670b27ecd10559258bef492839e9301cd12cf986c58f90a804"
+    "pdf": "5e6cc2d13c41f7b3ac96613edd765c301ff07d7bce83ef0f043240b973d6a8a9"
   }
 }
