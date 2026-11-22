@@ -1,0 +1,176 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{proposition}{Proposition}
+\title{Long-Run Monopoly Selection and Sectoral Wages}
+\author{Working derivations for Oliver Pardo}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+I use the environment of \texttt{static\_equilibrium.tex}. This note treats
+sector-specific workers with fixed positive shares $\ell_S,\ell_C$.
+It proves a static selection result and conditional equilibrium implications,
+not existence of the extended dynamic equilibrium.
+
+\section{The global monopoly optimum at high capital intensity}
+Let $H=AN$, $H_j=\ell_jH$, $k=K/H$, and $G(X;H)=H g(X/H)$.
+Write $c=\omega_{XS}^{\sigma_S/(\sigma_S-1)}$ and
+$\nu=(\sigma_S-1)/\sigma_S\in(0,1)$.
+For a supply-to-capital ratio $y=X/K$, operating profit divided by $K$ is
+\begin{equation}
+ f_k(y;B)=(1-\alpha)
+ \left[\frac{g(ky)}k\right]^{-\alpha}g'(ky)y-\frac yB.
+ \label{eq:selection-objective}
+\end{equation}
+The value at $y=0$ is defined by continuous extension.
+
+\begin{proposition}[Eventual uniqueness of global monopoly supply]
+For $B$ in a sufficiently small compact neighborhood of any finite
+$B_\infty>0$, the static monopoly optimum is unique whenever $k$ is
+sufficiently large. Along any $k\to\infty$, $B\to B_\infty$,
+\begin{equation}
+ \frac{X^*}{K}\to y_*(B_\infty)
+ =\left[B_\infty(1-\alpha)^2c^{1-\alpha}\right]^{1/\alpha},
+ \qquad p_X\to\frac1{B_\infty(1-\alpha)}.
+ \label{eq:selection-limit}
+\end{equation}
+Thus distant local maxima do not create an ambiguity in the late global
+choice in this region. The result does not assert uniqueness at every state.
+\end{proposition}
+\begin{proof}
+The complementary allocation converges to a finite positive quantity per
+unit of $H$ as the common marginal composite product decreases to $c$.
+Its inverse demand is smooth there. The substituting allocation dominates
+total services. Expanding its CES for large AI supply and using the smooth
+complementary allocation gives
+\begin{align*}
+ g(x)&=cx+O(x^{1-\nu}),&g'(x)&=c+O(x^{-\nu}),\\
+ g''(x)&=O(x^{-1-\nu}),&g'''(x)&=O(x^{-2-\nu}).
+\end{align*}
+For the derivative bounds, one can also use the allocation parameter
+$\mu=g'(x)$. The substituting demand has
+$x_S\asymp(\mu-c)^{-1/\nu}$ and a differentiable power expansion,
+whereas $x_C(\mu)$ and its derivatives are bounded near $c$.
+Inverting their sum yields the displayed derivative orders.
+Consequently, on every compact positive interval of $y$,
+$f_k$ and its first two derivatives converge uniformly to those of
+\begin{equation}
+ f_\infty(y;B)=(1-\alpha)c^{1-\alpha}y^{1-\alpha}-y/B.
+ \label{eq:selection-limit-objective}
+\end{equation}
+This function is strictly concave, has a positive maximum, and has the
+unique maximizer $y_*(B)$ in~\eqref{eq:selection-limit}.
+
+I must also rule out maximizers escaping the compact intervals on which
+this convergence holds. Concavity gives $xg'(x)\leq g(x)$ and a supporting
+affine bound $g(x)\leq a+bx$ with finite positive constants. Hence
+\[
+ f_k(y;B)\leq(1-\alpha)(a/k+by)^{1-\alpha}-y/B.
+\]
+This bound excludes uniformly large $y$, and shows that supplies with
+$y\to0$ yield limiting profit per unit of capital at most zero.
+The positive value attainable at $y_*(B)$ therefore confines all global
+maximizers to a common compact positive interval. Uniform convergence
+there and the strict limit maximum imply that all maximizers approach
+$y_*(B)$. On a small neighborhood of that limit, the second derivative
+is strictly negative for large $k$. All global maximizers lie in that
+neighborhood, so there is exactly one. These arguments hold uniformly
+for $B$ near $B_\infty$. Substitution into inverse demand gives the price limit.
+\end{proof}
+
+The smooth first-order equation has a strictly negative second derivative
+at this optimum. Thus the implicit function theorem gives a smooth local
+supply branch in the high-capital region. The operating-profit envelope
+$\pi_B=X^*/B^2$ is valid there. This restores a smooth dated profit function
+for the research problem near this limit, but does not prove global
+intertemporal optimality of a proposed research trajectory.
+
+\section{Conditional growth and wages under monopoly}
+Suppose an equilibrium satisfies $K/(AN)\to\infty$, $B\to B_\infty>0$,
+and $C/K\to h>0$. Set
+\[
+ R(B)=\alpha[B(1-\alpha)^2c]^{(1-\alpha)/\alpha}-\delta.
+\]
+The preceding proposition gives $Y/K\to R(B_\infty)/\alpha+\delta/\alpha$
+and $r\to R(B_\infty)$. The household Euler equation then implies limiting
+average output-per-worker growth $g=R(B_\infty)-\rho$.
+For the strictly accelerated regime require $g>\gamma$.
+
+Let $Q=(1-\alpha)(K/(Z_S+Z_C))^\alpha$ and
+$p_*=1/[B_\infty(1-\alpha)]$. Then $Q\to Q_*=p_*/c$.
+The complementary activity has $X_C/(AL_C)$ converging to a finite positive
+constant, since its marginal composite product at zero AI exceeds one
+and $p_*/Q_*=c<1$. Consequently,
+\begin{equation}
+ \frac{w_C}{A}\to
+ \left[\frac{Q_*^{1-\sigma_C}-\omega_{XC}^{\sigma_C}p_*^{1-\sigma_C}}
+ {\omega_{LC}^{\sigma_C}}\right]^{1/(1-\sigma_C)}>0.
+ \label{eq:selection-C-wage}
+\end{equation}
+To obtain this expression, solve the CES unit-cost equality for the price
+of effective labor. In $S$, differentiate production directly:
+\[
+ w_S=AQ\omega_{LS}\left(\frac{Z_S}{AL_S}\right)^{1/\sigma_S}.
+\]
+Since $Z_C/(AL_C)$ stays finite and $Z_S\sim cX_S$ grows at the aggregate
+scale, the limiting average growth rates satisfy
+\begin{equation}
+ \boxed{g_{w_C}=\gamma,\qquad
+ g_{w_S}=\gamma+\frac{g-\gamma}{\sigma_S}.}
+ \label{eq:selection-wages}
+\end{equation}
+Thus $w_S/w_C\to\infty$, $Y_C/Y\to0$, and both labor-income shares in
+aggregate output vanish. The complementary activity remains active.
+These are not welfare comparisons or claims about the sign of transitional
+wage changes. Instantaneous-rate convergence requires further regularity.
+
+\section{Can efficiency stop below its upper bound?}
+The answer is no within a regular accelerated equilibrium with a smooth
+normal developer optimum. I state the extra regularity explicitly.
+
+\begin{proposition}[Attainment within a regular accelerated equilibrium]
+Suppose an equilibrium has $K/(AN)\to\infty$, $B\to B_\infty>0$,
+$C/K\to h>0$, finite convergent $\dot K/K$ and $r$, and
+$\overline B<\infty$. Suppose the developer has a normal differentiable
+optimum with a nonnegative current-value costate satisfying its necessary
+research and costate conditions at sufficiently late dates.
+Then $B_\infty=\overline B$.
+\end{proposition}
+\begin{proof}
+Assume instead $B_\infty<\overline B$. Static uniqueness at late dates
+gives $\pi_B=X^*/B^2$, with $X^*/K\to y_*(B_\infty)>0$.
+Write $F(B,M)=\chi(BM)^\eta\psi(B)$ and
+$\psi(B)=1-B/\overline B$. The costate equation is
+\[
+ \dot q=(r-F_B)q-\pi_B,\qquad
+ F_B=\dot B\left(\eta/B+\psi'/\psi\right).
+\]
+Integrate this linear equation from $t$ to $t+1$. Since $q_{t+1}\geq0$,
+\[
+ q_t\geq\int_t^{t+1}
+ \exp\!\left[-\int_t^s(r_v-F_{B,v})\,dv\right]\pi_{B,s}\,ds.
+\]
+Because $B$ converges monotonically below its upper bound, the coefficient
+$\eta/B+\psi'/\psi$ is bounded, and the integral of $|F_B|$ on
+$[t,t+1]$ tends to zero. Convergence of $r$ and $\dot K/K$ bounds the
+other factors on this interval. Thus $q_t\geq aK_t$ for some $a>0$
+at all sufficiently late dates. This lower bound makes research interior,
+since $0<\eta<1$ and the marginal research benefit at $M=0$ is infinite.
+The necessary condition gives
+\[
+ M_t=[q_t\chi\eta B_t^\eta\psi(B_t)]^{1/(1-\eta)}
+ \geq bK_t^{1/(1-\eta)}
+\]
+for some $b>0$. The resource constraint, the finite $Y/K$ limit, positivity
+of consumption and compute use, and bounded $\dot K/K$ instead imply
+$M_t/K_t$ is bounded above. These inequalities contradict $K_t\to\infty$.
+Here $K\to\infty$ follows from $K/(AN)\to\infty$, $\gamma>0$ and $n\geq0$.
+\end{proof}
+
+This proposition establishes a necessary property of the stated regular
+optimal equilibrium. It does not construct one, justify global optimality
+from first-order conditions, or establish the required costate regularity.
+Under its assumptions the preceding growth and wage formulas may use
+$B_\infty=\overline B$. Proving existence and verifying the developer's
+global optimum are the next tasks. The mobile-labor case remains separate.
+\end{document}

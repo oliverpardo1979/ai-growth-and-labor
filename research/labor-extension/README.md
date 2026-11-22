@@ -13,3 +13,15 @@ Resultados establecidos en la nota:
 `check_joint_supply.py` comprueba las derivadas de la demanda inversa, la agregación de capital y el ejemplo de dos máximos locales. `joint_supply_checks.json` conserva el resultado PASS. No es una simulación de equilibrio ni una demostración de multiplicidad del óptimo global.
 
 Pendientes: regularidad y selección global cerca de los límites, óptimo de investigación y existencia dinámica, y solución de la asignación con movilidad laboral. Las notas competitivas de la otra rama no se consideran una prueba del equilibrio monopolístico.
+
+## Segundo avance
+
+`long_run_selection.tex` establece que todos los máximos globales convergen a la misma oferta por unidad de capital cuando K/(AN) diverge y B converge a un valor finito positivo. Además, el máximo es único para capital suficientemente alto. La prueba localiza todos los máximos mediante cotas globales y utiliza convergencia de las dos primeras derivadas en un entorno del máximo límite. No depende de escoger el mayor máximo encontrado en una cuadrícula.
+
+El precio límite es 1/[B_infinito(1-alpha)]. Con C/K convergente positivo y crecimiento g del producto por trabajador superior a gamma, se recuperan bajo monopolio las tasas medias g_wS=gamma+(g-gamma)/sigma_S y g_wC=gamma. Son resultados condicionales a la trayectoria, no existencia demostrada.
+
+Una proposición adicional muestra que B_infinito=Bbar dentro de un equilibrio acelerado regular con costate no negativo y óptimo normal diferenciable del desarrollador. El argumento compara el límite inferior q>=aK obtenido del costate con M=O(K) exigido por recursos. No convierte condiciones necesarias en suficientes.
+
+`check_long_run_selection.py` compara candidatos estáticos globales a intensidades de capital crecientes en dos configuraciones. `long_run_checks.json` registra PASS. Los valores elevados de K/H son comprobaciones de límites, no una calibración ni una predicción de fechas.
+
+Pendientes actuales: construir trayectorias de equilibrio y verificar el óptimo global intertemporal. La movilidad laboral también sigue pendiente. El manuscrito activo permanece sin cambios.
