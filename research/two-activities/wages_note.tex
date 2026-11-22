@@ -1,0 +1,132 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{proposition}{Proposition}
+\title{Wages with Additive Activities and Mobile Capital}
+\author{Exploratory note for Oliver Pardo}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+I study two activities producing the same final good, $Y=Y_S+Y_C$.
+Workers are attached to their activity, $L_j=\ell_j N$, with fixed
+$\ell_j>0$ and $\ell_S+\ell_C=1$. Both use the same labor-augmenting
+technology $\dot A/A=\gamma$. Thus $H_j=AL_j$ grows at $n+\gamma$.
+I hold AI efficiency $B$ fixed and begin with competitive AI supply,
+at common service price $p=1/B$. There is no research in this benchmark.
+The results about a growing equilibrium below are conditional on existence
+and the explicitly stated limiting properties.
+
+\section{Common capital allocation and wages}
+The technologies are
+\[
+ Y_j=K_j^\alpha Z_j^{1-\alpha},\qquad
+ Z_j=[\omega_{Lj}H_j^{r_j}+\omega_{Xj}X_j^{r_j}]^{1/r_j},\qquad
+ r_j=\frac{\sigma_j-1}{\sigma_j},\quad 0<\sigma_C<1<\sigma_S.
+\]
+Each activity's positive weights sum to one. Capital is freely mobile.
+Writing $Z=Z_S+Z_C$, its efficient allocation satisfies
+$K_j/Z_j=K/Z$, and final production is $Y=K^\alpha Z^{1-\alpha}$.
+Let
+\begin{equation}
+ Q=(1-\alpha)(K/Z)^\alpha.
+ \label{eq:two-Q}
+\end{equation}
+This is the marginal value of either composite $Z_j$, not a second final-good
+price. At an interior AI allocation,
+\begin{equation}
+ p=Q\omega_{Xj}(Z_j/X_j)^{1/\sigma_j},\qquad
+ w_j=A Q\omega_{Lj}(Z_j/H_j)^{1/\sigma_j}.
+ \label{eq:two-wages}
+\end{equation}
+These equations follow by differentiating final production after the optimal
+capital allocation. They retain the envelope effect of reallocating capital.
+
+\section{A conditional long-run wage ranking}
+Define the substituting activity's AI-only productivity
+$c_S=\omega_{XS}^{\sigma_S/(\sigma_S-1)}<1$.
+
+\begin{proposition}[Wages in a regular AI-dominated equilibrium]
+Suppose a competitive equilibrium has $X_S/H_S\to\infty$,
+$K/Z\to\kappa>0$, and positive limiting $C/K$. Suppose also that the
+limiting average output-per-worker growth $g$ exceeds $\gamma$.
+Then the following average growth rates hold:
+\begin{equation}
+ g_{w_S}=\gamma+\frac{g-\gamma}{\sigma_S},\qquad
+ g_{w_C}=\gamma.
+ \label{eq:two-growth}
+\end{equation}
+Thus $\gamma<g_{w_S}<g$, $w_S/w_C\to\infty$, both labor-income
+shares vanish, and $Y_C/Y\to0$. The complementary activity remains
+active at all sufficiently late dates. Convergence of instantaneous growth
+rates is not asserted without additional regularity.
+\end{proposition}
+\begin{proof}
+As $X_S/H_S\to\infty$, $Z_S/X_S\to c_S$ and
+$\partial Z_S/\partial X_S\to c_S$. The AI price condition yields
+$Q\to Q_*=p/c_S$. In the complementary activity, write $v_C=X_C/H_C$.
+Its right marginal composite product at $v_C=0$ is
+$d_C=\omega_{XC}^{\sigma_C/(\sigma_C-1)}>1$.
+For $v_C>0$, that marginal product decreases strictly from $d_C$ to zero.
+Since $p/Q_*=c_S<1<d_C$, the optimal complementary activity is eventually
+interior, and its ratio $v_C$ converges to a unique finite positive value.
+Consequently $Z_C/H_C$, $K_C/H_C$, and $w_C/A$ converge to positive constants.
+This establishes $g_{w_C}=\gamma$.
+
+Since $Z_C$ grows at average rate $n+\gamma$ while $Z_S/H_S\to\infty$,
+$Z_C/Z_S\to0$. Hence $Y_C/Y=Z_C/Z\to0$. The positive limit of $K/Z$
+implies that $Z$, $Y$ and $K$ have the same average growth rate $n+g$.
+Taking logarithms of the second expression in~\eqref{eq:two-wages}
+for $j=S$ proves the first expression in~\eqref{eq:two-growth}.
+The ratio $w_S/w_C$ therefore grows at average rate
+$(g-\gamma)/\sigma_S>0$. Finally, $L_j/N=\ell_j$ is fixed and both wage
+growth rates are below $g$. Thus $w_j L_j/Y\to0$ for each activity.
+\end{proof}
+
+The normalized complementary wage has the explicit positive limit
+\begin{equation}
+ \frac{w_C}{A}\longrightarrow
+ \left[
+ \frac{Q_*^{1-\sigma_C}-\omega_{XC}^{\sigma_C}p^{1-\sigma_C}}
+ {\omega_{LC}^{\sigma_C}}
+ \right]^{1/(1-\sigma_C)}.
+ \label{eq:two-C-level}
+\end{equation}
+To obtain it, let $v_j=w_j/A$ denote the price of effective labor.
+The CES unit-cost equality is
+$Q^{1-\sigma_j}=\omega_{Lj}^{\sigma_j}v_j^{1-\sigma_j}
++\omega_{Xj}^{\sigma_j}p^{1-\sigma_j}$.
+Solving for $v_C$ and taking $Q\to Q_*$ gives~\eqref{eq:two-C-level}.
+
+Under the stated $C/K$ limit, the household Euler equation gives the
+conditional candidate
+\[
+ g=\alpha[B(1-\alpha)c_S]^{(1-\alpha)/\alpha}-\delta-\rho.
+\]
+For the regime described above this candidate must exceed $\gamma$.
+This expression does not establish existence or convergence from a given state.
+
+\section{Interpretation and scope}
+The substituting activity expands with capital and AI, and its remaining
+workers become more productive. The complementary activity expands only
+at the scale of its effective labor endowment in this limit. Its absolute
+output and wages can grow even as its share of the economy disappears.
+Neither this proof nor the conditional return formula establishes that an
+unanticipated improvement in $B$ benefits every worker during the transition.
+They compare long-run rates within a specified equilibrium, not welfare or
+income levels across different technologies.
+
+If both activities instead have finite positive stationary $K_j/H_j$ and
+$X_j/H_j$, wages in both grow at $\gamma$. Existence of such an allocation
+requires checking the common prices and household conditions.
+
+With identical perfectly mobile workers, interior labor allocation requires
+$w_S=w_C$. The divergent wage ratio in the proposition is therefore
+incompatible with fixed positive worker shares in both activities under that
+alternative mobility assumption. One must solve endogenous labor allocation
+rather than apply~\eqref{eq:two-growth} to those workers.
+
+With a monopoly charging a common price, the wage formulas still hold
+conditional on a positive finite limiting price and the same real-allocation
+limits. A discriminating monopoly can charge different prices across
+activities. Neither monopoly equilibrium is solved here.
+\end{document}

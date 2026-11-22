@@ -37,3 +37,14 @@ La oferta competitiva de servicios de IA o su provisión por un monopolista com�
 ## Pregunta
 
 Cómo la expansión de IA y la acumulación de capital afectan salarios y asignación del trabajo cuando unas actividades presentan complementariedad y otras sustitución. No se supone de antemano qué grupo gana, ni que capital móvil garantice ganancias salariales para el grupo expuesto a sustitución.
+
+## Primer resultado salarial condicional
+
+`wages_note.tex` deriva el caso aditivo con tipos laborales ligados a cada actividad, participaciones poblacionales positivas fijas, B constante y oferta competitiva de IA a precio común. Si existe una trayectoria dominada por IA con X_S/(A L_S) divergente, K/(Z_S+Z_C) convergente positivo y C/K convergente positivo, y g es el crecimiento medio del producto por trabajador superior a gamma, entonces:
+
+- g_wS = gamma + (g-gamma)/sigma_S.
+- g_wC = gamma.
+- w_S/w_C diverge y ambas participaciones laborales en el producto agregado convergen a cero.
+- La actividad C permanece activa en el límite, pero su participación en el producto desaparece. Su menor peso relativo no implica salarios decrecientes.
+
+Estos resultados no prueban existencia del equilibrio, ganancias de bienestar o efectos de un cambio en B. Tampoco se trasladan al caso de trabajadores idénticos con movilidad perfecta. `check_wages.py` comprueba precios, dualidad CES, asignación de capital y límites en seis combinaciones de elasticidades. No simula transiciones. `wage_checks.json` registra PASS.

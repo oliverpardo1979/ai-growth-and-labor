@@ -1,0 +1,187 @@
+{
+  "status": "PASS",
+  "max_identity_error": 2.2854722558918183e-09,
+  "cases": [
+    {
+      "sigma_S": 1.1,
+      "sigma_C": 0.5,
+      "rows": [
+        {
+          "gap": 0.01,
+          "wS_over_A": 9.462625788835861e+28,
+          "wC_over_A": 392.86816080503286,
+          "wC_limit": 396.89999999999753,
+          "Yc_share": 4.2371288922337756e-30,
+          "wage_growth_identity_error": 7.105427357601002e-15
+        },
+        {
+          "gap": 0.0001,
+          "wS_over_A": 9.99450127836871e+48,
+          "wC_over_A": 396.8596800159982,
+          "wC_limit": 396.89999999999753,
+          "Yc_share": 4.0339932138662305e-52,
+          "wage_growth_identity_error": 0.0
+        },
+        {
+          "gap": 1e-06,
+          "wS_over_A": 9.999945096760264e+68,
+          "wC_over_A": 396.89959679999913,
+          "wC_limit": 396.89999999999753,
+          "Yc_share": 4.0320198835985085e-74,
+          "wage_growth_identity_error": 0.0
+        }
+      ]
+    },
+    {
+      "sigma_S": 1.1,
+      "sigma_C": 0.9,
+      "rows": [
+        {
+          "gap": 0.01,
+          "wS_over_A": 9.462625788835861e+28,
+          "wC_over_A": 5826.286427526709,
+          "wC_limit": 5904.899999999942,
+          "Yc_share": 8.249485169104064e-29,
+          "wage_growth_identity_error": 7.105427357601002e-15
+        },
+        {
+          "gap": 0.0001,
+          "wS_over_A": 9.99450127836871e+48,
+          "wC_over_A": 5904.11269181009,
+          "wC_limit": 5904.899999999942,
+          "Yc_share": 7.876862035341431e-51,
+          "wage_growth_identity_error": 0.0
+        },
+        {
+          "gap": 1e-06,
+          "wS_over_A": 9.999945096760264e+68,
+          "wC_over_A": 5904.892126801141,
+          "wC_limit": 5904.899999999942,
+          "Yc_share": 7.873236526790142e-73,
+          "wage_growth_identity_error": 0.0
+        }
+      ]
+    },
+    {
+      "sigma_S": 1.5,
+      "sigma_C": 0.5,
+      "rows": [
+        {
+          "gap": 0.01,
+          "wS_over_A": 3940.1751254710694,
+          "wC_over_A": 0.8880100503147043,
+          "wC_limit": 0.8999999999999995,
+          "Yc_share": 1.5087948178657647e-06,
+          "wage_growth_identity_error": 1.7763568394002505e-15
+        },
+        {
+          "gap": 0.0001,
+          "wS_over_A": 39994000.17522333,
+          "wC_over_A": 0.89988000100005,
+          "wC_limit": 0.8999999999999995,
+          "Yc_share": 1.5000875046729744e-12,
+          "wage_growth_identity_error": 0.0
+        },
+        {
+          "gap": 1e-06,
+          "wS_over_A": 399999399835.5115,
+          "wC_over_A": 0.8999988000001,
+          "wC_limit": 0.8999999999999995,
+          "Yc_share": 1.5000008759267034e-18,
+          "wage_growth_identity_error": 3.552713678800501e-15
+        }
+      ]
+    },
+    {
+      "sigma_S": 1.5,
+      "sigma_C": 0.9,
+      "rows": [
+        {
+          "gap": 0.01,
+          "wS_over_A": 3940.1751254710694,
+          "wC_over_A": 1.3273817477830154,
+          "wC_limit": 1.3512257811091097,
+          "Yc_share": 2.992531853555758e-06,
+          "wage_growth_identity_error": 1.7763568394002505e-15
+        },
+        {
+          "gap": 0.0001,
+          "wS_over_A": 39994000.17522333,
+          "wC_over_A": 1.3509865178239404,
+          "wC_limit": 1.3512257811091097,
+          "Yc_share": 2.990911640918665e-12,
+          "wage_growth_identity_error": 0.0
+        },
+        {
+          "gap": 1e-06,
+          "wS_over_A": 399999399835.5115,
+          "wC_over_A": 1.3512233883940952,
+          "wC_limit": 1.3512257811091097,
+          "Yc_share": 2.990894975265407e-18,
+          "wage_growth_identity_error": 3.552713678800501e-15
+        }
+      ]
+    },
+    {
+      "sigma_S": 3.0,
+      "sigma_C": 0.5,
+      "rows": [
+        {
+          "gap": 0.01,
+          "wS_over_A": 0.7017923929582498,
+          "wC_over_A": 0.1867301148815397,
+          "wC_limit": 0.19000257894814956,
+          "Yc_share": 0.009086413097988312,
+          "wage_growth_identity_error": 0.0
+        },
+        {
+          "gap": 0.0001,
+          "wS_over_A": 7.0705374707289685,
+          "wC_over_A": 0.189969795142588,
+          "wC_limit": 0.19000257894814956,
+          "Yc_share": 9.271710900532726e-06,
+          "wage_growth_identity_error": 4.440892098500626e-16
+        },
+        {
+          "gap": 1e-06,
+          "wS_over_A": 70.71062507997446,
+          "wC_over_A": 0.19000225110420704,
+          "wC_limit": 0.19000257894814956,
+          "Yc_share": 9.272818276005793e-09,
+          "wage_growth_identity_error": 0.0
+        }
+      ]
+    },
+    {
+      "sigma_S": 3.0,
+      "sigma_C": 0.9,
+      "rows": [
+        {
+          "gap": 0.01,
+          "wS_over_A": 0.7017923929582498,
+          "wC_over_A": 0.19388392106898186,
+          "wC_limit": 0.19769141257634257,
+          "Yc_share": 0.010531231039725275,
+          "wage_growth_identity_error": 0.0
+        },
+        {
+          "gap": 0.0001,
+          "wS_over_A": 7.0705374707289685,
+          "wC_over_A": 0.19765317835382887,
+          "wC_limit": 0.19769141257634257,
+          "Yc_share": 1.0812888648860563e-05,
+          "wage_growth_identity_error": 4.440892098500626e-16
+        },
+        {
+          "gap": 1e-06,
+          "wS_over_A": 70.71062507997446,
+          "wC_over_A": 0.19769103021820564,
+          "wC_limit": 0.19769141257634257,
+          "Yc_share": 1.0814708493036927e-08,
+          "wage_growth_identity_error": 0.0
+        }
+      ]
+    }
+  ],
+  "scope": "Static common-price allocations and conditional asymptotic wage formulas, not equilibrium existence or transitions."
+}
