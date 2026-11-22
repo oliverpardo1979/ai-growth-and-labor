@@ -1,0 +1,276 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newcommand{\dd}{\,\mathrm d}
+\title{Endogenous Task Automation: Initial Analytical Results}
+\author{Working note for Oliver Pardo}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+\noindent This note is separate from the existing manuscript. I establish a static
+task allocation and conditional long-run implications. I do not claim dynamic
+equilibrium existence, global research optimality, or novelty.
+
+\section{Environment and the task allocation}
+I retain the original household, capital accumulation, compute cost and, initially,
+the bounded research technology. Write $H=AL$. Final production is
+\begin{equation}
+ Y=K^\alpha Z^{1-\alpha},\qquad
+ Z=\left[\int_0^1 z(i)^{(\sigma-1)/\sigma}\dd i\right]^{\sigma/(\sigma-1)}.
+ \label{eq:tasks-aggregate}
+\end{equation}
+The unit-elastic limit is $\log Z=\int_0^1\log z(i)\dd i$.
+Within task $i$, human and AI services are perfect substitutes:
+\begin{equation}
+ z(i)=h(i)+e^{-\beta i}x(i),\qquad
+ \int_0^1h(i)\dd i=H,\quad \int_0^1x(i)\dd i=X,\quad \beta>0.
+ \label{eq:tasks-technology}
+\end{equation}
+Humans can move freely between tasks. The coefficient $e^{-\beta i}$ is fixed.
+All tasks are technically automatable at every date. Research lowers their cost
+through $X=BU$ rather than changing their technological feasibility.
+I call the optimized composite $\mathcal Z(H,X)$.
+
+\begin{proposition}[Efficient task assignment]
+For $H,X>0$, the unique cutoff $m\in(0,1)$ satisfies
+\begin{equation}
+ \frac XH=\frac{D_\sigma(m)e^{\sigma\beta m}}{1-m},\qquad
+ D_\sigma(m)=\int_0^m e^{-\beta(\sigma-1)i}\dd i.
+ \label{eq:tasks-cutoff}
+\end{equation}
+AI supplies tasks $i<m$ and humans supply tasks $i>m$. At this allocation,
+\begin{equation}
+ \mathcal Z(H,X)=
+ \left[(1-m)^{1/\sigma}H^{(\sigma-1)/\sigma}
+       +D_\sigma(m)^{1/\sigma}X^{(\sigma-1)/\sigma}
+ \right]^{\sigma/(\sigma-1)}.
+ \label{eq:tasks-reduced}
+\end{equation}
+Equation~\eqref{eq:tasks-reduced} is conditional on the optimal cutoff.
+It is not a CES with constant coefficients as $X/H$ changes.
+\end{proposition}
+\begin{proof}
+At a candidate cutoff, allocate $h(i)=H/(1-m)$ on human tasks and
+$x(i)=X e^{-\beta(\sigma-1)i}/D_\sigma(m)$ on AI tasks.
+Their outputs coincide at the cutoff precisely when
+equation~\eqref{eq:tasks-cutoff} holds. This equation has one solution because
+the logarithmic derivative of its right-hand side is
+\[
+ D_\sigma'(m)/D_\sigma(m)+\sigma\beta+1/(1-m)>0,
+\]
+and its endpoint limits are zero and infinity.
+
+To establish global efficiency, let $q(i)=\partial Z/\partial z(i)$ at the candidate.
+On human tasks $q(i)$ is constant. On AI tasks $q(i)e^{-\beta i}$ is constant.
+The common human return divided by the common AI return is $e^{\beta m}$.
+Thus neither factor can raise its return by moving to another task, including
+tasks currently supplied by the other factor. The CES is concave for every
+$\sigma>0$. Its supporting tangent therefore bounds the output of every
+alternative feasible allocation by the output of this candidate.
+Substituting the candidate allocations into~\eqref{eq:tasks-aggregate} yields
+equation~\eqref{eq:tasks-reduced}.
+\end{proof}
+
+At $\sigma=1$, the reduced expression is instead written as
+\begin{equation}
+ \log\mathcal Z=(1-m)\log\frac{H}{1-m}
+     +m\log\frac Xm-\frac{\beta m^2}{2},\qquad
+ \frac XH=\frac{m e^{\beta m}}{1-m}.
+ \label{eq:tasks-unit}
+\end{equation}
+
+\section{Factor prices and adoption}
+Final-good firms are competitive and pay $w$ per worker and $p_X$ per AI-service unit.
+The final good is the numeraire. Their conditions give
+\begin{equation}
+ w=A(1-\alpha)(K/\mathcal Z)^\alpha\mathcal Z_H,\qquad
+ p_X=(1-\alpha)(K/\mathcal Z)^\alpha\mathcal Z_X.
+ \label{eq:tasks-prices}
+\end{equation}
+\begin{proposition}[The marginal task determines the wage--AI-price ratio]
+At any allocation with positive AI use,
+\begin{equation}
+ \boxed{\frac{w}{A p_X}=e^{\beta m}.}
+ \label{eq:tasks-wage-boundary}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The ratio of the marginal products $\mathcal Z_H/\mathcal Z_X$ equals
+the ratio of the task returns in the preceding proof, $e^{\beta m}$.
+Taking the ratio of equations~\eqref{eq:tasks-prices} yields the result.
+Equivalently, the human cost per task unit $w/A$ equals the AI cost
+$p_Xe^{\beta m}$ at the cutoff.
+\end{proof}
+
+The inverse demand $P(X;K,H)$ is the second expression
+in~\eqref{eq:tasks-prices}, evaluated at the efficient allocation.
+The frontier responds to a seller's quantity, rather than remaining fixed
+when I calculate the inverse-demand elasticity.
+
+\begin{proposition}[Adoption threshold and the static monopoly restriction]
+At given $K,H,B$, competitive supply at $p_X=1/B$ has positive adoption if and only if
+\begin{equation}
+ B(1-\alpha)(K/H)^\alpha>1.
+ \label{eq:tasks-adoption-threshold}
+\end{equation}
+The developer's static problem
+$\max_{X\geq0}\{P(X;K,H)X-X/B\}$ has a finite global maximizer.
+It is positive under the same strict inequality. Every positive global
+maximizer supplies fewer AI services and automates fewer tasks than competition
+at the same $K,H,B$.
+\end{proposition}
+\begin{proof}
+At $X=0$, $\mathcal Z(H,0)=H$ and its right derivative with respect to $X$ is one.
+Thus $P(0;K,H)=(1-\alpha)(K/H)^\alpha$. The optimized composite is
+increasing and concave in $X$. Since $K$ is fixed and $1-\alpha<1$,
+the inverse demand is strictly decreasing on its positive domain.
+It tends to zero at infinity. Competitive demand is positive exactly when
+$P(0)>1/B$.
+
+Monopoly operating profit is zero at $X=0$. If $P(0)\leq1/B$, every
+positive $X$ yields negative profit. If $P(0)>1/B$, a sufficiently small
+positive $X$ yields positive profit. At infinity, revenue is of order
+$X^{1-\alpha}$ whereas cost is linear, so profit tends to minus infinity.
+A positive global maximizer therefore exists and is interior. Its condition
+$P+XP'=1/B$ implies $P>1/B$. Strictly decreasing demand places this quantity
+below the competitive quantity. The cutoff increases strictly with $X/H$.
+This argument does not establish uniqueness of the monopoly maximizer.
+\end{proof}
+
+\section{A conditional long-run result}
+\begin{proposition}[Automation can remove the task bottleneck at any elasticity]
+For every fixed $\sigma>0$, as $X/H\to\infty$,
+\begin{equation}
+ m\to1,\qquad \frac{\mathcal Z(H,X)}X\to c_\sigma,\qquad
+ \mathcal Z_X\to c_\sigma,\qquad
+ c_\sigma=\left[\int_0^1e^{-\beta(\sigma-1)i}\dd i\right]^{1/(\sigma-1)}.
+ \label{eq:tasks-linear-limit}
+\end{equation}
+At $\sigma=1$, $c_1=e^{-\beta/2}$.
+\end{proposition}
+\begin{proof}
+Equation~\eqref{eq:tasks-cutoff} implies $m\to1$.
+For $\sigma\ne1$, set $S=1-m+D_\sigma(m)e^{\beta(\sigma-1)m}$.
+Direct substitution in~\eqref{eq:tasks-reduced}, followed by differentiation
+using the envelope theorem, gives
+\[
+ \frac{\mathcal Z}H=\frac{S^{\sigma/(\sigma-1)}}{1-m},\qquad
+ \mathcal Z_H=S^{1/(\sigma-1)},\qquad
+ \mathcal Z_X=e^{-\beta m}S^{1/(\sigma-1)}.
+\]
+Divide the first expression by~\eqref{eq:tasks-cutoff} and take $m\to1$.
+For $\sigma=1$, differentiate~\eqref{eq:tasks-unit} at the optimum to obtain
+$\mathcal Z_H=e^{\beta m^2/2}$ and
+$\mathcal Z_X=e^{\beta m^2/2-\beta m}$, giving the same limits.
+\end{proof}
+
+This is a property of a bounded relative-difficulty distribution with no
+permanently human-only tasks. It is not a claim that complementarity never
+limits growth in other task models.
+
+\begin{proposition}[A bound on long-run average wage growth]
+On any path with positive AI use at all sufficiently late dates,
+\begin{equation}
+ \log\frac{w_t}{w_{t_0}}=\gamma(t-t_0)
+ +\log\frac{p_{X,t}}{p_{X,t_0}}+\beta(m_t-m_{t_0}).
+ \label{eq:tasks-wage-growth}
+\end{equation}
+If $p_{X,t}$ converges to a finite positive limit, average wage growth
+converges to $\gamma$. Under competitive provision,
+$w_t=A_t e^{\beta m_t}/B_t$, so average wage growth equals
+$\gamma$ minus average efficiency growth whenever the latter has a limit.
+In particular, bounded $B_t\to\overline B>0$ gives average wage growth $\gamma$.
+\end{proposition}
+\begin{proof}
+Take logarithms of~\eqref{eq:tasks-wage-boundary}. Since $0<m_t<1$,
+the last term divided by $t-t_0$ vanishes. Under competition substitute
+$p_X=1/B$. These are average growth statements, not assertions about
+instantaneous derivatives without additional regularity and convergence.
+\end{proof}
+
+For reference, define $E=e^{\beta(\sigma-1)m}$ and $S=1-m+D_\sigma E$.
+Log-differentiating inverse demand and quantity with respect to $m$ gives
+\begin{equation}
+ e_X=-\frac{\dd\log P}{\dd\log X}
+ =\frac{\alpha[\sigma\beta D_\sigma E/S+1/(1-m)]+\beta(1-m)/S}
+ {D_\sigma'/D_\sigma+\sigma\beta+1/(1-m)}\longrightarrow\alpha.
+ \label{eq:tasks-demand-elasticity}
+\end{equation}
+At $\sigma=1$, this formula is evaluated with $D_1=m$, $E=S=1$.
+If a monopoly equilibrium has $X/H\to\infty$ and $B\to\overline B<\infty$,
+its static supply condition implies
+\[
+ p_X\to\frac1{(1-\alpha)\overline B},\qquad
+ \frac wA\to\frac{e^\beta}{(1-\alpha)\overline B}.
+\]
+Thus the original permanent wage-growth premium does not survive in this
+benchmark, even though the aggregate capital-accumulation mechanism may survive.
+
+The limiting capital return candidates are
+\begin{align}
+ \mathcal R^{\mathrm{mon}}(B)&=
+ \alpha[B(1-\alpha)^2c_\sigma]^{(1-\alpha)/\alpha}-\delta,\\
+ \mathcal R^{\mathrm{mc}}(B)&=
+ \alpha[B(1-\alpha)c_\sigma]^{(1-\alpha)/\alpha}-\delta.
+\end{align}
+They follow from $X=BU$, the limiting markup, the AI revenue condition and
+$\mathcal Z\sim c_\sigma X$. At a common target return the monopoly efficiency
+requirement is $1/(1-\alpha)$ times the competitive requirement.
+These are conditional limiting identities. They do not prove that either
+trajectory exists or reaches that limit.
+
+One implication is useful for the market comparison. Suppose both a competitive
+trajectory with constant efficiency $B_0$ and a monopoly trajectory with
+$B\to\overline B$ exist and satisfy $X/H\to\infty$, with the same task
+technology and the same exogenous path of $A$. Then
+\begin{equation}
+ \frac{w_t^{\mathrm{mon}}}{w_t^{\mathrm{mc}}}
+ \longrightarrow \frac{B_0}{(1-\alpha)\overline B},\qquad
+ \mathcal R^{\mathrm{mon}}(\overline B)>\mathcal R^{\mathrm{mc}}(B_0)
+ \quad\Longleftrightarrow\quad (1-\alpha)\overline B>B_0.
+ \label{eq:tasks-wage-growth-ranking}
+\end{equation}
+Thus the larger limiting capital return goes with the lower limiting wage
+relative to $A$ in this benchmark. Wage growth averages $\gamma$ under both
+structures. These comparisons are conditional on the two trajectories and are
+not welfare rankings or proof that such a pair exists from a common state.
+
+\section{Proposed equilibrium and unfinished work}
+I extend the original equilibrium definition, labelled
+\texttt{def:rewrite-equilibrium} in its source.
+Initial states are $K_0,B_0,A_0,N_0$ and population and labor-augmenting
+technology retain their original laws. The household retains its original
+preferences, budget, Euler condition and transversality requirement.
+
+\begin{definition}[Task-automation equilibrium]
+An equilibrium is an infinite-horizon trajectory of finite allocations and
+prices such that the household maximizes utility, final-good firms maximize
+profit using~\eqref{eq:tasks-aggregate}--\eqref{eq:tasks-technology}, and the
+developer globally maximizes discounted net profit using the original research
+technology. Labor, capital and AI-service markets clear, $H=AN$, $X=BU$,
+the task allocation is efficient, and
+\[
+ C+\dot K+\delta K+U+M=Y,\qquad
+ \dot B=\chi(BM)^\eta(1-B/\overline B).
+\]
+The household and developer transversality conditions and the relevant
+corner optimality conditions must hold. Research is available from the initial
+date. Neither $M>0$ nor an exogenous research-activation date is imposed.
+\end{definition}
+
+The developer faces $P(X;K,H)$ derived above, not the original fixed-weight
+CES demand. At differentiability points the profit envelope still gives
+$\pi_B=X/B^2$. Therefore the form of the interior research FOC and costate
+can be retained, but their sufficiency must be proved again. The developer
+continues to take aggregate capital and interest-rate paths as given.
+
+Before numerical transitions I need to establish static monopoly uniqueness
+or a justified selection, global research optimality, and dynamic equilibrium
+existence with appropriate terminal conditions. I must also compare these
+results with Korinek--Suh and Jones--Tonetti before making any novelty claim.
+Distributions with unbounded relative difficulty or permanently human-only
+tasks may change the wage bound. Automating production does not itself
+endogenize automation of research.
+\end{document}

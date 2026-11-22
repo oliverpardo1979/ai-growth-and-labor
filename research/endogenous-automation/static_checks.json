@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "cases": 42,
+  "checks": {
+    "max_relative_euler_error": 1.9984014443252818e-15,
+    "max_relative_zx_fd_error": 6.316776524073475e-08,
+    "max_relative_zh_fd_error": 3.5229592487695527e-07,
+    "max_relative_partition_error": 2.220446049250313e-15,
+    "max_positive_partition_gain": 2.220446049250313e-15,
+    "max_log_wage_price_boundary_error": 2.220446049250313e-16,
+    "max_relative_inverse_elasticity_fd_error": 6.9169864280738125e-09
+  },
+  "limits": [
+    {
+      "sigma": 0.6,
+      "c_sigma": 0.34427494562378597,
+      "z_over_x": 0.34427495062532054,
+      "zx": 0.34427494562378586,
+      "w_over_ApX": 7.38905595114953,
+      "limit_w_over_ApX": 7.38905609893065,
+      "inverse_demand_elasticity": 0.3299999952058495
+    },
+    {
+      "sigma": 0.9,
+      "c_sigma": 0.3618009375643572,
+      "z_over_x": 0.3618009415562209,
+      "zx": 0.36180093756435755,
+      "w_over_ApX": 7.389055951149529,
+      "limit_w_over_ApX": 7.38905609893065,
+      "inverse_demand_elasticity": 0.32999999635900756
+    },
+    {
+      "sigma": 1.0,
+      "c_sigma": 0.36787944117144233,
+      "z_over_x": 0.3678794448502368,
+      "zx": 0.36787944117144233,
+      "w_over_ApX": 7.389055951149529,
+      "limit_w_over_ApX": 7.38905609893065,
+      "inverse_demand_elasticity": 0.3299999967000002
+    },
+    {
+      "sigma": 1.1,
+      "c_sigma": 0.374060067803276,
+      "z_over_x": 0.374060071182279,
+      "zx": 0.37406006780327733,
+      "w_over_ApX": 7.389055951149529,
+      "limit_w_over_ApX": 7.38905609893065,
+      "inverse_demand_elasticity": 0.3299999970190075
+    },
+    {
+      "sigma": 1.5,
+      "c_sigma": 0.39957640089372803,
+      "z_over_x": 0.3995764032191707,
+      "zx": 0.39957640089372815,
+      "w_over_ApX": 7.38905595114953,
+      "limit_w_over_ApX": 7.38905609893065,
+      "inverse_demand_elasticity": 0.329999998079477
+    },
+    {
+      "sigma": 3.5,
+      "c_sigma": 0.5238868962799079,
+      "z_over_x": 0.5238868964576018,
+      "zx": 0.5238868962799078,
+      "w_over_ApX": 7.38905595114953,
+      "limit_w_over_ApX": 7.38905609893065,
+      "inverse_demand_elasticity": 0.3299999998880697
+    }
+  ],
+  "scope": "Static identities and asymptotics, not dynamic equilibrium existence or novelty."
+}
