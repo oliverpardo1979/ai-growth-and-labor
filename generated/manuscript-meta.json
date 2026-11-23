@@ -174,6 +174,12 @@
       "number": "7.4"
     },
     {
+      "id": "subsec:rewrite-welfare",
+      "title": "Welfare comparison",
+      "level": 2,
+      "number": "7.5"
+    },
+    {
       "id": "sec:rewrite-conclusion",
       "title": "Conclusion",
       "level": 1,
@@ -238,6 +244,12 @@
       "title": "Accuracy and equilibrium checks",
       "level": 2,
       "number": "B.2"
+    },
+    {
+      "id": "app:rewrite-welfare-numerics",
+      "title": "Welfare calculation",
+      "level": 2,
+      "number": "B.3"
     },
     {
       "id": "replication-files.",
@@ -360,7 +372,7 @@
       "number": "S5.2"
     }
   ],
-  "source_sha256": "03eef9e8df2af38703e99b529044aeb8852d4232d194d1f8f3915e9796209578",
+  "source_sha256": "b8c2dbf6e6aad159f28a1706797e92182f8b8f8dc4fe479b3b9a787cb0aed817",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "61361ac7c3ee455c1923036e6acc87b19ae90614be91daf94b22bfa89026898d",
@@ -379,7 +391,7 @@
     ],
     "build_inputs": {
       "aux": "80183adbe193f1baa2d41036f32ccf866e63f1b86407ef6e974477671b6b3248",
-      "pdf": "1a4ddaf0a5bfe514e5c602dc031424ade9cc8f44ceccad5f3f0f4c4dd127027b"
+      "pdf": "382e10185728cc96e8068b5e584c98eb810699636edcf2bf7a0625c9d143d311"
     }
   },
   "source_files": [
@@ -397,6 +409,8 @@
     "sections_rewrite/12_rsi_high_productivity.tex",
     "sections_rewrite/13_rsi_low_productivity.tex",
     "sections_rewrite/14_competitive_to_monopoly.tex",
+    "sections_rewrite/16_welfare.tex",
+    "sections_rewrite/welfare_table.tex",
     "sections_rewrite/06_conclusion.tex",
     "sections_rewrite/appendix.tex",
     "sections_rewrite/appendix_finite_frontier.tex",
@@ -594,11 +608,11 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 258,
-    "numbered_equation_rows": 152,
-    "display_math": 201,
+    "labels": 262,
+    "numbered_equation_rows": 153,
+    "display_math": 203,
     "figures": 22,
-    "tables": 6,
+    "tables": 7,
     "bibliography_entries": 41,
     "citation_keys": 41
   },
@@ -608,13 +622,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 23703,
+    "visible_text_tokens_verified": 24264,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "8a192477cbf11f98bba64c7dedd5fb33646afb7ae07b79ef44b7440a18138c1f",
+    "aux": "23ff27534778e8c615070a852b4cf39effddb01340d70a4589e5f57c86683bf1",
     "bbl": "5f0168d1e4ef2e4e99ea307bd10d5a532f6711750e579057adca02aba1c33684",
-    "pdf": "5e6cc2d13c41f7b3ac96613edd765c301ff07d7bce83ef0f043240b973d6a8a9"
+    "pdf": "fd46b5899ffb0303e953456aa42f2089c71d6512bf265470a737247a4edaa48a"
   }
 }
