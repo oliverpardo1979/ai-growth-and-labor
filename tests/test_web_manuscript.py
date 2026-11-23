@@ -378,7 +378,7 @@ class GeneratedManuscriptTests(unittest.TestCase):
         self.assertEqual(headings[0], {"id": "sec:rewrite-introduction", "title": "Introduction", "level": 1, "number": "1"})
         numerical_subsections = [h["number"] for h in headings
                                  if h["level"] == 2 and h["number"].startswith("B.")]
-        self.assertEqual(numerical_subsections, ["B.1", "B.2"])
+        self.assertEqual(numerical_subsections, ["B.1", "B.2", "B.3"])
 
     def test_uncapped_unit_construction_is_integrated_into_its_proof(self):
         self.assertNotIn("sections_rewrite/appendix_uncapped_unit.tex", self.meta["source_files"])
@@ -437,6 +437,16 @@ class GeneratedManuscriptTests(unittest.TestCase):
                     "fig:rewrite-competitive-low-distribution"):
             self.assertIn(key, figure_ids)
         self.assertEqual(self.content.count('class="theorem corollary"'), 3)
+
+    def test_welfare_comparison_is_in_the_reader(self):
+        headings = {item["id"]: item for item in self.meta["sections"]}
+        self.assertEqual(headings["subsec:rewrite-welfare"]["number"], "7.5")
+        self.assertEqual(headings["app:rewrite-welfare-numerics"]["number"], "B.3")
+        for label in ("eq:rewrite-welfare-equivalent", "tab:rewrite-welfare",
+                      "app:rewrite-welfare-numerics"):
+            self.assertIn(f'id="{label}"', self.content)
+        self.assertIn("130.3", self.content)
+        self.assertIn("11.1", self.content)
 
     def test_uncapped_results_are_in_main_appendix_c(self):
         headings = {item["id"]: item for item in self.meta["sections"]}

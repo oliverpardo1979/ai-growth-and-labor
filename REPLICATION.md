@@ -163,6 +163,34 @@ in logs, and the annual ratio must change by less than `2e-5` in logs across
 horizon extensions. These checks are recorded in `annual_moments.json`.
 Research shares and price declines are outputs, not calibration targets.
 
+### Welfare comparison
+
+The welfare subsection evaluates the two existing competitive-to-monopoly
+paths at sigma=1.5. It does not solve additional equilibria or alter the
+original parameters, initial states, or simulation files. To reproduce
+the consumption-equivalent gains and their numerical checks:
+
+```sh
+python scripts/report_rewrite_welfare.py --check
+python -m unittest discover -s tests -p 'test_welfare_comparison.py'
+```
+
+The scalar consumption splines for the base, refined, and extended solutions
+are committed in `numerical_rewrite/welfare_comparison/`, so a fresh clone
+does not need local BVP checkpoints for this calculation. The script verifies
+the source hashes against the original admitted paths, checks agreement with
+the plotted CSV, and compares quadrature orders, a separate adaptive integral,
+solver refinements, and alternative tail cutoffs. Welfare uses household
+discounting `rho-n`, not market-interest discounting. The analytical tail is
+applied after each full solved horizon, not after the plotted 50-year window.
+
+To re-extract these scalar splines after independently reproducing the
+original competitive-to-monopoly checkpoints, run
+`python scripts/report_rewrite_welfare.py --export-checkpoints`.
+This only post-processes the solutions and never invokes a solver.
+`welfare_results.json` records the results and checks, and
+`sections_rewrite/welfare_table.tex` is generated from that report.
+
 ### Additional institutional experiments
 
 The additional competitive-to-monopoly experiment in the paper is documented in
