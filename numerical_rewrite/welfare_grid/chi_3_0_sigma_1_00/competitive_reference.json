@@ -1,0 +1,21 @@
+{
+  "sigma": 1.0,
+  "capital": 6.278062168197312,
+  "capability": 13.609921392415593,
+  "output": 1.9024430812719129,
+  "consumption": 1.379461478230264,
+  "ai_services": 1.7347707529069278,
+  "inference_compute": 0.12746368644521813,
+  "research_compute": 0.0,
+  "ai_service_price": 0.07347581012167127,
+  "wage": 1.1471731780069634,
+  "interest_rate": 0.05,
+  "capital_output_ratio": 3.3,
+  "labor_income_share": 0.603,
+  "ai_revenue_output_share": 0.06699999999999999,
+  "inference_output_share": 0.06699999999999999,
+  "research_output_share": 0.0,
+  "profit_output_share": 0.0,
+  "competitive_foc_log_residual": 0.0,
+  "pre_event_research_available": true
+}

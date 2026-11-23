@@ -65,8 +65,9 @@ condition~\eqref{eq:rewrite-research-optimality-condition} holds because
 \]
 This condition does not depend on the dated values of capital and
 effective labor or on research productivity $\chi$.
-The baseline competitive-to-monopoly comparisons use the same parameters
-and initial efficiency ratio, so the same calculation applies.
+The baseline competitive-to-monopoly comparisons, including the welfare
+grid, use the same parameters and initial efficiency ratio, so the same
+calculation applies.
 The supplementary growth-reversal exercise instead has
 $B_0/\overline B=0.90$, giving $0.20(1-0.90)=0.02<0.33$.
 
@@ -93,7 +94,7 @@ stocks.
 
 Equation~\eqref{eq:rewrite-welfare-equivalent} compares the original
 consumption paths, including their initial adjustment after the
-unexpected monopoly grant. In Experiment A, at each of its four elasticities, competitive
+unexpected monopoly grant. In Experiment A, at each elasticity, competitive
 consumption per person follows $c_t^{\mathrm{comp}}=c_0^{\mathrm{comp}}e^{\gamma t}$.
 In the growth-reversal experiment, I instead use the competitive transition
 from its inherited stocks, not an exact balanced-growth approximation.
@@ -104,7 +105,7 @@ discount rate $\rho-n=0.037$, rather than $\rho$.
 
 I integrate the discounted log consumption ratio over each interval of
 the original numerical solution. The final comparison horizons exceed
-4,000 years. For the reversal, I reproduce the original competitive
+3,000 years. For the reversal, I reproduce the original competitive
 reference and extend its horizon to match the monopoly solution, keeping
 its equations, parameters, stocks, and tolerances unchanged.
 Beyond each endpoint $T$, I continue the log ratio with slope $\Delta g$,
@@ -124,10 +125,12 @@ result with a separate adaptive integration routine. I also recompute
 welfare from the less precise and shorter-horizon solutions retained by
 the equilibrium audit. The last refinement changes the
 consumption equivalent by less than $10^{-6}$ percentage point in
-all ten cases. Replacing the path after year 500 by its limiting-growth
+all ten cases in Table~\ref{tab:rewrite-welfare}. Replacing the path after year 500 by its limiting-growth
 continuation changes the consumption equivalent by less than $10^{-6}$ percentage point
 as well. The scalar consumption splines, source hashes, and numerical
-comparisons are retained with the replication files.
+comparisons are retained with the replication files. I apply the same
+equilibrium, integration, refinement, and horizon checks to the additional
+parameter combinations in Figure~\ref{fig:rewrite-welfare-grid}.
 
 \paragraph{Replication files.}
 

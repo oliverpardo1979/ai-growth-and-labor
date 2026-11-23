@@ -1,0 +1,715 @@
+{
+  "date": "2026-11-23",
+  "revision": "1d1f181-dirty",
+  "scope": "35 heatmap percentages and eight overlapping table entries",
+  "claims": [
+    {
+      "claim_id": "chi_1_5_sigma_0_90",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 0.9,
+      "chi": 1.5,
+      "reported_value": -31.9,
+      "computed_value": -31.852735039122898,
+      "absolute_difference": 0.04726496087710075,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv",
+        "Table 4"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_1_5_sigma_1_00",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.0,
+      "chi": 1.5,
+      "reported_value": -9.4,
+      "computed_value": -9.432057375326156,
+      "absolute_difference": 0.032057375326155935,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv",
+        "Table 4"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_1_5_sigma_1_10",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.1,
+      "chi": 1.5,
+      "reported_value": -2.9,
+      "computed_value": -2.8688793976943976,
+      "absolute_difference": 0.03112060230560232,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv",
+        "Table 4"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_1_5_sigma_1_20",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.2,
+      "chi": 1.5,
+      "reported_value": 0.8,
+      "computed_value": 0.8236476651313299,
+      "absolute_difference": 0.023647665131329876,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_1_5_sigma_1_30",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.3,
+      "chi": 1.5,
+      "reported_value": 3.9,
+      "computed_value": 3.87418552526107,
+      "absolute_difference": 0.02581447473892995,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_1_5_sigma_1_40",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.4,
+      "chi": 1.5,
+      "reported_value": 7.1,
+      "computed_value": 7.070144886098332,
+      "absolute_difference": 0.029855113901668062,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_1_5_sigma_1_50",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.5,
+      "chi": 1.5,
+      "reported_value": 11.1,
+      "computed_value": 11.094849249348833,
+      "absolute_difference": 0.005150750651166547,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv",
+        "Table 4"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_3_0_sigma_0_90",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 0.9,
+      "chi": 3.0,
+      "reported_value": -31.0,
+      "computed_value": -31.000291107874745,
+      "absolute_difference": 0.0002911078747445117,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_3_0_sigma_1_00",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.0,
+      "chi": 3.0,
+      "reported_value": -5.7,
+      "computed_value": -5.674216270452566,
+      "absolute_difference": 0.025783729547434575,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_3_0_sigma_1_10",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.1,
+      "chi": 3.0,
+      "reported_value": 2.0,
+      "computed_value": 2.036743871753103,
+      "absolute_difference": 0.03674387175310301,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_3_0_sigma_1_20",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.2,
+      "chi": 3.0,
+      "reported_value": 7.3,
+      "computed_value": 7.275847999716059,
+      "absolute_difference": 0.024152000283940822,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_3_0_sigma_1_30",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.3,
+      "chi": 3.0,
+      "reported_value": 12.7,
+      "computed_value": 12.732615793022067,
+      "absolute_difference": 0.03261579302206741,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_3_0_sigma_1_40",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.4,
+      "chi": 3.0,
+      "reported_value": 20.1,
+      "computed_value": 20.05693556429358,
+      "absolute_difference": 0.043064435706423154,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_3_0_sigma_1_50",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.5,
+      "chi": 3.0,
+      "reported_value": 32.8,
+      "computed_value": 32.754413291700544,
+      "absolute_difference": 0.045586708299452994,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_4_5_sigma_0_90",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 0.9,
+      "chi": 4.5,
+      "reported_value": -30.5,
+      "computed_value": -30.465406405907096,
+      "absolute_difference": 0.03459359409290386,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_4_5_sigma_1_00",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.0,
+      "chi": 4.5,
+      "reported_value": -2.9,
+      "computed_value": -2.9388747286057315,
+      "absolute_difference": 0.0388747286057316,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_4_5_sigma_1_10",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.1,
+      "chi": 4.5,
+      "reported_value": 5.8,
+      "computed_value": 5.751223201812561,
+      "absolute_difference": 0.04877679818743896,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_4_5_sigma_1_20",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.2,
+      "chi": 4.5,
+      "reported_value": 12.5,
+      "computed_value": 12.462050807300292,
+      "absolute_difference": 0.03794919269970798,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_4_5_sigma_1_30",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.3,
+      "chi": 4.5,
+      "reported_value": 20.5,
+      "computed_value": 20.46149636129497,
+      "absolute_difference": 0.038503638705030596,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_4_5_sigma_1_40",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.4,
+      "chi": 4.5,
+      "reported_value": 32.9,
+      "computed_value": 32.86295015694022,
+      "absolute_difference": 0.03704984305977632,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_4_5_sigma_1_50",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.5,
+      "chi": 4.5,
+      "reported_value": 59.9,
+      "computed_value": 59.89493998361712,
+      "absolute_difference": 0.0050600163828775635,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_6_0_sigma_0_90",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 0.9,
+      "chi": 6.0,
+      "reported_value": -30.1,
+      "computed_value": -30.08853442916334,
+      "absolute_difference": 0.011465570836662664,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_6_0_sigma_1_00",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.0,
+      "chi": 6.0,
+      "reported_value": -0.8,
+      "computed_value": -0.7798465217031825,
+      "absolute_difference": 0.020153478296817573,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_6_0_sigma_1_10",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.1,
+      "chi": 6.0,
+      "reported_value": 8.8,
+      "computed_value": 8.764535155764442,
+      "absolute_difference": 0.03546484423555896,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_6_0_sigma_1_20",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.2,
+      "chi": 6.0,
+      "reported_value": 16.8,
+      "computed_value": 16.846653009070202,
+      "absolute_difference": 0.046653009070201534,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_6_0_sigma_1_30",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.3,
+      "chi": 6.0,
+      "reported_value": 27.4,
+      "computed_value": 27.387268539424475,
+      "absolute_difference": 0.012731460575523101,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_6_0_sigma_1_40",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.4,
+      "chi": 6.0,
+      "reported_value": 45.4,
+      "computed_value": 45.44647499095614,
+      "absolute_difference": 0.04647499095614194,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_6_0_sigma_1_50",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.5,
+      "chi": 6.0,
+      "reported_value": 92.5,
+      "computed_value": 92.54820072053218,
+      "absolute_difference": 0.048200720532179275,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_7_5_sigma_0_90",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 0.9,
+      "chi": 7.5,
+      "reported_value": -29.8,
+      "computed_value": -29.804393731181953,
+      "absolute_difference": 0.0043937311819526315,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv",
+        "Table 4"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_7_5_sigma_1_00",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.0,
+      "chi": 7.5,
+      "reported_value": 1.0,
+      "computed_value": 1.0039496479290169,
+      "absolute_difference": 0.003949647929016864,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv",
+        "Table 4"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_7_5_sigma_1_10",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.1,
+      "chi": 7.5,
+      "reported_value": 11.3,
+      "computed_value": 11.305047595317925,
+      "absolute_difference": 0.005047595317924092,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv",
+        "Table 4"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_7_5_sigma_1_20",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.2,
+      "chi": 7.5,
+      "reported_value": 20.7,
+      "computed_value": 20.658613716346675,
+      "absolute_difference": 0.041386283653324085,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_7_5_sigma_1_30",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.3,
+      "chi": 7.5,
+      "reported_value": 33.7,
+      "computed_value": 33.679684439765914,
+      "absolute_difference": 0.020315560234088537,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_7_5_sigma_1_40",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.4,
+      "chi": 7.5,
+      "reported_value": 57.7,
+      "computed_value": 57.738724485158976,
+      "absolute_difference": 0.038724485158972755,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    },
+    {
+      "claim_id": "chi_7_5_sigma_1_50",
+      "location": "Figure fig:rewrite-welfare-grid",
+      "kind": "percentage",
+      "sigma": 1.5,
+      "chi": 7.5,
+      "reported_value": 130.3,
+      "computed_value": 130.3463501597463,
+      "absolute_difference": 0.046350159746282316,
+      "tolerance_percentage_points": 0.1,
+      "source": "scripts.simulate_welfare_grid.calculate_cell(sigma,chi)",
+      "source_field": "stages.long.consumption_equivalent * 100",
+      "displays": [
+        "figure vector PDF",
+        "figure PNG",
+        "heatmap_cells.csv",
+        "Table 4"
+      ],
+      "vertical": "PASS",
+      "horizontal": "PASS"
+    }
+  ]
+}

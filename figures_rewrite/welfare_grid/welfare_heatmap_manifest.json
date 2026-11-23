@@ -1,0 +1,293 @@
+{
+  "source_json": "numerical_rewrite/welfare_grid/grid_results.json",
+  "source_sha256": "f7309ce03b26ee0f06a0e56c9560de45a8e1e1d41c9c8dd175e554a4ad66ebd9",
+  "cells_csv": "numerical_rewrite/welfare_grid/heatmap_cells.csv",
+  "cells_csv_sha256": "89a6548909dca139404464bb5618dd330229336035df81438d5707c2fdd7c3e6",
+  "cell_values": "Computed from admitted consumption paths, not interpolated.",
+  "zero_contour": "Piecewise-linear interpolation of the zero level between computed grid points, not an equilibrium solved on the boundary.",
+  "zero_contour_segments": [
+    [
+      [
+        0.9967413059651571,
+        7.5
+      ],
+      [
+        1.0,
+        6.655775476183452
+      ],
+      [
+        1.0081707390594432,
+        6.0
+      ],
+      [
+        1.0338186606426918,
+        4.5
+      ],
+      [
+        1.0735863779063641,
+        3.0
+      ],
+      [
+        1.1,
+        2.377221682175007
+      ],
+      [
+        1.1776942009870868,
+        1.5
+      ]
+    ]
+  ],
+  "normalization": "Linear in percentage consumption equivalent; zero is white.",
+  "color_minimum": -40,
+  "color_maximum": 140,
+  "display_precision": 1,
+  "cells": [
+    {
+      "id": "chi_1_5_sigma_0_90",
+      "sigma": 0.9,
+      "chi": 1.5,
+      "welfare_percent": -31.852735039122898,
+      "label": "-31.9"
+    },
+    {
+      "id": "chi_1_5_sigma_1_00",
+      "sigma": 1.0,
+      "chi": 1.5,
+      "welfare_percent": -9.432057375326156,
+      "label": "-9.4"
+    },
+    {
+      "id": "chi_1_5_sigma_1_10",
+      "sigma": 1.1,
+      "chi": 1.5,
+      "welfare_percent": -2.8688793976943976,
+      "label": "-2.9"
+    },
+    {
+      "id": "chi_1_5_sigma_1_20",
+      "sigma": 1.2,
+      "chi": 1.5,
+      "welfare_percent": 0.8236476651313299,
+      "label": "+0.8"
+    },
+    {
+      "id": "chi_1_5_sigma_1_30",
+      "sigma": 1.3,
+      "chi": 1.5,
+      "welfare_percent": 3.87418552526107,
+      "label": "+3.9"
+    },
+    {
+      "id": "chi_1_5_sigma_1_40",
+      "sigma": 1.4,
+      "chi": 1.5,
+      "welfare_percent": 7.070144886098332,
+      "label": "+7.1"
+    },
+    {
+      "id": "chi_1_5_sigma_1_50",
+      "sigma": 1.5,
+      "chi": 1.5,
+      "welfare_percent": 11.094849249348833,
+      "label": "+11.1"
+    },
+    {
+      "id": "chi_3_0_sigma_0_90",
+      "sigma": 0.9,
+      "chi": 3.0,
+      "welfare_percent": -31.000291107874745,
+      "label": "-31.0"
+    },
+    {
+      "id": "chi_3_0_sigma_1_00",
+      "sigma": 1.0,
+      "chi": 3.0,
+      "welfare_percent": -5.674216270452566,
+      "label": "-5.7"
+    },
+    {
+      "id": "chi_3_0_sigma_1_10",
+      "sigma": 1.1,
+      "chi": 3.0,
+      "welfare_percent": 2.036743871753103,
+      "label": "+2.0"
+    },
+    {
+      "id": "chi_3_0_sigma_1_20",
+      "sigma": 1.2,
+      "chi": 3.0,
+      "welfare_percent": 7.275847999716059,
+      "label": "+7.3"
+    },
+    {
+      "id": "chi_3_0_sigma_1_30",
+      "sigma": 1.3,
+      "chi": 3.0,
+      "welfare_percent": 12.732615793022067,
+      "label": "+12.7"
+    },
+    {
+      "id": "chi_3_0_sigma_1_40",
+      "sigma": 1.4,
+      "chi": 3.0,
+      "welfare_percent": 20.05693556429358,
+      "label": "+20.1"
+    },
+    {
+      "id": "chi_3_0_sigma_1_50",
+      "sigma": 1.5,
+      "chi": 3.0,
+      "welfare_percent": 32.754413291700544,
+      "label": "+32.8"
+    },
+    {
+      "id": "chi_4_5_sigma_0_90",
+      "sigma": 0.9,
+      "chi": 4.5,
+      "welfare_percent": -30.465406405907096,
+      "label": "-30.5"
+    },
+    {
+      "id": "chi_4_5_sigma_1_00",
+      "sigma": 1.0,
+      "chi": 4.5,
+      "welfare_percent": -2.9388747286057315,
+      "label": "-2.9"
+    },
+    {
+      "id": "chi_4_5_sigma_1_10",
+      "sigma": 1.1,
+      "chi": 4.5,
+      "welfare_percent": 5.751223201812561,
+      "label": "+5.8"
+    },
+    {
+      "id": "chi_4_5_sigma_1_20",
+      "sigma": 1.2,
+      "chi": 4.5,
+      "welfare_percent": 12.462050807300292,
+      "label": "+12.5"
+    },
+    {
+      "id": "chi_4_5_sigma_1_30",
+      "sigma": 1.3,
+      "chi": 4.5,
+      "welfare_percent": 20.46149636129497,
+      "label": "+20.5"
+    },
+    {
+      "id": "chi_4_5_sigma_1_40",
+      "sigma": 1.4,
+      "chi": 4.5,
+      "welfare_percent": 32.86295015694022,
+      "label": "+32.9"
+    },
+    {
+      "id": "chi_4_5_sigma_1_50",
+      "sigma": 1.5,
+      "chi": 4.5,
+      "welfare_percent": 59.89493998361712,
+      "label": "+59.9"
+    },
+    {
+      "id": "chi_6_0_sigma_0_90",
+      "sigma": 0.9,
+      "chi": 6.0,
+      "welfare_percent": -30.08853442916334,
+      "label": "-30.1"
+    },
+    {
+      "id": "chi_6_0_sigma_1_00",
+      "sigma": 1.0,
+      "chi": 6.0,
+      "welfare_percent": -0.7798465217031825,
+      "label": "-0.8"
+    },
+    {
+      "id": "chi_6_0_sigma_1_10",
+      "sigma": 1.1,
+      "chi": 6.0,
+      "welfare_percent": 8.764535155764442,
+      "label": "+8.8"
+    },
+    {
+      "id": "chi_6_0_sigma_1_20",
+      "sigma": 1.2,
+      "chi": 6.0,
+      "welfare_percent": 16.846653009070202,
+      "label": "+16.8"
+    },
+    {
+      "id": "chi_6_0_sigma_1_30",
+      "sigma": 1.3,
+      "chi": 6.0,
+      "welfare_percent": 27.387268539424475,
+      "label": "+27.4"
+    },
+    {
+      "id": "chi_6_0_sigma_1_40",
+      "sigma": 1.4,
+      "chi": 6.0,
+      "welfare_percent": 45.44647499095614,
+      "label": "+45.4"
+    },
+    {
+      "id": "chi_6_0_sigma_1_50",
+      "sigma": 1.5,
+      "chi": 6.0,
+      "welfare_percent": 92.54820072053218,
+      "label": "+92.5"
+    },
+    {
+      "id": "chi_7_5_sigma_0_90",
+      "sigma": 0.9,
+      "chi": 7.5,
+      "welfare_percent": -29.804393731181953,
+      "label": "-29.8"
+    },
+    {
+      "id": "chi_7_5_sigma_1_00",
+      "sigma": 1.0,
+      "chi": 7.5,
+      "welfare_percent": 1.0039496479290169,
+      "label": "+1.0"
+    },
+    {
+      "id": "chi_7_5_sigma_1_10",
+      "sigma": 1.1,
+      "chi": 7.5,
+      "welfare_percent": 11.305047595317925,
+      "label": "+11.3"
+    },
+    {
+      "id": "chi_7_5_sigma_1_20",
+      "sigma": 1.2,
+      "chi": 7.5,
+      "welfare_percent": 20.658613716346675,
+      "label": "+20.7"
+    },
+    {
+      "id": "chi_7_5_sigma_1_30",
+      "sigma": 1.3,
+      "chi": 7.5,
+      "welfare_percent": 33.679684439765914,
+      "label": "+33.7"
+    },
+    {
+      "id": "chi_7_5_sigma_1_40",
+      "sigma": 1.4,
+      "chi": 7.5,
+      "welfare_percent": 57.738724485158976,
+      "label": "+57.7"
+    },
+    {
+      "id": "chi_7_5_sigma_1_50",
+      "sigma": 1.5,
+      "chi": 7.5,
+      "welfare_percent": 130.3463501597463,
+      "label": "+130.3"
+    }
+  ],
+  "pdf_sha256": "b5d42a48c43d292e8e2ed673749db45efcbdab43b6f8354e708174e8ee0de3fb",
+  "png_sha256": "f65ccbf78415e3f77661e8c648ed1b59331acbee58c713af66222a92dffb0952"
+}

@@ -1,0 +1,7 @@
+{
+  "matplotlib": "3.11.1",
+  "backend": "Agg",
+  "font_family": "serif",
+  "mathtext_fontset": "cm",
+  "cell_values": "One decimal in percentage consumption-equivalent units"
+}

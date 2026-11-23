@@ -1,0 +1,7 @@
+{
+  "source_path": "tmp/rewrite_bvp_competitive_to_monopoly_chi_7_5/sigma_1_50_long.npz",
+  "source_sha256": "f78d1499712ac00374cccc6ec210dc63b4ece029f9b9b9144733396561bdc307",
+  "source_sigma": 1.5,
+  "source_chi": 7.5,
+  "note": "Numerical initial guess only. Target parameters and stocks are imposed and all controls re-solved."
+}

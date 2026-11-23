@@ -1,0 +1,7 @@
+{
+  "source_path": "tmp/rewrite_bvp_welfare_grid/chi_3_0_sigma_1_40/sigma_1_40_long.npz",
+  "source_sha256": "0a5dd8f42f3b82751a897eae0486aff5fc21e419031fadc828786ebbf76db768",
+  "source_sigma": 1.4,
+  "source_chi": 3.0,
+  "note": "Numerical initial guess only. Target parameters and stocks are imposed and all controls re-solved."
+}

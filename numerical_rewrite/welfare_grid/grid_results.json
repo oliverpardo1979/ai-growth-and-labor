@@ -1,0 +1,3805 @@
+{
+  "sigmas": [
+    0.9,
+    1.0,
+    1.1,
+    1.2,
+    1.3,
+    1.4,
+    1.5
+  ],
+  "chis": [
+    1.5,
+    3.0,
+    4.5,
+    6.0,
+    7.5
+  ],
+  "attempted": 35,
+  "admitted": 35,
+  "reused": 8,
+  "new": 27,
+  "unresolved": [],
+  "definition": "log(1+lambda)=(rho-n)*integral exp(-(rho-n)*t)*log(c_mon/c_comp) dt",
+  "fixed_parameters": {
+    "alpha": 0.33,
+    "omega_x": 0.1,
+    "population_growth": 0.003,
+    "labor_productivity_growth": 0.01,
+    "depreciation": 0.05,
+    "discount": 0.04,
+    "eta": 0.2,
+    "initial_labor_productivity": 1.0,
+    "initial_population": 1.0
+  },
+  "frontier": 1360.9921392415592,
+  "initial_capability": 13.609921392415593,
+  "initial_capital_rule": "Competitive fixed-B labor-bottleneck BGP at each sigma; common stocks within a cell",
+  "welfare_percent": [
+    [
+      -31.852735039122898,
+      -9.432057375326156,
+      -2.8688793976943976,
+      0.8236476651313299,
+      3.87418552526107,
+      7.070144886098332,
+      11.094849249348833
+    ],
+    [
+      -31.000291107874745,
+      -5.674216270452566,
+      2.036743871753103,
+      7.275847999716059,
+      12.732615793022067,
+      20.05693556429358,
+      32.754413291700544
+    ],
+    [
+      -30.465406405907096,
+      -2.9388747286057315,
+      5.751223201812561,
+      12.462050807300292,
+      20.46149636129497,
+      32.86295015694022,
+      59.89493998361712
+    ],
+    [
+      -30.08853442916334,
+      -0.7798465217031825,
+      8.764535155764442,
+      16.846653009070202,
+      27.387268539424475,
+      45.44647499095614,
+      92.54820072053218
+    ],
+    [
+      -29.804393731181953,
+      1.0039496479290169,
+      11.305047595317925,
+      20.658613716346675,
+      33.679684439765914,
+      57.738724485158976,
+      130.3463501597463
+    ]
+  ],
+  "cases": [
+    {
+      "chi": 1.5,
+      "sigma": 0.9,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 1.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "monopoly_regime": "labor_supported",
+      "initial_capital": 6.235221642477948,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3761715688408234,
+      "effective_discount": 0.037,
+      "competitive_growth": 0.01,
+      "monopoly_growth": 0.01,
+      "stages": {
+        "base": {
+          "horizon": 6046.9937166686705,
+          "utility_difference_per_initial_person": -10.364840613712138,
+          "integrated_utility_difference": -10.364840613712138,
+          "tail_utility_difference": -7.323637821907975e-97,
+          "consumption_equivalent": -0.3185273104710809,
+          "quadrature_8_16_difference": 1.7763568394002505e-15,
+          "terminal_log_ratio": -0.399430021115121,
+          "terminal_growth_gap_error": 1.543556948924163e-14
+        },
+        "refined": {
+          "horizon": 6546.9937166686705,
+          "utility_difference_per_initial_person": -10.364842195968393,
+          "integrated_utility_difference": -10.364842195968393,
+          "tail_utility_difference": -6.765173572237877e-105,
+          "consumption_equivalent": -0.31852735036686347,
+          "quadrature_8_16_difference": 1.7763568394002505e-15,
+          "terminal_log_ratio": -0.39943002111512027,
+          "terminal_growth_gap_error": 1.5435569489241626e-14
+        },
+        "long": {
+          "horizon": 7046.9937166686705,
+          "utility_difference_per_initial_person": -10.364842196934722,
+          "integrated_utility_difference": -10.364842196934722,
+          "tail_utility_difference": -6.249295032804214e-113,
+          "consumption_equivalent": -0.318527350391229,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": -0.3994300211151151,
+          "terminal_growth_gap_error": 1.5435569489241626e-14
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.3120440939323114,
+          "ce_without_tail": -0.2680507470040701,
+          "ce_with_limiting_growth_tail": -0.3196767667356042,
+          "ce_change_from_full_solution": -0.0011494163443752092
+        },
+        "100": {
+          "discounted_log_contribution": -0.3726593369500474,
+          "ce_without_tail": -0.3111001243926368,
+          "ce_with_limiting_growth_tail": -0.31863723785889675,
+          "ce_change_from_full_solution": -0.00010988746766776858
+        },
+        "250": {
+          "discounted_log_contribution": -0.38345898892777247,
+          "ce_without_tail": -0.3184999734775342,
+          "ce_with_limiting_growth_tail": -0.31852748808051085,
+          "ce_change_from_full_solution": -1.376892818649722e-07
+        },
+        "500": {
+          "discounted_log_contribution": -0.38349915752939007,
+          "ce_without_tail": -0.3185273478308036,
+          "ce_with_limiting_growth_tail": -0.31852735039555,
+          "ce_change_from_full_solution": -4.3210435229923405e-12
+        },
+        "1000": {
+          "discounted_log_contribution": -0.3834991612865846,
+          "ce_without_tail": -0.3185273503912289,
+          "ce_with_limiting_growth_tail": -0.318527350391229,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 5.551115123125783e-16,
+        "independent_quad_difference": 7.105427357601002e-15,
+        "independent_quad_error_estimate": 1.1507286453643321e-13,
+        "maximum_quadrature_difference": 1.7763568394002505e-15,
+        "base_to_refined_ce_change": 3.9895782566468085e-08,
+        "refined_to_long_ce_change": 2.4365509609935998e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/scenario.json": "bc02efac191232802a4abb22360d8a333fedce6f72d19cd277887e665a8f632a",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/competitive_reference.json": "23daf316dcfa5748aa2848fb171b713b7abc724c98649beed2f1e68397c3112b",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/paths_manifest.json": "be8c307dbf5a26f39293a1bf86a99289804b4af8946b075a2344777b1b66c326",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/sigma_0_90_audit.json": "d39cf807eccd3903d98d1ab80547bb84d53f3454c9a2db35670e85c526ce5f46",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/equilibrium_paths.csv": "3a191dcc35822f01df2bcd41d3275a06e6b9745de17de02cc3dea8f7af5405bd",
+        "numerical_rewrite/welfare_comparison/sigma_0_90_chi_1_5_consumption_splines.json": "803004b7fa42ff9f74e25f29b3200b739ca48d49f57201a0df41f0406f24b359"
+      },
+      "numerically_verified": true,
+      "origin": "reused_original"
+    },
+    {
+      "chi": 1.5,
+      "sigma": 1.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 1.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "monopoly_regime": "labor_supported",
+      "initial_capital": 6.278062168197312,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.379461478230264,
+      "effective_discount": 0.037,
+      "competitive_growth": 0.01,
+      "monopoly_growth": 0.01,
+      "stages": {
+        "base": {
+          "horizon": 5563.508709126064,
+          "utility_difference_per_initial_person": -2.6775638426832153,
+          "integrated_utility_difference": -2.6775638426832153,
+          "tail_utility_difference": 3.16783692875716e-89,
+          "consumption_equivalent": -0.0943205669256114,
+          "quadrature_8_16_difference": 4.440892098500626e-16,
+          "terminal_log_ratio": 0.2940400174811085,
+          "terminal_growth_gap_error": 1.2385925618474403e-15
+        },
+        "refined": {
+          "horizon": 6063.508709126064,
+          "utility_difference_per_initial_person": -2.6775640458036736,
+          "integrated_utility_difference": -2.6775640458036736,
+          "tail_utility_difference": 2.926273416672559e-97,
+          "consumption_equivalent": -0.09432057373220618,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.29404001748110636,
+          "terminal_growth_gap_error": 1.9081958235744868e-16
+        },
+        "long": {
+          "horizon": 6563.508709126064,
+          "utility_difference_per_initial_person": -2.6775640464320025,
+          "integrated_utility_difference": -2.6775640464320025,
+          "tail_utility_difference": 2.703130338367567e-105,
+          "consumption_equivalent": -0.09432057375326157,
+          "quadrature_8_16_difference": 8.881784197001252e-16,
+          "terminal_log_ratio": 0.29404001748110853,
+          "terminal_growth_gap_error": 1.90819582357448e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.09139816235131613,
+          "ce_without_tail": -0.08734574601706725,
+          "ce_with_limiting_growth_tail": -0.10004550170980815,
+          "ce_change_from_full_solution": -0.005724927956546583
+        },
+        "100": {
+          "discounted_log_contribution": -0.09936655379268682,
+          "ce_without_tail": -0.09458923456015275,
+          "ce_with_limiting_growth_tail": -0.09492679800803754,
+          "ce_change_from_full_solution": -0.0006062242547759666
+        },
+        "250": {
+          "discounted_log_contribution": -0.0990813049448516,
+          "ce_without_tail": -0.09433093034375482,
+          "ce_with_limiting_growth_tail": -0.09432182819250824,
+          "ce_change_from_full_solution": -1.2544392466729004e-06
+        },
+        "500": {
+          "discounted_log_contribution": -0.09906987172377729,
+          "ce_without_tail": -0.0943205755698672,
+          "ce_with_limiting_growth_tail": -0.09432057381772731,
+          "ce_change_from_full_solution": -6.446573830309887e-11
+        },
+        "1000": {
+          "discounted_log_contribution": -0.09906986971798412,
+          "ce_without_tail": -0.0943205737532616,
+          "ce_with_limiting_growth_tail": -0.09432057375326158,
+          "ce_change_from_full_solution": -1.3877787807814457e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 6.661338147750939e-16,
+        "independent_quad_difference": 3.552713678800501e-15,
+        "independent_quad_error_estimate": 2.995180044726514e-14,
+        "maximum_quadrature_difference": 8.881784197001252e-16,
+        "base_to_refined_ce_change": 6.806594773922647e-09,
+        "refined_to_long_ce_change": 2.10553935398039e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/scenario.json": "bc02efac191232802a4abb22360d8a333fedce6f72d19cd277887e665a8f632a",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/competitive_reference.json": "23daf316dcfa5748aa2848fb171b713b7abc724c98649beed2f1e68397c3112b",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/paths_manifest.json": "be8c307dbf5a26f39293a1bf86a99289804b4af8946b075a2344777b1b66c326",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/sigma_1_00_audit.json": "f4fb14dd75555e86a0e3c55481e756642e3519fc5159467a917fbdec41d85b40",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/equilibrium_paths.csv": "3a191dcc35822f01df2bcd41d3275a06e6b9745de17de02cc3dea8f7af5405bd",
+        "numerical_rewrite/welfare_comparison/sigma_1_00_chi_1_5_consumption_splines.json": "5dd6a685ccdc80f4a7e676767599aad1a729e256f2220a2e0200f519b9b65d79"
+      },
+      "numerically_verified": true,
+      "origin": "reused_original"
+    },
+    {
+      "chi": 1.5,
+      "sigma": 1.1,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 1.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "monopoly_regime": "labor_supported",
+      "initial_capital": 6.323503979203803,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3829206177420617,
+      "effective_discount": 0.037,
+      "competitive_growth": 0.01,
+      "monopoly_growth": 0.01,
+      "stages": {
+        "base": {
+          "horizon": 5447.772691047266,
+          "utility_difference_per_initial_person": -0.7867125546144285,
+          "integrated_utility_difference": -0.7867125546144285,
+          "tail_utility_difference": 3.9456995994518745e-87,
+          "consumption_equivalent": -0.028688796909597775,
+          "quadrature_8_16_difference": 1.1102230246251565e-16,
+          "terminal_log_ratio": 0.5058451869099905,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "refined": {
+          "horizon": 5947.772691047266,
+          "utility_difference_per_initial_person": -0.7867124724220234,
+          "integrated_utility_difference": -0.7867124724220234,
+          "tail_utility_difference": 3.644820143119417e-95,
+          "consumption_equivalent": -0.028688793955724826,
+          "quadrature_8_16_difference": 1.1102230246251565e-16,
+          "terminal_log_ratio": 0.5058451869099897,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "long": {
+          "horizon": 6447.772691047266,
+          "utility_difference_per_initial_person": -0.7867124730124526,
+          "integrated_utility_difference": -0.7867124730124526,
+          "tail_utility_difference": 3.3668842599001936e-103,
+          "consumption_equivalent": -0.028688793976943978,
+          "quadrature_8_16_difference": 1.1102230246251565e-16,
+          "terminal_log_ratio": 0.5058451869099876,
+          "terminal_growth_gap_error": 1.9081958235744839e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.03753738189429088,
+          "ce_without_tail": -0.036841587638104585,
+          "ce_with_limiting_growth_tail": -0.03632624661844458,
+          "ce_change_from_full_solution": -0.007637452641500602
+        },
+        "100": {
+          "discounted_log_contribution": -0.03234324831966642,
+          "ce_without_tail": -0.03182579912977782,
+          "ce_with_limiting_growth_tail": -0.029535130069734884,
+          "ce_change_from_full_solution": -0.0008463360927909065
+        },
+        "250": {
+          "discounted_log_contribution": -0.029134902342799134,
+          "ce_without_tail": -0.028714573051452554,
+          "ce_with_limiting_growth_tail": -0.028690687820904413,
+          "ce_change_from_full_solution": -1.8938439604355983e-06
+        },
+        "500": {
+          "discounted_log_contribution": -0.029108365335785744,
+          "ce_without_tail": -0.028688797701266807,
+          "ce_with_limiting_growth_tail": -0.02868879407245971,
+          "ce_change_from_full_solution": -9.55157307414023e-11
+        },
+        "1000": {
+          "discounted_log_contribution": -0.029108361501460785,
+          "ce_without_tail": -0.028688793976944016,
+          "ce_with_limiting_growth_tail": -0.028688793976943978,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 6.661338147750939e-16,
+        "independent_quad_difference": 6.661338147750939e-16,
+        "independent_quad_error_estimate": 1.3856034340860117e-14,
+        "maximum_quadrature_difference": 1.1102230246251565e-16,
+        "base_to_refined_ce_change": 2.9538729483247206e-09,
+        "refined_to_long_ce_change": 2.1219151435936112e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/scenario.json": "bc02efac191232802a4abb22360d8a333fedce6f72d19cd277887e665a8f632a",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/competitive_reference.json": "23daf316dcfa5748aa2848fb171b713b7abc724c98649beed2f1e68397c3112b",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/paths_manifest.json": "be8c307dbf5a26f39293a1bf86a99289804b4af8946b075a2344777b1b66c326",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/sigma_1_10_audit.json": "c1a71387f4eb9adf867e0bba154fbd294ed45623e0e02f092b51ab6da98b48e1",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/equilibrium_paths.csv": "3a191dcc35822f01df2bcd41d3275a06e6b9745de17de02cc3dea8f7af5405bd",
+        "numerical_rewrite/welfare_comparison/sigma_1_10_chi_1_5_consumption_splines.json": "2c2b2fcaefe353472f9d20a8f3a1be9cfe6d175d99dba8cd0695b4c2b1729d85"
+      },
+      "numerically_verified": true,
+      "origin": "reused_original"
+    },
+    {
+      "sigma": 1.2,
+      "chi": 1.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 1.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.371742112791399,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3865604057999374,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4354.336018022261,
+          "integrated_utility_difference": 0.2216957295387109,
+          "tail_utility_difference": 2.294320396554401e-69,
+          "utility_difference_per_initial_person": 0.2216957295387109,
+          "consumption_equivalent": 0.008236476656862965,
+          "quadrature_8_16_difference": 2.7755575615628914e-17,
+          "terminal_log_ratio": 0.7910932416654768,
+          "terminal_growth_gap_error": 5.169475958410885e-16
+        },
+        "refined": {
+          "horizon": 4854.336018022261,
+          "integrated_utility_difference": 0.2216957305199942,
+          "tail_utility_difference": 2.1193669171603494e-77,
+          "utility_difference_per_initial_person": 0.2216957305199942,
+          "consumption_equivalent": 0.008236476693469495,
+          "quadrature_8_16_difference": 5.551115123125783e-17,
+          "terminal_log_ratio": 0.7910932416654692,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "long": {
+          "horizon": 5354.336018022261,
+          "integrated_utility_difference": 0.2216957293899452,
+          "tail_utility_difference": 1.9577545212514754e-85,
+          "utility_difference_per_initial_person": 0.2216957293899452,
+          "consumption_equivalent": 0.0082364766513133,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.7910932416654783,
+          "terminal_growth_gap_error": 1.2385925618474403e-15
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.01118452134818375,
+          "ce_without_tail": -0.011122207123916074,
+          "ce_with_limiting_growth_tail": -0.002074066225903703,
+          "ce_change_from_full_solution": -0.010310542877217003
+        },
+        "100": {
+          "discounted_log_contribution": 0.002575689786974524,
+          "ce_without_tail": 0.002579009725679379,
+          "ce_with_limiting_growth_tail": 0.007005877218830051,
+          "ce_change_from_full_solution": -0.0012305994324832486
+        },
+        "250": {
+          "discounted_log_contribution": 0.00816003573394282,
+          "ce_without_tail": 0.008193419568178349,
+          "ce_with_limiting_growth_tail": 0.008233385465594531,
+          "ce_change_from_full_solution": -3.0911857187686936e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.00820273583052782,
+          "ce_without_tail": 0.008236470443702003,
+          "ce_with_limiting_growth_tail": 0.008236476495727856,
+          "ce_change_from_full_solution": -1.555854438339832e-10
+        },
+        "1000": {
+          "discounted_log_contribution": 0.008202741987427905,
+          "ce_without_tail": 0.008236476651313232,
+          "ce_with_limiting_growth_tail": 0.008236476651313298,
+          "ce_change_from_full_solution": -1.734723475976807e-18
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 7.216449660063518e-16,
+        "independent_quad_difference": 4.996003610813204e-16,
+        "independent_quad_error_estimate": 1.2099326114553723e-14,
+        "maximum_quadrature_difference": 5.551115123125783e-17,
+        "base_to_refined_ce_change": 3.6606530307015106e-11,
+        "refined_to_long_ce_change": 4.215619520131497e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_20/scenario.json": "a8eb29082598ed1b3f691f9883f11d1237702408bd0880c06cdd39bd55a225ee",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_20/competitive_reference.json": "af7f2e8ab7b567e1491dc1156aed2cc83be334df4184533f06bb3eddc0ba2a95",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_20/sigma_1_20_audit.json": "5956fedfa71160499b1c925c0a7eefb986d94bf3bb717191c7778584403138f2",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_20/consumption_validation.csv": "ecf846ae483df748c623d044793a1ac04ac684da1b420a2e2a90a0fe5d1c30de",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_20/consumption_splines.json": "cdb217eb2a06de65018ee1253356d571528b344075a450bac40c4f0f67eb7069"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.3,
+      "chi": 1.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 1.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.422990181253117,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3903932715171694,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4247.749974869958,
+          "integrated_utility_difference": 1.0273037592921686,
+          "tail_utility_difference": 1.9343005284807137e-67,
+          "utility_difference_per_initial_person": 1.0273037592921686,
+          "consumption_equivalent": 0.03874186859948477,
+          "quadrature_8_16_difference": 2.220446049250313e-16,
+          "terminal_log_ratio": 1.2923422250956158,
+          "terminal_growth_gap_error": 1.9081958235744858e-16
+        },
+        "refined": {
+          "horizon": 4747.749974869958,
+          "integrated_utility_difference": 1.0273034138039265,
+          "tail_utility_difference": 1.786800376296365e-75,
+          "utility_difference_per_initial_person": 1.0273034138039265,
+          "consumption_equivalent": 0.03874185532118008,
+          "quadrature_8_16_difference": 2.220446049250313e-16,
+          "terminal_log_ratio": 1.2923422250956111,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "long": {
+          "horizon": 5247.749974869958,
+          "integrated_utility_difference": 1.0273034120198195,
+          "tail_utility_difference": 1.6505478532027624e-83,
+          "utility_difference_per_initial_person": 1.0273034120198195,
+          "consumption_equivalent": 0.0387418552526107,
+          "quadrature_8_16_difference": 2.220446049250313e-16,
+          "terminal_log_ratio": 1.2923422250955983,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.007280841554566194,
+          "ce_without_tail": 0.007307411325725411,
+          "ce_with_limiting_growth_tail": 0.024286170629154676,
+          "ce_change_from_full_solution": -0.014455684623456026
+        },
+        "100": {
+          "discounted_log_contribution": 0.029486676178343548,
+          "ce_without_tail": 0.02992571283395574,
+          "ce_with_limiting_growth_tail": 0.03683892124416947,
+          "ce_change_from_full_solution": -0.0019029340084412288
+        },
+        "250": {
+          "discounted_log_contribution": 0.03794290959112192,
+          "ce_without_tail": 0.03867193298044209,
+          "ce_with_limiting_growth_tail": 0.03873622274945814,
+          "ce_change_from_full_solution": -5.6325031525597535e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.03801021604113206,
+          "ce_without_tail": 0.038741844653703054,
+          "ce_with_limiting_growth_tail": 0.03874185496870654,
+          "ce_change_from_full_solution": -2.8390416406676167e-10
+        },
+        "1000": {
+          "discounted_log_contribution": 0.038010226244733214,
+          "ce_without_tail": 0.03874185525261058,
+          "ce_with_limiting_growth_tail": 0.0387418552526107,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 8.881784197001252e-16,
+        "independent_quad_difference": 2.220446049250313e-16,
+        "independent_quad_error_estimate": 1.5364231832648484e-14,
+        "maximum_quadrature_difference": 2.220446049250313e-16,
+        "base_to_refined_ce_change": 1.3278304691888287e-08,
+        "refined_to_long_ce_change": 6.85693793411879e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_30/scenario.json": "945e66f1a351aea2223f0a4e8291a6ca97c6dbb56607ac2a37c06fa17a32792e",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_30/competitive_reference.json": "5ec8ee8fbd35960e8f24c7481ea2e9724148560f3d43fac5c0700f6f3060fb71",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_30/sigma_1_30_audit.json": "4dc7fce096abab7f16e04cf04f79fc2c7621306520efc36b3f76b7a3a049f7c9",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_30/consumption_validation.csv": "27a10e58f26e8e9104e9bdf9ca84c25070fef3dc991c086aa878b5f774729892",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_30/consumption_splines.json": "b3d600268a9ad0d130157cf137309089f093bad79ed44b4c997edaadd89528ed"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.4,
+      "chi": 1.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 1.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.477482613429012,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3944327702844663,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4080.4951077638707,
+          "integrated_utility_difference": 1.8463248666707963,
+          "tail_utility_difference": 1.799248567675944e-64,
+          "utility_difference_per_initial_person": 1.8463248666707963,
+          "consumption_equivalent": 0.07070147744360207,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.4679918028018886,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "refined": {
+          "horizon": 4580.495107763871,
+          "integrated_utility_difference": 1.8463241479175383,
+          "tail_utility_difference": 1.6620468073279293e-72,
+          "utility_difference_per_initial_person": 1.8463241479175383,
+          "consumption_equivalent": 0.07070144896950598,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.4679918028018992,
+          "terminal_growth_gap_error": 1.9081958235744839e-16
+        },
+        "long": {
+          "horizon": 5080.495107763871,
+          "integrated_utility_difference": 1.8463241451781707,
+          "tail_utility_difference": 1.5353073718530633e-80,
+          "utility_difference_per_initial_person": 1.8463241451781707,
+          "consumption_equivalent": 0.07070144886098331,
+          "quadrature_8_16_difference": 2.220446049250313e-16,
+          "terminal_log_ratio": 2.4679918028018903,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.023236495187857448,
+          "ce_without_tail": 0.023508565777607304,
+          "ce_with_limiting_growth_tail": 0.04940312793585677,
+          "ce_change_from_full_solution": -0.02129832092512654
+        },
+        "100": {
+          "discounted_log_contribution": 0.05556887943143271,
+          "ce_without_tail": 0.057141829892928014,
+          "ce_with_limiting_growth_tail": 0.06749750620031791,
+          "ce_change_from_full_solution": -0.0032039426606653987
+        },
+        "250": {
+          "discounted_log_contribution": 0.06819966604598145,
+          "ce_without_tail": 0.07057904542496941,
+          "ce_with_limiting_growth_tail": 0.07068890287355416,
+          "ce_change_from_full_solution": -1.2545987429155026e-05
+        },
+        "500": {
+          "discounted_log_contribution": 0.06831397365231642,
+          "ce_without_tail": 0.07070142774752625,
+          "ce_with_limiting_growth_tail": 0.07070144819619027,
+          "ce_change_from_full_solution": -6.647930400616175e-10
+        },
+        "1000": {
+          "discounted_log_contribution": 0.0683139933715921,
+          "ce_without_tail": 0.07070144886098306,
+          "ce_with_limiting_growth_tail": 0.0707014488609833,
+          "ce_change_from_full_solution": -1.3877787807814457e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 1.5543122344752192e-15,
+        "independent_quad_difference": 2.220446049250313e-15,
+        "independent_quad_error_estimate": 2.1779464644966206e-14,
+        "maximum_quadrature_difference": 2.220446049250313e-16,
+        "base_to_refined_ce_change": 2.847409609485485e-08,
+        "refined_to_long_ce_change": 1.0852266307814773e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_40/scenario.json": "a963a382cfb1770d8d54baf9c349c491c90fa110335a3f9817c8c686144d9089",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_40/competitive_reference.json": "47dfe4acafff62cd9e1a72a8d6f8f337c45649cbbdb7a0e4c3ced4eda7779d3b",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_40/sigma_1_40_audit.json": "6ea35b57045ed5fa05f08f6c629978d54c058ef33d9c732b0b37e23a3bc4b785",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_40/consumption_validation.csv": "819cb249e514e2e2c42a18180cd047b211ca6930cf31370cb97a6568270aaaf0",
+        "numerical_rewrite/welfare_grid/chi_1_5_sigma_1_40/consumption_splines.json": "36cb3c2ea71c99034bdd652e42e9c92d3729eafbdf9fadef195fc406cbf805d3"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "chi": 1.5,
+      "sigma": 1.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 1.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "monopoly_regime": "ai_dominated",
+      "initial_capital": 6.53547722915475,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3986937158332973,
+      "effective_discount": 0.037,
+      "competitive_growth": 0.01,
+      "monopoly_growth": 0.03134997581384653,
+      "stages": {
+        "base": {
+          "horizon": 3632.021829273461,
+          "utility_difference_per_initial_person": 2.843626754617305,
+          "integrated_utility_difference": 2.843626754617305,
+          "tail_utility_difference": 9.100238918198832e-56,
+          "consumption_equivalent": 0.11094853885344722,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 77.01818972245445,
+          "terminal_growth_gap_error": 1.700393298387226e-12
+        },
+        "refined": {
+          "horizon": 4132.021829273461,
+          "utility_difference_per_initial_person": 2.8436256310800663,
+          "integrated_utility_difference": 2.8436256310800663,
+          "tail_utility_difference": 9.562777759677776e-64,
+          "consumption_equivalent": 0.11094849267034217,
+          "quadrature_8_16_difference": 4.440892098500626e-16,
+          "terminal_log_ratio": 87.69317767389876,
+          "terminal_growth_gap_error": 4.832592659376189e-14
+        },
+        "long": {
+          "horizon": 4632.021829273461,
+          "utility_difference_per_initial_person": 2.843625626777586,
+          "integrated_utility_difference": 2.843625626777586,
+          "tail_utility_difference": 9.901858422373246e-72,
+          "consumption_equivalent": 0.11094849249348833,
+          "quadrature_8_16_difference": 4.440892098500626e-16,
+          "terminal_log_ratio": 98.36816557648346,
+          "terminal_growth_gap_error": 3.5006719745211967e-15
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.039139302795722725,
+          "ce_without_tail": 0.03991533667442165,
+          "ce_with_limiting_growth_tail": 0.17936996588823634,
+          "ce_change_from_full_solution": 0.06842147339474801
+        },
+        "100": {
+          "discounted_log_contribution": 0.08517032933327828,
+          "ce_without_tail": 0.08890252294436911,
+          "ce_with_limiting_growth_tail": 0.1205565938393268,
+          "ce_change_from_full_solution": 0.009608101345838477
+        },
+        "250": {
+          "discounted_log_contribution": 0.10496092458483415,
+          "ce_without_tail": 0.11066720972543083,
+          "ce_with_limiting_growth_tail": 0.11095984797693718,
+          "ce_change_from_full_solution": 1.1355483448854953e-05
+        },
+        "500": {
+          "discounted_log_contribution": 0.10521405958606911,
+          "ce_without_tail": 0.11094839405823305,
+          "ce_with_limiting_growth_tail": 0.1109484900691584,
+          "ce_change_from_full_solution": -2.424329931249858e-09
+        },
+        "1000": {
+          "discounted_log_contribution": 0.10521414819076884,
+          "ce_without_tail": 0.11094849249348626,
+          "ce_with_limiting_growth_tail": 0.11094849249348832,
+          "ce_change_from_full_solution": -1.3877787807814457e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 3.552713678800501e-15,
+        "independent_quad_difference": 2.220446049250313e-15,
+        "independent_quad_error_estimate": 3.1711488972458286e-14,
+        "maximum_quadrature_difference": 4.440892098500626e-16,
+        "base_to_refined_ce_change": 4.618310504855838e-08,
+        "refined_to_long_ce_change": 1.768538371305084e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/scenario.json": "bc02efac191232802a4abb22360d8a333fedce6f72d19cd277887e665a8f632a",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/competitive_reference.json": "23daf316dcfa5748aa2848fb171b713b7abc724c98649beed2f1e68397c3112b",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/paths_manifest.json": "be8c307dbf5a26f39293a1bf86a99289804b4af8946b075a2344777b1b66c326",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/sigma_1_50_audit.json": "2e80b605d6b4819c181e39c3c981bfeeef34eba9722d0e44b13eb5005e9c0f6d",
+        "numerical_rewrite/competitive_to_monopoly_chi_1_5/equilibrium_paths.csv": "3a191dcc35822f01df2bcd41d3275a06e6b9745de17de02cc3dea8f7af5405bd",
+        "numerical_rewrite/welfare_comparison/chi_1_5_consumption_splines.json": "1390fccf6ae6f30a3976ac881a254a9223adb6955754aeb16a22216cbf1e0733"
+      },
+      "numerically_verified": true,
+      "origin": "reused_original"
+    },
+    {
+      "sigma": 0.9,
+      "chi": 3.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 3.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.235221642477948,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3761715688408234,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4780.398647222537,
+          "integrated_utility_difference": -10.028862617643819,
+          "tail_utility_difference": -1.6501031339154646e-76,
+          "utility_difference_per_initial_person": -10.028862617643819,
+          "consumption_equivalent": -0.3100029224625836,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": -0.39943002111511694,
+          "terminal_growth_gap_error": 1.543556948924163e-14
+        },
+        "refined": {
+          "horizon": 5280.398647222537,
+          "integrated_utility_difference": -10.028862171865477,
+          "tail_utility_difference": -1.5242744636603547e-84,
+          "utility_difference_per_initial_person": -10.028862171865477,
+          "consumption_equivalent": -0.31000291108191064,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": -0.39943002111510434,
+          "terminal_growth_gap_error": 1.4020035132844555e-14
+        },
+        "long": {
+          "horizon": 5780.398647222537,
+          "integrated_utility_difference": -10.028862171741576,
+          "tail_utility_difference": -1.4080408629090109e-92,
+          "utility_difference_per_initial_person": -10.028862171741576,
+          "consumption_equivalent": -0.31000291107874745,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": -0.39943002111511444,
+          "terminal_growth_gap_error": 1.4020035132844555e-14
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.30264693134564336,
+          "ce_without_tail": -0.2611400813990854,
+          "ce_with_limiting_growth_tail": -0.31104998484501967,
+          "ce_change_from_full_solution": -0.0010470737662722218
+        },
+        "100": {
+          "discounted_log_contribution": -0.3606282481175359,
+          "ce_without_tail": -0.30276185011137935,
+          "ce_with_limiting_growth_tail": -0.3100837842548137,
+          "ce_change_from_full_solution": -8.0873176066254e-05
+        },
+        "250": {
+          "discounted_log_contribution": -0.3710285960238661,
+          "ce_without_tail": -0.30997579067209946,
+          "ce_with_limiting_growth_tail": -0.3100029924225301,
+          "ce_change_from_full_solution": -8.134378265411968e-08
+        },
+        "500": {
+          "discounted_log_contribution": -0.37106789663413364,
+          "ce_without_tail": -0.3100029085117481,
+          "ce_with_limiting_growth_tail": -0.31000291108101974,
+          "ce_change_from_full_solution": -2.272293464500308e-12
+        },
+        "1000": {
+          "discounted_log_contribution": -0.3710679003544382,
+          "ce_without_tail": -0.3100029110787474,
+          "ce_with_limiting_growth_tail": -0.31000291107874745,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 7.771561172376096e-16,
+        "independent_quad_difference": 5.329070518200751e-15,
+        "independent_quad_error_estimate": 1.1134273693859744e-13,
+        "maximum_quadrature_difference": 0.0,
+        "base_to_refined_ce_change": 1.1380672959582228e-08,
+        "refined_to_long_ce_change": 3.1631919306107648e-12,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_0_90/scenario.json": "d63348dd69efc955224f09fce6b5803df077871976172433184fa5df1d6d95bc",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_0_90/competitive_reference.json": "e7be6c2fe0a6a4a450ec3895ed1ee60774a2d26f2a818a95247a06a1c29951e8",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_0_90/sigma_0_90_audit.json": "c1be01f947190d279e1bc5fb29fc03c22748757bfc3b713945159ac008b47914",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_0_90/consumption_validation.csv": "31b24fa59a89cee0dbf58e89a0562826f2bb0191e8975fc4dd9ad7c8d45a23e9",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_0_90/consumption_splines.json": "fe355108e2e05d5f7aadf33578c4fa57c1d31c313dc04f9344992ebb56b2cf9a"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.0,
+      "chi": 3.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 3.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.278062168197312,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.379461478230264,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4296.913639679931,
+          "integrated_utility_difference": -1.5788001399811067,
+          "tail_utility_difference": 7.137515222610018e-69,
+          "utility_difference_per_initial_person": -1.5788001399811067,
+          "consumption_equivalent": -0.05674215688286631,
+          "quadrature_8_16_difference": 2.220446049250313e-16,
+          "terminal_log_ratio": 0.29404001748110725,
+          "terminal_growth_gap_error": 5.169475958410885e-16
+        },
+        "refined": {
+          "horizon": 4796.913639679931,
+          "integrated_utility_difference": -1.578800306190839,
+          "tail_utility_difference": 6.5932437580407385e-77,
+          "utility_difference_per_initial_person": -1.578800306190839,
+          "consumption_equivalent": -0.05674216268367573,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.29404001748110054,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "long": {
+          "horizon": 5296.913639679931,
+          "integrated_utility_difference": -1.5788003067882488,
+          "tail_utility_difference": 6.090475732400427e-85,
+          "utility_difference_per_initial_person": -1.5788003067882488,
+          "consumption_equivalent": -0.05674216270452565,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.2940400174811059,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.0626771304252806,
+          "ce_without_tail": -0.060753321085594086,
+          "ce_with_limiting_growth_tail": -0.06364759042098546,
+          "ce_change_from_full_solution": -0.006905427716459807
+        },
+        "100": {
+          "discounted_log_contribution": -0.06072058788384091,
+          "ce_without_tail": -0.05891384608264501,
+          "ce_with_limiting_growth_tail": -0.05739225350306493,
+          "ce_change_from_full_solution": -0.0006500907985392754
+        },
+        "250": {
+          "discounted_log_contribution": -0.05843426766191196,
+          "ce_without_tail": -0.05675976025169939,
+          "ce_with_limiting_growth_tail": -0.0567432734373293,
+          "ce_change_from_full_solution": -1.1107328036497055e-06
+        },
+        "500": {
+          "discounted_log_contribution": -0.05841561380376624,
+          "ce_without_tail": -0.056742165017960804,
+          "ce_with_limiting_growth_tail": -0.056742162742922826,
+          "ce_change_from_full_solution": -3.83971743289635e-11
+        },
+        "1000": {
+          "discounted_log_contribution": -0.058415611351165235,
+          "ce_without_tail": -0.05674216270452569,
+          "ce_with_limiting_growth_tail": -0.05674216270452566,
+          "ce_change_from_full_solution": -6.938893903907228e-18
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 9.43689570931383e-16,
+        "independent_quad_difference": 4.440892098500626e-16,
+        "independent_quad_error_estimate": 2.035610951548731e-14,
+        "maximum_quadrature_difference": 2.220446049250313e-16,
+        "base_to_refined_ce_change": 5.800809423084363e-09,
+        "refined_to_long_ce_change": 2.08499190135214e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_00/scenario.json": "a0435127f8ea3b503d3a864600c404fdd07ba07ad03a431fb5a628a0460b7c8e",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_00/competitive_reference.json": "91d06753c71519d23886003eb6179025ef63bdf7a7f04c0af611eaaf8eb35beb",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_00/sigma_1_00_audit.json": "e0e4530738d0648f8da861319515b81745df2d18226df462056c5a8098945cea",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_00/consumption_validation.csv": "ceeb2973e86bcc5d4542b518cbfddb2dbf4b1d220036f95804c11378cd14d5eb",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_00/consumption_splines.json": "81d1c047c92565fdb6a6a843f05486fbcab14846da70c99c54a841c4cd4eab9d"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.1,
+      "chi": 3.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 3.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.323503979203803,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3829206177420617,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4181.177621601132,
+          "integrated_utility_difference": 0.5449410456739423,
+          "tail_utility_difference": 8.890132790384535e-67,
+          "utility_difference_per_initial_person": 0.5449410456739423,
+          "consumption_equivalent": 0.02036746139587464,
+          "quadrature_8_16_difference": 1.1102230246251565e-16,
+          "terminal_log_ratio": 0.5058451869099931,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "refined": {
+          "horizon": 4681.177621601132,
+          "integrated_utility_difference": 0.5449404460079138,
+          "tail_utility_difference": 8.212215413941101e-75,
+          "utility_difference_per_initial_person": 0.5449404460079138,
+          "consumption_equivalent": 0.02036743875632587,
+          "quadrature_8_16_difference": 2.220446049250313e-16,
+          "terminal_log_ratio": 0.5058451869099911,
+          "terminal_growth_gap_error": 5.169475958410885e-16
+        },
+        "long": {
+          "horizon": 5181.177621601132,
+          "integrated_utility_difference": 0.5449404449803337,
+          "tail_utility_difference": 7.5859926499539e-83,
+          "utility_difference_per_initial_person": 0.5449404449803337,
+          "consumption_equivalent": 0.02036743871753103,
+          "quadrature_8_16_difference": 1.1102230246251565e-16,
+          "terminal_log_ratio": 0.5058451869099849,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.0035760371670452437,
+          "ce_without_tail": -0.0035696507610782926,
+          "ce_with_limiting_growth_tail": 0.01053526463714648,
+          "ce_change_from_full_solution": -0.009832174080384549
+        },
+        "100": {
+          "discounted_log_contribution": 0.01422327332738604,
+          "ce_without_tail": 0.014324905354498272,
+          "ce_with_limiting_growth_tail": 0.019394727590204035,
+          "ce_change_from_full_solution": -0.0009727111273269938
+        },
+        "250": {
+          "discounted_log_contribution": 0.02012600846480473,
+          "ce_without_tail": 0.020329902131190906,
+          "ce_with_limiting_growth_tail": 0.020365740446610048,
+          "ce_change_from_full_solution": -1.6982709209814595e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.02016279204955459,
+          "ce_without_tail": 0.020367434212896784,
+          "ce_with_limiting_growth_tail": 0.02036743866884161,
+          "ce_change_from_full_solution": -4.868942055091807e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.0201627964642723,
+          "ce_without_tail": 0.02036743871753098,
+          "ce_with_limiting_growth_tail": 0.020367438717531022,
+          "ce_change_from_full_solution": -6.938893903907228e-18
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 7.771561172376096e-16,
+        "independent_quad_difference": 4.440892098500626e-16,
+        "independent_quad_error_estimate": 1.429542643204145e-14,
+        "maximum_quadrature_difference": 2.220446049250313e-16,
+        "base_to_refined_ce_change": 2.263954876693952e-08,
+        "refined_to_long_ce_change": 3.8794842338596425e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_10/scenario.json": "1f3e5d2bf0853d3b22406ae0f828aef131863d382c36259c916b2c47c7c7a768",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_10/competitive_reference.json": "c95bfd1ec4bcef803fafdacbdae6d3339fa2cfb17f1075aa0b93948e7d74fe48",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_10/sigma_1_10_audit.json": "937f4dd649358db09e977eeca97042a3d1b5ab3e66190279f7d79b410b8610e5",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_10/consumption_validation.csv": "16a9b2e98279a860057da77f1f12d322d73a88aa4f008fcda07e7efe0d293748",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_10/consumption_splines.json": "079227a7ca14dc1e3fe97208d151f726cc8efdb189edadbde430ef3baf124ba5"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.2,
+      "chi": 3.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 3.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.371742112791399,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3865604057999374,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4087.7409485761286,
+          "integrated_utility_difference": 1.8981996880262664,
+          "tail_utility_difference": 4.411054928590736e-65,
+          "utility_difference_per_initial_person": 1.8981996880262664,
+          "consumption_equivalent": 0.07275852149585411,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.7910932416654761,
+          "terminal_growth_gap_error": 5.169475958410885e-16
+        },
+        "refined": {
+          "horizon": 4587.740948576129,
+          "integrated_utility_difference": 1.8981986442076706,
+          "tail_utility_difference": 4.0746897859042643e-73,
+          "utility_difference_per_initial_person": 1.8981986442076706,
+          "consumption_equivalent": 0.07275848006453904,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.7910932416654679,
+          "terminal_growth_gap_error": 5.169475958410883e-16
+        },
+        "long": {
+          "horizon": 5087.740948576129,
+          "integrated_utility_difference": 1.898198642510141,
+          "tail_utility_difference": 3.763974178543687e-81,
+          "utility_difference_per_initial_person": 1.898198642510141,
+          "consumption_equivalent": 0.07275847999716059,
+          "quadrature_8_16_difference": 2.220446049250313e-16,
+          "terminal_log_ratio": 0.7910932416654781,
+          "terminal_growth_gap_error": 1.2385925618474403e-15
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.029818801701817523,
+          "ce_without_tail": 0.03026783426095416,
+          "ce_with_limiting_growth_tail": 0.05814496652247349,
+          "ce_change_from_full_solution": -0.014613513474687104
+        },
+        "100": {
+          "discounted_log_contribution": 0.06062497571751718,
+          "ce_without_tail": 0.06250037601996652,
+          "ce_with_limiting_growth_tail": 0.07119402943767941,
+          "ce_change_from_full_solution": -0.0015644505594811786
+        },
+        "250": {
+          "discounted_log_contribution": 0.07017425538976578,
+          "ce_without_tail": 0.07269508786963753,
+          "ce_with_limiting_growth_tail": 0.07275561356509011,
+          "ce_change_from_full_solution": -2.866432070480762e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.07023334276052721,
+          "ce_without_tail": 0.07275847247460485,
+          "ce_with_limiting_growth_tail": 0.07275847992939229,
+          "ce_change_from_full_solution": -6.776830485666352e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.07023334977287514,
+          "ce_without_tail": 0.07275847999716052,
+          "ce_with_limiting_growth_tail": 0.07275847999716059,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 8.881784197001252e-16,
+        "independent_quad_difference": 8.881784197001252e-16,
+        "independent_quad_error_estimate": 2.211789041950443e-14,
+        "maximum_quadrature_difference": 2.220446049250313e-16,
+        "base_to_refined_ce_change": 4.143131507317044e-08,
+        "refined_to_long_ce_change": 6.73784500415664e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_20/scenario.json": "360e02515f6d1b4f5790a517e00d72cccdbe298f42f68da3a6aaed14106ef41b",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_20/competitive_reference.json": "af7f2e8ab7b567e1491dc1156aed2cc83be334df4184533f06bb3eddc0ba2a95",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_20/sigma_1_20_audit.json": "1c9f27510afef0863fd4d303f6f3edcc3ebae4b4f95d38e2f840fc222d8577a9",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_20/consumption_validation.csv": "d4bcdaf6e501ee9e6fbd36c03d06a493fb71c199d2cbfe3c90c0f55e74bc4b22",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_20/consumption_splines.json": "d50a0e9ef7eda9ba7365b43e0a774a2aedb4db26100864a80481f5fc45b5fae5"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.3,
+      "chi": 3.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 3.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.422990181253117,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3903932715171694,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3981.1549054238258,
+          "integrated_utility_difference": 3.2391529506142143,
+          "tail_utility_difference": 3.7188815879178395e-63,
+          "utility_difference_per_initial_person": 3.2391529506142143,
+          "consumption_equivalent": 0.12732622818457726,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 1.2923422250956147,
+          "terminal_growth_gap_error": 1.9081958235744917e-16
+        },
+        "refined": {
+          "horizon": 4481.154905423826,
+          "integrated_utility_difference": 3.239151269089263,
+          "tail_utility_difference": 3.4352981467220388e-71,
+          "utility_difference_per_initial_person": 3.239151269089263,
+          "consumption_equivalent": 0.12732615804637373,
+          "quadrature_8_16_difference": 4.440892098500626e-16,
+          "terminal_log_ratio": 1.2923422250956174,
+          "terminal_growth_gap_error": 9.124645483638007e-16
+        },
+        "long": {
+          "horizon": 4981.154905423826,
+          "integrated_utility_difference": 3.2391512663045567,
+          "tail_utility_difference": 3.1733393704205636e-79,
+          "utility_difference_per_initial_person": 3.2391512663045567,
+          "consumption_equivalent": 0.12732615793022067,
+          "quadrature_8_16_difference": 8.881784197001252e-16,
+          "terminal_log_ratio": 1.2923422250956145,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.058274137859276244,
+          "ce_without_tail": 0.060005543533914095,
+          "ce_with_limiting_growth_tail": 0.1040294555188365,
+          "ce_change_from_full_solution": -0.02329670241138418
+        },
+        "100": {
+          "discounted_log_contribution": 0.10492576830475403,
+          "ce_without_tail": 0.11062816348429422,
+          "ce_with_limiting_growth_tail": 0.12453876674728297,
+          "ce_change_from_full_solution": -0.002787391182937707
+        },
+        "250": {
+          "discounted_log_contribution": 0.11975151780011425,
+          "ce_without_tail": 0.12721672348619473,
+          "ce_with_limiting_growth_tail": 0.12732063195101018,
+          "ce_change_from_full_solution": -5.52597921049669e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.11984858526383213,
+          "ce_without_tail": 0.12732614486514585,
+          "ce_with_limiting_growth_tail": 0.12732615783134613,
+          "ce_change_from_full_solution": -9.887454743839896e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.11984859685326851,
+          "ce_without_tail": 0.1273261579302206,
+          "ce_with_limiting_growth_tail": 0.12732615793022073,
+          "ce_change_from_full_solution": 5.551115123125783e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 1.1102230246251565e-15,
+        "independent_quad_difference": 0.0,
+        "independent_quad_error_estimate": 3.596180316095051e-14,
+        "maximum_quadrature_difference": 8.881784197001252e-16,
+        "base_to_refined_ce_change": 7.01382035228626e-08,
+        "refined_to_long_ce_change": 1.1615305939294274e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_30/scenario.json": "c63ab8d17852dd7c377042f28bfc3522dfbd534f7d2be8c539cde1f682f893eb",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_30/competitive_reference.json": "5ec8ee8fbd35960e8f24c7481ea2e9724148560f3d43fac5c0700f6f3060fb71",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_30/sigma_1_30_audit.json": "ecaf0c4f9c28c7185c5fa40b529f3bcc3fd5875a16408e78a57e811102326587",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_30/consumption_validation.csv": "c2bc9d99a2e7f2fd33a6a03a7ea84e66bf6691dd26fc7b7d4c32e52a5f2b8bb4",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_30/consumption_splines.json": "f00f0542644fa93ebfdeac5cc1870b49cec074c467f220935b400d3cf367f721"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.4,
+      "chi": 3.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 3.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.477482613429012,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3944327702844663,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3813.9000383177377,
+          "integrated_utility_difference": 4.940431893030541,
+          "tail_utility_difference": 3.459231009812827e-60,
+          "utility_difference_per_initial_person": 4.940431893030541,
+          "consumption_equivalent": 0.20056944296562046,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.4679918028018952,
+          "terminal_growth_gap_error": 5.169475958410885e-16
+        },
+        "refined": {
+          "horizon": 4313.900038317737,
+          "integrated_utility_difference": 4.94042993145059,
+          "tail_utility_difference": 3.1954472322273774e-68,
+          "utility_difference_per_initial_person": 4.94042993145059,
+          "consumption_equivalent": 0.20056935583014449,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.467991802801901,
+          "terminal_growth_gap_error": 1.2385925618474407e-15
+        },
+        "long": {
+          "horizon": 4813.900038317737,
+          "integrated_utility_difference": 4.940429927236177,
+          "tail_utility_difference": 2.951778295518351e-76,
+          "utility_difference_per_initial_person": 4.940429927236177,
+          "consumption_equivalent": 0.2005693556429358,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.467991802801888,
+          "terminal_growth_gap_error": 1.9081958235744957e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.08859618658388617,
+          "ce_without_tail": 0.09263934480216508,
+          "ce_with_limiting_growth_tail": 0.15934979520744144,
+          "ce_change_from_full_solution": -0.04121956043549435
+        },
+        "100": {
+          "discounted_log_contribution": 0.15840292628209787,
+          "ce_without_tail": 0.17163818343016674,
+          "ce_with_limiting_growth_tail": 0.1946784806959896,
+          "ce_change_from_full_solution": -0.005890874946946206
+        },
+        "250": {
+          "discounted_log_contribution": 0.18261301886619855,
+          "ce_without_tail": 0.20034980546172873,
+          "ce_with_limiting_growth_tail": 0.20055515910685803,
+          "ce_change_from_full_solution": -1.4196536077759614e-05
+        },
+        "500": {
+          "discounted_log_contribution": 0.18279588490897603,
+          "ce_without_tail": 0.2005693287516682,
+          "ce_with_limiting_growth_tail": 0.20056935549011998,
+          "ce_change_from_full_solution": -1.528158155572612e-10
+        },
+        "1000": {
+          "discounted_log_contribution": 0.1827959073077383,
+          "ce_without_tail": 0.20056935564293546,
+          "ce_with_limiting_growth_tail": 0.2005693556429357,
+          "ce_change_from_full_solution": -8.326672684688674e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 1.3322676295501878e-15,
+        "independent_quad_difference": 5.329070518200751e-15,
+        "independent_quad_error_estimate": 5.484979056764789e-14,
+        "maximum_quadrature_difference": 0.0,
+        "base_to_refined_ce_change": 8.71354759734988e-08,
+        "refined_to_long_ce_change": 1.8720869299215792e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_40/scenario.json": "5e29c97c3130282a3ed61dc09534e6c7d6e78e82e1c0cb919e2e8643a4276a2d",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_40/competitive_reference.json": "47dfe4acafff62cd9e1a72a8d6f8f337c45649cbbdb7a0e4c3ced4eda7779d3b",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_40/sigma_1_40_audit.json": "21e995e2520800b6dcb726d5e406db9d4db8c73fc5bfd3cdc47db07fadc39d73",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_40/consumption_validation.csv": "f03a2a73e7876da315bbda7e86b93f678cefbdcdc5349d991811a8648726e0d8",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_40/consumption_splines.json": "d632d2d7a6ca302bcfad54ada946f09239a31faecf15b7fef86abe64fd9d1eb2"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.5,
+      "chi": 3.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 3.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.53547722915475,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3986937158332973,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.03134997581384653,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "ai_dominated",
+      "stages": {
+        "base": {
+          "horizon": 2365.4267598273286,
+          "integrated_utility_difference": 7.657588871055169,
+          "tail_utility_difference": 1.4269647571936558e-35,
+          "utility_difference_per_initial_person": 7.657588871055169,
+          "consumption_equivalent": 0.3275442251978817,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 53.4251383667349,
+          "terminal_growth_gap_error": 4.422977862433841e-09
+        },
+        "refined": {
+          "horizon": 2865.4267598273286,
+          "integrated_utility_difference": 7.6575870007520095,
+          "tail_utility_difference": 1.5787198116140445e-43,
+          "utility_difference_per_initial_person": 7.6575870007520095,
+          "consumption_equivalent": 0.327544133330209,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 64.10012690380397,
+          "terminal_growth_gap_error": 1.2597553902815584e-10
+        },
+        "long": {
+          "horizon": 3365.4267598273286,
+          "integrated_utility_difference": 7.657586992339738,
+          "tail_utility_difference": 1.699033120808185e-51,
+          "utility_difference_per_initial_person": 7.657586992339738,
+          "consumption_equivalent": 0.32754413291700546,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 74.77511482526273,
+          "terminal_growth_gap_error": 3.5869814063449468e-12
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.1259998475837954,
+          "ce_without_tail": 0.13428199540005512,
+          "ce_with_limiting_growth_tail": 0.3551386399079311,
+          "ce_change_from_full_solution": 0.027594506990925638
+        },
+        "100": {
+          "discounted_log_contribution": 0.2354621193374535,
+          "ce_without_tail": 0.2654934426191872,
+          "ce_with_limiting_growth_tail": 0.32758828890819974,
+          "ce_change_from_full_solution": 4.4155991194283484e-05
+        },
+        "250": {
+          "discounted_log_contribution": 0.28270425201611893,
+          "ce_without_tail": 0.32671273117429767,
+          "ce_with_limiting_growth_tail": 0.32749135706380117,
+          "ce_change_from_full_solution": -5.27758532042899e-05
+        },
+        "500": {
+          "discounted_log_contribution": 0.2833305907547133,
+          "ce_without_tail": 0.32754396304200384,
+          "ce_with_limiting_growth_tail": 0.32754413210688593,
+          "ce_change_from_full_solution": -8.101195270171502e-10
+        },
+        "1000": {
+          "discounted_log_contribution": 0.2833307187165681,
+          "ce_without_tail": 0.32754413291700263,
+          "ce_with_limiting_growth_tail": 0.3275441329170054,
+          "ce_change_from_full_solution": -5.551115123125783e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 5.329070518200751e-15,
+        "independent_quad_difference": 8.881784197001252e-16,
+        "independent_quad_error_estimate": 8.501629391965676e-14,
+        "maximum_quadrature_difference": 0.0,
+        "base_to_refined_ce_change": 9.18676726913148e-08,
+        "refined_to_long_ce_change": 4.1320352694995677e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_50/scenario.json": "2c1bbe488fc8095faaaac8cb8d848f6459f1bb3a64526c5f59ea5823f5d62760",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_50/competitive_reference.json": "29ecbd5e8fba79cc72813a5d4e78b6f7878003f8049e914946087ca7543b6ec3",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_50/sigma_1_50_audit.json": "1b3aff3296ca49b93c1301e1f67c797e8a3b11017c1e0d62b277239460c06342",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_50/consumption_validation.csv": "0e3748902c0783e2ad8eee8d55ba3997c28649b29336fa92b4772fdf84b537bf",
+        "numerical_rewrite/welfare_grid/chi_3_0_sigma_1_50/consumption_splines.json": "db97a4ff19ca830b5ff44e2c0d23c426d1b4b7e8d4021d2c07837d6ed04602b9"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 0.9,
+      "chi": 4.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 4.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.235221642477948,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3761715688408234,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4624.450528719397,
+          "integrated_utility_difference": -9.820157274574784,
+          "tail_utility_difference": -5.289628359451435e-74,
+          "utility_difference_per_initial_person": -9.820157274574784,
+          "consumption_equivalent": -0.3046540720284286,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": -0.3994300211151174,
+          "terminal_growth_gap_error": 1.4713924523235278e-14
+        },
+        "refined": {
+          "horizon": 5124.450528719397,
+          "integrated_utility_difference": -9.820156965163683,
+          "tail_utility_difference": -4.886267570096458e-82,
+          "utility_difference_per_initial_person": -9.820156965163683,
+          "consumption_equivalent": -0.3046540640679618,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": -0.39943002111511616,
+          "terminal_growth_gap_error": 1.4020035132844557e-14
+        },
+        "long": {
+          "horizon": 5624.450528719397,
+          "integrated_utility_difference": -9.820156964818107,
+          "tail_utility_difference": -4.513665071368518e-90,
+          "utility_difference_per_initial_person": -9.820156964818107,
+          "consumption_equivalent": -0.304654064059071,
+          "quadrature_8_16_difference": 1.7763568394002505e-15,
+          "terminal_log_ratio": -0.3994300211151142,
+          "terminal_growth_gap_error": 1.4020035132844555e-14
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.29640243253472937,
+          "ce_without_tail": -0.2565118360189466,
+          "ce_with_limiting_growth_tail": -0.30554214238199084,
+          "ce_change_from_full_solution": -0.0008880783229198719
+        },
+        "100": {
+          "discounted_log_contribution": -0.3530761972785163,
+          "ce_without_tail": -0.2974763390533028,
+          "ce_with_limiting_growth_tail": -0.30471660034306064,
+          "ce_change_from_full_solution": -6.253628398966704e-05
+        },
+        "250": {
+          "discounted_log_contribution": -0.3633068221959219,
+          "ce_without_tail": -0.30462695512002824,
+          "ce_with_limiting_growth_tail": -0.30465412140629405,
+          "ce_change_from_full_solution": -5.734722308137208e-08
+        },
+        "500": {
+          "discounted_log_contribution": -0.363345803990406,
+          "ce_without_tail": -0.3046540614808228,
+          "ce_with_limiting_growth_tail": -0.30465406406058065,
+          "ce_change_from_full_solution": -1.5096812688852879e-12
+        },
+        "1000": {
+          "discounted_log_contribution": -0.36334580769826996,
+          "ce_without_tail": -0.304654064059071,
+          "ce_with_limiting_growth_tail": -0.304654064059071,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 7.771561172376096e-16,
+        "independent_quad_difference": 7.105427357601002e-15,
+        "independent_quad_error_estimate": 1.0902564367774164e-13,
+        "maximum_quadrature_difference": 1.7763568394002505e-15,
+        "base_to_refined_ce_change": 7.960466785750242e-09,
+        "refined_to_long_ce_change": 8.890832514651947e-12,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_0_90/scenario.json": "ea4dbc222ed7736676eebf8fbda7146dd9469782f8264a9ad02b7e9d59dfa1d3",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_0_90/competitive_reference.json": "e7be6c2fe0a6a4a450ec3895ed1ee60774a2d26f2a818a95247a06a1c29951e8",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_0_90/sigma_0_90_audit.json": "b49389b2418bc651044d69ccdbb2346e96f1017cc37769fd25e2b939c52e6db4",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_0_90/consumption_validation.csv": "77e76d951af80489bda44803b2ab831b831e43b22cb4dd34b2fb49c37db2ea0e",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_0_90/consumption_splines.json": "e5adac2773076f369c1c78500a306aea84fbb5c15512fa1b4a3fd9cfd0506cec"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.0,
+      "chi": 4.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 4.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.278062168197312,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.379461478230264,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4140.96552117679,
+          "integrated_utility_difference": -0.806195599851402,
+          "tail_utility_difference": 2.2880268609603776e-66,
+          "utility_difference_per_initial_person": -0.806195599851402,
+          "consumption_equivalent": -0.02938873629972984,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.2940400174811035,
+          "terminal_growth_gap_error": 1.9081958235744917e-16
+        },
+        "refined": {
+          "horizon": 4640.96552117679,
+          "integrated_utility_difference": -0.8061959050888429,
+          "tail_utility_difference": 2.1135532953358445e-74,
+          "utility_difference_per_initial_person": -0.8061959050888429,
+          "consumption_equivalent": -0.029388747261605012,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.2940400174811086,
+          "terminal_growth_gap_error": 1.9081958235744858e-16
+        },
+        "long": {
+          "horizon": 5140.96552117679,
+          "integrated_utility_difference": -0.8061959057697262,
+          "tail_utility_difference": 1.9523842173556684e-82,
+          "utility_difference_per_initial_person": -0.8061959057697262,
+          "consumption_equivalent": -0.029388747286057317,
+          "quadrature_8_16_difference": 1.1102230246251565e-16,
+          "terminal_log_ratio": 0.2940400174811048,
+          "terminal_growth_gap_error": 1.6202317265623378e-15
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.04144453158655089,
+          "ce_without_tail": -0.04059744959708896,
+          "ce_with_limiting_growth_tail": -0.03671708517642631,
+          "ce_change_from_full_solution": -0.007328337890368991
+        },
+        "100": {
+          "discounted_log_contribution": -0.03328294624445791,
+          "ce_without_tail": -0.032735163086544235,
+          "ce_with_limiting_growth_tail": -0.030031878045099766,
+          "ce_change_from_full_solution": -0.0006431307590424491
+        },
+        "250": {
+          "discounted_log_contribution": -0.02985138536040458,
+          "ce_without_tail": -0.02941023332096463,
+          "ce_with_limiting_growth_tail": -0.029389681805893794,
+          "ce_change_from_full_solution": -9.345198364769935e-07
+        },
+        "500": {
+          "discounted_log_contribution": -0.029829251112083035,
+          "ce_without_tail": -0.029388749808290787,
+          "ce_with_limiting_growth_tail": -0.02938874730852043,
+          "ce_change_from_full_solution": -2.2463114701665177e-11
+        },
+        "1000": {
+          "discounted_log_contribution": -0.02982924851347989,
+          "ce_without_tail": -0.029388747286057334,
+          "ce_with_limiting_growth_tail": -0.029388747286057313,
+          "ce_change_from_full_solution": 3.469446951953614e-18
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 9.992007221626409e-16,
+        "independent_quad_difference": 3.3306690738754696e-16,
+        "independent_quad_error_estimate": 1.6410863064353826e-14,
+        "maximum_quadrature_difference": 1.1102230246251565e-16,
+        "base_to_refined_ce_change": 1.096187517146685e-08,
+        "refined_to_long_ce_change": 2.445230476433302e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_00/scenario.json": "b73bdc9088296b5f9a9f95ac88921f355eb584826bd8801be075c40d9241443c",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_00/competitive_reference.json": "91d06753c71519d23886003eb6179025ef63bdf7a7f04c0af611eaaf8eb35beb",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_00/sigma_1_00_audit.json": "ae639b4c5124d4cd6740658ff4e5990caf4ccfc0ad1bce4d619d42a274a6f3c0",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_00/consumption_validation.csv": "6fb183208ec59ba00616bff865891ce98c20b35b02a3708fd7635dbf387cc621",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_00/consumption_splines.json": "7bb6a59d9b6b2f45c9c90a67244fce01b1ac78f438eb480d1853c470357a384d"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.1,
+      "chi": 4.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 4.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.323503979203803,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3829206177420617,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4025.229503097992,
+          "integrated_utility_difference": 1.5113303651345438,
+          "tail_utility_difference": 2.8498520826224367e-64,
+          "utility_difference_per_initial_person": 1.5113303651345438,
+          "consumption_equivalent": 0.057512258158099384,
+          "quadrature_8_16_difference": 2.220446049250313e-16,
+          "terminal_log_ratio": 0.505845186909988,
+          "terminal_growth_gap_error": 5.169475958410885e-16
+        },
+        "refined": {
+          "horizon": 4525.229503097992,
+          "integrated_utility_difference": 1.5113296981974385,
+          "tail_utility_difference": 2.6325365157287085e-72,
+          "utility_difference_per_initial_person": 1.5113296981974385,
+          "consumption_equivalent": 0.05751223206221562,
+          "quadrature_8_16_difference": 2.220446049250313e-16,
+          "terminal_log_ratio": 0.505845186909993,
+          "terminal_growth_gap_error": 5.169475958410889e-16
+        },
+        "long": {
+          "horizon": 5025.229503097992,
+          "integrated_utility_difference": 1.5113296970706223,
+          "tail_utility_difference": 2.431792354734354e-80,
+          "utility_difference_per_initial_person": 1.5113296970706223,
+          "consumption_equivalent": 0.05751223201812561,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.5058451869099958,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.022306645917302848,
+          "ce_without_tail": 0.022557299420017263,
+          "ce_with_limiting_growth_tail": 0.04664665552180141,
+          "ce_change_from_full_solution": -0.010865576496324199
+        },
+        "100": {
+          "discounted_log_contribution": 0.048370783160490934,
+          "ce_without_tail": 0.04955974226493117,
+          "ce_with_limiting_growth_tail": 0.05652036306839719,
+          "ce_change_from_full_solution": -0.0009918689497284208
+        },
+        "250": {
+          "discounted_log_contribution": 0.0558775913197724,
+          "ce_without_tail": 0.057468232523071025,
+          "ce_with_limiting_growth_tail": 0.057510856261943244,
+          "ce_change_from_full_solution": -1.3757561823646292e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.05591919421762411,
+          "ce_without_tail": 0.0575122271810764,
+          "ce_with_limiting_growth_tail": 0.057512231993788875,
+          "ce_change_from_full_solution": -2.4336734016916495e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.055919198791612966,
+          "ce_without_tail": 0.05751223201812555,
+          "ce_with_limiting_growth_tail": 0.057512232018125595,
+          "ce_change_from_full_solution": -1.3877787807814457e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 7.216449660063518e-16,
+        "independent_quad_difference": 4.440892098500626e-16,
+        "independent_quad_error_estimate": 1.9292939837041557e-14,
+        "maximum_quadrature_difference": 2.220446049250313e-16,
+        "base_to_refined_ce_change": 2.6095883766397154e-08,
+        "refined_to_long_ce_change": 4.4090009421182685e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_10/scenario.json": "9c8c05ac54d6e41eedac45a00295cc2410c16804aa99d01c86956cbff462f76e",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_10/competitive_reference.json": "c95bfd1ec4bcef803fafdacbdae6d3339fa2cfb17f1075aa0b93948e7d74fe48",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_10/sigma_1_10_audit.json": "daa0158ac694b74cd832c34febfeadc5de2cd33a886b326cfcac73a490bf0417",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_10/consumption_validation.csv": "41c195058e3478804efedc90433f24f1223175a1fd94719908c11f6b850ee01c",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_10/consumption_splines.json": "8e829234ced7425d6861eceffee9e329d04e8561783d48b183e62acf7ac166d8"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.2,
+      "chi": 4.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 4.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.371742112791399,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3865604057999374,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3931.792830072988,
+          "integrated_utility_difference": 3.1742078933133833,
+          "tail_utility_difference": 1.414023206537805e-62,
+          "utility_difference_per_initial_person": 3.1742078933133833,
+          "consumption_equivalent": 0.12462055245143838,
+          "quadrature_8_16_difference": 4.440892098500626e-16,
+          "terminal_log_ratio": 0.7910932416654777,
+          "terminal_growth_gap_error": 5.169475958410884e-16
+        },
+        "refined": {
+          "horizon": 4431.792830072988,
+          "integrated_utility_difference": 3.1742068285340514,
+          "tail_utility_difference": 1.3061968191251108e-70,
+          "utility_difference_per_initial_person": 3.1742068285340514,
+          "consumption_equivalent": 0.12462050814494859,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.7910932416654707,
+          "terminal_growth_gap_error": 5.169475958410884e-16
+        },
+        "long": {
+          "horizon": 4931.792830072988,
+          "integrated_utility_difference": 3.174206826805044,
+          "tail_utility_difference": 1.2065927365294462e-78,
+          "utility_difference_per_initial_person": 3.174206826805044,
+          "consumption_equivalent": 0.12462050807300291,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.7910932416654799,
+          "terminal_growth_gap_error": 1.238592561847441e-15
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.062562566492443,
+          "ce_without_tail": 0.06456106268593928,
+          "ce_with_limiting_growth_tail": 0.10747620373485554,
+          "ce_change_from_full_solution": -0.01714430433814737
+        },
+        "100": {
+          "discounted_log_contribution": 0.10532724581208341,
+          "ce_without_tail": 0.11107414523076921,
+          "ce_with_limiting_growth_tail": 0.12294578980896202,
+          "ce_change_from_full_solution": -0.001674718264040892
+        },
+        "250": {
+          "discounted_log_contribution": 0.11737898017681067,
+          "ce_without_tail": 0.12454552940733035,
+          "ce_with_limiting_growth_tail": 0.12461826023490172,
+          "ce_change_from_full_solution": -2.247838101196442e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.11744564538248521,
+          "ce_without_tail": 0.12462049996527476,
+          "ce_with_limiting_growth_tail": 0.12462050804369158,
+          "ce_change_from_full_solution": -2.9311331140036145e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.11744565259178653,
+          "ce_without_tail": 0.12462050807300283,
+          "ce_with_limiting_growth_tail": 0.1246205080730029,
+          "ce_change_from_full_solution": -1.3877787807814457e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 8.881784197001252e-16,
+        "independent_quad_difference": 8.881784197001252e-16,
+        "independent_quad_error_estimate": 3.52407750404132e-14,
+        "maximum_quadrature_difference": 4.440892098500626e-16,
+        "base_to_refined_ce_change": 4.430648979647511e-08,
+        "refined_to_long_ce_change": 7.194567164248156e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_20/scenario.json": "e5c8e534ad757b4f9885be0b240dce48fafe389a8b26c80f36b6763e2a4f4aee",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_20/competitive_reference.json": "af7f2e8ab7b567e1491dc1156aed2cc83be334df4184533f06bb3eddc0ba2a95",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_20/sigma_1_20_audit.json": "69495404d66b40c19d7ac3344c334f0fcaf3637c8d8d7a9efa69406dcd894f75",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_20/consumption_validation.csv": "9aafd3791f2579c63eb2a0ab6c29f209936aa96807a3b01b76c4553b18da5029",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_20/consumption_splines.json": "d0f1e2939b07ee22fe63c0dc8be2646aac486665580283010a950d97746716a0"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.3,
+      "chi": 4.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 4.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.422990181253117,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3903932715171694,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3825.2067869206853,
+          "integrated_utility_difference": 5.031352641872535,
+          "tail_utility_difference": 1.192137697854968e-60,
+          "utility_difference_per_initial_person": 5.031352641872535,
+          "consumption_equivalent": 0.20461504087622134,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 1.2923422250956131,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "refined": {
+          "horizon": 4325.206786920686,
+          "integrated_utility_difference": 5.031350911209565,
+          "tail_utility_difference": 1.1012311974072766e-68,
+          "utility_difference_per_initial_person": 5.031350911209565,
+          "consumption_equivalent": 0.204614963739266,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 1.2923422250956116,
+          "terminal_growth_gap_error": 5.169475958410885e-16
+        },
+        "long": {
+          "horizon": 4825.206786920686,
+          "integrated_utility_difference": 5.0313509083755035,
+          "tail_utility_difference": 1.017256775224138e-76,
+          "utility_difference_per_initial_person": 5.0313509083755035,
+          "consumption_equivalent": 0.2046149636129497,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 1.2923422250956194,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.10148256015265478,
+          "ce_without_tail": 0.10681061561544113,
+          "ce_with_limiting_growth_tail": 0.17488485660541167,
+          "ce_change_from_full_solution": -0.02973010700753803
+        },
+        "100": {
+          "discounted_log_contribution": 0.16686111378123958,
+          "ce_without_tail": 0.1815901473240758,
+          "ce_with_limiting_growth_tail": 0.20139913599225723,
+          "ce_change_from_full_solution": -0.003215827620692474
+        },
+        "250": {
+          "discounted_log_contribution": 0.1860494366345107,
+          "ce_without_tail": 0.20448180443252925,
+          "ce_with_limiting_growth_tail": 0.20461081215595997,
+          "ce_change_from_full_solution": -4.151456989731628e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.18615997176989033,
+          "ce_without_tail": 0.20461494935030466,
+          "ce_with_limiting_growth_tail": 0.20461496357720252,
+          "ce_change_from_full_solution": -3.5747182991485715e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.1861599836098935,
+          "ce_without_tail": 0.2046149636129496,
+          "ce_with_limiting_growth_tail": 0.20461496361294967,
+          "ce_change_from_full_solution": -2.7755575615628914e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 8.881784197001252e-16,
+        "independent_quad_difference": 7.993605777301127e-15,
+        "independent_quad_error_estimate": 5.585921623447181e-14,
+        "maximum_quadrature_difference": 0.0,
+        "base_to_refined_ce_change": 7.713695535094267e-08,
+        "refined_to_long_ce_change": 1.2631629076054196e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_30/scenario.json": "6e95ee65fb931b97881480fc0c3777fe186be31b52ee5dfb8a05a235160d8022",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_30/competitive_reference.json": "5ec8ee8fbd35960e8f24c7481ea2e9724148560f3d43fac5c0700f6f3060fb71",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_30/sigma_1_30_audit.json": "765cdc63db5efa50ec8a5aa525de30e319d8ea8b8006c6f61e0ed2052f918063",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_30/consumption_validation.csv": "80597929796a71dd6fde4d3eec810752f2f103bc967f52888cca6746583fb3d2",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_30/consumption_splines.json": "6a9862ace92dfb124f038a5700ed65101c49020f8ea945f5874e4a5bcf73cd75"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.4,
+      "chi": 4.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 4.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.477482613429012,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3944327702844663,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3657.9519198145977,
+          "integrated_utility_difference": 7.679677535415078,
+          "tail_utility_difference": 1.1089031997643109e-57,
+          "utility_difference_per_initial_person": 7.679677535415078,
+          "consumption_equivalent": 0.32862964479973955,
+          "quadrature_8_16_difference": 8.881784197001252e-16,
+          "terminal_log_ratio": 2.467991802801899,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "refined": {
+          "horizon": 4157.951919814597,
+          "integrated_utility_difference": 7.679674626877716,
+          "tail_utility_difference": 1.0243437487821204e-65,
+          "utility_difference_per_initial_person": 7.679674626877716,
+          "consumption_equivalent": 0.3286295018180957,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.467991802801891,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "long": {
+          "horizon": 4657.951919814597,
+          "integrated_utility_difference": 7.679674621818785,
+          "tail_utility_difference": 9.462323815929091e-74,
+          "utility_difference_per_initial_person": 7.679674621818785,
+          "consumption_equivalent": 0.32862950156940224,
+          "quadrature_8_16_difference": 1.7763568394002505e-15,
+          "terminal_log_ratio": 2.4679918028018912,
+          "terminal_growth_gap_error": 5.169475958410885e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.14831886622893425,
+          "ce_without_tail": 0.15988268482103016,
+          "ce_with_limiting_growth_tail": 0.26853201404133026,
+          "ce_change_from_full_solution": -0.06009748752807198
+        },
+        "100": {
+          "discounted_log_contribution": 0.25061895854583116,
+          "ce_without_tail": 0.2848204212045034,
+          "ce_with_limiting_growth_tail": 0.3207960068768961,
+          "ce_change_from_full_solution": -0.00783349469250616
+        },
+        "250": {
+          "discounted_log_contribution": 0.28393438385325104,
+          "ce_without_tail": 0.3283457669623716,
+          "ce_with_limiting_growth_tail": 0.32861938741128033,
+          "ce_change_from_full_solution": -1.0114158121909966e-05
+        },
+        "500": {
+          "discounted_log_contribution": 0.28414793829497437,
+          "ce_without_tail": 0.32862947139314325,
+          "ce_with_limiting_growth_tail": 0.3286295015279027,
+          "ce_change_from_full_solution": -4.149952603782481e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.28414796100729484,
+          "ce_without_tail": 0.3286295015694019,
+          "ce_with_limiting_growth_tail": 0.32862950156940224,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 1.3322676295501878e-15,
+        "independent_quad_difference": 3.552713678800501e-15,
+        "independent_quad_error_estimate": 8.52615158677271e-14,
+        "maximum_quadrature_difference": 1.7763568394002505e-15,
+        "base_to_refined_ce_change": 1.4298164385806444e-07,
+        "refined_to_long_ce_change": 2.4869345471856263e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_40/scenario.json": "e5f9588c7a6aaab1553ba22f63599e24a6cc49a7aa1794001712f3042eebb897",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_40/competitive_reference.json": "47dfe4acafff62cd9e1a72a8d6f8f337c45649cbbdb7a0e4c3ced4eda7779d3b",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_40/sigma_1_40_audit.json": "f87d49ea3b4e2e793a7369a76a7adea6c2260effd01179932f055194d8d5871b",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_40/consumption_validation.csv": "5c2a3e1064ee1e6ea561239efe47c7ab482cad1e74e80124d819b879a08fc83c",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_40/consumption_splines.json": "d927f6dc23a3703b73c4c89f94a4f7c31cb86e5b69ba22279c2f567c33e2d77d"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.5,
+      "chi": 4.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 4.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.53547722915475,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3986937158332973,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.03134997581384653,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "ai_dominated",
+      "stages": {
+        "base": {
+          "horizon": 2209.478641324188,
+          "integrated_utility_difference": 12.685050888088687,
+          "tail_utility_difference": 4.4178012199736494e-33,
+          "utility_difference_per_initial_person": 12.685050888088687,
+          "consumption_equivalent": 0.5989495507588012,
+          "quadrature_8_16_difference": 3.552713678800501e-15,
+          "terminal_log_ratio": 51.57726174161694,
+          "terminal_growth_gap_error": 8.188841788686618e-09
+        },
+        "refined": {
+          "horizon": 2709.478641324188,
+          "integrated_utility_difference": 12.685048345283796,
+          "tail_utility_difference": 4.916208539847477e-41,
+          "utility_difference_per_initial_person": 12.685048345283796,
+          "consumption_equivalent": 0.5989494003235891,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 62.25225076704705,
+          "terminal_growth_gap_error": 2.332696709406168e-10
+        },
+        "long": {
+          "horizon": 3209.478641324188,
+          "integrated_utility_difference": 12.685048337044977,
+          "tail_utility_difference": 5.312914883138285e-49,
+          "utility_difference_per_initial_person": 12.685048337044977,
+          "consumption_equivalent": 0.5989493998361712,
+          "quadrature_8_16_difference": 1.7763568394002505e-15,
+          "terminal_log_ratio": 72.92723870408498,
+          "terminal_growth_gap_error": 6.6462148284873734e-12
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.21388030603652233,
+          "ce_without_tail": 0.23847440801094633,
+          "ce_with_limiting_growth_tail": 0.5612722497200253,
+          "ce_change_from_full_solution": -0.03767715011614592
+        },
+        "100": {
+          "discounted_log_contribution": 0.3909661341312671,
+          "ce_without_tail": 0.4784084449790152,
+          "ce_with_limiting_growth_tail": 0.5844397002698578,
+          "ce_change_from_full_solution": -0.014509699566313428
+        },
+        "250": {
+          "discounted_log_contribution": 0.46848909879650635,
+          "ce_without_tail": 0.5975785853971602,
+          "ce_with_limiting_growth_tail": 0.5988987940025212,
+          "ce_change_from_full_solution": -5.060583365001925e-05
+        },
+        "500": {
+          "discounted_log_contribution": 0.46934664561624995,
+          "ce_without_tail": 0.5989491714192077,
+          "ce_with_limiting_growth_tail": 0.5989493992694208,
+          "ce_change_from_full_solution": -5.667504243689336e-10
+        },
+        "1000": {
+          "discounted_log_contribution": 0.4693467884706618,
+          "ce_without_tail": 0.5989493998361675,
+          "ce_with_limiting_growth_tail": 0.5989493998361712,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 7.105427357601002e-15,
+        "independent_quad_difference": 7.105427357601002e-15,
+        "independent_quad_error_estimate": 1.4083232732270384e-13,
+        "maximum_quadrature_difference": 3.552713678800501e-15,
+        "base_to_refined_ce_change": 1.5043521206514754e-07,
+        "refined_to_long_ce_change": 4.874178838321086e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_50/scenario.json": "5b2e590c944122d18279d04c81a4bc18a7169dc4b5b3e318d51d3058f657b9d4",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_50/competitive_reference.json": "29ecbd5e8fba79cc72813a5d4e78b6f7878003f8049e914946087ca7543b6ec3",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_50/sigma_1_50_audit.json": "30c2e32769b6863dabd101687dd79bbd171f2f8ac8e4677a417b58f957f78863",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_50/consumption_validation.csv": "516724fe0855c5b08a3a1bc4ded7735e58ccdb7a2760d69eab4dd0da0817df6b",
+        "numerical_rewrite/welfare_grid/chi_4_5_sigma_1_50/consumption_splines.json": "be6a559ddbe7da103b73b75bc68b3f20b19bd4c7b59195dc0632d67300502c16"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 0.9,
+      "chi": 6.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 6.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.235221642477948,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3761715688408234,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4513.803577776404,
+          "integrated_utility_difference": -9.67406859290952,
+          "tail_utility_difference": -3.1724843541782477e-72,
+          "utility_difference_per_initial_person": -9.67406859290952,
+          "consumption_equivalent": -0.30088535543080897,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": -0.3994300211151189,
+          "terminal_growth_gap_error": 1.4713924523235278e-14
+        },
+        "refined": {
+          "horizon": 5013.803577776404,
+          "integrated_utility_difference": -9.674068162665241,
+          "tail_utility_difference": -2.930566452511008e-80,
+          "utility_difference_per_initial_person": -9.674068162665241,
+          "consumption_equivalent": -0.30088534430157604,
+          "quadrature_8_16_difference": 1.7763568394002505e-15,
+          "terminal_log_ratio": -0.3994300211151083,
+          "terminal_growth_gap_error": 1.4020035132844555e-14
+        },
+        "long": {
+          "horizon": 5513.803577776404,
+          "integrated_utility_difference": -9.67406816228087,
+          "tail_utility_difference": -2.7070960086131054e-88,
+          "utility_difference_per_initial_person": -9.67406816228087,
+          "consumption_equivalent": -0.3008853442916334,
+          "quadrature_8_16_difference": 1.7763568394002505e-15,
+          "terminal_log_ratio": -0.39943002111512127,
+          "terminal_growth_gap_error": 1.4020035132844553e-14
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.2918744909709205,
+          "ce_without_tail": -0.2531377319507579,
+          "ce_with_limiting_growth_tail": -0.3016409524966612,
+          "ce_change_from_full_solution": -0.0007556082050277912
+        },
+        "100": {
+          "discounted_log_contribution": -0.34776486137685686,
+          "ce_without_tail": -0.2937350731463654,
+          "ce_with_limiting_growth_tail": -0.300936071033793,
+          "ce_change_from_full_solution": -5.072674215961248e-05
+        },
+        "250": {
+          "discounted_log_contribution": -0.3579017011071365,
+          "ce_without_tail": -0.30085820350660275,
+          "ce_with_limiting_growth_tail": -0.30088538839437434,
+          "ce_change_from_full_solution": -4.4102740959228726e-08
+        },
+        "500": {
+          "discounted_log_contribution": -0.35794051830261786,
+          "ce_without_tail": -0.3008853417036687,
+          "ce_with_limiting_growth_tail": -0.30088534429273883,
+          "ce_change_from_full_solution": -1.1054490656192684e-12
+        },
+        "1000": {
+          "discounted_log_contribution": -0.35794052200439214,
+          "ce_without_tail": -0.3008853442916334,
+          "ce_with_limiting_growth_tail": -0.30088534429163344,
+          "ce_change_from_full_solution": -5.551115123125783e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 7.216449660063518e-16,
+        "independent_quad_difference": 5.329070518200751e-15,
+        "independent_quad_error_estimate": 1.0740373215557387e-13,
+        "maximum_quadrature_difference": 1.7763568394002505e-15,
+        "base_to_refined_ce_change": 1.1129232924123045e-08,
+        "refined_to_long_ce_change": 9.94265780818182e-12,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_0_90/scenario.json": "96f705fbd8a22d8995237edcc1a66aa8a42ba56e5e04a705832af20d1f7dffab",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_0_90/competitive_reference.json": "e7be6c2fe0a6a4a450ec3895ed1ee60774a2d26f2a818a95247a06a1c29951e8",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_0_90/sigma_0_90_audit.json": "51c45dbe6e778415e60ea822e1e93dd1393887cc9b5b2f08c2a6bcd987d48d66",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_0_90/consumption_validation.csv": "199b21f11ee7d87da0efaf0ea6e2508b446828add56de7e1905ce5d40f156a9a",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_0_90/consumption_splines.json": "9dee85d2d6c77c9419a5916a18127734658adbb6d01f6c20cef7534ff3205bfc"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.0,
+      "chi": 6.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 6.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.278062168197312,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.379461478230264,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 4030.3185702337983,
+          "integrated_utility_difference": -0.21159502273965838,
+          "tail_utility_difference": 1.3722569763084764e-64,
+          "utility_difference_per_initial_person": -0.21159502273965838,
+          "consumption_equivalent": -0.007798448918502247,
+          "quadrature_8_16_difference": 5.551115123125783e-17,
+          "terminal_log_ratio": 0.2940400174811056,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "refined": {
+          "horizon": 4530.318570233798,
+          "integrated_utility_difference": -0.211595465996584,
+          "tail_utility_difference": 1.2676154741937688e-72,
+          "utility_difference_per_initial_person": -0.211595465996584,
+          "consumption_equivalent": -0.007798465191109852,
+          "quadrature_8_16_difference": 5.551115123125783e-17,
+          "terminal_log_ratio": 0.29404001748110936,
+          "terminal_growth_gap_error": 1.9081958235744917e-16
+        },
+        "long": {
+          "horizon": 5030.318570233798,
+          "integrated_utility_difference": -0.21159546670268436,
+          "tail_utility_difference": 1.1709534133599947e-80,
+          "utility_difference_per_initial_person": -0.21159546670268436,
+          "consumption_equivalent": -0.007798465217031825,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.29404001748110986,
+          "terminal_growth_gap_error": 1.9081958235744957e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.024633838071385833,
+          "ce_without_tail": -0.024332901223178976,
+          "ce_with_limiting_growth_tail": -0.0152744181085258,
+          "ce_change_from_full_solution": -0.007475952891493974
+        },
+        "100": {
+          "discounted_log_contribution": -0.012051010401999974,
+          "ce_without_tail": -0.011978687787857718,
+          "ce_with_limiting_growth_tail": -0.008418074144069226,
+          "ce_change_from_full_solution": -0.0006196089270374015
+        },
+        "250": {
+          "discounted_log_contribution": -0.00785316197452799,
+          "ce_without_tail": -0.007822406460034688,
+          "ce_with_limiting_growth_tail": -0.007799236790483664,
+          "ce_change_from_full_solution": -7.715734518390707e-07
+        },
+        "500": {
+          "discounted_log_contribution": -0.007829034925591572,
+          "ce_without_tail": -0.007798467853898932,
+          "ce_with_limiting_growth_tail": -0.007798465230422069,
+          "ce_change_from_full_solution": -1.3390243774891175e-11
+        },
+        "1000": {
+          "discounted_log_contribution": -0.007829032267999341,
+          "ce_without_tail": -0.007798465217031846,
+          "ce_with_limiting_growth_tail": -0.007798465217031821,
+          "ce_change_from_full_solution": 3.469446951953614e-18
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 9.43689570931383e-16,
+        "independent_quad_difference": 2.498001805406602e-16,
+        "independent_quad_error_estimate": 1.5091016556008394e-14,
+        "maximum_quadrature_difference": 5.551115123125783e-17,
+        "base_to_refined_ce_change": 1.6272607605144485e-08,
+        "refined_to_long_ce_change": 2.592197290152143e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_00/scenario.json": "96bd8e66285abff720cd062e1030db67a0172fbc8ee3c4831621060bd68d7ef4",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_00/competitive_reference.json": "91d06753c71519d23886003eb6179025ef63bdf7a7f04c0af611eaaf8eb35beb",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_00/sigma_1_00_audit.json": "b0d4f42e5ceff5098f355f5362d0e75e73dd300c3a8a73f9d8d0fb1bcf1c8215",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_00/consumption_validation.csv": "e51575e476fe7aeeb0f073104887dd4397dfbfe7f868a441cc67c57ffd1f5ede",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_00/consumption_splines.json": "c4b13f596a99dd91e5d85e1427e6e9885a0df4a84d67c38d2f78d652fbb4b788"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.1,
+      "chi": 6.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 6.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.323503979203803,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3829206177420617,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3914.5825521549996,
+          "integrated_utility_difference": 2.2706800345412215,
+          "tail_utility_difference": 1.709214812357695e-62,
+          "utility_difference_per_initial_person": 2.2706800345412215,
+          "consumption_equivalent": 0.0876453837778776,
+          "quadrature_8_16_difference": 4.440892098500626e-16,
+          "terminal_log_ratio": 0.5058451869099903,
+          "terminal_growth_gap_error": 5.169475958410885e-16
+        },
+        "refined": {
+          "horizon": 4414.582552155,
+          "integrated_utility_difference": 2.2706792351139464,
+          "tail_utility_difference": 1.578878579064888e-70,
+          "utility_difference_per_initial_person": 2.2706792351139464,
+          "consumption_equivalent": 0.08764535160662283,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.5058451869099954,
+          "terminal_growth_gap_error": 1.9081958235744858e-16
+        },
+        "long": {
+          "horizon": 4914.582552155,
+          "integrated_utility_difference": 2.270679233896876,
+          "tail_utility_difference": 1.4584811396475344e-78,
+          "utility_difference_per_initial_person": 2.270679233896876,
+          "consumption_equivalent": 0.08764535155764441,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.5058451869099877,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.04326137609155334,
+          "ce_without_tail": 0.044210790920093446,
+          "ce_with_limiting_growth_tail": 0.07626499922636372,
+          "ce_change_from_full_solution": -0.011380352331280694
+        },
+        "100": {
+          "discounted_log_contribution": 0.07537899669152978,
+          "ce_without_tail": 0.07829274283427695,
+          "ce_with_limiting_growth_tail": 0.08667922233127799,
+          "ce_change_from_full_solution": -0.0009661292263664217
+        },
+        "250": {
+          "discounted_log_contribution": 0.08397091416212212,
+          "ce_without_tail": 0.08759725967120445,
+          "ce_with_limiting_growth_tail": 0.0876442760969216,
+          "ce_change_from_full_solution": -1.0754607228102842e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.08401512702512576,
+          "ce_without_tail": 0.0876453465228703,
+          "ce_with_limiting_growth_tail": 0.08764535154491199,
+          "ce_change_from_full_solution": -1.2732426224459914e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.08401513165418434,
+          "ce_without_tail": 0.08764535155764434,
+          "ce_with_limiting_growth_tail": 0.0876453515576444,
+          "ce_change_from_full_solution": -1.3877787807814457e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 7.216449660063518e-16,
+        "independent_quad_difference": 4.440892098500626e-15,
+        "independent_quad_error_estimate": 2.5428496083398458e-14,
+        "maximum_quadrature_difference": 4.440892098500626e-16,
+        "base_to_refined_ce_change": 3.217125477128491e-08,
+        "refined_to_long_ce_change": 4.8978418543121904e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_10/scenario.json": "cdd3d782ab102744ea42e17096766c91976a523e4431ecbccd99ef53e3f9d294",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_10/competitive_reference.json": "c95bfd1ec4bcef803fafdacbdae6d3339fa2cfb17f1075aa0b93948e7d74fe48",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_10/sigma_1_10_audit.json": "19e84b97fb9b497651d9e1e7c7540848f35e7d85418d2516f419fbcf8b004baa",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_10/consumption_validation.csv": "1e908ad5c828ffcb2908c99952a68743337e127058d5b42c5574129ec2b3cbdc",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_10/consumption_splines.json": "5f8cb91f8a994b677a2827915547435d63e884ab3de7ae1c8f286937e7f7b200"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.2,
+      "chi": 6.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 6.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.371742112791399,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3865604057999374,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3821.1458791299956,
+          "integrated_utility_difference": 4.207899459844938,
+          "tail_utility_difference": 8.480683697126928e-61,
+          "utility_difference_per_initial_person": 4.207899459844938,
+          "consumption_equivalent": 0.16846658724065458,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.7910932416654785,
+          "terminal_growth_gap_error": 1.9081958235744888e-16
+        },
+        "refined": {
+          "horizon": 4321.145879129996,
+          "integrated_utility_difference": 4.207898139876308,
+          "tail_utility_difference": 7.833988875130487e-69,
+          "utility_difference_per_initial_person": 4.207898139876308,
+          "consumption_equivalent": 0.1684665301741041,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.7910932416654803,
+          "terminal_growth_gap_error": 1.9081958235744839e-16
+        },
+        "long": {
+          "horizon": 4821.145879129996,
+          "integrated_utility_difference": 4.207898137947191,
+          "tail_utility_difference": 7.236607788645684e-77,
+          "utility_difference_per_initial_person": 4.207898137947191,
+          "consumption_equivalent": 0.16846653009070203,
+          "quadrature_8_16_difference": 8.881784197001252e-16,
+          "terminal_log_ratio": 0.7910932416654723,
+          "terminal_growth_gap_error": 1.2385925618474395e-15
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.08996264066296594,
+          "ce_without_tail": 0.0941334068429424,
+          "ce_with_limiting_growth_tail": 0.14977121263596196,
+          "ce_change_from_full_solution": -0.018695317454740068
+        },
+        "100": {
+          "discounted_log_contribution": 0.14184173737760364,
+          "ce_without_tail": 0.15239425316766014,
+          "ce_with_limiting_growth_tail": 0.16679720465966288,
+          "ce_change_from_full_solution": -0.001669325431039148
+        },
+        "250": {
+          "discounted_log_contribution": 0.15562168018002628,
+          "ce_without_tail": 0.1683840966052315,
+          "ce_with_limiting_growth_tail": 0.16846486185118242,
+          "ce_change_from_full_solution": -1.6682395196088162e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.1556922238357219,
+          "ce_without_tail": 0.1684665215979086,
+          "ce_with_limiting_growth_tail": 0.16846653007694037,
+          "ce_change_from_full_solution": -1.3761658479438665e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.15569223110404598,
+          "ce_without_tail": 0.16846653009070198,
+          "ce_with_limiting_growth_tail": 0.16846653009070203,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 9.992007221626409e-16,
+        "independent_quad_difference": 4.440892098500626e-15,
+        "independent_quad_error_estimate": 4.6717053980262936e-14,
+        "maximum_quadrature_difference": 8.881784197001252e-16,
+        "base_to_refined_ce_change": 5.7066550485096457e-08,
+        "refined_to_long_ce_change": 8.340206303358855e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_20/scenario.json": "b54ba5a7782ff62b3dbc32edf12f924751512b5159ac5cdd2f48f1424cc75355",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_20/competitive_reference.json": "af7f2e8ab7b567e1491dc1156aed2cc83be334df4184533f06bb3eddc0ba2a95",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_20/sigma_1_20_audit.json": "4746a9a5a1dac6b4c926cc6fa6d12c9950b189aff4c745256b9bd8454adc732f",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_20/consumption_validation.csv": "2c1857abb8adf142ded23be5d7f9ac0ecb8611ea37264a7c36de815ba1496cd8",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_20/consumption_splines.json": "61dac2ab9c9600e99f98a10bb9eb3cf1767f44696e21266334abdd7e82005947"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.3,
+      "chi": 6.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 6.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.422990181253117,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3903932715171694,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3714.5598359776927,
+          "integrated_utility_difference": 6.542208028859386,
+          "tail_utility_difference": 7.1499128813336165e-59,
+          "utility_difference_per_initial_person": 6.542208028859386,
+          "consumption_equivalent": 0.2738727846072854,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 1.2923422250956111,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "refined": {
+          "horizon": 4214.559835977692,
+          "integrated_utility_difference": 6.5422059270277115,
+          "tail_utility_difference": 6.604696032879473e-67,
+          "utility_difference_per_initial_person": 6.5422059270277115,
+          "consumption_equivalent": 0.27387268554104105,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 1.2923422250956171,
+          "terminal_growth_gap_error": 1.9081958235744957e-16
+        },
+        "long": {
+          "horizon": 4714.559835977692,
+          "integrated_utility_difference": 6.542205923913218,
+          "tail_utility_difference": 6.101054713634068e-75,
+          "utility_difference_per_initial_person": 6.542205923913218,
+          "consumption_equivalent": 0.27387268539424475,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 1.2923422250956103,
+          "terminal_growth_gap_error": 5.169475958410877e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.1392064939642738,
+          "ce_without_tail": 0.14936141169533013,
+          "ce_with_limiting_growth_tail": 0.23946612193760275,
+          "ce_change_from_full_solution": -0.034406563456642
+        },
+        "100": {
+          "discounted_log_contribution": 0.21964737336653287,
+          "ce_without_tail": 0.24563740820777025,
+          "ce_with_limiting_growth_tail": 0.2705368849931552,
+          "ce_change_from_full_solution": -0.0033358004010895503
+        },
+        "250": {
+          "discounted_log_contribution": 0.2419447116349881,
+          "ce_without_tail": 0.27372376876474563,
+          "ce_with_limiting_growth_tail": 0.2738698099827548,
+          "ce_change_from_full_solution": -2.875411489966506e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.24206160728182793,
+          "ce_without_tail": 0.2738726702313878,
+          "ce_with_limiting_growth_tail": 0.2738726853793473,
+          "ce_change_from_full_solution": -1.4897472144781432e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.24206161918478886,
+          "ce_without_tail": 0.2738726853942445,
+          "ce_with_limiting_growth_tail": 0.2738726853942446,
+          "ce_change_from_full_solution": -1.6653345369377348e-16
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 8.881784197001252e-16,
+        "independent_quad_difference": 7.105427357601002e-15,
+        "independent_quad_error_estimate": 7.263307648567538e-14,
+        "maximum_quadrature_difference": 0.0,
+        "base_to_refined_ce_change": 9.906624437450162e-08,
+        "refined_to_long_ce_change": 1.4679629734004607e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_30/scenario.json": "3210bf7af024a0f8527eed0f2fdb5b704dd641470f110d1ccdb0df67c7223475",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_30/competitive_reference.json": "5ec8ee8fbd35960e8f24c7481ea2e9724148560f3d43fac5c0700f6f3060fb71",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_30/sigma_1_30_audit.json": "989a0616295931a28f7aaa6a133b0e5ccfa8368c4938ca03b2c4ab022ee643f7",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_30/consumption_validation.csv": "de776db9bee343cb0738d63f1e311d752f9d8e7a09922f541e99fa09b8b57b77",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_30/consumption_splines.json": "4b1f9643ddf01731809378638a571fbb5213cb014ae1984ae0c4d780ca34939c"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.4,
+      "chi": 6.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 6.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.477482613429012,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3944327702844663,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3591.9183655929255,
+          "integrated_utility_difference": 10.125354079607833,
+          "tail_utility_difference": 1.276379853830054e-56,
+          "utility_difference_per_initial_person": 10.125354079607833,
+          "consumption_equivalent": 0.45446494987022384,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.4679918028018997,
+          "terminal_growth_gap_error": 1.9081958235744839e-16
+        },
+        "refined": {
+          "horizon": 4091.9183655929255,
+          "integrated_utility_difference": 10.12535036910969,
+          "tail_utility_difference": 1.1790494649308476e-64,
+          "utility_difference_per_initial_person": 10.12535036910969,
+          "consumption_equivalent": 0.4544647501890262,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.4679918028018935,
+          "terminal_growth_gap_error": 5.169475958410889e-16
+        },
+        "long": {
+          "horizon": 4591.9183655929255,
+          "integrated_utility_difference": 10.125350363916644,
+          "tail_utility_difference": 1.0891410081272074e-72,
+          "utility_difference_per_initial_person": 10.125350363916644,
+          "consumption_equivalent": 0.45446474990956137,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.4679918028018943,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.20347873274793515,
+          "ce_without_tail": 0.2256590909631916,
+          "ce_with_limiting_growth_tail": 0.3774495079353552,
+          "ce_change_from_full_solution": -0.07701524197420617
+        },
+        "100": {
+          "discounted_log_contribution": 0.33417593406912555,
+          "ce_without_tail": 0.3967888647071893,
+          "ce_with_limiting_growth_tail": 0.4455782026241284,
+          "ce_change_from_full_solution": -0.008886547285432977
+        },
+        "250": {
+          "discounted_log_contribution": 0.3744116746818518,
+          "ce_without_tail": 0.4541356580875931,
+          "ce_with_limiting_growth_tail": 0.4544584220248203,
+          "ce_change_from_full_solution": -6.327884741086365e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.3746379406929493,
+          "ce_without_tail": 0.4544647167885391,
+          "ce_with_limiting_growth_tail": 0.45446474989488655,
+          "ce_change_from_full_solution": -1.4674816917192857e-11
+        },
+        "1000": {
+          "discounted_log_contribution": 0.37463796346491557,
+          "ce_without_tail": 0.454464749909561,
+          "ce_with_limiting_growth_tail": 0.45446474990956137,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 1.3322676295501878e-15,
+        "independent_quad_difference": 3.552713678800501e-15,
+        "independent_quad_error_estimate": 1.1241397106416955e-13,
+        "maximum_quadrature_difference": 0.0,
+        "base_to_refined_ce_change": 1.9968119763236203e-07,
+        "refined_to_long_ce_change": 2.794648401582833e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_40/scenario.json": "fe74f900d965bee6df8ef5821ed6eb3bc82e0dcaebd7b4982e3893653e726a4f",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_40/competitive_reference.json": "47dfe4acafff62cd9e1a72a8d6f8f337c45649cbbdb7a0e4c3ced4eda7779d3b",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_40/sigma_1_40_audit.json": "ea23388646e4af6f3e25a0cf60af89a61433fa51dfcbc1351bcf8a0fee5af572",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_40/consumption_validation.csv": "94d37cfc298079ea54e345058cf6427de8194b659218d8b7222943b01ca347e9",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_40/consumption_splines.json": "2e8f178e6b8a9d7d36ee979cac16dbbf13762f89ec179aee96ae63f9c27dd7e3"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.5,
+      "chi": 6.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 6.0,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.53547722915475,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3986937158332973,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.03134997581384653,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "ai_dominated",
+      "stages": {
+        "base": {
+          "horizon": 2098.8316903811956,
+          "integrated_utility_difference": 17.7074718624293,
+          "tail_utility_difference": 2.5713244013997e-31,
+          "utility_difference_per_initial_person": 17.7074718624293,
+          "consumption_equivalent": 0.9254822559004137,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 50.03647632315639,
+          "terminal_growth_gap_error": 1.368591840203437e-08
+        },
+        "refined": {
+          "horizon": 2598.8316903811956,
+          "integrated_utility_difference": 17.707468381820327,
+          "tail_utility_difference": 2.8762160224194333e-39,
+          "utility_difference_per_initial_person": 17.707468381820327,
+          "consumption_equivalent": 0.9254820079319495,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 60.71146607335592,
+          "terminal_growth_gap_error": 3.898582325023714e-10
+        },
+        "long": {
+          "horizon": 3098.8316903811956,
+          "integrated_utility_difference": 17.707468371621022,
+          "tail_utility_difference": 3.1196567093218877e-47,
+          "utility_difference_per_initial_person": 17.707468371621022,
+          "consumption_equivalent": 0.9254820072053218,
+          "quadrature_8_16_difference": 3.552713678800501e-15,
+          "terminal_log_ratio": 71.3864540323321,
+          "terminal_growth_gap_error": 1.1102289226849749e-11
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.301985131699763,
+          "ce_without_tail": 0.35254111657257675,
+          "ce_with_limiting_growth_tail": 0.8009552580334229,
+          "ce_change_from_full_solution": -0.12452674917189888
+        },
+        "100": {
+          "discounted_log_contribution": 0.5486027885199047,
+          "ce_without_tail": 0.7308329878934505,
+          "ce_with_limiting_growth_tail": 0.8958802472659095,
+          "ce_change_from_full_solution": -0.029601759939412275
+        },
+        "250": {
+          "discounted_log_contribution": 0.6542021145831817,
+          "ce_without_tail": 0.9236070868667146,
+          "ce_with_limiting_growth_tail": 0.9254388068078634,
+          "ce_change_from_full_solution": -4.3200397458420525e-05
+        },
+        "500": {
+          "discounted_log_contribution": 0.6551761788693131,
+          "ce_without_tail": 0.9254817166873388,
+          "ce_with_limiting_growth_tail": 0.9254820066956335,
+          "ce_change_from_full_solution": -5.096882915722745e-10
+        },
+        "1000": {
+          "discounted_log_contribution": 0.6551763297499755,
+          "ce_without_tail": 0.9254820072053176,
+          "ce_with_limiting_growth_tail": 0.9254820072053223,
+          "ce_change_from_full_solution": 4.440892098500626e-16
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 7.105427357601002e-15,
+        "independent_quad_difference": 7.105427357601002e-15,
+        "independent_quad_error_estimate": 1.9659239093995368e-13,
+        "maximum_quadrature_difference": 3.552713678800501e-15,
+        "base_to_refined_ce_change": 2.479684642064939e-07,
+        "refined_to_long_ce_change": 7.266276469408695e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_50/scenario.json": "29beaf65175f7ff342802f9c91bbc3601a6e264e5d51f53d7a685dd8d63db512",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_50/competitive_reference.json": "29ecbd5e8fba79cc72813a5d4e78b6f7878003f8049e914946087ca7543b6ec3",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_50/sigma_1_50_audit.json": "8f3a840ddc84ee67c56754a67e8ff1380e89f102b9f83050493fc3f57ca6660c",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_50/consumption_validation.csv": "8c79e75c13cdb23c81f550a6d19af197139f4df738f62665fffdb4e9ee9e0269",
+        "numerical_rewrite/welfare_grid/chi_6_0_sigma_1_50/consumption_splines.json": "40f6b9d62b0bcad4712487ff99a0e956fe5116ce6babf4d0749af8b351cddfaf"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "chi": 7.5,
+      "sigma": 0.9,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 7.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "monopoly_regime": "labor_supported",
+      "initial_capital": 6.235221642477948,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3761715688408234,
+      "effective_discount": 0.037,
+      "competitive_growth": 0.01,
+      "monopoly_growth": 0.01,
+      "stages": {
+        "base": {
+          "horizon": 5427.979134963247,
+          "utility_difference_per_initial_person": -9.564445396455504,
+          "integrated_utility_difference": -9.564445396455504,
+          "tail_utility_difference": -6.480487687122337e-87,
+          "consumption_equivalent": -0.29804394713253124,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": -0.39943002111512,
+          "terminal_growth_gap_error": 1.4020035132844555e-14
+        },
+        "refined": {
+          "horizon": 5927.979134963247,
+          "utility_difference_per_initial_person": -9.564445018675485,
+          "integrated_utility_difference": -9.564445018675485,
+          "tail_utility_difference": -5.9863178794813e-95,
+          "consumption_equivalent": -0.2980439373206873,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": -0.39943002111512105,
+          "terminal_growth_gap_error": 1.543556948924163e-14
+        },
+        "long": {
+          "horizon": 6427.979134963247,
+          "utility_difference_per_initial_person": -9.564445018334057,
+          "integrated_utility_difference": -9.564445018334057,
+          "tail_utility_difference": -5.529831007226207e-103,
+          "consumption_equivalent": -0.29804393731181955,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": -0.3994300211151139,
+          "terminal_growth_gap_error": 1.543556948924163e-14
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.28840029711982207,
+          "ce_without_tail": -0.2505384751048316,
+          "ce_with_limiting_growth_tail": -0.2986945276936694,
+          "ce_change_from_full_solution": -0.000650590381849836
+        },
+        "100": {
+          "discounted_log_contribution": -0.3437683253743654,
+          "ce_without_tail": -0.2909068120797945,
+          "ce_with_limiting_growth_tail": -0.29808651758464555,
+          "ce_change_from_full_solution": -4.25802728259983e-05
+        },
+        "250": {
+          "discounted_log_contribution": -0.3538457447705961,
+          "ce_without_tail": -0.29801675640963066,
+          "ce_with_limiting_growth_tail": -0.29804397299873014,
+          "ce_change_from_full_solution": -3.56869105933022e-08
+        },
+        "500": {
+          "discounted_log_contribution": -0.35388446198011053,
+          "ce_without_tail": -0.29804393471581087,
+          "ce_with_limiting_growth_tail": -0.29804393731267187,
+          "ce_change_from_full_solution": -8.523182160047327e-13
+        },
+        "1000": {
+          "discounted_log_contribution": -0.35388446567836,
+          "ce_without_tail": -0.29804393731181955,
+          "ce_with_limiting_growth_tail": -0.29804393731181955,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 6.106226635438361e-16,
+        "independent_quad_difference": 1.5987211554602254e-14,
+        "independent_quad_error_estimate": 1.0618667077115847e-13,
+        "maximum_quadrature_difference": 0.0,
+        "base_to_refined_ce_change": 9.811843948437371e-09,
+        "refined_to_long_ce_change": 8.867739875739744e-12,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/scenario.json": "6141ca80907cdfb15c07006c2c9e52151b2ca7687eecf28b2da82991cdebc8cc",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/competitive_reference.json": "23daf316dcfa5748aa2848fb171b713b7abc724c98649beed2f1e68397c3112b",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/paths_manifest.json": "7a771562b0972dfc2aa5a88db4c0b3837308546c86979ab282041d059d3c523a",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/sigma_0_90_audit.json": "44972f924d75ce0d86598849cf749d3aeeffcb6ba93ce92b999d68c9fb7f7683",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/equilibrium_paths.csv": "e0c07d9ab527ef8c4499e6c3f292b5e35119368bb0b52cb4ffefa5fbfd8236f0",
+        "numerical_rewrite/welfare_comparison/sigma_0_90_chi_7_5_consumption_splines.json": "ea88176f36405cdf54b52bc1112079f5b2e848179adbe1878f1ccf58b602c995"
+      },
+      "numerically_verified": true,
+      "origin": "reused_original"
+    },
+    {
+      "chi": 7.5,
+      "sigma": 1.0,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 7.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "monopoly_regime": "labor_supported",
+      "initial_capital": 6.278062168197312,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.379461478230264,
+      "effective_discount": 0.037,
+      "competitive_growth": 0.01,
+      "monopoly_growth": 0.01,
+      "stages": {
+        "base": {
+          "horizon": 4944.49412742064,
+          "utility_difference_per_initial_person": 0.2699852827264863,
+          "integrated_utility_difference": 0.2699852827264863,
+          "tail_utility_difference": 2.8031326385652475e-79,
+          "consumption_equivalent": 0.01003951662682025,
+          "quadrature_8_16_difference": 5.551115123125783e-17,
+          "terminal_log_ratio": 0.2940400174811007,
+          "terminal_growth_gap_error": 1.9081958235744898e-16
+        },
+        "refined": {
+          "horizon": 5444.49412742064,
+          "utility_difference_per_initial_person": 0.2699847443189132,
+          "integrated_utility_difference": 0.2699847443189132,
+          "tail_utility_difference": 2.58937966445735e-87,
+          "consumption_equivalent": 0.010039496505742228,
+          "quadrature_8_16_difference": 2.220446049250313e-16,
+          "terminal_log_ratio": 0.2940400174811031,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "long": {
+          "horizon": 5944.49412742064,
+          "utility_difference_per_initial_person": 0.26998474361109875,
+          "integrated_utility_difference": 0.26998474361109875,
+          "tail_utility_difference": 2.391926430615533e-95,
+          "consumption_equivalent": 0.010039496479290169,
+          "quadrature_8_16_difference": 5.551115123125783e-17,
+          "terminal_log_ratio": 0.29404001748110614,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": -0.0107444235672893,
+          "ce_without_tail": -0.010686908421725018,
+          "ce_with_limiting_growth_tail": 0.002552452101864052,
+          "ce_change_from_full_solution": -0.007487044377426116
+        },
+        "100": {
+          "discounted_log_contribution": 0.005212747921961304,
+          "ce_without_tail": 0.005226357930648714,
+          "ce_with_limiting_growth_tail": 0.009450410700169706,
+          "ce_change_from_full_solution": -0.0005890857791204622
+        },
+        "250": {
+          "discounted_log_contribution": 0.009964066467875208,
+          "ce_without_tail": 0.010013873066131523,
+          "ce_with_limiting_growth_tail": 0.010038864566711053,
+          "ce_change_from_full_solution": -6.319125791156427e-07
+        },
+        "500": {
+          "discounted_log_contribution": 0.009989432829084629,
+          "ce_without_tail": 0.010039493767812858,
+          "ce_with_limiting_growth_tail": 0.010039496471070199,
+          "ce_change_from_full_solution": -8.21996984368134e-12
+        },
+        "1000": {
+          "discounted_log_contribution": 0.009989435513610631,
+          "ce_without_tail": 0.010039496479290146,
+          "ce_with_limiting_growth_tail": 0.01003949647929017,
+          "ce_change_from_full_solution": 1.734723475976807e-18
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 6.661338147750939e-16,
+        "independent_quad_difference": 3.3306690738754696e-16,
+        "independent_quad_error_estimate": 1.50985425362743e-14,
+        "maximum_quadrature_difference": 2.220446049250313e-16,
+        "base_to_refined_ce_change": 2.012107802248919e-08,
+        "refined_to_long_ce_change": 2.6452059292969565e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/scenario.json": "6141ca80907cdfb15c07006c2c9e52151b2ca7687eecf28b2da82991cdebc8cc",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/competitive_reference.json": "23daf316dcfa5748aa2848fb171b713b7abc724c98649beed2f1e68397c3112b",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/paths_manifest.json": "7a771562b0972dfc2aa5a88db4c0b3837308546c86979ab282041d059d3c523a",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/sigma_1_00_audit.json": "7fb63ae8229a03c26e84a54b4eb75e95f08a94f84a3dd5972c2ad54cc9d228fb",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/equilibrium_paths.csv": "e0c07d9ab527ef8c4499e6c3f292b5e35119368bb0b52cb4ffefa5fbfd8236f0",
+        "numerical_rewrite/welfare_comparison/sigma_1_00_chi_7_5_consumption_splines.json": "cf4ec99fbb6b22a67c1e6cb6f702839afc22dbad17b0a2ccd25d558d576c17e6"
+      },
+      "numerically_verified": true,
+      "origin": "reused_original"
+    },
+    {
+      "chi": 7.5,
+      "sigma": 1.1,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 7.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "monopoly_regime": "labor_supported",
+      "initial_capital": 6.323503979203803,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3829206177420617,
+      "effective_discount": 0.037,
+      "competitive_growth": 0.01,
+      "monopoly_growth": 0.01,
+      "stages": {
+        "base": {
+          "horizon": 4828.758109341842,
+          "utility_difference_per_initial_person": 2.8947150304507585,
+          "integrated_utility_difference": 2.8947150304507585,
+          "tail_utility_difference": 3.491442134787277e-77,
+          "consumption_equivalent": 0.11305051335266594,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.5058451869099855,
+          "terminal_growth_gap_error": 1.2385925618474403e-15
+        },
+        "refined": {
+          "horizon": 5328.758109341842,
+          "utility_difference_per_initial_person": 2.894714123493655,
+          "integrated_utility_difference": 2.894714123493655,
+          "tail_utility_difference": 3.2252020967780496e-85,
+          "consumption_equivalent": 0.11305047600157098,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.5058451869099835,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "long": {
+          "horizon": 5828.758109341842,
+          "utility_difference_per_initial_person": 2.8947141223186095,
+          "integrated_utility_difference": 2.8947141223186095,
+          "tail_utility_difference": 2.9792642018669463e-93,
+          "consumption_equivalent": 0.11305047595317924,
+          "quadrature_8_16_difference": 4.440892098500626e-16,
+          "terminal_log_ratio": 0.5058451869099871,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.060872905309487406,
+          "ce_without_tail": 0.06276383396282195,
+          "ce_with_limiting_growth_tail": 0.10145349308522104,
+          "ce_change_from_full_solution": -0.011596982867958197
+        },
+        "100": {
+          "discounted_log_contribution": 0.09768558156740433,
+          "ce_without_tail": 0.10261604779156093,
+          "ce_with_limiting_growth_tail": 0.1121320926872971,
+          "ce_change_from_full_solution": -0.0009183832658821445
+        },
+        "250": {
+          "discounted_log_contribution": 0.10705868372482137,
+          "ce_without_tail": 0.11299956752324734,
+          "ce_with_limiting_growth_tail": 0.11304964601422642,
+          "ce_change_from_full_solution": -8.299389528260148e-07
+        },
+        "500": {
+          "discounted_log_contribution": 0.1071044178745637,
+          "ce_without_tail": 0.11305047077613124,
+          "ce_with_limiting_growth_tail": 0.11305047594613761,
+          "ce_change_from_full_solution": -7.041631167048479e-12
+        },
+        "1000": {
+          "discounted_log_contribution": 0.10710442252578851,
+          "ce_without_tail": 0.11305047595317921,
+          "ce_with_limiting_growth_tail": 0.11305047595317926,
+          "ce_change_from_full_solution": 1.3877787807814457e-17
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 7.771561172376096e-16,
+        "independent_quad_difference": 4.440892098500626e-16,
+        "independent_quad_error_estimate": 3.2137782683057193e-14,
+        "maximum_quadrature_difference": 4.440892098500626e-16,
+        "base_to_refined_ce_change": 3.7351094966942e-08,
+        "refined_to_long_ce_change": 4.839173506354655e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/scenario.json": "6141ca80907cdfb15c07006c2c9e52151b2ca7687eecf28b2da82991cdebc8cc",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/competitive_reference.json": "23daf316dcfa5748aa2848fb171b713b7abc724c98649beed2f1e68397c3112b",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/paths_manifest.json": "7a771562b0972dfc2aa5a88db4c0b3837308546c86979ab282041d059d3c523a",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/sigma_1_10_audit.json": "7afa9539db35a953190d77904de427f70b28538b0caf3517bc3c17f1c0713af9",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/equilibrium_paths.csv": "e0c07d9ab527ef8c4499e6c3f292b5e35119368bb0b52cb4ffefa5fbfd8236f0",
+        "numerical_rewrite/welfare_comparison/sigma_1_10_chi_7_5_consumption_splines.json": "a2f4e8bf1f4ad4880962872870c738ce791c72951c7d4bf87e0a5bbd090f745b"
+      },
+      "numerically_verified": true,
+      "origin": "reused_original"
+    },
+    {
+      "sigma": 1.2,
+      "chi": 7.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 7.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.371742112791399,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3865604057999374,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3735.321436316838,
+          "integrated_utility_difference": 5.075541085672017,
+          "tail_utility_difference": 2.030181644934282e-59,
+          "utility_difference_per_initial_person": 5.075541085672017,
+          "consumption_equivalent": 0.2065861641724945,
+          "quadrature_8_16_difference": 8.881784197001252e-16,
+          "terminal_log_ratio": 0.7910932416654772,
+          "terminal_growth_gap_error": 5.169475958410889e-16
+        },
+        "refined": {
+          "horizon": 4235.321436316838,
+          "integrated_utility_difference": 5.0755404825103945,
+          "tail_utility_difference": 1.875370074973709e-67,
+          "utility_difference_per_initial_person": 5.0755404825103945,
+          "consumption_equivalent": 0.20658613724513547,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.791093241665477,
+          "terminal_growth_gap_error": 1.9081958235744898e-16
+        },
+        "long": {
+          "horizon": 4735.321436316838,
+          "integrated_utility_difference": 5.07554048068105,
+          "tail_utility_difference": 1.7323636665135618e-75,
+          "utility_difference_per_initial_person": 5.07554048068105,
+          "consumption_equivalent": 0.20658613716346674,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 0.7910932416654752,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.11357282589437899,
+          "ce_without_tail": 0.12027347083916823,
+          "ce_with_limiting_growth_tail": 0.1869896450911449,
+          "ce_change_from_full_solution": -0.019596492072321836
+        },
+        "100": {
+          "discounted_log_contribution": 0.17269563849587394,
+          "ce_without_tail": 0.1885043150683539,
+          "ce_with_limiting_growth_tail": 0.20498584030242598,
+          "ce_change_from_full_solution": -0.0016002968610407675
+        },
+        "250": {
+          "discounted_log_contribution": 0.18772233008105899,
+          "ce_without_tail": 0.20649846050470144,
+          "ce_with_limiting_growth_tail": 0.20658491947640323,
+          "ce_change_from_full_solution": -1.217687063514994e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.18779499049551804,
+          "ce_without_tail": 0.206586128367839,
+          "ce_with_limiting_growth_tail": 0.20658613715643862,
+          "ce_change_from_full_solution": -7.028128079511475e-12
+        },
+        "1000": {
+          "discounted_log_contribution": 0.18779499778519876,
+          "ce_without_tail": 0.20658613716346666,
+          "ce_with_limiting_growth_tail": 0.20658613716346674,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 9.992007221626409e-16,
+        "independent_quad_difference": 6.217248937900877e-15,
+        "independent_quad_error_estimate": 5.634981904069136e-14,
+        "maximum_quadrature_difference": 8.881784197001252e-16,
+        "base_to_refined_ce_change": 2.692735903697674e-08,
+        "refined_to_long_ce_change": 8.166872733639252e-11,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_20/scenario.json": "9ace47694ee0a6751f14145a8eb85de0bdb3cc2c4347c3b48167d84bd2e90499",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_20/competitive_reference.json": "af7f2e8ab7b567e1491dc1156aed2cc83be334df4184533f06bb3eddc0ba2a95",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_20/sigma_1_20_audit.json": "16dff3c70fa7e29fcbd2113308eb28e8ce9dd5fc9040bc0093c92bef6c2298cd",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_20/consumption_validation.csv": "c475852fb475b8bcb51fff7d9835e4b6cd44e5af1250a24c4a0e09db4bc598b2",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_20/consumption_splines.json": "7cd32b543f8e516f44a59c1b96b7aece7ab91292f7fa01fd4426dd0abcfe6ba0"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.3,
+      "chi": 7.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 7.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.422990181253117,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3903932715171694,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3628.7353931645353,
+          "integrated_utility_difference": 7.845307269942138,
+          "tail_utility_difference": 1.7116098669591853e-57,
+          "utility_difference_per_initial_person": 7.845307269942138,
+          "consumption_equivalent": 0.33679688618043063,
+          "quadrature_8_16_difference": 8.881784197001252e-16,
+          "terminal_log_ratio": 1.2923422250956154,
+          "terminal_growth_gap_error": 1.9081958235744917e-16
+        },
+        "refined": {
+          "horizon": 4128.735393164536,
+          "integrated_utility_difference": 7.845306428268018,
+          "tail_utility_difference": 1.5810909986967248e-65,
+          "utility_difference_per_initial_person": 7.845306428268018,
+          "consumption_equivalent": 0.3367968445499796,
+          "quadrature_8_16_difference": 1.7763568394002505e-15,
+          "terminal_log_ratio": 1.2923422250956182,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        },
+        "long": {
+          "horizon": 4628.735393164536,
+          "integrated_utility_difference": 7.84530642518844,
+          "tail_utility_difference": 1.4605248511455724e-73,
+          "utility_difference_per_initial_person": 7.84530642518844,
+          "consumption_equivalent": 0.3367968443976591,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 1.2923422250956105,
+          "terminal_growth_gap_error": 5.169475958410883e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.17277824329152555,
+          "ce_without_tail": 0.18860249527945347,
+          "ce_with_limiting_growth_tail": 0.299122456114235,
+          "ce_change_from_full_solution": -0.03767438828342412
+        },
+        "100": {
+          "discounted_log_contribution": 0.2656040533802581,
+          "ce_without_tail": 0.3042185555113731,
+          "ce_with_limiting_growth_tail": 0.33353702285551834,
+          "ce_change_from_full_solution": -0.003259821542140773
+        },
+        "250": {
+          "discounted_log_contribution": 0.2901562599087419,
+          "ce_without_tail": 0.3366363343795223,
+          "ce_with_limiting_growth_tail": 0.3367948885125503,
+          "ce_change_from_full_solution": -1.955885108817501e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.29027632580881707,
+          "ce_without_tail": 0.336796828458823,
+          "ce_with_limiting_growth_tail": 0.3367968443906363,
+          "ce_change_from_full_solution": -7.02282676456889e-12
+        },
+        "1000": {
+          "discounted_log_contribution": 0.29027633773197214,
+          "ce_without_tail": 0.336796844397659,
+          "ce_with_limiting_growth_tail": 0.3367968443976591,
+          "ce_change_from_full_solution": 0.0
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 6.661338147750939e-16,
+        "independent_quad_difference": 2.6645352591003757e-15,
+        "independent_quad_error_estimate": 8.710039828483885e-14,
+        "maximum_quadrature_difference": 1.7763568394002505e-15,
+        "base_to_refined_ce_change": 4.163045103089402e-08,
+        "refined_to_long_ce_change": 1.523204895548247e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_30/scenario.json": "2ed4ed0673e172d3b8b032b0fac5be55314c50ff4b2d2ee4631fa7c11d9b7ace",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_30/competitive_reference.json": "5ec8ee8fbd35960e8f24c7481ea2e9724148560f3d43fac5c0700f6f3060fb71",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_30/sigma_1_30_audit.json": "d3f5b19143d943ba2d53d5869e08e708e11fc25599a0a12ca02f2f2a03f7c5da",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_30/consumption_validation.csv": "01d3a4a8404a6a814cdb0ca0d7783b06e352103b79e1de4ee75b7874e26fcd5d",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_30/consumption_splines.json": "a8285ffcac24894629924ffe386ffee4167d999c9a799a3717f91572cb8260ec"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "sigma": 1.4,
+      "chi": 7.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 7.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "initial_capital": 6.477482613429012,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3944327702844663,
+      "effective_discount": 0.037,
+      "monopoly_growth": 0.01,
+      "competitive_growth": 0.01,
+      "monopoly_regime": "labor_supported",
+      "stages": {
+        "base": {
+          "horizon": 3591.9183655929255,
+          "integrated_utility_difference": 12.318105153094738,
+          "tail_utility_difference": 1.276379853830052e-56,
+          "utility_difference_per_initial_person": 12.318105153094738,
+          "consumption_equivalent": 0.5773873314510454,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.4679918028018966,
+          "terminal_growth_gap_error": 1.9081958235744957e-16
+        },
+        "refined": {
+          "horizon": 4091.9183655929255,
+          "integrated_utility_difference": 12.31810367471306,
+          "tail_utility_difference": 1.1790494649308484e-64,
+          "utility_difference_per_initial_person": 12.31810367471306,
+          "consumption_equivalent": 0.5773872451677682,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.467991802801895,
+          "terminal_growth_gap_error": 5.169475958410889e-16
+        },
+        "long": {
+          "horizon": 4591.9183655929255,
+          "integrated_utility_difference": 12.318103669295644,
+          "tail_utility_difference": 1.0891410081272062e-72,
+          "utility_difference_per_initial_person": 12.318103669295644,
+          "consumption_equivalent": 0.5773872448515898,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 2.4679918028018917,
+          "terminal_growth_gap_error": 1.9081958235744878e-16
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.25477628217872533,
+          "ce_without_tail": 0.2901729539018066,
+          "ce_with_limiting_growth_tail": 0.48600919989872043,
+          "ce_change_from_full_solution": -0.09137804495286933
+        },
+        "100": {
+          "discounted_log_contribution": 0.4101749278765165,
+          "ce_without_tail": 0.5070813926037778,
+          "ce_with_limiting_growth_tail": 0.5681993281452833,
+          "ce_change_from_full_solution": -0.009187916706306476
+        },
+        "250": {
+          "discounted_log_contribution": 0.4555380851067523,
+          "ce_without_tail": 0.5770217266771323,
+          "ce_with_limiting_growth_tail": 0.577383342700484,
+          "ce_change_from_full_solution": -3.902151105794616e-06
+        },
+        "500": {
+          "discounted_log_contribution": 0.45576981297586633,
+          "ce_without_tail": 0.5773872089059753,
+          "ce_with_limiting_growth_tail": 0.5773872448453143,
+          "ce_change_from_full_solution": -6.275424624391235e-12
+        },
+        "1000": {
+          "discounted_log_contribution": 0.45576983576393854,
+          "ce_without_tail": 0.5773872448515893,
+          "ce_with_limiting_growth_tail": 0.5773872448515895,
+          "ce_change_from_full_solution": -2.220446049250313e-16
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 1.3322676295501878e-15,
+        "independent_quad_difference": 1.2434497875801753e-14,
+        "independent_quad_error_estimate": 1.367584231337166e-13,
+        "maximum_quadrature_difference": 0.0,
+        "base_to_refined_ce_change": 8.628327718973594e-08,
+        "refined_to_long_ce_change": 3.16178416781554e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_40/scenario.json": "c179ba1935a60a76f3ea094965d9580c33d1695e0902c0cec568c17f1d58a270",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_40/competitive_reference.json": "47dfe4acafff62cd9e1a72a8d6f8f337c45649cbbdb7a0e4c3ced4eda7779d3b",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_40/sigma_1_40_audit.json": "d82d163e109265abe89f0056495d8fca3f67f530a89625ae2cc5c23564dcced7",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_40/consumption_validation.csv": "3f2e2e42a115c7b5c24fbb8f10a789d7fd8b0e137b85eab57bf8c5d7ae144428",
+        "numerical_rewrite/welfare_grid/chi_7_5_sigma_1_40/consumption_splines.json": "8de994607cc0c19ab4c03200642a98d320de73acd322dcfd6c0d8003773db04c"
+      },
+      "numerically_verified": true,
+      "origin": "new_grid_cell"
+    },
+    {
+      "chi": 7.5,
+      "sigma": 1.5,
+      "parameters": {
+        "alpha": 0.33,
+        "omega_x": 0.1,
+        "population_growth": 0.003,
+        "labor_productivity_growth": 0.01,
+        "depreciation": 0.05,
+        "discount": 0.04,
+        "eta": 0.2,
+        "chi": 7.5,
+        "initial_labor_productivity": 1.0,
+        "initial_population": 1.0
+      },
+      "frontier": 1360.9921392415592,
+      "monopoly_regime": "ai_dominated",
+      "initial_capital": 6.53547722915475,
+      "initial_capability": 13.609921392415593,
+      "competitive_initial_consumption": 1.3986937158332973,
+      "effective_discount": 0.037,
+      "competitive_growth": 0.01,
+      "monopoly_growth": 0.03134997581384653,
+      "stages": {
+        "base": {
+          "horizon": 3013.007247568038,
+          "utility_difference_per_initial_person": 22.5517323931216,
+          "integrated_utility_difference": 22.5517323931216,
+          "tail_utility_difference": 7.331915576552442e-46,
+          "consumption_equivalent": 1.303464049905394,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 70.07404909402106,
+          "terminal_growth_gap_error": 1.720007816730096e-11
+        },
+        "refined": {
+          "horizon": 3513.007247568038,
+          "utility_difference_per_initial_person": 22.551725971115143,
+          "integrated_utility_difference": 22.551725971115143,
+          "tail_utility_difference": 7.796155859621884e-54,
+          "consumption_equivalent": 1.3034635025696018,
+          "quadrature_8_16_difference": 3.552713678800501e-15,
+          "terminal_log_ratio": 80.74903682316743,
+          "terminal_growth_gap_error": 4.898061123359554e-13
+        },
+        "long": {
+          "horizon": 4013.007247568038,
+          "utility_difference_per_initial_person": 22.551725959708833,
+          "integrated_utility_difference": 22.551725959708833,
+          "tail_utility_difference": 8.146960997205882e-62,
+          "consumption_equivalent": 1.303463501597463,
+          "quadrature_8_16_difference": 0.0,
+          "terminal_log_ratio": 91.42402472672599,
+          "terminal_growth_gap_error": 6.942363350859182e-15
+        }
+      },
+      "horizon_checks": {
+        "50": {
+          "discounted_log_contribution": 0.3896989916703744,
+          "ce_without_tail": 0.47653627726594533,
+          "ce_with_limiting_growth_tail": 1.0766917500896835,
+          "ce_change_from_full_solution": -0.2267717515077794
+        },
+        "100": {
+          "discounted_log_contribution": 0.7047057540623354,
+          "ce_without_tail": 1.0232512638612636,
+          "ce_with_limiting_growth_tail": 1.2616140773758544,
+          "ce_change_from_full_solution": -0.04184942422160853
+        },
+        "250": {
+          "discounted_log_contribution": 0.8333717487841836,
+          "ce_without_tail": 1.3010642856169201,
+          "ce_with_limiting_growth_tail": 1.303422595010622,
+          "ce_change_from_full_solution": -4.0906586840971926e-05
+        },
+        "500": {
+          "discounted_log_contribution": 0.8344137046075903,
+          "ce_without_tail": 1.303463142483762,
+          "ce_with_limiting_growth_tail": 1.3034635010893507,
+          "ce_change_from_full_solution": -5.081122189665166e-10
+        },
+        "1000": {
+          "discounted_log_contribution": 0.8344138605092243,
+          "ce_without_tail": 1.3034635015974572,
+          "ce_with_limiting_growth_tail": 1.3034635015974625,
+          "ce_change_from_full_solution": -4.440892098500626e-16
+        }
+      },
+      "checks": {
+        "csv_maximum_log_ratio_gap": 1.0658141036401503e-14,
+        "independent_quad_difference": 2.1316282072803006e-14,
+        "independent_quad_error_estimate": 2.5037445405505627e-13,
+        "maximum_quadrature_difference": 3.552713678800501e-15,
+        "base_to_refined_ce_change": 5.473357922447519e-07,
+        "refined_to_long_ce_change": 9.721388138927978e-10,
+        "final_tail_ce_effect": 0.0
+      },
+      "source_sha256": {
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/scenario.json": "6141ca80907cdfb15c07006c2c9e52151b2ca7687eecf28b2da82991cdebc8cc",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/competitive_reference.json": "23daf316dcfa5748aa2848fb171b713b7abc724c98649beed2f1e68397c3112b",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/paths_manifest.json": "7a771562b0972dfc2aa5a88db4c0b3837308546c86979ab282041d059d3c523a",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/sigma_1_50_audit.json": "bdcfddd0cb33b4f724946e46c185127f7a9d5ce8bff24cb9ef05d07e1c7e58d0",
+        "numerical_rewrite/competitive_to_monopoly_chi_7_5/equilibrium_paths.csv": "e0c07d9ab527ef8c4499e6c3f292b5e35119368bb0b52cb4ffefa5fbfd8236f0",
+        "numerical_rewrite/welfare_comparison/chi_7_5_consumption_splines.json": "783f130786a2b3170073161b35799678b5e19e9db2c97802467a2be75a3b1026"
+      },
+      "numerically_verified": true,
+      "origin": "reused_original"
+    }
+  ]
+}

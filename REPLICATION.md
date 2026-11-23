@@ -165,10 +165,10 @@ Research shares and price declines are outputs, not calibration targets.
 
 ### Welfare comparison
 
-The welfare subsection evaluates the existing competition-to-monopoly experiment
+The welfare table evaluates the existing competition-to-monopoly experiment
 at sigma in {0.9, 1.0, 1.1, 1.5} and the growth-reversal experiment at
-sigma=1.5, each with two research productivities (ten cases in total). It does not introduce
-new scenarios or alter the original parameters, initial states, or
+sigma=1.5, each with two research productivities (ten cases in total).
+These highlighted comparisons reuse the original parameters, initial states, and
 simulation files. To reproduce
 the consumption-equivalent gains and their numerical checks:
 
@@ -208,6 +208,35 @@ Those cases use zero limiting growth difference in the tail, rather than
 the AI-dominated growth formula. No new equilibrium is solved for this extension.
 `welfare_results.json` records the results and checks, and
 `sections_rewrite/welfare_table.tex` is generated from that report.
+
+The heatmap extends Experiment A to the approved grid
+sigma={0.9,1.0,1.1,1.2,1.3,1.4,1.5} and chi={1.5,3.0,4.5,6.0,7.5}.
+The eight original cases are reused without changing their data or audits.
+The 27 additional cases are stored separately in `numerical_rewrite/welfare_grid/`.
+To reproduce the welfare calculations and the figure from the committed outputs:
+
+```sh
+python scripts/simulate_welfare_grid.py --check
+python scripts/report_welfare_grid.py
+python scripts/report_welfare_grid.py --check
+python scripts/report_welfare_grid.py --audit
+python -m unittest discover -s tests -p 'test_welfare_grid.py'
+```
+
+The reporting commands do not call a solver. To solve new cells after preparing
+the original competition-to-monopoly checkpoints, run
+`python scripts/simulate_welfare_grid.py --solve --workers 2`.
+The driver reuses completed, audited grid cells and saves new checkpoints only
+under `tmp/rewrite_bvp_welfare_grid/`. Each new solution undergoes the original
+equation, first-order, feasibility, developer-optimality, terminal and
+two horizon-refinement checks, including dense tests in years 0--10.
+Welfare is integrated from its original consumption spline at all three
+solution stages, with the same independent integration and tail checks as
+the highlighted experiments. An unresolved cell is not replaced by an
+interpolated welfare value. The dashed zero contour is an approximation
+between computed grid points, not an additional solved parameter combination.
+`grid_results.json` records individual cases and the chi-by-sigma matrix.
+`heatmap_cells.csv` and the figure manifest record every displayed percentage.
 
 ### Additional institutional experiments
 

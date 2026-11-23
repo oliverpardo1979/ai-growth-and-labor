@@ -1,0 +1,7 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "parameter_source": "Original baseline scenario and the approved discrete grid. No parameter is estimated or fitted to welfare."
+}
