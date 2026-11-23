@@ -165,9 +165,10 @@ Research shares and price declines are outputs, not calibration targets.
 
 ### Welfare comparison
 
-The welfare subsection evaluates the two existing competitive-to-monopoly
-paths at sigma=1.5. It does not solve additional equilibria or alter the
-original parameters, initial states, or simulation files. To reproduce
+The welfare subsection evaluates both existing institutional experiments
+at sigma=1.5, each with two research productivities. It does not introduce
+new scenarios or alter the original parameters, initial states, or
+simulation files. To reproduce
 the consumption-equivalent gains and their numerical checks:
 
 ```sh
@@ -188,6 +189,16 @@ To re-extract these scalar splines after independently reproducing the
 original competitive-to-monopoly checkpoints, run
 `python scripts/report_rewrite_welfare.py --export-checkpoints`.
 This only post-processes the solutions and never invokes a solver.
+For the growth-reversal extracts, run
+`python scripts/report_rewrite_reversal_welfare.py --export-checkpoints`.
+This reads the original monopoly checkpoints, reproduces the existing
+competitive reference at its unchanged 1,200/1,800-year settings, and
+extends only that reference to the full monopoly horizon for welfare
+integration. It does not replace the original plotted data or audits.
+Run `python scripts/report_rewrite_welfare.py` afterward to refresh the
+joint welfare report and table. The competitive reference is a transition,
+not an imposed exact balanced-growth path. The initial technology,
+population and capital remain in their original inherited units.
 `welfare_results.json` records the results and checks, and
 `sections_rewrite/welfare_table.tex` is generated from that report.
 

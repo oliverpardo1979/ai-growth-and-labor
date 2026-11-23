@@ -18,6 +18,7 @@ from scipy.integrate import quad
 from scipy.interpolate import PPoly
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
 OUT = ROOT / 'numerical_rewrite/welfare_comparison'
 STAGES = ('base', 'refined', 'long')
 CHIS = (7.5, 1.5)
@@ -38,7 +39,7 @@ def identifier(chi):
 
 def write_json(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2, allow_nan=False) + '\n', encoding='utf-8')
+    path.write_text(json.dumps(data, indent=2, allow_nan=False) + '\n', encoding='utf-8', newline='\n')
 
 
 def inputs(chi):
@@ -227,10 +228,11 @@ def build_report():
     if {k:v for k,v in first['parameters'].items() if k != 'chi'} != {
             k:v for k,v in second['parameters'].items() if k != 'chi'}:
         raise ValueError('More than research productivity differs.')
-    return dict(scope='Two existing sigma=1.5 competitive-to-monopoly paths, not an optimal policy or parameter sweep',
+    from report_rewrite_reversal_welfare import build_reversal_report
+    return dict(scope='Four existing sigma=1.5 paths in two institutional experiments, not an optimal policy or parameter sweep',
                 definition='log(1+lambda)=(rho-n)*integral exp(-(rho-n)*t)*log(c_mon/c_comp) dt',
                 tail_method='Integrate original spline to its solved horizon, then use its analytical limiting growth rate',
-                cases=cases)
+                cases=cases, reversal=build_reversal_report())
 
 
 def render_table(report):
@@ -238,14 +240,18 @@ def render_table(report):
              r'\begin{table}[htbp]', r'\centering',
              r'\caption{Welfare from granting monopoly rights at $\sigma=1.5$}',
              r'\label{tab:rewrite-welfare}', r'\small\setstretch{1.0}',
-             r'\begin{tabular}{crr}', r'\toprule',
-             r'Research productivity $\chi$ & Long-run growth of $C/N$ & Consumption-equivalent gain\\',
+             r'\begin{tabular}{lcrrr}', r'\toprule',
+             r'Experiment & $\chi$ & Monopoly growth & Competitive growth & Consumption equivalent\\',
              r'\midrule']
-    for case in report['cases']:
-        lines.append(f"{case['chi']:g} & {100*case['monopoly_growth']:.1f}\\% & "
-                     f"{100*case['stages']['long']['consumption_equivalent']:.1f}\\%" + r'\\')
+    for label, cases in (('A', report['cases']), ('B', report['reversal']['cases'])):
+        if label == 'B':
+            lines.append(r'\midrule')
+        for index, case in enumerate(cases):
+            lines.append((label if index == 0 else '') + f" & {case['chi']:g} & {100*case['monopoly_growth']:.1f}\\% & "
+                         f"{100*case['competitive_growth']:.1f}\\% & "
+                         f"{100*case['stages']['long']['consumption_equivalent']:.1f}\\%" + r'\\')
     lines += [r'\bottomrule', r'\end{tabular}', r'\par\vspace{4pt}',
-              r'\parbox{0.95\textwidth}{\footnotesize\emph{Notes:} Both comparisons start from the same competitive balanced-growth path used in Section~\ref{subsec:rewrite-competitive-transition}. Continued competition has consumption-per-person growth of $1.0\%$. The gain is the permanent proportional increase in competitive consumption that gives the representative household the same discounted utility as the monopoly path. Preferences and all other parameters retain the values in Table~\ref{tab:rewrite-rsi-parameters}.}',
+              r'\parbox{0.95\textwidth}{\footnotesize\emph{Notes:} Growth rates refer to long-run consumption per person. Within each experiment, all paths inherit the same competitive initial state. In A, monopoly enables AI-dominated growth, as in Section~\ref{subsec:rewrite-competitive-transition}. In B, monopoly eliminates it, as in the supplementary growth-reversal experiment, with different initial stocks and a lower efficiency bound. The consumption equivalent is the permanent proportional change in competitive consumption that gives the representative household the same discounted utility as the monopoly path. Positive values favor monopoly and negative values favor competition. Preferences are unchanged across both experiments.}',
               r'\end{table}', '']
     return '\n'.join(lines)
 
@@ -265,7 +271,11 @@ def main():
     table_path = ROOT / 'sections_rewrite/welfare_table.tex'
     if args.check:
         previous = read_json(report_path)
-        for a, b in zip(report['cases'], previous['cases']):
+        current_cases = report['cases'] + report['reversal']['cases']
+        previous_cases = previous['cases'] + previous['reversal']['cases']
+        if len(current_cases) != len(previous_cases):
+            raise ValueError('A welfare comparison is missing from the stored report.')
+        for a, b in zip(current_cases, previous_cases):
             if a['source_sha256'] != b['source_sha256']:
                 raise ValueError('Source provenance changed.')
             if not math.isclose(a['stages']['long']['consumption_equivalent'],
@@ -275,8 +285,8 @@ def main():
             raise ValueError('Manuscript table is stale.')
     else:
         write_json(report_path, report)
-        table_path.write_text(render_table(report), encoding='utf-8')
-    for case in report['cases']:
+        table_path.write_text(render_table(report), encoding='utf-8', newline='\n')
+    for case in report['cases'] + report['reversal']['cases']:
         print(json.dumps(dict(chi=case['chi'],
                               consumption_equivalent=case['stages']['long']['consumption_equivalent'],
                               checks=case['checks'], horizon_checks=case['horizon_checks']), indent=2))

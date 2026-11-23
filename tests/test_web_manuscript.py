@@ -447,6 +447,8 @@ class GeneratedManuscriptTests(unittest.TestCase):
             self.assertIn(f'id="{label}"', self.content)
         self.assertIn("130.3", self.content)
         self.assertIn("11.1", self.content)
+        self.assertIn("-60.7", self.content)
+        self.assertIn("-65.0", self.content)
 
     def test_uncapped_results_are_in_main_appendix_c(self):
         headings = {item["id"]: item for item in self.meta["sections"]}

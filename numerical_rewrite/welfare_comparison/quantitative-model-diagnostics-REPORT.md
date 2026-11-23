@@ -4,6 +4,8 @@
 
 The existing sigma=1.5 competition-to-monopoly experiment gives consumption-equivalent gains of 130.3463502% for chi=7.5 and 11.0948492% for chi=1.5. Both monopoly paths approach consumption-per-person growth of 3.1349976%, against 1% under continued competition. These are household welfare differences from one specified common initial state, not an optimal-policy result or a general ranking over parameters.
 
+The supplementary growth-reversal experiment gives consumption equivalents of -60.6887690% and -65.0062505% at the same respective productivities. Monopoly consumption growth converges to 1%, versus 5.7000128% under competition. The first ten years contribute positively to the discounted log consumption comparison, but the full-horizon utility difference is negative. This result was calculated, not inferred from the growth ranking.
+
 Confidence High in the formula and the numerical integration of these admitted solutions. No empirical welfare prediction or calibration robustness is claimed.
 
 ## Parameter inventory and anchors
@@ -11,6 +13,8 @@ Confidence High in the formula and the numerical integration of these admitted s
 Values are inherited without modification from the original illustrative experiment. Alpha=.33, depreciation=.05 and rho=.04 are conventional illustrative calibration choices, not estimates identified for AI. Population growth n=.003 and labor-augmenting growth gamma=.01 retain the projection-based choices described in the parameter table. Omega_X=.10, eta=.20, sigma=1.5 and chi in {7.5,1.5} are assumed illustrative values, not empirical anchors or fitted targets. Bbar=1360.9921392415592 is deliberately 1.10 times the monopoly threshold at sigma=1.5, and B0=.01 Bbar. A0=N0=1 are normalizations. K0=6.53547722915475 follows from the competitive fixed-efficiency balanced-growth equations, not welfare targeting. Initial competitive consumption is 1.3986937158332973 from the resource constraint. Post-event consumption and research are endogenous.
 
 The welfare number uses rho-n=.037 because utility is population-weighted log consumption per person. Market-interest discounting is not used. The consumption-equivalent number is a transformation of the endogenous consumption paths, not an independent moment matched by the model.
+
+The reversal inherits the original Bbar=1113.5390230158212, B0=1002.185120714239, A0=6.68589444227927, N0=1.7682670514337353 and K0=7290728575.251018. These stocks follow 190 years of the original competitive prehistory, selected by its pre-existing rate criterion, not by welfare. This is not an exact competitive BGP. Within each experiment stocks are common across market structures and chi values. Across the two experiments the stocks and cap differ, so their contrast is not a one-parameter causal decomposition.
 
 ## Checks actually run
 
@@ -22,11 +26,13 @@ The final solver refinement changes consumption-equivalent gains by less than 1e
 
 `tests/test_welfare_comparison.py` tests identical paths, permanent level premiums, growth differences with an analytical infinite tail, sign reversal, positive effective discounting, published numbers and generated-table consistency. `welfare_results.json` records all values and provenance.
 
+For the reversal, `scripts/report_rewrite_reversal_welfare.py --export-checkpoints` reads all three original monopoly checkpoints and reproduces the original competitive reference at its unchanged 1,200/1,800-year horizons and 1e-10 collocation tolerance. It extends that same reference in memory to the final monopoly horizon of 4591.918365592922 years and applies the existing competitive admission checks again. No original data or audit is overwritten. Exact polynomial regridding subtracts the two log-consumption splines, including their distinct trends and original population/technology scale. The final ratios match the plotted data to less than 3e-10 in logs. Separate quadrature differs by less than 3e-14 utility units. Final refinement and the year-500 tail substitution each change the consumption equivalent by less than 1e-6 percentage point. The finite-tail term is explicitly included. The tests additionally verify exact regridding on unequal meshes and early gains coexisting with a negative full-horizon comparison.
+
 ## Coverage limits
 
-- Calibration sensitivity: only the two existing chi cases were compared, as agreed. No broad sweep over rho, sigma, Bbar, B0, initial states or household preferences was run. No general robustness claim is made. There are 2 admitted cases used out of 2 requested, with 0 new equilibrium solves and 0 dropped cases.
+- Calibration sensitivity: the two existing chi values are evaluated in each of the two requested experiments. No broad sweep over rho, sigma, Bbar, B0, initial states or household preferences was run. No general robustness claim is made. All 4 admitted cases are used, with 0 dropped cases and 0 new scenario designs. The reversal reference was reproduced twice and extended once solely for integration checks. Monopoly equilibria were not re-solved.
 - Targeted versus untargeted empirical moments: NOT_APPLICABLE to this illustrative welfare calculation. It is not fitted to observed welfare or evaluated as an empirical prediction.
-- Mechanism attribution: the two cases share technology limits and initial stocks but differ in research productivity. Their differing welfare reflects the whole resulting consumption path, not a difference in limiting growth. No additive causal channel decomposition or planner benchmark is claimed.
+- Mechanism attribution: within each experiment the two chi cases share technology limits and initial stocks. Their differing welfare reflects the whole consumption path, not a difference in limiting growth between the two productivities. No additive causal channel decomposition or planner benchmark is claimed.
 - Functional-form and closure alternatives, heterogeneous ownership, public research, infrastructure constraints and policy optimization: not run. They are outside this requested numerical subsection.
 - Parameter identification, bootstrap uncertainty, Bayesian priors and out-of-sample fit: NOT_APPLICABLE because no parameter is estimated in this exercise.
 - Equilibrium validation: reused original recorded dynamic, optimality and terminal checks, with strict checkpoint/CSV consistency. No new existence or uniqueness theorem is inferred from those checks.

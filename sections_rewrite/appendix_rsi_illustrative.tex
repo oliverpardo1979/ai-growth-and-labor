@@ -93,23 +93,28 @@ stocks.
 
 Equation~\eqref{eq:rewrite-welfare-equivalent} compares the original
 consumption paths, including their initial adjustment after the
-unexpected monopoly grant. Under continued competition, consumption per
-person follows $c_t^{\mathrm{comp}}=c_0^{\mathrm{comp}}e^{\gamma t}$.
+unexpected monopoly grant. In the growth-enabling experiment, competitive
+consumption per person follows $c_t^{\mathrm{comp}}=c_0^{\mathrm{comp}}e^{\gamma t}$.
+In the growth-reversal experiment, I instead use the competitive transition
+from its inherited stocks, not an exact balanced-growth approximation.
 Because population is identical across the two paths, the ratio of
 aggregate consumption equals the ratio of consumption per person.
 Population weighting in the household's objective gives the effective
 discount rate $\rho-n=0.037$, rather than $\rho$.
 
 I integrate the discounted log consumption ratio over each interval of
-the original numerical solution. The solved horizons exceed 4,000 years.
-Beyond each endpoint $T$, I continue the log ratio at its analytical
-limiting slope $\mathcal R(\overline B)-\rho-\gamma$. If $\ell_T$ is the
-log consumption ratio at that date, the remaining utility difference
+the original numerical solution. The final comparison horizons exceed
+4,000 years. For the reversal, I reproduce the original competitive
+reference and extend its horizon to match the monopoly solution, keeping
+its equations, parameters, stocks, and tolerances unchanged.
+Beyond each endpoint $T$, I continue the log ratio with slope $\Delta g$,
+equal to limiting consumption growth under monopoly minus that under competition.
+If $\ell_T$ is the log consumption ratio at that date, the remaining utility difference
 per initial person is approximated by
 \[
  e^{-(\rho-n)T}
  \left[\frac{\ell_T}{\rho-n}
- +\frac{\mathcal R(\overline B)-\rho-\gamma}{(\rho-n)^2}\right].
+ +\frac{\Delta g}{(\rho-n)^2}\right].
 \]
 This continuation is applied at the solved endpoint, not at the end of
 the 50-year window shown in the main-text figure.
@@ -118,9 +123,9 @@ I compare quadrature with 8 and 16 nodes per interval and check the
 result with a separate adaptive integration routine. I also recompute
 welfare from the less precise and shorter-horizon solutions retained by
 the equilibrium audit. The last refinement changes the
-consumption-equivalent gain by less than $10^{-6}$ percentage point in
-either case. Replacing the path after year 500 by its limiting-growth
-continuation changes the gain by less than $10^{-6}$ percentage point
+consumption equivalent by less than $10^{-6}$ percentage point in
+all four cases. Replacing the path after year 500 by its limiting-growth
+continuation changes the consumption equivalent by less than $10^{-6}$ percentage point
 as well. The scalar consumption splines, source hashes, and numerical
 comparisons are retained with the replication files.
 

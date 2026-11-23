@@ -1,5 +1,5 @@
 {
-  "scope": "Two existing sigma=1.5 competitive-to-monopoly paths, not an optimal policy or parameter sweep",
+  "scope": "Four existing sigma=1.5 paths in two institutional experiments, not an optimal policy or parameter sweep",
   "definition": "log(1+lambda)=(rho-n)*integral exp(-(rho-n)*t)*log(c_mon/c_comp) dt",
   "tail_method": "Integrate original spline to its solved horizon, then use its analytical limiting growth rate",
   "cases": [
@@ -213,5 +213,334 @@
       },
       "numerically_verified": true
     }
-  ]
+  ],
+  "reversal": {
+    "scope": "Existing near-AI-dominated competitive state followed by monopoly growth reversal",
+    "cases": [
+      {
+        "chi": 7.5,
+        "sigma": 1.5,
+        "parameters": {
+          "alpha": 0.33,
+          "omega_x": 0.1,
+          "population_growth": 0.003,
+          "labor_productivity_growth": 0.01,
+          "depreciation": 0.05,
+          "discount": 0.04,
+          "eta": 0.2,
+          "chi": 7.5,
+          "initial_labor_productivity": 6.68589444227927,
+          "initial_population": 1.7682670514337353
+        },
+        "frontier": 1113.5390230158212,
+        "initial_capital": 7290728575.251018,
+        "initial_capability": 1002.185120714239,
+        "effective_discount": 0.037,
+        "monopoly_growth": 0.01,
+        "competitive_growth": 0.05700012756829186,
+        "initial_state": {
+          "A0": 6.68589444227927,
+          "N0": 1.7682670514337353,
+          "K0": 7290728575.251018,
+          "B0": 1002.185120714239
+        },
+        "stages": {
+          "base": {
+            "horizon": 1200.0,
+            "integrated_utility_difference": -25.23405279677634,
+            "tail_utility_difference": -9.479991676777307e-17,
+            "utility_difference_per_initial_person": -25.23405279677634,
+            "consumption_equivalent": -0.6068876985002938,
+            "quadrature_8_16_difference": 0.0,
+            "terminal_growth_gap_error": 0.00017474133342585546
+          },
+          "refined": {
+            "horizon": 1800.0,
+            "integrated_utility_difference": -25.234052246828774,
+            "tail_utility_difference": -3.0737304324407525e-26,
+            "utility_difference_per_initial_person": -25.234052246828774,
+            "consumption_equivalent": -0.606887690501221,
+            "quadrature_8_16_difference": 0.0,
+            "terminal_growth_gap_error": 2.3074162108227547e-06
+          },
+          "long": {
+            "horizon": 4591.918365592922,
+            "integrated_utility_difference": -25.234052246572976,
+            "tail_utility_difference": -1.0004142569584041e-70,
+            "utility_difference_per_initial_person": -25.234052246572976,
+            "consumption_equivalent": -0.6068876904975005,
+            "quadrature_8_16_difference": 3.552713678800501e-15,
+            "terminal_growth_gap_error": 4.538036613155327e-15
+          }
+        },
+        "horizon_checks": {
+          "10": {
+            "discounted_log_contribution": 0.16985458973381926,
+            "ce_without_tail": 0.18513250835695147,
+            "ce_with_limiting_growth_tail": -0.43781772622925486,
+            "ce_change_from_full_solution": 0.1690699642682456
+          },
+          "50": {
+            "discounted_log_contribution": -0.2679436040767853,
+            "ce_without_tail": -0.23504908000022906,
+            "ce_with_limiting_growth_tail": -0.574398519770569,
+            "ce_change_from_full_solution": 0.03248917072693147
+          },
+          "100": {
+            "discounted_log_contribution": -0.7480823519003496,
+            "ce_without_tail": -0.5267267453470407,
+            "ce_with_limiting_growth_tail": -0.6020747295288834,
+            "ce_change_from_full_solution": 0.004812960968617053
+          },
+          "250": {
+            "discounted_log_contribution": -0.932009988303025,
+            "ce_without_tail": -0.6062385414959393,
+            "ce_with_limiting_growth_tail": -0.6068709145501889,
+            "ce_change_from_full_solution": 1.6775947311531425e-05
+          },
+          "500": {
+            "discounted_log_contribution": -0.9336596345381705,
+            "ce_without_tail": -0.6068875731200323,
+            "ce_with_limiting_growth_tail": -0.6068876895077193,
+            "ce_change_from_full_solution": 9.897811459325112e-10
+          },
+          "1000": {
+            "discounted_log_contribution": -0.933659933123195,
+            "ce_without_tail": -0.6068876904974985,
+            "ce_with_limiting_growth_tail": -0.6068876904975005,
+            "ce_change_from_full_solution": 0.0
+          }
+        },
+        "checks": {
+          "csv_maximum_log_ratio_gap": 2.62510013726569e-10,
+          "independent_quad_difference": 2.4868995751603507e-14,
+          "independent_quad_error_estimate": 3.8612526131863683e-13,
+          "maximum_quadrature_difference": 3.552713678800501e-15,
+          "base_to_refined_ce_change": 7.999072737518986e-09,
+          "refined_to_long_ce_change": 3.720579400123825e-12,
+          "final_tail_ce_effect": 0.0
+        },
+        "competitive_reproduction_checks": {
+          "horizons": [
+            1200.0,
+            1800.0
+          ],
+          "common_window": 500.0,
+          "maximum_common_window_coordinate_change": 8.985523436422227e-11,
+          "maximum_finite_difference_residuals": [
+            1.379799862148874e-10,
+            1.2317701258935873e-10
+          ],
+          "maximum_static_foc_log_residual": 4.263256414560601e-14,
+          "maximum_collocation_residual": 9.643849755807618e-11,
+          "log_initial_capital_error": 0.0,
+          "consumption_capital_limit": 0.037,
+          "terminal_rate_error": 1.700029006457271e-15,
+          "household_tvc_log": -63.30316263366208,
+          "limiting_interest_rate": 0.09700012756829186,
+          "limiting_output_per_worker_growth": 0.05700012756829186,
+          "limiting_wage_growth": 0.041333418378861245,
+          "method": "Concave competitive Ramsey problem; positive log-state path; C/K -> rho-n; independent finite differences and horizon extension.",
+          "passes": true
+        },
+        "competitive_extension_checks": {
+          "horizons": [
+            1800.0,
+            4591.918365592922
+          ],
+          "common_window": 500.0,
+          "maximum_common_window_coordinate_change": 2.8039792709932954e-10,
+          "maximum_finite_difference_residuals": [
+            1.5377246466791107e-10,
+            1.3636187318200044e-10
+          ],
+          "maximum_static_foc_log_residual": 5.684341886080802e-14,
+          "maximum_collocation_residual": 9.882224963150423e-11,
+          "log_initial_capital_error": 0.0,
+          "consumption_capital_limit": 0.037,
+          "terminal_rate_error": 1.4988010832439613e-15,
+          "household_tvc_log": -166.6041421606002,
+          "limiting_interest_rate": 0.09700012756829186,
+          "limiting_output_per_worker_growth": 0.05700012756829186,
+          "limiting_wage_growth": 0.041333418378861245,
+          "method": "Concave competitive Ramsey problem; positive log-state path; C/K -> rho-n; independent finite differences and horizon extension.",
+          "passes": true
+        },
+        "source_sha256": {
+          "numerical_rewrite/monopoly_growth_reversal_burnin_chi_7_5/scenario.json": "b1d77fc27034bf13c9c980211e8311f5f85cf52eaa0a179b60b810f007cd95a2",
+          "numerical_rewrite/monopoly_growth_reversal_burnin_chi_7_5/sigma_1_50_audit.json": "6b636f0d5fedb50a64fab100c6c4d54522e91b6517a7a5e49e160c1e5da96889",
+          "numerical_rewrite/monopoly_growth_reversal_burnin_chi_7_5/paths_manifest.json": "f59e30fa8ca97625386c94e33d47fc56745053adef6a19b03ecda80714ea8ac0",
+          "numerical_rewrite/monopoly_growth_reversal_burnin_chi_7_5/equilibrium_paths.csv": "843035f22791e1613950f3e2bc89f7888b35717a1428f861923b00ca6ad3c7ad",
+          "numerical_rewrite/monopoly_growth_reversal_burnin/initialization.json": "8035d7f0addce48d3d39f785b24c86ba819cb4f55587fefafb965d8636b6aee1",
+          "numerical_rewrite/monopoly_growth_reversal_burnin/competitive_audit.json": "474b533bda60029ff6b0134e8617f88aa74ef2b3e635e35b6a84bc222ac4047d",
+          "numerical_rewrite/monopoly_growth_reversal_burnin/continued_competition.csv": "38b69ef523dc9a0914fe8042c6b5ed3ea2aa972db1f901d3c593dd1f7fd5e653",
+          "numerical_rewrite/monopoly_growth_reversal_burnin/comparison_paths.csv": "f53c495d598e0613ab91369c07ace7081609482df0563907ae86f1c35e076ed4",
+          "numerical_rewrite/welfare_comparison/reversal_chi_7_5_consumption_splines.json": "f94ca4c2686f2cf7aedf31091f5fc90dcf7b6e822bb4355409c17783a1c2e680"
+        },
+        "numerically_verified": true
+      },
+      {
+        "chi": 1.5,
+        "sigma": 1.5,
+        "parameters": {
+          "alpha": 0.33,
+          "omega_x": 0.1,
+          "population_growth": 0.003,
+          "labor_productivity_growth": 0.01,
+          "depreciation": 0.05,
+          "discount": 0.04,
+          "eta": 0.2,
+          "chi": 1.5,
+          "initial_labor_productivity": 6.68589444227927,
+          "initial_population": 1.7682670514337353
+        },
+        "frontier": 1113.5390230158212,
+        "initial_capital": 7290728575.251018,
+        "initial_capability": 1002.185120714239,
+        "effective_discount": 0.037,
+        "monopoly_growth": 0.01,
+        "competitive_growth": 0.05700012756829186,
+        "initial_state": {
+          "A0": 6.68589444227927,
+          "N0": 1.7682670514337353,
+          "K0": 7290728575.251018,
+          "B0": 1002.185120714239
+        },
+        "stages": {
+          "base": {
+            "horizon": 1200.0,
+            "integrated_utility_difference": -28.378407727190442,
+            "tail_utility_difference": -9.480194435161352e-17,
+            "utility_difference_per_initial_person": -28.378407727190442,
+            "consumption_equivalent": -0.6500626308881559,
+            "quadrature_8_16_difference": 0.0,
+            "terminal_growth_gap_error": 0.00016444566679801181
+          },
+          "refined": {
+            "horizon": 1800.0,
+            "integrated_utility_difference": -28.378397975940647,
+            "tail_utility_difference": -3.073731043800807e-26,
+            "utility_difference_per_initial_person": -28.378397975940647,
+            "consumption_equivalent": -0.6500625046320452,
+            "quadrature_8_16_difference": 3.552713678800501e-15,
+            "terminal_growth_gap_error": 2.170171404546062e-06
+          },
+          "long": {
+            "horizon": 4591.918365592922,
+            "integrated_utility_difference": -28.378397968401785,
+            "tail_utility_difference": -1.0004142569584038e-70,
+            "utility_difference_per_initial_person": -28.378397968401785,
+            "consumption_equivalent": -0.6500625045344345,
+            "quadrature_8_16_difference": 7.105427357601002e-15,
+            "terminal_growth_gap_error": 5.9674487573602164e-15
+          }
+        },
+        "horizon_checks": {
+          "10": {
+            "discounted_log_contribution": 0.14833434617186328,
+            "ce_without_tail": 0.15990063987776684,
+            "ce_with_limiting_growth_tail": -0.4873125604146419,
+            "ce_change_from_full_solution": 0.1627499441197926
+          },
+          "50": {
+            "discounted_log_contribution": -0.3602949650225235,
+            "ce_without_tail": -0.3025294336947438,
+            "ce_with_limiting_growth_tail": -0.6210486566761517,
+            "ce_change_from_full_solution": 0.02901384785828276
+          },
+          "100": {
+            "discounted_log_contribution": -0.8606622661123562,
+            "ce_without_tail": -0.577118070811203,
+            "ce_with_limiting_growth_tail": -0.6457887768704531,
+            "ce_change_from_full_solution": 0.004273727663981375
+          },
+          "250": {
+            "discounted_log_contribution": -1.048337470099886,
+            "ce_without_tail": -0.6494799850346881,
+            "ce_with_limiting_growth_tail": -0.6500476942738735,
+            "ce_change_from_full_solution": 1.4810260560937927e-05
+          },
+          "500": {
+            "discounted_log_contribution": -1.0500004254668505,
+            "ce_without_tail": -0.6500623997757249,
+            "ce_with_limiting_growth_tail": -0.6500625036775112,
+            "ce_change_from_full_solution": 8.569233100885754e-10
+          },
+          "1000": {
+            "discounted_log_contribution": -1.0500007248308612,
+            "ce_without_tail": -0.6500625045344328,
+            "ce_with_limiting_growth_tail": -0.6500625045344346,
+            "ce_change_from_full_solution": -1.1102230246251565e-16
+          }
+        },
+        "checks": {
+          "csv_maximum_log_ratio_gap": 2.625135664402478e-10,
+          "independent_quad_difference": 2.4868995751603507e-14,
+          "independent_quad_error_estimate": 4.049122766412706e-13,
+          "maximum_quadrature_difference": 7.105427357601002e-15,
+          "base_to_refined_ce_change": 1.2625611067740294e-07,
+          "refined_to_long_ce_change": 9.76106973027413e-11,
+          "final_tail_ce_effect": 0.0
+        },
+        "competitive_reproduction_checks": {
+          "horizons": [
+            1200.0,
+            1800.0
+          ],
+          "common_window": 500.0,
+          "maximum_common_window_coordinate_change": 8.985523436422227e-11,
+          "maximum_finite_difference_residuals": [
+            1.379799862148874e-10,
+            1.2317701258935873e-10
+          ],
+          "maximum_static_foc_log_residual": 4.263256414560601e-14,
+          "maximum_collocation_residual": 9.643849755807618e-11,
+          "log_initial_capital_error": 0.0,
+          "consumption_capital_limit": 0.037,
+          "terminal_rate_error": 1.700029006457271e-15,
+          "household_tvc_log": -63.30316263366208,
+          "limiting_interest_rate": 0.09700012756829186,
+          "limiting_output_per_worker_growth": 0.05700012756829186,
+          "limiting_wage_growth": 0.041333418378861245,
+          "method": "Concave competitive Ramsey problem; positive log-state path; C/K -> rho-n; independent finite differences and horizon extension.",
+          "passes": true
+        },
+        "competitive_extension_checks": {
+          "horizons": [
+            1800.0,
+            4591.918365592922
+          ],
+          "common_window": 500.0,
+          "maximum_common_window_coordinate_change": 2.8039792709932954e-10,
+          "maximum_finite_difference_residuals": [
+            1.5377246466791107e-10,
+            1.3636187318200044e-10
+          ],
+          "maximum_static_foc_log_residual": 5.684341886080802e-14,
+          "maximum_collocation_residual": 9.882224963150423e-11,
+          "log_initial_capital_error": 0.0,
+          "consumption_capital_limit": 0.037,
+          "terminal_rate_error": 1.4988010832439613e-15,
+          "household_tvc_log": -166.6041421606002,
+          "limiting_interest_rate": 0.09700012756829186,
+          "limiting_output_per_worker_growth": 0.05700012756829186,
+          "limiting_wage_growth": 0.041333418378861245,
+          "method": "Concave competitive Ramsey problem; positive log-state path; C/K -> rho-n; independent finite differences and horizon extension.",
+          "passes": true
+        },
+        "source_sha256": {
+          "numerical_rewrite/monopoly_growth_reversal_burnin_chi_1_5/scenario.json": "f8907456873c5ff1ff7b40147d6a1f6530f026c833c1bb7caaa8b68e191ffa4a",
+          "numerical_rewrite/monopoly_growth_reversal_burnin_chi_1_5/sigma_1_50_audit.json": "5a8feb7c1f0846f2c4eee0f15960631d3742d2101fdf2d10de7fb2ae144405cc",
+          "numerical_rewrite/monopoly_growth_reversal_burnin_chi_1_5/paths_manifest.json": "2abfdbc6e1c5213f3508accbd113a77a9b8acc5bda44e06068bd817c76d459a5",
+          "numerical_rewrite/monopoly_growth_reversal_burnin_chi_1_5/equilibrium_paths.csv": "2756eec729aecba549e5d954c559924dacb677a7ac17e1ae3f9b154c711220c2",
+          "numerical_rewrite/monopoly_growth_reversal_burnin/initialization.json": "8035d7f0addce48d3d39f785b24c86ba819cb4f55587fefafb965d8636b6aee1",
+          "numerical_rewrite/monopoly_growth_reversal_burnin/competitive_audit.json": "474b533bda60029ff6b0134e8617f88aa74ef2b3e635e35b6a84bc222ac4047d",
+          "numerical_rewrite/monopoly_growth_reversal_burnin/continued_competition.csv": "38b69ef523dc9a0914fe8042c6b5ed3ea2aa972db1f901d3c593dd1f7fd5e653",
+          "numerical_rewrite/monopoly_growth_reversal_burnin/comparison_paths.csv": "f53c495d598e0613ab91369c07ace7081609482df0563907ae86f1c35e076ed4",
+          "numerical_rewrite/welfare_comparison/reversal_chi_1_5_consumption_splines.json": "3db55b492fe500dae4bdff9bfe3d56e07a668bba6130d680155db936e58ede7f"
+        },
+        "numerically_verified": true
+      }
+    ]
+  }
 }

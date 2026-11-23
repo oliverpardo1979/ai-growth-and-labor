@@ -2,19 +2,18 @@
 \label{subsec:rewrite-welfare}
 
 Do the consumption gains from monopoly-financed research compensate for
-the restriction on AI use? I evaluate the two monopoly paths in
-Section~\ref{subsec:rewrite-competitive-transition} against continued
-competition, using the household's preferences in
-equation~\eqref{eq:rewrite-household-problem}. All paths inherit the same
-competitive initial state. Consumption and research after the grant
+the restriction on AI use? I evaluate both institutional experiments
+against continued competition, using the household's preferences in
+equation~\eqref{eq:rewrite-household-problem}. Within each experiment,
+all paths inherit the same competitive initial state. Consumption and research after the grant
 remain equilibrium choices, not additional initial conditions.
 
 Let $c_t^{\mathrm{mon}}$ and $c_t^{\mathrm{comp}}$ denote consumption per
 person under monopoly and continued competition. I report the permanent
-proportional increase $\lambda$ in competitive consumption that gives the
+proportional change $\lambda$ in competitive consumption that gives the
 household the same discounted utility as the monopoly path. With
 logarithmic utility and population growth at rate $n$, this
-consumption-equivalent gain is
+consumption equivalent is
 \begin{equation}
  \lambda=\exp\!\left[
  (\rho-n)\int_0^\infty e^{-(\rho-n)t}
@@ -22,13 +21,15 @@ consumption-equivalent gain is
  \right]-1.
  \label{eq:rewrite-welfare-equivalent}
 \end{equation}
-A positive value favors monopoly. The comparison includes the transition,
+Positive values favor monopoly and negative values favor competition.
+The comparison includes the transition,
 not just the limiting growth rates. Appendix~\ref{app:rewrite-welfare-numerics}
 describes the integration and horizon checks.
 
 \input{sections_rewrite/welfare_table}
 
-Table~\ref{tab:rewrite-welfare} shows consumption-equivalent gains of
+Experiment A in Table~\ref{tab:rewrite-welfare} is the transition in
+Section~\ref{subsec:rewrite-competitive-transition}. It shows consumption-equivalent gains of
 $130.3\%$ with $\chi=7.5$ and $11.1\%$ with $\chi=1.5$.
 Both monopoly economies approach consumption-per-person growth of
 $3.1\%$, compared with $1.0\%$ under continued competition. Their identical
@@ -36,9 +37,20 @@ limiting growth rates therefore conceal substantial differences in
 welfare. Earlier efficiency gains under higher research productivity
 raise consumption sooner and leave it on a higher subsequent path.
 
-These gains concern the representative household, which owns capital and
+Experiment B evaluates the opposite outcome in the
+\href{https://oliverpardo1979.github.io/ai-growth-and-labor/\#subsec:rewrite-monopoly-growth-reversal}
+{supplementary growth-reversal experiment}. Monopoly reduces long-run
+consumption growth from $5.7\%$ under competition to $1.0\%$.
+The consumption equivalents are $-60.7\%$ with $\chi=7.5$ and
+$-65.0\%$ with $\chi=1.5$. The household would be indifferent between
+each monopoly path and a permanent reduction of that magnitude in
+competitive consumption. Lower compute use and investment initially
+release resources for consumption, but these early gains do not
+compensate for the subsequent consumption losses.
+
+These comparisons concern the representative household, which owns capital and
 the developer as well as supplying labor. The initial wage losses do not
-by themselves determine its welfare. The positive ranking applies to
-these two illustrative paths from the specified competitive initial state,
-not to all parameter values or initial states, and does not establish
+by themselves determine its welfare. These rankings apply to
+the specified illustrative experiments,
+not to all parameter values or initial states, and do not establish
 that granting monopoly rights is an optimal policy.
