@@ -165,8 +165,9 @@ Research shares and price declines are outputs, not calibration targets.
 
 ### Welfare comparison
 
-The welfare subsection evaluates both existing institutional experiments
-at sigma=1.5, each with two research productivities. It does not introduce
+The welfare subsection evaluates the existing competition-to-monopoly experiment
+at sigma in {0.9, 1.0, 1.1, 1.5} and the growth-reversal experiment at
+sigma=1.5, each with two research productivities (ten cases in total). It does not introduce
 new scenarios or alter the original parameters, initial states, or
 simulation files. To reproduce
 the consumption-equivalent gains and their numerical checks:
@@ -196,9 +197,15 @@ competitive reference at its unchanged 1,200/1,800-year settings, and
 extends only that reference to the full monopoly horizon for welfare
 integration. It does not replace the original plotted data or audits.
 Run `python scripts/report_rewrite_welfare.py` afterward to refresh the
-joint welfare report and table. The competitive reference is a transition,
+joint welfare report and table. For growth reversal, the competitive reference is a transition,
 not an imposed exact balanced-growth path. The initial technology,
 population and capital remain in their original inherited units.
+In the baseline experiment, each elasticity uses its own original competitive
+BGP capital stock. Welfare comparisons hold that state fixed across market
+structures and research productivities, not across elasticities. Both market
+structures have limiting consumption growth gamma at sigma=0.9, 1.0 and 1.1.
+Those cases use zero limiting growth difference in the tail, rather than
+the AI-dominated growth formula. No new equilibrium is solved for this extension.
 `welfare_results.json` records the results and checks, and
 `sections_rewrite/welfare_table.tex` is generated from that report.
 

@@ -17,4 +17,5 @@ numerical_rewrite/monopoly_growth_reversal_chi_1_5/*.csv -text whitespace=cr-at-
 *.pdf binary
 numerical_rewrite/monopoly_growth_reversal_burnin*/*.json -text whitespace=cr-at-eol
 numerical_rewrite/monopoly_growth_reversal_burnin*/*.csv -text whitespace=cr-at-eol
+numerical_rewrite/welfare_comparison/*.json -text whitespace=cr-at-eol
 *.png binary

@@ -1,4 +1,4 @@
-"""Welfare identities, tail handling, and the four admitted numerical cases."""
+"""Welfare identities, tail handling, and all ten admitted numerical cases."""
 import importlib.util
 import math
 from pathlib import Path
@@ -63,13 +63,63 @@ class PublishedWelfareTests(unittest.TestCase):
         cls.report = welfare.build_report()
 
     def test_published_numbers_and_effective_discount(self):
-        for case, expected in zip(self.report['cases'], (1.303463501597463, .11094849249348833)):
+        cases = [case for case in self.report['cases'] if case['sigma'] == 1.5]
+        self.assertEqual(len(cases), 2)
+        for case, expected in zip(cases, (1.303463501597463, .11094849249348833)):
             with self.subTest(chi=case['chi']):
                 self.assertTrue(case['numerically_verified'])
                 self.assertAlmostEqual(case['effective_discount'], .037)
                 self.assertAlmostEqual(case['stages']['long']['consumption_equivalent'], expected, places=9)
                 self.assertGreater(case['stages']['long']['horizon'], 4000.)
                 self.assertLess(abs(case['horizon_checks']['500']['ce_change_from_full_solution']), 1e-8)
+
+    def test_all_original_elasticities_and_productivities_are_included(self):
+        cases = self.report['cases']
+        self.assertEqual(len(cases), 8)
+        self.assertEqual({(case['sigma'], case['chi']) for case in cases},
+                         {(sigma, chi) for sigma in welfare.SIGMAS for chi in welfare.CHIS})
+        for sigma in welfare.SIGMAS:
+            first, second = [case for case in cases if case['sigma'] == sigma]
+            for key in ('initial_capital', 'initial_capability', 'frontier',
+                        'competitive_initial_consumption', 'competitive_growth', 'monopoly_growth'):
+                self.assertEqual(first[key], second[key])
+            self.assertEqual({k:v for k,v in first['parameters'].items() if k != 'chi'},
+                             {k:v for k,v in second['parameters'].items() if k != 'chi'})
+
+    def test_labor_bottleneck_welfare_can_have_either_sign(self):
+        expected = {(0.9, 7.5): -.29804393731181955,
+                    (0.9, 1.5): -.318527350391229,
+                    (1.0, 7.5): .010039496479290169,
+                    (1.0, 1.5): -.09432057375326157,
+                    (1.1, 7.5): .11305047595317924,
+                    (1.1, 1.5): -.028688793976943978}
+        for case in self.report['cases']:
+            key = case['sigma'], case['chi']
+            if key not in expected:
+                continue
+            with self.subTest(sigma=case['sigma'], chi=case['chi']):
+                self.assertAlmostEqual(case['stages']['long']['consumption_equivalent'], expected[key], places=9)
+                self.assertTrue(case['numerically_verified'])
+                self.assertEqual(case['monopoly_regime'], 'labor_supported')
+                self.assertAlmostEqual(case['competitive_growth'], .01)
+                self.assertAlmostEqual(case['monopoly_growth'], .01)
+                self.assertAlmostEqual(case['effective_discount'], .037)
+                self.assertGreater(case['stages']['long']['horizon'], 5800.)
+                self.assertLess(case['checks']['csv_maximum_log_ratio_gap'], 1e-12)
+                self.assertLess(case['checks']['refined_to_long_ce_change'], 1e-9)
+                self.assertLess(abs(case['horizon_checks']['500']['ce_change_from_full_solution']), 1e-9)
+
+    def test_growth_formula_respects_regimes_and_unit_elasticity(self):
+        sample = self.report['cases'][0]
+        p, bound = sample['parameters'], sample['frontier']
+        for sigma in (0.9, 1.0, 1.1):
+            self.assertEqual(welfare.limiting_monopoly_growth(sigma, p, bound),
+                             (.01, 'labor_supported'))
+        growth, regime = welfare.limiting_monopoly_growth(1.5, p, bound)
+        self.assertEqual(regime, 'ai_dominated')
+        self.assertAlmostEqual(growth, .03134997581384653)
+        with self.assertRaises(ValueError):
+            welfare.sigma_key(1.2)
 
     def test_table_is_generated_from_current_report(self):
         table = (ROOT / 'sections_rewrite/welfare_table.tex').read_text(encoding='utf-8')

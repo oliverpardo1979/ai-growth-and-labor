@@ -1,4 +1,4 @@
-"""Consumption-equivalent welfare for the existing sigma=1.5 policy experiment.
+"""Consumption-equivalent welfare for the existing institutional experiments.
 
 Default: read committed scalar consumption splines, check their provenance,
 and write the welfare report/table. --check verifies without writing.
@@ -23,6 +23,7 @@ OUT = ROOT / 'numerical_rewrite/welfare_comparison'
 STAGES = ('base', 'refined', 'long')
 CHIS = (7.5, 1.5)
 SIGMA = 1.5
+SIGMAS = (0.9, 1.0, 1.1, 1.5)
 
 
 def read_json(path):
@@ -39,26 +40,66 @@ def identifier(chi):
 
 def write_json(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists() and read_json(path) == data:
+        return
     path.write_text(json.dumps(data, indent=2, allow_nan=False) + '\n', encoding='utf-8', newline='\n')
 
 
-def inputs(chi):
+def sigma_key(sigma):
+    if sigma not in SIGMAS:
+        raise ValueError('Use one of the four original stored elasticities.')
+    return 'sigma_' + f'{sigma:.2f}'.replace('.', '_')
+
+
+def spline_path(chi, sigma):
+    # Retain the published sigma=1.5 extracts and their filenames unchanged.
+    prefix = '' if sigma == SIGMA else sigma_key(sigma) + '_'
+    return OUT / f'{prefix}chi_{identifier(chi)}_consumption_splines.json'
+
+
+def limiting_monopoly_growth(sigma, parameters, bound):
+    """Use the analytical regime, not the final plotted growth observation."""
+    p = parameters
+    if sigma == 1.0:
+        return p['labor_productivity_growth'], 'labor_supported'
+    a, w = p['alpha'], p['omega_x']
+    critical = ((p['discount'] + p['labor_productivity_growth'] + p['depreciation']) / a) ** (
+        a / (1 - a)) / ((1 - a) ** 2 * w ** (sigma / (sigma - 1)))
+    if sigma < 1:
+        if bound <= critical:
+            raise ValueError('This calculation does not cover the omitted AI-bottleneck case.')
+        return p['labor_productivity_growth'], 'labor_supported'
+    if bound < critical:
+        return p['labor_productivity_growth'], 'labor_supported'
+    if bound == critical:
+        raise ValueError('The threshold boundary case is not one of these experiments.')
+    interest_limit = a * ((1 - a) ** 2 * bound * w ** (sigma / (sigma - 1))) ** (
+        (1 - a) / a) - p['depreciation']
+    return interest_limit - p['discount'], 'ai_dominated'
+
+
+def inputs(chi, sigma=SIGMA):
+    key = sigma_key(sigma)
     folder = ROOT / f'numerical_rewrite/competitive_to_monopoly_chi_{identifier(chi)}'
     scenario = read_json(folder / 'scenario.json')
-    audit = read_json(folder / 'sigma_1_50_audit.json')
+    audit = read_json(folder / f'{key}_audit.json')
     manifest = read_json(folder / 'paths_manifest.json')
-    reference = read_json(folder / 'competitive_reference.json')['sigma_1_50']
-    if scenario['status'] != 'numerically_admitted' or not audit['equilibrium_certified']:
+    reference = read_json(folder / 'competitive_reference.json')[key]
+    if (scenario['status'] != 'numerically_admitted' or not audit['equilibrium_certified']
+            or audit['status'] != 'numerically_admitted' or not audit['early_window_checks']['passes']):
         raise ValueError('Welfare requires the admitted equilibrium, not a candidate.')
     if (manifest['csv_sha256'] != digest(folder / 'equilibrium_paths.csv')
-            or manifest['checkpoint_sha256']['sigma_1_50'] != audit['checkpoint_sha256']):
+            or manifest['checkpoint_sha256'][key] != audit['checkpoint_sha256']):
         raise ValueError('Path, checkpoint, and admission hashes differ.')
-    if scenario['parameters'] != audit['parameters']:
+    if scenario['parameters'] != audit['parameters'] or scenario['parameters'] != manifest['parameters']:
         raise ValueError('Scenario and audit parameters differ.')
+    if (audit['sigma_xl'] != sigma or reference['sigma'] != sigma
+            or scenario['frontier'] != audit['frontier'] or scenario['frontier'] != manifest['frontier']):
+        raise ValueError('Scenario, reference and audit technologies differ.')
     p = scenario['parameters']
     if p['chi'] != chi or not p['discount'] > p['population_growth']:
         raise ValueError('Incompatible research productivity or discounting.')
-    if not math.isclose(reference['capital'], scenario['initial_capital_by_sigma']['sigma_1_50']):
+    if not math.isclose(reference['capital'], scenario['initial_capital_by_sigma'][key]):
         raise ValueError('Competitive and monopoly initial capital differ.')
     if reference['capability'] != scenario['initial_capability']:
         raise ValueError('Competitive and monopoly initial AI efficiency differ.')
@@ -70,26 +111,26 @@ def inputs(chi):
     if not math.isclose(reference['consumption'], expected_c, rel_tol=1e-12):
         raise ValueError('Competitive reference violates its resource constraint.')
     paths = ('scenario.json', 'competitive_reference.json', 'paths_manifest.json',
-             'sigma_1_50_audit.json', 'equilibrium_paths.csv')
+             f'{key}_audit.json', 'equilibrium_paths.csv')
     provenance = {str((folder / name).relative_to(ROOT)).replace('\\', '/'): digest(folder / name)
                   for name in paths}
     return folder, scenario, audit, reference, provenance
 
 
-def export_checkpoints(chi):
+def export_checkpoints(chi, sigma=SIGMA):
     """Extract only log aggregate consumption, preserving the original spline."""
     sys.path.insert(0, str(ROOT / 'scripts'))
     from simulate_rewrite_finite_frontier import load_solution
-    _, scenario, audit, reference, provenance = inputs(chi)
+    _, scenario, audit, reference, provenance = inputs(chi, sigma)
     cache = ROOT / f'tmp/rewrite_bvp_competitive_to_monopoly_chi_{identifier(chi)}'
     stages = {}
     for stage in STAGES:
-        path = cache / f'sigma_1_50_{stage}.npz'
+        path = cache / f'{sigma_key(sigma)}_{stage}.npz'
         if stage == 'long' and digest(path) != audit['checkpoint_sha256']:
             raise ValueError('Final checkpoint does not match the admitted path.')
         sol = load_solution(path)
         p = sol.parameters
-        if (sol.terminal.sigma_xl != SIGMA or sol.terminal.frontier != scenario['frontier']
+        if (sol.terminal.sigma_xl != sigma or sol.terminal.frontier != scenario['frontier']
                 or sol.initial_capability != scenario['initial_capability']
                 or not math.isclose(sol.initial_capital, reference['capital'], rel_tol=2e-15)
                 or vars(p) != scenario['parameters']):
@@ -110,8 +151,8 @@ def export_checkpoints(chi):
                              initial_capability=sol.initial_capability,
                              initial_effective_labor_scale=sol.initial_effective_labor_scale,
                              maximum_rms_residual=float(np.max(sol.raw.rms_residuals)))
-    write_json(OUT / f'chi_{identifier(chi)}_consumption_splines.json',
-               dict(chi=chi, sigma=SIGMA, variable='log(C_mon/C_comp)=log(c_mon/c_comp)',
+    write_json(spline_path(chi, sigma),
+               dict(chi=chi, sigma=sigma, variable='log(C_mon/C_comp)=log(c_mon/c_comp)',
                     source_sha256=provenance, stages=stages))
 
 
@@ -138,20 +179,20 @@ def ce_from_integral(value, beta):
     return math.expm1(beta * value)
 
 
-def calculate_case(chi):
-    folder, scenario, audit, reference, provenance = inputs(chi)
-    source_path = OUT / f'chi_{identifier(chi)}_consumption_splines.json'
+def calculate_case(chi, sigma=SIGMA):
+    folder, scenario, audit, reference, provenance = inputs(chi, sigma)
+    source_path = spline_path(chi, sigma)
     stored = read_json(source_path)
-    if stored['source_sha256'] != provenance or stored['chi'] != chi or stored['sigma'] != SIGMA:
+    if stored['source_sha256'] != provenance or stored['chi'] != chi or stored['sigma'] != sigma:
         raise ValueError('Derived consumption spline is stale.')
     if stored['stages']['long']['checkpoint_sha256'] != audit['checkpoint_sha256']:
         raise ValueError('Derived spline is not from the admitted checkpoint.')
     p = scenario['parameters']
     beta = p['discount'] - p['population_growth']
-    a, w, bound = p['alpha'], p['omega_x'], scenario['frontier']
-    interest_limit = a * ((1 - a) ** 2 * bound * w ** (SIGMA / (SIGMA - 1))) ** (
-        (1 - a) / a) - p['depreciation']
-    g_mon = interest_limit - p['discount']
+    bound = scenario['frontier']
+    g_mon, regime = limiting_monopoly_growth(sigma, p, bound)
+    if regime != audit['terminal_regime']:
+        raise ValueError('Analytical regime differs from the original equilibrium audit.')
     slope = g_mon - p['labor_productivity_growth']
     stages = {}
     splines = {}
@@ -180,7 +221,9 @@ def calculate_case(chi):
                                  epsabs=1e-10, epsrel=1e-10, limit=len(spline.x) + 100)
     csv_rows = []
     with (folder / 'equilibrium_paths.csv').open(newline='', encoding='utf-8') as stream:
-        csv_rows = [row for row in csv.DictReader(stream) if float(row['sigma']) == SIGMA]
+        csv_rows = [row for row in csv.DictReader(stream) if float(row['sigma']) == sigma]
+    if len(csv_rows) != manifest_count(folder):
+        raise ValueError('The CSV comparison must cover every original plotted observation.')
     times = np.array([float(row['time']) for row in csv_rows])
     ratios = np.array([math.log(float(row['consumption_effective_labor']) / reference['consumption'])
                        for row in csv_rows])
@@ -210,7 +253,7 @@ def calculate_case(chi):
             or final['terminal_growth_gap_error'] > 1e-7
             or abs(cutoffs['500']['ce_change_from_full_solution']) > 1e-6):
         raise ValueError(f'Welfare numerical checks failed: {checks}')
-    return dict(chi=chi, sigma=SIGMA, parameters=p, frontier=bound,
+    return dict(chi=chi, sigma=sigma, parameters=p, frontier=bound, monopoly_regime=regime,
                 initial_capital=reference['capital'], initial_capability=reference['capability'],
                 competitive_initial_consumption=reference['consumption'],
                 effective_discount=beta, competitive_growth=p['labor_productivity_growth'],
@@ -219,17 +262,24 @@ def calculate_case(chi):
                 numerically_verified=True)
 
 
+def manifest_count(folder):
+    return read_json(folder / 'paths_manifest.json')['points_per_scenario']
+
+
 def build_report():
-    cases = [calculate_case(chi) for chi in CHIS]
-    first, second = cases
-    for key in ('initial_capital', 'initial_capability', 'frontier', 'competitive_initial_consumption'):
-        if first[key] != second[key]:
-            raise ValueError(f'The two research productivities inherit different {key}.')
-    if {k:v for k,v in first['parameters'].items() if k != 'chi'} != {
-            k:v for k,v in second['parameters'].items() if k != 'chi'}:
-        raise ValueError('More than research productivity differs.')
+    cases = []
+    for sigma in SIGMAS:
+        pair = [calculate_case(chi, sigma) for chi in CHIS]
+        first, second = pair
+        for key in ('initial_capital', 'initial_capability', 'frontier', 'competitive_initial_consumption'):
+            if first[key] != second[key]:
+                raise ValueError(f'The two research productivities inherit different {key}.')
+        if {k:v for k,v in first['parameters'].items() if k != 'chi'} != {
+                k:v for k,v in second['parameters'].items() if k != 'chi'}:
+            raise ValueError('More than research productivity differs.')
+        cases.extend(pair)
     from report_rewrite_reversal_welfare import build_reversal_report
-    return dict(scope='Four existing sigma=1.5 paths in two institutional experiments, not an optimal policy or parameter sweep',
+    return dict(scope='Eight existing baseline paths at four elasticities and two sigma=1.5 reversal paths, not an optimal policy or continuous parameter map',
                 definition='log(1+lambda)=(rho-n)*integral exp(-(rho-n)*t)*log(c_mon/c_comp) dt',
                 tail_method='Integrate original spline to its solved horizon, then use its analytical limiting growth rate',
                 cases=cases, reversal=build_reversal_report())
@@ -238,20 +288,22 @@ def build_report():
 def render_table(report):
     lines = [r'% Generated by scripts/report_rewrite_welfare.py.',
              r'\begin{table}[htbp]', r'\centering',
-             r'\caption{Welfare from granting monopoly rights at $\sigma=1.5$}',
+             r'\caption{Welfare from granting monopoly rights}',
              r'\label{tab:rewrite-welfare}', r'\small\setstretch{1.0}',
-             r'\begin{tabular}{lcrrr}', r'\toprule',
-             r'Experiment & $\chi$ & Monopoly growth & Competitive growth & Consumption equivalent\\',
+             r'\setlength{\tabcolsep}{4pt}',
+             r'\begin{tabular}{lccrrr}', r'\toprule',
+             r'Experiment & $\sigma$ & $\chi$ & Monopoly growth & Competitive growth & Consumption equivalent\\',
              r'\midrule']
     for label, cases in (('A', report['cases']), ('B', report['reversal']['cases'])):
         if label == 'B':
             lines.append(r'\midrule')
         for index, case in enumerate(cases):
-            lines.append((label if index == 0 else '') + f" & {case['chi']:g} & {100*case['monopoly_growth']:.1f}\\% & "
+            sigma_cell = f"{case['sigma']:g}" if index % 2 == 0 else ''
+            lines.append((label if index == 0 else '') + f" & {sigma_cell} & {case['chi']:g} & {100*case['monopoly_growth']:.1f}\\% & "
                          f"{100*case['competitive_growth']:.1f}\\% & "
                          f"{100*case['stages']['long']['consumption_equivalent']:.1f}\\%" + r'\\')
     lines += [r'\bottomrule', r'\end{tabular}', r'\par\vspace{4pt}',
-              r'\parbox{0.95\textwidth}{\footnotesize\emph{Notes:} Growth rates refer to long-run consumption per person. Within each experiment, all paths inherit the same competitive initial state. In A, monopoly enables AI-dominated growth, as in Section~\ref{subsec:rewrite-competitive-transition}. In B, monopoly eliminates it, as in the supplementary growth-reversal experiment, with different initial stocks and a lower efficiency bound. The consumption equivalent is the permanent proportional change in competitive consumption that gives the representative household the same discounted utility as the monopoly path. Positive values favor monopoly and negative values favor competition. Preferences are unchanged across both experiments.}',
+              r'\parbox{0.95\textwidth}{\footnotesize\emph{Notes:} Growth rates refer to long-run consumption per person. A uses the competitive-to-monopoly experiment in Section~\ref{subsec:rewrite-competitive-transition} and its three additional elasticities in the supplementary simulations. For each elasticity, all paths inherit the same competitive initial state, with capital derived from the corresponding competitive balanced-growth path. Only at $\sigma=1.5$ does monopoly enable AI-dominated growth. B uses the supplementary growth-reversal experiment, with different initial stocks and a lower efficiency bound. The consumption equivalent is the permanent proportional change in competitive consumption that gives the household the same discounted utility as monopoly. Positive values favor monopoly and negative values favor competition. Preferences are unchanged throughout.}',
               r'\end{table}', '']
     return '\n'.join(lines)
 
@@ -264,8 +316,9 @@ def main():
     if args.check and args.export_checkpoints:
         parser.error('--check does not write extracted checkpoints')
     if args.export_checkpoints:
-        for chi in CHIS:
-            export_checkpoints(chi)
+        for sigma in SIGMAS:
+            for chi in CHIS:
+                export_checkpoints(chi, sigma)
     report = build_report()
     report_path = OUT / 'welfare_results.json'
     table_path = ROOT / 'sections_rewrite/welfare_table.tex'
@@ -287,7 +340,7 @@ def main():
         write_json(report_path, report)
         table_path.write_text(render_table(report), encoding='utf-8', newline='\n')
     for case in report['cases'] + report['reversal']['cases']:
-        print(json.dumps(dict(chi=case['chi'],
+        print(json.dumps(dict(chi=case['chi'], sigma=case['sigma'],
                               consumption_equivalent=case['stages']['long']['consumption_equivalent'],
                               checks=case['checks'], horizon_checks=case['horizon_checks']), indent=2))
 
