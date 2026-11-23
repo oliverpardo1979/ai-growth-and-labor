@@ -372,7 +372,7 @@
       "number": "S5.2"
     }
   ],
-  "source_sha256": "3d2473fd2926aa11523baa77dfb67ad6e8772c0a12235db66627507128f04fa8",
+  "source_sha256": "a7be62ed3f21754fce54af6911304fc6b8a40c35721a25800b86b2ecc4f1929c",
   "supplement": {
     "source": "online_appendix.tex",
     "source_sha256": "edc5ba3fa27bcb3555e81c43a741996b199e82400f07c31b36dba1f06e8bfbc3",
@@ -391,7 +391,7 @@
     ],
     "build_inputs": {
       "aux": "222171e0198e63524ef2801c961200e3221303b8affb85cb4fde4fdc6e0b48b9",
-      "pdf": "98847198e359dda3721e20d3a947517eabf6899107c6319db362bd1940853aea"
+      "pdf": "2255db460d63c68e447770b36f72d58c6dfe56af59d239ea237134cae0bf60f5"
     }
   },
   "source_files": [
@@ -523,6 +523,13 @@
       "source": "figures_rewrite/competitive_to_monopoly/competitive_to_monopoly_sigma_1_5_levels.pdf"
     },
     {
+      "id": "fig:rewrite-welfare-grid",
+      "number": "12",
+      "asset": "generated/assets/fig-rewrite-welfare-grid.svg",
+      "kind": "pdf-figure",
+      "source": "figures_rewrite/welfare_grid/welfare_heatmap.pdf"
+    },
+    {
       "id": "fig:rewrite-competitive-sigma15-revenue",
       "number": "S1",
       "asset": "generated/assets/fig-rewrite-competitive-sigma15-revenue.svg",
@@ -608,10 +615,10 @@
     "tags": "none"
   },
   "counts": {
-    "labels": 262,
+    "labels": 263,
     "numbered_equation_rows": 153,
     "display_math": 203,
-    "figures": 22,
+    "figures": 23,
     "tables": 7,
     "bibliography_entries": 41,
     "citation_keys": 41
@@ -622,13 +629,13 @@
     "numbering_checked_against_aux": true,
     "compiled_inputs_fresh": true,
     "display_math_inventory_matches": true,
-    "visible_text_tokens_verified": 24641,
+    "visible_text_tokens_verified": 24772,
     "unsupported_tex": [],
     "pandoc_warnings": []
   },
   "build_inputs": {
-    "aux": "0b6127f519cf6e047c6e0fc20e36f9b75719c80c987f0c0cb6b2dec44a67941f",
+    "aux": "48f463f4bf35ee5cdf7e47b90d8f1c65a2f10501be3ea8652a3b3937da0f2836",
     "bbl": "5f0168d1e4ef2e4e99ea307bd10d5a532f6711750e579057adca02aba1c33684",
-    "pdf": "d6bd1db9cc21664e953e293ac55f56eaf0e9608389d9c35d512aa637e22d7ef1"
+    "pdf": "15a83b4040491cba90b239e572792e1cb9bcfe3b20f480c6ac75d0e5b584bd8b"
   }
 }
